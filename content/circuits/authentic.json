@@ -1206,5 +1206,179 @@
         "explanation": "Ela aceita ver a coreana e culpa ele se não gostar. Mas quando ela pede que ele reveja a dela, ele responde «Absolutely not»."
       }
     ]
+  },
+  {
+    "kind": "conversa",
+    "title": "Olhando fotos da família no celular durante o intervalo",
+    "why": "Treina a escuta de correções no meio da fala, interrupções naturais, fala rápida com reduções e identificação de parentes em fotos.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Mark",
+        "Hey, Sarah, look at this pic on my phone!",
+        "Ei, Sarah, olha essa foto no meu celular!"
+      ],
+      [
+        "Sarah",
+        "Oh, wow! Who's that guy on the left?",
+        "Nossa, uau! Quem é aquele cara na esquerda?"
+      ],
+      [
+        "Mark",
+        "That's my brother, Leo. He looks like my dad, right?",
+        "É o meu irmão, Leo. Ele parece com o meu pai, né?"
+      ],
+      [
+        "Sarah",
+        "Yeah, totally! Is he the one who lives in Chicago?",
+        "É, total! É ele que mora em Chicago?"
+      ],
+      [
+        "Mark",
+        "No, wait, that's my cousin, Dan. Leo lives nearby.",
+        "Não, pera, esse é o meu primo, Dan. O Leo mora aqui perto."
+      ],
+      [
+        "Sarah",
+        "Oh, right. And who's the girl holding the baby?",
+        "Ah, tá. E quem é a garota segurando o bebê?"
+      ],
+      [
+        "Mark",
+        "That's my sister, Maya. She has two kids now.",
+        "É a minha irmã, Maya. Ela tem dois filhos agora."
+      ],
+      [
+        "Sarah",
+        "She's so pretty! Is that her husband next to her?",
+        "Ela é tão linda! É o marido dela do lado dela?"
+      ],
+      [
+        "Mark",
+        "Yeah, that's Greg. We're really close, actually.",
+        "É, é o Greg. A gente é super próximo, na real."
+      ],
+      [
+        "Sarah",
+        "That's awesome. Do you have any siblings besides Maya and Leo?",
+        "Que legal. Você tem mais algum irmão além da Maya e do Leo?"
+      ],
+      [
+        "Mark",
+        "Nope, just us three. But my house was always full, you know?",
+        "Não, só nós três. Mas minha casa vivia cheia, sabe?"
+      ],
+      [
+        "Sarah",
+        "I get it! I mean, I have four brothers, so...",
+        "Entendo! Quer dizer, eu tenho quatro irmãos, então..."
+      ],
+      [
+        "Mark",
+        "Wow, four? That's kinda crazy!",
+        "Uau, quatro? É meio loucura!"
+      ],
+      [
+        "Sarah",
+        "Tell me about it! Lemme show you a picture of them.",
+        "Nem me fala! Deixa eu te mostrar uma foto deles."
+      ],
+      [
+        "Mark",
+        "Oh, cool, pull it up!",
+        "Ah, legal, abre aí!"
+      ],
+      [
+        "Sarah",
+        "See? This is my oldest brother, Tom.",
+        "Viu? Esse é o meu irmão mais velho, o Tom."
+      ],
+      [
+        "Sarah",
+        "And the twin guys are Alex and Chris.",
+        "E os gêmeos são o Alex e o Chris."
+      ],
+      [
+        "Mark",
+        "Wait, they're twins? They look so different!",
+        "Pera, eles são gêmeos? Eles parecem tão diferentes!"
+      ],
+      [
+        "Sarah",
+        "I know, right? And this little guy is Sam.",
+        "Né? E esse carinha é o Sam."
+      ],
+      [
+        "Mark",
+        "He's kinda young! How old is he?",
+        "Ele é meio novo! Quantos anos ele tem?"
+      ],
+      [
+        "Sarah",
+        "He's ten. He's the one who loves soccer.",
+        "Ele tem dez. É ele que ama futebol."
+      ],
+      [
+        "Mark",
+        "That's cool. That's a huge family photo!",
+        "Que massa. É uma foto de família enorme!"
+      ],
+      [
+        "Sarah",
+        "Yeah, we took it at my grandma's house last month.",
+        "É, a gente tirou na casa da minha avó no mês passado."
+      ],
+      [
+        "Mark",
+        "That's really nice, Sarah. Family is everything.",
+        "Isso é muito legal, Sarah. Família é tudo."
+      ],
+      [
+        "Sarah",
+        "Absolutely. Lemme go back to work before the boss sees us!",
+        "Com certeza. Deixa eu voltar pro trabalho antes que o chefe veja a gente!"
+      ],
+      [
+        "Mark",
+        "Haha, good idea!",
+        "Haha, boa ideia!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Onde mora o irmão do Mark, o Leo?",
+        "options": [
+          "Em Chicago",
+          "Perto da casa do Mark",
+          "Na casa da avó da Sarah",
+          "Em outra cidade distante"
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark corrige o engano da Sarah e esclarece que quem mora em Chicago é seu primo Dan, enquanto seu irmão Leo mora perto."
+      },
+      {
+        "question": "Quantos irmãos no total a Sarah tem?",
+        "options": [
+          "Dois",
+          "Três",
+          "Quatro",
+          "Cinco"
+        ],
+        "answerIndex": 2,
+        "explanation": "Sarah diz expressamente 'I have four brothers' (Tenho quatro irmãos)."
+      },
+      {
+        "question": "Onde a foto da família da Sarah foi tirada?",
+        "options": [
+          "No escritório do trabalho",
+          "Na casa da avó dela",
+          "Em um jogo de futebol",
+          "Em Chicago"
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah diz que a foto foi tirada na casa da avó dela no mês passado ('at my grandma's house last month')."
+      }
+    ],
+    "n": 8
   }
 ]

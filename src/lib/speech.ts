@@ -38,6 +38,14 @@ export interface SpeakLine {
 
 export interface SpeakOptions {
   rate?: number;
+  /**
+   * Começar desta fala em vez da primeira.
+   *
+   * A síntese do navegador não tem linha do tempo para buscar um segundo
+   * exato, então a fala é a menor unidade que dá para retomar. É o que
+   * sustenta o "voltar um trecho" e a troca de velocidade sem perder o lugar.
+   */
+  startAt?: number;
   /** Chamado quando cada fala começa — usado para destacar a linha atual. */
   onLine?: (index: number, total: number) => void;
   onEnd?: () => void;
@@ -316,5 +324,6 @@ function speakSequence(
     }
   };
 
-  speakAt(0);
+  // Retoma da fala pedida, limitada ao que existe.
+  speakAt(Math.min(Math.max(options.startAt ?? 0, 0), lines.length - 1));
 }

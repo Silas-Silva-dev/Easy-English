@@ -245,6 +245,72 @@
     -webkit-backdrop-filter: blur(16px) saturate(180%);
   }
 
+  /* -------------------------------------------------------------------
+     Barra de posicao do player.
+
+     Um `input[type=range]` de verdade, pintado para parecer a barrinha fina
+     do desenho. Range nativo em vez de div com onClick porque o aluno precisa
+     poder ARRASTAR, usar as setas do teclado e ouvir a posicao no leitor de
+     tela — coisas que uma div pintada nao da de graca.
+
+     O preenchimento vem de um gradiente na trilha, controlado pela variavel
+     --seek que o componente atualiza. Sem isso seria preciso um pseudo-
+     elemento por navegador so para colorir a parte ja tocada.
+     ------------------------------------------------------------------- */
+  .seek {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 18px; /* alvo de toque; a trilha visivel e fina */
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .seek::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--primary) var(--seek, 0%),
+      var(--muted) var(--seek, 0%)
+    );
+  }
+
+  .seek::-moz-range-track {
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      var(--primary) var(--seek, 0%),
+      var(--muted) var(--seek, 0%)
+    );
+  }
+
+  .seek::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    margin-top: -4px; /* centraliza na trilha de 4px */
+    border-radius: 999px;
+    background: var(--primary);
+    border: 2px solid var(--card);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+  }
+
+  .seek::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: var(--primary);
+    border: 2px solid var(--card);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+  }
+
+  .seek:focus-visible::-webkit-slider-thumb {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
   /* Malha sutil de fundo para telas de marketing e autenticacao. */
   .bg-grid {
     background-image:

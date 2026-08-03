@@ -24,6 +24,13 @@ import { cn } from "@/lib/utils";
  */
 const SPEEDS = [0.75, 1, 1.25, 1.5] as const;
 
+/** Segundos em m:ss. Faixa nenhuma do curso passa de uma hora. */
+function formatTime(seconds: number): string {
+  if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
+  const total = Math.floor(seconds);
+  return `${Math.floor(total / 60)}:${String(total % 60).padStart(2, "0")}`;
+}
+
 export interface AudioPlayerProps {
   /** O texto a falar. Diálogos usam o formato "NOME: fala / NOME: fala". */
   text: string;
@@ -76,7 +83,10 @@ export function AudioPlayer({
   const src = React.useMemo(() => audioSrc(text), [text]);
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
   const [hasFile, setHasFile] = React.useState(false);
-  const [fileProgress, setFileProgress] = React.useState(0);
+  /** 0 a 1. Vale para os dois caminhos — tempo no arquivo, fala na síntese. */
+  const [progress, setProgress] = React.useState(0);
+  /** Segundos. Zero quando não há arquivo: a síntese não sabe a duração. */
+  const [duration, setDuration] = React.useState(0);
 
   // As vozes precisam estar em cache ANTES do clique: no Safari e no Chrome do
   // celular, o play só produz som se `speak()` for chamado dentro do gesto,
@@ -96,15 +106,26 @@ export function AudioPlayer({
    */
   React.useEffect(() => {
     setHasFile(false);
-    setFileProgress(0);
+    setProgress(0);
+    setDuration(0);
     if (!src) return;
 
     const audio = new Audio();
     audio.preload = "metadata";
-    const found = () => setHasFile(true);
+
+    const found = () => {
+      setHasFile(true);
+      setDuration(Number.isFinite(audio.duration) ? audio.duration : 0);
+    };
     const missing = () => setHasFile(false);
+    // O progresso é escutado aqui, e não em `play()`: assim a barra também
+    // acompanha quando o aluno arrasta com o áudio pausado.
+    const tick = () => setProgress(audio.duration ? audio.currentTime / audio.duration : 0);
+
     audio.addEventListener("loadedmetadata", found);
     audio.addEventListener("error", missing);
+    audio.addEventListener("timeupdate", tick);
+    audio.addEventListener("seeked", tick);
     audio.src = src;
     audioRef.current = audio;
 
@@ -112,6 +133,8 @@ export function AudioPlayer({
       audio.pause();
       audio.removeEventListener("loadedmetadata", found);
       audio.removeEventListener("error", missing);
+      audio.removeEventListener("timeupdate", tick);
+      audio.removeEventListener("seeked", tick);
       audioRef.current = null;
     };
   }, [src]);
@@ -121,111 +144,163 @@ export function AudioPlayer({
     audioRef.current?.pause();
     setPlaying(false);
     setLineIndex(0);
-    setFileProgress(0);
+    setProgress(0);
   }, [text]);
 
-  const start = React.useCallback(() => {
-    setError(null);
-    setPlaying(true);
-    const next = playsRef.current + 1;
-    playsRef.current = next;
-    setPlays(next);
-    onPlayCountChange?.(next);
-
-    const speakWithBrowser = () =>
+  /**
+   * Fala a partir de uma linha, no ritmo pedido.
+   *
+   * A síntese do navegador não tem linha do tempo: não dá para buscar o
+   * segundo 12. A fala é a menor unidade que dá para retomar, e é ela que
+   * sustenta tanto o "voltar um trecho" quanto a troca de velocidade sem
+   * perder o lugar.
+   */
+  const speakFrom = React.useCallback(
+    (index: number, rate = speed) => {
       speakLines(lines, {
-        rate: speed,
-        onLine: setLineIndex,
+        rate,
+        startAt: index,
+        onLine: (i, total) => {
+          setLineIndex(i);
+          setProgress(total ? (i + 1) / total : 0);
+        },
         onEnd: () => {
           setLineIndex(0);
-          if (loop) {
-            start();
-          } else {
-            setPlaying(false);
-            onEnded?.();
-          }
+          setProgress(0);
+          setPlaying(false);
+          onEnded?.();
         },
         onError: (message) => {
           setError(message);
           setPlaying(false);
         },
       });
+    },
+    [lines, speed, onEnded],
+  );
 
-    const audio = audioRef.current;
-    if (hasFile && audio) {
+  /**
+   * Prepara o elemento e toca. Usado por `play` e por `restart`, para o
+   * `onended` nunca ficar sem dono — sem ele o áudio acaba e o botão fica
+   * preso em "pausar" para sempre.
+   */
+  const playFile = React.useCallback(
+    (audio: HTMLAudioElement, resumeLine: number) => {
       audio.playbackRate = speed;
       audio.loop = loop;
-      audio.currentTime = 0;
-      // Com arquivo o progresso vem do tempo real, não da contagem de falas —
-      // é mais fiel e ainda funciona em bloco de uma linha só.
-      audio.ontimeupdate = () =>
-        setFileProgress(audio.duration ? audio.currentTime / audio.duration : 0);
       audio.onended = () => {
-        setFileProgress(0);
+        // Rebobina para o próximo play, mas só DEPOIS de ter tocado inteiro —
+        // é isso que separa "acabou" de "pausei".
+        audio.currentTime = 0;
+        setProgress(0);
         setPlaying(false);
         onEnded?.();
       };
-      // O play() sai aqui, síncrono dentro do clique. Se ainda assim falhar,
-      // a voz do navegador assume em vez de o botão morrer calado.
       void audio.play().catch(() => {
         setHasFile(false);
-        speakWithBrowser();
+        speakFrom(resumeLine);
       });
+    },
+    [speed, loop, onEnded, speakFrom],
+  );
+
+  /** Toca de onde parou. NÃO rebobina — quem rebobina é `restart`. */
+  const play = React.useCallback(() => {
+    setError(null);
+    setPlaying(true);
+
+    const audio = audioRef.current;
+    if (hasFile && audio) {
+      playFile(audio, lineIndex);
       return;
     }
 
-    speakWithBrowser();
-  }, [lines, speed, loop, hasFile, onEnded, onPlayCountChange]);
+    speakFrom(lineIndex);
+  }, [hasFile, lineIndex, playFile, speakFrom]);
+
+  /** Uma escuta a mais. Só conta quando começa do zero, nunca ao retomar. */
+  function countListen() {
+    const next = playsRef.current + 1;
+    playsRef.current = next;
+    setPlays(next);
+    onPlayCountChange?.(next);
+  }
+
+  function pause() {
+    setPlaying(false);
+    const audio = audioRef.current;
+    if (hasFile && audio) {
+      // `pause()` puro: a posição fica onde está e o próximo play continua dali.
+      audio.pause();
+      return;
+    }
+    // Na voz do navegador, `speechSynthesis.pause()` é irregular entre
+    // navegadores. Paramos e guardamos a LINHA — retomar refala a partir dela,
+    // que é previsível em todo lugar.
+    cancelSpeech();
+  }
 
   function toggle() {
     if (playing) {
-      cancelSpeech();
-      const audio = audioRef.current;
-      if (audio) {
-        audio.pause();
-        audio.currentTime = 0;
-      }
-      setFileProgress(0);
-      setPlaying(false);
-      setLineIndex(0);
+      pause();
       return;
     }
-    start();
+    if (progress === 0) countListen();
+    play();
   }
 
   function restart() {
     cancelSpeech();
+    const audio = audioRef.current;
+    if (audio) audio.currentTime = 0;
     setLineIndex(0);
-    start();
+    setProgress(0);
+    countListen();
+    // O estado de `lineIndex` só chega no próximo render; `play` ainda leria o
+    // valor antigo. Por isso o caminho da voz do navegador é chamado direto.
+    setError(null);
+    setPlaying(true);
+    if (hasFile && audio) playFile(audio, 0);
+    else speakFrom(0);
+  }
+
+  /** Vai para um ponto da faixa. `fraction` é 0 a 1. */
+  function seek(fraction: number) {
+    const f = Math.min(Math.max(fraction, 0), 1);
+    const audio = audioRef.current;
+
+    if (hasFile && audio) {
+      if (audio.duration) audio.currentTime = f * audio.duration;
+      setProgress(f);
+      return;
+    }
+
+    // Sem arquivo, o alvo é a fala mais próxima.
+    if (!lines.length) return;
+    const line = Math.min(lines.length - 1, Math.floor(f * lines.length));
+    setLineIndex(line);
+    setProgress((line + 1) / lines.length);
+    if (playing) speakFrom(line);
   }
 
   function changeSpeed(next: number) {
     setSpeed(next);
 
-    // Com arquivo, a velocidade muda AO VIVO — o aluno ouve o efeito na hora,
-    // que é o ponto do dia 12 (escuta acelerada).
     const audio = audioRef.current;
     if (hasFile && audio) {
+      // Com arquivo a velocidade muda AO VIVO, tocando ou pausado — que é o
+      // ponto do dia 12 (escuta acelerada): ouvir o efeito na mesma passagem.
       audio.playbackRate = next;
       return;
     }
 
-    // Na voz do navegador não dá: a fala em curso já foi enfileirada no ritmo
-    // antigo, então paramos e o aluno recomeça.
-    if (playing) {
-      cancelSpeech();
-      setPlaying(false);
-      setLineIndex(0);
-    }
+    // Na voz do navegador a fala em curso já foi enfileirada no ritmo antigo.
+    // Refalamos da MESMA linha no ritmo novo, em vez de largar o aluno parado.
+    if (playing) speakFrom(lineIndex, next);
   }
 
-  const progressPct = hasFile
-    ? fileProgress * 100
-    : lines.length > 1
-      ? ((lineIndex + (playing ? 1 : 0)) / lines.length) * 100
-      : playing
-        ? 100
-        : 0;
+  const progressPct = progress * 100;
+  const elapsed = duration ? duration * progress : 0;
 
   // Só é "indisponível" quando não há NEM arquivo NEM síntese: com o áudio
   // pré-gerado a lição funciona até em navegador sem Web Speech.
@@ -251,7 +326,7 @@ export function AudioPlayer({
           size="icon"
           variant={playing ? "secondary" : "default"}
           onClick={toggle}
-          aria-label={playing ? "Parar" : "Ouvir"}
+          aria-label={playing ? "Pausar" : progress > 0 ? "Continuar" : "Ouvir"}
           className="shrink-0"
         >
           {playing ? <Pause className="size-4" /> : <Play className="size-4" />}
@@ -266,15 +341,36 @@ export function AudioPlayer({
             ) : null}
           </div>
 
-          <div className="bg-muted mt-2 h-1 overflow-hidden rounded-full">
-            <div
-              className="bg-primary h-full rounded-full transition-[width] duration-300"
-              style={{ width: `${progressPct}%` }}
+          {/* Barra clicável e arrastável. É um `input range` de verdade, e não
+              uma div pintada, para funcionar também no teclado (setas) e para
+              o leitor de tela anunciar a posição. O preenchimento vem de um
+              gradiente sobre a própria trilha — ver `.seek` em globals.css. */}
+          <div className="mt-2 flex items-center gap-2">
+            <input
+              type="range"
+              min={0}
+              max={1000}
+              step={1}
+              value={Math.round(progressPct * 10)}
+              onChange={(e) => seek(Number(e.target.value) / 1000)}
+              aria-label="Posição na faixa"
+              aria-valuetext={
+                duration
+                  ? `${formatTime(elapsed)} de ${formatTime(duration)}`
+                  : `${Math.round(progressPct)}%`
+              }
+              className="seek min-w-0 flex-1"
+              style={{ "--seek": `${progressPct}%` } as React.CSSProperties}
             />
+            {duration ? (
+              <span className="text-muted-foreground shrink-0 text-[11px] tabular-nums">
+                {formatTime(elapsed)} / {formatTime(duration)}
+              </span>
+            ) : null}
           </div>
         </div>
 
-        {plays > 0 ? (
+        {plays > 0 || progress > 0 ? (
           <Button
             type="button"
             size="icon-sm"
