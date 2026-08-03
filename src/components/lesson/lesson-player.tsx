@@ -20,6 +20,7 @@ import * as React from "react";
 import { toast } from "sonner";
 
 import { AudioPlayer, ImmersionGate } from "@/components/audio/audio-player";
+import { PronunciationLine } from "@/components/lesson/pronunciation-line";
 import { LessonBlockView, RichText } from "@/components/lesson/lesson-blocks";
 import { PracticeStation } from "@/components/speaking/practice-station";
 import { Badge } from "@/components/ui/badge";
@@ -426,6 +427,7 @@ export function LessonPlayer({
                           </code>
                         ) : null}
                       </div>
+                      <PronunciationLine text={chunk.en} className="mt-1 text-[0.85rem]" />
                       <p className="text-muted-foreground mt-1 text-sm">{chunk.pt}</p>
                       {chunk.when ? (
                         <p className="text-muted-foreground/80 mt-1 text-xs italic">

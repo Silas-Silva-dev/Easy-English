@@ -65,6 +65,10 @@ next-env.d.ts
 supabase/.temp/
 supabase/.branches/
 
+# Bytecode dos scripts Python (piper_worker, respell)
+__pycache__/
+*.pyc
+
 # ---------------------------------------------------------------------------
 # Vozes do Piper (TTS local)
 #

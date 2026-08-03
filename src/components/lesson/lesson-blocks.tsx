@@ -1,6 +1,7 @@
 import { Globe, Info, Lightbulb, TriangleAlert } from "lucide-react";
 import * as React from "react";
 
+import { PronunciationLine } from "@/components/lesson/pronunciation-line";
 import { cn } from "@/lib/utils";
 import type { LessonBlock } from "@/lib/types/database";
 
@@ -176,6 +177,7 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
                 </span>
                 <div className="min-w-0">
                   <p className="text-[0.95rem] font-medium">{line.en}</p>
+                  <PronunciationLine text={line.en} />
                   {line.pt ? (
                     <p className="text-muted-foreground mt-0.5 text-sm">{line.pt}</p>
                   ) : null}
@@ -194,6 +196,7 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
             {block.items.map((item, i) => (
               <div key={i} className="px-4 py-3">
                 <p className="font-medium">{item.en}</p>
+                <PronunciationLine text={item.en} />
                 <p className="text-muted-foreground mt-0.5 text-sm">{item.pt}</p>
                 {item.note ? (
                   <p className="text-muted-foreground/85 mt-1 text-xs italic">{item.note}</p>

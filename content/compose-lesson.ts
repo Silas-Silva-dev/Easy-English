@@ -308,6 +308,28 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
             "desfazer isso depois dá muito mais trabalho do que acertar agora.",
           gated: [
             dialogueBlock("Agora sim: o texto", material.immersion),
+            // Só no primeiro circuito: a legenda da pronúncia figurada. Depois
+            // que o aluno aprendeu a ler "náis ta mît iu", repetir isso em
+            // todos os 52 circuitos vira ruído.
+            ...(circuit.number === 1
+              ? [
+                  {
+                    type: "callout" as const,
+                    variant: "tip" as const,
+                    title: "A linha do meio: como ler a pronúncia",
+                    body:
+                      "Embaixo de cada fala em inglês tem uma linha laranja — é o mesmo som escrito com as letras do português:\n\n" +
+                      "`Nice to meet you.` → **náis ta mît iu**\n\n" +
+                      "**Acento** (á, î, ô) marca a sílaba forte. Onde bate a força é metade do que faz uma frase soar inglesa.\n\n" +
+                      "**th** — língua entre os dentes, soprando (*think*). Não é F nem T.\n\n" +
+                      "**dh** — o mesmo, mas com a voz ligada (*this*). Não é D.\n\n" +
+                      "**r** no fim de sílaba é o r americano, enrolado para dentro — nada a ver com o nosso.\n\n" +
+                      "Vogais fracas viram **a**: *to* vira **ta**, não *tu*. Não é erro, é assim que sai " +
+                      "na boca do nativo — e é por isso que você não reconhece as palavras que já sabe.\n\n" +
+                      "Ela é muleta para os primeiros meses, não a fonte. **O som certo é o do áudio.**",
+                  },
+                ]
+              : []),
             pitfallBlock,
             {
               type: "practice",

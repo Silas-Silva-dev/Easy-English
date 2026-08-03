@@ -22,7 +22,8 @@
     "cleanup:audio": "tsx scripts/cleanup-audio.ts",
     "seed:curriculum": "tsx scripts/seed-curriculum.ts",
     "index:knowledge": "tsx scripts/index-knowledge.ts",
-    "bootstrap:admin": "tsx scripts/bootstrap-admin.ts"
+    "bootstrap:admin": "tsx scripts/bootstrap-admin.ts",
+    "gen:pronuncia": "tsx scripts/generate-pronunciation.ts"
   },
   "engines": {
     "node": ">=20.9.0"

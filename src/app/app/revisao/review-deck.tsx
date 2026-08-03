@@ -6,6 +6,7 @@ import * as React from "react";
 import { toast } from "sonner";
 
 import { AudioPlayer } from "@/components/audio/audio-player";
+import { PronunciationLine } from "@/components/lesson/pronunciation-line";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -202,8 +203,11 @@ export function ReviewDeck({ chunks }: { chunks: ChunkMastery[] }) {
             </div>
           ) : (
             <div className="animate-in-up space-y-4">
+              {/* Só depois de revelar: a figuração entregaria a resposta se
+                  aparecesse junto com o português. */}
               <div className="bg-success/8 border-success/25 rounded-xl border p-5 text-center">
                 <p className="text-lg font-semibold">{current.chunk_en}</p>
+                <PronunciationLine text={current.chunk_en} className="mt-1 text-sm" />
               </div>
 
               <AudioPlayer text={current.chunk_en} mode="single" label="Ouvir a pronúncia" compact />
