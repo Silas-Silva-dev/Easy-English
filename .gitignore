@@ -1,0 +1,71 @@
+# ---------------------------------------------------------------------------
+# Dependências e build
+# ---------------------------------------------------------------------------
+node_modules/
+.next/
+out/
+build/
+dist/
+.turbo/
+
+# ---------------------------------------------------------------------------
+# SEGREDOS — nada daqui pode chegar ao GitHub
+#
+# Os padrões abaixo cobrem também nomes que começam com ponto. O padrão antigo
+# `Credenciais*.txt` NÃO casava com ".Credenciais DB.txt": o nome começa com
+# ".", e o git compara o nome inteiro. A senha do banco teria ido no push.
+# ---------------------------------------------------------------------------
+.env
+.env.local
+.env*.local
+.env.production
+.env.development
+
+*[Cc]redenciai*
+*[Cc]redential*
+*[Ss]enha*
+*[Pp]assword*
+*secret*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Chaves de serviço baixadas do Supabase / Google
+service-account*.json
+*service_role*
+
+# ---------------------------------------------------------------------------
+# Logs e temporários
+# ---------------------------------------------------------------------------
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+
+# ---------------------------------------------------------------------------
+# Sistema operacional e editores
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.swp
+*~
+
+# ---------------------------------------------------------------------------
+# TypeScript / Next
+# ---------------------------------------------------------------------------
+next-env.d.ts
+*.tsbuildinfo
+
+# ---------------------------------------------------------------------------
+# Supabase CLI
+# ---------------------------------------------------------------------------
+supabase/.temp/
+supabase/.branches/
+
+# ---------------------------------------------------------------------------
+# Plataformas de deploy
+# ---------------------------------------------------------------------------
+.vercel

@@ -1,0 +1,346 @@
+import { CheckCircle2, ChevronRight, Circle, Clock, Lock, PlayCircle } from "lucide-react";
+import type { Metadata } from "next";
+import Link from "next/link";
+
+import { Badge } from "@/components/ui/badge";
+import { EmptyState, PageHeader } from "@/components/ui/misc";
+import { Progress } from "@/components/ui/progress";
+import { requireActiveUser } from "@/lib/auth/guards";
+import { getOrCreateEnrollment, getPrimaryCourse, LESSON_KIND_LABEL } from "@/lib/learning";
+import { createServerSupabase } from "@/lib/supabase/server";
+import { cn, pct } from "@/lib/utils";
+import { DAYS_PER_CIRCUIT, TOTAL_DAYS } from "@content/curriculum";
+
+export const metadata: Metadata = { title: "Cronograma" };
+
+/** Cor de acento por Canto — dá identidade visual a cada fase do curso. */
+const CANTO_ACCENT: Record<string, { ring: string; chip: string; bar: string }> = {
+  C1: { ring: "border-primary/60 bg-primary/8", chip: "bg-primary/15 text-primary", bar: "bg-primary" },
+  C2: { ring: "border-chart-2/60 bg-chart-2/8", chip: "bg-chart-2/15 text-chart-2", bar: "bg-chart-2" },
+  C3: { ring: "border-streak/60 bg-streak/8", chip: "bg-streak/15 text-streak", bar: "bg-streak" },
+  C4: { ring: "border-success/60 bg-success/8", chip: "bg-success/15 text-success", bar: "bg-success" },
+};
+
+const FALLBACK_ACCENT = CANTO_ACCENT.C1;
+
+export default async function SchedulePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ modulo?: string; circuito?: string }>;
+}) {
+  const { modulo, circuito } = await searchParams;
+  const { userId } = await requireActiveUser("/app/cronograma");
+
+  const course = await getPrimaryCourse();
+  if (!course) {
+    return <EmptyState title="Nenhum curso publicado" description="Volte em breve." />;
+  }
+
+  const enrollment = await getOrCreateEnrollment(userId, course);
+  const supabase = await createServerSupabase();
+
+  // `week_start`/`week_end` guardam a faixa de CIRCUITOS do canto (1..52),
+  // não semanas de calendário — o cronograma é solto do calendário.
+  const currentDay = enrollment?.current_day ?? 1;
+  const currentCircuit = Math.ceil(currentDay / DAYS_PER_CIRCUIT);
+
+  const [{ data: modules }, { data: allLessons }, { data: completedRows }] = await Promise.all([
+    supabase.from("modules").select("*").eq("course_id", course.id).order("position"),
+    // Só (id, module_id): é o suficiente para o progresso dos 4 cantos e cabe
+    // folgado no limite de linhas do PostgREST.
+    supabase.from("lessons").select("id, module_id").eq("course_id", course.id),
+    enrollment
+      ? supabase
+          .from("lesson_progress")
+          .select("lesson_id")
+          .eq("enrollment_id", enrollment.id)
+          .eq("status", "completed")
+      : Promise.resolve({ data: [] as { lesson_id: string }[] }),
+  ]);
+
+  const moduleList = modules ?? [];
+  const completedIds = new Set((completedRows ?? []).map((r) => r.lesson_id));
+
+  // Progresso por canto, calculado em memória — evita 8 queries de contagem.
+  const perModule = new Map<string, { total: number; done: number }>();
+  for (const lesson of allLessons ?? []) {
+    const bucket = perModule.get(lesson.module_id) ?? { total: 0, done: 0 };
+    bucket.total++;
+    if (completedIds.has(lesson.id)) bucket.done++;
+    perModule.set(lesson.module_id, bucket);
+  }
+
+  const activeModule =
+    moduleList.find((m) => m.id === modulo) ??
+    moduleList.find((m) => currentCircuit >= m.week_start && currentCircuit <= m.week_end) ??
+    moduleList[0];
+
+  const [{ data: lessons }, { data: circuits }] = await Promise.all([
+    activeModule
+      ? supabase.from("lessons").select("*").eq("module_id", activeModule.id).order("day_number")
+      : Promise.resolve({ data: [] }),
+    activeModule
+      ? supabase
+          .from("circuits")
+          .select("number, title")
+          .eq("module_id", activeModule.id)
+          .order("number")
+      : Promise.resolve({ data: [] as { number: number; title: string }[] }),
+  ]);
+
+  const lessonList = lessons ?? [];
+  const circuitName = new Map((circuits ?? []).map((c) => [c.number, c.title]));
+
+  // Agrupa por circuito. Cada circuito são 14 dias: 7 de aquisição, 7 de
+  // consolidação. Não existe agrupamento por semana de calendário.
+  const byCircuit = new Map<number, typeof lessonList>();
+  for (const lesson of lessonList) {
+    const list = byCircuit.get(lesson.week_number) ?? [];
+    list.push(lesson);
+    byCircuit.set(lesson.week_number, list);
+  }
+
+  // Qual circuito abre expandido: o pedido na URL, senão o circuito atual do
+  // aluno, senão o primeiro do canto. Só um por vez fica aberto.
+  const requested = Number(circuito);
+  const openCircuit =
+    byCircuit.has(requested) ? requested
+    : byCircuit.has(currentCircuit) ? currentCircuit
+    : [...byCircuit.keys()][0];
+
+  const moduleStats = activeModule ? perModule.get(activeModule.id) : undefined;
+
+  return (
+    <div className="mx-auto max-w-6xl space-y-8">
+      <PageHeader
+        eyebrow={course.title}
+        title={`Cronograma de ${TOTAL_DAYS} dias`}
+        description="Dia 1, Dia 2, Dia 3 — no seu ritmo, sem data marcada. Cada circuito são 14 dias com papéis fixos, e a ordem importa: a progressão em espiral depende dela."
+      />
+
+      {/* ------------------------------------------------ Os quatro Cantos */}
+      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {moduleList.map((mod) => {
+          const active = mod.id === activeModule?.id;
+          const accent = CANTO_ACCENT[mod.code] ?? FALLBACK_ACCENT;
+          const stats = perModule.get(mod.id) ?? { total: 0, done: 0 };
+          const donePct = pct(stats.done, stats.total);
+          const isCurrent = currentCircuit >= mod.week_start && currentCircuit <= mod.week_end;
+          // O título vem como "Primeiro Canto — Destravar"; o cartão já mostra
+          // o código, então fica só a promessa.
+          const shortTitle = mod.title.split("—").pop()?.trim() ?? mod.title;
+
+          return (
+            <Link
+              key={mod.id}
+              href={`/app/cronograma?modulo=${mod.id}`}
+              aria-current={active ? "page" : undefined}
+              className={cn(
+                "group bg-card relative flex flex-col rounded-xl border p-4 transition-all",
+                active ? `${accent.ring} shadow-sm` : "hover:bg-accent hover:-translate-y-0.5",
+              )}
+            >
+              <div className="flex items-center justify-between gap-2">
+                <span
+                  className={cn(
+                    "grid size-8 shrink-0 place-items-center rounded-lg font-mono text-xs font-bold",
+                    accent.chip,
+                  )}
+                >
+                  {mod.code}
+                </span>
+                <div className="flex items-center gap-1.5">
+                  {isCurrent ? <Badge variant="success">Você está aqui</Badge> : null}
+                  <Badge variant="neutral" className="text-[10px]">
+                    {mod.level}
+                  </Badge>
+                </div>
+              </div>
+
+              <p className="mt-3 leading-snug font-semibold">{shortTitle}</p>
+              <p className="text-muted-foreground mt-0.5 text-xs">
+                Circuitos {mod.week_start}–{mod.week_end}
+              </p>
+
+              <div className="mt-auto pt-4">
+                <div className="text-muted-foreground mb-1.5 flex items-baseline justify-between text-[11px] tabular-nums">
+                  <span>{donePct}%</span>
+                  <span>
+                    {stats.done}/{stats.total}
+                  </span>
+                </div>
+                <Progress value={donePct} className="h-1.5" indicatorClassName={accent.bar} />
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+
+      {activeModule ? (
+        <>
+          {/* ------------------------------------------ Resumo do canto ativo */}
+          <div className="bg-muted/40 rounded-xl border p-5">
+            <div className="flex flex-wrap items-start justify-between gap-4">
+              <div className="min-w-0 max-w-2xl">
+                <h2 className="text-lg font-semibold">{activeModule.title}</h2>
+                <p className="text-muted-foreground mt-1.5 text-sm leading-relaxed">
+                  {activeModule.description}
+                </p>
+              </div>
+              <span className="text-muted-foreground shrink-0 text-sm tabular-nums">
+                {moduleStats?.done ?? 0}/{moduleStats?.total ?? 0} lições
+              </span>
+            </div>
+
+            {activeModule.can_do.length ? (
+              <div className="mt-5 border-t pt-4">
+                <p className="text-muted-foreground mb-2 text-xs font-medium tracking-wide uppercase">
+                  Ao final deste canto você consegue
+                </p>
+                <ul className="grid gap-1.5 sm:grid-cols-2">
+                  {activeModule.can_do.map((item) => (
+                    <li key={item} className="flex gap-2 text-sm">
+                      <CheckCircle2 className="text-success mt-0.5 size-3.5 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
+
+          {/* -------------------------------- Circuitos (só um aberto por vez) */}
+          <div className="space-y-2.5">
+            {[...byCircuit.entries()].map(([circuit, circuitLessons]) => {
+              const firstDay = (circuit - 1) * DAYS_PER_CIRCUIT + 1;
+              const lastDay = circuit * DAYS_PER_CIRCUIT;
+              const done = circuitLessons.filter((l) => completedIds.has(l.id)).length;
+              const isCurrent = circuit === currentCircuit;
+              const isOpen = circuit === openCircuit;
+
+              return (
+                <details
+                  key={circuit}
+                  open={isOpen}
+                  className={cn(
+                    "group bg-card overflow-hidden rounded-xl border transition-colors",
+                    isCurrent && "border-primary/45",
+                  )}
+                >
+                  <summary className="flex cursor-pointer list-none items-center gap-3 p-4 [&::-webkit-details-marker]:hidden">
+                    <ChevronRight className="text-muted-foreground size-4 shrink-0 transition-transform duration-200 group-open:rotate-90" />
+
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                        <span className="text-sm font-semibold">Circuito {circuit}</span>
+                        <span className="text-muted-foreground text-xs tabular-nums">
+                          Dias {firstDay}–{lastDay}
+                        </span>
+                        {isCurrent ? <Badge variant="success">Atual</Badge> : null}
+                        {done === circuitLessons.length && circuitLessons.length > 0 ? (
+                          <Badge variant="neutral">Concluído</Badge>
+                        ) : null}
+                      </div>
+                      {circuitName.get(circuit) ? (
+                        <p className="text-muted-foreground mt-0.5 truncate text-xs">
+                          {circuitName.get(circuit)}
+                        </p>
+                      ) : null}
+                    </div>
+
+                    <div className="flex shrink-0 items-center gap-2.5">
+                      <span className="text-muted-foreground text-xs tabular-nums">
+                        {done}/{circuitLessons.length}
+                      </span>
+                      <Progress
+                        value={pct(done, circuitLessons.length)}
+                        className="hidden h-1.5 w-20 sm:block"
+                        indicatorClassName="bg-success"
+                      />
+                    </div>
+                  </summary>
+
+                  <div className="space-y-4 border-t p-4">
+                    {(["A", "B"] as const).map((phase) => {
+                      const phaseLessons = circuitLessons.filter((l) => l.phase === phase);
+                      if (!phaseLessons.length) return null;
+
+                      return (
+                        <div key={phase}>
+                          <p className="text-muted-foreground mb-2 text-[11px] font-medium tracking-widest uppercase">
+                            {phase === "A"
+                              ? "Aquisição · dias 1 a 7"
+                              : "Consolidação · dias 8 a 14"}
+                          </p>
+                          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
+                            {phaseLessons.map((lesson) => (
+                              <DayCard
+                                key={lesson.id}
+                                lesson={lesson}
+                                completed={completedIds.has(lesson.id)}
+                                isCurrent={currentDay === lesson.day_number}
+                              />
+                            ))}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </details>
+              );
+            })}
+          </div>
+        </>
+      ) : (
+        <EmptyState
+          icon={<Clock />}
+          title="Nenhum canto encontrado"
+          description="Rode `npm run seed:curriculum` para popular o curso."
+        />
+      )}
+    </div>
+  );
+}
+
+function DayCard({
+  lesson,
+  completed,
+  isCurrent,
+}: {
+  lesson: { id: string; day_number: number; title: string; kind: string; is_published: boolean };
+  completed: boolean;
+  isCurrent: boolean;
+}) {
+  const locked = !lesson.is_published;
+  const Icon = completed ? CheckCircle2 : locked ? Lock : isCurrent ? PlayCircle : Circle;
+
+  const body = (
+    <div
+      className={cn(
+        "h-full rounded-lg border p-3 transition-colors",
+        completed && "border-success/35 bg-success/6",
+        isCurrent && !completed && "border-primary bg-primary/6",
+        locked && "opacity-55",
+        !locked && "hover:bg-accent",
+      )}
+    >
+      <div className="flex items-center justify-between gap-2">
+        <span className="text-[11px] font-semibold tabular-nums">Dia {lesson.day_number}</span>
+        <Icon
+          className={cn(
+            "size-3.5 shrink-0",
+            completed && "text-success",
+            isCurrent && !completed && "text-primary",
+            !completed && !isCurrent && "text-muted-foreground/50",
+          )}
+        />
+      </div>
+      <p className="mt-1.5 line-clamp-2 text-xs leading-snug font-medium">{lesson.title}</p>
+      <p className="text-muted-foreground mt-1.5 text-[10px]">
+        {LESSON_KIND_LABEL[lesson.kind as keyof typeof LESSON_KIND_LABEL]}
+      </p>
+    </div>
+  );
+
+  return locked ? body : <Link href={`/app/licao/${lesson.day_number}`}>{body}</Link>;
+}
