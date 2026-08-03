@@ -14,16 +14,20 @@ import {
 type Theme = "light" | "dark" | "system";
 
 const STORAGE_KEY = "inglisheasy-theme";
-const ThemeContext = React.createContext<{ theme: Theme; setTheme: (t: Theme) => void }>({
-  theme: "system",
-  setTheme: () => {},
-});
 
 /**
- * O tema escuro e o padrao: a identidade da marca (preto + laranja) foi
- * desenhada nele. O claro fica disponivel, mas nao e o ponto de partida.
+ * O tema claro e o padrao do sistema. Quem preferir o escuro escolhe no menu,
+ * e a escolha fica salva; "Sistema" segue a preferencia do aparelho.
  */
-const DEFAULT_THEME: Theme = "dark";
+const DEFAULT_THEME: Theme = "light";
+
+/** Cor da barra do navegador em cada tema — precisa acompanhar o tema real. */
+const THEME_COLOR = { light: "#ffffff", dark: "#101318" } as const;
+
+const ThemeContext = React.createContext<{ theme: Theme; setTheme: (t: Theme) => void }>({
+  theme: DEFAULT_THEME,
+  setTheme: () => {},
+});
 
 /** Script inline que evita o flash de tema errado antes da hidratacao. */
 export const themeInitScript = `
@@ -33,6 +37,8 @@ export const themeInitScript = `
     var dark = t === 'dark' || (t === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
     document.documentElement.classList.toggle('dark', dark);
     document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', dark ? '${THEME_COLOR.dark}' : '${THEME_COLOR.light}');
   } catch (e) {}
 })();
 `;
@@ -50,6 +56,9 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       (next === "system" && window.matchMedia("(prefers-color-scheme: dark)").matches);
     document.documentElement.classList.toggle("dark", dark);
     document.documentElement.style.colorScheme = dark ? "dark" : "light";
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", dark ? THEME_COLOR.dark : THEME_COLOR.light);
   }, []);
 
   React.useEffect(() => {

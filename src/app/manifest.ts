@@ -20,7 +20,9 @@ export default function manifest(): MetadataRoute.Manifest {
     scope: "/",
     display: "standalone",
     orientation: "portrait",
-    background_color: "#101318",
+    // Fundo do splash do app instalado: acompanha o tema claro, que é o padrão.
+    // Se ficasse escuro, o app abriria com um piscada preta antes da página branca.
+    background_color: "#ffffff",
     theme_color: "#FF4A17",
     lang: "pt-BR",
     dir: "ltr",

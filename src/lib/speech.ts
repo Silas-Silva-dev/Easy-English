@@ -49,6 +49,37 @@ export function isSpeechSupported(): boolean {
 }
 
 /**
+ * Vozes já conhecidas, guardadas para o play poder sair SÍNCRONO.
+ *
+ * Isto não é micro-otimização, é o que faz o áudio existir no Safari e no
+ * Chrome do celular: lá o `speak()` só produz som se for chamado dentro do
+ * próprio handler do toque. Qualquer `await` antes dele encerra a "ativação do
+ * usuário", e a fala é descartada em silêncio — sem som e sem evento de erro.
+ * Por isso `speakLines` consulta este cache em vez de esperar por promessa.
+ */
+let cachedVoices: SpeechSynthesisVoice[] = [];
+
+function refreshVoices(): SpeechSynthesisVoice[] {
+  if (!isSpeechSupported()) return [];
+  const voices = window.speechSynthesis.getVoices();
+  if (voices.length) cachedVoices = voices;
+  return cachedVoices;
+}
+
+/**
+ * Aquece o cache de vozes na montagem do player, bem antes do clique.
+ * Sem isso o primeiro play cairia no caminho assíncrono justamente na hora
+ * em que o gesto do usuário precisa ser preservado.
+ */
+export function primeVoices(): void {
+  if (!isSpeechSupported()) return;
+  if (refreshVoices().length) return;
+  window.speechSynthesis.addEventListener("voiceschanged", () => void refreshVoices(), {
+    once: true,
+  });
+}
+
+/**
  * As vozes chegam de forma assíncrona no Chrome: a primeira chamada a
  * getVoices() costuma vir vazia e só depois o evento `voiceschanged` dispara.
  * Sem esperar por ele, o primeiro play sai com a voz padrão do sistema — que
@@ -144,9 +175,33 @@ export function parseScript(script: string): SpeakLine[] {
 
 let activeToken = 0;
 
+/**
+ * Referências vivas das utterances em curso.
+ *
+ * Parece inútil e não é: o Chrome e o Safari coletam a utterance assim que ela
+ * perde a última referência, e uma utterance coletada para de falar (ou nem
+ * começa) sem disparar `onend` nem `onerror`. Guardá-las aqui até o fim da
+ * sequência é o remédio conhecido para a fala que some no meio.
+ */
+let pending: SpeechSynthesisUtterance[] = [];
+
+/**
+ * Quanto esperamos a primeira fala começar antes de admitir que não vem som.
+ * Sem isto, todo modo de falha silenciosa vira "apertei o play e não aconteceu
+ * nada" — sem mensagem, sem pista, sem o que reportar.
+ */
+const START_TIMEOUT_MS = 4000;
+
 export function cancelSpeech() {
   activeToken++;
-  if (isSpeechSupported()) window.speechSynthesis.cancel();
+  pending = [];
+  if (!isSpeechSupported()) return;
+  // Só cancela se houver algo para cancelar: `cancel()` seguido de `speak()`
+  // com o sintetizador ocioso é uma corrida conhecida do Chrome que engole a
+  // primeira utterance — exatamente o play inicial de cada lição.
+  if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
+    window.speechSynthesis.cancel();
+  }
 }
 
 /**
@@ -156,19 +211,44 @@ export function cancelSpeech() {
  * perde utterances de uma fila longa, e porque só assim conseguimos saber em
  * qual linha estamos para destacá-la na tela.
  */
-export async function speakLines(lines: SpeakLine[], options: SpeakOptions = {}) {
+export function speakLines(lines: SpeakLine[], options: SpeakOptions = {}) {
   if (!isSpeechSupported()) {
     options.onError?.("Este navegador não sintetiza fala. Tente pelo Chrome, Edge ou Safari.");
     return;
   }
-  if (!lines.length) return;
+  // Devolve o controle mesmo sem nada a falar: sem o onEnd, o botão ficaria
+  // travado em "tocando" para sempre.
+  if (!lines.length) {
+    options.onEnd?.();
+    return;
+  }
 
   cancelSpeech();
   const token = activeToken;
 
-  const voices = await loadVoices();
-  if (token !== activeToken) return;
+  // Caminho normal: as vozes já estão em cache, então falamos AGORA, ainda
+  // dentro do gesto do usuário. Ver o comentário de `cachedVoices`.
+  const ready = refreshVoices();
+  if (ready.length) {
+    speakSequence(lines, ready, token, options);
+    return;
+  }
 
+  // Primeiro play numa aba onde as vozes ainda não chegaram. Aqui não há
+  // escolha senão esperar — e no iOS este play pode sair mudo. O aquecimento
+  // feito por `primeVoices()` na montagem existe para este caso ser raro.
+  void loadVoices().then((voices) => {
+    if (token !== activeToken) return;
+    speakSequence(lines, voices.length ? voices : refreshVoices(), token, options);
+  });
+}
+
+function speakSequence(
+  lines: SpeakLine[],
+  voices: SpeechSynthesisVoice[],
+  token: number,
+  options: SpeakOptions,
+) {
   const { a, b, samePitchFallback } = pickDialogueVoices(voices);
   if (!a) {
     options.onError?.(
@@ -180,10 +260,12 @@ export async function speakLines(lines: SpeakLine[], options: SpeakOptions = {})
   // Mapeia cada interlocutor para uma das duas vozes, na ordem em que aparecem.
   const speakers = [...new Set(lines.map((l) => l.speaker).filter(Boolean))] as string[];
   const rate = options.rate ?? 1;
+  let watchdog = 0;
 
   const speakAt = (index: number) => {
     if (token !== activeToken) return;
     if (index >= lines.length) {
+      pending = [];
       options.onEnd?.();
       return;
     }
@@ -199,16 +281,39 @@ export async function speakLines(lines: SpeakLine[], options: SpeakOptions = {})
     utterance.pitch = samePitchFallback && isSecond ? 0.8 : 1;
 
     utterance.onstart = () => {
+      window.clearTimeout(watchdog);
       if (token === activeToken) options.onLine?.(index, lines.length);
     };
-    utterance.onend = () => speakAt(index + 1);
+    utterance.onend = () => {
+      window.clearTimeout(watchdog);
+      speakAt(index + 1);
+    };
     utterance.onerror = (event) => {
+      window.clearTimeout(watchdog);
       // "interrupted" e "canceled" são esperados quando o aluno aperta pausa.
       if (event.error === "interrupted" || event.error === "canceled") return;
       options.onError?.(`Falha ao sintetizar a fala (${event.error}).`);
     };
 
+    // Segura a referência até a sequência acabar — ver `pending`.
+    pending.push(utterance);
+
+    // O sintetizador pode estar pausado: acontece no Chrome depois de a aba ir
+    // para segundo plano, e o `speak()` então só enfileira, sem tocar.
+    window.speechSynthesis.resume();
     window.speechSynthesis.speak(utterance);
+
+    // Rede de segurança só na primeira fala: é onde mora o "não saiu som".
+    if (index === 0) {
+      watchdog = window.setTimeout(() => {
+        if (token !== activeToken) return;
+        window.speechSynthesis.cancel();
+        options.onError?.(
+          "O navegador aceitou a fala mas não emitiu som. Confira o volume e o mudo do sistema. " +
+            "No iPhone e no iPad, a chavinha lateral de silencioso também corta a voz sintética.",
+        );
+      }, START_TIMEOUT_MS);
+    }
   };
 
   speakAt(0);

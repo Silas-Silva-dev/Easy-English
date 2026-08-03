@@ -62,10 +62,11 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#101318" },
-  ],
+  // Valor único, do tema claro (o padrão). Não pode ser por
+  // `prefers-color-scheme`: o tema do app vem do localStorage, não do aparelho,
+  // e a barra do navegador ficaria escura sobre uma página clara. Quem trocar
+  // para o escuro tem esta meta atualizada pelo `themeInitScript`.
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
   // Sem `maximumScale`: travar o zoom quebra a acessibilidade de quem precisa

@@ -8,6 +8,7 @@ import {
   cancelSpeech,
   isSpeechSupported,
   parseScript,
+  primeVoices,
   speakLines,
   type SpeakLine,
 } from "@/lib/speech";
@@ -50,6 +51,9 @@ export function AudioPlayer({
   const [playing, setPlaying] = React.useState(false);
   const [speed, setSpeed] = React.useState<number>(1);
   const [plays, setPlays] = React.useState(0);
+  // O contador tambem vive num ref: avisar o pai (o portao de escuta) de dentro
+  // do updater do setState conta escuta dobrada em StrictMode.
+  const playsRef = React.useRef(0);
   const [lineIndex, setLineIndex] = React.useState(0);
   const [error, setError] = React.useState<string | null>(null);
   const [supported, setSupported] = React.useState(true);
@@ -59,7 +63,13 @@ export function AudioPlayer({
     [text, mode],
   );
 
-  React.useEffect(() => setSupported(isSpeechSupported()), []);
+  // As vozes precisam estar em cache ANTES do clique: no Safari e no Chrome do
+  // celular, o play só produz som se `speak()` for chamado dentro do gesto,
+  // sem espera pelo meio. Ver `primeVoices` em @/lib/speech.
+  React.useEffect(() => {
+    setSupported(isSpeechSupported());
+    primeVoices();
+  }, []);
 
   // Sair da página no meio de uma fala deixaria a voz tocando sozinha.
   React.useEffect(() => cancelSpeech, []);
@@ -73,13 +83,12 @@ export function AudioPlayer({
   const start = React.useCallback(() => {
     setError(null);
     setPlaying(true);
-    setPlays((p) => {
-      const next = p + 1;
-      onPlayCountChange?.(next);
-      return next;
-    });
+    const next = playsRef.current + 1;
+    playsRef.current = next;
+    setPlays(next);
+    onPlayCountChange?.(next);
 
-    void speakLines(lines, {
+    speakLines(lines, {
       rate: speed,
       onLine: setLineIndex,
       onEnd: () => {

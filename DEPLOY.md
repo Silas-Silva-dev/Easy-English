@@ -69,25 +69,46 @@ Esta é a pegadinha que mais custa tempo. As variáveis `NEXT_PUBLIC_*` são **g
 
 Deployar primeiro e configurar depois não funciona: o build falha, ou pior, passa e gera um bundle apontando para lugar nenhum. Se isso acontecer, corrija as variáveis e clique em **Redeploy** — não adianta só reiniciar.
 
-| Variável | Valor |
+São **9 variáveis**. A coluna "quando é lida" decide o que acontece se você errar:
+o que é lido no *build* exige um novo deploy para corrigir; o que é lido em
+*execução* basta reiniciar.
+
+| # | Variável | Valor | Quando é lida | Vai ao navegador? |
+|---|---|---|---|---|
+| 1 | `NEXT_PUBLIC_SUPABASE_URL` | `https://xxxx.supabase.co` | **build** + execução | sim |
+| 2 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | chave `anon` (JWT longo) | **build** + execução | sim |
+| 3 | `NEXT_PUBLIC_SITE_URL` | `https://seudominio.com.br` | **build** + execução | sim |
+| 4 | `SUPABASE_SERVICE_ROLE_KEY` | chave `service_role` | execução | **NUNCA** |
+| 5 | `GEMINI_API_KEY` | chave do Google AI Studio | execução | **NUNCA** |
+| 6 | `GEMINI_MODEL_TUTOR` | `gemini-3.6-flash` | execução | não |
+| 7 | `GEMINI_MODEL_SPEAKING` | `gemini-3.6-flash` | execução | não |
+| 8 | `GEMINI_MODEL_EMBEDDING` | `gemini-embedding-001` | execução | não |
+| 9 | `GEMINI_MODEL_LIVE` | `gemini-3.1-flash-live-preview` | execução | não |
+
+**1 a 5 são obrigatórias.** Sem elas o build falha (`src/lib/env.ts` recusa valor
+ausente) ou o app sobe sem conseguir autenticar ninguém.
+
+**6 a 9 são opcionais** — o código tem esses mesmos valores como padrão. Defina
+mesmo assim: o catálogo do Google muda, e assim a produção não troca de modelo
+sozinha num deploy futuro.
+
+`NEXT_PUBLIC_SITE_URL` precisa ser o domínio **real**, sem barra no fim. Ele monta
+os links de confirmação de e-mail e recuperação de senha
+(`src/app/(auth)/actions.ts`); apontando para `localhost`, ninguém confirma a
+conta. É também a base das URLs de prévia de link (`metadataBase`).
+
+### Variáveis que NÃO devem ir para o servidor
+
+| Variável | Por quê |
 |---|---|
-| `NEXT_PUBLIC_SUPABASE_URL` | `https://xxxx.supabase.co` |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | chave anônima |
-| `SUPABASE_SERVICE_ROLE_KEY` | **nunca** exponha; só no servidor |
-| `GEMINI_API_KEY` | chave do Google AI Studio |
-| `GEMINI_MODEL_TUTOR` | `gemini-3.6-flash` |
-| `GEMINI_MODEL_SPEAKING` | `gemini-3.6-flash` |
-| `GEMINI_MODEL_EMBEDDING` | `gemini-embedding-001` |
-| `GEMINI_MODEL_LIVE` | `gemini-3.1-flash-live-preview` |
-| `NEXT_PUBLIC_SITE_URL` | `https://seudominio.com.br` |
-| `ADMIN_BOOTSTRAP_EMAILS` | seu e-mail |
-| `NODE_ENV` | `production` |
+| `SUPABASE_DB_PASSWORD` | serve só à CLI do Supabase (`supabase db push`), na sua máquina. Nenhuma linha do app a lê — colocá-la lá é expor a senha do banco sem ganho nenhum |
+| `ADMIN_BOOTSTRAP_EMAILS` | só o script local `bootstrap-admin` a consome. O app em execução nunca lê |
+| `PORT` | a porta é gerenciada pela Hostinger |
+| `NODE_ENV` | o `next build` e o `next start` já definem `production` |
 
-`NEXT_PUBLIC_SITE_URL` precisa ser o domínio **real**. Ele entra nos links de confirmação de e-mail; apontando para `localhost`, ninguém consegue confirmar a conta.
-
-Não defina `PORT`: a porta é gerenciada pela Hostinger.
-
-O hPanel tem um assistente de conexão com o Supabase que preenche as variáveis sozinho — confira mesmo assim, principalmente a `SUPABASE_SERVICE_ROLE_KEY`.
+O hPanel tem um assistente de conexão com o Supabase que preenche as variáveis
+sozinho — confira mesmo assim, principalmente se ele trouxe a `service_role` e
+não a `anon` no campo errado.
 
 ---
 
