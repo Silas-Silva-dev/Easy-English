@@ -1,8 +1,13 @@
 # Deploy — GitHub + Hostinger
 
-Este projeto é um **Next.js com servidor**: Server Actions, rotas de API, rota de token efêmero e renderização por requisição. Ele **não** funciona como site estático.
+Este projeto é um **Next.js com servidor**: Server Actions, rotas de API, rota de token efêmero e renderização por requisição. Ele **não** funciona como site estático nem em hospedagem só-PHP.
 
-Isso decide tudo o que vem abaixo: você precisa de um plano da Hostinger que rode **Node.js** — VPS ou Cloud. Hospedagem compartilhada de PHP não serve, e não existe ajuste de configuração que contorne isso.
+O plano **Business** (2 vCPU, 3 GB RAM, 50 GB NVMe) e os planos **Cloud** rodam
+[aplicações Node.js pelo hPanel](https://www.hostinger.com/support/how-to-deploy-a-nodejs-website-in-hostinger/),
+com importação direta do GitHub e build automático a cada push. O Next.js é um dos
+frameworks reconhecidos, com SSR, ISR e rotas de API funcionando.
+
+> Se o seu plano for **Premium** ou **Single**, Node.js não está disponível: aí é upgrade para Business/Cloud ou uma VPS.
 
 ---
 
@@ -10,7 +15,7 @@ Isso decide tudo o que vem abaixo: você precisa de um plano da Hostinger que ro
 
 ### Confirme que nenhum segredo vai junto
 
-```bash
+```powershell
 git status --porcelain --ignored | Select-String "env|redencia|senha"
 ```
 
@@ -31,22 +36,38 @@ Trocar a chave é obrigatório — remover o arquivo do histórico **não basta*
 
 ## 2. Criar o repositório
 
-```bash
+```powershell
 git init
 git branch -M main
 git add .
-git commit -m "InglishEasy: plataforma de inglês para conversação"
+git commit -m "InglishEasy: plataforma de ingles para conversacao"
 git remote add origin https://github.com/SEU_USUARIO/inglisheasy.git
 git push -u origin main
 ```
 
-Crie o repositório como **privado**. O `.env.local` não vai junto, mas o conteúdo do curso, o schema e a lógica de negócio vão.
+Crie o repositório como **privado**. O `.env.local` não vai junto, mas o conteúdo do curso, o schema e a lógica de negócio vão. Na importação você autoriza o acesso da Hostinger ao repositório privado.
 
 ---
 
-## 3. Variáveis de ambiente na Hostinger
+## 3. Criar a aplicação no hPanel
 
-O `.env.local` **não** é versionado, então o servidor não tem essas variáveis. Configure-as no painel (hPanel → Node.js → Environment Variables) ou num `.env.production` criado direto no servidor, fora do git.
+**Websites → Adicionar site → Aplicações Node.js → Importar repositório Git.**
+
+| Campo | Valor |
+|---|---|
+| Repositório | `SEU_USUARIO/inglisheasy`, branch `main` |
+| Framework | **Next.js** (a detecção automática acerta) |
+| Versão do Node | **22.x** — o projeto exige 20.9+ (`engines` no package.json) |
+| Diretório de saída | `.next` |
+| Comando de build | `npm run build` |
+
+O `npm install` roda sozinho antes do build; não é preciso (nem possível) chamá-lo por SSH nos planos Business e Cloud.
+
+### ⚠️ Configure as variáveis ANTES do primeiro deploy
+
+Esta é a pegadinha que mais custa tempo. As variáveis `NEXT_PUBLIC_*` são **gravadas dentro do JavaScript** durante o build, não lidas quando o site roda. E `src/lib/env.ts` lança erro se elas faltarem, o que derruba a geração das páginas estáticas.
+
+Deployar primeiro e configurar depois não funciona: o build falha, ou pior, passa e gera um bundle apontando para lugar nenhum. Se isso acontecer, corrija as variáveis e clique em **Redeploy** — não adianta só reiniciar.
 
 | Variável | Valor |
 |---|---|
@@ -61,9 +82,12 @@ O `.env.local` **não** é versionado, então o servidor não tem essas variáve
 | `NEXT_PUBLIC_SITE_URL` | `https://seudominio.com.br` |
 | `ADMIN_BOOTSTRAP_EMAILS` | seu e-mail |
 | `NODE_ENV` | `production` |
-| `PORT` | a porta que a Hostinger indicar (geralmente `3000`) |
 
-⚠️ `NEXT_PUBLIC_SITE_URL` precisa ser o domínio **real**. Ele entra nos links de confirmação de e-mail; apontando para `localhost`, ninguém consegue confirmar a conta.
+`NEXT_PUBLIC_SITE_URL` precisa ser o domínio **real**. Ele entra nos links de confirmação de e-mail; apontando para `localhost`, ninguém consegue confirmar a conta.
+
+Não defina `PORT`: a porta é gerenciada pela Hostinger.
+
+O hPanel tem um assistente de conexão com o Supabase que preenche as variáveis sozinho — confira mesmo assim, principalmente a `SUPABASE_SERVICE_ROLE_KEY`.
 
 ---
 
@@ -78,61 +102,12 @@ Sem isso o cadastro funciona, mas o link do e-mail leva a lugar nenhum.
 
 ---
 
-## 5. Build e execução no servidor
+## 5. Popular o banco — da sua máquina, não do servidor
 
-```bash
-npm ci            # ci, não install: respeita o package-lock
-npm run build
-npm start         # next start, escuta em $PORT
-```
+Os scripts de seed conversam com o Supabase pela rede. **Não precisam rodar no servidor** — rodam daqui mesmo, apontando para o projeto de produção. Isso evita completamente a limitação de terminal do plano compartilhado.
 
-O processo precisa ficar de pé. Numa VPS, use PM2:
-
-```bash
-npm install -g pm2
-pm2 start npm --name inglisheasy -- start
-pm2 save
-pm2 startup       # sobe sozinho depois de reiniciar a máquina
-```
-
-### Deploy automático a partir do GitHub
-
-No hPanel, em **Git**, conecte o repositório e aponte para a branch `main`. Depois configure o script de pós-deploy:
-
-```bash
-cd /caminho/do/app
-npm ci
-npm run build
-pm2 restart inglisheasy
-```
-
-Se o seu plano expõe apenas o webhook, crie um `deploy.sh` no servidor com esse conteúdo e chame-o pelo webhook.
-
----
-
-## 6. Requisitos do servidor
-
-| Item | Mínimo | Por quê |
-|---|---|---|
-| Node.js | **20.9+** | exigido pelo Next 16 (`engines` no package.json) |
-| RAM | **2 GB** | o build do Next estoura 1 GB; em 1 GB ele morre com OOM |
-| Disco | ~1,5 GB | `node_modules` + `.next` |
-| HTTPS | obrigatório | o microfone da gravação e da conversa ao vivo **só funciona em HTTPS**. Em HTTP o navegador nem pede permissão. |
-
-Se o build morrer por memória na VPS:
-
-```bash
-NODE_OPTIONS="--max-old-space-size=2048" npm run build
-```
-
-Ou faça o build na sua máquina e envie a pasta `.next` — mas aí o deploy deixa de ser automático pelo GitHub.
-
----
-
-## 7. Depois do primeiro deploy
-
-```bash
-# no servidor, uma vez
+```powershell
+# .env.local apontando para o Supabase de produção
 npm run check              # valida env, banco, storage e API
 npm run seed:curriculum    # publica os 4 cantos, 52 circuitos e 728 lições
 npm run bootstrap:admin -- seu@email.com
@@ -143,21 +118,57 @@ O `seed:curriculum` remove módulos de posição > 4 e as lições ligadas a ele
 
 ---
 
-## 8. Checklist final
+## 6. Deploy contínuo
 
-- [ ] Repositório privado e `.env.local` fora dele
-- [ ] Variáveis configuradas no hPanel, incluindo `NEXT_PUBLIC_SITE_URL` com o domínio real
-- [ ] Site URL e Redirect URLs atualizadas no Supabase
-- [ ] Migrations aplicadas (`supabase/schema.sql` no SQL Editor)
-- [ ] `npm run check` verde **no servidor**
-- [ ] `npm run seed:curriculum` executado
-- [ ] HTTPS ativo — sem ele, gravação e conversa ao vivo não funcionam
-- [ ] Um cadastro de teste completo: criar conta → confirmar e-mail → abrir o Dia 1
+Depois de importado, todo `git push` na branch `main` dispara build e publicação. O painel tem um botão **Restart** que reinicia o processo Node sem rebuildar — útil quando você só troca uma variável de ambiente que **não** seja `NEXT_PUBLIC_*` (essas exigem redeploy).
 
 ---
 
-## Limites que valem saber antes de vender acesso
+## 7. Seus recursos dão conta?
 
-- **Conversa ao vivo e correção de fala consomem cota do Gemini.** No free tier o limite é baixo e a resposta vira `429`. Com alunos pagantes, habilite billing no Google Cloud.
-- **O áudio das lições é sintetizado no navegador** (Web Speech API). Não custa nada e não usa cota, mas a voz depende do sistema do aluno: boa no Windows, macOS e iOS; irregular em Android antigo.
-- **O Supabase free tier pausa o projeto** após 7 dias sem atividade. Para produção, o plano Pro.
+Medido neste projeto:
+
+| Recurso | Consumo | Limite do Business | Folga |
+|---|---|---|---|
+| **Inodes** | `node_modules` 30.654 + `.next` 1.689 + fonte ~130 ≈ **32.500** | 600.000 | sai de ~27 mil para ~60 mil (10%) |
+| **Disco** | ~1,2 GB com dependências e build | 50 GB | sobra folgada |
+| **RAM** | o build do Next chega a ~2 GB | 3 GB | aperta, mas cabe |
+| **CPU** | build de ~1 a 3 min | 2 vCPU | ok |
+
+A memória é o único item apertado. Se o build morrer por falta dela, adicione a variável `NODE_OPTIONS` com `--max-old-space-size=2560` e refaça o deploy.
+
+---
+
+## 8. Coisas que poderiam preocupar e não preocupam
+
+**WebSocket para a conversa ao vivo.** O plano compartilhado não sustenta conexão persistente, mas isso não afeta o app: `/api/live/token` só emite um token efêmero (válido por 2 min, sessão de até 30) e **o navegador conversa direto com o Google**. O WebSocket nunca passa pela Hostinger.
+
+**Tamanho do upload de áudio.** A gravação para em 3 minutos e sai em WebM/Opus — algo entre 300 e 700 KB. O limite de 12 MB das Server Actions existe por segurança, não porque os arquivos cheguem perto disso.
+
+**Otimização de imagem / `sharp`.** O projeto não usa `next/image`, então não há dependência binária para compilar no servidor.
+
+**Áudio das lições.** É sintetizado no navegador (Web Speech API). Não consome cota, não gera arquivo e não ocupa inode.
+
+---
+
+## 9. O que exige atenção de verdade
+
+**HTTPS é obrigatório.** Sem certificado ativo o navegador nem pede permissão de microfone — gravação e conversa ao vivo simplesmente deixam de existir. O SSL grátis da Hostinger resolve; confirme que está emitido e que o site força HTTPS.
+
+**Cota do Gemini.** Conversa ao vivo e correção de fala consomem cota. No free tier o limite é baixo e a resposta vira `429`. Com alunos pagantes, habilite billing no Google Cloud.
+
+**Supabase free tier pausa o projeto** após 7 dias sem atividade. Para produção, o plano Pro.
+
+---
+
+## 10. Checklist final
+
+- [ ] Repositório privado e `.env.local` fora dele
+- [ ] Aplicação Node.js criada no hPanel, Node 22.x, saída `.next`
+- [ ] **Todas as variáveis configuradas antes do primeiro build**, com `NEXT_PUBLIC_SITE_URL` no domínio real
+- [ ] Site URL e Redirect URLs atualizadas no Supabase
+- [ ] Migrations aplicadas no SQL Editor
+- [ ] `npm run check` verde apontando para o Supabase de produção
+- [ ] `npm run seed:curriculum` executado
+- [ ] HTTPS ativo
+- [ ] Um cadastro de teste completo: criar conta → confirmar e-mail → abrir o Dia 1 → gravar uma fala

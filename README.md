@@ -301,18 +301,19 @@ src/
 | `npm run verify:content` | Valida as 728 lições sem tocar no banco |
 | `npm run gen:icons` | Regera favicon, ícones de PWA e imagem de prévia de link |
 | `npm run cleanup:audio` | Lista (e com `--yes` apaga) os áudios órfãos da era do TTS por API |
+| `npm run seed:curriculum` | Publica curso, 4 cantos, 52 circuitos e 728 lições |
+| `npm run index:knowledge` | Indexa o material no pgvector |
+| `npm run bootstrap:admin` | Promove um e-mail a administrador |
+| `npm run db:bundle` | Regenera `supabase/schema.sql` a partir das migrations |
 
 ---
 
 ## Publicar
 
-[`DEPLOY.md`](DEPLOY.md) tem o passo a passo de GitHub + Hostinger: o que conferir antes do primeiro push, as variáveis que o servidor precisa, os requisitos da máquina e o que fazer se um segredo escapar.
+[`DEPLOY.md`](DEPLOY.md) tem o passo a passo de GitHub + Hostinger: como importar o repositório como aplicação Node.js, as variáveis que precisam existir **antes** do primeiro build, quanto do plano o projeto consome e o que fazer se um segredo escapar.
 
-Dois pontos que costumam derrubar o primeiro deploy:
+Três pontos que costumam derrubar o primeiro deploy:
 
-- **É um app com servidor**, não um site estático. Precisa de plano com Node.js 20.9+ — hospedagem compartilhada de PHP não roda.
+- **É um app com servidor**, não um site estático. Exige plano com Node.js 20.9+ — na Hostinger, Business ou Cloud.
+- **As variáveis vêm antes do build.** As `NEXT_PUBLIC_*` são gravadas dentro do bundle na hora de compilar; configurá-las depois exige um novo deploy, não um restart.
 - **HTTPS é obrigatório.** Sem ele o navegador nem pede permissão de microfone, e a gravação e a conversa ao vivo simplesmente não existem.
-| `npm run seed:curriculum` | Publica curso, 4 cantos, 52 circuitos e 728 lições |
-| `npm run index:knowledge` | Indexa o material no pgvector |
-| `npm run bootstrap:admin` | Promove um e-mail a administrador |
-| `npm run db:bundle` | Regenera `supabase/schema.sql` a partir das migrations |
