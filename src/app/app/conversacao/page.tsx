@@ -21,26 +21,37 @@ const SESSION_STATUS: Record<string, string> = {
   failed: "Falhou",
 };
 
-/** Cenários de prática livre, do mais simples ao mais exigente. */
+/**
+ * Cenários de prática livre, do mais simples ao mais exigente.
+ *
+ * O enunciado vai em PORTUGUÊS: quem está no A1 não consegue ler a tarefa em
+ * inglês, e uma tarefa que o aluno não entendeu ele cumpre errado — a nota cai
+ * por um motivo que não tem nada a ver com o inglês dele. O que ele grava,
+ * esse sim, é em inglês.
+ */
 const FREE_PROMPTS = [
   {
     level: "A1",
-    prompt: "Introduce yourself: say your name, where you're from, your job, and one thing you like doing.",
+    prompt:
+      "Apresente-se em inglês: diga seu nome, de onde você é, o que você faz e uma coisa que você gosta de fazer.",
     help: "Use os blocos do circuito 1 e 2. Frases curtas bastam — ninguém espera parágrafo.",
   },
   {
     level: "A2",
-    prompt: "Describe what you did last weekend. Say where you went, who you were with, and how it was.",
+    prompt:
+      "Conte em inglês o que você fez no fim de semana passado: aonde você foi, com quem estava e como foi.",
     help: "Use o passado simples. Não se preocupe se errar um verbo irregular.",
   },
   {
     level: "B1",
-    prompt: "Do you prefer working from home or from an office? Give your opinion and two reasons.",
+    prompt:
+      "Você prefere trabalhar de casa ou do escritório? Responda em inglês, dando sua opinião e duas razões.",
     help: "Estruture: opinião → razão 1 → razão 2 → conclusão.",
   },
   {
     level: "B2",
-    prompt: "Describe a difficult decision you had to make. What would you do differently today?",
+    prompt:
+      "Descreva em inglês uma decisão difícil que você teve de tomar. O que você faria diferente hoje?",
     help: "Boa chance de usar condicionais e 'should have'.",
   },
 ];

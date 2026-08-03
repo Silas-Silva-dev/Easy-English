@@ -370,8 +370,10 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         chunks,
         quiz: authoredQuiz(material.quiz.slice(0, 2) as Q[], `c${circuit.number}d1`),
         speakingPrompt:
-          `Listen to the dialogue one more time. Then record yourself saying just the first line out loud: ` +
-          `"${chunks[0]?.en ?? ""}". Don't worry about your accent yet — just say it.`,
+          // Sem ponto depois de «»: o bloco já traz a própria pontuação, e
+          // «Hi, I'm Ana.». na tela parece erro de digitação.
+          "Ouça o diálogo mais uma vez. Depois grave você dizendo em voz alta só a primeira fala: " +
+          `«${chunks[0]?.en ?? ""}» Não se preocupe com o sotaque ainda — só diga.`,
         immersionScript: scriptOf(material.immersion),
         listeningScript: null,
         grammarFocus: null,
@@ -420,8 +422,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         chunks,
         quiz: recallQuiz(chunks, seed, "pt-en", 4, `c${circuit.number}d2`),
         speakingPrompt:
-          `Record yourself saying all ${chunks.length} chunks from this circuit, one after another, ` +
-          `without reading. Pause between them. Start with "${chunks[0]?.en ?? ""}".`,
+          `Grave você dizendo os ${chunks.length} blocos deste circuito, um atrás do outro, sem ler. ` +
+          `Pause entre eles. Comece por «${chunks[0]?.en ?? ""}»`,
         immersionScript: null,
         listeningScript: null,
         grammarFocus: null,
@@ -470,8 +472,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         chunks,
         quiz: recallQuiz(chunks, seed, "when", 4, `c${circuit.number}d3`),
         speakingPrompt:
-          `Use the pattern "${circuit.pattern}" to say five different sentences about your own life. ` +
-          "Record them one after another, without stopping to think between them.",
+          `Use o molde «${circuit.pattern}» para dizer cinco frases diferentes sobre a sua própria vida. ` +
+          "Grave uma atrás da outra, sem parar para pensar entre elas.",
         immersionScript: null,
         listeningScript: null,
         grammarFocus: material.why.title,
@@ -515,8 +517,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         chunks,
         quiz: authoredQuiz(material.quiz.slice(2, 4) as Q[], `c${circuit.number}d4`),
         speakingPrompt:
-          "Retell this conversation in your own words, in English. Two or three sentences is enough. " +
-          "Who was talking, what did they want, how did it end?",
+          "Reconte esta conversa com as suas palavras, em inglês. Duas ou três frases bastam: " +
+          "quem estava falando, o que a pessoa queria e como terminou.",
         immersionScript: null,
         listeningScript: scriptOf(material.listening),
         grammarFocus: null,
@@ -562,7 +564,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         },
         chunks,
         quiz: [],
-        speakingPrompt: `${circuit.situation}\n\nRecord yourself handling this situation in English, for about 45 seconds. Use at least three chunks from this circuit.`,
+        speakingPrompt: `${circuit.situation}\n\nGrave você resolvendo esta situação em inglês, por uns 45 segundos. Use pelo menos três blocos deste circuito.`,
         immersionScript: null,
         listeningScript: null,
         grammarFocus: null,
@@ -618,8 +620,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
           `c${circuit.number}d6`,
         ),
         speakingPrompt:
-          "Say out loud, from memory, every chunk you can remember from the last three circuits. " +
-          "Don't check the list first — record whatever comes, then compare.",
+          "Diga em voz alta, de memória, todos os blocos que você lembrar dos três últimos circuitos. " +
+          "Não confira a lista antes — grave o que vier e só depois compare.",
         immersionScript: null,
         listeningScript: null,
         grammarFocus: null,
@@ -668,7 +670,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         },
         chunks,
         quiz: recallQuiz(chunks, seed, "en-pt", 4, `c${circuit.number}d7`),
-        speakingPrompt: `${circuit.mission}\n\nRecord the whole interaction from start to finish, playing both sides if you need to.`,
+        speakingPrompt: `${circuit.mission}\n\nGrave a interação inteira, do começo ao fim, fazendo as duas vozes se precisar.`,
         immersionScript: null,
         listeningScript: scriptOf(material.immersion),
         grammarFocus: null,
@@ -723,8 +725,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
           chunks,
           quiz: [],
           speakingPrompt:
-            "Talk for 40 seconds in English about what you just watched or listened to. " +
-            "What was it about? What did you catch? What went over your head?",
+            "Fale 40 segundos em inglês sobre o que você acabou de assistir ou ouvir. " +
+            "Sobre o que era? O que você conseguiu pegar? O que passou batido?",
           immersionScript: null,
           listeningScript: null,
           grammarFocus: null,
@@ -771,8 +773,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
           `c${circuit.number}d8`,
         ),
         speakingPrompt:
-          "Talk for 40 seconds in English about the conversation you just heard. " +
-          "What was going on? What did you catch? What went over your head?",
+          "Fale 40 segundos em inglês sobre a conversa que você acabou de ouvir. " +
+          "O que estava acontecendo? O que você conseguiu pegar? O que passou batido?",
         immersionScript: null,
         // Reusa o caminho de escuta: o player, a transcrição recolhida e o
         // áudio pré-gerado já funcionam para `listening_script` sem nada novo.
@@ -825,8 +827,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         chunks,
         quiz: [],
         speakingPrompt:
-          "Record yourself shadowing the dialogue: play the audio and speak over it, half a second behind. " +
-          "Send the recording even if you lose track in the middle — that is expected.",
+          "Grave você fazendo shadowing do diálogo: toque o áudio e fale por cima, meio segundo atrás. " +
+          "Mande a gravação mesmo se você se perder no meio — perder o fio faz parte.",
         immersionScript: null,
         listeningScript: scriptOf(material.immersion),
         grammarFocus: null,
@@ -898,8 +900,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         chunks,
         quiz: recallQuiz(chunks, seed, "pt-en", 4, `c${circuit.number}d10`),
         speakingPrompt:
-          "Speak for 40 seconds without stopping. Link your sentences with and, but, because, so and when. " +
-          "Silence is the only mistake here — a clumsy sentence is fine.",
+          "Fale 40 segundos em inglês sem parar. Emende as frases com and, but, because, so e when. " +
+          "Aqui o único erro é o silêncio — frase torta pode.",
         immersionScript: null,
         listeningScript: null,
         grammarFocus: null,
@@ -934,11 +936,14 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               title: "Frases de socorro — decore antes de entrar",
               instruction:
                 "Travar é normal e vai acontecer. O que separa quem evolui de quem desiste é ter o que dizer no travamento.",
+              // A frase vai em inglês porque é ela que o aluno tem de dizer —
+              // mas sem a tradução ao lado o iniciante decora um som que não
+              // sabe o que significa, e não usa na hora certa.
               prompts: [
-                "Sorry, could you say that again?",
-                "How do you say ___ in English?",
-                "Let me think for a second.",
-                "I'm not sure how to say this, but...",
+                "Sorry, could you say that again? — Desculpa, pode repetir?",
+                "How do you say ___ in English? — Como se diz ___ em inglês?",
+                "Let me think for a second. — Deixa eu pensar um segundo.",
+                "I'm not sure how to say this, but... — Não sei bem como dizer isso, mas...",
               ],
             },
             {
@@ -956,8 +961,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         chunks,
         quiz: [],
         speakingPrompt:
-          "Open the live room and have a real conversation in this scenario. Aim for at least 5 minutes " +
-          "and try to use three chunks from this circuit on purpose.",
+          "Abra a sala ao vivo e tenha uma conversa de verdade neste cenário. Mire em pelo menos 5 minutos " +
+          "e use três blocos deste circuito de propósito.",
         immersionScript: null,
         listeningScript: null,
         grammarFocus: null,
@@ -1002,8 +1007,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         chunks,
         quiz: recallQuiz(chunks, seed, "en-pt", 4, `c${circuit.number}d12`),
         speakingPrompt:
-          "Listen at 1.5x one last time, then record yourself summarizing the dialogue in English " +
-          "as fast as you comfortably can. Speed matters more than perfection today.",
+          "Ouça a 1,5x uma última vez e depois grave você resumindo o diálogo em inglês, o mais rápido " +
+          "que conseguir sem travar. Hoje velocidade importa mais que perfeição.",
         immersionScript: null,
         listeningScript: scriptOf(material.listening),
         grammarFocus: null,
@@ -1051,8 +1056,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         chunks,
         quiz: recallQuiz(pool, seed, "pt-en", 5, `c${circuit.number}d13`),
         speakingPrompt:
-          "Pick five chunks at random from any circuit you have done so far and use each one in a new sentence. " +
-          "Record all five in a row, without stopping.",
+          "Escolha cinco blocos ao acaso, de qualquer circuito que você já fez, e use cada um numa frase nova " +
+          "em inglês. Grave os cinco em sequência, sem parar.",
         immersionScript: null,
         listeningScript: null,
         grammarFocus: null,
@@ -1086,9 +1091,9 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               variant: "tip",
               title: "Como manter a conversa viva quando acaba o assunto",
               body:
-                "**Devolva a pergunta:** *What about you?*\n\n" +
-                "**Peça detalhe:** *How was that?* / *What happened next?*\n\n" +
-                "**Reaja e emende:** *Oh really? That's funny, because...*\n\n" +
+                "**Devolva a pergunta:** *What about you?* — E você?\n\n" +
+                "**Peça detalhe:** *How was that?* (E como foi?) / *What happened next?* (E aí, o que aconteceu?)\n\n" +
+                "**Reaja e emende:** *Oh really? That's funny, because...* — Sério? Que engraçado, porque...\n\n" +
                 "Conversa não morre por falta de vocabulário. Morre por falta de curiosidade demonstrada.",
             },
             {
@@ -1109,8 +1114,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         chunks,
         quiz: recallQuiz(chunks, seed, "when", 4, `c${circuit.number}d14`),
         speakingPrompt:
-          `Start talking about this: ${circuit.situation}\n\n` +
-          "Then let the topic drift wherever it wants. Speak for at least a minute and do not go back to Portuguese.",
+          `Comece falando sobre isto: ${circuit.situation}\n\n` +
+          "Depois deixe o assunto derivar para onde quiser. Fale pelo menos um minuto, em inglês, e não volte para o português.",
         immersionScript: null,
         listeningScript: null,
         grammarFocus: null,

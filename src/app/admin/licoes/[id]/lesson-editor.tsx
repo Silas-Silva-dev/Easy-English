@@ -99,7 +99,7 @@ export function LessonEditor({ lesson }: { lesson: Lesson }) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="speaking_prompt">Enunciado da prática falada (em inglês)</Label>
+        <Label htmlFor="speaking_prompt">Enunciado da prática falada (em português)</Label>
         <Textarea
           id="speaking_prompt"
           name="speaking_prompt"
@@ -107,7 +107,8 @@ export function LessonEditor({ lesson }: { lesson: Lesson }) {
           rows={3}
         />
         <p className="text-muted-foreground text-xs">
-          É este texto que a tutora de IA usa como critério de avaliação da tarefa.
+          Escreva o que fazer em português — o aluno precisa entender a tarefa. As frases-alvo em
+          inglês vão entre «aspas». É este texto que a tutora de IA usa como critério de avaliação.
         </p>
       </div>
 

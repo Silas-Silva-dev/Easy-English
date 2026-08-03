@@ -105,7 +105,9 @@ export async function POST(request: NextRequest) {
   }
 
   if (!prompt) {
-    prompt = "Free conversation practice: talk about anything you like for about a minute.";
+    // Este texto é gravado em `speaking_sessions.prompt` e reaparece na lista
+    // "Suas últimas práticas" — por isso vai em português, como todo enunciado.
+    prompt = "Prática livre: fale em inglês sobre o assunto que quiser, por cerca de um minuto.";
   }
 
   // ------------------------------------------------- upload no bucket privado
