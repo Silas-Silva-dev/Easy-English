@@ -66,6 +66,15 @@ supabase/.temp/
 supabase/.branches/
 
 # ---------------------------------------------------------------------------
+# Vozes do Piper (TTS local)
+#
+# ~360 MB de modelos .onnx baixados por `npm run gen:audio:setup`. NÃO vão para
+# o repositório: são reproduzíveis por download e só servem para GERAR o áudio.
+# O que precisa ser versionado é o resultado, em public/audio/.
+# ---------------------------------------------------------------------------
+.piper-voices/
+
+# ---------------------------------------------------------------------------
 # Plataformas de deploy
 # ---------------------------------------------------------------------------
 .vercel

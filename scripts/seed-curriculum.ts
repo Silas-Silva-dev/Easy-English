@@ -13,6 +13,7 @@
 
 import { composeLesson } from "@content/compose-lesson";
 import { assertContentComplete, CONTENT_BY_CIRCUIT } from "@content/circuits";
+import { authenticPieceFor } from "@content/circuits/authentic";
 import {
   authenticInputFor,
   buildLessonPlan,
@@ -300,6 +301,7 @@ function composeFor(dayNumber: number) {
     day,
     reviewOf,
     authenticInput: authenticInputFor(circuit, canto.level),
+    authentic: authenticPieceFor(circuit.number),
     livePrompt: livePromptFor(circuit),
     reviewChunks,
   });

@@ -10,6 +10,7 @@
 
 import { composeLesson } from "@content/compose-lesson";
 import { assertContentComplete, CONTENT_BY_CIRCUIT } from "@content/circuits";
+import { AUTHENTIC_PIECES, authenticPieceFor } from "@content/circuits/authentic";
 import {
   authenticInputFor,
   buildLessonPlan,
@@ -52,6 +53,38 @@ function main() {
     }
   }
 
+  // ------------------------------------------------ escuta estendida (dia 8)
+  //
+  // Este material é redigido pelo Gemini em `npm run gen:listening` e revisado
+  // por gente. As checagens abaixo pegam o que a revisão humana deixa passar:
+  // formato que quebra o player e limite do TTS.
+  for (const piece of AUTHENTIC_PIECES) {
+    const where = `escuta estendida do circuito ${piece.n}`;
+
+    const speakers = [...new Set(piece.lines.map(([who]) => who))];
+    if (speakers.length !== 2) {
+      warn(`${where}: ${speakers.length} locutores (${speakers.join(", ")}) — o TTS exige 2`);
+    }
+    if (piece.lines.length < 20) warn(`${where}: só ${piece.lines.length} falas`);
+
+    for (const [who, en, pt] of piece.lines) {
+      if (en.includes("/")) warn(`${where}: fala de ${who} contém "/" — quebra o roteiro`);
+      if (!en.trim()) warn(`${where}: fala vazia de ${who}`);
+      if (!pt.trim()) warn(`${where}: fala de ${who} sem tradução`);
+    }
+
+    if (piece.questions.length !== 3) warn(`${where}: ${piece.questions.length} perguntas`);
+    for (const q of piece.questions) {
+      if (q.options.length !== 4) warn(`${where}: "${q.question.slice(0, 40)}" tem ${q.options.length} alternativas`);
+      if (q.answerIndex < 0 || q.answerIndex >= q.options.length) {
+        warn(`${where}: "${q.question.slice(0, 40)}" aponta para alternativa inexistente`);
+      }
+      if (new Set(q.options).size !== q.options.length) {
+        warn(`${where}: "${q.question.slice(0, 40)}" tem alternativa repetida`);
+      }
+    }
+  }
+
   // ------------------------------------------------ lições compostas
   const plan = buildLessonPlan();
   let totalBlocks = 0;
@@ -75,6 +108,7 @@ function main() {
       day,
       reviewOf: spec.reviewOf,
       authenticInput: authenticInputFor(circuit, canto.level),
+      authentic: authenticPieceFor(circuit.number),
       livePrompt: livePromptFor(circuit),
       reviewChunks,
     });

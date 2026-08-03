@@ -4,6 +4,7 @@ import { AlertTriangle, Pause, Play, RotateCcw, Volume2 } from "lucide-react";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
+import { audioSrc } from "@/lib/audio-id";
 import {
   cancelSpeech,
   isSpeechSupported,
@@ -63,6 +64,20 @@ export function AudioPlayer({
     [text, mode],
   );
 
+  /**
+   * Áudio pré-gerado, quando existir.
+   *
+   * `scripts/generate-audio.ts` grava os diálogos e blocos em `public/audio/`
+   * com voz neural — fala conectada de verdade, que a voz do sistema
+   * operacional não produz. Enquanto o lote não termina, cada arquivo que já
+   * existe passa a ser usado e o resto continua na voz do navegador, sem o
+   * aluno perceber a transição.
+   */
+  const src = React.useMemo(() => audioSrc(text), [text]);
+  const audioRef = React.useRef<HTMLAudioElement | null>(null);
+  const [hasFile, setHasFile] = React.useState(false);
+  const [fileProgress, setFileProgress] = React.useState(0);
+
   // As vozes precisam estar em cache ANTES do clique: no Safari e no Chrome do
   // celular, o play só produz som se `speak()` for chamado dentro do gesto,
   // sem espera pelo meio. Ver `primeVoices` em @/lib/speech.
@@ -74,10 +89,39 @@ export function AudioPlayer({
   // Sair da página no meio de uma fala deixaria a voz tocando sozinha.
   React.useEffect(() => cancelSpeech, []);
 
+  /**
+   * Sonda o arquivo na montagem, não no clique: assim, quando o aluno aperta o
+   * play, já sabemos qual caminho tomar e o `play()` sai dentro do gesto —
+   * exigência do Safari, a mesma que `@/lib/speech` documenta.
+   */
+  React.useEffect(() => {
+    setHasFile(false);
+    setFileProgress(0);
+    if (!src) return;
+
+    const audio = new Audio();
+    audio.preload = "metadata";
+    const found = () => setHasFile(true);
+    const missing = () => setHasFile(false);
+    audio.addEventListener("loadedmetadata", found);
+    audio.addEventListener("error", missing);
+    audio.src = src;
+    audioRef.current = audio;
+
+    return () => {
+      audio.pause();
+      audio.removeEventListener("loadedmetadata", found);
+      audio.removeEventListener("error", missing);
+      audioRef.current = null;
+    };
+  }, [src]);
+
   React.useEffect(() => {
     cancelSpeech();
+    audioRef.current?.pause();
     setPlaying(false);
     setLineIndex(0);
+    setFileProgress(0);
   }, [text]);
 
   const start = React.useCallback(() => {
@@ -88,28 +132,60 @@ export function AudioPlayer({
     setPlays(next);
     onPlayCountChange?.(next);
 
-    speakLines(lines, {
-      rate: speed,
-      onLine: setLineIndex,
-      onEnd: () => {
-        setLineIndex(0);
-        if (loop) {
-          start();
-        } else {
+    const speakWithBrowser = () =>
+      speakLines(lines, {
+        rate: speed,
+        onLine: setLineIndex,
+        onEnd: () => {
+          setLineIndex(0);
+          if (loop) {
+            start();
+          } else {
+            setPlaying(false);
+            onEnded?.();
+          }
+        },
+        onError: (message) => {
+          setError(message);
           setPlaying(false);
-          onEnded?.();
-        }
-      },
-      onError: (message) => {
-        setError(message);
+        },
+      });
+
+    const audio = audioRef.current;
+    if (hasFile && audio) {
+      audio.playbackRate = speed;
+      audio.loop = loop;
+      audio.currentTime = 0;
+      // Com arquivo o progresso vem do tempo real, não da contagem de falas —
+      // é mais fiel e ainda funciona em bloco de uma linha só.
+      audio.ontimeupdate = () =>
+        setFileProgress(audio.duration ? audio.currentTime / audio.duration : 0);
+      audio.onended = () => {
+        setFileProgress(0);
         setPlaying(false);
-      },
-    });
-  }, [lines, speed, loop, onEnded, onPlayCountChange]);
+        onEnded?.();
+      };
+      // O play() sai aqui, síncrono dentro do clique. Se ainda assim falhar,
+      // a voz do navegador assume em vez de o botão morrer calado.
+      void audio.play().catch(() => {
+        setHasFile(false);
+        speakWithBrowser();
+      });
+      return;
+    }
+
+    speakWithBrowser();
+  }, [lines, speed, loop, hasFile, onEnded, onPlayCountChange]);
 
   function toggle() {
     if (playing) {
       cancelSpeech();
+      const audio = audioRef.current;
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+      setFileProgress(0);
       setPlaying(false);
       setLineIndex(0);
       return;
@@ -123,9 +199,19 @@ export function AudioPlayer({
     start();
   }
 
-  // A velocidade não muda no meio de uma fala já em curso — reiniciamos.
   function changeSpeed(next: number) {
     setSpeed(next);
+
+    // Com arquivo, a velocidade muda AO VIVO — o aluno ouve o efeito na hora,
+    // que é o ponto do dia 12 (escuta acelerada).
+    const audio = audioRef.current;
+    if (hasFile && audio) {
+      audio.playbackRate = next;
+      return;
+    }
+
+    // Na voz do navegador não dá: a fala em curso já foi enfileirada no ritmo
+    // antigo, então paramos e o aluno recomeça.
     if (playing) {
       cancelSpeech();
       setPlaying(false);
@@ -133,9 +219,17 @@ export function AudioPlayer({
     }
   }
 
-  const progressPct = lines.length > 1 ? ((lineIndex + (playing ? 1 : 0)) / lines.length) * 100 : playing ? 100 : 0;
+  const progressPct = hasFile
+    ? fileProgress * 100
+    : lines.length > 1
+      ? ((lineIndex + (playing ? 1 : 0)) / lines.length) * 100
+      : playing
+        ? 100
+        : 0;
 
-  if (!supported) {
+  // Só é "indisponível" quando não há NEM arquivo NEM síntese: com o áudio
+  // pré-gerado a lição funciona até em navegador sem Web Speech.
+  if (!supported && !hasFile) {
     return (
       <div className={cn("bg-muted/40 rounded-xl border border-dashed p-4", className)}>
         <p className="flex items-center gap-2 text-sm font-medium">

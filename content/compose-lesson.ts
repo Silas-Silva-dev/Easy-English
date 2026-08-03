@@ -47,6 +47,7 @@ import type {
   QuizQuestion,
 } from "@/lib/types/database";
 
+import type { AuthenticPiece } from "./circuits/authentic";
 import type { AuthenticInput, CircuitSpec, DayRole } from "./curriculum";
 
 // ===========================================================================
@@ -151,7 +152,14 @@ function applySwap(pattern: string, piece: string): string {
   return pattern.includes("___") ? pattern.replace("___", piece) : piece;
 }
 
-function scriptOf(lines: Line[]): string {
+/**
+ * Exportada porque `content/audio-manifest.ts` PRECISA produzir exatamente a
+ * mesma string que vai parar em `lessons.immersion_script`. O nome do arquivo
+ * de áudio é derivado desse texto (ver `src/lib/audio-id.ts`); se as duas
+ * pontas divergirem num espaço que seja, o player pede um arquivo que o
+ * gerador nunca criou e cai no fallback sem erro nenhum.
+ */
+export function scriptOf(lines: Line[]): string {
   // O player separa as falas por " / ", então nenhuma fala pode conter barra.
   return lines.map(([who, en]) => `${who}: ${en.replace(/\s*\/\s*/g, " ou ")}`).join(" / ");
 }
@@ -259,14 +267,18 @@ export interface ComposeContext {
   day: DayRole;
   /** Circuitos revisados neste dia (dias 6 e 13). */
   reviewOf: number[];
+  /** Prescrição de material externo — só usada quando não há peça redigida. */
   authenticInput: AuthenticInput[];
+  /** A escuta estendida do dia 8, dentro do app. Null enquanto não redigida. */
+  authentic: AuthenticPiece | null;
   livePrompt: string;
   /** Blocos vindos dos circuitos revisados — alimentam os dias 6, 10 e 13. */
   reviewChunks: { circuit: number; title: string; chunks: Chunk[] }[];
 }
 
 export function composeLesson(ctx: ComposeContext): ComposedLesson {
-  const { circuit, material, day, reviewOf, authenticInput, livePrompt, reviewChunks } = ctx;
+  const { circuit, material, day, reviewOf, authenticInput, authentic, livePrompt, reviewChunks } =
+    ctx;
   const seed = circuit.number * 17 + day.day;
   const chunks = circuit.chunks;
   const chunkList = chunks.map((c) => `${c.en} — ${c.pt}`);
@@ -643,56 +655,111 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
       };
 
     // ============================================ DIA 8 — Input autêntico
-    case 8:
+    //
+    // Este dia era o único que mandava o aluno para fora do app ("procure no
+    // YouTube..."). Era o item de maior impacto do método dependendo da
+    // disciplina de garimpar material sozinho — e sem nenhuma forma de saber
+    // se foi feito. Agora a peça vem de `content/circuits/authentic.ts`, com
+    // áudio pré-gerado e perguntas de compreensão que tornam o dia aferível.
+    //
+    // Enquanto um circuito não tiver peça redigida, caímos na prescrição
+    // antiga: geração gradual não pode deixar lição quebrada no meio.
+    case 8: {
+      const piece = authentic;
+
+      const howToListen: LessonBlock = {
+        type: "callout",
+        variant: "tip",
+        title: "Como ouvir sem desistir nos primeiros 5 minutos",
+        body:
+          "**Não busque entender tudo.** Busque entender o suficiente para acompanhar.\n\n" +
+          "**Passe 1:** ouça inteiro, sem ler nada, sem pausar. Vai perder muito. Normal.\n\n" +
+          "**Passe 2:** de novo, agora anotando 3 pedaços que você reconheceu.\n\n" +
+          "**Passe 3:** só então abra a transcrição, e só no que você não pegou.",
+      };
+
+      if (!piece) {
+        return {
+          content: {
+            warmup:
+              "A partir de hoje entra material que **não foi feito para estudante**. Áudio de curso é limpo, pausado " +
+              "e articulado; conversa real é rápida, sobreposta e cheia de ruído. Quem só treina no limpo trava no primeiro contato com o sujo.",
+            blocks: [
+              howToListen,
+              {
+                type: "text",
+                title: "Por que legenda em português atrapalha",
+                body:
+                  "Com legenda em português seu cérebro lê e desliga o ouvido. Você termina o episódio achando que " +
+                  "treinou escuta, e treinou leitura. Legenda em inglês ainda serve de muleta; a em português substitui a perna.",
+              },
+            ],
+            summary:
+              "Input autêntico é o que faz a diferença entre entender o professor e entender um americano.",
+            homework: "Escolha um dos materiais sugeridos e consuma 10 minutos. Sem legenda em português.",
+          },
+          chunks,
+          quiz: [],
+          speakingPrompt:
+            "Talk for 40 seconds in English about what you just watched or listened to. " +
+            "What was it about? What did you catch? What went over your head?",
+          immersionScript: null,
+          listeningScript: null,
+          grammarFocus: null,
+          grammarExplanation: null,
+          extensions: { authentic_input: authenticInput, srs_target: 10 },
+        };
+      }
+
       return {
         content: {
           warmup:
-            "A partir de hoje entra material que **não foi feito para estudante**. Áudio de curso é limpo, pausado " +
-            "e articulado; conversa real é rápida, sobreposta e cheia de ruído. Quem só treina no limpo trava no primeiro contato com o sujo.",
+            "Hoje entra fala que **não foi feita para estudante**. Os diálogos do circuito são limpos e pausados de " +
+            "propósito; esta conversa é rápida, tem gíria, gente se interrompendo e assunto mudando no meio. " +
+            "É de propósito também — quem só treina no limpo trava no primeiro contato com o sujo.",
           blocks: [
-            {
-              type: "callout",
-              variant: "tip",
-              title: "Como consumir sem desistir nos primeiros 5 minutos",
-              body:
-                "**Não busque entender tudo.** Busque entender o suficiente para acompanhar.\n\n" +
-                "Passe 1: assista/ouça inteiro, sem legenda, sem pausar. Vai perder muito. Normal.\n\n" +
-                "Passe 2: de novo, agora anotando 3 pedaços que você reconheceu.\n\n" +
-                "Passe 3 (opcional): com legenda em inglês — nunca em português.",
-            },
+            howToListen,
             {
               type: "text",
-              title: "Por que legenda em português atrapalha",
-              body:
-                "Com legenda em português seu cérebro lê e desliga o ouvido. Você termina o episódio achando que " +
-                "treinou escuta, e treinou leitura. Legenda em inglês ainda serve de muleta; a em português substitui a perna.",
+              title: piece.title,
+              body: `${piece.why}\n\nCerca de ${piece.minutes} minutos de escuta.`,
             },
             {
-              type: "practice",
-              title: "Depois de consumir",
-              instruction: "Responda em voz alta, em inglês, mesmo que saia torto.",
-              prompts: [
-                "What was it about?",
-                "What is one thing you understood completely?",
-                "What is one thing you heard but could not understand?",
-              ],
+              type: "callout",
+              variant: "warning",
+              title: "Você não vai entender tudo. É esse o exercício",
+              body:
+                "Nesta conversa tem palavra que você nunca viu e vai ter mesmo — é assim que vocabulário entra, por " +
+                "encontro repetido em contexto, não por lista. Se você entender uns 60%, está no ponto certo. " +
+                "As três perguntas no fim medem se você pegou o que importa, não cada palavra.",
             },
           ],
           summary:
-            "Input autêntico é o que faz a diferença entre entender o professor e entender um americano.",
-          homework: "Escolha um dos materiais sugeridos e consuma 10 minutos. Sem legenda em português.",
+            "Entender fala real, com ruído e velocidade, é o que separa entender o professor de entender um americano.",
+          homework:
+            "Antes de dormir, ouça a conversa mais uma vez com a transcrição fechada. Repare quanto mudou desde a primeira escuta.",
         },
         chunks,
-        quiz: [],
+        // A compreensão vira nota: o dia 8 deixa de ser confiança e passa a ser
+        // verificável, como qualquer outro dia do circuito.
+        quiz: authoredQuiz(
+          piece.questions.map(
+            (q) => [q.question, q.options, q.answerIndex, q.explanation] as Q,
+          ),
+          `c${circuit.number}d8`,
+        ),
         speakingPrompt:
-          "Talk for 40 seconds in English about what you just watched or listened to. " +
-          "What was it about? What did you catch? What went over your head?",
+          "Talk for 40 seconds in English about the conversation you just heard. " +
+          "What was going on? What did you catch? What went over your head?",
         immersionScript: null,
-        listeningScript: null,
+        // Reusa o caminho de escuta: o player, a transcrição recolhida e o
+        // áudio pré-gerado já funcionam para `listening_script` sem nada novo.
+        listeningScript: scriptOf(piece.lines),
         grammarFocus: null,
         grammarExplanation: null,
-        extensions: { authentic_input: authenticInput, srs_target: 10 },
+        extensions: { srs_target: 10 },
       };
+    }
 
     // =================================================== DIA 9 — Shadowing
     case 9: {

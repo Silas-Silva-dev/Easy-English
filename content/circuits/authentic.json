@@ -1,0 +1,1210 @@
+[
+  {
+    "kind": "conversa",
+    "title": "Primeiro dia de trabalho e dicas da copa",
+    "why": "Este áudio expõe você a um diálogo real de escritório com corta-luzes, gírias de ambiente de trabalho, avisos informais e nomes de terceiros, indo além de cumprimentos formais.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Jake",
+        "Hey, uh... excuse me, is anybody sitting here?",
+        "Opa, é... com licença, tem alguém sentado aqui?"
+      ],
+      [
+        "Elena",
+        "Oh, hi! No, go ahead. It's totally free.",
+        "Ah, oi! Não, pode sentar. Tá totalmente livre."
+      ],
+      [
+        "Jake",
+        "Thanks. I'm Jake, by the way. Just started in marketing today.",
+        "Valeu. Eu sou o Jake, a propósito. Comecei no marketing hoje."
+      ],
+      [
+        "Elena",
+        "Nice to meet ya, Jake! I'm Elena from design. Welcome aboard!",
+        "Prazer, Jake! Sou a Elena, do design. Seja bem-vindo!"
+      ],
+      [
+        "Jake",
+        "Thanks, Elena! Man, this place is kinda like a maze, you know?",
+        "Valeu, Elena! Cara, esse lugar é meio que um labirinto, sabe?"
+      ],
+      [
+        "Elena",
+        "Tell me about it! I got lost three times on my first day last month.",
+        "Nem me fale! Eu me perdi três vezes no meu primeiro dia no mês passado."
+      ],
+      [
+        "Jake",
+        "Glad it's not just me! So, uh, do you know if the coffee machine's working?",
+        "Ainda bem que não sou só eu! E aí, é... você sabe se a máquina de café tá funcionando?"
+      ],
+      [
+        "Elena",
+        "Well... yes and no. The espresso button is fine, but don't touch the latte one.",
+        "Bom... sim e não. O botão de espresso tá de boa, mas nem encosta no de latte."
+      ],
+      [
+        "Jake",
+        "Wow, good to know. What happens if I press it?",
+        "Nossa, bom saber. O que acontece se eu apertar?"
+      ],
+      [
+        "Elena",
+        "Trust me, you don't wanna find out. Let's just say Greg from HR had a bad morning last week.",
+        "Confia em mim, você não quer descobrir. Digamos que o Greg do RH teve uma manhã ruim na semana passada."
+      ],
+      [
+        "Jake",
+        "Haha, alright, noted! Espresso it is then.",
+        "Haha, beleza, anotado! Vai ser espresso então."
+      ],
+      [
+        "Elena",
+        "Are you doing the orientation session with Marcus later at two?",
+        "Você vai fazer o treinamento de integração com o Marcus mais tarde, às duas?"
+      ],
+      [
+        "Jake",
+        "Yeah, I think so. Is he... pretty strict or kinda laid-back?",
+        "É, acho que sim. Ele é... muito exigente ou meio tranquilo?"
+      ],
+      [
+        "Elena",
+        "Oh, Marcus? Super chill. But he rambles a bit, so bring water.",
+        "Ah, o Marcus? Super de boa. Mas ele fala bastante, então leva uma água."
+      ],
+      [
+        "Jake",
+        "Good call. Hey, sorry to interrupt myself, but is that Sarah over there?",
+        "Boa dica. Ei, desculpa mudar de assunto do nada, mas aquela ali é a Sarah?"
+      ],
+      [
+        "Elena",
+        "Where? Oh, near the printer? Yeah, that's her. Why?",
+        "Onde? Ah, perto da impressora? É ela sim. Por quê?"
+      ],
+      [
+        "Jake",
+        "My manager told me to grab the onboarding folder from her, but I was a bit shy to ask.",
+        "Meu gestor mandou eu pegar a pasta de integração com ela, mas fiquei com um pouco de vergonha de pedir."
+      ],
+      [
+        "Elena",
+        "Oh, don't worry! She looks scary, but she's actually super sweet.",
+        "Ah, relaxa! Ela tem cara de brava, mas é super fofa."
+      ],
+      [
+        "Jake",
+        "That's a relief. I've been holding off on talking to her all morning.",
+        "Que alívio. Passei a manhã inteira enrolando pra falar com ela."
+      ],
+      [
+        "Elena",
+        "Lemme just text her real quick so she knows you're coming over.",
+        "Deixa eu mandar uma mensagem rápida pra ela pra avisar que você tá indo lá."
+      ],
+      [
+        "Jake",
+        "Oh, really? That'd be awesome, thanks!",
+        "Ah, sério? Isso seria incrível, valeu!"
+      ],
+      [
+        "Elena",
+        "Done! She says bring her a green tea and she'll give you whatever you need.",
+        "Pronto! Ela falou pra você levar um chá verde pra ela e aí ela te dá o que você precisar."
+      ],
+      [
+        "Jake",
+        "Deal! I'm gonna hit the break room right now then.",
+        "Fechado! Vou dar um pulo na copa agora mesmo então."
+      ],
+      [
+        "Elena",
+        "Catch ya later, Jake! Good luck with Marcus!",
+        "Até mais tarde, Jake! Boa sorte com o Marcus!"
+      ],
+      [
+        "Jake",
+        "Thanks a lot, Elena! See ya around!",
+        "Muito obrigado, Elena! A gente se vê por aí!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Elena aconselha Jake a não apertar o botão de latte da máquina de café?",
+        "options": [
+          "Porque a opção de latte custa mais caro.",
+          "Porque deu problema com outro funcionário na semana passada.",
+          "Porque o café dessa opção está vencido.",
+          "Porque o botão está completamente travado."
+        ],
+        "answerIndex": 1,
+        "explanation": "Elena menciona que Greg do RH teve uma manhã ruim por causa desse botão na semana passada."
+      },
+      {
+        "question": "Qual conselho Elena dá a Jake sobre a sessão de integração com o Marcus?",
+        "options": [
+          "Aconselha a levar água porque o instrutor fala bastante.",
+          "Recomenda que ele leve um caderno para anotações obrigatórias.",
+          "Avisa para ele não se atrasar pois Marcus é extremamente rígido.",
+          "Diz para ele cancelar a sessão e reagendar para a próxima semana."
+        ],
+        "answerIndex": 0,
+        "explanation": "Elena explica que Marcus é muito tranquilo ('super chill'), mas costuma se estender na fala ('rambles a bit'), então sugere levar água."
+      },
+      {
+        "question": "O que Jake precisa levar para a Sarah para conseguir a pasta de integração?",
+        "options": [
+          "Um café espresso.",
+          "Uma pasta de documentos do marketing.",
+          "Um chá verde.",
+          "Uma garrafa de água."
+        ],
+        "answerIndex": 2,
+        "explanation": "Elena envia uma mensagem para Sarah e avisa Jake que ela entregará o material se ele levar um chá verde."
+      }
+    ],
+    "n": 1
+  },
+  {
+    "n": 2,
+    "kind": "conversa",
+    "title": "Dois brasileiros se descobrindo numa festa em Chicago",
+    "why": "O diálogo do circuito tinha perguntas limpas e uma resposta cada. Aqui a conversa vai e volta, muda de assunto no meio e ninguém espera a sua vez de falar.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Dana",
+        "Wait, hold on. Did you just say you're from São Paulo?",
+        "Peraí. Você falou que é de São Paulo?"
+      ],
+      [
+        "Rafa",
+        "Yeah! Well, kinda. I grew up there, but my family's from the northeast originally.",
+        "Falei! Bom, mais ou menos. Cresci lá, mas minha família é do Nordeste na origem."
+      ],
+      [
+        "Dana",
+        "No way. My roommate's from Recife. Small world, huh?",
+        "Não acredito. Minha colega de apartamento é de Recife. Mundo pequeno, né?"
+      ],
+      [
+        "Rafa",
+        "Seriously. Uh, so what do you do? Are you with the company or just, like, a plus one?",
+        "Sério mesmo. E aí, você faz o quê? Trabalha na empresa ou veio de acompanhante?"
+      ],
+      [
+        "Dana",
+        "Plus one, technically. My partner's in engineering. I do freelance stuff. Mostly photography.",
+        "De acompanhante, tecnicamente. Meu parceiro é da engenharia. Eu faço freela. Mais fotografia."
+      ],
+      [
+        "Rafa",
+        "Oh, that's cool. Like weddings, or...?",
+        "Ah, que legal. Tipo casamento, ou...?"
+      ],
+      [
+        "Dana",
+        "God, no. I did weddings for like two years and it almost killed me.",
+        "Nossa, não. Fiz casamento uns dois anos e quase me matou."
+      ],
+      [
+        "Rafa",
+        "Ha! That bad?",
+        "Ha! Tão ruim assim?"
+      ],
+      [
+        "Dana",
+        "You're on your feet for twelve hours and everyone's crying. No thanks.",
+        "Você fica doze horas em pé e todo mundo chorando. Dispenso."
+      ],
+      [
+        "Rafa",
+        "Fair enough. So what now?",
+        "Justo. E agora, o quê?"
+      ],
+      [
+        "Dana",
+        "Product stuff. Food, mostly. It's boring but it pays. What about you?",
+        "Coisa de produto. Comida, principalmente. É chato mas paga. E você?"
+      ],
+      [
+        "Rafa",
+        "I'm a designer. Been here about eight months now.",
+        "Sou designer. Estou aqui faz uns oito meses."
+      ],
+      [
+        "Dana",
+        "Eight months! How's that going? Honestly.",
+        "Oito meses! E como está sendo? Sinceramente."
+      ],
+      [
+        "Rafa",
+        "Honestly? The winter almost broke me.",
+        "Sinceramente? O inverno quase me quebrou."
+      ],
+      [
+        "Dana",
+        "Everybody says that. Everybody.",
+        "Todo mundo fala isso. Todo mundo."
+      ],
+      [
+        "Rafa",
+        "I mean, nobody warns you. They go, oh it gets cold. It gets cold?",
+        "Tipo, ninguém avisa. Falam, ah, esfria um pouco. Esfria um pouco?"
+      ],
+      [
+        "Dana",
+        "It was negative twenty in January.",
+        "Fez vinte negativos em janeiro."
+      ],
+      [
+        "Rafa",
+        "Negative twenty! I didn't know that was a real number.",
+        "Vinte negativos! Eu nem sabia que esse número existia."
+      ],
+      [
+        "Dana",
+        "You get used to it. Sort of. You don't, but you stop complaining.",
+        "A gente acostuma. Mais ou menos. Não acostuma, mas para de reclamar."
+      ],
+      [
+        "Rafa",
+        "That's not reassuring at all.",
+        "Isso não me tranquiliza em nada."
+      ],
+      [
+        "Dana",
+        "Hey, you made it through one. The second one's easier, I promise.",
+        "Ei, você sobreviveu a um. O segundo é mais fácil, prometo."
+      ],
+      [
+        "Rafa",
+        "Everyone keeps saying that too.",
+        "Todo mundo fica falando isso também."
+      ],
+      [
+        "Dana",
+        "Because it's true! Look, do you have a place to go for Thanksgiving?",
+        "Porque é verdade! Olha, você tem onde passar o Dia de Ação de Graças?"
+      ],
+      [
+        "Rafa",
+        "Uh, not really. I usually just work.",
+        "Ah, na real não. Normalmente eu só trabalho."
+      ],
+      [
+        "Dana",
+        "Absolutely not. You're coming to ours. I'm not asking.",
+        "De jeito nenhum. Você vem na nossa. Não estou perguntando."
+      ],
+      [
+        "Rafa",
+        "I mean, if you're sure. That'd be really nice, actually.",
+        "Bom, se você tem certeza. Seria muito bom, na verdade."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que a Dana parou de fotografar casamentos?",
+        "options": [
+          "Porque não pagava bem o suficiente.",
+          "Porque eram doze horas em pé e todo mundo chorando.",
+          "Porque preferia fotografar comida desde o começo.",
+          "Porque o parceiro dela pediu que ela mudasse de área."
+        ],
+        "answerIndex": 1,
+        "explanation": "Ela diz que ficava doze horas em pé e todo mundo chorando — e que quase a matou. O motivo é o desgaste, não o dinheiro."
+      },
+      {
+        "question": "O que a Dana quer dizer com «You don't, but you stop complaining»?",
+        "options": [
+          "Que ninguém realmente se acostuma com o frio, só para de reclamar dele.",
+          "Que quem reclama do frio nunca se adapta.",
+          "Que ela mesma nunca reclamou do inverno.",
+          "Que o Rafa deveria parar de reclamar."
+        ],
+        "answerIndex": 0,
+        "explanation": "Ela se corrige no meio da frase: disse «a gente acostuma», voltou atrás e admitiu que não acostuma — só para de reclamar."
+      },
+      {
+        "question": "Como termina a conversa?",
+        "options": [
+          "O Rafa recusa o convite porque precisa trabalhar.",
+          "A Dana promete apresentar o Rafa à colega de Recife.",
+          "A Dana convida o Rafa para o Dia de Ação de Graças e não aceita recusa.",
+          "Os dois combinam de se ver no próximo evento da empresa."
+        ],
+        "answerIndex": 2,
+        "explanation": "Ela diz «You're coming to ours. I'm not asking» — não é convite, é decisão. E o Rafa aceita."
+      }
+    ]
+  },
+  {
+    "n": 3,
+    "kind": "conversa",
+    "title": "Uma ligação ruim e um endereço que não sai",
+    "why": "Treina o pior cenário da escuta: linha ruim, sotaque, e você precisando pedir para repetir três vezes sem desistir da conversa.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Tech",
+        "Hi, this is Marcus over at Bayside Auto, calling about your vehicle?",
+        "Oi, aqui é o Marcus da Bayside Auto, ligando sobre o seu carro?"
+      ],
+      [
+        "Lu",
+        "Sorry, this is a bad line. Could you say that again?",
+        "Desculpa, a ligação está ruim. Pode repetir?"
+      ],
+      [
+        "Tech",
+        "Yeah, no problem. Marcus, from Bayside Auto. Your car's ready.",
+        "Sim, sem problema. Marcus, da Bayside Auto. Seu carro está pronto."
+      ],
+      [
+        "Lu",
+        "Oh, great! That was fast.",
+        "Ah, ótimo! Foi rápido."
+      ],
+      [
+        "Tech",
+        "Well, we ended up not doing the alignment. The tech said it didn't need it.",
+        "Bom, a gente acabou não fazendo o alinhamento. O mecânico disse que não precisava."
+      ],
+      [
+        "Lu",
+        "Sorry, the what? I didn't catch that word.",
+        "Desculpa, o quê? Não peguei essa palavra."
+      ],
+      [
+        "Tech",
+        "The alignment. Uh, when the wheels are pointed wrong and the car pulls?",
+        "O alinhamento. Tipo, quando as rodas estão tortas e o carro puxa?"
+      ],
+      [
+        "Lu",
+        "Oh! Okay, got it. So you didn't do it.",
+        "Ah! Tá, entendi. Então vocês não fizeram."
+      ],
+      [
+        "Tech",
+        "Right, didn't need it. So you're looking at three eighty instead of four fifty.",
+        "Isso, não precisava. Então fica trezentos e oitenta em vez de quatrocentos e cinquenta."
+      ],
+      [
+        "Lu",
+        "Wait, sorry. Three eighty?",
+        "Peraí, desculpa. Trezentos e oitenta?"
+      ],
+      [
+        "Tech",
+        "Three hundred eighty, yeah. Cheaper than we quoted.",
+        "Trezentos e oitenta, isso. Mais barato que a gente orçou."
+      ],
+      [
+        "Lu",
+        "Oh, cheaper. Okay, good. I thought you said more.",
+        "Ah, mais barato. Tá, que bom. Achei que você tinha falado mais."
+      ],
+      [
+        "Tech",
+        "Nope, less. Good news for once, right?",
+        "Não, menos. Notícia boa pra variar, né?"
+      ],
+      [
+        "Lu",
+        "Ha, yeah. Um, and where do I pick it up? Same place?",
+        "Ha, é. E onde eu pego? Mesmo lugar?"
+      ],
+      [
+        "Tech",
+        "So we actually moved locations. We're on Delancey now, four eleven Delancey.",
+        "Então, a gente mudou de endereço. Estamos na Delancey agora, quatrocentos e onze Delancey."
+      ],
+      [
+        "Lu",
+        "I'm sorry, could you speak more slowly? I want to write it down.",
+        "Desculpa, pode falar mais devagar? Quero anotar."
+      ],
+      [
+        "Tech",
+        "Sure. Four. One. One. Delancey Street.",
+        "Claro. Quatro. Um. Um. Rua Delancey."
+      ],
+      [
+        "Lu",
+        "Four one one. And how do you spell Delancey?",
+        "Quatro um um. E como se escreve Delancey?"
+      ],
+      [
+        "Tech",
+        "D as in dog, E, L, A, N, C, E, Y.",
+        "D de dog, E, L, A, N, C, E, Y."
+      ],
+      [
+        "Lu",
+        "D, E, L, A, N, C, E, Y. Perfect, thank you.",
+        "D, E, L, A, N, C, E, Y. Perfeito, obrigada."
+      ],
+      [
+        "Tech",
+        "You bet. And we close at six today, just so you know.",
+        "De nada. E a gente fecha às seis hoje, só pra você saber."
+      ],
+      [
+        "Lu",
+        "Six. Okay, I might not make it. Are you open Saturday?",
+        "Seis. Tá, acho que não consigo. Vocês abrem sábado?"
+      ],
+      [
+        "Tech",
+        "Till noon, yeah.",
+        "Até meio-dia, sim."
+      ],
+      [
+        "Lu",
+        "Great, I'll come Saturday morning then. My English is still basic, sorry about all the questions.",
+        "Ótimo, vou sábado de manhã então. Meu inglês ainda é básico, desculpa tanta pergunta."
+      ],
+      [
+        "Tech",
+        "Are you kidding? You got the whole address down. That's better than half my customers.",
+        "Está brincando? Você anotou o endereço inteiro. Melhor que metade dos meus clientes."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que a conta ficou mais barata do que o previsto?",
+        "options": [
+          "Porque a oficina deu desconto pela mudança de endereço.",
+          "Porque não foi preciso fazer o alinhamento.",
+          "Porque a Lu reclamou do orçamento inicial.",
+          "Porque o serviço ainda não foi terminado por completo."
+        ],
+        "answerIndex": 1,
+        "explanation": "O Marcus diz que o mecânico achou que o alinhamento não era necessário, então caiu de 450 para 380."
+      },
+      {
+        "question": "Por que a Lu não vai buscar o carro hoje?",
+        "options": [
+          "Porque a oficina fecha às seis e ela acha que não chega a tempo.",
+          "Porque o carro só fica pronto no sábado.",
+          "Porque ela não conseguiu anotar o endereço.",
+          "Porque ela prefere pagar no fim de semana."
+        ],
+        "answerIndex": 0,
+        "explanation": "Ele avisa que fecham às seis, ela responde «I might not make it» e pergunta sobre sábado."
+      },
+      {
+        "question": "Como o Marcus reage ao pedido de desculpas dela pelo inglês?",
+        "options": [
+          "Ele oferece falar mais devagar da próxima vez.",
+          "Ele diz que não percebeu nenhuma dificuldade.",
+          "Ele elogia, dizendo que ela anotou o endereço melhor que metade dos clientes dele.",
+          "Ele sugere que ela leve alguém que fale inglês na próxima."
+        ],
+        "answerIndex": 2,
+        "explanation": "A resposta dele é «You got the whole address down. That's better than half my customers» — um elogio, não uma concessão."
+      }
+    ]
+  },
+  {
+    "n": 4,
+    "kind": "conversa",
+    "title": "O pedido que deu errado na cafeteria",
+    "why": "No circuito o pedido saiu redondo. Aqui a máquina quebrou, o nome saiu errado e alguém pegou o copo errado — que é como balcão funciona de verdade.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Barista",
+        "Hi there, what can I get started for you?",
+        "Oi, o que eu posso começar a preparar pra você?"
+      ],
+      [
+        "Ines",
+        "Hi! Can I have a large latte, please?",
+        "Oi! Pode ser um latte grande, por favor?"
+      ],
+      [
+        "Barista",
+        "Sure thing. Oh, actually, I gotta warn you, our espresso machine is being weird today.",
+        "Claro. Ah, na verdade, tenho que avisar, nossa máquina de espresso está estranha hoje."
+      ],
+      [
+        "Ines",
+        "Weird how?",
+        "Estranha como?"
+      ],
+      [
+        "Barista",
+        "It's running slow. Like, five, six minutes for a latte. Just so you're not stuck waiting.",
+        "Está lenta. Tipo, cinco, seis minutos pra um latte. Só pra você não ficar esperando à toa."
+      ],
+      [
+        "Ines",
+        "Oh. Hmm. What's fast?",
+        "Ah. Hmm. O que sai rápido?"
+      ],
+      [
+        "Barista",
+        "Drip coffee's ready to go. Or cold brew, that's already made.",
+        "Café coado está pronto. Ou cold brew, esse já está feito."
+      ],
+      [
+        "Ines",
+        "What's cold brew? Sorry, I don't know that one.",
+        "O que é cold brew? Desculpa, essa eu não conheço."
+      ],
+      [
+        "Barista",
+        "It's coffee brewed cold, like, overnight. Way less bitter. Stronger though.",
+        "É café feito no frio, tipo, durante a noite. Bem menos amargo. Mas mais forte."
+      ],
+      [
+        "Ines",
+        "Stronger? Okay, I'll try that. Large.",
+        "Mais forte? Tá, vou experimentar. Grande."
+      ],
+      [
+        "Barista",
+        "Cool. Room for milk?",
+        "Show. Espaço pro leite?"
+      ],
+      [
+        "Ines",
+        "Sorry, what?",
+        "Desculpa, o quê?"
+      ],
+      [
+        "Barista",
+        "Do you want me to leave space at the top, so you can add milk yourself?",
+        "Você quer que eu deixe um espaço em cima, pra você mesma colocar leite?"
+      ],
+      [
+        "Ines",
+        "Oh! Yes, please. A little.",
+        "Ah! Sim, por favor. Um pouquinho."
+      ],
+      [
+        "Barista",
+        "You got it. Anything to eat?",
+        "Pode deixar. Alguma coisa pra comer?"
+      ],
+      [
+        "Ines",
+        "What's that one, the round thing?",
+        "O que é aquele ali, o redondo?"
+      ],
+      [
+        "Barista",
+        "Morning bun. It's like a croissant had a baby with a cinnamon roll.",
+        "Morning bun. É tipo um croissant que teve um filho com um cinnamon roll."
+      ],
+      [
+        "Ines",
+        "That sounds amazing. One of those.",
+        "Isso soa incrível. Um desses."
+      ],
+      [
+        "Barista",
+        "Perfect. That's gonna be nine forty. And can I get a name?",
+        "Perfeito. Fica nove e quarenta. E qual o nome?"
+      ],
+      [
+        "Ines",
+        "Ines. I, N, E, S.",
+        "Ines. I, N, E, S."
+      ],
+      [
+        "Barista",
+        "Got it. Card's not going through, can you try tapping again?",
+        "Anotado. O cartão não passou, pode tentar aproximar de novo?"
+      ],
+      [
+        "Ines",
+        "Sorry, tapping?",
+        "Desculpa, aproximar?"
+      ],
+      [
+        "Barista",
+        "Just hold it near the reader. There you go, that did it.",
+        "Só encostar perto da maquininha. Isso, pegou agora."
+      ],
+      [
+        "Ines",
+        "Phew. Thank you for your patience.",
+        "Ufa. Obrigada pela paciência."
+      ],
+      [
+        "Barista",
+        "Please. Order for Ines! Cold brew and a morning bun.",
+        "Imagina. Pedido da Ines! Cold brew e um morning bun."
+      ],
+      [
+        "Ines",
+        "That's me. Oh wait, this says Agnes.",
+        "Sou eu. Ah, peraí, aqui está escrito Agnes."
+      ],
+      [
+        "Barista",
+        "Ha! My handwriting. That's you, I promise.",
+        "Ha! Minha letra. É você, prometo."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que a Ines mudou o pedido do latte para cold brew?",
+        "options": [
+          "Porque o cold brew era mais barato naquele dia.",
+          "Porque a máquina de espresso estava lenta e o latte demoraria uns seis minutos.",
+          "Porque acabou o leite para fazer o latte.",
+          "Porque o barista recomendou o cold brew como o melhor da casa."
+        ],
+        "answerIndex": 1,
+        "explanation": "O barista avisou que a máquina estava lenta, uns cinco a seis minutos. Ela então perguntou o que saía rápido."
+      },
+      {
+        "question": "O que significa «Room for milk?» nesse contexto?",
+        "options": [
+          "Se ela quer que sobre espaço no copo para ela mesma pôr leite.",
+          "Se ela prefere leite em vez de água.",
+          "Se ela quer o leite servido à parte, num copo separado.",
+          "Se ela tem intolerância a leite."
+        ],
+        "answerIndex": 0,
+        "explanation": "Ela não entendeu de primeira, e ele explicou: deixar um espaço em cima para ela adicionar o leite."
+      },
+      {
+        "question": "O que aconteceu com o nome dela no copo?",
+        "options": [
+          "O barista escreveu Agnes por causa da letra dele.",
+          "Outro cliente pegou o copo dela por engano.",
+          "O barista esqueceu de escrever o nome.",
+          "Ela soletrou errado e o barista anotou como falou."
+        ],
+        "answerIndex": 0,
+        "explanation": "Ela soletrou I-N-E-S corretamente. Saiu Agnes, e o barista culpa a própria letra: «My handwriting»."
+      }
+    ]
+  },
+  {
+    "n": 5,
+    "kind": "conversa",
+    "title": "Dividindo a conta com uma calculadora e paciência",
+    "why": "Números aparecem aqui na velocidade real e fora de ordem — preço, gorjeta, horário e telefone tudo na mesma conversa, que é como eles chegam na vida.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Tom",
+        "Okay, so the damage is one twelve fifty before tip.",
+        "Beleza, o estrago deu cento e doze e cinquenta antes da gorjeta."
+      ],
+      [
+        "Bia",
+        "One twelve? For four people, that's not bad actually.",
+        "Cento e doze? Pra quatro pessoas, até que não está ruim."
+      ],
+      [
+        "Tom",
+        "Right? And that includes the appetizers. Okay, so twenty percent would be...",
+        "Né? E isso com as entradas. Então, vinte por cento daria..."
+      ],
+      [
+        "Bia",
+        "Twenty two fifty.",
+        "Vinte e dois e cinquenta."
+      ],
+      [
+        "Tom",
+        "Whoa. You did that in your head?",
+        "Uau. Você fez isso de cabeça?"
+      ],
+      [
+        "Bia",
+        "Ten percent is eleven twenty five. Double it.",
+        "Dez por cento é onze e vinte e cinco. Dobra."
+      ],
+      [
+        "Tom",
+        "Okay that's actually really smart. So one thirty five total.",
+        "Tá, isso é bem esperto. Então cento e trinta e cinco no total."
+      ],
+      [
+        "Bia",
+        "Which is, what, thirty three seventy five each?",
+        "Que dá, quanto, trinta e três e setenta e cinco cada?"
+      ],
+      [
+        "Tom",
+        "Let's just say thirty five and call it a day.",
+        "Vamos falar trinta e cinco e encerrar o assunto."
+      ],
+      [
+        "Bia",
+        "Works for me. Do you have Venmo?",
+        "Por mim tudo bem. Você tem Venmo?"
+      ],
+      [
+        "Tom",
+        "Yeah, same as my number. Seven one eight, five five five, oh two four one.",
+        "Tenho, mesmo do meu número. Sete um oito, cinco cinco cinco, zero dois quatro um."
+      ],
+      [
+        "Bia",
+        "Hang on, seven one eight what?",
+        "Peraí, sete um oito o quê?"
+      ],
+      [
+        "Tom",
+        "Five five five, oh two four one.",
+        "Cinco cinco cinco, zero dois quatro um."
+      ],
+      [
+        "Bia",
+        "Oh two four one. Got it. Sending now.",
+        "Zero dois quatro um. Peguei. Mandando agora."
+      ],
+      [
+        "Tom",
+        "Cool. Hey, what time did they say the movie starts?",
+        "Show. Ei, que horas eles falaram que o filme começa?"
+      ],
+      [
+        "Bia",
+        "Quarter to nine, I think? Let me check.",
+        "Quinze pras nove, acho? Deixa eu ver."
+      ],
+      [
+        "Tom",
+        "Because it's already twenty after eight.",
+        "Porque já são oito e vinte."
+      ],
+      [
+        "Bia",
+        "Yeah, eight forty five. We're fine, it's like a ten minute walk.",
+        "É, oito e quarenta e cinco. Estamos bem, são uns dez minutos de caminhada."
+      ],
+      [
+        "Tom",
+        "Ten minutes if we leave now.",
+        "Dez minutos se a gente sair agora."
+      ],
+      [
+        "Bia",
+        "So let's leave now! Where's the server?",
+        "Então bora sair agora! Cadê o garçom?"
+      ],
+      [
+        "Tom",
+        "I already paid, remember? You just sent me the money.",
+        "Eu já paguei, lembra? Você acabou de me mandar o dinheiro."
+      ],
+      [
+        "Bia",
+        "Right. My brain is not working tonight.",
+        "Verdade. Meu cérebro não está funcionando hoje."
+      ],
+      [
+        "Tom",
+        "It did twenty percent in two seconds, so.",
+        "Ele fez vinte por cento em dois segundos, então."
+      ],
+      [
+        "Bia",
+        "Numbers, yes. Everything else, no.",
+        "Números, sim. O resto, não."
+      ],
+      [
+        "Tom",
+        "Alright, let's go. If we run we can still get popcorn.",
+        "Beleza, vamos. Se a gente correr ainda dá pra pegar pipoca."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Como a Bia calculou os vinte por cento de gorjeta tão rápido?",
+        "options": [
+          "Ela usou a calculadora do celular sem que o Tom visse.",
+          "Ela calculou dez por cento e dobrou o valor.",
+          "Ela arredondou a conta para cento e vinte antes de calcular.",
+          "Ela já sabia o valor porque o restaurante sugere a gorjeta."
+        ],
+        "answerIndex": 1,
+        "explanation": "Ela explica o truque: dez por cento é 11,25; dobrando dá 22,50."
+      },
+      {
+        "question": "A que horas o filme começa e que horas eram durante a conversa?",
+        "options": [
+          "Começa às nove e eram oito e quarenta.",
+          "Começa às oito e quarenta e cinco e eram oito e vinte.",
+          "Começa às oito e trinta e eram oito e quinze.",
+          "Começa às nove e quinze e eram oito e quarenta e cinco."
+        ],
+        "answerIndex": 1,
+        "explanation": "Ela confirma «eight forty five» e ele diz que já são «twenty after eight», ou seja, oito e vinte."
+      },
+      {
+        "question": "Por que a Bia procura o garçom no fim da conversa?",
+        "options": [
+          "Para pedir a conta, esquecendo que o Tom já tinha pago.",
+          "Para pedir pipoca para levar.",
+          "Para reclamar do valor das entradas.",
+          "Para confirmar o número de telefone do Tom."
+        ],
+        "answerIndex": 0,
+        "explanation": "Ela pergunta «Where's the server?» e o Tom lembra que já pagou — tanto que ela acabou de transferir a parte dela."
+      }
+    ]
+  },
+  {
+    "n": 6,
+    "kind": "conversa",
+    "title": "Quem acorda às quatro e quem dorme às três",
+    "why": "Rotina contada em velocidade real, com horários soltos no meio da frase e duas pessoas discordando sobre o que é uma vida normal.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Priya",
+        "You look destroyed. What time did you get up?",
+        "Você está acabado. Que horas você levantou?"
+      ],
+      [
+        "Caio",
+        "Four fifteen.",
+        "Quatro e quinze."
+      ],
+      [
+        "Priya",
+        "In the morning?",
+        "Da manhã?"
+      ],
+      [
+        "Caio",
+        "No, four fifteen in the afternoon. Yes, in the morning.",
+        "Não, quatro e quinze da tarde. Sim, da manhã."
+      ],
+      [
+        "Priya",
+        "Why would anyone do that voluntarily?",
+        "Por que alguém faria isso voluntariamente?"
+      ],
+      [
+        "Caio",
+        "It's not voluntary, it's the gym. It's the only slot I can get.",
+        "Não é voluntário, é a academia. É o único horário que consigo."
+      ],
+      [
+        "Priya",
+        "There are other gyms.",
+        "Existem outras academias."
+      ],
+      [
+        "Caio",
+        "Not near me. Anyway, I'm out by five thirty, home by seven, work at eight.",
+        "Perto de mim não. Enfim, saio de lá cinco e meia, chego em casa sete, trabalho oito."
+      ],
+      [
+        "Priya",
+        "Okay, but then you must be dead by like eight at night.",
+        "Tá, mas aí você deve estar morto tipo oito da noite."
+      ],
+      [
+        "Caio",
+        "Nine, usually. I try to eat around seven, then I'm useless.",
+        "Nove, normalmente. Tento comer umas sete, aí eu não sirvo pra nada."
+      ],
+      [
+        "Priya",
+        "See, that's the part I couldn't do. I don't even start cooking until ten.",
+        "Viu, essa é a parte que eu não conseguiria. Eu nem começo a cozinhar antes das dez."
+      ],
+      [
+        "Caio",
+        "Ten at night? What do you eat before that?",
+        "Dez da noite? Você come o quê antes?"
+      ],
+      [
+        "Priya",
+        "I snack. I graze, basically. Like a goat.",
+        "Belisco. Fico pastando, basicamente. Tipo uma cabra."
+      ],
+      [
+        "Caio",
+        "That's not a meal plan, that's a lifestyle problem.",
+        "Isso não é um plano alimentar, é um problema de estilo de vida."
+      ],
+      [
+        "Priya",
+        "It works for me! I'm most awake around eleven pm.",
+        "Funciona pra mim! Eu estou mais desperta lá pelas onze da noite."
+      ],
+      [
+        "Caio",
+        "Eleven pm. And you go to bed when?",
+        "Onze da noite. E você dorme que horas?"
+      ],
+      [
+        "Priya",
+        "Two, three. Depends.",
+        "Duas, três. Depende."
+      ],
+      [
+        "Caio",
+        "So we're both broken, just in opposite directions.",
+        "Então nós dois somos quebrados, só que em direções opostas."
+      ],
+      [
+        "Priya",
+        "Pretty much. Do you do that on weekends too?",
+        "Basicamente. Você faz isso no fim de semana também?"
+      ],
+      [
+        "Caio",
+        "God no. Saturday I sleep until whenever.",
+        "Deus me livre. Sábado eu durmo até quando der."
+      ],
+      [
+        "Priya",
+        "Ha! So you do know how to be a person.",
+        "Ha! Então você sabe ser uma pessoa."
+      ],
+      [
+        "Caio",
+        "Barely. My girlfriend says I sleep through the whole morning and then complain the day is short.",
+        "Mal e mal. Minha namorada diz que eu durmo a manhã toda e depois reclamo que o dia é curto."
+      ],
+      [
+        "Priya",
+        "She's right though.",
+        "Mas ela tem razão."
+      ],
+      [
+        "Caio",
+        "Obviously she's right. That's what makes it annoying.",
+        "Óbvio que ela tem razão. É isso que irrita."
+      ],
+      [
+        "Priya",
+        "Alright, well, I'm getting coffee. You want anything?",
+        "Beleza, vou pegar café. Quer alguma coisa?"
+      ],
+      [
+        "Caio",
+        "Coffee. Obviously coffee.",
+        "Café. Óbvio que café."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que o Caio acorda às quatro e quinze?",
+        "options": [
+          "Porque começa a trabalhar muito cedo.",
+          "Porque é o único horário que ele consegue na academia.",
+          "Porque tem insônia e não consegue dormir mais.",
+          "Porque precisa levar a namorada ao trabalho."
+        ],
+        "answerIndex": 1,
+        "explanation": "Ele diz que não é voluntário: é o único horário disponível na academia, e não há outra perto dele."
+      },
+      {
+        "question": "O que a Priya quer dizer com «I graze, basically. Like a goat»?",
+        "options": [
+          "Que ela come pouco porque está de dieta.",
+          "Que ela come sempre a mesma coisa todo dia.",
+          "Que ela belisca ao longo do dia em vez de fazer refeições.",
+          "Que ela come só comida vegetariana."
+        ],
+        "answerIndex": 2,
+        "explanation": "«Graze» é pastar. Ela belisca o dia inteiro e só cozinha de fato lá pelas dez da noite."
+      },
+      {
+        "question": "O que a namorada do Caio reclama?",
+        "options": [
+          "Que ele dorme a manhã inteira no sábado e depois reclama que o dia é curto.",
+          "Que ele passa tempo demais na academia.",
+          "Que ele nunca acorda cedo o suficiente durante a semana.",
+          "Que ele janta cedo demais e fica com fome de madrugada."
+        ],
+        "answerIndex": 0,
+        "explanation": "Ele conta isso e ainda admite que ela tem razão — o que, segundo ele, é justamente o que irrita."
+      }
+    ]
+  },
+  {
+    "n": 7,
+    "kind": "conversa",
+    "title": "A série que um amou e o outro odiou",
+    "why": "Gosto discutido de verdade: os dois discordam, se interrompem, exageram e ninguém convence ninguém — que é como conversa sobre gosto termina.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Jo",
+        "Okay, be honest. Did you actually finish it?",
+        "Tá, seja sincero. Você terminou mesmo?"
+      ],
+      [
+        "Vini",
+        "I finished it.",
+        "Terminei."
+      ],
+      [
+        "Jo",
+        "And?",
+        "E?"
+      ],
+      [
+        "Vini",
+        "I'm not a big fan, honestly.",
+        "Não curti muito, sinceramente."
+      ],
+      [
+        "Jo",
+        "What! Why not?",
+        "O quê! Por que não?"
+      ],
+      [
+        "Vini",
+        "It's just so slow. Nothing happens for like four episodes.",
+        "É muito lento. Não acontece nada por uns quatro episódios."
+      ],
+      [
+        "Jo",
+        "That's the point! It's a slow burn.",
+        "É esse o ponto! É de fogo lento."
+      ],
+      [
+        "Vini",
+        "A slow burn is when something's building. That was just, like, people looking at each other.",
+        "Fogo lento é quando algo está sendo construído. Aquilo era gente se olhando."
+      ],
+      [
+        "Jo",
+        "Okay, that's fair for episode two. But three?",
+        "Tá, isso vale pro episódio dois. Mas o três?"
+      ],
+      [
+        "Vini",
+        "Three was better, I'll give you that.",
+        "O três foi melhor, isso eu te dou."
+      ],
+      [
+        "Jo",
+        "Three is where it clicks!",
+        "É no três que a coisa engata!"
+      ],
+      [
+        "Vini",
+        "For you. For me it clicked in like six, and by then I was mad about it.",
+        "Pra você. Pra mim engatou tipo no seis, e aí eu já estava com raiva."
+      ],
+      [
+        "Jo",
+        "Mad?",
+        "Com raiva?"
+      ],
+      [
+        "Vini",
+        "Yeah, because then it got good and I was like, you couldn't have done this five hours ago?",
+        "É, porque aí ficou bom e eu pensei, você não podia ter feito isso cinco horas atrás?"
+      ],
+      [
+        "Jo",
+        "Ha! Okay, that's actually a fair complaint.",
+        "Ha! Tá, essa reclamação é justa."
+      ],
+      [
+        "Vini",
+        "Thank you.",
+        "Obrigado."
+      ],
+      [
+        "Jo",
+        "It's still better than anything else that came out this year though.",
+        "Mesmo assim é melhor que qualquer coisa que saiu esse ano."
+      ],
+      [
+        "Vini",
+        "That's a low bar and you know it.",
+        "Essa régua está baixa e você sabe."
+      ],
+      [
+        "Jo",
+        "It depends what you watch, I guess.",
+        "Depende do que você assiste, acho."
+      ],
+      [
+        "Vini",
+        "Have you seen the Korean one everybody's talking about?",
+        "Você viu aquela coreana que todo mundo está comentando?"
+      ],
+      [
+        "Jo",
+        "No, I keep meaning to. Is it good?",
+        "Não, eu sempre penso em ver. É boa?"
+      ],
+      [
+        "Vini",
+        "You should try it. Same vibe, but it actually moves.",
+        "Você devia experimentar. Mesma pegada, mas anda de verdade."
+      ],
+      [
+        "Jo",
+        "Fine, I'll watch it. But if I don't like it, I'm blaming you.",
+        "Tá bom, vou ver. Mas se eu não gostar, a culpa é sua."
+      ],
+      [
+        "Vini",
+        "That's fair. Deal.",
+        "Justo. Combinado."
+      ],
+      [
+        "Jo",
+        "And you're rewatching mine. From episode three.",
+        "E você vai rever a minha. A partir do episódio três."
+      ],
+      [
+        "Vini",
+        "Absolutely not.",
+        "De jeito nenhum."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Qual é a crítica principal do Vini à série?",
+        "options": [
+          "Que os personagens são mal construídos.",
+          "Que ela demora demais a engatar — ficou boa só lá pelo episódio seis.",
+          "Que o final não faz sentido.",
+          "Que ele já tinha visto algo idêntico antes."
+        ],
+        "answerIndex": 1,
+        "explanation": "Ele diz que engatou só no episódio seis, e que aí ficou com raiva de não terem feito isso cinco horas antes."
+      },
+      {
+        "question": "Em que ponto os dois concordam?",
+        "options": [
+          "Que a série é a melhor coisa que saiu no ano.",
+          "Que o episódio três é melhor que o dois.",
+          "Que a série coreana é superior.",
+          "Que nenhum dos dois vai terminar a série."
+        ],
+        "answerIndex": 1,
+        "explanation": "O Vini admite «Three was better, I'll give you that», e a Jo concorda que o dois é lento."
+      },
+      {
+        "question": "O que os dois combinam no final?",
+        "options": [
+          "A Jo vai ver a série coreana; o Vini se recusa a rever a dela.",
+          "Os dois vão rever a série juntos desde o começo.",
+          "O Vini vai ver a coreana de novo e a Jo vai ver pela primeira vez.",
+          "Nenhum dos dois vai assistir mais nada indicado pelo outro."
+        ],
+        "answerIndex": 0,
+        "explanation": "Ela aceita ver a coreana e culpa ele se não gostar. Mas quando ela pede que ele reveja a dela, ele responde «Absolutely not»."
+      }
+    ]
+  }
+]
