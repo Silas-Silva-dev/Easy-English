@@ -188,7 +188,9 @@ export function AppShell({
           />
           {/* max-w-[85vw] evita o menu encostar na borda em telas de 320px. */}
           <div className="bg-sidebar animate-in-up absolute inset-y-0 left-0 flex w-72 max-w-[85vw] flex-col border-r">
-            <div className="flex h-16 shrink-0 items-center justify-between px-5">
+            {/* Mesma reserva do cabecalho: a gaveta tambem vai de topo a base
+                da tela, entao a marca e o X caem sob o relogio sem isto. */}
+            <div className="flex h-[calc(4rem+var(--safe-top))] shrink-0 items-center justify-between px-5 pt-[var(--safe-top)]">
               <Link href={brandHref} className="flex min-w-0 items-center gap-2.5 font-semibold">
                 <span className="bg-primary text-primary-foreground grid size-8 shrink-0 place-items-center rounded-lg">
                   <Waves className="size-4" />
@@ -207,14 +209,18 @@ export function AppShell({
 
             <div className="min-h-0 flex-1 overflow-y-auto px-3 py-2">{navList}</div>
 
-            <div className="shrink-0">{identity}</div>
+            <div className="shrink-0 pb-[var(--safe-bottom)]">{identity}</div>
           </div>
         </div>
       ) : null}
 
       {/* ------------------------------------------------------------ Coluna */}
       <div className="flex min-w-0 flex-col">
-        <header className="glass sticky top-0 z-30 flex h-16 items-center gap-3 border-b px-4 sm:px-6">
+        {/* A altura soma a barra de status do iOS ao 4rem de sempre, e o mesmo
+            valor vira padding-top. Assim a faixa util continua com 64px, o
+            vidro do `glass` sobe por tras do relogio (que e o visual de app
+            nativo) e nada do cabecalho fica embaixo dele. */}
+        <header className="glass sticky top-0 z-30 flex h-[calc(4rem+var(--safe-top))] items-center gap-3 border-b px-4 pt-[var(--safe-top)] sm:px-6">
           {/* size="icon" (40px): é o ÚNICO acesso à navegação no celular e fica
               encostado na borda, onde o polegar erra mais. */}
           <Button
@@ -286,7 +292,11 @@ export function AppShell({
           </DropdownMenu>
         </header>
 
-        <main className="min-w-0 flex-1 px-4 py-8 sm:px-6 lg:px-8">{children}</main>
+        {/* O recuo de baixo soma o indicador de home: sem ele o ultimo card
+            fica atras da barrinha e o polegar nao alcanca. */}
+        <main className="min-w-0 flex-1 px-4 pt-8 pb-[calc(2rem+var(--safe-bottom))] sm:px-6 lg:px-8">
+          {children}
+        </main>
       </div>
     </div>
   );

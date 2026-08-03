@@ -11,6 +11,21 @@
 :root {
   --radius: 0.75rem;
 
+  /* -------------------------------------------------------------------------
+     Safe areas do iOS.
+
+     O app instalado roda com `viewport-fit=cover` e barra de status
+     translucida, ou seja: o webview ocupa a tela INTEIRA, inclusive atras do
+     relogio e do indicador de home. Quem desenha barra colada no topo ou no
+     rodape precisa reservar esse espaco à mao — sem isso o cabecalho aparece
+     por baixo do relogio.
+
+     Ficam como variaveis para o valor ser escrito uma vez so e as telas
+     poderem compor com calc(). Fora do iOS os env() valem 0 e nada muda.
+     ------------------------------------------------------------------------- */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
   --background: oklch(0.995 0.002 60);
   --foreground: oklch(0.19 0.008 45);
 
@@ -160,6 +175,10 @@
   html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
+    /* Trava o zoom por gesto. A meta viewport ja pede isso, mas o Safari a
+       ignora quando o site abre pelo navegador; `touch-action` vale nos dois
+       casos. `pan-x pan-y` corta a pinca e o toque duplo e mantem a rolagem. */
+    touch-action: pan-x pan-y;
   }
 
   body {
@@ -170,6 +189,14 @@
     font-variant-ligatures: contextual;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    /* Sem quique elastico no fim da rolagem e sem "puxar para atualizar" —
+       e o que separa a sensacao de pagina da sensacao de app. */
+    overscroll-behavior-y: none;
+    /* Recuo lateral do notch. Vale 0 no retrato, que e como o app abre
+       (o manifesto trava em `orientation: portrait`), e so entra em acao no
+       Safari em paisagem. */
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
   }
 
   h1, h2, h3, h4 {

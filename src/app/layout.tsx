@@ -69,8 +69,20 @@ export const viewport: Viewport = {
   themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
-  // Sem `maximumScale`: travar o zoom quebra a acessibilidade de quem precisa
-  // ampliar, e o iOS ignora isso de qualquer forma desde o Safari 10.
+  // Zoom travado, para a tela se comportar como app e não como página.
+  //
+  // Isto tem um custo real de acessibilidade: quem amplia para ler perde o
+  // gesto. O que sobra são o zoom do próprio iOS (Ajustes > Acessibilidade >
+  // Zoom), que funciona por cima de qualquer app, e o `-webkit-text-size-adjust`
+  // em globals.css, que impede o Safari de encolher texto sozinho.
+  //
+  // O Safari ignora estes dois campos quando o site abre pelo navegador, mas
+  // os respeita no app instalado — que é o alvo aqui. A trava que vale nos
+  // dois casos é o `touch-action` em globals.css.
+  maximumScale: 1,
+  userScalable: false,
+  // Com `viewport-fit=cover` o webview vai até as bordas físicas da tela, e
+  // as safe areas passam a ser responsabilidade do CSS. Ver --safe-top.
   viewportFit: "cover",
 };
 
@@ -83,8 +95,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={`${inter.variable} ${display.variable} antialiased`}>
         <ThemeProvider>
           {children}
+          {/* O toast nasce no topo, onde fica a barra de status do iOS no app
+              instalado. Sem o recuo ele sai por baixo do relógio. */}
           <Toaster
             position="top-right"
+            offset="calc(1rem + env(safe-area-inset-top, 0px))"
             richColors
             closeButton
             toastOptions={{ classNames: { toast: "font-sans" } }}

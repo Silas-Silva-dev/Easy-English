@@ -49,7 +49,8 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       <main className="relative flex flex-col">
         <div className="bg-grid pointer-events-none absolute inset-0 -z-10 lg:hidden" />
 
-        <div className="flex items-center justify-between p-5">
+        {/* Reserva a barra de status do iOS — ver --safe-top em globals.css. */}
+        <div className="flex items-center justify-between p-5 pt-[calc(1.25rem+var(--safe-top))]">
           <Link href="/" className="flex items-center gap-2 font-semibold lg:invisible">
             <span className="bg-primary text-primary-foreground grid size-7 place-items-center rounded-md">
               <Waves className="size-3.5" />
@@ -59,7 +60,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           <ThemeToggle />
         </div>
 
-        <div className="flex flex-1 items-center justify-center px-5 pb-16">
+        <div className="flex flex-1 items-center justify-center px-5 pb-[calc(4rem+var(--safe-bottom))]">
           <div className="animate-in-up w-full max-w-sm">{children}</div>
         </div>
       </main>

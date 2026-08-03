@@ -76,7 +76,8 @@ export default async function LandingPage() {
     <div className="relative min-h-screen">
       {/* ----------------------------------------------------------- Header */}
       <header className="glass sticky top-0 z-40 border-b">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+        {/* Reserva a barra de status do iOS — ver --safe-top em globals.css. */}
+        <div className="mx-auto flex h-[calc(4rem+var(--safe-top))] max-w-6xl items-center justify-between px-4 pt-[var(--safe-top)] sm:px-6">
           <Link href="/" className="flex items-center gap-2.5 font-semibold">
             <span className="bg-primary text-primary-foreground grid size-8 place-items-center rounded-lg">
               <Waves className="size-4" />
