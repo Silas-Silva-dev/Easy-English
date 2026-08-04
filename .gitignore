@@ -26,6 +26,12 @@ dist/
 *[Ss]enha*
 *[Pp]assword*
 *secret*
+
+# Exceções: pastas de rotas do Next.js que contêm "senha" no nome
+!src/app/(auth)/recuperar-senha/
+!src/app/(auth)/recuperar-senha/**
+!src/app/(auth)/nova-senha/
+!src/app/(auth)/nova-senha/**
 *.pem
 *.key
 *.p12
