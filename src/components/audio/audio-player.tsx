@@ -82,7 +82,29 @@ export function AudioPlayer({
    */
   const src = React.useMemo(() => audioSrc(text), [text]);
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
-  const [hasFile, setHasFile] = React.useState(false);
+
+  /**
+   * Três estados, e não um booleano.
+   *
+   * Havia `hasFile: boolean` começando em `false`, virando `true` só quando o
+   * `loadedmetadata` da sondagem chegasse. Quem apertasse o play ANTES disso
+   * caía na voz do navegador mesmo com o arquivo do Piper no servidor — sem
+   * erro, sem aviso, sem jeito de perceber.
+   *
+   * A janela não é teórica: o dia 2 monta SETE players de uma vez e o
+   * navegador só abre 6 conexões por host, então a última sondagem entra na
+   * fila. Pior no iPhone, onde o Safari ignora `preload` até haver gesto do
+   * usuário: ali o `loadedmetadata` NUNCA chegava antes do clique, e todo bloco
+   * tocava na voz do sistema.
+   *
+   * Agora "ainda não sei" é otimista: tenta o arquivo e só cai na síntese se
+   * ele realmente falhar. "absent" continua indo direto para a síntese, o que
+   * preserva o gesto do usuário no Safari para os textos sem áudio gravado.
+   */
+  const [fileState, setFileState] = React.useState<
+    "unknown" | "present" | "absent"
+  >("unknown");
+  const hasFile = fileState !== "absent";
   /** 0 a 1. Vale para os dois caminhos: tempo no arquivo, fala na síntese. */
   const [progress, setProgress] = React.useState(0);
   /** Segundos. Zero quando não há arquivo: a síntese não sabe a duração. */
@@ -104,22 +126,26 @@ export function AudioPlayer({
    * play, já sabemos qual caminho tomar e o `play()` sai dentro do gesto: * exigência do Safari, a mesma que `@/lib/speech` documenta.
    */
   React.useEffect(() => {
-    setHasFile(false);
     setProgress(0);
     setDuration(0);
-    if (!src) return;
+    if (!src) {
+      setFileState("absent");
+      return;
+    }
+    setFileState("unknown");
 
     const audio = new Audio();
     audio.preload = "metadata";
 
     const found = () => {
-      setHasFile(true);
+      setFileState("present");
       setDuration(Number.isFinite(audio.duration) ? audio.duration : 0);
     };
-    const missing = () => setHasFile(false);
+    const missing = () => setFileState("absent");
     // O progresso é escutado aqui, e não em `play()`: assim a barra também
     // acompanha quando o aluno arrasta com o áudio pausado.
-    const tick = () => setProgress(audio.duration ? audio.currentTime / audio.duration : 0);
+    const tick = () =>
+      setProgress(audio.duration ? audio.currentTime / audio.duration : 0);
 
     audio.addEventListener("loadedmetadata", found);
     audio.addEventListener("error", missing);
@@ -195,7 +221,9 @@ export function AudioPlayer({
         onEnded?.();
       };
       void audio.play().catch(() => {
-        setHasFile(false);
+        // O arquivo não existe ou não decodifica. A partir daqui este player
+        // usa a síntese, sem tentar de novo a cada clique.
+        setFileState("absent");
         speakFrom(resumeLine);
       });
     },
@@ -302,15 +330,22 @@ export function AudioPlayer({
 
   // Só é "indisponível" quando não há NEM arquivo NEM síntese: com o áudio
   // pré-gerado a lição funciona até em navegador sem Web Speech.
-  if (!supported && !hasFile) {
+  if (!supported && fileState === "absent") {
     return (
-      <div className={cn("bg-muted/40 rounded-xl border border-dashed p-4", className)}>
+      <div
+        className={cn(
+          "bg-muted/40 rounded-xl border border-dashed p-4",
+          className,
+        )}
+      >
         <p className="flex items-center gap-2 text-sm font-medium">
-          <AlertTriangle className="text-streak size-4 shrink-0" /> Áudio indisponível neste navegador
+          <AlertTriangle className="text-streak size-4 shrink-0" /> Áudio
+          indisponível neste navegador
         </p>
         <p className="text-muted-foreground mt-1.5 text-xs leading-relaxed">
-          A fala do curso é sintetizada pelo próprio navegador. Chrome, Edge e Safari funcionam; alguns
-          navegadores alternativos não. O texto abaixo continua disponível.
+          A fala do curso é sintetizada pelo próprio navegador. Chrome, Edge e
+          Safari funcionam; alguns navegadores alternativos não. O texto abaixo
+          continua disponível.
         </p>
       </div>
     );
@@ -333,9 +368,13 @@ export function AudioPlayer({
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
             <Volume2 className="text-muted-foreground size-3.5 shrink-0" />
-            <span className="truncate text-sm font-medium">{label ?? "Ouvir"}</span>
+            <span className="truncate text-sm font-medium">
+              {label ?? "Ouvir"}
+            </span>
             {plays > 0 ? (
-              <span className="text-muted-foreground shrink-0 text-xs tabular-nums">{plays}x</span>
+              <span className="text-muted-foreground shrink-0 text-xs tabular-nums">
+                {plays}x
+              </span>
             ) : null}
           </div>
 
@@ -405,7 +444,9 @@ export function AudioPlayer({
         </div>
       ) : null}
 
-      {error ? <p className="text-destructive mt-3 text-xs leading-relaxed">{error}</p> : null}
+      {error ? (
+        <p className="text-destructive mt-3 text-xs leading-relaxed">{error}</p>
+      ) : null}
     </div>
   );
 }
@@ -446,10 +487,13 @@ export function ImmersionGate({
         <div className="animate-in-up space-y-4">{children}</div>
       ) : (
         <div className="border-border/70 rounded-xl border border-dashed p-6 text-center">
-          <p className="text-sm font-medium">O texto aparece depois de {requiredPlays} escutas</p>
+          <p className="text-sm font-medium">
+            O texto aparece depois de {requiredPlays} escutas
+          </p>
           <p className="text-muted-foreground mx-auto mt-1.5 max-w-md text-xs leading-relaxed">
-            Ouvir antes de ler não é firula: se você lê primeiro, seu cérebro cola a pronúncia do
-            português nas letras: e depois é bem mais trabalhoso desfazer.
+            Ouvir antes de ler não é firula: se você lê primeiro, seu cérebro
+            cola a pronúncia do português nas letras: e depois é bem mais
+            trabalhoso desfazer.
           </p>
           <div className="text-muted-foreground mt-3 flex items-center justify-center gap-1.5">
             {Array.from({ length: requiredPlays }, (_, i) => (

@@ -42,12 +42,20 @@
  */
 
 import { spawn } from "node:child_process";
-import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 import {
   audioJobs,
+  googleVoiceNames,
   spokenLines,
   voiceFor,
   voicePairFor,
@@ -55,6 +63,7 @@ import {
   type Engine,
 } from "../content/audio-manifest";
 
+import { GOOGLE_SAMPLE_RATE, listVoices, synthesizeLine } from "./google-tts";
 import { env, genai, sleep } from "./_shared";
 
 const OUT_DIR = join(process.cwd(), "public", "audio");
@@ -96,14 +105,19 @@ const LEDGER_PATH = join(OUT_DIR, "engines.json");
 
 function readLedger(): Record<string, Engine> {
   try {
-    return JSON.parse(readFileSync(LEDGER_PATH, "utf8")) as Record<string, Engine>;
+    return JSON.parse(readFileSync(LEDGER_PATH, "utf8")) as Record<
+      string,
+      Engine
+    >;
   } catch {
     return {};
   }
 }
 
 function writeLedger(ledger: Record<string, Engine>) {
-  const sorted = Object.fromEntries(Object.entries(ledger).sort(([a], [b]) => a.localeCompare(b)));
+  const sorted = Object.fromEntries(
+    Object.entries(ledger).sort(([a], [b]) => a.localeCompare(b)),
+  );
   writeFileSync(LEDGER_PATH, JSON.stringify(sorted, null, 2) + "\n", "utf8");
 }
 
@@ -116,13 +130,17 @@ function parseArgs(argv: string[]): Options {
 
   const only = get("only") ?? "all";
   if (!["all", "dialogues", "chunks"].includes(only)) {
-    console.error(`\n✗ --only aceita: all, dialogues, chunks (recebi "${only}")\n`);
+    console.error(
+      `\n✗ --only aceita: all, dialogues, chunks (recebi "${only}")\n`,
+    );
     process.exit(1);
   }
 
   const engine = get("engine") ?? "gemini";
-  if (engine !== "gemini" && engine !== "piper") {
-    console.error(`\n✗ --engine aceita: gemini, piper (recebi "${engine}")\n`);
+  if (engine !== "gemini" && engine !== "piper" && engine !== "google") {
+    console.error(
+      `\n✗ --engine aceita: gemini, piper, google (recebi "${engine}")\n`,
+    );
     process.exit(1);
   }
 
@@ -132,9 +150,16 @@ function parseArgs(argv: string[]): Options {
     only: only as Options["only"],
     engine,
     upgrade: has("upgrade"),
-    // 6s entre chamadas ≈ 10 por minuto. A conta gratuita tem teto por minuto
-    // e por dia; ir devagar troca tempo de parede por lote que não morre no meio.
-    delayMs: Number(get("delay") ?? 6000),
+    /**
+     * 6s entre chamadas ≈ 10 por minuto. A conta gratuita do Gemini tem teto
+     * por minuto e por dia; ir devagar troca tempo de parede por lote que não
+     * morre no meio.
+     *
+     * O Cloud TTS não precisa disso: o limite é de 1000 requisições por minuto
+     * e a cobrança é por caractere, não por chamada. Com 6s por fala o curso
+     * levaria mais de um dia; sem espera, uns 20 minutos.
+     */
+    delayMs: Number(get("delay") ?? (engine === "google" ? 0 : 6000)),
     model: get("model") ?? env("GEMINI_MODEL_TTS", DEFAULT_MODEL),
     force: has("force"),
     dryRun: has("dry-run"),
@@ -160,25 +185,39 @@ function haveFfmpeg(): Promise<boolean> {
   });
 }
 
-function pcmToMp3(pcm: Buffer, sampleRate: number, outPath: string): Promise<void> {
+function pcmToMp3(
+  pcm: Buffer,
+  sampleRate: number,
+  outPath: string,
+): Promise<void> {
   return new Promise((resolve, reject) => {
     const ff = spawn("ffmpeg", [
       "-hide_banner",
-      "-loglevel", "error",
-      "-f", "s16le",
-      "-ar", String(sampleRate),
-      "-ac", "1",
-      "-i", "pipe:0",
-      "-codec:a", "libmp3lame",
-      "-b:a", "64k",
-      "-y", outPath,
+      "-loglevel",
+      "error",
+      "-f",
+      "s16le",
+      "-ar",
+      String(sampleRate),
+      "-ac",
+      "1",
+      "-i",
+      "pipe:0",
+      "-codec:a",
+      "libmp3lame",
+      "-b:a",
+      "64k",
+      "-y",
+      outPath,
     ]);
 
     let stderr = "";
     ff.stderr.on("data", (d) => (stderr += d.toString()));
     ff.on("error", reject);
     ff.on("close", (code) =>
-      code === 0 ? resolve() : reject(new Error(`ffmpeg saiu com ${code}: ${stderr.trim()}`)),
+      code === 0
+        ? resolve()
+        : reject(new Error(`ffmpeg saiu com ${code}: ${stderr.trim()}`)),
     );
 
     ff.stdin.on("error", () => {
@@ -223,7 +262,9 @@ async function speak(
   };
 }
 
-const oneVoice = (name: string) => ({ voiceConfig: { prebuiltVoiceConfig: { voiceName: name } } });
+const oneVoice = (name: string) => ({
+  voiceConfig: { prebuiltVoiceConfig: { voiceName: name } },
+});
 
 /** 400 ms de silêncio entre falas emendadas: sem isso a conversa atropela. */
 function silence(rate: number, ms = 400): Buffer {
@@ -259,18 +300,32 @@ async function synthesize(
 
   if (job.speakers.length === 2) {
     const [voiceA, voiceB] = voicePairFor(job.speakers[0], job.speakers[1]);
-    return speak(`${DIALOGUE_STYLE}\n\n${lines.join("\n")}`, {
-      multiSpeakerVoiceConfig: {
-        speakerVoiceConfigs: [
-          { speaker: job.speakers[0], voiceConfig: { prebuiltVoiceConfig: { voiceName: voiceA } } },
-          { speaker: job.speakers[1], voiceConfig: { prebuiltVoiceConfig: { voiceName: voiceB } } },
-        ],
+    return speak(
+      `${DIALOGUE_STYLE}\n\n${lines.join("\n")}`,
+      {
+        multiSpeakerVoiceConfig: {
+          speakerVoiceConfigs: [
+            {
+              speaker: job.speakers[0],
+              voiceConfig: { prebuiltVoiceConfig: { voiceName: voiceA } },
+            },
+            {
+              speaker: job.speakers[1],
+              voiceConfig: { prebuiltVoiceConfig: { voiceName: voiceB } },
+            },
+          ],
+        },
       },
-    }, model);
+      model,
+    );
   }
 
   if (job.speakers.length === 1) {
-    return speak(`${DIALOGUE_STYLE}\n\n${lines.join("\n")}`, oneVoice(voiceFor(job.speakers[0])), model);
+    return speak(
+      `${DIALOGUE_STYLE}\n\n${lines.join("\n")}`,
+      oneVoice(voiceFor(job.speakers[0])),
+      model,
+    );
   }
 
   // Três ou mais: fala a fala, emendando o PCM.
@@ -282,7 +337,11 @@ async function synthesize(
     const who = match?.[1]?.trim() ?? job.speakers[0];
     const said = match?.[2]?.trim() ?? lines[i];
 
-    const piece = await speak(`${CHUNK_STYLE}\n\n${said}`, oneVoice(voiceFor(who)), model);
+    const piece = await speak(
+      `${CHUNK_STYLE}\n\n${said}`,
+      oneVoice(voiceFor(who)),
+      model,
+    );
     rate = piece.rate;
     if (parts.length) parts.push(silence(rate));
     parts.push(piece.pcm);
@@ -291,6 +350,62 @@ async function synthesize(
   }
 
   return { pcm: Buffer.concat(parts), rate };
+}
+
+// ===========================================================================
+// Motor Google Cloud TTS (Neural2)
+//
+// Diferença estrutural para o Gemini: o Cloud TTS NÃO tem modo multi-locutor.
+// Cada chamada fala com uma voz só. Então todo diálogo vira uma chamada por
+// fala, com o PCM emendado — o mesmo caminho que o Gemini já usava para os seis
+// diálogos de três pessoas, agora valendo para os 132.
+//
+// Isso custa mais chamadas, e é irrelevante aqui: o Cloud TTS cobra por
+// CARACTERE, não por requisição. O curso inteiro cabe na cota gratuita mensal
+// de 1 milhão de caracteres do Neural2.
+// ===========================================================================
+
+async function synthesizeGoogle(
+  job: AudioJob,
+  delayMs: number,
+): Promise<{ pcm: Buffer; rate: number }> {
+  const lines = spokenLines(job, "google");
+  const parts: Buffer[] = [];
+
+  for (let i = 0; i < lines.length; i++) {
+    parts.push(await synthesizeLine(lines[i].text, lines[i].voice));
+    if (i < lines.length - 1) {
+      // 400 ms entre falas: sem isso a conversa atropela.
+      parts.push(silence(GOOGLE_SAMPLE_RATE));
+      if (delayMs) await sleep(delayMs);
+    }
+  }
+
+  return { pcm: Buffer.concat(parts), rate: GOOGLE_SAMPLE_RATE };
+}
+
+/**
+ * Confere que TODAS as vozes do elenco existem na API antes de gerar.
+ *
+ * O Google aposenta família de voz (foi o que aconteceu com as Journey). Sem
+ * esta checagem, uma voz retirada só apareceria como erro no meio do lote —
+ * depois de já ter gravado dezenas de arquivos com o elenco pela metade.
+ */
+async function assertGoogleVoices(): Promise<void> {
+  const available = new Set((await listVoices("en-US")).map((v) => v.name));
+  const missing = googleVoiceNames().filter((name) => !available.has(name));
+
+  if (missing.length) {
+    const neural2 = [...available].filter((n) => n.includes("Neural2")).sort();
+    console.error(
+      `\n✗ Vozes do elenco indisponíveis na sua conta: ${missing.join(", ")}\n` +
+        `  Neural2 que a API oferece agora: ${neural2.join(", ") || "nenhuma"}\n` +
+        "  Ajuste GOOGLE_VOICES em content/audio-manifest.ts.\n",
+    );
+    process.exit(1);
+  }
+
+  console.log(`  vozes   ${googleVoiceNames().join(", ")}`);
 }
 
 /** Distingue "acabou a cota" de "deu erro nesse item". */
@@ -352,7 +467,12 @@ async function runPiper(
   let failed = 0;
 
   await new Promise<void>((resolve, reject) => {
-    const python = spawn("python", [join("scripts", "piper_worker.py"), jobsPath, OUT_DIR, VOICES_DIR]);
+    const python = spawn("python", [
+      join("scripts", "piper_worker.py"),
+      jobsPath,
+      OUT_DIR,
+      VOICES_DIR,
+    ]);
 
     let buffer = "";
     python.stdout.on("data", (data) => {
@@ -376,7 +496,9 @@ async function runPiper(
           );
         } else if (tag === "FAIL") {
           failed++;
-          console.log(`  \x1b[31m✗\x1b[0m ${labels.get(id) ?? id}\n      ${rest ?? ""}`);
+          console.log(
+            `  \x1b[31m✗\x1b[0m ${labels.get(id) ?? id}\n      ${rest ?? ""}`,
+          );
         }
       }
     });
@@ -388,7 +510,9 @@ async function runPiper(
 
     python.on("error", reject);
     python.on("close", (code) =>
-      code === 0 ? resolve() : reject(new Error(`piper_worker.py saiu com ${code}`)),
+      code === 0
+        ? resolve()
+        : reject(new Error(`piper_worker.py saiu com ${code}`)),
     );
   });
 
@@ -398,7 +522,10 @@ async function runPiper(
   const now = wanted.filter((j) => ready.has(j.id)).length;
   const total = wanted.length;
   console.log(`\n  ${now}/${total} áudios em public/audio/`);
-  if (failed) console.log(`  \x1b[31m${failed}\x1b[0m falharam: rode de novo para tentar só eles.`);
+  if (failed)
+    console.log(
+      `  \x1b[31m${failed}\x1b[0m falharam: rode de novo para tentar só eles.`,
+    );
   console.log(
     now === total
       ? `\n  \x1b[32mCompleto.\x1b[0m Commit public/audio/.\n` +
@@ -427,7 +554,9 @@ async function main() {
   mkdirSync(OUT_DIR, { recursive: true });
 
   const all = audioJobs();
-  const scoped = options.circuit ? all.filter((j) => j.circuit === options.circuit) : all;
+  const scoped = options.circuit
+    ? all.filter((j) => j.circuit === options.circuit)
+    : all;
   const wanted = scoped.filter((j) =>
     options.only === "all"
       ? true
@@ -458,13 +587,28 @@ async function main() {
     .slice(0, Number.isFinite(options.limit) ? options.limit : undefined);
 
   const done = wanted.filter((j) => onDisk.has(j.id)).length;
-  const byThisEngine = wanted.filter((j) => ledger[j.id] === options.engine).length;
+  const byThisEngine = wanted.filter(
+    (j) => ledger[j.id] === options.engine,
+  ).length;
+
+  const engineLabel =
+    options.engine === "gemini"
+      ? ` (${options.model})`
+      : options.engine === "google"
+        ? " (Cloud TTS · Neural2)"
+        : " (local, sem cota)";
 
   console.log(`\n\x1b[1mÁudio das lições\x1b[0m`);
-  console.log(`  motor    ${options.engine}${options.engine === "gemini" ? ` (${options.model})` : " (local, sem cota)"}`);
-  console.log(`  catálogo ${all.length} áudios (${all.filter((j) => j.kind === "dialogue").length} diálogos + ${all.filter((j) => j.kind === "chunk").length} blocos)`);
-  console.log(`  em disco ${done}/${wanted.length}  ·  ${byThisEngine} deste motor`);
-  console.log(`  nesta rodada ${pending.length}${options.upgrade ? " (--upgrade)" : ""}\n`);
+  console.log(`  motor    ${options.engine}${engineLabel}`);
+  console.log(
+    `  catálogo ${all.length} áudios (${all.filter((j) => j.kind === "dialogue").length} diálogos + ${all.filter((j) => j.kind === "chunk").length} blocos)`,
+  );
+  console.log(
+    `  em disco ${done}/${wanted.length}  ·  ${byThisEngine} deste motor`,
+  );
+  console.log(
+    `  nesta rodada ${pending.length}${options.upgrade ? " (--upgrade)" : ""}\n`,
+  );
 
   if (!pending.length) {
     console.log("  Nada a fazer: o áudio está completo.\n");
@@ -473,9 +617,21 @@ async function main() {
 
   if (options.dryRun) {
     for (const job of pending) console.log(`  · ${job.id}  ${job.label}`);
+    // Caracteres é como o Cloud TTS cobra: o número que decide se cabe na cota.
+    if (options.engine === "google") {
+      const chars = pending.reduce((sum, job) => sum + job.text.length, 0);
+      console.log(
+        `\n  ${chars.toLocaleString("pt-BR")} caracteres nesta rodada`,
+      );
+      console.log(
+        `  \x1b[2mNeural2: 1.000.000 grátis por mês, depois US$ 16 por milhão\x1b[0m`,
+      );
+    }
     console.log(`\n  (--dry-run: nada foi gerado)\n`);
     return;
   }
+
+  if (options.engine === "google") await assertGoogleVoices();
 
   // ------------------------------------------------------------ motor local
   if (options.engine === "piper") {
@@ -508,11 +664,30 @@ async function main() {
     const outPath = join(OUT_DIR, `${job.id}.mp3`);
 
     try {
-      const { pcm, rate } = await synthesize(job, options.model, options.delayMs);
+      const { pcm, rate } =
+        options.engine === "google"
+          ? await synthesizeGoogle(job, options.delayMs)
+          : await synthesize(job, options.model, options.delayMs);
       await pcmToMp3(pcm, rate, outPath);
 
       queue.shift();
       generated++;
+
+      /**
+       * Registra o motor deste arquivo.
+       *
+       * Só o caminho do Piper fazia isso: os áudios gerados pelo Gemini saíam
+       * do lote sem entrar no livro-razão. Efeito prático: `--upgrade` os
+       * tratava como "de outro motor" e regerava tudo de novo, e não havia como
+       * responder "este arquivo saiu de qual motor?" — que é exatamente a
+       * pergunta que se faz depois de trocar de TTS.
+       *
+       * Gravado a cada arquivo, como no Piper: uma queda no meio do lote não
+       * perde o registro do que já foi feito.
+       */
+      ledger[job.id] = options.engine;
+      writeLedger(ledger);
+
       // Passou: o ritmo está bom, volta o recuo para o mínimo.
       cooldown = COOLDOWN_START_MS;
       refusals = 0;
@@ -552,7 +727,9 @@ async function main() {
           return;
         }
 
-        console.log(`  Esperando ${options.waitMinutes} min para retomar (--watch)...\n`);
+        console.log(
+          `  Esperando ${options.waitMinutes} min para retomar (--watch)...\n`,
+        );
         await sleep(options.waitMinutes * 60_000);
         refusals = 0;
         cooldown = COOLDOWN_START_MS;
@@ -563,7 +740,9 @@ async function main() {
       queue.shift();
       failed++;
       const message = error instanceof Error ? error.message : String(error);
-      console.log(`  \x1b[31m✗\x1b[0m ${job.label}\n      ${message.slice(0, 160)}`);
+      console.log(
+        `  \x1b[31m✗\x1b[0m ${job.label}\n      ${message.slice(0, 160)}`,
+      );
     }
 
     if (queue.length) await sleep(options.delayMs);
@@ -573,11 +752,18 @@ async function main() {
   const ready = countOnDisk();
   const total = wanted.filter((j) => ready.has(j.id)).length;
   console.log(`\n  ${total}/${wanted.length} áudios prontos em public/audio/`);
-  if (failed) console.log(`  \x1b[31m${failed}\x1b[0m falharam: rode de novo para tentar só eles.`);
+  if (failed)
+    console.log(
+      `  \x1b[31m${failed}\x1b[0m falharam: rode de novo para tentar só eles.`,
+    );
   if (total === wanted.length) {
-    console.log(`\n  \x1b[32mCompleto.\x1b[0m Não esqueça de commitar public/audio/.\n`);
+    console.log(
+      `\n  \x1b[32mCompleto.\x1b[0m Não esqueça de commitar public/audio/.\n`,
+    );
   } else {
-    console.log(`  Faltam ${wanted.length - total}. Rode de novo quando quiser.\n`);
+    console.log(
+      `  Faltam ${wanted.length - total}. Rode de novo quando quiser.\n`,
+    );
   }
 }
 

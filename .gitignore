@@ -93,3 +93,12 @@ __pycache__/
 # Plataformas de deploy
 # ---------------------------------------------------------------------------
 .vercel
+
+# ---------------------------------------------------------------------------
+# Credenciais de conta de servico do Google (Cloud TTS).
+# O caminho certo e guardar FORA do repositorio; isto e a rede de seguranca
+# para quando alguem baixar o JSON direto na pasta do projeto.
+# ---------------------------------------------------------------------------
+*-service-account*.json
+gcp-*.json
+service-account*.json

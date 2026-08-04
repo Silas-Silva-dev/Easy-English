@@ -45,7 +45,7 @@ export interface AudioJob {
   label: string;
 }
 
-export type Engine = "gemini" | "piper";
+export type Engine = "gemini" | "piper" | "google";
 
 /**
  * ===========================================================================
@@ -107,6 +107,30 @@ const CAST: Record<string, CastEntry> = {
   Mark: ["m", 2],
   Liam: ["m", 0],
 
+  /**
+   * Nomes que as escutas estendidas inventaram e ficaram sem elenco.
+   *
+   * `verify:content` vinha reclamando dos onze há tempo, e o efeito era o
+   * defeito que esta tabela existe para não ter: caíam em `fallbackEntry`, que
+   * sorteia o gênero pelo hash do nome. A Jenna e a Rachel falavam com voz de
+   * homem, e no circuito 22 a "Jenna" e o "Leo" dividiam a MESMA voz — dois
+   * personagens indistinguíveis na mesma cena.
+   *
+   * Entram aqui antes de regravar o curso: gerar 482 arquivos com voz sorteada
+   * seria assar o erro em disco.
+   */
+  Amanda: ["f", 1],
+  Carla: ["f", 2],
+  Dave: ["m", 2],
+  Ethan: ["m", 1],
+  Jenna: ["f", 0],
+  Jessica: ["f", 1],
+  Leo: ["m", 2],
+  Lucas: ["m", 0],
+  Marcus: ["m", 1],
+  Maya: ["f", 2],
+  Rachel: ["f", 0],
+
   // --- papéis ---------------------------------------------------------------
   // Papel não tem gênero embutido: a escolha aqui é para o curso ter homens e
   // mulheres nos dois lados do balcão, e não médico-homem / recepcionista-mulher
@@ -141,7 +165,18 @@ const CAST: Record<string, CastEntry> = {
  * conversa de copa ou de festa não faz sentido.
  */
 export const CAST_PEOPLE: Record<Gender, string[]> = {
-  f: ["Ana", "Kate", "Sarah", "Elena", "Dana", "Ines", "Bia", "Priya", "Jo", "Lu"],
+  f: [
+    "Ana",
+    "Kate",
+    "Sarah",
+    "Elena",
+    "Dana",
+    "Ines",
+    "Bia",
+    "Priya",
+    "Jo",
+    "Lu",
+  ],
   m: ["Bruno", "Mike", "Jake", "Rafa", "Tom", "Caio", "Vini", "Mark", "Liam"],
 };
 
@@ -160,8 +195,40 @@ const PIPER_VOICES: Record<Gender, readonly string[]> = {
   m: ["en_US-ryan-medium", "en_US-joe-medium", "en_US-hfc_male-medium"],
 };
 
+/**
+ * Google Cloud TTS — Neural2.
+ *
+ * ===========================================================================
+ * POR QUE NEURAL2 E NÃO JOURNEY
+ * ===========================================================================
+ * A tabela de elenco acima precisa de TRÊS naipes por gênero para que dois
+ * personagens de uma mesma cena nunca caiam na mesma voz — é o defeito que ela
+ * foi escrita para corrigir.
+ *
+ * A família Journey tem apenas três vozes en-US no total (D masculina, F e O
+ * femininas). Um único naipe masculino significa que todo diálogo entre dois
+ * homens sairia com a MESMA voz, e o aluno perderia a separação dos turnos: é
+ * trocar um problema por outro pior.
+ *
+ * Neural2 tem nove vozes en-US (A, D, I, J masculinas; C, E, F, G, H
+ * femininas), o que cobre o elenco inteiro com folga. `--engine google` valida
+ * contra a lista real da API antes de gerar, então se alguma destas sair do ar
+ * o lote falha na primeira linha, em vez de gravar 482 arquivos errados.
+ */
+const GOOGLE_VOICES: Record<Gender, readonly string[]> = {
+  f: ["en-US-Neural2-F", "en-US-Neural2-C", "en-US-Neural2-H"],
+  m: ["en-US-Neural2-D", "en-US-Neural2-A", "en-US-Neural2-J"],
+};
+
 function poolFor(engine: Engine, gender: Gender): readonly string[] {
-  return engine === "piper" ? PIPER_VOICES[gender] : GEMINI_VOICES[gender];
+  if (engine === "piper") return PIPER_VOICES[gender];
+  if (engine === "google") return GOOGLE_VOICES[gender];
+  return GEMINI_VOICES[gender];
+}
+
+/** Todas as vozes que o motor Google usa: `--engine google` confere na API. */
+export function googleVoiceNames(): string[] {
+  return [...GOOGLE_VOICES.f, ...GOOGLE_VOICES.m];
 }
 
 /**
@@ -175,7 +242,8 @@ function poolFor(engine: Engine, gender: Gender): readonly string[] {
  */
 function fallbackEntry(speaker: string): CastEntry {
   let sum = 0;
-  for (let i = 0; i < speaker.length; i++) sum = (sum * 31 + speaker.charCodeAt(i)) >>> 0;
+  for (let i = 0; i < speaker.length; i++)
+    sum = (sum * 31 + speaker.charCodeAt(i)) >>> 0;
   return [sum % 2 === 0 ? "f" : "m", (sum % 3) as 0 | 1 | 2];
 }
 
@@ -220,7 +288,11 @@ export function narratorVoice(engine: Engine): string {
  * fallback ainda pode colidir. Ele anda dentro do MESMO gênero, para não
  * consertar a colisão criando o defeito que esta tabela veio corrigir.
  */
-export function voicePairFor(a: string, b: string, engine: Engine = "gemini"): [string, string] {
+export function voicePairFor(
+  a: string,
+  b: string,
+  engine: Engine = "gemini",
+): [string, string] {
   const first = voiceFor(a, engine);
   const second = voiceFor(b, engine);
   if (first !== second) return [first, second];
@@ -237,7 +309,10 @@ export function voicePairFor(a: string, b: string, engine: Engine = "gemini"): [
  * modo multi-locutor do Gemini: os 6 diálogos de três pessoas do curso saem
  * naturalmente aqui, cada personagem na sua voz.
  */
-export function spokenLines(job: AudioJob, engine: Engine): { voice: string; text: string }[] {
+export function spokenLines(
+  job: AudioJob,
+  engine: Engine,
+): { voice: string; text: string }[] {
   if (job.kind !== "dialogue") {
     return [{ voice: narratorVoice(engine), text: job.text }];
   }
@@ -245,14 +320,17 @@ export function spokenLines(job: AudioJob, engine: Engine): { voice: string; tex
   // Com exatamente dois, respeita o par desempatado: assim o áudio do Piper e
   // o do Gemini distribuem as vozes do mesmo jeito.
   const pair =
-    job.speakers.length === 2 ? voicePairFor(job.speakers[0], job.speakers[1], engine) : null;
+    job.speakers.length === 2
+      ? voicePairFor(job.speakers[0], job.speakers[1], engine)
+      : null;
 
   return job.text.split(/\s*\/\s*/).map((line) => {
     const match = /^([^:]{1,24}):\s*(.+)$/.exec(line);
     const who = match?.[1]?.trim() ?? job.speakers[0] ?? "";
     const said = match?.[2]?.trim() ?? line;
 
-    if (pair) return { voice: who === job.speakers[0] ? pair[0] : pair[1], text: said };
+    if (pair)
+      return { voice: who === job.speakers[0] ? pair[0] : pair[1], text: said };
     return { voice: voiceFor(who, engine), text: said };
   });
 }

@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 
 const supabaseHost = (() => {
   try {
-    return new URL(process.env.NEXT_PUBLIC_SUPABASE_URL ?? "https://placeholder.supabase.co").hostname;
+    return new URL(
+      process.env.NEXT_PUBLIC_SUPABASE_URL ?? "https://placeholder.supabase.co",
+    ).hostname;
   } catch {
     return "placeholder.supabase.co";
   }
@@ -12,7 +14,11 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
-      { protocol: "https", hostname: supabaseHost, pathname: "/storage/v1/object/public/**" },
+      {
+        protocol: "https",
+        hostname: supabaseHost,
+        pathname: "/storage/v1/object/public/**",
+      },
       { protocol: "https", hostname: "images.unsplash.com" },
     ],
   },
@@ -31,12 +37,35 @@ const nextConfig: NextConfig = {
    */
   async headers() {
     const publicHtml = [
-      { key: "Cache-Control", value: "public, max-age=0, s-maxage=60, stale-while-revalidate=300" },
+      {
+        key: "Cache-Control",
+        value: "public, max-age=0, s-maxage=60, stale-while-revalidate=300",
+      },
     ];
 
     return [
       { source: "/", headers: publicHtml },
       { source: "/cadastro", headers: publicHtml },
+      /**
+       * Áudio das lições: imutável, para sempre.
+       *
+       * Estava saindo sem NENHUM Cache-Control, então cada replay baixava o
+       * arquivo de novo — num curso em que ouvir o mesmo bloco vinte vezes é
+       * literalmente o método, e no 4G do aluno.
+       *
+       * `immutable` é seguro aqui porque o nome do arquivo é o hash do texto
+       * (ver src/lib/audio-id.ts): corrigir uma fala gera OUTRO nome. Um
+       * arquivo com este nome nunca muda de conteúdo.
+       */
+      {
+        source: "/audio/:file*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
     ];
   },
   experimental: {
