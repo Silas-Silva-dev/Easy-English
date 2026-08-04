@@ -155,7 +155,7 @@ export function LessonPlayer({
               <div className="bg-success/10 rounded-xl p-4">
                 <CheckCircle2 className="text-success mx-auto size-5" />
                 <p className="mt-2 text-2xl font-semibold tabular-nums">
-                  {quizScore != null ? `${quizScore}%` : "—"}
+                  {quizScore != null ? `${quizScore}%` : ": "}
                 </p>
                 <p className="text-muted-foreground text-xs">no quiz</p>
               </div>
@@ -239,7 +239,7 @@ export function LessonPlayer({
 
           {/* Dia 1 do circuito: o texto só destrava depois de 3 escutas.
               Os blocos de dentro do portão vêm em `content.gated`, nunca em
-              `content.blocks` — senão a transcrição apareceria antes da escuta. */}
+              `content.blocks`: senão a transcrição apareceria antes da escuta. */}
           {lesson.immersion_script ? (
             <ImmersionGate text={lesson.immersion_script}>
               {(lesson.content.gated ?? []).map((block, i) => (
@@ -316,7 +316,7 @@ export function LessonPlayer({
             </Card>
           ) : null}
 
-          {/* Input autêntico — dia 8, só nas trilhas que o incluem */}
+          {/* Input autêntico: dia 8, só nas trilhas que o incluem */}
           {lesson.extensions?.authentic_input?.length ? (
             <Card className="border-chart-2/30 bg-chart-2/5">
               <CardHeader className="pb-2">
@@ -344,7 +344,7 @@ export function LessonPlayer({
             </Card>
           ) : null}
 
-          {/* Conversa ao vivo — dia 11 */}
+          {/* Conversa ao vivo: dia 11 */}
           {lesson.extensions?.live_prompt ? (
             <Card className="border-primary/25 bg-primary/5">
               <CardHeader className="pb-2">
@@ -366,7 +366,7 @@ export function LessonPlayer({
             </Card>
           ) : null}
 
-          {/* Mentalidade — a trilha que sustenta o hábito */}
+          {/* Mentalidade: a trilha que sustenta o hábito */}
           {lesson.mindset_note ? (
             <div className="bg-muted/40 rounded-xl border-l-3 border-l-streak p-5">
               <p className="text-streak mb-1.5 text-xs font-semibold tracking-wide uppercase">
@@ -413,7 +413,7 @@ export function LessonPlayer({
                 <p className="text-sm font-medium">Repita cada bloco 3x em voz alta</p>
                 <p className="text-muted-foreground mx-auto mt-1 max-w-md text-xs leading-relaxed">
                   Bloco inteiro, nunca palavra solta. Ouça o modelo, pause, repita. Fala é memória
-                  motora — se a boca não faz, não fixa.
+                  motora: se a boca não faz, não fixa.
                 </p>
               </div>
 

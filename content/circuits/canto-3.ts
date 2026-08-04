@@ -1,9 +1,9 @@
 /**
- * TERCEIRO CANTO — Resolver (circuitos 27 a 39)
+ * TERCEIRO CANTO: Resolver (circuitos 27 a 39)
  *
  * O inglês de quando as coisas NÃO saem como planejado: trabalho, viagem,
  * problema, negociação, conselho, arrependimento. É onde a maioria dos cursos
- * para — e onde a vida adulta em inglês realmente começa.
+ * para: e onde a vida adulta em inglês realmente começa.
  */
 
 import type { CircuitContent } from "../compose-lesson";
@@ -35,7 +35,7 @@ export const CANTO_3: CircuitContent[] = [
     why: {
       title: "'Basically' é a sua muleta legítima",
       body:
-        "Você não sabe o termo técnico da sua profissão em inglês. Nem precisa.\n\n*Basically, I help companies ___* resolve qualquer explicação de trabalho, porque desloca a conversa de **o nome do que você faz** para **o efeito do que você faz** — e o efeito você consegue explicar com vocabulário simples.\n\nAmericano usa esse recurso o tempo todo, inclusive entre nativos. Não é simplificação para estrangeiro: é como se explica trabalho complexo em qualquer idioma.",
+        "Você não sabe o termo técnico da sua profissão em inglês. Nem precisa.\n\n*Basically, I help companies ___* resolve qualquer explicação de trabalho, porque desloca a conversa de **o nome do que você faz** para **o efeito do que você faz**: e o efeito você consegue explicar com vocabulário simples.\n\nAmericano usa esse recurso o tempo todo, inclusive entre nativos. Não é simplificação para estrangeiro: é como se explica trabalho complexo em qualquer idioma.",
     },
     swaps: ["the sales team", "a team of six", "hiring", "the whole operation", "everything that goes wrong", "customer support", "two departments", "making sure it ships on time"],
     expansion: [
@@ -51,14 +51,14 @@ export const CANTO_3: CircuitContent[] = [
       "Se você levaria seu trabalho para outro país",
     ],
     sounds: [
-      ["'Basically' tem três sílabas, não quatro", "BEI-sic-li. O 'a' do meio some. Brasileiro diz 'bei-si-ca-li' — corte a sílaba."],
-      ["'In charge of' emendado", "'incharjov' — o 'of' vira quase um 'v'. Toda preposição encolhe assim na fala."],
+      ["'Basically' tem três sílabas, não quatro", "BEI-sic-li. O 'a' do meio some. Brasileiro diz 'bei-si-ca-li': corte a sílaba."],
+      ["'In charge of' emendado", "'incharjov': o 'of' vira quase um 'v'. Toda preposição encolhe assim na fala."],
     ],
     quiz: [
       ["'I'm in charge of the sales team' significa que você:", ["Trabalha na equipe", "É responsável pela equipe", "Cobra da equipe", "Foi contratado pela equipe"], 1, "'In charge of' é ter a responsabilidade. Nada a ver com 'charge' de cobrar, que é outro sentido do mesmo verbo."],
       ["Por que 'Basically, I help ___' funciona tão bem?", ["É formal", "Troca o jargão pelo efeito do trabalho", "É mais curto", "É obrigatório"], 1, "Você não precisa do termo técnico: precisa explicar o efeito. Nativo faz igual."],
       ["'What line of work are you in?' pergunta:", ["Em que fila você está", "Em que área você trabalha", "Qual seu cargo", "Onde fica seu trabalho"], 1, "É sinônimo de 'What do you do?', um pouco mais formal e comum em conversa de adulto."],
-      ["'Challenging but rewarding' descreve um trabalho que é:", ["Difícil e mal pago", "Difícil mas que compensa", "Fácil e chato", "Impossível"], 1, "É a fórmula padrão para descrever trabalho exigente sem reclamar. Quase um clichê — e por isso mesmo, seguro."],
+      ["'Challenging but rewarding' descreve um trabalho que é:", ["Difícil e mal pago", "Difícil mas que compensa", "Fácil e chato", "Impossível"], 1, "É a fórmula padrão para descrever trabalho exigente sem reclamar. Quase um clichê: e por isso mesmo, seguro."],
     ],
   },
 
@@ -88,7 +88,7 @@ export const CANTO_3: CircuitContent[] = [
     why: {
       title: "'Have you ever' abre a porta que 'did you' fecha",
       body:
-        "*Did you go to Europe?* pergunta sobre uma viagem específica que os dois já sabem qual é.\n*Have you ever been to Europe?* pergunta sobre a **vida inteira** — e por isso puxa história.\n\nO mesmo vale para as respostas: *I've been there twice*, *I've never tried that*, *I've always wanted to*.\n\nÉ o tempo verbal da experiência acumulada, e é ele que transforma pergunta seca em conversa. Você não precisa do nome dele — precisa dos quatro blocos.",
+        "*Did you go to Europe?* pergunta sobre uma viagem específica que os dois já sabem qual é.\n*Have you ever been to Europe?* pergunta sobre a **vida inteira**: e por isso puxa história.\n\nO mesmo vale para as respostas: *I've been there twice*, *I've never tried that*, *I've always wanted to*.\n\nÉ o tempo verbal da experiência acumulada, e é ele que transforma pergunta seca em conversa. Você não precisa do nome dele: precisa dos quatro blocos.",
     },
     swaps: ["been to Japan", "tried sushi", "worked abroad", "driven on the other side", "flown business class", "lived alone", "done anything like that", "wanted to learn an instrument"],
     expansion: [
@@ -108,7 +108,7 @@ export const CANTO_3: CircuitContent[] = [
       ["'I've' é um som só", "'Aiv'. Não é 'ai hév'. Se você separa, a frase inteira desanda de ritmo."],
     ],
     quiz: [
-      ["'Have you ever been to Europe?' pergunta sobre:", ["Uma viagem específica", "Toda a sua vida até agora", "Seus planos", "Onde você mora"], 1, "É a pergunta de experiência acumulada. Por isso puxa história — e por isso é tão útil em conversa."],
+      ["'Have you ever been to Europe?' pergunta sobre:", ["Uma viagem específica", "Toda a sua vida até agora", "Seus planos", "Onde você mora"], 1, "É a pergunta de experiência acumulada. Por isso puxa história: e por isso é tão útil em conversa."],
       ["'I've never tried that' significa:", ["Não gostei", "Nunca experimentei até hoje", "Não vou experimentar", "Tentei e não deu"], 1, "'Never' + present perfect cobre a vida inteira até agora. Deixa a porta aberta para experimentar."],
       ["'I've worked here since 2020' indica que você:", ["Trabalhou lá e saiu", "Trabalha lá até hoje", "Vai trabalhar lá", "Trabalhou só em 2020"], 1, "'Since' marca o ponto de partida de algo que continua. 'For' marca a duração: for four years."],
       ["'It's the best trip I've ever had' usa o present perfect porque:", ["É passado recente", "Compara com toda a sua experiência de vida", "É futuro", "É formal"], 1, "Superlativo + 'I've ever' é uma dupla fixa. Guarde inteira: 'the best ___ I've ever ___'."],
@@ -158,14 +158,14 @@ export const CANTO_3: CircuitContent[] = [
       "A pergunta de entrevista que você mais odeia",
     ],
     sounds: [
-      ["'Strengths' é o pesadelo consonantal", "STRENGTHS: cinco consoantes no fim. Se travar, diga 'strength' no singular — ninguém repara e a frase funciona."],
+      ["'Strengths' é o pesadelo consonantal", "STRENGTHS: cinco consoantes no fim. Se travar, diga 'strength' no singular: ninguém repara e a frase funciona."],
       ["'Problem-solving' com pausa curta", "PRÁ-blem SÓL-ving, duas palavras com dois acentos. Composto assim sempre tem duas batidas."],
     ],
     quiz: [
       ["'Tell me about yourself' espera:", ["Sua biografia completa", "90 segundos sobre presente, passado relevante e motivação", "Só seu nome e cargo", "Suas fraquezas"], 1, "Se você mencionou o ensino médio, saiu do roteiro. Comece pelo presente."],
       ["Como falar de uma fraqueza sem se sabotar?", ["I don't have any.", "I'm working on being more patient.", "I'm terrible at deadlines.", "That's a bad question."], 1, "'I'm working on ___' apresenta a fraqueza já em processo de correção. É honesto e não derruba a candidatura."],
       ["'In my last role, I ___' serve para:", ["Reclamar do emprego antigo", "Dar exemplo concreto de realização", "Justificar a saída", "Falar de salário"], 1, "Entrevista americana valoriza exemplo concreto acima de adjetivo. Prefira 'eu fiz X' a 'eu sou bom em X'."],
-      ["'Do you have any questions for me?' — o que fazer?", ["Dizer que não, para não incomodar", "Ter pelo menos duas perguntas prontas", "Perguntar só sobre salário", "Perguntar se você passou"], 1, "Não ter pergunta é lido como falta de interesse. Duas perguntas sobre a equipe ou o desafio da vaga resolvem."],
+      ["'Do you have any questions for me?': o que fazer?", ["Dizer que não, para não incomodar", "Ter pelo menos duas perguntas prontas", "Perguntar só sobre salário", "Perguntar se você passou"], 1, "Não ter pergunta é lido como falta de interesse. Duas perguntas sobre a equipe ou o desafio da vaga resolvem."],
     ],
   },
 
@@ -173,7 +173,7 @@ export const CANTO_3: CircuitContent[] = [
   {
     n: 30,
     immersion: [
-      ["Kate", "So the timeline is tight but doable, and if we push the launch—", "Então o cronograma está apertado mas viável, e se a gente empurrar o lançamento—"],
+      ["Kate", "So the timeline is tight but doable, and if we push the launch: ", "Então o cronograma está apertado mas viável, e se a gente empurrar o lançamento: "],
       ["Ana", "Can I jump in here?", "Posso entrar aqui?"],
       ["Kate", "Please.", "Por favor."],
       ["Ana", "Just to be clear, are we talking about April or May?", "Só para deixar claro, estamos falando de abril ou maio?"],
@@ -196,7 +196,7 @@ export const CANTO_3: CircuitContent[] = [
     why: {
       title: "Interromper em inglês tem senha",
       body:
-        "Numa reunião em inglês, entrar sem senha é lido como agressivo. E ficar esperando um espaço educado é ficar mudo a reunião inteira — porque esse espaço não vem.\n\nA senha é curta: *Can I jump in here?*, *Sorry, quick question*, *Just to be clear...*\n\nEla dura um segundo e faz duas coisas: sinaliza que você quer a palavra e reconhece que está cortando alguém. Com ela, interromper é normal. Sem ela, é grosseria.",
+        "Numa reunião em inglês, entrar sem senha é lido como agressivo. E ficar esperando um espaço educado é ficar mudo a reunião inteira: porque esse espaço não vem.\n\nA senha é curta: *Can I jump in here?*, *Sorry, quick question*, *Just to be clear...*\n\nEla dura um segundo e faz duas coisas: sinaliza que você quer a palavra e reconhece que está cortando alguém. Com ela, interromper é normal. Sem ela, é grosseria.",
     },
     swaps: ["Can I jump in here?", "Just to be clear...", "I'd like to add something.", "Sorry, quick question.", "Can we come back to that?", "Let's move on.", "So, what are the next steps?", "I'll follow up by email."],
     expansion: [
@@ -216,7 +216,7 @@ export const CANTO_3: CircuitContent[] = [
       ["'Just to be clear' com o T mudo", "'Jus to be clear'. O T de 'just' desaparece antes de consoante. Vale para 'must be', 'last time', 'first day'."],
     ],
     quiz: [
-      ["Como pedir a palavra numa reunião?", ["Excuse me!", "Can I jump in here?", "Stop, please.", "Listen to me."], 1, "É a senha padrão. Reconhece que você está cortando e sinaliza que quer falar — tudo em quatro palavras."],
+      ["Como pedir a palavra numa reunião?", ["Excuse me!", "Can I jump in here?", "Stop, please.", "Listen to me."], 1, "É a senha padrão. Reconhece que você está cortando e sinaliza que quer falar: tudo em quatro palavras."],
       ["'Just to be clear' serve para:", ["Discordar", "Confirmar um entendimento sem parecer que duvida", "Encerrar", "Elogiar"], 1, "Coloca a responsabilidade da confusão em você, não no outro. É diplomacia embutida."],
       ["'Can we come back to that later?' significa:", ["Nunca mais falaremos disso", "Adiar o assunto sem descartá-lo", "Vamos decidir agora", "Não entendi"], 1, "Na prática, às vezes é um enterro educado. Mas formalmente adia sem fechar a porta."],
       ["'I'll follow up by email' quer dizer que você:", ["Vai cobrar alguém", "Vai mandar continuidade por escrito", "Vai marcar outra reunião", "Vai desistir"], 1, "'Follow up' é dar continuidade. É o fechamento padrão de reunião americana."],
@@ -265,13 +265,13 @@ export const CANTO_3: CircuitContent[] = [
       "O que você sempre esquece de levar",
     ],
     sounds: [
-      ["'Could you tell me' vira 'kudjutelmi'", "Bloco único. Em balcão de aeroporto, dito devagar demais soa hesitante — e hesitação atrasa você."],
+      ["'Could you tell me' vira 'kudjutelmi'", "Bloco único. Em balcão de aeroporto, dito devagar demais soa hesitante: e hesitação atrasa você."],
       ["'Luggage' não é 'lagueiji'", "LÁ-guij, duas sílabas curtas, com o G suave no fim. O E final não soa."],
     ],
     quiz: [
       ["Qual é a forma educada de perguntar onde fica algo?", ["Where is gate 12?", "Could you tell me where gate 12 is?", "Gate 12 where?", "Tell me gate 12."], 1, "A pergunta indireta inverte a ordem de volta: 'where gate 12 IS'. É o que soa educado em balcão."],
       ["'I'm here on vacation' responde a qual pergunta?", ["How long?", "What's the purpose of your visit?", "Where are you staying?", "Do you have a ticket?"], 1, "Motivo da visita. As respostas padrão são 'on vacation', 'on business' ou 'visiting family'."],
-      ["'I missed my connection' significa:", ["Senti falta da conexão", "Perdi o voo de conexão", "A conexão falhou", "Cancelei a conexão"], 1, "'Miss' é perder no sentido de não alcançar. O mesmo verbo de 'I miss you' — outro sentido, mesmo bloco."],
+      ["'I missed my connection' significa:", ["Senti falta da conexão", "Perdi o voo de conexão", "A conexão falhou", "Cancelei a conexão"], 1, "'Miss' é perder no sentido de não alcançar. O mesmo verbo de 'I miss you': outro sentido, mesmo bloco."],
       ["'Anything to declare?' pergunta se você:", ["Quer dizer algo", "Traz algo que precisa ser declarado na alfândega", "Tem reclamação", "Precisa de ajuda"], 1, "É pergunta de alfândega sobre bens. 'I have nothing to declare' é a resposta padrão."],
     ],
   },
@@ -303,7 +303,7 @@ export const CANTO_3: CircuitContent[] = [
     why: {
       title: "'Would it be possible' é a chave-mestra dos pedidos difíceis",
       body:
-        "Você tem três níveis de pedido:\n\n*Can I ___?* — normal\n*Could I ___?* — educado\n*Would it be possible to ___?* — o pedido que talvez incomode\n\nO terceiro é mais longo de propósito. Em inglês, **quanto mais palavras, mais educado** — a distância é a cortesia.\n\nUse-o quando estiver pedindo algo fora do padrão: late check-out, exceção, favor que dá trabalho. A recusa fica fácil para o outro, e é isso que faz ele querer dizer sim.",
+        "Você tem três níveis de pedido:\n\n*Can I ___?*: normal\n*Could I ___?*: educado\n*Would it be possible to ___?*: o pedido que talvez incomode\n\nO terceiro é mais longo de propósito. Em inglês, **quanto mais palavras, mais educado**: a distância é a cortesia.\n\nUse-o quando estiver pedindo algo fora do padrão: late check-out, exceção, favor que dá trabalho. A recusa fica fácil para o outro, e é isso que faz ele querer dizer sim.",
     },
     swaps: ["get a late check-out", "change rooms", "store my bags after check-out", "get an extra towel", "have a quiet room", "check in early", "extend one more night", "get a receipt by email"],
     expansion: [
@@ -324,8 +324,8 @@ export const CANTO_3: CircuitContent[] = [
     ],
     quiz: [
       ["Qual pedido é o mais educado?", ["Can I change rooms?", "Could I change rooms?", "Would it be possible to change rooms?", "I want another room."], 2, "Em inglês, mais palavras = mais cortesia. A distância é o que amortece o pedido."],
-      ["'I have a reservation under Silva' — o 'under' aqui significa:", ["Embaixo de", "No nome de", "Sob condições", "Menos de"], 1, "'Under the name of' encurtado. É a fórmula fixa em hotel e restaurante."],
-      ["'Is breakfast included?' pergunta se:", ["O café está pronto", "O café faz parte do preço", "Você pode tomar café", "Onde é o café"], 1, "'Included' é estar dentro do preço. Pergunta essencial — a resposta muda bastante o custo da viagem."],
+      ["'I have a reservation under Silva': o 'under' aqui significa:", ["Embaixo de", "No nome de", "Sob condições", "Menos de"], 1, "'Under the name of' encurtado. É a fórmula fixa em hotel e restaurante."],
+      ["'Is breakfast included?' pergunta se:", ["O café está pronto", "O café faz parte do preço", "Você pode tomar café", "Onde é o café"], 1, "'Included' é estar dentro do preço. Pergunta essencial: a resposta muda bastante o custo da viagem."],
       ["'The air conditioning isn't working' é preferível a 'It's broken' porque:", ["É mais curto", "Descreve o sintoma sem acusar", "É mais formal", "Não há diferença"], 1, "Descrever o sintoma facilita a solução e evita defensiva. Vale para hotel, loja e suporte técnico."],
     ],
   },
@@ -358,7 +358,7 @@ export const CANTO_3: CircuitContent[] = [
     why: {
       title: "Sintoma em inglês: três blocos que resolvem",
       body:
-        "Você não precisa de vocabulário médico. Precisa de três moldes:\n\n**I have a ___** — para o que tem nome: *a headache*, *a fever*, *a cough*, *a sore throat*.\n**It hurts ___** — para apontar: *it hurts here*, *it hurts when I walk*.\n**I don't feel well** — para o resto.\n\nCom esses três e o dedo apontando, você descreve praticamente qualquer sintoma. E numa emergência, apontar vale mais que vocabulário perfeito.",
+        "Você não precisa de vocabulário médico. Precisa de três moldes:\n\n**I have a ___**: para o que tem nome: *a headache*, *a fever*, *a cough*, *a sore throat*.\n**It hurts ___**: para apontar: *it hurts here*, *it hurts when I walk*.\n**I don't feel well**: para o resto.\n\nCom esses três e o dedo apontando, você descreve praticamente qualquer sintoma. E numa emergência, apontar vale mais que vocabulário perfeito.",
     },
     swaps: ["headache", "fever", "sore throat", "cough", "stomachache", "toothache", "rash", "terrible cold"],
     expansion: [
@@ -412,7 +412,7 @@ export const CANTO_3: CircuitContent[] = [
     why: {
       title: "Reclamar sem atacar a pessoa na sua frente",
       body:
-        "*I'm afraid there's been a mistake* é uma obra-prima de diplomacia. Repare no que ela **não** diz: quem errou.\n\n'Houve um engano' — sem sujeito, sem culpado. Isso libera a pessoa na sua frente para resolver em vez de se defender, porque ela não foi acusada.\n\nÉ o oposto do instinto. Quando você diz *You charged me twice*, cria adversário. Quando diz *There's been a mistake*, cria aliado — e é o aliado que resolve seu problema.",
+        "*I'm afraid there's been a mistake* é uma obra-prima de diplomacia. Repare no que ela **não** diz: quem errou.\n\n'Houve um engano': sem sujeito, sem culpado. Isso libera a pessoa na sua frente para resolver em vez de se defender, porque ela não foi acusada.\n\nÉ o oposto do instinto. Quando você diz *You charged me twice*, cria adversário. Quando diz *There's been a mistake*, cria aliado: e é o aliado que resolve seu problema.",
     },
     swaps: ["I'm afraid there's been a mistake", "I was charged twice", "this isn't what I ordered", "the amount doesn't match", "I never received it", "it was supposed to be free", "the price was different online", "this is the second time"],
     expansion: [
@@ -466,7 +466,7 @@ export const CANTO_3: CircuitContent[] = [
     why: {
       title: "Por que 'If I WERE you' e não 'If I was you'",
       body:
-        "Gramaticalmente, é o subjuntivo: a forma da hipótese impossível. Você não é a outra pessoa, então o verbo muda.\n\nNa prática, esqueça a explicação e guarde o bloco: **If I were you, I'd ___**. Sempre *were*, sempre *I'd*.\n\nDetalhe cultural que importa mais que a gramática: em inglês, conselho vem embrulhado. *You should* direto pode soar mandão. *If I were you*, *You might want to*, *Have you thought about* — todos entregam o mesmo conselho sem pisar na autonomia do outro.",
+        "Gramaticalmente, é o subjuntivo: a forma da hipótese impossível. Você não é a outra pessoa, então o verbo muda.\n\nNa prática, esqueça a explicação e guarde o bloco: **If I were you, I'd ___**. Sempre *were*, sempre *I'd*.\n\nDetalhe cultural que importa mais que a gramática: em inglês, conselho vem embrulhado. *You should* direto pode soar mandão. *If I were you*, *You might want to*, *Have you thought about*: todos entregam o mesmo conselho sem pisar na autonomia do outro.",
     },
     swaps: ["talk to her", "wait a week", "ask for more time", "take the offer", "sleep on it", "be honest with them", "get it in writing", "trust your gut"],
     expansion: [
@@ -482,7 +482,7 @@ export const CANTO_3: CircuitContent[] = [
       "Como você aconselha alguém sem se meter demais",
     ],
     sounds: [
-      ["'I'd' é um som só", "'Aid'. O 'would' virou um D. Em 'I'd rather', 'I'd like', 'I'd say' — sempre a mesma redução."],
+      ["'I'd' é um som só", "'Aid'. O 'would' virou um D. Em 'I'd rather', 'I'd like', 'I'd say': sempre a mesma redução."],
       ["'Should probably' vira 'shudprábli'", "O 'probably' perde uma sílaba na fala: 'prábli'. Falar as quatro sílabas soa artificial."],
     ],
     quiz: [
@@ -519,7 +519,7 @@ export const CANTO_3: CircuitContent[] = [
     why: {
       title: "'Should have' é o arrependimento em uma só peça",
       body:
-        "*I should have taken that job* — eu deveria ter aceitado (e não aceitei).\n\nO bloco carrega três coisas ao mesmo tempo: uma ação no passado, ela não ter acontecido, e você lamentar. Em português precisamos de 'deveria ter' + particípio para o mesmo efeito.\n\nNa fala, *should have* vira **should've**, que soa quase 'shoulda'. É por isso que você ouve *shoulda*, *coulda*, *woulda* em filme e não acha no dicionário — são exatamente esses três blocos, reduzidos.",
+        "*I should have taken that job*: eu deveria ter aceitado (e não aceitei).\n\nO bloco carrega três coisas ao mesmo tempo: uma ação no passado, ela não ter acontecido, e você lamentar. Em português precisamos de 'deveria ter' + particípio para o mesmo efeito.\n\nNa fala, *should have* vira **should've**, que soa quase 'shoulda'. É por isso que você ouve *shoulda*, *coulda*, *woulda* em filme e não acha no dicionário: são exatamente esses três blocos, reduzidos.",
     },
     swaps: ["taken that job", "said something", "asked for more", "left earlier", "listened to her", "saved more money", "started sooner", "gone anyway"],
     expansion: [
@@ -540,7 +540,7 @@ export const CANTO_3: CircuitContent[] = [
     ],
     quiz: [
       ["'I should have taken that job' quer dizer que você:", ["Aceitou o emprego", "Não aceitou e se arrepende", "Vai aceitar", "Está pensando em aceitar"], 1, "O bloco já embute que não aconteceu e que você lamenta. Três informações em duas palavras."],
-      ["Na fala rápida, 'should have' soa como:", ["should of", "shoulda", "shood hav", "should"], 1, "Por isso muita gente escreve 'should of' — é o que se ouve. Errado na escrita, mas explica a confusão."],
+      ["Na fala rápida, 'should have' soa como:", ["should of", "shoulda", "shood hav", "should"], 1, "Por isso muita gente escreve 'should of': é o que se ouve. Errado na escrita, mas explica a confusão."],
       ["'I wish I had studied more' fala de:", ["Um plano futuro", "Um arrependimento sobre o passado", "Um hábito atual", "Uma dúvida"], 1, "'Wish + had + particípio' é o arrependimento sobre algo já encerrado."],
       ["'Looking back, it was the right call' significa:", ["Olhando para trás, foi a decisão certa", "Vou rever a decisão", "A ligação estava certa", "Foi um erro"], 0, "'Call' aqui é decisão, julgamento. Vem do árbitro que 'marca' a jogada."],
     ],
@@ -572,9 +572,9 @@ export const CANTO_3: CircuitContent[] = [
       ["Kate", "She asked if I could join the next call, so I'll ask directly.", "Ela perguntou se eu poderia entrar na próxima call, então vou perguntar direto."],
     ],
     why: {
-      title: "O verbo recua um passo — e ninguém repara se você errar",
+      title: "O verbo recua um passo: e ninguém repara se você errar",
       body:
-        "Ela disse: *I am busy*. Você reporta: *She said she **was** busy*.\n\nÉ a regra do recuo: presente vira passado, passado vira mais-que-perfeito. Vale para toda fala relatada.\n\nA verdade prática: **ninguém deixa de te entender se você não recuar**. Nativo também escorrega nisso o tempo todo, principalmente quando o que foi dito ainda é verdade.\n\nO que realmente importa aqui são os quatro blocos de atribuição — *She said*, *He told me*, *According to*, *I heard that* — porque eles marcam que a informação não é sua. E isso, em trabalho, protege você.",
+        "Ela disse: *I am busy*. Você reporta: *She said she **was** busy*.\n\nÉ a regra do recuo: presente vira passado, passado vira mais-que-perfeito. Vale para toda fala relatada.\n\nA verdade prática: **ninguém deixa de te entender se você não recuar**. Nativo também escorrega nisso o tempo todo, principalmente quando o que foi dito ainda é verdade.\n\nO que realmente importa aqui são os quatro blocos de atribuição: *She said*, *He told me*, *According to*, *I heard that*: porque eles marcam que a informação não é sua. E isso, em trabalho, protege você.",
     },
     swaps: ["She said she was busy", "He told me to wait", "They mentioned a delay", "According to her", "I heard that it moved", "She asked if I could help", "That's what I was told", "He said he'd get back to us"],
     expansion: [
@@ -595,7 +595,7 @@ export const CANTO_3: CircuitContent[] = [
     ],
     quiz: [
       ["Ela disse 'I am busy'. Como você reporta?", ["She said I am busy", "She said she is busy", "She said she was busy", "She say she busy"], 2, "O verbo recua um passo: 'am' vira 'was'. Errar não gera mal-entendido, mas acertar soa natural."],
-      ["'He told me to wait' — repare que 'tell' pede:", ["Ninguém depois", "Uma pessoa depois", "Uma preposição", "Um artigo"], 1, "'Tell' sempre tem alguém: tell ME, tell HIM. 'Say' não: he said that. Confundir os dois é clássico."],
+      ["'He told me to wait': repare que 'tell' pede:", ["Ninguém depois", "Uma pessoa depois", "Uma preposição", "Um artigo"], 1, "'Tell' sempre tem alguém: tell ME, tell HIM. 'Say' não: he said that. Confundir os dois é clássico."],
       ["'According to her' introduz:", ["Sua própria opinião", "Informação atribuída a outra pessoa", "Uma dúvida", "Uma ordem"], 1, "Marca que a informação não é sua. Em trabalho, isso protege você quando a informação estiver errada."],
       ["'That's what I was told' serve para:", ["Confirmar uma certeza", "Repassar informação sem se responsabilizar por ela", "Discordar", "Encerrar"], 1, "É a cláusula de segurança. Você repassa o que ouviu sem assinar embaixo."],
     ],
@@ -629,7 +629,7 @@ export const CANTO_3: CircuitContent[] = [
     why: {
       title: "Negociar em inglês: nunca feche a porta",
       body:
-        "Repare que nenhuma frase deste circuito é um 'não'.\n\n*That's a bit outside our budget* — não é 'caro demais', é 'está um pouco fora'.\n*Would you be open to ___?* — não é 'faça assim', é 'você consideraria?'.\n*Let me check and get back to you* — não é 'não', é 'ainda não'.\n\nA lógica é: enquanto ninguém disser 'não', a negociação continua. E negociação que continua costuma terminar melhor para os dois lados do que a que fecha cedo.",
+        "Repare que nenhuma frase deste circuito é um 'não'.\n\n*That's a bit outside our budget*: não é 'caro demais', é 'está um pouco fora'.\n*Would you be open to ___?*: não é 'faça assim', é 'você consideraria?'.\n*Let me check and get back to you*: não é 'não', é 'ainda não'.\n\nA lógica é: enquanto ninguém disser 'não', a negociação continua. E negociação que continua costuma terminar melhor para os dois lados do que a que fecha cedo.",
     },
     swaps: ["a different timeline", "a longer contract", "splitting the cost", "a trial period", "revisiting this next quarter", "adjusting the scope", "a different payment schedule", "including support"],
     expansion: [
@@ -684,7 +684,7 @@ export const CANTO_3: CircuitContent[] = [
     why: {
       title: "O Terceiro Canto foi sobre atrito",
       body:
-        "Compare com o Primeiro Canto: lá tudo dava certo. Aqui, quase nada deu — voo perdido, cobrança errada, prazo apertado, opinião divergente.\n\nE em todos os casos você tinha bloco pronto. É isso que muda o jogo: não é falar inglês quando tudo está bem, é **continuar falando quando não está**.\n\nO Quarto Canto muda de eixo. Sai da situação e entra no som: fala grudada, phrasal verbs, ironia, registro. É a diferença entre falar inglês e soar como quem fala inglês.",
+        "Compare com o Primeiro Canto: lá tudo dava certo. Aqui, quase nada deu: voo perdido, cobrança errada, prazo apertado, opinião divergente.\n\nE em todos os casos você tinha bloco pronto. É isso que muda o jogo: não é falar inglês quando tudo está bem, é **continuar falando quando não está**.\n\nO Quarto Canto muda de eixo. Sai da situação e entra no som: fala grudada, phrasal verbs, ironia, registro. É a diferença entre falar inglês e soar como quem fala inglês.",
     },
     swaps: ["I'm in charge of the team.", "Have you ever done that?", "Can I jump in here?", "Would it be possible to change it?", "I'm afraid there's been a mistake.", "If I were you, I'd wait.", "Would you be open to that?", "Let me check and get back to you."],
     expansion: [
@@ -705,7 +705,7 @@ export const CANTO_3: CircuitContent[] = [
     ],
     quiz: [
       ["O que o Terceiro Canto adicionou?", ["Vocabulário técnico", "Capacidade de agir quando algo dá errado", "Pronúncia perfeita", "Escrita formal"], 1, "Falar inglês quando tudo vai bem é fácil. O canto inteiro foi sobre continuar falando quando não vai."],
-      ["Qual bloco é o mais reaproveitável do canto?", ["I'm in charge of ___", "Would it be possible to ___?", "I graduated in ___", "I have a headache"], 1, "Serve para hotel, trabalho, atendimento, negociação — qualquer pedido fora do padrão."],
+      ["Qual bloco é o mais reaproveitável do canto?", ["I'm in charge of ___", "Would it be possible to ___?", "I graduated in ___", "I have a headache"], 1, "Serve para hotel, trabalho, atendimento, negociação: qualquer pedido fora do padrão."],
       ["A diferença entre 'You made a mistake' e 'There's been a mistake' é:", ["Formalidade", "A segunda não acusa ninguém e gera cooperação", "Tamanho", "Nenhuma"], 1, "Ao não nomear culpado, você libera a pessoa para resolver em vez de se defender."],
       ["O que vem no Quarto Canto?", ["Mais situações do dia a dia", "Soar natural: fala grudada, phrasal verbs, ironia, registro", "Gramática avançada", "Vocabulário acadêmico"], 1, "Muda o eixo: sai da situação e entra no som e no registro. É a diferença entre falar e soar."],
     ],

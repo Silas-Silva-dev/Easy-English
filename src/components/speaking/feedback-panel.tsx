@@ -186,7 +186,7 @@ export function SpeakingFeedbackPanel({ result }: { result: SpeakingResult }) {
           </CardHeader>
           <CardContent>
             <p className="bg-muted/60 rounded-lg p-4 text-sm leading-relaxed italic">
-              {result.transcript || "—"}
+              {result.transcript || ": "}
             </p>
           </CardContent>
         </Card>
@@ -199,7 +199,7 @@ export function SpeakingFeedbackPanel({ result }: { result: SpeakingResult }) {
           </CardHeader>
           <CardContent>
             <p className="bg-success/8 border-success/20 rounded-lg border p-4 text-sm leading-relaxed">
-              {result.correctedText || "—"}
+              {result.correctedText || ": "}
             </p>
           </CardContent>
         </Card>
@@ -244,7 +244,7 @@ export function SpeakingFeedbackPanel({ result }: { result: SpeakingResult }) {
         <Card>
           <CardHeader className="pb-2">
             <CardTitle className="flex items-center gap-2 text-sm">
-              <Volume2 className="size-4" /> Pronúncia — palavra por palavra
+              <Volume2 className="size-4" /> Pronúncia: palavra por palavra
             </CardTitle>
           </CardHeader>
           <CardContent className="grid gap-3 sm:grid-cols-2">

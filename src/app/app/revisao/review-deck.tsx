@@ -54,7 +54,7 @@ const ANSWERS: { id: Answer; label: string; hint: string; icon: typeof Zap; tone
  *
  * A ordem importa: mostra o PORTUGUÊS primeiro e pede a produção em inglês em
  * voz alta. O caminho inverso (ver o inglês e reconhecer) é fácil demais e
- * gera a ilusão de saber — reconhecer não é produzir.
+ * gera a ilusão de saber: reconhecer não é produzir.
  */
 export function ReviewDeck({ chunks }: { chunks: ChunkMastery[] }) {
   const [index, setIndex] = React.useState(0);
@@ -102,7 +102,7 @@ export function ReviewDeck({ chunks }: { chunks: ChunkMastery[] }) {
           </div>
           <p className="mt-4 font-medium">Nenhum bloco vencendo hoje</p>
           <p className="text-muted-foreground mx-auto mt-1.5 max-w-sm text-sm">
-            Sua agenda está em dia. Blocos revisados voltam sozinhos no intervalo certo — não force
+            Sua agenda está em dia. Blocos revisados voltam sozinhos no intervalo certo: não force
             revisão antecipada, ela atrapalha a consolidação.
           </p>
           <Button asChild variant="outline" className="mt-6">
@@ -194,11 +194,11 @@ export function ReviewDeck({ chunks }: { chunks: ChunkMastery[] }) {
                 <p className="text-sm font-medium">Diga em voz alta antes de conferir</p>
                 <p className="text-muted-foreground mx-auto mt-1.5 max-w-xs text-xs leading-relaxed">
                   O esforço de puxar da memória é o exercício. Espiar antes de tentar transforma
-                  isto numa leitura — e leitura não fixa.
+                  isto numa leitura: e leitura não fixa.
                 </p>
               </div>
               <Button size="lg" className="w-full" onClick={() => setRevealed(true)}>
-                <Eye className="size-4" /> Já falei — mostrar resposta
+                <Eye className="size-4" /> Já falei: mostrar resposta
               </Button>
             </div>
           ) : (
@@ -214,7 +214,7 @@ export function ReviewDeck({ chunks }: { chunks: ChunkMastery[] }) {
 
               <div>
                 <p className="text-muted-foreground mb-2 text-center text-xs">
-                  Como foi? Seja honesto — a agenda depende disso.
+                  Como foi? Seja honesto: a agenda depende disso.
                 </p>
                 <div className="grid gap-2 sm:grid-cols-3">
                   {ANSWERS.map((option) => {

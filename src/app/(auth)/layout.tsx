@@ -12,7 +12,7 @@ const HIGHLIGHTS = [
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="grid min-h-screen lg:grid-cols-2">
-      {/* Painel de marca — some no mobile para não roubar a dobra */}
+      {/* Painel de marca: some no mobile para não roubar a dobra */}
       <aside className="bg-primary text-primary-foreground relative hidden overflow-hidden lg:flex lg:flex-col lg:justify-between lg:p-12">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_20%_0%,rgba(255,255,255,0.22),transparent)]" />
         <div className="pointer-events-none absolute -right-24 -bottom-24 size-96 rounded-full bg-white/10 blur-3xl" />
@@ -49,7 +49,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
       <main className="relative flex flex-col">
         <div className="bg-grid pointer-events-none absolute inset-0 -z-10 lg:hidden" />
 
-        {/* Reserva a barra de status do iOS — ver --safe-top em globals.css. */}
+        {/* Reserva a barra de status do iOS: ver --safe-top em globals.css. */}
         <div className="flex items-center justify-between p-5 pt-[calc(1.25rem+var(--safe-top))]">
           <Link href="/" className="flex items-center gap-2 font-semibold lg:invisible">
             <span className="bg-primary text-primary-foreground grid size-7 place-items-center rounded-md">

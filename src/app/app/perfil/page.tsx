@@ -69,7 +69,7 @@ export default async function ProfilePage() {
         <CardHeader>
           <CardTitle className="text-sm">Preferências de estudo</CardTitle>
           <CardDescription>
-            O ritmo define o que o curso promete a você — e o que ele não promete. A meta diária
+            O ritmo define o que o curso promete a você: e o que ele não promete. A meta diária
             define quando o dia conta para a sua ofensiva.
           </CardDescription>
         </CardHeader>

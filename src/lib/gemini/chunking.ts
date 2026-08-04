@@ -31,7 +31,7 @@ export function normalizeVector(values: number[]): number[] {
 
 /** Transforma uma lição em documentos de texto plano prontos para indexação. */
 export function lessonToChunks(lesson: Lesson): KnowledgeChunkInput[] {
-  const header = `Dia ${lesson.day_number} (circuito ${lesson.week_number}) — ${lesson.title}`;
+  const header = `Dia ${lesson.day_number} (circuito ${lesson.week_number}): ${lesson.title}`;
   const chunks: KnowledgeChunkInput[] = [];
 
   const push = (section: string, body: string) => {
@@ -93,7 +93,7 @@ export function lessonToChunks(lesson: Lesson): KnowledgeChunkInput[] {
       case "examples":
         push(
           block.title ?? "Exemplos",
-          block.items.map((i) => `${i.en} = ${i.pt}${i.note ? ` — ${i.note}` : ""}`).join("\n"),
+          block.items.map((i) => `${i.en} = ${i.pt}${i.note ? `: ${i.note}` : ""}`).join("\n"),
         );
         break;
       case "drill":
@@ -119,7 +119,7 @@ export function buildContextBlock(chunks: RetrievedChunk[]): string {
     .map((chunk, index) => {
       const meta = chunk.metadata as { title?: string; day_number?: number };
       const label = meta?.day_number
-        ? `Dia ${meta.day_number} — ${meta.title ?? ""}`
+        ? `Dia ${meta.day_number}: ${meta.title ?? ""}`
         : "Material do curso";
       return `[${index + 1}] ${label} (relevância ${chunk.similarity.toFixed(2)})\n${chunk.content}`;
     })

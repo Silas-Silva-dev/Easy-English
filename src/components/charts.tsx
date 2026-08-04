@@ -94,7 +94,7 @@ export function StudyMinutesChart({
   );
 }
 
-/** Crescimento acumulado — usado no painel administrativo. */
+/** Crescimento acumulado: usado no painel administrativo. */
 export function GrowthAreaChart({
   data,
   dataKey,

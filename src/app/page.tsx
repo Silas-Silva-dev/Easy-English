@@ -35,7 +35,7 @@ import { getSessionContext } from "@/lib/auth/guards";
 import { CANTOS, CIRCUITS, type CantoSpec } from "@content/curriculum";
 
 export const metadata: Metadata = {
-  title: "InglishEasy — Plataforma Completa de Inglês em 4 Cantos com IA",
+  title: "InglishEasy: Plataforma Completa de Inglês em 4 Cantos com IA",
   description:
     "Aprenda a falar inglês fluente no seu ritmo com a Professora Emma (IA). 4 Cantos, 52 circuitos, 728 dias de lições práticas com análise de pronúncia em áudio e conversa ao vivo.",
 };

@@ -10,46 +10,46 @@ import type { CefrLevel } from "@/lib/types/database";
 export const BRAZILIAN_INTERFERENCE_GUIDE = `
 INTERFERENCIA DO PORTUGUES BRASILEIRO (use para diagnosticar com precisao):
 
-1. TH (/θ/ e /ð/) — nao existe em portugues. O aluno troca por /t/, /d/, /f/ ou /s/.
+1. TH (/θ/ e /ð/): nao existe em portugues. O aluno troca por /t/, /d/, /f/ ou /s/.
    think -> "fink"/"tink" | this -> "dis" | brother -> "broder" | mouth -> "mouf"
    Correcao: lingua entre os dentes, ar passando. /θ/ surdo, /ð/ sonoro.
 
-2. VOGAL EPENTETICA — o portugues nao aceita consoante final, entao o aluno
+2. VOGAL EPENTETICA: o portugues nao aceita consoante final, entao o aluno
    adiciona um "i"/"e": "hot dog" -> "hótchi dógui", "big" -> "bigui",
    "stop" -> "istóp", "school" -> "iscool".
    Correcao: terminar a palavra na consoante, sem vogal de apoio.
 
-3. /ɪ/ vs /iː/ — o aluno funde os dois em "i".
+3. /ɪ/ vs /iː/: o aluno funde os dois em "i".
    ship/sheep, bit/beat, live/leave, fill/feel. /ɪ/ e curto e relaxado.
 
-4. /æ/ vs /ɛ/ — bad/bed, man/men, sad/said. /æ/ exige boca mais aberta.
+4. /æ/ vs /ɛ/: bad/bed, man/men, sad/said. /æ/ exige boca mais aberta.
 
-5. SCHWA (/ə/) e RITMO — o portugues e silabico, o ingles e acentual.
+5. SCHWA (/ə/) e RITMO: o portugues e silabico, o ingles e acentual.
    O aluno pronuncia todas as silabas com forca igual. Silabas atonas viram /ə/:
    about -> /əˈbaʊt/, computer -> /kəmˈpjuːtər/.
 
-6. -ED FINAL — tres realizacoes: /t/ apos som surdo (worked), /d/ apos sonoro
+6. -ED FINAL: tres realizacoes: /t/ apos som surdo (worked), /d/ apos sonoro
    (played), /ɪd/ apenas apos /t/ ou /d/ (wanted, needed).
    Erro tipico: "worked" -> "workedi".
 
-7. H — o aluno omite ("house" -> "ause") ou aplica o R portugues.
+7. H: o aluno omite ("house" -> "ause") ou aplica o R portugues.
    O H ingles e uma aspiracao leve.
 
-8. R — o R inicial do portugues (/h/ ou vibrante) substitui o /ɹ/ ingles.
+8. R: o R inicial do portugues (/h/ ou vibrante) substitui o /ɹ/ ingles.
    red, right, run exigem lingua retraida sem tocar o ceu da boca.
 
-9. L FINAL VOCALIZADO — "well" -> "wéu", "school" -> "iscoo".
+9. L FINAL VOCALIZADO: "well" -> "wéu", "school" -> "iscoo".
    O L final ingles ("dark L") mantem contato da ponta da lingua nos alveolos.
 
-10. -S FINAL e PLURAIS — omissao de terceira pessoa ("he work") e de plural.
+10. -S FINAL e PLURAIS: omissao de terceira pessoa ("he work") e de plural.
 
-11. CLUSTERS CONSONANTAIS — "strength", "twelfth", "asked" viram silabas extras.
+11. CLUSTERS CONSONANTAIS: "strength", "twelfth", "asked" viram silabas extras.
 
 12. FALSOS COGNATOS frequentes: actually (na verdade, nao "atualmente"),
     pretend (fingir), push (empurrar), realize (perceber), library (biblioteca),
     parents (pais), fabric (tecido), college (faculdade).
 
-13. ORDEM E ESTRUTURA — traducao literal do portugues:
+13. ORDEM E ESTRUTURA: traducao literal do portugues:
     "I have 25 years" -> "I am 25", "I have hungry" -> "I am hungry",
     "People is" -> "People are", ausencia de sujeito ("Is raining" -> "It is raining"),
     dupla negativa ("I don't know nothing").
@@ -65,7 +65,7 @@ const LEVEL_GUIDANCE: Record<CefrLevel, string> = {
 
 /**
  * Persona central do agente. O feedback e sempre em portugues (idioma nativo do
- * aluno) e os exemplos sempre em ingles — isso e o que faz o iniciante avancar.
+ * aluno) e os exemplos sempre em ingles: isso e o que faz o iniciante avancar.
  */
 export function speakingCoachSystemPrompt(params: {
   level: CefrLevel;
@@ -94,7 +94,7 @@ ${context ? `CONTEUDO DO CURSO INDEXADO RELACIONADO:\n${context}` : ""}
 
 REGRAS INEGOCIAVEIS
 1. Transcreva EXATAMENTE o que voce ouviu, incluindo erros, hesitacoes e
-   pronuncias incorretas. Nao "conserte" na transcricao — a transcricao e o
+   pronuncias incorretas. Nao "conserte" na transcricao: a transcricao e o
    diagnostico. Se o audio estiver inaudivel ou vazio, diga isso claramente e
    atribua notas 0.
 2. Toda explicacao vai em PORTUGUES do Brasil. Todo exemplo e correcao em INGLES.
@@ -143,7 +143,7 @@ COMO RESPONDER
   duvidas de gramatica, "como se diz..."). Coloque os exemplos em ingles.
 - Se o aluno escrever em ingles querendo conversar, responda em ingles no nivel
   dele e ofereca uma correcao curta no fim, no formato:
-  "**Correcao:** ~~errado~~ -> certo — motivo em portugues."
+  "**Correcao:** ~~errado~~ -> certo: motivo em portugues."
 - Seja objetivo. Prefira 3 exemplos bons a 10 medianos.
 - Sempre que possivel, conecte a resposta ao material do curso fornecido no
   contexto abaixo e cite a licao.
@@ -163,6 +163,6 @@ ${context ? `MATERIAL DO CURSO RELEVANTE PARA ESTA PERGUNTA:\n${context}` : "Nen
  *
  * O conteúdo do curso é redigido à mão em `content/circuits/` e expandido por
  * `content/compose-lesson.ts`. Um gerador por prompt produzia curso diferente
- * a cada execução, impossível de revisar antes de o aluno ler — e essa é
+ * a cada execução, impossível de revisar antes de o aluno ler: e essa é
  * exatamente a parte que não pode variar.
  */

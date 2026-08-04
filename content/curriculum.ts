@@ -1,5 +1,5 @@
 /**
- * Currículo do curso "Inglês Destravado — 4 Cantos".
+ * Currículo do curso "Inglês Destravado: 4 Cantos".
  *
  * ===========================================================================
  * O MÉTODO
@@ -8,13 +8,13 @@
  * fala pronto, memorizado inteiro e reaproveitado trocando peças.
  *
  * Ninguém aprende a falar montando frases a partir de tabelas de conjugação.
- * Aprende repetindo blocos até eles saírem sem pensar — que é como a criança
+ * Aprende repetindo blocos até eles saírem sem pensar: que é como a criança
  * aprende e como o cérebro adulto também aprende quando você para de atrapalhar.
  *
  * Cinco regras que organizam tudo:
  *
  *   1. SITUAÇÃO ANTES DE REGRA. Cada semana é uma cena real (pedir um café,
- *      se apresentar numa reunião, resolver um problema no hotel) — nunca
+ *      se apresentar numa reunião, resolver um problema no hotel): nunca
  *      "verbo to be" ou "present perfect".
  *
  *   2. BLOCO ANTES DE PALAVRA. O aluno decora "Can I have a coffee, please?"
@@ -39,8 +39,8 @@
  *   1 circuito = 2 SEMANAS = 14 dias
  *   52 x 14 = 728 dias (2 anos)
  *
- *   FASE A (dias 1-7)  — aquisição: conhecer, colocar na boca, produzir
- *   FASE B (dias 8-14) — consolidação: input real, shadowing, conversa ao
+ *   FASE A (dias 1-7): aquisição: conhecer, colocar na boca, produzir
+ *   FASE B (dias 8-14): consolidação: input real, shadowing, conversa ao
  *                          vivo, escuta acelerada e aplicação sem roteiro
  *
  * Por que 2 semanas por circuito? Porque 15 min x 365 dias = 91 horas, e
@@ -51,8 +51,7 @@
  * ===========================================================================
  * AS TRILHAS
  * ===========================================================================
- * O conteúdo é o mesmo para todo mundo. O que muda é quanto se faz por dia —
- * e a meta prometida muda junto, honestamente.
+ * O conteúdo é o mesmo para todo mundo. O que muda é quanto se faz por dia: * e a meta prometida muda junto, honestamente.
  *
  *   Essencial   20 min/dia    243h   ->  A2   "você se vira sozinho"
  *   Completo    60 min/dia    728h   ->  B2   "você conversa sobre qualquer
@@ -66,7 +65,7 @@
 
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1";
 
-/** Valores do enum `lesson_kind` no banco — reaproveitados para os 7 papéis. */
+/** Valores do enum `lesson_kind` no banco: reaproveitados para os 7 papéis. */
 export type LessonKind =
   | "vocabulary"
   | "grammar"
@@ -93,7 +92,7 @@ export interface Chunk {
   /** O bloco pronto, exatamente como se fala. */
   en: string;
   pt: string;
-  /** Quando usar — o gatilho de memória. */
+  /** Quando usar: o gatilho de memória. */
   when?: string;
 }
 
@@ -137,7 +136,7 @@ export const DAY_BLOCKS: Record<DayBlockId, { label: string; minutes: number; br
   core: {
     label: "Núcleo",
     minutes: 15,
-    brief: "A lição do dia. Comum a todas as trilhas — é o que sustenta o hábito.",
+    brief: "A lição do dia. Comum a todas as trilhas: é o que sustenta o hábito.",
   },
   listening: {
     label: "Escuta e shadowing",
@@ -157,7 +156,7 @@ export const DAY_BLOCKS: Record<DayBlockId, { label: string; minutes: number; br
   authentic: {
     label: "Input autêntico",
     minutes: 40,
-    brief: "Material real do mundo — série, podcast, notícia — não material de curso.",
+    brief: "Material real do mundo: série, podcast, notícia: não material de curso.",
   },
 };
 
@@ -187,7 +186,7 @@ export const TRACKS: TrackSpec[] = [
     promise:
       "Você conversa sobre qualquer assunto com um nativo, sem ele precisar desacelerar por você.",
     honestLimit:
-      "Ainda vai escapar gíria regional muito específica e humor de nicho — como escapa para qualquer estrangeiro.",
+      "Ainda vai escapar gíria regional muito específica e humor de nicho: como escapa para qualquer estrangeiro.",
     blocks: ["core", "listening", "speaking", "srs"],
   },
   {
@@ -199,7 +198,7 @@ export const TRACKS: TrackSpec[] = [
     promise:
       "Você discute, argumenta e trabalha em inglês com naturalidade, inclusive em grupo.",
     honestLimit:
-      "Exige 1h40 por dia, todo dia. A maioria das pessoas não sustenta esse ritmo — e tudo bem.",
+      "Exige 1h40 por dia, todo dia. A maioria das pessoas não sustenta esse ritmo: e tudo bem.",
     blocks: ["core", "listening", "speaking", "srs", "authentic"],
   },
 ];
@@ -223,7 +222,7 @@ export interface DayRole {
  * FASE A adquire. FASE B é onde o inglês sai do curso e entra no mundo.
  */
 export const DAY_RHYTHM: DayRole[] = [
-  // ---------------------------------------- FASE A — aquisição
+  // ---------------------------------------- FASE A: aquisição
   {
     day: 1,
     phase: "A",
@@ -248,7 +247,7 @@ export const DAY_RHYTHM: DayRole[] = [
     role: "swap",
     label: "Troca de peças",
     brief:
-      "Substitution drill. Aqui — e só aqui — entra a nota curta 'por que funciona assim'.",
+      "Substitution drill. Aqui: e só aqui: entra a nota curta 'por que funciona assim'.",
   },
   {
     day: 4,
@@ -283,7 +282,7 @@ export const DAY_RHYTHM: DayRole[] = [
     brief: "Simulação completa + tarefa para usar no mundo real.",
   },
 
-  // ---------------------------------------- FASE B — consolidação
+  // ---------------------------------------- FASE B: consolidação
   {
     day: 8,
     phase: "B",
@@ -291,7 +290,7 @@ export const DAY_RHYTHM: DayRole[] = [
     role: "authentic",
     label: "Input autêntico",
     brief:
-      "Material real do mundo — série, podcast, vídeo — não material de curso. Aqui o inglês para de ser didático.",
+      "Material real do mundo: série, podcast, vídeo: não material de curso. Aqui o inglês para de ser didático.",
   },
   {
     day: 9,
@@ -355,10 +354,10 @@ export const CANTOS: CantoSpec[] = [
   {
     code: "C1",
     position: 1,
-    title: "Primeiro Canto — Destravar",
-    subtitle: "Semanas 1–13 · A1",
+    title: "Primeiro Canto: Destravar",
+    subtitle: "Semanas 1 a 13 · A1",
     description:
-      "Você sai do zero falando. Nas primeiras semanas já são mais de 80 blocos prontos na boca: cumprimentar, se apresentar, pedir, agradecer, pedir para repetir. Nada de tabela de verbo — você fala primeiro e entende o porquê depois.",
+      "Você sai do zero falando. Nas primeiras semanas já são mais de 80 blocos prontos na boca: cumprimentar, se apresentar, pedir, agradecer, pedir para repetir. Nada de tabela de verbo: você fala primeiro e entende o porquê depois.",
     level: "A1",
     weekStart: 1,
     weekEnd: 13,
@@ -377,8 +376,8 @@ export const CANTOS: CantoSpec[] = [
   {
     code: "C2",
     position: 2,
-    title: "Segundo Canto — Contar",
-    subtitle: "Semanas 14–26 · A1→A2",
+    title: "Segundo Canto: Contar",
+    subtitle: "Semanas 14 a 26 · A1→A2",
     description:
       "Conversa de verdade é contar coisas: o que você faz, o que fez, o que vai fazer. Aqui você ganha os blocos de narrativa e para de responder só 'yes' e 'no'.",
     level: "A2",
@@ -399,8 +398,8 @@ export const CANTOS: CantoSpec[] = [
   {
     code: "C3",
     position: 3,
-    title: "Terceiro Canto — Resolver",
-    subtitle: "Semanas 27–39 · A2→B1",
+    title: "Terceiro Canto: Resolver",
+    subtitle: "Semanas 27 a 39 · A2→B1",
     description:
       "O inglês que você precisa exatamente quando dá errado: reclamar, negociar, explicar um problema, pedir ajuda, discordar sem brigar. É onde a maioria dos cursos para e a vida real começa.",
     level: "B1",
@@ -421,8 +420,8 @@ export const CANTOS: CantoSpec[] = [
   {
     code: "C4",
     position: 4,
-    title: "Quarto Canto — Soar natural",
-    subtitle: "Semanas 40–52 · B1→B2",
+    title: "Quarto Canto: Soar natural",
+    subtitle: "Semanas 40 a 52 · B1→B2",
     description:
       "A diferença entre 'falar inglês' e 'soar como quem fala inglês': fala conectada, phrasal verbs, reduções, ironia, registro. Aqui você para de traduzir e começa a pensar em inglês.",
     level: "B2",
@@ -443,16 +442,16 @@ export const CANTOS: CantoSpec[] = [
 ];
 
 // ===========================================================================
-// 52 CIRCUITOS — uma situação real por semana
+// 52 CIRCUITOS: uma situação real por semana
 // ===========================================================================
 
 export const CIRCUITS: CircuitSpec[] = [
-  // ------------------------------------------------ PRIMEIRO CANTO (1–13)
+  // ------------------------------------------------ PRIMEIRO CANTO (1 a 13)
   {
     number: 1,
     title: "O primeiro oi",
     situation:
-      "Você chega a um lugar novo — um evento, um curso, o primeiro dia de trabalho — e alguém vira para você e diz 'Hi!'. Os próximos 20 segundos decidem se a conversa acontece ou morre.",
+      "Você chega a um lugar novo: um evento, um curso, o primeiro dia de trabalho: e alguém vira para você e diz 'Hi!'. Os próximos 20 segundos decidem se a conversa acontece ou morre.",
     pattern: "I'm ___ . Nice to meet you.",
     patternNote:
       "Um único molde resolve toda apresentação. Você troca a peça do nome e o resto sai igual, sempre.",
@@ -484,20 +483,20 @@ export const CIRCUITS: CircuitSpec[] = [
       { en: "I'm from Brazil.", pt: "Eu sou do Brasil.", when: "Origem" },
       { en: "I live in São Paulo.", pt: "Eu moro em São Paulo.", when: "Onde mora agora" },
       { en: "I work as a designer.", pt: "Eu trabalho como designer.", when: "Profissão" },
-      { en: "I'm 32.", pt: "Eu tenho 32 anos.", when: "Idade — sem 'have', nunca" },
+      { en: "I'm 32.", pt: "Eu tenho 32 anos.", when: "Idade: sem 'have', nunca" },
       { en: "What about you?", pt: "E você?", when: "Devolvendo a pergunta" },
       { en: "That's interesting!", pt: "Que interessante!", when: "Reagindo sem ter o que dizer" },
       { en: "How long have you been here?", pt: "Faz quanto tempo que você está aqui?", when: "Puxando assunto" },
     ],
     mission: "Grave sua apresentação completa de 45 segundos: nome, origem, trabalho, idade.",
     mindset:
-      "Ninguém está avaliando seu inglês. Estão tentando entender você. Comunicação vence perfeição — todo dia.",
+      "Ninguém está avaliando seu inglês. Estão tentando entender você. Comunicação vence perfeição: todo dia.",
     pitfall:
-      "'I have 32 years' — tradução literal de 'tenho 32 anos'. Em inglês idade é ser, não ter: 'I'm 32'.",
+      "'I have 32 years': tradução literal de 'tenho 32 anos'. Em inglês idade é ser, não ter: 'I'm 32'.",
   },
   {
     number: 3,
-    title: "Não entendi — e daí?",
+    title: "Não entendi: e daí?",
     situation:
       "A pessoa falou rápido demais e você não pegou nada. Esse é o momento que faz a maioria desistir. Existem 6 frases que resolvem e mantêm a conversa viva.",
     pattern: "Sorry, could you ___ ?",
@@ -540,7 +539,7 @@ export const CIRCUITS: CircuitSpec[] = [
     mindset:
       "Quinze minutos por dia batem duas horas no sábado. O cérebro consolida no intervalo, não no esforço concentrado.",
     pitfall:
-      "'I want a coffee' soa grosseiro em inglês. 'Can I have' ou 'I'd like' — a educação está no molde, não no tom.",
+      "'I want a coffee' soa grosseiro em inglês. 'Can I have' ou 'I'd like': a educação está no molde, não no tom.",
   },
   {
     number: 5,
@@ -568,7 +567,7 @@ export const CIRCUITS: CircuitSpec[] = [
     number: 6,
     title: "Seu dia em inglês",
     situation:
-      "'So, what do you do every day?' — a pergunta que abre metade das conversas e trava metade dos brasileiros.",
+      "'So, what do you do every day?': a pergunta que abre metade das conversas e trava metade dos brasileiros.",
     pattern: "I ___ every day.",
     patternNote: "Molde de rotina. As peças são os verbos do seu dia; o esqueleto nunca muda.",
     chunks: [
@@ -584,7 +583,7 @@ export const CIRCUITS: CircuitSpec[] = [
     mindset:
       "Você não precisa de vocabulário novo hoje. Precisa usar o que já tem até sair sem pensar. Repetição é o atalho.",
     pitfall:
-      "Esquecer o -s da terceira pessoa: 'He work' em vez de 'He works'. O bloco já vem com o -s embutido — decore o bloco, não a regra.",
+      "Esquecer o -s da terceira pessoa: 'He work' em vez de 'He works'. O bloco já vem com o -s embutido: decore o bloco, não a regra.",
   },
   {
     number: 7,
@@ -605,8 +604,8 @@ export const CIRCUITS: CircuitSpec[] = [
     ],
     mission: "Grave 45 segundos falando de 3 coisas que você ama fazer e por quê.",
     mindset:
-      "Falar do que você gosta é o assunto mais fácil do mundo — em qualquer idioma. Comece as conversas por aí.",
-    pitfall: "'I like to cooking' — ou usa o -ing ou o 'to', nunca os dois juntos.",
+      "Falar do que você gosta é o assunto mais fácil do mundo: em qualquer idioma. Comece as conversas por aí.",
+    pitfall: "'I like to cooking': ou usa o -ing ou o 'to', nunca os dois juntos.",
   },
   {
     number: 8,
@@ -614,7 +613,7 @@ export const CIRCUITS: CircuitSpec[] = [
     situation:
       "Mostrar foto da família, falar do irmão, do filho, do parceiro. Conversa que cria vínculo de verdade.",
     pattern: "This is my ___ .",
-    patternNote: "Molde de apresentação de pessoas — presencial ou por foto.",
+    patternNote: "Molde de apresentação de pessoas: presencial ou por foto.",
     chunks: [
       { en: "This is my brother.", pt: "Esse é meu irmão.", when: "Apresentando alguém" },
       { en: "I have two kids.", pt: "Eu tenho dois filhos.", when: "Falando de filhos" },
@@ -637,7 +636,7 @@ export const CIRCUITS: CircuitSpec[] = [
       "Descrever sua casa, seu bairro, sua cidade. Aparece em conversa social, em aluguel de Airbnb e em entrevista.",
     pattern: "There's a ___ near my place.",
     patternNote:
-      "'There is / there are' é como o inglês diz que algo existe. O português usa 'tem' — e é aí que dá errado.",
+      "'There is / there are' é como o inglês diz que algo existe. O português usa 'tem': e é aí que dá errado.",
     chunks: [
       { en: "I live in a small apartment.", pt: "Moro num apartamento pequeno.", when: "Descrevendo a casa" },
       { en: "There's a park near my place.", pt: "Tem um parque perto de casa.", when: "O que existe por perto" },
@@ -649,15 +648,15 @@ export const CIRCUITS: CircuitSpec[] = [
     ],
     mission: "Grave um tour de 60 segundos pela sua casa, em inglês, andando pelos cômodos.",
     mindset:
-      "Fale sozinho em voz alta. Parece bobo e é o exercício que mais acelera a fala — a boca precisa de quilometragem.",
+      "Fale sozinho em voz alta. Parece bobo e é o exercício que mais acelera a fala: a boca precisa de quilometragem.",
     pitfall:
-      "'In my street have a market' — tradução literal de 'tem'. O correto é 'There's a market on my street'.",
+      "'In my street have a market': tradução literal de 'tem'. O correto é 'There's a market on my street'.",
   },
   {
     number: 10,
     title: "Achando o caminho",
     situation:
-      "Você está perdido numa cidade estrangeira, sem sinal no celular. Precisa perguntar e — mais difícil — entender a resposta.",
+      "Você está perdido numa cidade estrangeira, sem sinal no celular. Precisa perguntar e: mais difícil: entender a resposta.",
     pattern: "How do I get to ___ ?",
     patternNote:
       "'Where is' pergunta o lugar; 'how do I get to' pergunta o caminho. São coisas diferentes.",
@@ -719,16 +718,16 @@ export const CIRCUITS: CircuitSpec[] = [
     mindset:
       "Você já tem 12 semanas de blocos. Volte no circuito 1 e perceba: aquilo que travava já sai automático.",
     pitfall:
-      "'The account, please' — 'account' é conta bancária. Conta de restaurante é 'check' (EUA) ou 'bill' (UK).",
+      "'The account, please': 'account' é conta bancária. Conta de restaurante é 'check' (EUA) ou 'bill' (UK).",
   },
   {
     number: 13,
     title: "Fechando o Primeiro Canto",
     situation:
       "Revisão viva de tudo: um dia inteiro simulado em inglês, do bom dia ao boa noite, usando os blocos dos 12 circuitos anteriores.",
-    pattern: "Todos os moldes dos circuitos 1–12",
+    pattern: "Todos os moldes dos circuitos 1 a 12",
     patternNote:
-      "Nada novo. Hoje é sobre puxar da memória sem aviso — que é como a vida real cobra.",
+      "Nada novo. Hoje é sobre puxar da memória sem aviso: que é como a vida real cobra.",
     chunks: [
       { en: "Hi, I'm ___ . Nice to meet you.", pt: "Apresentação", when: "Circuito 1" },
       { en: "Sorry, could you say that again?", pt: "Socorro conversacional", when: "Circuito 3" },
@@ -741,12 +740,12 @@ export const CIRCUITS: CircuitSpec[] = [
     mission:
       "Passe 30 minutos do seu dia narrando tudo o que você faz em inglês, em voz alta, sem consultar nada.",
     mindset:
-      "Treze semanas atrás você não falava nada. Hoje você atravessa um dia inteiro. Isso não foi talento — foi 15 minutos por dia.",
+      "Treze semanas atrás você não falava nada. Hoje você atravessa um dia inteiro. Isso não foi talento: foi 15 minutos por dia.",
     pitfall:
       "Achar que precisa 'saber mais' antes de usar. Você já tem o suficiente para se virar. Use.",
   },
 
-  // ------------------------------------------------ SEGUNDO CANTO (14–26)
+  // ------------------------------------------------ SEGUNDO CANTO (14 a 26)
   {
     number: 14,
     title: "O que você fez ontem",
@@ -798,7 +797,7 @@ export const CIRCUITS: CircuitSpec[] = [
     situation:
       "Conversa sobre infância, escola, como as coisas eram. Assunto que aproxima em qualquer cultura.",
     pattern: "I used to ___ .",
-    patternNote: "'Used to' é 'costumava' — algo que era verdade antes e não é mais. Um molde, todo o passado habitual.",
+    patternNote: "'Used to' é 'costumava': algo que era verdade antes e não é mais. Um molde, todo o passado habitual.",
     chunks: [
       { en: "I used to play soccer every day.", pt: "Eu costumava jogar futebol todo dia.", when: "Hábito passado" },
       { en: "When I was a kid...", pt: "Quando eu era criança...", when: "Abrindo memória" },
@@ -810,7 +809,7 @@ export const CIRCUITS: CircuitSpec[] = [
     ],
     mission: "Grave 60 segundos comparando como era sua vida aos 10 anos e como é hoje.",
     mindset:
-      "Metade das semanas do Primeiro Canto já viraram automatismo. Não é impressão — é o efeito da revisão espaçada.",
+      "Metade das semanas do Primeiro Canto já viraram automatismo. Não é impressão: é o efeito da revisão espaçada.",
     pitfall:
       "'I used to' (costumava) vs 'I'm used to' (estou acostumado). Uma letra, dois significados opostos.",
   },
@@ -818,7 +817,7 @@ export const CIRCUITS: CircuitSpec[] = [
     number: 17,
     title: "Seus planos",
     situation:
-      "'What are you doing this weekend?' — combinar, planejar, recusar. Conversa que acontece toda sexta-feira.",
+      "'What are you doing this weekend?': combinar, planejar, recusar. Conversa que acontece toda sexta-feira.",
     pattern: "I'm going to ___ .",
     patternNote:
       "Plano já decidido usa 'going to'. Decisão na hora usa 'will'. A diferença é quando você decidiu.",
@@ -841,7 +840,7 @@ export const CIRCUITS: CircuitSpec[] = [
     number: 18,
     title: "Marcando encontro",
     situation:
-      "Combinar dia, hora e lugar — e depois remarcar quando der problema. Vale para amigo, médico e cliente.",
+      "Combinar dia, hora e lugar: e depois remarcar quando der problema. Vale para amigo, médico e cliente.",
     pattern: "Does ___ work for you?",
     patternNote: "Molde de negociação de agenda. Educado, direto, funciona no pessoal e no profissional.",
     chunks: [
@@ -867,7 +866,7 @@ export const CIRCUITS: CircuitSpec[] = [
       "A conversa virou opinião: política do trabalho, filme, restaurante. Você precisa se posicionar sem criar atrito.",
     pattern: "I see your point, but ___ .",
     patternNote:
-      "O inglês discorda com almofada. O molde reconhece o outro antes de contrariar — e isso não é frescura, é o padrão.",
+      "O inglês discorda com almofada. O molde reconhece o outro antes de contrariar: e isso não é frescura, é o padrão.",
     chunks: [
       { en: "I totally agree.", pt: "Concordo totalmente.", when: "Concordância forte" },
       { en: "That's a good point.", pt: "É um bom argumento.", when: "Reconhecendo" },
@@ -879,7 +878,7 @@ export const CIRCUITS: CircuitSpec[] = [
     ],
     mission: "Grave 60 segundos defendendo uma opinião impopular sua, com dois argumentos.",
     mindset:
-      "Discordar em inglês não é ser agressivo — é ser claro com educação. O molde faz o trabalho pesado.",
+      "Discordar em inglês não é ser agressivo: é ser claro com educação. O molde faz o trabalho pesado.",
     pitfall:
       "'You are wrong' é uma bofetada em inglês. Ninguém diz isso. Use 'I'm not so sure about that'.",
   },
@@ -910,7 +909,7 @@ export const CIRCUITS: CircuitSpec[] = [
     number: 21,
     title: "Sentimentos e reações",
     situation:
-      "Alguém te conta uma notícia — boa ou ruim. Ficar mudo é pior que errar. Reagir é obrigatório.",
+      "Alguém te conta uma notícia: boa ou ruim. Ficar mudo é pior que errar. Reagir é obrigatório.",
     pattern: "I'm so ___ for you!",
     patternNote: "Molde de reação empática. Você troca a emoção e a frase inteira sai pronta.",
     chunks: [
@@ -922,7 +921,7 @@ export const CIRCUITS: CircuitSpec[] = [
       { en: "I'm a bit stressed lately.", pt: "Estou meio estressado ultimamente.", when: "Falando de si" },
       { en: "Let me know if you need anything.", pt: "Me avisa se precisar de algo.", when: "Fechando com apoio" },
     ],
-    mission: "Grave suas reações a 5 notícias diferentes — 3 boas, 2 ruins.",
+    mission: "Grave suas reações a 5 notícias diferentes: 3 boas, 2 ruins.",
     mindset:
       "Reação vem antes de conteúdo. Quem reage bem em inglês parece muito mais fluente do que é.",
     pitfall:
@@ -932,7 +931,7 @@ export const CIRCUITS: CircuitSpec[] = [
     number: 22,
     title: "Pedindo e oferecendo ajuda",
     situation:
-      "Você precisa de um favor — ou alguém precisa de você. Situação diária no trabalho e na rua.",
+      "Você precisa de um favor: ou alguém precisa de você. Situação diária no trabalho e na rua.",
     pattern: "Could you help me with ___ ?",
     patternNote:
       "'Could' é mais educado que 'can' e resolve praticamente qualquer pedido. Molde de alto retorno.",
@@ -955,7 +954,7 @@ export const CIRCUITS: CircuitSpec[] = [
     number: 23,
     title: "Small talk que não morre",
     situation:
-      "Elevador, fila, intervalo do café. Trinta segundos de conversa fiada — e o silêncio constrangedor se você não tiver os blocos.",
+      "Elevador, fila, intervalo do café. Trinta segundos de conversa fiada: e o silêncio constrangedor se você não tiver os blocos.",
     pattern: "How's ___ going?",
     patternNote: "Molde de abertura leve. Serve para trabalho, projeto, semana, família.",
     chunks: [
@@ -972,7 +971,7 @@ export const CIRCUITS: CircuitSpec[] = [
     mindset:
       "Small talk parece inútil e é a habilidade social mais valiosa em inglês. É o que abre porta antes da conversa séria.",
     pitfall:
-      "Responder só o perguntado e parar. Em inglês você devolve a bola sempre — senão a conversa morre em você.",
+      "Responder só o perguntado e parar. Em inglês você devolve a bola sempre: senão a conversa morre em você.",
   },
   {
     number: 24,
@@ -992,9 +991,9 @@ export const CIRCUITS: CircuitSpec[] = [
     ],
     mission: "Grave uma ligação simulada com 3 problemas de áudio e como você resolve cada um.",
     mindset:
-      "Ninguém entende 100% no telefone — nem nativo. A habilidade não é entender tudo: é seguir mesmo sem entender tudo.",
+      "Ninguém entende 100% no telefone: nem nativo. A habilidade não é entender tudo: é seguir mesmo sem entender tudo.",
     pitfall:
-      "Ficar em silêncio quando não entende numa call. Diga 'Sorry, I didn't catch that' — é o que o nativo diria.",
+      "Ficar em silêncio quando não entende numa call. Diga 'Sorry, I didn't catch that': é o que o nativo diria.",
   },
   {
     number: 25,
@@ -1014,7 +1013,7 @@ export const CIRCUITS: CircuitSpec[] = [
     ],
     mission: "Grave uma reclamação completa de 90 segundos sobre um produto que veio errado.",
     mindset:
-      "Reclamar em inglês exige firmeza sem agressividade. O meio-termo assertivo é o padrão anglófono — e ele se aprende por bloco.",
+      "Reclamar em inglês exige firmeza sem agressividade. O meio-termo assertivo é o padrão anglófono: e ele se aprende por bloco.",
     pitfall:
       "Alternar entre passividade excessiva e agressividade. O inglês tem um registro assertivo bem definido no meio.",
   },
@@ -1022,8 +1021,8 @@ export const CIRCUITS: CircuitSpec[] = [
     number: 26,
     title: "Fechando o Segundo Canto",
     situation:
-      "Uma conversa longa e sem roteiro: passado, presente, futuro, opinião e reação — tudo misturado, como na vida.",
-    pattern: "Todos os moldes dos circuitos 14–25",
+      "Uma conversa longa e sem roteiro: passado, presente, futuro, opinião e reação: tudo misturado, como na vida.",
+    pattern: "Todos os moldes dos circuitos 14 a 25",
     patternNote: "Sem novidade. Hoje é trocar de tempo verbal no meio da fala sem parar para pensar.",
     chunks: [
       { en: "How was your weekend?", pt: "Passado", when: "Circuito 14" },
@@ -1041,7 +1040,7 @@ export const CIRCUITS: CircuitSpec[] = [
       "Travar ao trocar de tempo verbal no meio da frase. A revisão de hoje existe para automatizar essa troca.",
   },
 
-  // ------------------------------------------------ TERCEIRO CANTO (27–39)
+  // ------------------------------------------------ TERCEIRO CANTO (27 a 39)
   {
     number: 27,
     title: "O que você faz da vida",
@@ -1062,13 +1061,13 @@ export const CIRCUITS: CircuitSpec[] = [
     mindset:
       "Quem explica o próprio trabalho de forma simples em inglês passa credibilidade. Jargão não impressiona ninguém.",
     pitfall:
-      "'Actually' não é 'atualmente' — significa 'na verdade'. Atualmente é 'currently'. Falso cognato caríssimo.",
+      "'Actually' não é 'atualmente': significa 'na verdade'. Atualmente é 'currently'. Falso cognato caríssimo.",
   },
   {
     number: 28,
     title: "Sua experiência",
     situation:
-      "'Have you ever...?' — a pergunta que abre entrevista, jantar e conversa de bar.",
+      "'Have you ever...?': a pergunta que abre entrevista, jantar e conversa de bar.",
     pattern: "I've never ___ , but I'd like to.",
     patternNote:
       "Experiência de vida sem dizer quando. É o único uso de 'present perfect' que você realmente precisa agora.",
@@ -1085,7 +1084,7 @@ export const CIRCUITS: CircuitSpec[] = [
     mindset:
       "Você não precisa entender a regra do present perfect. Precisa que 'I've never' saia sem pensar. Bloco antes de regra.",
     pitfall:
-      "'I work here for 3 years' — em inglês, algo que começou antes e continua pede 'I've worked here for 3 years'.",
+      "'I work here for 3 years': em inglês, algo que começou antes e continua pede 'I've worked here for 3 years'.",
   },
   {
     number: 29,
@@ -1107,13 +1106,13 @@ export const CIRCUITS: CircuitSpec[] = [
     mindset:
       "Entrevista em inglês se ganha no ensaio. Grave, ouça, regrave. Ninguém improvisa isso bem na primeira vez.",
     pitfall:
-      "'I formed myself in 2018' — tradução literal de 'me formei'. É 'I graduated'.",
+      "'I formed myself in 2018': tradução literal de 'me formei'. É 'I graduated'.",
   },
   {
     number: 30,
     title: "Reunião de trabalho",
     situation:
-      "Você precisa entrar na conversa, discordar do chefe e propor algo — sem parecer rude e sem sumir.",
+      "Você precisa entrar na conversa, discordar do chefe e propor algo: sem parecer rude e sem sumir.",
     pattern: "Can I jump in here?",
     patternNote: "Como interromper sem ofender. É um bloco fixo, não se improvisa.",
     chunks: [
@@ -1138,7 +1137,7 @@ export const CIRCUITS: CircuitSpec[] = [
       "Check-in, imigração, conexão perdida. Alta pressão, pouco tempo, ninguém repete duas vezes.",
     pattern: "Could you tell me where ___ is?",
     patternNote:
-      "Pergunta indireta: mais educada e — atenção — mantém a ordem afirmativa depois do 'where'.",
+      "Pergunta indireta: mais educada e: atenção: mantém a ordem afirmativa depois do 'where'.",
     chunks: [
       { en: "Could you tell me where gate 12 is?", pt: "Pode me dizer onde fica o portão 12?", when: "Localizando" },
       { en: "I'm here on vacation.", pt: "Estou aqui a passeio.", when: "Imigração" },
@@ -1150,9 +1149,9 @@ export const CIRCUITS: CircuitSpec[] = [
     ],
     mission: "Grave a passagem completa pela imigração respondendo às 5 perguntas padrão.",
     mindset:
-      "No aeroporto você não escolhe o assunto nem o ritmo. Por isso ensaia antes — o bloco pronto é o que salva.",
+      "No aeroporto você não escolhe o assunto nem o ritmo. Por isso ensaia antes: o bloco pronto é o que salva.",
     pitfall:
-      "'Could you tell me where is the gate?' — em pergunta indireta a ordem é afirmativa: 'where the gate is'.",
+      "'Could you tell me where is the gate?': em pergunta indireta a ordem é afirmativa: 'where the gate is'.",
   },
   {
     number: 32,
@@ -1195,9 +1194,9 @@ export const CIRCUITS: CircuitSpec[] = [
     ],
     mission: "Grave uma consulta médica completa: sintomas, duração, alergias e dúvidas.",
     mindset:
-      "Este é o circuito que você espera nunca usar — e é exatamente por isso que precisa estar automático.",
+      "Este é o circuito que você espera nunca usar: e é exatamente por isso que precisa estar automático.",
     pitfall:
-      "'I am with pain' — tradução literal. É 'I'm in pain' ou 'It hurts'.",
+      "'I am with pain': tradução literal. É 'I'm in pain' ou 'It hurts'.",
   },
   {
     number: 34,
@@ -1229,7 +1228,7 @@ export const CIRCUITS: CircuitSpec[] = [
       "Alguém te conta um problema e espera sua opinião. Aconselhar sem soar arrogante tem molde próprio.",
     pattern: "If I were you, I'd ___ .",
     patternNote:
-      "O conselho hipotético mais usado do inglês. 'Were' mesmo com 'I' — é assim e ponto.",
+      "O conselho hipotético mais usado do inglês. 'Were' mesmo com 'I': é assim e ponto.",
     chunks: [
       { en: "If I were you, I'd talk to her.", pt: "Se eu fosse você, eu falaria com ela.", when: "Conselho direto" },
       { en: "You should probably wait.", pt: "Você provavelmente deveria esperar.", when: "Conselho suave" },
@@ -1243,7 +1242,7 @@ export const CIRCUITS: CircuitSpec[] = [
     mindset:
       "'If I were you' é gramática avançada que você vai usar sem nunca ter estudado a regra. É assim que deve ser.",
     pitfall:
-      "'If I was you' — em conselho hipotético o inglês pede 'were' para todas as pessoas.",
+      "'If I was you': em conselho hipotético o inglês pede 'were' para todas as pessoas.",
   },
   {
     number: 36,
@@ -1252,7 +1251,7 @@ export const CIRCUITS: CircuitSpec[] = [
       "Conversa madura sobre escolhas: o emprego que recusou, a viagem que não fez, o que faria diferente.",
     pattern: "I should have ___ .",
     patternNote:
-      "Arrependimento em um molde só. Na fala vira 'should've' — treine o som, não a escrita.",
+      "Arrependimento em um molde só. Na fala vira 'should've': treine o som, não a escrita.",
     chunks: [
       { en: "I should have taken that job.", pt: "Eu deveria ter aceitado aquele emprego.", when: "Arrependimento" },
       { en: "I wish I had studied more.", pt: "Eu queria ter estudado mais.", when: "Desejo sobre o passado" },
@@ -1318,7 +1317,7 @@ export const CIRCUITS: CircuitSpec[] = [
     title: "Fechando o Terceiro Canto",
     situation:
       "Um dia caótico simulado: problema no hotel, ligação difícil, reunião tensa e uma negociação. Tudo em inglês.",
-    pattern: "Todos os moldes dos circuitos 27–38",
+    pattern: "Todos os moldes dos circuitos 27 a 38",
     patternNote: "Hoje é sobre resolver sob pressão, sem tempo de pensar na estrutura.",
     chunks: [
       { en: "I'm in charge of ___ .", pt: "Trabalho", when: "Circuito 27" },
@@ -1335,7 +1334,7 @@ export const CIRCUITS: CircuitSpec[] = [
     pitfall: "Voltar ao português mental sob pressão. A pressão é o treino.",
   },
 
-  // ------------------------------------------------ QUARTO CANTO (40–52)
+  // ------------------------------------------------ QUARTO CANTO (40 a 52)
   {
     number: 40,
     title: "Phrasal verbs do dia a dia",
@@ -1355,7 +1354,7 @@ export const CIRCUITS: CircuitSpec[] = [
     ],
     mission: "Reconte seu dia usando pelo menos 8 phrasal verbs.",
     mindset:
-      "Phrasal verb não se deduz — se decora em bloco. Aceite isso e você economiza meses.",
+      "Phrasal verb não se deduz: se decora em bloco. Aceite isso e você economiza meses.",
     pitfall:
       "Separar o que não separa: 'I ran my friend into' está errado. 'Run into' é inseparável.",
   },
@@ -1378,7 +1377,7 @@ export const CIRCUITS: CircuitSpec[] = [
     ],
     mission: "Descreva um projeto de trabalho usando 8 colocações corretas.",
     mindset:
-      "Colocação é o que faz você soar natural. É pura memorização de bloco — e por isso é rápida.",
+      "Colocação é o que faz você soar natural. É pura memorização de bloco: e por isso é rápida.",
     pitfall:
       "'Make a course' (é 'take a course'), 'do a decision' (é 'make a decision'). Sem lógica, só uso.",
   },
@@ -1389,7 +1388,7 @@ export const CIRCUITS: CircuitSpec[] = [
       "O nativo não fala palavra por palavra. Ele gruda tudo: 'whaddaya wanna do?' Se você espera espaços, não entende nada.",
     pattern: "gonna / wanna / gotta",
     patternNote:
-      "Não é preguiça nem gíria: é como o inglês é falado. Você precisa ENTENDER — usar é opcional.",
+      "Não é preguiça nem gíria: é como o inglês é falado. Você precisa ENTENDER: usar é opcional.",
     chunks: [
       { en: "What are you gonna do?", pt: "O que você vai fazer?", when: "going to → gonna" },
       { en: "I wanna try that.", pt: "Quero tentar isso.", when: "want to → wanna" },
@@ -1404,7 +1403,7 @@ export const CIRCUITS: CircuitSpec[] = [
     mindset:
       "Se você entende texto e não entende fala, o problema não é vocabulário: é ritmo. Este circuito resolve.",
     pitfall:
-      "Pronunciar cada palavra separada e com força igual. O inglês tem sílabas fortes e fracas — o resto some.",
+      "Pronunciar cada palavra separada e com força igual. O inglês tem sílabas fortes e fracas: o resto some.",
   },
   {
     number: 43,
@@ -1426,7 +1425,7 @@ export const CIRCUITS: CircuitSpec[] = [
     mindset:
       "Idiom mal colocado soa pior que idiom nenhum. Use só os que você já ouviu em contexto real.",
     pitfall:
-      "Usar idiom em registro errado — 'piece of cake' numa apresentação formal soa deslocado.",
+      "Usar idiom em registro errado: 'piece of cake' numa apresentação formal soa deslocado.",
   },
   {
     number: 44,
@@ -1444,7 +1443,7 @@ export const CIRCUITS: CircuitSpec[] = [
       { en: "Please find attached. / Here's the file.", pt: "Formal / informal", when: "Anexo" },
       { en: "Best regards, / Cheers,", pt: "Formal / informal", when: "Assinatura" },
     ],
-    mission: "Escreva a mesma mensagem duas vezes — para o chefe e para o amigo — e leia as duas em voz alta.",
+    mission: "Escreva a mesma mensagem duas vezes: para o chefe e para o amigo: e leia as duas em voz alta.",
     mindset:
       "Registro é o último degrau. Quem acerta o tom passa por fluente mesmo errando gramática.",
     pitfall:
@@ -1456,7 +1455,7 @@ export const CIRCUITS: CircuitSpec[] = [
     situation:
       "Cinco minutos, uma tela, uma plateia. Estruturar e entregar sem ler o slide.",
     pattern: "Let me walk you through ___ .",
-    patternNote: "Sinalizador de estrutura. Avisa a plateia para onde você vai — e te dá tempo.",
+    patternNote: "Sinalizador de estrutura. Avisa a plateia para onde você vai: e te dá tempo.",
     chunks: [
       { en: "Let me walk you through the numbers.", pt: "Deixem-me apresentar os números.", when: "Abrindo seção" },
       { en: "First of all...", pt: "Antes de mais nada...", when: "Primeiro ponto" },
@@ -1470,13 +1469,13 @@ export const CIRCUITS: CircuitSpec[] = [
     mindset:
       "Apresentação em inglês se ganha na estrutura, não no vocabulário. Sinalize e a plateia te acompanha.",
     pitfall:
-      "Ler o slide em voz alta. A plateia lê mais rápido que você fala — sinalize e comente, não leia.",
+      "Ler o slide em voz alta. A plateia lê mais rápido que você fala: sinalize e comente, não leia.",
   },
   {
     number: 46,
     title: "Feedback difícil",
     situation:
-      "Dizer a alguém que o trabalho não ficou bom — sem destruir a pessoa nem amaciar até virar elogio.",
+      "Dizer a alguém que o trabalho não ficou bom: sem destruir a pessoa nem amaciar até virar elogio.",
     pattern: "One thing I'd suggest is ___ .",
     patternNote: "Feedback amortecido: crítica embrulhada em sugestão. É o padrão anglófono.",
     chunks: [
@@ -1583,7 +1582,7 @@ export const CIRCUITS: CircuitSpec[] = [
     mission:
       "Ouça o mesmo assunto em 3 sotaques diferentes e grave um resumo do que entendeu de cada.",
     mindset:
-      "Seu sotaque brasileiro não é defeito — é identidade. O objetivo é ser entendido, não virar americano.",
+      "Seu sotaque brasileiro não é defeito: é identidade. O objetivo é ser entendido, não virar americano.",
     pitfall:
       "Achar que só o sotaque americano é 'certo'. A maioria das conversas em inglês no mundo é entre não nativos.",
   },
@@ -1593,7 +1592,7 @@ export const CIRCUITS: CircuitSpec[] = [
     situation:
       "Todos os 50 circuitos misturados, sem aviso. Cada dia desta semana simula uma situação diferente.",
     pattern: "Todos os moldes do curso",
-    patternNote: "Nada novo. Só recuperação sob pressão — que é como a memória se consolida de verdade.",
+    patternNote: "Nada novo. Só recuperação sob pressão: que é como a memória se consolida de verdade.",
     chunks: [
       { en: "Can I have ___ , please?", pt: "Pedido", when: "Circuito 4" },
       { en: "How was your weekend?", pt: "Passado", when: "Circuito 14" },
@@ -1605,7 +1604,7 @@ export const CIRCUITS: CircuitSpec[] = [
     ],
     mission: "Sete situações em sete dias, uma por dia, sorteadas sem aviso prévio.",
     mindset:
-      "Cinquenta e uma semanas. O que era esforço virou reflexo. Isso não foi dom — foi frequência.",
+      "Cinquenta e uma semanas. O que era esforço virou reflexo. Isso não foi dom: foi frequência.",
     pitfall: "Relaxar na reta final. A última milha é onde o automatismo se fixa.",
   },
   {
@@ -1629,7 +1628,7 @@ export const CIRCUITS: CircuitSpec[] = [
     mindset:
       "Um ano atrás você não sabia dizer 'oi'. Hoje você conversa. A diferença entre você e quem desistiu foram 15 minutos por dia.",
     pitfall:
-      "Buscar perfeição em vez de comunicação. Fluência é fluir — e você já flui.",
+      "Buscar perfeição em vez de comunicação. Fluência é fluir: e você já flui.",
   },
 ];
 
@@ -1640,7 +1639,7 @@ export const CIRCUITS: CircuitSpec[] = [
 export interface AuthenticInput {
   kind: "series" | "podcast" | "video" | "news" | "music" | "social";
   title: string;
-  /** O que procurar — busca real, não link que pode quebrar. */
+  /** O que procurar: busca real, não link que pode quebrar. */
   search: string;
   why: string;
   minutes: number;
@@ -1650,7 +1649,7 @@ export interface AuthenticInput {
  * Prescrição de input autêntico por nível.
  *
  * Não entregamos links: links quebram e material com direito autoral não é
- * nosso para distribuir. Entregamos o QUE procurar e POR QUE — que é a parte
+ * nosso para distribuir. Entregamos o QUE procurar e POR QUE: que é a parte
  * que o aluno não sabe fazer sozinho.
  */
 export function authenticInputFor(circuit: CircuitSpec, level: CefrLevel): AuthenticInput[] {
@@ -1668,7 +1667,7 @@ export function authenticInputFor(circuit: CircuitSpec, level: CefrLevel): Authe
       {
         kind: "series",
         title: "Sitcom com legenda em inglês",
-        search: "Friends / Brooklyn Nine-Nine — 1 cena de 3 minutos",
+        search: "Friends / Brooklyn Nine-Nine: 1 cena de 3 minutos",
         why: `Cenas curtas e situacionais. Procure uma que envolva "${topic}".`,
         minutes: 10,
       },
@@ -1700,7 +1699,7 @@ export function authenticInputFor(circuit: CircuitSpec, level: CefrLevel): Authe
       {
         kind: "news",
         title: "Notícia em vídeo",
-        search: "CNN / BBC / NPR — reportagem de 3 a 5 minutos",
+        search: "CNN / BBC / NPR: reportagem de 3 a 5 minutos",
         why: "Vocabulário formal, dicção limpa, velocidade real. Bom degrau antes da conversa casual.",
         minutes: 10,
       },
@@ -1708,7 +1707,7 @@ export function authenticInputFor(circuit: CircuitSpec, level: CefrLevel): Authe
         kind: "social",
         title: "Comentários de nativos",
         search: `Reddit ou YouTube: comentários sobre ${topic}`,
-        why: "Inglês escrito informal — gíria, abreviação, ironia. É a linguagem que não aparece em curso.",
+        why: "Inglês escrito informal: gíria, abreviação, ironia. É a linguagem que não aparece em curso.",
         minutes: 10,
       },
     ],
@@ -1724,7 +1723,7 @@ export function authenticInputFor(circuit: CircuitSpec, level: CefrLevel): Authe
         kind: "series",
         title: "Episódio SEM legenda",
         search: "sitcom or drama episode, no subtitles",
-        why: "Sem muleta. Você vai perder coisa — o objetivo é seguir mesmo perdendo.",
+        why: "Sem muleta. Você vai perder coisa: o objetivo é seguir mesmo perdendo.",
         minutes: 20,
       },
       {
@@ -1761,13 +1760,13 @@ export function livePromptFor(circuit: CircuitSpec): string {
   return [
     `You are role-playing this situation with the student: ${circuit.situation}`,
     "",
-    `Stay in character. Start the conversation naturally — do not explain the exercise.`,
+    `Stay in character. Start the conversation naturally: do not explain the exercise.`,
     `Use the target chunks when they fit, so the student hears them in context:`,
     ...circuit.chunks.slice(0, 5).map((c) => `  - "${c.en}"`),
     "",
     "Speak at natural speed. Do not slow down unless the student asks.",
     "If the student gets stuck for more than a few seconds, help with a short prompt.",
-    "After about 8 exchanges, let the conversation drift to a related topic —",
+    "After about 8 exchanges, let the conversation drift to a related topic : ",
     "real conversations do not stay on script, and that drift is the point.",
     "Correct only what blocks understanding, and do it inside the conversation,",
     "never as a lecture.",
@@ -1827,7 +1826,7 @@ function spacedReview(circuit: number): number[] {
 /** Revisão intercalada: circuitos aleatórios porém determinísticos. */
 function interleavedReview(circuit: number): number[] {
   const pool = Array.from({ length: circuit }, (_, i) => i + 1);
-  // Passo primo sobre o histórico — espalha sem depender de aleatoriedade.
+  // Passo primo sobre o histórico: espalha sem depender de aleatoriedade.
   const picks = new Set<number>();
   for (let i = 0; i < Math.min(5, pool.length); i++) {
     picks.add(pool[(i * 7 + circuit * 3) % pool.length]);
@@ -1866,7 +1865,7 @@ function dayTitle(circuit: CircuitSpec, day: DayRole): { title: string; objectiv
       };
     case 6:
       return {
-        title: `Revisão espaçada — circuito ${circuit.number}`,
+        title: `Revisão espaçada: circuito ${circuit.number}`,
         objective: `Puxar da memória os blocos que venceram hoje na sua agenda, sem consultar nada.`,
       };
     case 7:
@@ -1879,7 +1878,7 @@ function dayTitle(circuit: CircuitSpec, day: DayRole): { title: string; objectiv
     case 8:
       return {
         title: `${t}: inglês de verdade`,
-        objective: `Consumir material real do mundo sobre a situação — não material de curso.`,
+        objective: `Consumir material real do mundo sobre a situação: não material de curso.`,
       };
     case 9:
       return {
@@ -1903,7 +1902,7 @@ function dayTitle(circuit: CircuitSpec, day: DayRole): { title: string; objectiv
       };
     case 13:
       return {
-        title: `Revisão intercalada — circuito ${circuit.number}`,
+        title: `Revisão intercalada: circuito ${circuit.number}`,
         objective: `Blocos de circuitos misturados, fora de ordem. Intercalar custa mais e fixa mais.`,
       };
     default:
@@ -1975,5 +1974,5 @@ export const TOTAL_CIRCUITS = CIRCUITS.length;
  * O cronograma é medido em dias e circuitos, nunca em semanas de calendário:
  * o aluno que faz 4 dias numa semana e 9 na outra continua no Dia 13. Amarrar
  * a progressão ao calendário só serviria para fazer quem atrasa se sentir
- * devendo — e quem se sente devendo abandona.
+ * devendo: e quem se sente devendo abandona.
  */

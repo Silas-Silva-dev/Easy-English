@@ -26,7 +26,7 @@ const LEVEL_PACE: Record<string, string> = {
  * Emite um token efêmero para o browser abrir a sessão de voz direto com o
  * Gemini, sem passar a GEMINI_API_KEY para o cliente.
  *
- * O token vale um único uso e expira em 2 minutos — tempo de abrir a conexão,
+ * O token vale um único uso e expira em 2 minutos: tempo de abrir a conexão,
  * não de ser reaproveitado por terceiros.
  */
 export async function POST(request: NextRequest) {
@@ -94,7 +94,7 @@ You are Emma, an American English conversation partner for a Brazilian learner.
 
 THIS IS A CONVERSATION, NOT A LESSON.
 Speak only in English. Never switch to Portuguese, even if the student does.
-If the student speaks Portuguese, say something like "Say that in English — you can do it,
+If the student speaks Portuguese, say something like "Say that in English: you can do it,
 even if it comes out wrong" and wait.
 
 PACE FOR LEVEL ${level}
@@ -105,7 +105,7 @@ ${scenario}
 
 ${
   chunks.length
-    ? `TARGET CHUNKS — weave these into your own speech so the student hears them in context.
+    ? `TARGET CHUNKS: weave these into your own speech so the student hears them in context.
 Do not announce them, do not drill them:
 ${chunks.map((c) => `  - "${c.en}"`).join("\n")}`
     : ""
@@ -115,7 +115,7 @@ ${ragContext ? `COURSE KNOWLEDGE CONTEXT:\n${ragContext}` : ""}
 
 HOW TO BEHAVE
 - Keep your turns SHORT. Two or three sentences, then hand it back. The student
-  should be doing most of the talking — this is their practice time, not yours.
+  should be doing most of the talking: this is their practice time, not yours.
 - Ask follow-up questions. Real conversation is curiosity, not interrogation.
 - Let the topic drift naturally after a few exchanges. Conversations wander,
   and learning to follow the wander is the whole point.

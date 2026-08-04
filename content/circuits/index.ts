@@ -39,7 +39,7 @@ export function assertContentComplete(expected: number) {
   }
   if (CIRCUIT_CONTENT.length !== expected) {
     throw new Error(
-      `Há ${CIRCUIT_CONTENT.length} circuitos redigidos para ${expected} esperados — provavelmente um número duplicado.`,
+      `Há ${CIRCUIT_CONTENT.length} circuitos redigidos para ${expected} esperados: provavelmente um número duplicado.`,
     );
   }
 }

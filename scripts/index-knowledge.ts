@@ -6,7 +6,7 @@
  *   npm run index:knowledge -- --course ingles-para-conversacao
  *
  * Usa o checksum do conteúdo para pular lições que não mudaram desde a última
- * indexação — rodar de novo depois de editar uma lição custa quase nada.
+ * indexação: rodar de novo depois de editar uma lição custa quase nada.
  */
 
 import { createHash } from "node:crypto";
@@ -89,7 +89,7 @@ async function main() {
         return;
       }
 
-      // Recria o documento do zero — o cascade limpa os chunks antigos.
+      // Recria o documento do zero: o cascade limpa os chunks antigos.
       if (existing) {
         await supabase.from("knowledge_documents").delete().eq("id", existing.id);
       }
@@ -99,7 +99,7 @@ async function main() {
         .insert({
           course_id: course.id,
           lesson_id: lesson.id,
-          title: `Dia ${lesson.day_number} — ${lesson.title}`,
+          title: `Dia ${lesson.day_number}: ${lesson.title}`,
           source: "lesson",
           checksum: hash,
         })

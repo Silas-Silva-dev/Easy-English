@@ -101,7 +101,7 @@ export default async function ProgressPage() {
         />
         <StatCard
           label="Nota de fala"
-          value={latest ? Number(latest.overall_score).toFixed(1) : "—"}
+          value={latest ? Number(latest.overall_score).toFixed(1) : ": "}
           hint={
             delta != null
               ? `${delta >= 0 ? "+" : ""}${delta.toFixed(1)} desde a primeira prática`

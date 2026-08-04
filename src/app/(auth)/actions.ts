@@ -124,7 +124,7 @@ export async function requestPasswordResetAction(
     redirectTo: `${serverEnv.siteUrl}/auth/confirm?type=recovery&next=/nova-senha`,
   });
 
-  // Resposta idêntica exista ou não a conta — não vazamos quais e-mails
+  // Resposta idêntica exista ou não a conta: não vazamos quais e-mails
   // estão cadastrados.
   return {
     success:

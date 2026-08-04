@@ -47,7 +47,7 @@ export async function getOrCreateEnrollment(
   if (existing) {
     // A data alvo é gravada uma vez, na matrícula. Se a duração do curso mudou
     // depois (365 -> 728, por exemplo), ela passa a apontar um prazo que não
-    // existe mais — então recalculamos a partir do início real da matrícula.
+    // existe mais: então recalculamos a partir do início real da matrícula.
     const expected = new Date(existing.started_at);
     expected.setDate(expected.getDate() + course.duration_days);
     const expectedKey = expected.toISOString().slice(0, 10);
@@ -102,7 +102,7 @@ export async function getLessonByDay(courseId: string, day: number): Promise<Les
 
 /**
  * Próxima lição publicada a partir do dia atual da matrícula.
- * Lições ainda em rascunho são puladas — o aluno nunca vê página vazia.
+ * Lições ainda em rascunho são puladas: o aluno nunca vê página vazia.
  */
 export async function getNextLesson(courseId: string, fromDay: number): Promise<Lesson | null> {
   const supabase = await createServerSupabase();
@@ -180,7 +180,7 @@ export async function getCourseStats(
   return { publishedLessons: published ?? 0, completedLessons: completed ?? 0 };
 }
 
-/** Evolução das notas de fala — alimenta o gráfico de progresso. */
+/** Evolução das notas de fala: alimenta o gráfico de progresso. */
 export async function getSpeakingTrend(userId: string, limit = 30) {
   const supabase = await createServerSupabase();
   const { data } = await supabase
@@ -198,7 +198,7 @@ export async function getSpeakingTrend(userId: string, limit = 30) {
 /**
  * Os 7 papéis do dia dentro de um circuito.
  *
- * O enum `lesson_kind` do banco foi reaproveitado — cada valor representa um
+ * O enum `lesson_kind` do banco foi reaproveitado: cada valor representa um
  * dia do ritmo semanal, não um "tipo de aula gramatical". Ver a migration
  * 20260101000300_method.sql e content/curriculum.ts (DAY_RHYTHM).
  */
@@ -212,7 +212,7 @@ export const LESSON_KIND_LABEL: Record<Lesson["kind"], string> = {
   assessment: "Missão real",
 };
 
-/** Descrição curta do que acontece em cada dia — usada em tooltips e cards. */
+/** Descrição curta do que acontece em cada dia: usada em tooltips e cards. */
 export const LESSON_KIND_BRIEF: Record<Lesson["kind"], string> = {
   listening: "Áudio primeiro, sem texto",
   vocabulary: "Os blocos prontos do circuito",
@@ -251,7 +251,7 @@ export interface CompletionForecast {
  * uma lição por dia ou uma por semana.
  *
  * Aqui a projeção sai das lições efetivamente concluídas na janela recente.
- * Sem histórico, assume o ritmo de desenho do curso — e sinaliza que assumiu,
+ * Sem histórico, assume o ritmo de desenho do curso: e sinaliza que assumiu,
  * porque projeção apresentada como certeza é o tipo de número que faz o aluno
  * desistir quando a realidade não bate.
  */

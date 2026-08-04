@@ -316,7 +316,7 @@
           "Porque o parceiro dela pediu que ela mudasse de área."
         ],
         "answerIndex": 1,
-        "explanation": "Ela diz que ficava doze horas em pé e todo mundo chorando — e que quase a matou. O motivo é o desgaste, não o dinheiro."
+        "explanation": "Ela diz que ficava doze horas em pé e todo mundo chorando: e que quase a matou. O motivo é o desgaste, não o dinheiro."
       },
       {
         "question": "O que a Dana quer dizer com «You don't, but you stop complaining»?",
@@ -327,7 +327,7 @@
           "Que o Rafa deveria parar de reclamar."
         ],
         "answerIndex": 0,
-        "explanation": "Ela se corrige no meio da frase: disse «a gente acostuma», voltou atrás e admitiu que não acostuma — só para de reclamar."
+        "explanation": "Ela se corrige no meio da frase: disse «a gente acostuma», voltou atrás e admitiu que não acostuma: só para de reclamar."
       },
       {
         "question": "Como termina a conversa?",
@@ -338,7 +338,7 @@
           "Os dois combinam de se ver no próximo evento da empresa."
         ],
         "answerIndex": 2,
-        "explanation": "Ela diz «You're coming to ours. I'm not asking» — não é convite, é decisão. E o Rafa aceita."
+        "explanation": "Ela diz «You're coming to ours. I'm not asking»: não é convite, é decisão. E o Rafa aceita."
       }
     ]
   },
@@ -507,7 +507,7 @@
           "Ele sugere que ela leve alguém que fale inglês na próxima."
         ],
         "answerIndex": 2,
-        "explanation": "A resposta dele é «You got the whole address down. That's better than half my customers» — um elogio, não uma concessão."
+        "explanation": "A resposta dele é «You got the whole address down. That's better than half my customers»: um elogio, não uma concessão."
       }
     ]
   },
@@ -515,7 +515,7 @@
     "n": 4,
     "kind": "conversa",
     "title": "O pedido que deu errado na cafeteria",
-    "why": "No circuito o pedido saiu redondo. Aqui a máquina quebrou, o nome saiu errado e alguém pegou o copo errado — que é como balcão funciona de verdade.",
+    "why": "No circuito o pedido saiu redondo. Aqui a máquina quebrou, o nome saiu errado e alguém pegou o copo errado: que é como balcão funciona de verdade.",
     "minutes": 3,
     "lines": [
       [
@@ -694,7 +694,7 @@
     "n": 5,
     "kind": "conversa",
     "title": "Dividindo a conta com uma calculadora e paciência",
-    "why": "Números aparecem aqui na velocidade real e fora de ordem — preço, gorjeta, horário e telefone tudo na mesma conversa, que é como eles chegam na vida.",
+    "why": "Números aparecem aqui na velocidade real e fora de ordem: preço, gorjeta, horário e telefone tudo na mesma conversa, que é como eles chegam na vida.",
     "minutes": 3,
     "lines": [
       [
@@ -855,7 +855,7 @@
           "Para confirmar o número de telefone do Tom."
         ],
         "answerIndex": 0,
-        "explanation": "Ela pergunta «Where's the server?» e o Tom lembra que já pagou — tanto que ela acabou de transferir a parte dela."
+        "explanation": "Ela pergunta «Where's the server?» e o Tom lembra que já pagou: tanto que ela acabou de transferir a parte dela."
       }
     ]
   },
@@ -1029,7 +1029,7 @@
           "Que ele janta cedo demais e fica com fome de madrugada."
         ],
         "answerIndex": 0,
-        "explanation": "Ele conta isso e ainda admite que ela tem razão — o que, segundo ele, é justamente o que irrita."
+        "explanation": "Ele conta isso e ainda admite que ela tem razão: o que, segundo ele, é justamente o que irrita."
       }
     ]
   },
@@ -1037,7 +1037,7 @@
     "n": 7,
     "kind": "conversa",
     "title": "A série que um amou e o outro odiou",
-    "why": "Gosto discutido de verdade: os dois discordam, se interrompem, exageram e ninguém convence ninguém — que é como conversa sobre gosto termina.",
+    "why": "Gosto discutido de verdade: os dois discordam, se interrompem, exageram e ninguém convence ninguém: que é como conversa sobre gosto termina.",
     "minutes": 3,
     "lines": [
       [
@@ -1176,7 +1176,7 @@
         "question": "Qual é a crítica principal do Vini à série?",
         "options": [
           "Que os personagens são mal construídos.",
-          "Que ela demora demais a engatar — ficou boa só lá pelo episódio seis.",
+          "Que ela demora demais a engatar: ficou boa só lá pelo episódio seis.",
           "Que o final não faz sentido.",
           "Que ele já tinha visto algo idêntico antes."
         ],

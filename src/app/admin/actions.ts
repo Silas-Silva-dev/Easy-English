@@ -64,7 +64,7 @@ export async function updateUserRoleAction(
     const parsed = roleSchema.safeParse(role);
     if (!parsed.success) return { ok: false, error: "Papel inválido" };
 
-    // Um admin não pode rebaixar a si mesmo — evita deixar o sistema sem admin.
+    // Um admin não pode rebaixar a si mesmo: evita deixar o sistema sem admin.
     if (userId === actor.userId && parsed.data !== "admin") {
       return { ok: false, error: "Você não pode remover seu próprio acesso de administrador." };
     }
@@ -114,7 +114,7 @@ export async function updateUserStatusAction(
   }
 }
 
-/** Confirma o e-mail manualmente — útil quando o e-mail não chega ao aluno. */
+/** Confirma o e-mail manualmente: útil quando o e-mail não chega ao aluno. */
 export async function verifyUserEmailAction(userId: string): Promise<ActionResult> {
   try {
     const actor = await assertAdmin();

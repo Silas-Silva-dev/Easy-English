@@ -1,5 +1,5 @@
 /**
- * Gera os ícones do sistema a partir de código — sem dependência de imagem.
+ * Gera os ícones do sistema a partir de código: sem dependência de imagem.
  *
  *   npm run gen:icons
  *
@@ -13,8 +13,8 @@
  *   public/og-image.png        prévia em link compartilhado (1200x630)
  *
  * Por que um encoder próprio: `sharp` e `canvas` trazem binários nativos que
- * quebram em build de host compartilhado. O ícone é geometria simples — um
- * quadrado arredondado e três ondas — e cabe em ~120 linhas de rasterização.
+ * quebram em build de host compartilhado. O ícone é geometria simples: um
+ * quadrado arredondado e três ondas: e cabe em ~120 linhas de rasterização.
  * Rodar isto é opcional: os arquivos ficam versionados no repositório.
  */
 
@@ -84,7 +84,7 @@ function encodePng(width: number, height: number, pixels: Uint8Array): Buffer {
   ]);
 }
 
-/** ICO com PNGs embutidos — aceito por tudo de Windows Vista para cá. */
+/** ICO com PNGs embutidos: aceito por tudo de Windows Vista para cá. */
 function encodeIco(images: { size: number; png: Buffer }[]): Buffer {
   const header = Buffer.alloc(6);
   header.writeUInt16LE(0, 0);
@@ -147,12 +147,12 @@ interface IconOptions {
    * Ícone adaptativo do Android.
    *
    * O sistema recorta o ícone na forma que quiser (círculo, squircle, gota),
-   * então o fundo precisa ir de BORDA A BORDA — sem cantos arredondados e sem
+   * então o fundo precisa ir de BORDA A BORDA: sem cantos arredondados e sem
    * transparência, ou o recorte deixa buracos. Só o símbolo respeita a zona
    * segura dos 80% centrais.
    */
   maskable?: boolean;
-  /** Proporção diferente de 1:1 — usado na imagem de prévia de link. */
+  /** Proporção diferente de 1:1: usado na imagem de prévia de link. */
   height?: number;
 }
 
@@ -227,7 +227,7 @@ function drawIcon({ size, artScale = 1, maskable = false, height = size }: IconO
           const d = distToSegment(px, py, a.x, a.y, b.x, b.y);
           if (d < dist) dist = d;
         }
-        // Fora da janela em X, o que vale é a ponta — é ela que dá o cap redondo.
+        // Fora da janela em X, o que vale é a ponta: é ela que dá o cap redondo.
         if (lo > hi) {
           const cap = px < waveLeft ? line[0] : line[samples - 1];
           dist = Math.hypot(px - cap.x, py - cap.y);
@@ -257,7 +257,7 @@ function png(options: IconOptions): Buffer {
 }
 
 // ===========================================================================
-// SVG — o favicon vetorial, escrito à mão para bater com o raster
+// SVG: o favicon vetorial, escrito à mão para bater com o raster
 // ===========================================================================
 
 function iconSvg(): string {
@@ -298,7 +298,7 @@ function main() {
   write("public/icon-192.png", png({ size: 192 }));
   write("public/icon-512.png", png({ size: 512 }));
   write("public/icon-maskable.png", png({ size: 512, maskable: true }));
-  // O iOS já aplica o próprio arredondamento por cima — mandamos o quadrado.
+  // O iOS já aplica o próprio arredondamento por cima: mandamos o quadrado.
   write("public/apple-touch-icon.png", png({ size: 180 }));
   write("public/og-image.png", png({ size: 1200, height: 630, artScale: 0.32 }));
 

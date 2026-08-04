@@ -50,7 +50,7 @@ async function main() {
     console.log(`  ${short(m).padEnd(46)} \x1b[2m${m.displayName ?? ""}\x1b[0m`);
   }
 
-  console.log(`\n\x1b[1mbidiGenerateContent — conversa ao vivo (${live.length})\x1b[0m`);
+  console.log(`\n\x1b[1mbidiGenerateContent: conversa ao vivo (${live.length})\x1b[0m`);
   for (const m of live) {
     console.log(`  ${short(m).padEnd(46)} \x1b[2m${m.displayName ?? ""}\x1b[0m`);
   }

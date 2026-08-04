@@ -14,14 +14,14 @@
  *   - Nenhum áudio precisa ser armazenado, versionado ou re-gerado.
  *
  * ===========================================================================
- * O QUE ISSO NÃO É — e é importante ser claro
+ * O QUE ISSO NÃO É: e é importante ser claro
  * ===========================================================================
  * Não é gravação de falante nativo humano. É voz sintética do sistema, e a
  * qualidade varia conforme o dispositivo: no Windows e no macOS as vozes en-US
  * são boas; em alguns Androids antigos são mecânicas.
  *
- * Para o que o curso usa — reconhecer o bloco, copiar o ritmo, fazer shadowing
- * — a voz sintética serve bem. Para ouvido treinado em fala natural conectada,
+ * Para o que o curso usa: reconhecer o bloco, copiar o ritmo, fazer shadowing
+ *: a voz sintética serve bem. Para ouvido treinado em fala natural conectada,
  * o dia 8 de cada circuito manda o aluno para material humano de verdade, que
  * é o lugar certo para isso.
  */
@@ -46,7 +46,7 @@ export interface SpeakOptions {
    * sustenta o "voltar um trecho" e a troca de velocidade sem perder o lugar.
    */
   startAt?: number;
-  /** Chamado quando cada fala começa — usado para destacar a linha atual. */
+  /** Chamado quando cada fala começa: usado para destacar a linha atual. */
   onLine?: (index: number, total: number) => void;
   onEnd?: () => void;
   onError?: (message: string) => void;
@@ -62,7 +62,7 @@ export function isSpeechSupported(): boolean {
  * Isto não é micro-otimização, é o que faz o áudio existir no Safari e no
  * Chrome do celular: lá o `speak()` só produz som se for chamado dentro do
  * próprio handler do toque. Qualquer `await` antes dele encerra a "ativação do
- * usuário", e a fala é descartada em silêncio — sem som e sem evento de erro.
+ * usuário", e a fala é descartada em silêncio: sem som e sem evento de erro.
  * Por isso `speakLines` consulta este cache em vez de esperar por promessa.
  */
 let cachedVoices: SpeechSynthesisVoice[] = [];
@@ -90,7 +90,7 @@ export function primeVoices(): void {
 /**
  * As vozes chegam de forma assíncrona no Chrome: a primeira chamada a
  * getVoices() costuma vir vazia e só depois o evento `voiceschanged` dispara.
- * Sem esperar por ele, o primeiro play sai com a voz padrão do sistema — que
+ * Sem esperar por ele, o primeiro play sai com a voz padrão do sistema: que
  * pode ser em português, lendo inglês com sotaque brasileiro.
  */
 export function loadVoices(timeoutMs = 2000): Promise<SpeechSynthesisVoice[]> {
@@ -196,7 +196,7 @@ let pending: SpeechSynthesisUtterance[] = [];
 /**
  * Quanto esperamos a primeira fala começar antes de admitir que não vem som.
  * Sem isto, todo modo de falha silenciosa vira "apertei o play e não aconteceu
- * nada" — sem mensagem, sem pista, sem o que reportar.
+ * nada": sem mensagem, sem pista, sem o que reportar.
  */
 const START_TIMEOUT_MS = 4000;
 
@@ -206,7 +206,7 @@ export function cancelSpeech() {
   if (!isSpeechSupported()) return;
   // Só cancela se houver algo para cancelar: `cancel()` seguido de `speak()`
   // com o sintetizador ocioso é uma corrida conhecida do Chrome que engole a
-  // primeira utterance — exatamente o play inicial de cada lição.
+  // primeira utterance: exatamente o play inicial de cada lição.
   if (window.speechSynthesis.speaking || window.speechSynthesis.pending) {
     window.speechSynthesis.cancel();
   }
@@ -243,7 +243,7 @@ export function speakLines(lines: SpeakLine[], options: SpeakOptions = {}) {
   }
 
   // Primeiro play numa aba onde as vozes ainda não chegaram. Aqui não há
-  // escolha senão esperar — e no iOS este play pode sair mudo. O aquecimento
+  // escolha senão esperar: e no iOS este play pode sair mudo. O aquecimento
   // feito por `primeVoices()` na montagem existe para este caso ser raro.
   void loadVoices().then((voices) => {
     if (token !== activeToken) return;
@@ -303,7 +303,7 @@ function speakSequence(
       options.onError?.(`Falha ao sintetizar a fala (${event.error}).`);
     };
 
-    // Segura a referência até a sequência acabar — ver `pending`.
+    // Segura a referência até a sequência acabar: ver `pending`.
     pending.push(utterance);
 
     // O sintetizador pode estar pausado: acontece no Chrome depois de a aba ir

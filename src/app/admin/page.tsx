@@ -168,7 +168,7 @@ export default async function AdminDashboard() {
             {(recentUsers ?? []).map((user) => (
               <div key={user.id} className="flex items-center justify-between gap-3 py-1.5">
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-medium">{user.full_name ?? "—"}</p>
+                  <p className="truncate text-sm font-medium">{user.full_name ?? ": "}</p>
                   <p className="text-muted-foreground truncate text-xs">{user.email}</p>
                 </div>
                 <div className="flex shrink-0 flex-col items-end gap-1">
@@ -222,7 +222,7 @@ export default async function AdminDashboard() {
                 <div className="w-full min-w-0 sm:w-auto">
                   <p className="truncate text-sm">{session.prompt}</p>
                   <p className="text-muted-foreground mt-0.5 truncate text-xs">
-                    {profile?.full_name ?? profile?.email ?? "—"} · {formatRelative(session.created_at)}
+                    {profile?.full_name ?? profile?.email ?? ": "} · {formatRelative(session.created_at)}
                   </p>
                 </div>
                 <Badge

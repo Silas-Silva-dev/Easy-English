@@ -22,7 +22,7 @@ const display = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
-    default: "InglishEasy — Inglês para conversação com tutora de IA",
+    default: "InglishEasy: Inglês para conversação com tutora de IA",
     template: "%s · InglishEasy",
   },
   description:
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: "InglishEasy",
-    title: "InglishEasy — Inglês para conversação com tutora de IA",
+    title: "InglishEasy: Inglês para conversação com tutora de IA",
     description:
       "728 dias, do seu jeito. Grave sua fala e receba correção de pronúncia feita sob medida para brasileiros.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "InglishEasy" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "InglishEasy — Inglês para conversação com tutora de IA",
+    title: "InglishEasy: Inglês para conversação com tutora de IA",
     description: "728 dias, do seu jeito, com uma tutora de IA que ouve você falar.",
     images: ["/og-image.png"],
   },
@@ -77,7 +77,7 @@ export const viewport: Viewport = {
   // em globals.css, que impede o Safari de encolher texto sozinho.
   //
   // O Safari ignora estes dois campos quando o site abre pelo navegador, mas
-  // os respeita no app instalado — que é o alvo aqui. A trava que vale nos
+  // os respeita no app instalado: que é o alvo aqui. A trava que vale nos
   // dois casos é o `touch-action` em globals.css.
   maximumScale: 1,
   userScalable: false,

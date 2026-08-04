@@ -91,7 +91,7 @@ export function SpeakingRecorder({
       });
       streamRef.current = stream;
 
-      // Medidor de volume — feedback visual de que o microfone está captando.
+      // Medidor de volume: feedback visual de que o microfone está captando.
       const ctx = new AudioContext();
       audioCtxRef.current = ctx;
       const source = ctx.createMediaStreamSource(stream);
@@ -191,7 +191,7 @@ export function SpeakingRecorder({
         setPhase("idle");
         return;
       } else if (payload.languageDetected === "pt") {
-        toast.warning("Você falou em português. Tente responder em inglês — mesmo com erros.");
+        toast.warning("Você falou em português. Tente responder em inglês: mesmo com erros.");
       } else {
         toast.success("Correção da tutora pronta!");
       }

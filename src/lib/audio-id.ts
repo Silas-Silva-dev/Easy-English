@@ -6,7 +6,7 @@
  * ===========================================================================
  * O áudio das lições é gerado em lote por `scripts/generate-audio.ts` e vive
  * como arquivo estático em `public/audio/<id>.mp3`. O player precisa descobrir
- * o nome do arquivo a partir do texto que ele já tem em mãos — sem consultar
+ * o nome do arquivo a partir do texto que ele já tem em mãos: sem consultar
  * banco, sem baixar manifesto, sem mudar o schema.
  *
  * Derivar o nome do próprio texto resolve isso e ainda dá três propriedades
@@ -25,7 +25,7 @@
  * ===========================================================================
  * Precisa rodar igual no Node (script de geração) e no browser (player), de
  * forma SÍNCRONA. `crypto.subtle` no browser é assíncrono, e um await aqui
- * voltaria a quebrar o gesto do usuário no Safari — o mesmo problema que
+ * voltaria a quebrar o gesto do usuário no Safari: o mesmo problema que
  * `src/lib/speech.ts` documenta. Este é o cyrb53, que é síncrono, não depende
  * de nada e distribui bem o suficiente: com ~500 áudios, a chance de colisão
  * em 53 bits é da ordem de 1 em 10^11.

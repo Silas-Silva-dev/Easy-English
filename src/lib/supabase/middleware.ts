@@ -6,7 +6,7 @@ import type { Database } from "@/lib/types/database";
 /** Rotas que exigem sessao autenticada. */
 const PROTECTED_PREFIXES = ["/app", "/admin"];
 
-/** Rotas de autenticacao — usuario ja logado e redirecionado para dentro. */
+/** Rotas de autenticacao: usuario ja logado e redirecionado para dentro. */
 const AUTH_ROUTES = ["/login", "/cadastro", "/recuperar-senha"];
 
 export async function updateSession(request: NextRequest) {

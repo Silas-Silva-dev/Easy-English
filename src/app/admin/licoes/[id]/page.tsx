@@ -112,7 +112,7 @@ export default async function AdminLessonDetail({
             ))}
 
             {/* Os blocos do portão de imersão (dia 1) só aparecem no player
-                depois de 3 escutas — aqui o revisor vê tudo de uma vez. */}
+                depois de 3 escutas: aqui o revisor vê tudo de uma vez. */}
             {(lesson.content.gated ?? []).map((block, i) => (
               <LessonBlockView key={`gated-${i}`} block={block} />
             ))}

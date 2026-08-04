@@ -34,7 +34,7 @@ export async function retrieveContext(
   });
 
   if (error) {
-    // Busca semantica indisponivel nao pode derrubar o tutor — ele responde
+    // Busca semantica indisponivel nao pode derrubar o tutor: ele responde
     // com o conhecimento geral do modelo.
     console.error("[tutor] falha ao recuperar contexto:", error.message);
     return [];
@@ -89,7 +89,7 @@ export async function askTutor(params: {
       const meta = chunk.metadata as { title?: string; day_number?: number };
       return {
         lesson_id: chunk.lesson_id,
-        title: meta?.day_number ? `Dia ${meta.day_number} — ${meta.title ?? ""}` : "Material do curso",
+        title: meta?.day_number ? `Dia ${meta.day_number}: ${meta.title ?? ""}` : "Material do curso",
         snippet: chunk.content.slice(0, 220),
       };
     }),

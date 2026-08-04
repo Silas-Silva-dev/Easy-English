@@ -21,7 +21,7 @@ const STORAGE_KEY = "inglisheasy-theme";
  */
 const DEFAULT_THEME: Theme = "light";
 
-/** Cor da barra do navegador em cada tema — precisa acompanhar o tema real. */
+/** Cor da barra do navegador em cada tema: precisa acompanhar o tema real. */
 const THEME_COLOR = { light: "#ffffff", dark: "#101318" } as const;
 
 const ThemeContext = React.createContext<{ theme: Theme; setTheme: (t: Theme) => void }>({

@@ -48,7 +48,7 @@ export default async function LivePage() {
       <PageHeader
         eyebrow="Tutora de IA"
         title="Conversa ao vivo"
-        description="Voz em tempo real com a Emma. Sem roteiro, sem legenda, sem pausa para pensar — é o exercício que mais se parece com falar com um americano de verdade."
+        description="Voz em tempo real com a Emma. Sem roteiro, sem legenda, sem pausa para pensar: é o exercício que mais se parece com falar com um americano de verdade."
       />
 
       {circuit ? (
@@ -69,7 +69,7 @@ export default async function LivePage() {
         lessonId={lesson?.id}
         circuitNumber={lesson?.week_number}
         scenario={circuit?.live_prompt ?? circuit?.situation ?? undefined}
-        title={circuit ? `Circuito ${circuit.number} — ${circuit.title}` : "Conversa livre"}
+        title={circuit ? `Circuito ${circuit.number}: ${circuit.title}` : "Conversa livre"}
       />
 
       <Card>
@@ -80,7 +80,7 @@ export default async function LivePage() {
           <p>
             <strong className="text-foreground">Fale mais que ela.</strong> A Emma foi instruída a
             dar turnos curtos e devolver a palavra. Se você responder em uma palavra, a conversa
-            morre — e o tempo de prática é seu, não dela.
+            morre: e o tempo de prática é seu, não dela.
           </p>
           <p>
             <strong className="text-foreground">Não peça para desacelerar.</strong> Ela fala na
@@ -89,7 +89,7 @@ export default async function LivePage() {
           </p>
           <p>
             <strong className="text-foreground">Não avaliamos pronúncia aqui.</strong> Esta nota
-            olha fluência, gramática, vocabulário e interação — a partir da transcrição. Para
+            olha fluência, gramática, vocabulário e interação: a partir da transcrição. Para
             pronúncia, use a gravação em{" "}
             <span className="text-foreground">Praticar fala</span>, onde a tutora ouve o áudio.
           </p>

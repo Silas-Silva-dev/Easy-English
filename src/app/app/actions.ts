@@ -23,7 +23,7 @@ export interface CompleteLessonResult {
 /**
  * Marca a lição como concluída, contabiliza os minutos do dia e recalcula a
  * ofensiva. O avanço do `current_day` só acontece se o aluno estava justamente
- * naquele dia — refazer lição antiga não pula o cronograma.
+ * naquele dia: refazer lição antiga não pula o cronograma.
  */
 export async function completeLessonAction(input: {
   lessonId: string;
@@ -188,4 +188,23 @@ export async function updateProfileAction(
   revalidatePath("/app", "layout");
   revalidatePath("/app/revisao");
   return { success: "Perfil atualizado." };
+}
+
+export async function updateAvatarAction(
+  avatarUrl: string,
+): Promise<{ ok: boolean; error?: string }> {
+  const session = await getSessionContext();
+  if (!session) return { ok: false, error: "Não autenticado" };
+
+  const supabase = await createServerSupabase();
+  const { error } = await supabase
+    .from("profiles")
+    .update({ avatar_url: avatarUrl })
+    .eq("id", session.userId);
+
+  if (error) return { ok: false, error: error.message };
+
+  revalidatePath("/app", "layout");
+  revalidatePath("/app/perfil");
+  return { ok: true };
 }

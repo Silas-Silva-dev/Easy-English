@@ -13,7 +13,7 @@ import { formatRelative } from "@/lib/utils";
 
 export const metadata: Metadata = { title: "Praticar fala" };
 
-/** Status da sessão em português — o enum do banco é interno, não vira UI. */
+/** Status da sessão em português: o enum do banco é interno, não vira UI. */
 const SESSION_STATUS: Record<string, string> = {
   uploaded: "Enviado",
   processing: "Analisando…",
@@ -25,7 +25,7 @@ const SESSION_STATUS: Record<string, string> = {
  * Cenários de prática livre, do mais simples ao mais exigente.
  *
  * O enunciado vai em PORTUGUÊS: quem está no A1 não consegue ler a tarefa em
- * inglês, e uma tarefa que o aluno não entendeu ele cumpre errado — a nota cai
+ * inglês, e uma tarefa que o aluno não entendeu ele cumpre errado: a nota cai
  * por um motivo que não tem nada a ver com o inglês dele. O que ele grava,
  * esse sim, é em inglês.
  */
@@ -34,7 +34,7 @@ const FREE_PROMPTS = [
     level: "A1",
     prompt:
       "Apresente-se em inglês: diga seu nome, de onde você é, o que você faz e uma coisa que você gosta de fazer.",
-    help: "Use os blocos do circuito 1 e 2. Frases curtas bastam — ninguém espera parágrafo.",
+    help: "Use os blocos do circuito 1 e 2. Frases curtas bastam: ninguém espera parágrafo.",
   },
   {
     level: "A2",

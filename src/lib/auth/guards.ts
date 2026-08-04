@@ -56,7 +56,7 @@ export async function requireActiveUser(nextPath = "/app"): Promise<SessionConte
       return ctx;
     case "pending_verification":
       redirect("/verificar-email");
-    // falls through — redirect() nunca retorna
+    // falls through: redirect() nunca retorna
     case "suspended":
     case "banned":
       redirect("/conta-bloqueada");
@@ -74,12 +74,12 @@ export async function requireRole(
   return ctx;
 }
 
-/** Admin ou instrutor — pode gerenciar catalogo e acompanhar alunos. */
+/** Admin ou instrutor: pode gerenciar catalogo e acompanhar alunos. */
 export function requireStaff(nextPath = "/admin") {
   return requireRole(["admin", "instructor"], nextPath);
 }
 
-/** Somente admin — gestao de usuarios, papeis e configuracoes sensiveis. */
+/** Somente admin: gestao de usuarios, papeis e configuracoes sensiveis. */
 export function requireAdmin(nextPath = "/admin") {
   return requireRole(["admin"], nextPath);
 }

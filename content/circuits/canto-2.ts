@@ -1,5 +1,5 @@
 /**
- * SEGUNDO CANTO — Contar (circuitos 14 a 26)
+ * SEGUNDO CANTO: Contar (circuitos 14 a 26)
  *
  * O salto deste canto é sair do "yes / no" e passar a NARRAR: o que aconteceu,
  * o que vai acontecer, o que você acha. É aqui que a conversa deixa de ser
@@ -35,7 +35,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "O passado que você precisa (e o que pode ignorar por enquanto)",
       body:
-        "Passado em inglês tem duas famílias: os regulares (**+ed**: *worked*, *watched*, *stayed*) e os irregulares, que mudam de forma (*go → went*, *have → had*, *make → made*).\n\nNão decore lista de irregulares. Os vinte mais frequentes cobrem quase toda conversa, e você vai instalá-los como bloco: *I went*, *I had*, *I made*, *I saw*, *I did*.\n\nErrar o passado quase nunca gera mal-entendido — o contexto salva. Silêncio, sim, gera.",
+        "Passado em inglês tem duas famílias: os regulares (**+ed**: *worked*, *watched*, *stayed*) e os irregulares, que mudam de forma (*go → went*, *have → had*, *make → made*).\n\nNão decore lista de irregulares. Os vinte mais frequentes cobrem quase toda conversa, e você vai instalá-los como bloco: *I went*, *I had*, *I made*, *I saw*, *I did*.\n\nErrar o passado quase nunca gera mal-entendido: o contexto salva. Silêncio, sim, gera.",
     },
     swaps: ["went to the beach", "stayed home", "met up with friends", "worked all weekend", "visited my parents", "watched three movies", "did absolutely nothing", "went out on Saturday"],
     expansion: [
@@ -56,8 +56,8 @@ export const CANTO_2: CircuitContent[] = [
     ],
     quiz: [
       ["'How was your weekend?' espera que resposta?", ["Um relato minuto a minuto", "Uma frase curta e a pergunta devolvida", "Só 'good'", "Uma desculpa"], 1, "É small talk: duas ou três frases e devolve. Contar demais é tão estranho quanto responder só 'good'."],
-      ["Qual o passado de 'go'?", ["goed", "gone", "went", "going"], 2, "'Went' é irregular. 'Gone' existe, mas em outra construção (I have gone) — que vem no circuito 28."],
-      ["'Nothing special, really' serve para:", ["Encerrar a conversa", "Dizer que foi um fim de semana comum, sem parecer rude", "Reclamar", "Elogiar"], 1, "É modéstia conversacional. Quase sempre seguido de algo que a pessoa acabou fazendo — como no diálogo do Bruno."],
+      ["Qual o passado de 'go'?", ["goed", "gone", "went", "going"], 2, "'Went' é irregular. 'Gone' existe, mas em outra construção (I have gone): que vem no circuito 28."],
+      ["'Nothing special, really' serve para:", ["Encerrar a conversa", "Dizer que foi um fim de semana comum, sem parecer rude", "Reclamar", "Elogiar"], 1, "É modéstia conversacional. Quase sempre seguido de algo que a pessoa acabou fazendo: como no diálogo do Bruno."],
       ["'I met up with some friends' significa:", ["Encontrei por acaso", "Combinei e encontrei", "Conheci pela primeira vez", "Reuni todos"], 1, "'Meet up' é encontro combinado. 'Run into' (circuito 40) é o encontro por acaso."],
     ],
   },
@@ -90,7 +90,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "Duas camadas de passado numa história",
       body:
-        "Toda história tem um **pano de fundo** e um **acontecimento**.\n\n*I **was walking** home* — o fundo, o que estava rolando.\n*when I **saw** my old boss* — o acontecimento que corta o fundo.\n\nÉ por isso que *So, I was ___ when suddenly ___* é o molde de história mais útil do inglês: ele já traz as duas camadas montadas. Você só troca as peças.",
+        "Toda história tem um **pano de fundo** e um **acontecimento**.\n\n*I **was walking** home*: o fundo, o que estava rolando.\n*when I **saw** my old boss*: o acontecimento que corta o fundo.\n\nÉ por isso que *So, I was ___ when suddenly ___* é o molde de história mais útil do inglês: ele já traz as duas camadas montadas. Você só troca as peças.",
     },
     swaps: ["walking home", "waiting for the bus", "having lunch", "working late", "getting ready to leave", "talking to a client", "cooking dinner", "trying to sleep"],
     expansion: [
@@ -107,13 +107,13 @@ export const CANTO_2: CircuitContent[] = [
     ],
     sounds: [
       ["'Was' é fraco na frase", "Sozinho é 'uóz'. Dentro da frase vira 'uez', quase mudo: 'I wez walking'. Toda palavra funcional encolhe assim."],
-      ["'All of a sudden' vira 'ólovassádn'", "Quatro palavras, uma respiração. É expressão fixa — treine como se fosse uma palavra só."],
+      ["'All of a sudden' vira 'ólovassádn'", "Quatro palavras, uma respiração. É expressão fixa: treine como se fosse uma palavra só."],
     ],
     quiz: [
       ["Qual parte é o pano de fundo da história?", ["I saw my old boss", "I was walking home", "He hugged me", "It was embarrassing"], 1, "O 'was walking' é a cena em curso; o 'saw' é o que corta ela. Toda história boa tem essas duas camadas."],
       ["'You won't believe what happened' serve para:", ["Duvidar do outro", "Abrir uma história e prender a atenção", "Encerrar", "Pedir confirmação"], 1, "É a abertura clássica. Sem ela, você começa a história e a pessoa ainda não entrou no modo de ouvir."],
       ["'And then it got worse' indica:", ["Que a história acabou", "Que vem outra reviravolta", "Que você se arrependeu", "Que foi bom"], 1, "É a costura que mantém a história andando. Sem conectivo de reviravolta, o relato vira lista de fatos."],
-      ["'In the end' significa:", ["Finalmente, depois de tudo", "No fundo", "Por fim das contas, no final", "No final da rua"], 2, "'In the end' fecha a narrativa. Cuidado: 'at the end' é o fim de algo físico ou temporal específico — coisa diferente."],
+      ["'In the end' significa:", ["Finalmente, depois de tudo", "No fundo", "Por fim das contas, no final", "No final da rua"], 2, "'In the end' fecha a narrativa. Cuidado: 'at the end' é o fim de algo físico ou temporal específico: coisa diferente."],
     ],
   },
 
@@ -143,7 +143,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "'Used to' é o nosso imperfeito",
       body:
-        "Português tem uma forma verbal só para hábito no passado: 'eu **jogava**'. Inglês não tem — resolve com o bloco **used to**.\n\n*I used to play soccer* = eu jogava futebol (e não jogo mais).\n\nDetalhe que vale ouro: o *used to* já carrega a ideia de 'não é mais assim'. Se ainda acontece, não use — diga *I still play*.\n\nE cuidado com o falso amigo: *I'm used to it* (com o verbo to be) significa 'estou acostumado'. Outro bloco, outro sentido.",
+        "Português tem uma forma verbal só para hábito no passado: 'eu **jogava**'. Inglês não tem: resolve com o bloco **used to**.\n\n*I used to play soccer* = eu jogava futebol (e não jogo mais).\n\nDetalhe que vale ouro: o *used to* já carrega a ideia de 'não é mais assim'. Se ainda acontece, não use: diga *I still play*.\n\nE cuidado com o falso amigo: *I'm used to it* (com o verbo to be) significa 'estou acostumado'. Outro bloco, outro sentido.",
     },
     swaps: ["play soccer every day", "live in a small town", "hate vegetables", "wake up at five", "study a lot", "be really shy", "spend every summer at my grandma's", "think I knew everything"],
     expansion: [
@@ -164,9 +164,9 @@ export const CANTO_2: CircuitContent[] = [
     ],
     quiz: [
       ["'I used to play soccer' quer dizer que você:", ["Joga futebol agora", "Jogava antes e parou", "Vai jogar", "Gosta de futebol"], 1, "O 'used to' já embute o 'e não faço mais'. Se ainda faz, use 'I still play'."],
-      ["Qual a diferença de 'I'm used to it'?", ["Nenhuma", "Significa 'estou acostumado', é outro bloco", "É mais formal", "É o plural"], 1, "Um usa o verbo to be, o outro não. Confundir os dois é clássico — guarde como blocos separados."],
+      ["Qual a diferença de 'I'm used to it'?", ["Nenhuma", "Significa 'estou acostumado', é outro bloco", "É mais formal", "É o plural"], 1, "Um usa o verbo to be, o outro não. Confundir os dois é clássico: guarde como blocos separados."],
       ["'Things were different back then' se refere a:", ["Ao futuro", "A uma época passada específica", "A agora", "A outro país"], 1, "'Back then' aponta para o passado já mencionado. É a costura que evita repetir 'when I was a kid' toda hora."],
-      ["'I really miss that' significa:", ["Eu perdi isso", "Eu sinto falta disso", "Eu errei isso", "Eu não vi isso"], 1, "'Miss' é sentir falta. Também significa perder (um voo, um prazo) — o contexto separa."],
+      ["'I really miss that' significa:", ["Eu perdi isso", "Eu sinto falta disso", "Eu errei isso", "Eu não vi isso"], 1, "'Miss' é sentir falta. Também significa perder (um voo, um prazo): o contexto separa."],
     ],
   },
 
@@ -196,7 +196,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "'Going to' e 'will' não são a mesma coisa",
       body:
-        "**Going to** = já decidido, já pensado. *I'm going to visit my parents* — está no plano.\n\n**Will** = decidido agora, na hora. *I'll send you the details* — decidiu enquanto falava.\n\nNa dúvida em conversa, use **going to** para planos e **I'll** para promessas de momento. Errar aqui não gera mal-entendido, mas acertar faz você soar bem mais natural.\n\nE sim: na fala, *going to* vira **gonna**. O circuito 42 é inteiro sobre isso.",
+        "**Going to** = já decidido, já pensado. *I'm going to visit my parents*: está no plano.\n\n**Will** = decidido agora, na hora. *I'll send you the details*: decidiu enquanto falava.\n\nNa dúvida em conversa, use **going to** para planos e **I'll** para promessas de momento. Errar aqui não gera mal-entendido, mas acertar faz você soar bem mais natural.\n\nE sim: na fala, *going to* vira **gonna**. O circuito 42 é inteiro sobre isso.",
     },
     swaps: ["visit my parents", "stay home and rest", "finally clean the house", "look for a new job", "travel next month", "take a course", "call my sister", "figure it out later"],
     expansion: [
@@ -249,7 +249,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "'Work' não é só trabalhar",
       body:
-        "*Does 3 PM work for you?* — o horário não trabalha, ele **serve**, **encaixa**.\n\n*Work* em inglês cobre 'funcionar', 'dar certo', 'servir': *It works*, *That works for me*, *It's not working*.\n\nEssa é a lógica que mais atrapalha quem traduz palavra por palavra. Verbos frequentes em inglês (*get*, *take*, *work*, *make*) têm dez sentidos cada, e nenhum deles é o sentido do dicionário. Guarde o **bloco inteiro** e o sentido vem junto.",
+        "*Does 3 PM work for you?*: o horário não trabalha, ele **serve**, **encaixa**.\n\n*Work* em inglês cobre 'funcionar', 'dar certo', 'servir': *It works*, *That works for me*, *It's not working*.\n\nEssa é a lógica que mais atrapalha quem traduz palavra por palavra. Verbos frequentes em inglês (*get*, *take*, *work*, *make*) têm dez sentidos cada, e nenhum deles é o sentido do dicionário. Guarde o **bloco inteiro** e o sentido vem junto.",
     },
     swaps: ["3 PM", "Friday morning", "next Tuesday", "any time after five", "the same time next week", "a video call", "Thursday instead", "lunch time"],
     expansion: [
@@ -266,11 +266,11 @@ export const CANTO_2: CircuitContent[] = [
     ],
     sounds: [
       ["'Does' fraco vira 'dez'", "Em pergunta, 'does' quase some: 'dez three PM work for you'. Palavra funcional nunca é acentuada."],
-      ["'Work for you' emendado", "'Workforyou' — sem pausa. Se você separar, soa como leitura de texto, não como pergunta."],
+      ["'Work for you' emendado", "'Workforyou': sem pausa. Se você separar, soa como leitura de texto, não como pergunta."],
     ],
     quiz: [
       ["'Does 3 PM work for you?' pergunta:", ["Se você trabalha às 3", "Se esse horário serve", "Se você funciona a essa hora", "Se é dia útil"], 1, "'Work' aqui é servir, encaixar. É um dos verbos mais polissêmicos do inglês."],
-      ["'Something came up' significa:", ["Alguma coisa subiu", "Surgiu um imprevisto", "Alguém apareceu", "Deu tudo certo"], 1, "É a desculpa universal e educada. Ninguém pergunta o que foi — faz parte do jogo."],
+      ["'Something came up' significa:", ["Alguma coisa subiu", "Surgiu um imprevisto", "Alguém apareceu", "Deu tudo certo"], 1, "É a desculpa universal e educada. Ninguém pergunta o que foi: faz parte do jogo."],
       ["Como pedir um horário mais tarde?", ["Make it later", "Can we make it a bit later?", "I want later", "Later is possible?"], 1, "O 'a bit' suaviza e o 'can we' inclui o outro na decisão. Pedir sem eles soa como ordem."],
       ["'Works for me!' é a forma curta de:", ["I work with that", "That works for me", "It's my work", "I can work"], 1, "Resposta curta e muito comum. Confirma sem repetir a proposta inteira."],
     ],
@@ -302,7 +302,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "O 'but' precisa de almofada",
       body:
-        "Em português a gente discorda direto: 'mas eu acho que não'. Em inglês, discordar sem almofada soa agressivo.\n\nA estrutura é sempre a mesma:\n**1. reconhece** — *That's a good point* / *I see your point*\n**2. discorda** — *but...*\n\nSem o passo 1, você não parece direto: parece rude. E o custo de incluir é uma frase de três palavras.",
+        "Em português a gente discorda direto: 'mas eu acho que não'. Em inglês, discordar sem almofada soa agressivo.\n\nA estrutura é sempre a mesma:\n**1. reconhece**: *That's a good point* / *I see your point*\n**2. discorda**: *but...*\n\nSem o passo 1, você não parece direto: parece rude. E o custo de incluir é uma frase de três palavras.",
     },
     swaps: ["I'm not sure it works for everyone", "it depends on the person", "I've seen the opposite happen", "there's another side to it", "that hasn't been my experience", "I'd look at it differently", "that only works sometimes", "I used to think that too"],
     expansion: [
@@ -318,12 +318,12 @@ export const CANTO_2: CircuitContent[] = [
       "Um debate que nunca termina entre seus amigos",
     ],
     sounds: [
-      ["'I see your point' emendado", "'Aisiyorpoint' — quatro palavras, um bloco. Se você pausar entre elas, perde o efeito de resposta natural."],
+      ["'I see your point' emendado", "'Aisiyorpoint': quatro palavras, um bloco. Se você pausar entre elas, perde o efeito de resposta natural."],
       ["'Totally' com T de D", "Americano transforma o T entre vogais num D suave: 'tou-DAH-li'. É a mesma coisa em 'water', 'better', 'city'."],
     ],
     quiz: [
       ["Qual a forma mais educada de discordar?", ["No, you're wrong.", "I disagree.", "That's a good point, but...", "That's not true."], 2, "Reconhecer antes de discordar é o que evita soar agressivo. É quase obrigatório na conversa americana."],
-      ["'Fair enough' significa:", ["Está justo o preço", "Ok, aceito seu argumento", "Isso é injusto", "Chega de conversa"], 1, "É o reconhecimento de que o outro tem razão — ou pelo menos um ponto válido. Encerra o atrito sem ceder tudo."],
+      ["'Fair enough' significa:", ["Está justo o preço", "Ok, aceito seu argumento", "Isso é injusto", "Chega de conversa"], 1, "É o reconhecimento de que o outro tem razão: ou pelo menos um ponto válido. Encerra o atrito sem ceder tudo."],
       ["'I'm not so sure about that' é:", ["Concordância", "Discordância suave", "Dúvida sobre si mesmo", "Pedido de repetição"], 1, "É discordar sem dizer 'você está errado'. Uma das frases mais úteis para debate civilizado."],
       ["'Let's agree to disagree' propõe:", ["Continuar discutindo", "Encerrar o desacordo sem vencedor", "Você aceitar o outro lado", "Chamar alguém para decidir"], 1, "Fecha o assunto preservando a relação. Muito usado quando o debate já rendeu o que tinha de render."],
     ],
@@ -355,7 +355,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "Comparar: quando é -ER e quando é MORE",
       body:
-        "Palavra curta ganha **-er**: *cheaper*, *faster*, *bigger*.\nPalavra longa ganha **more**: *more expensive*, *more comfortable*.\n\nA fronteira é o ouvido, não a contagem de sílabas — e há irregulares que você já conhece como bloco: *good → better*, *bad → worse*.\n\nSe errar (*more cheap*), ninguém deixa de entender. Instale *better*, *worse*, *cheaper* e *faster* como blocos e o resto vem por imitação.",
+        "Palavra curta ganha **-er**: *cheaper*, *faster*, *bigger*.\nPalavra longa ganha **more**: *more expensive*, *more comfortable*.\n\nA fronteira é o ouvido, não a contagem de sílabas: e há irregulares que você já conhece como bloco: *good → better*, *bad → worse*.\n\nSe errar (*more cheap*), ninguém deixa de entender. Instale *better*, *worse*, *cheaper* e *faster* como blocos e o resto vem por imitação.",
     },
     swaps: ["cheaper", "faster", "more comfortable", "better for me", "easier", "a lot more expensive", "less stressful", "worth the extra money"],
     expansion: [
@@ -409,7 +409,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "Reagir importa mais do que responder",
       body:
-        "Numa conversa em inglês, quem só responde parece frio. Quem **reage** parece presente.\n\nA reação vem antes da informação: *That's amazing!*, *No way!*, *I'm so sorry to hear that*, *That must be hard*.\n\nSão blocos fixos, curtos e prontos. E são eles que fazem a diferença entre 'esse cara fala inglês' e 'dá gosto conversar com esse cara'. Não custa vocabulário nenhum — custa lembrar de usar.",
+        "Numa conversa em inglês, quem só responde parece frio. Quem **reage** parece presente.\n\nA reação vem antes da informação: *That's amazing!*, *No way!*, *I'm so sorry to hear that*, *That must be hard*.\n\nSão blocos fixos, curtos e prontos. E são eles que fazem a diferença entre 'esse cara fala inglês' e 'dá gosto conversar com esse cara'. Não custa vocabulário nenhum: custa lembrar de usar.",
     },
     swaps: ["happy", "excited", "sorry", "proud", "glad", "relieved", "worried", "thrilled"],
     expansion: [
@@ -430,9 +430,9 @@ export const CANTO_2: CircuitContent[] = [
     ],
     quiz: [
       ["Alguém te conta uma notícia ruim. O que dizer primeiro?", ["Why?", "I'm so sorry to hear that.", "What happened exactly?", "That's life."], 1, "A reação vem antes da pergunta. Perguntar detalhes antes de reagir soa frio em inglês."],
-      ["'That must be hard' expressa:", ["Certeza sobre um fato", "Empatia com a situação do outro", "Discordância", "Curiosidade"], 1, "'Must' aqui é dedução, não obrigação. 'Deve ser difícil' — você imagina o que o outro sente."],
+      ["'That must be hard' expressa:", ["Certeza sobre um fato", "Empatia com a situação do outro", "Discordância", "Curiosidade"], 1, "'Must' aqui é dedução, não obrigação. 'Deve ser difícil': você imagina o que o outro sente."],
       ["'I'm so happy for you' é diferente de 'I'm so happy' porque:", ["É mais formal", "O 'for you' põe a alegria na conquista do outro", "É mais forte", "É usado só com amigos"], 1, "Sem o 'for you', você está falando de si. A preposição é o que transfere o foco."],
-      ["'Let me know if you need anything' é:", ["Uma oferta genérica de ajuda", "Um pedido", "Uma despedida", "Uma desculpa"], 0, "É a oferta padrão de apoio. Muitas vezes é protocolar — mas 'I mean it' depois dela indica que é sério."],
+      ["'Let me know if you need anything' é:", ["Uma oferta genérica de ajuda", "Um pedido", "Uma despedida", "Uma desculpa"], 0, "É a oferta padrão de apoio. Muitas vezes é protocolar: mas 'I mean it' depois dela indica que é sério."],
     ],
   },
 
@@ -462,7 +462,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "Pedir ajuda tem uma abertura obrigatória",
       body:
-        "Em inglês, um pedido de ajuda quase nunca começa pelo pedido. Começa por um **amortecedor**: *Sorry to bother you, but...*, *Do you have a second?*, *Quick question...*\n\nO amortecedor reconhece que você está tomando o tempo da pessoa. Sem ele, o pedido chega seco — e a resposta tende a vir seca também.\n\nDo outro lado, oferecer ajuda é o inverso: curto e direto. *Need a hand?* — três palavras.",
+        "Em inglês, um pedido de ajuda quase nunca começa pelo pedido. Começa por um **amortecedor**: *Sorry to bother you, but...*, *Do you have a second?*, *Quick question...*\n\nO amortecedor reconhece que você está tomando o tempo da pessoa. Sem ele, o pedido chega seco: e a resposta tende a vir seca também.\n\nDo outro lado, oferecer ajuda é o inverso: curto e direto. *Need a hand?*: três palavras.",
     },
     swaps: ["this", "the report", "moving these boxes", "something quick", "my English", "the setup", "a translation", "one last thing"],
     expansion: [
@@ -478,12 +478,12 @@ export const CANTO_2: CircuitContent[] = [
       "Um favor que você deve a alguém",
     ],
     sounds: [
-      ["'Could you' com o D virando J", "'Kudju help me' — sempre. Vale para 'would you' (uudju) e 'did you' (didju)."],
-      ["'Lifesaver' com dois acentos", "LAIF-sei-ver. A força vem na primeira sílaba. E o V não é F — os dentes tocam o lábio e vibram."],
+      ["'Could you' com o D virando J", "'Kudju help me': sempre. Vale para 'would you' (uudju) e 'did you' (didju)."],
+      ["'Lifesaver' com dois acentos", "LAIF-sei-ver. A força vem na primeira sílaba. E o V não é F: os dentes tocam o lábio e vibram."],
     ],
     quiz: [
       ["Como se abre um pedido de ajuda educadamente?", ["Help me.", "Sorry to bother you, but...", "I need help now.", "Can you? Please."], 1, "O amortecedor reconhece que você está tomando o tempo do outro. Sem ele o pedido chega seco."],
-      ["'Do you need a hand?' oferece:", ["Um aperto de mão", "Ajuda", "Um cumprimento", "Uma opinião"], 1, "'Give someone a hand' é ajudar. Oferecer ajuda em inglês é curto e direto — o oposto de pedir."],
+      ["'Do you need a hand?' oferece:", ["Um aperto de mão", "Ajuda", "Um cumprimento", "Uma opinião"], 1, "'Give someone a hand' é ajudar. Oferecer ajuda em inglês é curto e direto: o oposto de pedir."],
       ["'Don't worry about it' responde a:", ["Um elogio", "Um agradecimento ou um pedido de desculpas", "Uma pergunta", "Uma reclamação"], 1, "Serve para os dois. É o 'imagina' brasileiro, que também cobre agradecimento e desculpa."],
       ["'You're a lifesaver' é:", ["Literal, sobre salvar vidas", "Um agradecimento enfático e informal", "Um elogio profissional", "Uma ironia"], 1, "É exagero afetuoso, como o nosso 'você me salvou'. Informal e muito comum."],
     ],
@@ -516,7 +516,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "Small talk tem começo, meio e saída",
       body:
-        "Small talk não é conversa vazia: é o **protocolo de aproximação**. E ele tem três partes fixas:\n\n**Abre** — *How's it going?* / *Busy week?*\n**Sustenta** — *Oh really? Tell me more* / *How's the ___ going?*\n**Fecha** — *Anyway, I should get going* / *Good talking to you!*\n\nA parte que brasileiro mais esquece é a **saída**. Sem ela, a conversa não termina: ela morre, e fica constrangedor. Decore o fechamento junto com a abertura.",
+        "Small talk não é conversa vazia: é o **protocolo de aproximação**. E ele tem três partes fixas:\n\n**Abre**: *How's it going?* / *Busy week?*\n**Sustenta**: *Oh really? Tell me more* / *How's the ___ going?*\n**Fecha**: *Anyway, I should get going* / *Good talking to you!*\n\nA parte que brasileiro mais esquece é a **saída**. Sem ela, a conversa não termina: ela morre, e fica constrangedor. Decore o fechamento junto com a abertura.",
     },
     swaps: ["it", "the project", "work", "the move", "your family", "school", "the new job", "everything"],
     expansion: [
@@ -536,7 +536,7 @@ export const CANTO_2: CircuitContent[] = [
       ["'Huh?' no fim da frase", "Curto, nasal, com entonação subindo. É o nosso 'né?'. Serve para transformar afirmação em convite de conversa."],
     ],
     quiz: [
-      ["'How's it going?' espera:", ["Um relato detalhado", "Uma resposta curta e a conversa seguindo", "Um 'yes' ou 'no'", "Uma pergunta de volta apenas"], 1, "É cumprimento, não entrevista. 'Good, good' já basta — mas devolver mantém a conversa viva."],
+      ["'How's it going?' espera:", ["Um relato detalhado", "Uma resposta curta e a conversa seguindo", "Um 'yes' ou 'no'", "Uma pergunta de volta apenas"], 1, "É cumprimento, não entrevista. 'Good, good' já basta: mas devolver mantém a conversa viva."],
       ["Qual frase encerra o small talk sem grosseria?", ["Bye.", "Anyway, I should get going.", "I'm leaving.", "Enough."], 1, "O 'anyway' sinaliza que você está fechando. Sem ele, a saída soa abrupta."],
       ["'Oh really? Tell me more' serve para:", ["Duvidar", "Mostrar interesse e alongar a conversa", "Encerrar", "Discordar"], 1, "Conversa não morre por falta de vocabulário. Morre por falta de interesse demonstrado."],
       ["'Crazy weather, huh?' é usado porque:", ["Americano se importa muito com clima", "Clima é o assunto neutro universal", "É engraçado", "É obrigatório"], 1, "É o assunto que não ofende ninguém e todo mundo pode opinar. Existe em toda cultura, com temas diferentes."],
@@ -570,7 +570,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "Telefone é mais difícil, e não é culpa sua",
       body:
-        "Ao telefone você perde a leitura labial, a expressão facial e o gesto — que juntos carregam boa parte da compreensão. É **objetivamente mais difícil**, inclusive para nativo.\n\nPor isso o inglês tem blocos dedicados: *You're breaking up*, *I didn't catch that*, *Could you repeat the last part?*\n\nE repare no *this is Ana speaking*: ao telefone não se diz *I am Ana*. É *this is*, o mesmo bloco de apresentar alguém do circuito 8.",
+        "Ao telefone você perde a leitura labial, a expressão facial e o gesto: que juntos carregam boa parte da compreensão. É **objetivamente mais difícil**, inclusive para nativo.\n\nPor isso o inglês tem blocos dedicados: *You're breaking up*, *I didn't catch that*, *Could you repeat the last part?*\n\nE repare no *this is Ana speaking*: ao telefone não se diz *I am Ana*. É *this is*, o mesmo bloco de apresentar alguém do circuito 8.",
     },
     swaps: ["I didn't catch that", "you're breaking up", "the line is bad", "I lost you for a second", "I can barely hear you", "let me call you back", "can you hear me now", "I'll try you again later"],
     expansion: [
@@ -586,7 +586,7 @@ export const CANTO_2: CircuitContent[] = [
       "Reunião por vídeo versus telefone",
     ],
     sounds: [
-      ["'Didn't catch that' com T mudo", "'Didn' + 'catch' — o T de 'didn't' some quase inteiro. E 'catch that' gruda: 'catchat'."],
+      ["'Didn't catch that' com T mudo", "'Didn' + 'catch': o T de 'didn't' some quase inteiro. E 'catch that' gruda: 'catchat'."],
       ["'This is' vira 'thisiz'", "O S final e o I inicial se fundem. Ao telefone, esse bloco sai numa batida só."],
     ],
     quiz: [
@@ -625,7 +625,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "Descrever o problema antes de exigir a solução",
       body:
-        "A ordem importa. Em inglês, reclamação eficiente segue:\n\n**1. o fato** — *There's a problem with my order*\n**2. o detalhe** — *It arrived damaged*\n**3. o histórico** — *I've been waiting for two weeks*\n**4. o pedido** — *I'd like a refund, please*\n\nQuem inverte (começa exigindo) recebe resistência. Quem segue a ordem recebe cooperação — e o quarto passo, dito com *I'd like*, quase nunca é recusado.",
+        "A ordem importa. Em inglês, reclamação eficiente segue:\n\n**1. o fato**: *There's a problem with my order*\n**2. o detalhe**: *It arrived damaged*\n**3. o histórico**: *I've been waiting for two weeks*\n**4. o pedido**: *I'd like a refund, please*\n\nQuem inverte (começa exigindo) recebe resistência. Quem segue a ordem recebe cooperação: e o quarto passo, dito com *I'd like*, quase nunca é recusado.",
     },
     swaps: ["my order", "my account", "the delivery", "the charge on my card", "the room", "my reservation", "the app", "the size I received"],
     expansion: [
@@ -641,8 +641,8 @@ export const CANTO_2: CircuitContent[] = [
       "Atendimento no Brasil versus no exterior",
     ],
     sounds: [
-      ["'Problem' tem o acento na primeira", "PRÁ-blem, e o segundo E quase some. Brasileiro diz 'problêm' com força no fim — inverta."],
-      ["'I've been waiting' com o 've quase mudo", "'Aiv bin ueiting' — o 'have' encolheu para um V grudado. Reconhecer isso é essencial para entender fala rápida."],
+      ["'Problem' tem o acento na primeira", "PRÁ-blem, e o segundo E quase some. Brasileiro diz 'problêm' com força no fim: inverta."],
+      ["'I've been waiting' com o 've quase mudo", "'Aiv bin ueiting': o 'have' encolheu para um V grudado. Reconhecer isso é essencial para entender fala rápida."],
     ],
     quiz: [
       ["Qual a melhor abertura para uma reclamação?", ["This is unacceptable!", "There's a problem with my order.", "I want my money back.", "You made a mistake."], 1, "Começar pelo fato, não pela emoção. As outras podem vir depois, se necessário."],
@@ -678,7 +678,7 @@ export const CANTO_2: CircuitContent[] = [
     why: {
       title: "Você agora consegue contar, não só responder",
       body:
-        "Compare o Bruno do circuito 1 com o do circuito 26. No primeiro, ele respondia. Agora ele **narra**: o que fez, o que vai fazer, o que acha, o que deu errado.\n\nEssa é a diferença entre A1 e A2 — e é a diferença entre conversa que morre em trinta segundos e conversa que dura.\n\nO Terceiro Canto sobe mais um degrau: resolver problemas, negociar, discordar com firmeza. Ou seja, o inglês de quando as coisas **não** saem como planejado.",
+        "Compare o Bruno do circuito 1 com o do circuito 26. No primeiro, ele respondia. Agora ele **narra**: o que fez, o que vai fazer, o que acha, o que deu errado.\n\nEssa é a diferença entre A1 e A2: e é a diferença entre conversa que morre em trinta segundos e conversa que dura.\n\nO Terceiro Canto sobe mais um degrau: resolver problemas, negociar, discordar com firmeza. Ou seja, o inglês de quando as coisas **não** saem como planejado.",
     },
     swaps: ["How was your weekend?", "I used to live there.", "I'm going to try again.", "I see your point, but...", "I'm so sorry to hear that.", "Sorry, I didn't catch that.", "There's a problem with my order.", "Does Friday work for you?"],
     expansion: [
@@ -700,7 +700,7 @@ export const CANTO_2: CircuitContent[] = [
     quiz: [
       ["O que o Segundo Canto adicionou ao seu inglês?", ["Vocabulário técnico", "Capacidade de narrar passado, futuro e opinião", "Pronúncia perfeita", "Gramática avançada"], 1, "Sair do 'yes/no' e passar a contar é o salto de A1 para A2. É o que faz conversa durar."],
       ["Qual bloco resolve mais situações de conflito?", ["I totally agree.", "I see your point, but...", "That's amazing!", "How's it going?"], 1, "Discordar com almofada é o que permite ter opinião sem criar atrito. Vale para trabalho e vida pessoal."],
-      ["'I used to' e 'I'm going to' cobrem:", ["Só o passado", "Passado habitual e futuro planejado", "Só o futuro", "Presente e passado"], 1, "Os dois moldes juntos cobrem quase toda conversa sobre a própria vida — que é a maior parte de qualquer conversa."],
+      ["'I used to' e 'I'm going to' cobrem:", ["Só o passado", "Passado habitual e futuro planejado", "Só o futuro", "Presente e passado"], 1, "Os dois moldes juntos cobrem quase toda conversa sobre a própria vida: que é a maior parte de qualquer conversa."],
       ["No fim deste canto, o que você já consegue fazer?", ["Trabalhar em inglês", "Contar histórias, opinar e resolver o básico por telefone", "Assistir séries sem legenda", "Escrever relatórios"], 1, "É o A2 alcançado. O Terceiro Canto é onde entram os problemas, as negociações e o inglês de trabalho."],
     ],
   },

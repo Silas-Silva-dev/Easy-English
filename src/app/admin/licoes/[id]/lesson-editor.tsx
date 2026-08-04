@@ -107,7 +107,7 @@ export function LessonEditor({ lesson }: { lesson: Lesson }) {
           rows={3}
         />
         <p className="text-muted-foreground text-xs">
-          Escreva o que fazer em português — o aluno precisa entender a tarefa. As frases-alvo em
+          Escreva o que fazer em português: o aluno precisa entender a tarefa. As frases-alvo em
           inglês vão entre «aspas». É este texto que a tutora de IA usa como critério de avaliação.
         </p>
       </div>

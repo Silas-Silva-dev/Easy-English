@@ -45,7 +45,7 @@ type AdminClient = ReturnType<typeof makeAdmin>;
  *
  * ATENÇÃO: não use `{ head: true }` aqui. Uma requisição HEAD não tem corpo,
  * então o PostgREST responde 204 e o supabase-js devolve `error: null` mesmo
- * quando a tabela NÃO existe — o teste passa em um banco vazio. É preciso um
+ * quando a tabela NÃO existe: o teste passa em um banco vazio. É preciso um
  * GET de verdade para o erro 404 chegar.
  */
 async function tableExists(
@@ -68,7 +68,7 @@ async function countRows(db: AdminClient, table: string): Promise<number> {
 
 /**
  * Toda tabela que o schema cria. Manter esta lista completa é o que faz o
- * diagnóstico detectar migration que ficou para trás — uma lista desatualizada
+ * diagnóstico detectar migration que ficou para trás: uma lista desatualizada
  * dá "tudo certo" num banco pela metade, que é pior do que não ter diagnóstico.
  */
 const TABLES = [
@@ -85,7 +85,7 @@ const TABLES = [
   "knowledge_chunks",
   "audit_log",
   "admin_allowlist",
-  // migration 20260101000400 — trilhas, SRS por bloco e conversa ao vivo
+  // migration 20260101000400: trilhas, SRS por bloco e conversa ao vivo
   "track_targets",
   "chunk_mastery",
   "live_sessions",
@@ -106,7 +106,7 @@ async function main() {
   else if (/\/rest\/v1|\/auth\/v1|\/$/.test(url)) {
     fail(
       `NEXT_PUBLIC_SUPABASE_URL tem caminho ou barra no fim: ${url}`,
-      "Use apenas https://<ref>.supabase.co — o cliente acrescenta o resto.",
+      "Use apenas https://<ref>.supabase.co: o cliente acrescenta o resto.",
     );
   } else if (!/^https:\/\/[a-z0-9-]+\.supabase\.(co|in)$/.test(url)) {
     warn(`URL em formato incomum: ${url}`, "Confira em Settings → Data API → Project URL.");
@@ -117,7 +117,7 @@ async function main() {
 
   if (!serviceKey) fail("SUPABASE_SERVICE_ROLE_KEY ausente");
   else if (serviceKey === anonKey) {
-    fail("A service_role key é igual à anon key", "São chaves diferentes — copie a correta.");
+    fail("A service_role key é igual à anon key", "São chaves diferentes: copie a correta.");
   } else ok(`Service role key presente (${serviceKey.slice(0, 12)}…)`);
 
   if (!geminiKey) fail("GEMINI_API_KEY ausente");
@@ -161,13 +161,13 @@ async function main() {
 
     if (missing.length === TABLES.length) {
       fail(
-        "Nenhuma tabela encontrada — o banco está vazio",
+        "Nenhuma tabela encontrada: o banco está vazio",
         "Cole supabase/schema.sql no SQL Editor (as migrations já na ordem certa).",
       );
     } else if (missing.length) {
       fail(
         `${missing.length} tabela(s) faltando: ${missing.join(", ")}`,
-        "Reaplique as migrations na ordem — elas são idempotentes.",
+        "Reaplique as migrations na ordem: elas são idempotentes.",
       );
     } else {
       ok(`Todas as ${TABLES.length} tabelas presentes`);
@@ -178,7 +178,7 @@ async function main() {
       if (columnError && /circuit_day/i.test(columnError.message)) {
         fail(
           "Coluna lessons.circuit_day ausente",
-          "Falta a migration 20260101000500_local_content.sql — reaplique supabase/schema.sql.",
+          "Falta a migration 20260101000500_local_content.sql: reaplique supabase/schema.sql.",
         );
       } else {
         ok("Colunas da grade de 14 dias presentes");
@@ -202,7 +202,7 @@ async function main() {
     }
 
     if (!schemaReady) {
-      console.log("\n\x1b[2m  (pulando testes de pgvector e storage — schema ausente)\x1b[0m");
+      console.log("\n\x1b[2m  (pulando testes de pgvector e storage: schema ausente)\x1b[0m");
       console.log(
         `\n\x1b[31m\x1b[1m✗ ${failures} problema(s).\x1b[0m Aplique as migrations e rode: npm run check\n`,
       );
@@ -212,8 +212,7 @@ async function main() {
     // ------------------------------------------------ 4. Extensão vector
     console.log("\n\x1b[1m4. pgvector e RPCs\x1b[0m");
 
-    // Passa os 4 argumentos, exatamente como src/lib/gemini/tutor.ts faz —
-    // o PostgREST casa a assinatura pelo conjunto de nomes recebido.
+    // Passa os 4 argumentos, exatamente como src/lib/gemini/tutor.ts faz: // o PostgREST casa a assinatura pelo conjunto de nomes recebido.
     const { error: rpcError } = await admin.rpc("match_knowledge", {
       query_embedding: Array(768).fill(0),
       match_count: 1,
@@ -251,7 +250,7 @@ async function main() {
       }
     }
   } else {
-    warn("Pulando testes do Supabase — credenciais incompletas");
+    warn("Pulando testes do Supabase: credenciais incompletas");
   }
 
   // -------------------------------------------------------- 6. Gemini
@@ -286,7 +285,7 @@ async function main() {
       }
     }
 
-    // Embeddings usam um endpoint diferente — vale testar separado.
+    // Embeddings usam um endpoint diferente: vale testar separado.
     try {
       const embedding = await ai.models.embedContent({
         model: process.env.GEMINI_MODEL_EMBEDDING?.trim() || "gemini-embedding-001",
@@ -302,7 +301,7 @@ async function main() {
       fail(`Modelo de embedding falhou: ${message.slice(0, 220)}`);
     }
   } else {
-    warn("Pulando teste do Gemini — chave ausente");
+    warn("Pulando teste do Gemini: chave ausente");
   }
 
   // ------------------------------------------------------- Resultado

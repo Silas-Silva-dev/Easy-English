@@ -151,7 +151,7 @@ export default async function AdminUsersPage({
                       </Avatar>
                       <div className="min-w-0">
                         <p className="truncate text-sm font-medium">
-                          {user.full_name ?? "—"}
+                          {user.full_name ?? ": "}
                           {user.id === session.userId ? (
                             <span className="text-muted-foreground ml-1.5 text-xs">(você)</span>
                           ) : null}

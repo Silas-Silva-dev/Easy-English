@@ -94,7 +94,7 @@ export default async function AdminSpeakingPage({
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
                         <span className="text-sm font-medium">
-                          {profile?.full_name ?? profile?.email ?? "—"}
+                          {profile?.full_name ?? profile?.email ?? ": "}
                         </span>
                         <Badge variant="neutral" className="text-[10px]">
                           {session.level}
@@ -139,7 +139,7 @@ export default async function AdminSpeakingPage({
 
                     {feedback ? (
                       // No celular as notas ocupam a linha inteira, abaixo do
-                      // texto — antes elas travavam em 189px e espremiam a
+                      // texto: antes elas travavam em 189px e espremiam a
                       // transcrição numa tira de ~40px.
                       <div className="grid w-full shrink-0 grid-cols-2 gap-x-5 gap-y-1 text-xs sm:w-auto sm:grid-cols-1">
                         <div className="flex justify-between gap-3">

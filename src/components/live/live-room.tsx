@@ -111,7 +111,7 @@ export function LiveRoom({
   const playHeadRef = React.useRef(0);
   const startedAtRef = React.useRef(0);
 
-  // Buffers de transcrição parcial — o Live API manda em pedaços.
+  // Buffers de transcrição parcial: o Live API manda em pedaços.
   const partialUserRef = React.useRef("");
   const partialModelRef = React.useRef("");
 
@@ -211,7 +211,7 @@ export function LiveRoom({
     setSeconds(0);
 
     try {
-      // 1. Token efêmero — a chave real nunca chega ao browser.
+      // 1. Token efêmero: a chave real nunca chega ao browser.
       const tokenResponse = await fetch("/api/live/token", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -282,7 +282,7 @@ export function LiveRoom({
             },
           });
         } catch {
-          // A sessão pode fechar entre dois blocos — ignorar.
+          // A sessão pode fechar entre dois blocos: ignorar.
         }
       };
 
@@ -381,7 +381,7 @@ export function LiveRoom({
               <>
                 <p className="text-2xl font-semibold tabular-nums">{mmss}</p>
                 <Badge variant={speaking ? "default" : "neutral"} className="mt-2">
-                  {speaking ? "Emma está falando" : "Sua vez — fale"}
+                  {speaking ? "Emma está falando" : "Sua vez: fale"}
                 </Badge>
               </>
             ) : phase === "connecting" ? (
@@ -399,7 +399,7 @@ export function LiveRoom({
         </div>
 
         {/* Empilha no celular: os dois botões somam mais que 320px e o pai é
-            overflow-hidden — "Encerrar" saía decepado, sem rolagem que o
+            overflow-hidden: "Encerrar" saía decepado, sem rolagem que o
             recuperasse. */}
         <div className="flex flex-col items-stretch justify-center gap-3 border-t p-4 sm:flex-row sm:items-center sm:p-5">
           {phase === "idle" ? (

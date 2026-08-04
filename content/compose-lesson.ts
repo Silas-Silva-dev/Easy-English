@@ -1,5 +1,5 @@
 /**
- * Montagem local das lições — sem API, sem geração em tempo de execução.
+ * Montagem local das lições: sem API, sem geração em tempo de execução.
  *
  * ===========================================================================
  * POR QUE ISSO EXISTE
@@ -70,7 +70,7 @@ export type Q = [question: string, options: string[], answer: number, explanatio
 export type Sound = [focus: string, tip: string];
 
 export interface CircuitContent {
-  /** 1..52 — casa com CircuitSpec.number. */
+  /** 1..52: casa com CircuitSpec.number. */
   n: number;
   /** Diálogo do dia 1. É o primeiro contato do aluno com a situação. */
   immersion: Line[];
@@ -80,7 +80,7 @@ export interface CircuitContent {
   why: { title: string; body: string };
   /** As peças que entram no molde do circuito. */
   swaps: string[];
-  /** Frases longas do dia 10 — o molde cruzado com o que já passou. */
+  /** Frases longas do dia 10: o molde cruzado com o que já passou. */
   expansion: Pair[];
   /** Para onde a conversa do dia 14 pode derivar. */
   drift: string[];
@@ -117,7 +117,7 @@ function gcd(a: number, b: number): number {
  * Passo coprimo com `len`, para percorrer a lista inteira sem repetir índice.
  *
  * O passo PRECISA ser coprimo: se ele dividir `len`, o percurso fecha num ciclo
- * curto e nunca visita o resto da lista — e um laço que espera visitar tudo
+ * curto e nunca visita o resto da lista: e um laço que espera visitar tudo
  * trava. Por isso procuramos, e caímos em 1 se nada servir.
  */
 function stride(len: number, seed: number): number {
@@ -146,7 +146,7 @@ function pick<T>(items: T[], seed: number, count: number): T[] {
 
 /**
  * Aplica a peça ao molde. Os circuitos de fechamento de canto (13, 26, 39, 51)
- * não têm lacuna no molde — lá as "peças" já são frases inteiras.
+ * não têm lacuna no molde: lá as "peças" já são frases inteiras.
  */
 function applySwap(pattern: string, piece: string): string {
   return pattern.includes("___") ? pattern.replace("___", piece) : piece;
@@ -204,7 +204,7 @@ function recallQuiz(
       /**
        * Distratores precisam ser distintos DO TEXTO EXIBIDO, não do bloco.
        * Circuitos como o 44 (formal vs informal) têm blocos diferentes com a
-       * mesma tradução — se filtrássemos só por `en`, a alternativa certa
+       * mesma tradução: se filtrássemos só por `en`, a alternativa certa
        * apareceria duas vezes e a questão ficaria sem resposta única.
        */
       const seen = new Set([correct]);
@@ -231,7 +231,7 @@ function recallQuiz(
         mode === "pt-en"
           ? `Como você diz «${chunk.pt}» em inglês?`
           : mode === "en-pt"
-            ? `«${chunk.en}» — o que significa?`
+            ? `«${chunk.en}»: o que significa?`
             : `Em que momento você usa «${chunk.en}»?`;
 
       return {
@@ -267,12 +267,12 @@ export interface ComposeContext {
   day: DayRole;
   /** Circuitos revisados neste dia (dias 6 e 13). */
   reviewOf: number[];
-  /** Prescrição de material externo — só usada quando não há peça redigida. */
+  /** Prescrição de material externo: só usada quando não há peça redigida. */
   authenticInput: AuthenticInput[];
   /** A escuta estendida do dia 8, dentro do app. Null enquanto não redigida. */
   authentic: AuthenticPiece | null;
   livePrompt: string;
-  /** Blocos vindos dos circuitos revisados — alimentam os dias 6, 10 e 13. */
+  /** Blocos vindos dos circuitos revisados: alimentam os dias 6, 10 e 13. */
   reviewChunks: { circuit: number; title: string; chunks: Chunk[] }[];
 }
 
@@ -281,13 +281,13 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
     ctx;
   const seed = circuit.number * 17 + day.day;
   const chunks = circuit.chunks;
-  const chunkList = chunks.map((c) => `${c.en} — ${c.pt}`);
+  const chunkList = chunks.map((c) => `${c.en}: ${c.pt}`);
 
   const soundsBlock: LessonBlock = {
     type: "callout",
     variant: "tip",
     title: "Os sons que travam o brasileiro aqui",
-    body: material.sounds.map(([focus, tip]) => `**${focus}** — ${tip}`).join("\n\n"),
+    body: material.sounds.map(([focus, tip]) => `**${focus}**: ${tip}`).join("\n\n"),
   };
 
   const pitfallBlock: LessonBlock = {
@@ -298,13 +298,13 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
   };
 
   switch (day.day) {
-    // ===================================================== DIA 1 — Imersão
+    // ===================================================== DIA 1: Imersão
     case 1:
       return {
         content: {
           warmup:
             "Hoje você não lê nada em inglês. Só **ouve**. Não é preguiça de método, é a ordem certa: " +
-            "quando você lê antes de ouvir, seu cérebro gruda a pronúncia do português nas letras — e " +
+            "quando você lê antes de ouvir, seu cérebro gruda a pronúncia do português nas letras: e " +
             "desfazer isso depois dá muito mais trabalho do que acertar agora.",
           gated: [
             dialogueBlock("Agora sim: o texto", material.immersion),
@@ -318,14 +318,14 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
                     variant: "tip" as const,
                     title: "A linha do meio: como ler a pronúncia",
                     body:
-                      "Embaixo de cada fala em inglês tem uma linha laranja — é o mesmo som escrito com as letras do português:\n\n" +
+                      "Embaixo de cada fala em inglês tem uma linha laranja: é o mesmo som escrito com as letras do português:\n\n" +
                       "`Nice to meet you.` → **náis ta mît iu**\n\n" +
                       "**Acento** (á, î, ô) marca a sílaba forte. Onde bate a força é metade do que faz uma frase soar inglesa.\n\n" +
-                      "**th** — língua entre os dentes, soprando (*think*). Não é F nem T.\n\n" +
-                      "**dh** — o mesmo, mas com a voz ligada (*this*). Não é D.\n\n" +
-                      "**r** no fim de sílaba é o r americano, enrolado para dentro — nada a ver com o nosso.\n\n" +
+                      "**th**: língua entre os dentes, soprando (*think*). Não é F nem T.\n\n" +
+                      "**dh**: o mesmo, mas com a voz ligada (*this*). Não é D.\n\n" +
+                      "**r** no fim de sílaba é o r americano, enrolado para dentro: nada a ver com o nosso.\n\n" +
                       "Vogais fracas viram **a**: *to* vira **ta**, não *tu*. Não é erro, é assim que sai " +
-                      "na boca do nativo — e é por isso que você não reconhece as palavras que já sabe.\n\n" +
+                      "na boca do nativo: e é por isso que você não reconhece as palavras que já sabe.\n\n" +
                       "Ela é muleta para os primeiros meses, não a fonte. **O som certo é o do áudio.**",
                   },
                 ]
@@ -335,7 +335,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               type: "practice",
               title: "Última escuta, agora acompanhando",
               instruction:
-                "Ouça de novo lendo junto. Deixe a boca se mexer, mesmo sem som — é assim que a memória motora começa.",
+                "Ouça de novo lendo junto. Deixe a boca se mexer, mesmo sem som: é assim que a memória motora começa.",
               prompts: [
                 `Quantas vezes você ouviu «${chunks[0]?.en ?? ""}»?`,
                 "Qual foi a última frase da conversa?",
@@ -349,7 +349,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               variant: "tip",
               title: "Como usar os próximos minutos",
               body:
-                "**Primeira escuta:** deixe passar. Não tente entender nada. Preste atenção só na música da conversa — onde sobe, onde desce.\n\n" +
+                "**Primeira escuta:** deixe passar. Não tente entender nada. Preste atenção só na música da conversa: onde sobe, onde desce.\n\n" +
                 "**Segunda escuta:** tente pegar os nomes e os números. Só isso.\n\n" +
                 "**Terceira escuta:** tente perceber qual frase se repete.\n\n" +
                 "Só depois das três o texto aparece.",
@@ -364,7 +364,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
           ],
           summary:
             "Você acabou de ouvir uma conversa inteira em inglês e reconheceu pedaços dela. Não porque estudou " +
-            "gramática — porque conversa é feita de blocos repetidos, e você começou a reconhecê-los.",
+            "gramática: porque conversa é feita de blocos repetidos, e você começou a reconhecê-los.",
           homework: "Antes de dormir, ouça o áudio mais uma vez. Sem o texto. Só deixe passar.",
         },
         chunks,
@@ -373,7 +373,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
           // Sem ponto depois de «»: o bloco já traz a própria pontuação, e
           // «Hi, I'm Ana.». na tela parece erro de digitação.
           "Ouça o diálogo mais uma vez. Depois grave você dizendo em voz alta só a primeira fala: " +
-          `«${chunks[0]?.en ?? ""}» Não se preocupe com o sotaque ainda — só diga.`,
+          `«${chunks[0]?.en ?? ""}» Não se preocupe com o sotaque ainda: só diga.`,
         immersionScript: scriptOf(material.immersion),
         listeningScript: null,
         grammarFocus: null,
@@ -381,13 +381,13 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         extensions: { srs_target: 0 },
       };
 
-    // =============================================== DIA 2 — Blocos na boca
+    // =============================================== DIA 2: Blocos na boca
     case 2:
       return {
         content: {
           warmup:
             "Ontem você ouviu. Hoje você põe na boca. A regra do dia é uma só: **nada em silêncio**. " +
-            "Ler bloco com os olhos não constrói nada — fala é memória motora, e músculo só aprende se mexer.",
+            "Ler bloco com os olhos não constrói nada: fala é memória motora, e músculo só aprende se mexer.",
           blocks: [
             {
               type: "examples",
@@ -401,7 +401,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
                 "Para cada bloco: ouça o modelo, pause, repita 3x em voz alta. Na terceira, tente sair sem olhar o texto.",
               prompts: [
                 "1ª repetição: copie o som, mesmo sem entender cada palavra.",
-                "2ª repetição: copie a entonação — onde a voz sobe e onde desce.",
+                "2ª repetição: copie a entonação: onde a voz sobe e onde desce.",
                 "3ª repetição: fale olhando para o lado, sem ler.",
               ],
             },
@@ -417,7 +417,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
           ],
           summary: `${chunks.length} blocos na boca. Amanhã você começa a trocar as peças deles.`,
           homework:
-            "Escolha 2 blocos e diga cada um 5 vezes enquanto faz outra coisa — lavando louça, no chuveiro, no trânsito.",
+            "Escolha 2 blocos e diga cada um 5 vezes enquanto faz outra coisa: lavando louça, no chuveiro, no trânsito.",
         },
         chunks,
         quiz: recallQuiz(chunks, seed, "pt-en", 4, `c${circuit.number}d2`),
@@ -431,12 +431,12 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         extensions: { srs_target: chunks.length },
       };
 
-    // ============================================== DIA 3 — Troca de peças
+    // ============================================== DIA 3: Troca de peças
     case 3:
       return {
         content: {
           warmup:
-            `Hoje o bloco vira molde. Você já disse «${circuit.pattern}» várias vezes — agora vai descobrir ` +
+            `Hoje o bloco vira molde. Você já disse «${circuit.pattern}» várias vezes: agora vai descobrir ` +
             "que a maior parte dele é fixa, e só um pedacinho muda. É por isso que sete blocos viram setenta frases.",
           blocks: [
             {
@@ -448,7 +448,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               type: "drill",
               title: "Troque a peça, mantenha o molde",
               instruction:
-                "Fale cada uma em voz alta, sem pausa entre elas. A parte fixa tem que sair igual todas as vezes — é ela que precisa virar automática.",
+                "Fale cada uma em voz alta, sem pausa entre elas. A parte fixa tem que sair igual todas as vezes: é ela que precisa virar automática.",
               items: material.swaps.map((piece) => applySwap(circuit.pattern, piece)),
             },
             {
@@ -481,7 +481,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         extensions: { srs_target: chunks.length },
       };
 
-    // ================================================ DIA 4 — Escuta ativa
+    // ================================================ DIA 4: Escuta ativa
     case 4:
       return {
         content: {
@@ -493,7 +493,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               type: "practice",
               title: "Ouça ANTES de ler a transcrição",
               instruction:
-                "Duas escutas sem texto. Só depois abra a transcrição — e só se precisar.",
+                "Duas escutas sem texto. Só depois abra a transcrição: e só se precisar.",
               prompts: [
                 "Qual dos blocos do circuito apareceu nesta conversa?",
                 "O que a pessoa queria resolver?",
@@ -507,7 +507,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               title: "Não entendeu tudo? Ótimo sinal",
               body:
                 "Nativo não desacelera, e você não precisa de 100% para acompanhar. O que importa é pegar o " +
-                "suficiente para responder. Entender tudo virá — e virá de ouvir muito, não de traduzir devagar.",
+                "suficiente para responder. Entender tudo virá: e virá de ouvir muito, não de traduzir devagar.",
             },
           ],
           summary:
@@ -526,13 +526,13 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         extensions: { srs_target: chunks.length },
       };
 
-    // =================================================== DIA 5 — Sua vez
+    // =================================================== DIA 5: Sua vez
     case 5:
       return {
         content: {
           warmup:
-            "Hoje é você quem fala, e a tutora ouve. Ela vai transcrever o que você **realmente** disse — " +
-            "não o que você quis dizer — e mostrar onde a boca escorregou. Erre à vontade: erro gravado é erro que dá para corrigir.",
+            "Hoje é você quem fala, e a tutora ouve. Ela vai transcrever o que você **realmente** disse: " +
+            "não o que você quis dizer: e mostrar onde a boca escorregou. Erre à vontade: erro gravado é erro que dá para corrigir.",
           blocks: [
             {
               type: "text",
@@ -555,7 +555,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               variant: "culture",
               title: "Sobre a vergonha de ouvir a própria voz",
               body:
-                "Todo mundo acha a própria gravação estranha, inclusive em português. Isso não é o seu inglês sendo ruim — " +
+                "Todo mundo acha a própria gravação estranha, inclusive em português. Isso não é o seu inglês sendo ruim: " +
                 "é o seu ouvido escutando sua voz por fora pela primeira vez. Passa na terceira gravação.",
             },
           ],
@@ -572,20 +572,20 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         extensions: { srs_target: chunks.length },
       };
 
-    // ============================================ DIA 6 — Revisão espaçada
+    // ============================================ DIA 6: Revisão espaçada
     case 6: {
       const revisited = reviewChunks.filter((r) => reviewOf.includes(r.circuit));
       return {
         content: {
           warmup:
-            "Hoje não entra nada novo. Hoje você puxa da memória — sem consultar. Lembrar com esforço é o que " +
+            "Hoje não entra nada novo. Hoje você puxa da memória: sem consultar. Lembrar com esforço é o que " +
             "transfere o bloco do curto para o longo prazo; reler é o que dá a sensação de saber sem o saber.",
           blocks: [
             {
               type: "text",
               title: "O que volta hoje",
               body: revisited.length
-                ? revisited.map((r) => `**Circuito ${r.circuit} — ${r.title}**`).join("\n\n") +
+                ? revisited.map((r) => `**Circuito ${r.circuit}: ${r.title}**`).join("\n\n") +
                   "\n\nEsses intervalos (1, 2 e 4 circuitos atrás) não são aleatórios: batem a curva do esquecimento no ponto em que o bloco está prestes a sumir."
                 : "Este é o começo do curso, então a revisão de hoje é só do próprio circuito. A partir do próximo, os blocos antigos começam a voltar.",
             },
@@ -593,7 +593,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               type: "practice",
               title: "Recuperação ativa, sem olhar",
               instruction:
-                "Leia só o português e produza o inglês em voz alta antes de conferir. Errar aqui é parte do exercício — é o erro que marca onde reforçar.",
+                "Leia só o português e produza o inglês em voz alta antes de conferir. Errar aqui é parte do exercício: é o erro que marca onde reforçar.",
               prompts: (revisited.length ? revisited.flatMap((r) => r.chunks) : chunks)
                 .slice(0, 8)
                 .map((c) => c.pt),
@@ -604,7 +604,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               title: "Sua fila individual está na aba Revisão",
               body:
                 "Cada bloco que você já viu tem uma data própria de retorno, calculada pelo seu desempenho. " +
-                "A aba **Revisão** mostra só os que venceram hoje — e um bloco só conta como dominado depois " +
+                "A aba **Revisão** mostra só os que venceram hoje: e um bloco só conta como dominado depois " +
                 "que você o **falou** em voz alta, não depois de reconhecê-lo numa lista.",
             },
           ],
@@ -621,7 +621,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         ),
         speakingPrompt:
           "Diga em voz alta, de memória, todos os blocos que você lembrar dos três últimos circuitos. " +
-          "Não confira a lista antes — grave o que vier e só depois compare.",
+          "Não confira a lista antes: grave o que vier e só depois compare.",
         immersionScript: null,
         listeningScript: null,
         grammarFocus: null,
@@ -630,13 +630,13 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
       };
     }
 
-    // ================================================= DIA 7 — Missão real
+    // ================================================= DIA 7: Missão real
     case 7:
       return {
         content: {
           warmup:
             "Fim da primeira semana do circuito. Hoje o inglês sai do aplicativo: você vai usar isso com uma " +
-            "pessoa de verdade, ou com você mesmo em condição real. Aplicativo nenhum ensina a falar — ele só prepara.",
+            "pessoa de verdade, ou com você mesmo em condição real. Aplicativo nenhum ensina a falar: ele só prepara.",
           blocks: [
             {
               type: "callout",
@@ -678,11 +678,11 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         extensions: { srs_target: chunks.length },
       };
 
-    // ============================================ DIA 8 — Input autêntico
+    // ============================================ DIA 8: Input autêntico
     //
     // Este dia era o único que mandava o aluno para fora do app ("procure no
     // YouTube..."). Era o item de maior impacto do método dependendo da
-    // disciplina de garimpar material sozinho — e sem nenhuma forma de saber
+    // disciplina de garimpar material sozinho: e sem nenhuma forma de saber
     // se foi feito. Agora a peça vem de `content/circuits/authentic.ts`, com
     // áudio pré-gerado e perguntas de compreensão que tornam o dia aferível.
     //
@@ -740,7 +740,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
           warmup:
             "Hoje entra fala que **não foi feita para estudante**. Os diálogos do circuito são limpos e pausados de " +
             "propósito; esta conversa é rápida, tem gíria, gente se interrompendo e assunto mudando no meio. " +
-            "É de propósito também — quem só treina no limpo trava no primeiro contato com o sujo.",
+            "É de propósito também: quem só treina no limpo trava no primeiro contato com o sujo.",
           blocks: [
             howToListen,
             {
@@ -753,7 +753,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               variant: "warning",
               title: "Você não vai entender tudo. É esse o exercício",
               body:
-                "Nesta conversa tem palavra que você nunca viu e vai ter mesmo — é assim que vocabulário entra, por " +
+                "Nesta conversa tem palavra que você nunca viu e vai ter mesmo: é assim que vocabulário entra, por " +
                 "encontro repetido em contexto, não por lista. Se você entender uns 60%, está no ponto certo. " +
                 "As três perguntas no fim medem se você pegou o que importa, não cada palavra.",
             },
@@ -785,14 +785,14 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
       };
     }
 
-    // =================================================== DIA 9 — Shadowing
+    // =================================================== DIA 9: Shadowing
     case 9: {
       const shadow = material.immersion.map(([, en]) => en);
       return {
         content: {
           warmup:
             "Shadowing é o exercício que mais muda ritmo e sotaque, e é o mais desconfortável dos primeiros dias. " +
-            "Você fala **por cima** do áudio, com cerca de meio segundo de atraso, sem parar — mesmo perdendo pedaços.",
+            "Você fala **por cima** do áudio, com cerca de meio segundo de atraso, sem parar: mesmo perdendo pedaços.",
           blocks: [
             {
               type: "callout",
@@ -828,7 +828,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         quiz: [],
         speakingPrompt:
           "Grave você fazendo shadowing do diálogo: toque o áudio e fale por cima, meio segundo atrás. " +
-          "Mande a gravação mesmo se você se perder no meio — perder o fio faz parte.",
+          "Mande a gravação mesmo se você se perder no meio: perder o fio faz parte.",
         immersionScript: null,
         listeningScript: scriptOf(material.immersion),
         grammarFocus: null,
@@ -844,7 +844,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
       };
     }
 
-    // ==================================================== DIA 10 — Expansão
+    // ==================================================== DIA 10: Expansão
     case 10: {
       const crossed = reviewChunks.slice(0, 3);
       return {
@@ -885,7 +885,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               type: "practice",
               title: "Fale 40 segundos sem parar",
               instruction:
-                "Cronometre. O objetivo não é acertar tudo — é não deixar buraco de silêncio. Emende com conectivo mesmo que a frase fique torta.",
+                "Cronometre. O objetivo não é acertar tudo: é não deixar buraco de silêncio. Emende com conectivo mesmo que a frase fique torta.",
               prompts: [
                 "Comece pela situação deste circuito.",
                 "Emende com algo que você fez ontem.",
@@ -894,14 +894,14 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
             },
           ],
           summary:
-            "Frase longa não é frase difícil. É frase curta com conectivo — e é isso que faz você soar fluente.",
+            "Frase longa não é frase difícil. É frase curta com conectivo: e é isso que faz você soar fluente.",
           homework: "Grave 40 segundos falando sem parar sobre qualquer coisa. Conte quantas vezes usou conectivo.",
         },
         chunks,
         quiz: recallQuiz(chunks, seed, "pt-en", 4, `c${circuit.number}d10`),
         speakingPrompt:
           "Fale 40 segundos em inglês sem parar. Emende as frases com and, but, because, so e when. " +
-          "Aqui o único erro é o silêncio — frase torta pode.",
+          "Aqui o único erro é o silêncio: frase torta pode.",
         immersionScript: null,
         listeningScript: null,
         grammarFocus: null,
@@ -910,12 +910,12 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
       };
     }
 
-    // ============================================ DIA 11 — Conversa ao vivo
+    // ============================================ DIA 11: Conversa ao vivo
     case 11:
       return {
         content: {
           warmup:
-            "Hoje é voz em tempo real. Sem gravar e regravar, sem tempo de montar a frase na cabeça — que é " +
+            "Hoje é voz em tempo real. Sem gravar e regravar, sem tempo de montar a frase na cabeça: que é " +
             "exatamente a condição da vida real, e a única que treina responder no susto.",
           blocks: [
             {
@@ -933,17 +933,16 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
             },
             {
               type: "practice",
-              title: "Frases de socorro — decore antes de entrar",
+              title: "Frases de socorro: decore antes de entrar",
               instruction:
                 "Travar é normal e vai acontecer. O que separa quem evolui de quem desiste é ter o que dizer no travamento.",
-              // A frase vai em inglês porque é ela que o aluno tem de dizer —
-              // mas sem a tradução ao lado o iniciante decora um som que não
+              // A frase vai em inglês porque é ela que o aluno tem de dizer: // mas sem a tradução ao lado o iniciante decora um som que não
               // sabe o que significa, e não usa na hora certa.
               prompts: [
-                "Sorry, could you say that again? — Desculpa, pode repetir?",
-                "How do you say ___ in English? — Como se diz ___ em inglês?",
-                "Let me think for a second. — Deixa eu pensar um segundo.",
-                "I'm not sure how to say this, but... — Não sei bem como dizer isso, mas...",
+                "Sorry, could you say that again?: Desculpa, pode repetir?",
+                "How do you say ___ in English?: Como se diz ___ em inglês?",
+                "Let me think for a second.: Deixa eu pensar um segundo.",
+                "I'm not sure how to say this, but...: Não sei bem como dizer isso, mas...",
               ],
             },
             {
@@ -951,7 +950,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               variant: "warning",
               title: "Você vai errar ao vivo. É para errar mesmo",
               body:
-                "A Emma corrige só o que atrapalha o entendimento, e corrige dentro da conversa — repetindo certo e seguindo. " +
+                "A Emma corrige só o que atrapalha o entendimento, e corrige dentro da conversa: repetindo certo e seguindo. " +
                 "Ninguém para para explicar gramática, porque na vida real também ninguém para.",
             },
           ],
@@ -970,7 +969,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         extensions: { live_prompt: livePrompt, srs_target: 10 },
       };
 
-    // =========================================== DIA 12 — Escuta acelerada
+    // =========================================== DIA 12: Escuta acelerada
     case 12:
       return {
         content: {
@@ -983,10 +982,10 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               variant: "tip",
               title: "A escada de velocidade",
               body:
-                "**1x** — uma passada só, para reativar.\n\n" +
-                "**1,25x** — duas passadas. Vai parecer rápido; siga assim mesmo.\n\n" +
-                "**1,5x** — duas passadas. Você vai perder pedaços, e tudo bem.\n\n" +
-                "**1x de novo** — a última. Repare como agora sobra tempo.",
+                "**1x**: uma passada só, para reativar.\n\n" +
+                "**1,25x**: duas passadas. Vai parecer rápido; siga assim mesmo.\n\n" +
+                "**1,5x**: duas passadas. Você vai perder pedaços, e tudo bem.\n\n" +
+                "**1x de novo**: a última. Repare como agora sobra tempo.",
             },
             dialogueBlock("A transcrição, se precisar conferir", material.listening),
             {
@@ -1001,7 +1000,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
             },
           ],
           summary:
-            "Velocidade de escuta é treinável, e treina-se por sobrecarga — não por ouvir devagar mais vezes.",
+            "Velocidade de escuta é treinável, e treina-se por sobrecarga: não por ouvir devagar mais vezes.",
           homework: "Pegue qualquer vídeo em inglês e assista 5 minutos a 1,25x.",
         },
         chunks,
@@ -1016,7 +1015,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         extensions: { srs_target: chunks.length },
       };
 
-    // ========================================= DIA 13 — Revisão intercalada
+    // ========================================= DIA 13: Revisão intercalada
     case 13: {
       const mixed = reviewChunks.filter((r) => reviewOf.includes(r.circuit));
       const pool = mixed.length ? mixed.flatMap((r) => r.chunks) : chunks;
@@ -1024,20 +1023,20 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
         content: {
           warmup:
             "Hoje os blocos vêm embaralhados, de circuitos distantes e fora de ordem. Vai render menos acertos que " +
-            "uma revisão organizada — e é justamente por isso que funciona melhor. Quando tudo vem em bloco, você lembra do bloco; quando vem misturado, você lembra do bloco certo.",
+            "uma revisão organizada: e é justamente por isso que funciona melhor. Quando tudo vem em bloco, você lembra do bloco; quando vem misturado, você lembra do bloco certo.",
           blocks: [
             {
               type: "text",
               title: "De onde vêm os blocos de hoje",
               body: mixed.length
-                ? mixed.map((r) => `**Circuito ${r.circuit} — ${r.title}**`).join("\n\n")
+                ? mixed.map((r) => `**Circuito ${r.circuit}: ${r.title}**`).join("\n\n")
                 : "Ainda há poucos circuitos para trás, então a mistura de hoje é do próprio circuito. A partir dos próximos, o embaralhamento fica sério.",
             },
             {
               type: "practice",
               title: "Português na tela, inglês na boca",
               instruction:
-                "Sem consultar. Diga em voz alta antes de conferir. Se demorar mais de 3 segundos, conte como erro — na conversa real você não teria esses 3 segundos.",
+                "Sem consultar. Diga em voz alta antes de conferir. Se demorar mais de 3 segundos, conte como erro: na conversa real você não teria esses 3 segundos.",
               prompts: pool.slice(0, 10).map((c) => c.pt),
             },
             {
@@ -1046,7 +1045,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               title: "Por que intercalar parece pior e é melhor",
               body:
                 "Revisão em bloco dá sensação de domínio porque o contexto entrega a resposta. Intercalada, seu " +
-                "cérebro precisa primeiro descobrir de onde vem a pergunta — que é exatamente o trabalho que a " +
+                "cérebro precisa primeiro descobrir de onde vem a pergunta: que é exatamente o trabalho que a " +
                 "conversa real exige. Custa mais e fixa mais.",
             },
           ],
@@ -1066,13 +1065,13 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
       };
     }
 
-    // ================================================= DIA 14 — Sem roteiro
+    // ================================================= DIA 14: Sem roteiro
     default:
       return {
         content: {
           warmup:
             "Último dia do circuito, e o único sem roteiro. Começa na situação que você treinou e deriva para " +
-            "onde a conversa quiser ir — porque conversa real nunca fica no assunto que começou.",
+            "onde a conversa quiser ir: porque conversa real nunca fica no assunto que começou.",
           blocks: [
             {
               type: "text",
@@ -1083,7 +1082,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               type: "drill",
               title: "E deixe derivar para",
               instruction:
-                "Não escolha antes. Deixe a conversa te levar para um destes — ou para qualquer outro lugar.",
+                "Não escolha antes. Deixe a conversa te levar para um destes: ou para qualquer outro lugar.",
               items: material.drift,
             },
             {
@@ -1091,9 +1090,9 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               variant: "tip",
               title: "Como manter a conversa viva quando acaba o assunto",
               body:
-                "**Devolva a pergunta:** *What about you?* — E você?\n\n" +
+                "**Devolva a pergunta:** *What about you?*: E você?\n\n" +
                 "**Peça detalhe:** *How was that?* (E como foi?) / *What happened next?* (E aí, o que aconteceu?)\n\n" +
-                "**Reaja e emende:** *Oh really? That's funny, because...* — Sério? Que engraçado, porque...\n\n" +
+                "**Reaja e emende:** *Oh really? That's funny, because...*: Sério? Que engraçado, porque...\n\n" +
                 "Conversa não morre por falta de vocabulário. Morre por falta de curiosidade demonstrada.",
             },
             {
@@ -1107,7 +1106,7 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
               ],
             },
           ],
-          summary: `Circuito ${circuit.number} fechado: ${circuit.title}. Amanhã começa uma situação nova — e esta volta na sua fila de revisão.`,
+          summary: `Circuito ${circuit.number} fechado: ${circuit.title}. Amanhã começa uma situação nova: e esta volta na sua fila de revisão.`,
           homework:
             "Conte para alguém, em português mesmo, o que você consegue fazer em inglês agora que não conseguia há duas semanas.",
         },

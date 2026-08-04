@@ -20,15 +20,15 @@ const dateTimeFormatter = new Intl.DateTimeFormat("pt-BR", {
 });
 
 export function formatDate(value?: string | Date | null) {
-  if (!value) return "—";
+  if (!value) return ": ";
   const date = typeof value === "string" ? new Date(value) : value;
-  return Number.isNaN(date.getTime()) ? "—" : dateFormatter.format(date);
+  return Number.isNaN(date.getTime()) ? ": " : dateFormatter.format(date);
 }
 
 export function formatDateTime(value?: string | Date | null) {
-  if (!value) return "—";
+  if (!value) return ": ";
   const date = typeof value === "string" ? new Date(value) : value;
-  return Number.isNaN(date.getTime()) ? "—" : dateTimeFormatter.format(date);
+  return Number.isNaN(date.getTime()) ? ": " : dateTimeFormatter.format(date);
 }
 
 export function formatRelative(value?: string | Date | null) {
@@ -63,7 +63,7 @@ export const DAYS_PER_CIRCUIT = 14;
  * Converte o dia absoluto (1..728) na posicao dentro do circuito.
  *
  * O cronograma NAO tem dia da semana. Um curso de 2 anos que amarra a licao a
- * "segunda-feira" quebra na primeira vez que o aluno pula um dia — e todo
+ * "segunda-feira" quebra na primeira vez que o aluno pula um dia: e todo
  * aluno pula. Aqui o Dia 42 e o Dia 42 independente da data em que ele chega.
  */
 export function dayToCircuit(dayNumber: number) {

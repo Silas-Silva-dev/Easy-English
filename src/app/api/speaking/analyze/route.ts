@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
 
   if (!prompt) {
     // Este texto é gravado em `speaking_sessions.prompt` e reaparece na lista
-    // "Suas últimas práticas" — por isso vai em português, como todo enunciado.
+    // "Suas últimas práticas": por isso vai em português, como todo enunciado.
     prompt = "Prática livre: fale em inglês sobre o assunto que quiser, por cerca de um minuto.";
   }
 
@@ -167,7 +167,7 @@ export async function POST(request: NextRequest) {
     // As notas são geradas pelo sistema, nunca pelo aluno: a RLS de
     // speaking_feedback bloqueia escrita por quem não é admin justamente para
     // que ninguém forje o próprio resultado. Por isso a gravação usa o cliente
-    // de service_role — o dono da sessão já foi validado no topo da rota.
+    // de service_role: o dono da sessão já foi validado no topo da rota.
     const admin = createAdminSupabase();
     const { data: feedback, error: feedbackError } = await admin
       .from("speaking_feedback")

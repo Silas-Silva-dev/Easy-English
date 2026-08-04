@@ -11,7 +11,7 @@
  * POR QUE PRÉ-GERAR
  * ===========================================================================
  * O áudio do curso era sintetizado pela voz do sistema operacional. Isso custa
- * zero e funciona offline, mas voz de sistema não produz FALA CONECTADA — não
+ * zero e funciona offline, mas voz de sistema não produz FALA CONECTADA: não
  * reduz, não elide, não gruda palavra. O nativo diz "whaddaya gonna do";
  * a voz do sistema diz "what are you going to do", separadinho. O aluno
  * treinava 728 dias numa fala sem a propriedade que ia quebrá-lo na vida real.
@@ -21,7 +21,7 @@
  *
  *   - Custo de execução zero. O aluno baixa um arquivo estático.
  *   - Sem cota no caminho do aluno. A cota é gasta aqui, por você, uma vez.
- *   - Determinístico e revisável, igual ao resto de `content/` — você ouve
+ *   - Determinístico e revisável, igual ao resto de `content/`: você ouve
  *     antes de o aluno ouvir.
  *
  * ===========================================================================
@@ -59,7 +59,7 @@ import { env, genai, sleep } from "./_shared";
 
 const OUT_DIR = join(process.cwd(), "public", "audio");
 
-/** Voz única para os blocos soltos — o "professor" do curso é sempre o mesmo. */
+/** Voz única para os blocos soltos: o "professor" do curso é sempre o mesmo. */
 const CHUNK_VOICE = "Kore";
 
 /**
@@ -70,7 +70,7 @@ const DEFAULT_MODEL = "gemini-3.1-flash-tts-preview";
 
 interface Options {
   limit: number;
-  /** Só este circuito — útil para regerar depois de corrigir uma fala. */
+  /** Só este circuito: útil para regerar depois de corrigir uma fala. */
   circuit: number | null;
   only: "all" | "dialogues" | "chunks";
   engine: Engine;
@@ -90,7 +90,7 @@ interface Options {
  * É o que torna a estratégia híbrida possível: o Piper preenche os 455 áudios
  * hoje, de graça, e depois `--engine gemini --upgrade` regera SÓ os que o Piper
  * fez, no ritmo que a cota diária permitir. Sem este registro não haveria como
- * distinguir um do outro — o nome do arquivo vem do texto, não do motor.
+ * distinguir um do outro: o nome do arquivo vem do texto, não do motor.
  */
 const LEDGER_PATH = join(OUT_DIR, "engines.json");
 
@@ -146,7 +146,7 @@ function parseArgs(argv: string[]): Options {
 // ===========================================================================
 // Conversão do áudio
 //
-// A API devolve PCM cru de 24 kHz, 16 bits, mono — 48 KB por segundo. Os ~53
+// A API devolve PCM cru de 24 kHz, 16 bits, mono: 48 KB por segundo. Os ~53
 // minutos do curso inteiro dariam uns 150 MB em WAV, que é repositório demais.
 // Em MP3 mono de 64 kbps a mesma coisa cabe em ~25 MB, sem perda audível para
 // voz falada.
@@ -192,14 +192,14 @@ function pcmToMp3(pcm: Buffer, sampleRate: number, outPath: string): Promise<voi
 // Chamada ao Gemini
 // ===========================================================================
 
-/** Instrução de estilo — é o que separa "leitura" de "conversa". */
+/** Instrução de estilo: é o que separa "leitura" de "conversa". */
 const DIALOGUE_STYLE =
   "Read the following conversation the way two Americans would actually say it: " +
   "natural conversational pace, contractions, linked words, real intonation. " +
   "Do not enunciate word by word.";
 
 const CHUNK_STYLE =
-  "Say the following phrase the way an American says it in normal conversation — " +
+  "Say the following phrase the way an American says it in normal conversation: " +
   "natural speed, natural linking. Say it once.";
 
 /** Uma chamada ao TTS. Devolve PCM cru e a taxa de amostragem. */
@@ -225,7 +225,7 @@ async function speak(
 
 const oneVoice = (name: string) => ({ voiceConfig: { prebuiltVoiceConfig: { voiceName: name } } });
 
-/** 400 ms de silêncio entre falas emendadas — sem isso a conversa atropela. */
+/** 400 ms de silêncio entre falas emendadas: sem isso a conversa atropela. */
 function silence(rate: number, ms = 400): Buffer {
   return Buffer.alloc(Math.round((rate * 2 * ms) / 1000));
 }
@@ -234,14 +234,14 @@ function silence(rate: number, ms = 400): Buffer {
  * Gera o áudio de um item do catálogo.
  *
  * O caminho depende de quantas pessoas falam, porque o modo multi-locutor da
- * API aceita EXATAMENTE dois — nem um, nem três:
+ * API aceita EXATAMENTE dois: nem um, nem três:
  *
  *   2 locutores  → uma chamada só, com as duas vozes. É o caso de 96 dos 104
  *                  diálogos, e é o que torna a pré-geração barata.
  *   1 locutor    → voz única. Os circuitos 49 são monólogos.
  *   3 locutores  → uma chamada por fala, cada uma na voz do seu personagem, e
  *                  o PCM emendado no fim. Custa mais cota, mas são só 6
- *                  diálogos no curso inteiro — e a alternativa seria jogar
+ *                  diálogos no curso inteiro: e a alternativa seria jogar
  *                  fora a distinção de vozes justamente nas cenas com mais
  *                  gente, que são as mais difíceis de acompanhar.
  */
@@ -313,8 +313,8 @@ const VOICES_DIR = join(process.cwd(), ".piper-voices");
  * Os ids que existem em disco AGORA.
  *
  * Relido no fim de cada lote em vez de somar `já existiam + gerados`. Com
- * `--force` as duas parcelas se sobrepõem — os 461 arquivos que já estavam lá
- * eram os mesmos 462 que acabaram de ser reescritos — e a soma anunciava
+ * `--force` as duas parcelas se sobrepõem: os 461 arquivos que já estavam lá
+ * eram os mesmos 462 que acabaram de ser reescritos: e a soma anunciava
  * "923/462 áudios, faltam -461". O disco é a única fonte que não erra isso.
  */
 function countOnDisk(): Set<string> {
@@ -398,7 +398,7 @@ async function runPiper(
   const now = wanted.filter((j) => ready.has(j.id)).length;
   const total = wanted.length;
   console.log(`\n  ${now}/${total} áudios em public/audio/`);
-  if (failed) console.log(`  \x1b[31m${failed}\x1b[0m falharam — rode de novo para tentar só eles.`);
+  if (failed) console.log(`  \x1b[31m${failed}\x1b[0m falharam: rode de novo para tentar só eles.`);
   console.log(
     now === total
       ? `\n  \x1b[32mCompleto.\x1b[0m Commit public/audio/.\n` +
@@ -418,7 +418,7 @@ async function main() {
   if (!(await haveFfmpeg())) {
     console.error(
       "\n✗ ffmpeg não encontrado no PATH.\n" +
-        "  Ele converte o PCM cru da API em MP3 — sem isso o repositório levaria ~150 MB.\n" +
+        "  Ele converte o PCM cru da API em MP3: sem isso o repositório levaria ~150 MB.\n" +
         "  Windows: winget install Gyan.FFmpeg\n",
     );
     process.exit(1);
@@ -443,9 +443,9 @@ async function main() {
   /**
    * O que falta fazer.
    *
-   *   normal    — o que ainda não existe em disco (retomada por existência)
-   *   --upgrade — o que existe mas foi feito pelo outro motor
-   *   --force   — tudo, de novo
+   *   normal: o que ainda não existe em disco (retomada por existência)
+   *   --upgrade: o que existe mas foi feito pelo outro motor
+   *   --force: tudo, de novo
    */
   const missing = (job: AudioJob) => {
     if (options.force) return true;
@@ -467,7 +467,7 @@ async function main() {
   console.log(`  nesta rodada ${pending.length}${options.upgrade ? " (--upgrade)" : ""}\n`);
 
   if (!pending.length) {
-    console.log("  Nada a fazer — o áudio está completo.\n");
+    console.log("  Nada a fazer: o áudio está completo.\n");
     return;
   }
 
@@ -490,7 +490,7 @@ async function main() {
   /**
    * Recuo adaptativo para o limite POR MINUTO.
    *
-   * A conta gratuita corta por requisições/minuto, não só por dia — na prática
+   * A conta gratuita corta por requisições/minuto, não só por dia: na prática
    * o 429 chega depois de poucas chamadas seguidas e some sozinho em pouco
    * tempo. Então bater na cota não é motivo para encerrar a rodada: é motivo
    * para respirar e tentar o MESMO item de novo. Só depois de várias recusas
@@ -527,7 +527,7 @@ async function main() {
 
         if (refusals < GIVE_UP_AFTER) {
           console.log(
-            `  \x1b[33m·\x1b[0m cota por minuto — esperando ${Math.round(cooldown / 1000)}s (${refusals}/${GIVE_UP_AFTER})`,
+            `  \x1b[33m·\x1b[0m cota por minuto: esperando ${Math.round(cooldown / 1000)}s (${refusals}/${GIVE_UP_AFTER})`,
           );
           await sleep(cooldown);
           cooldown = Math.min(cooldown * 2, COOLDOWN_MAX_MS);
@@ -535,7 +535,7 @@ async function main() {
         }
 
         // Recusou em todas as esperas. Pode ser o teto diário ou uma janela
-        // mais longa que a nossa escada — a mensagem de erro não distingue os
+        // mais longa que a nossa escada: a mensagem de erro não distingue os
         // dois, então não afirmamos qual é.
         console.log(
           `\n  \x1b[33m▲ A cota seguiu bloqueada depois de ${GIVE_UP_AFTER} esperas.\x1b[0m ` +
@@ -545,7 +545,7 @@ async function main() {
         if (!options.watch) {
           const left = wanted.length - done - generated;
           console.log(
-            `\n  Faltam ${left} áudios. Rode de novo quando a cota renovar —\n` +
+            `\n  Faltam ${left} áudios. Rode de novo quando a cota renovar : \n` +
               `  o script continua exatamente daqui, os ${done + generated} prontos não são refeitos.\n` +
               `  Para ele mesmo esperar e retomar sozinho: npm run gen:audio -- --watch\n`,
           );
@@ -573,7 +573,7 @@ async function main() {
   const ready = countOnDisk();
   const total = wanted.filter((j) => ready.has(j.id)).length;
   console.log(`\n  ${total}/${wanted.length} áudios prontos em public/audio/`);
-  if (failed) console.log(`  \x1b[31m${failed}\x1b[0m falharam — rode de novo para tentar só eles.`);
+  if (failed) console.log(`  \x1b[31m${failed}\x1b[0m falharam: rode de novo para tentar só eles.`);
   if (total === wanted.length) {
     console.log(`\n  \x1b[32mCompleto.\x1b[0m Não esqueça de commitar public/audio/.\n`);
   } else {

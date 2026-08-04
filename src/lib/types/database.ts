@@ -111,7 +111,7 @@ export interface LessonContent {
   blocks?: LessonBlock[];
   /**
    * Blocos que só aparecem depois do portão de imersão (dia 1 de cada circuito).
-   * Ficam separados de `blocks` porque o player renderiza `blocks` sempre — se
+   * Ficam separados de `blocks` porque o player renderiza `blocks` sempre: se
    * a transcrição estivesse lá, o portão de escuta não valeria nada.
    */
   gated?: LessonBlock[];
@@ -283,7 +283,7 @@ export interface Lesson {
   content: LessonContent;
   vocabulary: VocabularyItem[];
   phrases: PhraseItem[];
-  /** Nota curta "por que funciona assim" — nunca titula a lição. */
+  /** Nota curta "por que funciona assim": nunca titula a lição. */
   grammar_focus: string | null;
   grammar_explanation: string | null;
   listening_script: string | null;
@@ -474,7 +474,7 @@ export interface AdminOverview {
 /**
  * O postgrest-js exige que cada `Row` seja atribuível a `Record<string, unknown>`.
  * Uma `interface` não satisfaz isso (só `type` ganha index signature implícita),
- * então passamos tudo por um mapped type homomórfico — que satisfaz.
+ * então passamos tudo por um mapped type homomórfico: que satisfaz.
  */
 type AsRecord<T> = { [K in keyof T]: T[K] };
 

@@ -91,7 +91,7 @@ export default async function AdminAuditPage({
                   <TableCell className="text-muted-foreground max-w-64 truncate text-xs">
                     {entry.meta && Object.keys(entry.meta).length
                       ? JSON.stringify(entry.meta)
-                      : "—"}
+                      : ": "}
                   </TableCell>
                 </TableRow>
               ))}

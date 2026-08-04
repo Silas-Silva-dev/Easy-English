@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 /**
  * A linha de pronúncia figurada, entre o inglês e a tradução.
  *
- * A ordem na tela é deliberada — inglês, som, sentido:
+ * A ordem na tela é deliberada: inglês, som, sentido:
  *
  *     Nice to meet you.      <- o que está escrito
  *     náis ta mît iu.        <- como sai na boca
@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
  * o português e considera a linha resolvida. No meio, ela fica no caminho
  * entre a dúvida ("como se fala isso?") e a resposta.
  *
- * Não renderiza nada quando não há figuração para o texto — frase nova, ainda
+ * Não renderiza nada quando não há figuração para o texto: frase nova, ainda
  * sem rodada de `npm run gen:pronuncia`, some em silêncio em vez de mostrar
  * uma aproximação inventada.
  */

@@ -40,7 +40,7 @@ export const serverEnv = {
 
 /**
  * Modelos padrao. O catalogo do Google muda e modelos antigos deixam de ser
- * liberados para contas novas — rode `npm run models` para ver o que a sua
+ * liberados para contas novas: rode `npm run models` para ver o que a sua
  * chave alcanca e `npm run check` para validar de ponta a ponta.
  */
 export const geminiModels = {

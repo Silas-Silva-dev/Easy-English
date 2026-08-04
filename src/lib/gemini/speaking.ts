@@ -206,7 +206,7 @@ export async function analyzeSpeaking(params: {
                 // modelo pode ler o idioma do enunciado como idioma esperado
                 // da resposta e deixar de penalizar quem gravou em portugues.
                 "O enunciado esta em portugues porque o aluno e brasileiro. A resposta gravada,",
-                "essa sim, deveria estar em INGLES — avalie por esse criterio.",
+                "essa sim, deveria estar em INGLES: avalie por esse criterio.",
                 "",
                 "Avalie se o aluno cumpriu o exercicio e devolva o JSON no formato definido.",
                 "Lembre-se: transcricao literal, explicacoes em portugues, exemplos em ingles.",

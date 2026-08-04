@@ -1,5 +1,5 @@
 /**
- * QUARTO CANTO — Soar natural (circuitos 40 a 52)
+ * QUARTO CANTO: Soar natural (circuitos 40 a 52)
  *
  * Muda o eixo. Os três primeiros cantos foram sobre SITUAÇÕES; este é sobre o
  * SOM e o REGISTRO: fala grudada, phrasal verbs, colocações, ironia, sotaques.
@@ -37,7 +37,7 @@ export const CANTO_4: CircuitContent[] = [
     why: {
       title: "Phrasal verb não se traduz, se instala",
       body:
-        "*Give* é dar. *Up* é para cima. *Give up* é **desistir**. Não há lógica dedutível — e é por isso que traduzir palavra por palavra falha aqui.\n\nA partícula muda tudo: *pick up* (buscar), *pick out* (escolher), *pick on* (implicar com alguém).\n\nA única estratégia que funciona é a mesma do curso inteiro: guarde o **bloco inteiro com um exemplo colado**. *I'll pick you up at eight*. Nunca *pick up* solto — sempre dentro de uma frase que você usaria.",
+        "*Give* é dar. *Up* é para cima. *Give up* é **desistir**. Não há lógica dedutível: e é por isso que traduzir palavra por palavra falha aqui.\n\nA partícula muda tudo: *pick up* (buscar), *pick out* (escolher), *pick on* (implicar com alguém).\n\nA única estratégia que funciona é a mesma do curso inteiro: guarde o **bloco inteiro com um exemplo colado**. *I'll pick you up at eight*. Nunca *pick up* solto: sempre dentro de uma frase que você usaria.",
     },
     swaps: ["figure it out", "catch up", "run into someone", "give up", "pick you up", "come up", "look forward to it", "work it out"],
     expansion: [
@@ -54,13 +54,13 @@ export const CANTO_4: CircuitContent[] = [
     ],
     sounds: [
       ["A partícula carrega o acento", "'figure it OUT', 'give UP', 'catch UP'. A força vai na partícula, não no verbo. Errar isso muda o ritmo da frase inteira."],
-      ["'Ran into' vira 'ranintu'", "O N final gruda no I seguinte. Toda consoante final gruda na vogal que vem depois — é a regra do inglês falado."],
+      ["'Ran into' vira 'ranintu'", "O N final gruda no I seguinte. Toda consoante final gruda na vogal que vem depois: é a regra do inglês falado."],
     ],
     quiz: [
       ["'Give up' significa:", ["Dar para cima", "Desistir", "Entregar", "Levantar"], 1, "Nenhuma tradução de 'give' + 'up' chega em 'desistir'. Por isso phrasal verb se guarda inteiro."],
       ["'I ran into your sister' quer dizer:", ["Bati nela", "Encontrei por acaso", "Corri até ela", "Fui atrás dela"], 1, "'Run into' é encontro casual. 'Meet up' é o encontro combinado, do circuito 14."],
       ["Onde vai o acento em 'figure it out'?", ["FIgure", "it", "OUT", "Todos iguais"], 2, "A partícula leva o acento no phrasal verb. É isso que dá o ritmo característico da frase."],
-      ["'Something came up' significa:", ["Algo subiu", "Surgiu um imprevisto", "Algo apareceu na tela", "Alguém chegou"], 1, "É a desculpa universal para desmarcar. Vaga de propósito — ninguém pergunta o que foi."],
+      ["'Something came up' significa:", ["Algo subiu", "Surgiu um imprevisto", "Algo apareceu na tela", "Alguém chegou"], 1, "É a desculpa universal para desmarcar. Vaga de propósito: ninguém pergunta o que foi."],
     ],
   },
 
@@ -90,7 +90,7 @@ export const CANTO_4: CircuitContent[] = [
     why: {
       title: "Colocação: a palavra certa que anda com a outra",
       body:
-        "Em português a gente **toma** uma decisão. Em inglês, se **faz** uma: *make a decision*.\n\nNinguém diz *take a decision* nos Estados Unidos. Não é errado gramaticalmente — é errado **socialmente**, do jeito que 'fazer uma decisão' soaria em português.\n\nEssas duplas fixas se chamam colocações, e não têm regra: *make a decision*, *do research*, *take a break*, *have a look*, *pay attention*.\n\nÉ mais uma vez o mesmo princípio: guarde a dupla, não a palavra.",
+        "Em português a gente **toma** uma decisão. Em inglês, se **faz** uma: *make a decision*.\n\nNinguém diz *take a decision* nos Estados Unidos. Não é errado gramaticalmente: é errado **socialmente**, do jeito que 'fazer uma decisão' soaria em português.\n\nEssas duplas fixas se chamam colocações, e não têm regra: *make a decision*, *do research*, *take a break*, *have a look*, *pay attention*.\n\nÉ mais uma vez o mesmo princípio: guarde a dupla, não a palavra.",
     },
     swaps: ["make a decision", "do some research", "take a break", "have a look", "pay attention", "keep in mind", "get in touch", "make sense"],
     expansion: [
@@ -106,12 +106,12 @@ export const CANTO_4: CircuitContent[] = [
       "Um detalhe que mudou tudo numa decisão sua",
     ],
     sounds: [
-      ["'Make a' vira 'meika'", "O K final gruda no A. Colocação boa é dita rápido — se sair separado, soa como se você tivesse montado a frase na hora."],
+      ["'Make a' vira 'meika'", "O K final gruda no A. Colocação boa é dita rápido: se sair separado, soa como se você tivesse montado a frase na hora."],
       ["'Pay attention' vira 'peiatenshan'", "O Y gruda no A seguinte. E o T no meio de 'attention' vira SH."],
     ],
     quiz: [
       ["Como se diz 'tomar uma decisão'?", ["take a decision", "make a decision", "do a decision", "have a decision"], 1, "Em inglês se FAZ uma decisão. 'Take a decision' existe no inglês britânico formal, mas não é o padrão americano."],
-      ["Qual está certa?", ["make research", "take research", "do research", "have research"], 2, "'Do research'. Cada substantivo tem seu verbo fixo, e não há regra — só uso."],
+      ["Qual está certa?", ["make research", "take research", "do research", "have research"], 2, "'Do research'. Cada substantivo tem seu verbo fixo, e não há regra: só uso."],
       ["'Have a look' significa:", ["Ter uma aparência", "Dar uma olhada", "Manter o olhar", "Procurar"], 1, "'Have a look' e 'take a look' são intercambiáveis. Ambos = dar uma olhada."],
       ["Por que colocações importam mais que gramática aqui?", ["São mais fáceis", "Errar colocação soa estranho mesmo com gramática perfeita", "São obrigatórias", "Aparecem em provas"], 1, "'I took a decision' está gramaticalmente correto e ainda assim soa errado. É o nível seguinte de naturalidade."],
     ],
@@ -143,7 +143,7 @@ export const CANTO_4: CircuitContent[] = [
     why: {
       title: "Você não precisa falar assim. Precisa entender assim",
       body:
-        "*Gonna*, *wanna*, *gotta*, *lemme*, *dunno*, *kinda* não são gíria nem preguiça: são o que acontece com **going to**, **want to**, **got to**, **let me**, **don't know** e **kind of** quando ditos em velocidade normal.\n\nA distinção que importa: essas formas são de **fala**, não de escrita. Nunca escreva *gonna* num e-mail de trabalho.\n\nE se você preferir falar as formas completas, tudo bem — soa um pouco formal, e só. O que **não** é opcional é reconhecê-las de ouvido. Sem isso, conversa rápida vira ruído.",
+        "*Gonna*, *wanna*, *gotta*, *lemme*, *dunno*, *kinda* não são gíria nem preguiça: são o que acontece com **going to**, **want to**, **got to**, **let me**, **don't know** e **kind of** quando ditos em velocidade normal.\n\nA distinção que importa: essas formas são de **fala**, não de escrita. Nunca escreva *gonna* num e-mail de trabalho.\n\nE se você preferir falar as formas completas, tudo bem: soa um pouco formal, e só. O que **não** é opcional é reconhecê-las de ouvido. Sem isso, conversa rápida vira ruído.",
     },
     swaps: ["gonna", "wanna", "gotta", "lemme", "dunno", "kinda", "whatcha", "gimme"],
     expansion: [
@@ -159,12 +159,12 @@ export const CANTO_4: CircuitContent[] = [
       "Se você prefere legenda em inglês ou nada",
     ],
     sounds: [
-      ["'Gotta' com D no meio", "O TT vira D suave: 'gá-da'. Vale para 'better', 'water', 'letter' — mesma transformação."],
+      ["'Gotta' com D no meio", "O TT vira D suave: 'gá-da'. Vale para 'better', 'water', 'letter': mesma transformação."],
       ["'Whatcha' e o T que virou CH", "'What are you' colapsou inteiro. É a forma mais reduzida que você vai ouvir, e é comuníssima."],
     ],
     quiz: [
-      ["'Gonna' é a forma falada de:", ["got to", "going to", "gone to", "want to"], 1, "'Going to' colapsado. Só para futuro — 'I'm going to the store' (movimento) NÃO vira 'gonna'."],
-      ["Você deve escrever 'gonna' em e-mail de trabalho?", ["Sim, é normal", "Não, é forma de fala apenas", "Só com colegas", "Sempre"], 1, "São reduções de fala. Em texto formal soam descuidadas — o equivalente a escrever 'né' num relatório."],
+      ["'Gonna' é a forma falada de:", ["got to", "going to", "gone to", "want to"], 1, "'Going to' colapsado. Só para futuro: 'I'm going to the store' (movimento) NÃO vira 'gonna'."],
+      ["Você deve escrever 'gonna' em e-mail de trabalho?", ["Sim, é normal", "Não, é forma de fala apenas", "Só com colegas", "Sempre"], 1, "São reduções de fala. Em texto formal soam descuidadas: o equivalente a escrever 'né' num relatório."],
       ["'Dunno' significa:", ["Do not", "Don't know", "Done", "Down"], 1, "'Don't know' colapsado. Muito informal, muito frequente."],
       ["Por que aprender essas formas importa?", ["Para falar como nativo", "Para ENTENDER fala em velocidade real", "Para escrever melhor", "Para provas"], 1, "Você pode falar as formas completas a vida inteira. Mas se não reconhecer as reduzidas, não entende conversa rápida."],
     ],
@@ -194,9 +194,9 @@ export const CANTO_4: CircuitContent[] = [
       ["Bruno", "Deal.", "Fechado."],
     ],
     why: {
-      title: "Idiom é bloco puro — e menos é mais",
+      title: "Idiom é bloco puro: e menos é mais",
       body:
-        "Idiom é o caso extremo do método: **zero** dedução possível. *Under the weather* não tem nada a ver com clima; significa estar meio doente.\n\nDuas advertências que valem mais que a lista:\n\n**1.** Aprenda a **reconhecer** muitos, mas a **usar** poucos. Estrangeiro que enfia idiom em toda frase soa como quem decorou um livro de expressões.\n\n**2.** Idiom envelhece. Os sete deste circuito são de alta frequência e não datam. Evite os que você viu em lista de internet — muitos ninguém mais usa.",
+        "Idiom é o caso extremo do método: **zero** dedução possível. *Under the weather* não tem nada a ver com clima; significa estar meio doente.\n\nDuas advertências que valem mais que a lista:\n\n**1.** Aprenda a **reconhecer** muitos, mas a **usar** poucos. Estrangeiro que enfia idiom em toda frase soa como quem decorou um livro de expressões.\n\n**2.** Idiom envelhece. Os sete deste circuito são de alta frequência e não datam. Evite os que você viu em lista de internet: muitos ninguém mais usa.",
     },
     swaps: ["a piece of cake", "call it a day", "under the weather", "break the ice", "on the same page", "not rocket science", "play it by ear", "hit the road"],
     expansion: [
@@ -213,7 +213,7 @@ export const CANTO_4: CircuitContent[] = [
     ],
     sounds: [
       ["Idiom sai numa batida só", "'apiece-of-cake', 'under-the-weather'. Se você pausa entre as palavras, quebra o efeito de expressão pronta."],
-      ["'Weather' e o TH sonoro", "'UÉ-dher'. Não confunda com 'whether' (se) — a pronúncia é idêntica e só o contexto separa."],
+      ["'Weather' e o TH sonoro", "'UÉ-dher'. Não confunda com 'whether' (se): a pronúncia é idêntica e só o contexto separa."],
     ],
     quiz: [
       ["'It's a piece of cake' significa:", ["É um pedaço de bolo", "É muito fácil", "É delicioso", "É pequeno"], 1, "Idiom não se traduz. 'Moleza' é o equivalente funcional."],
@@ -269,8 +269,8 @@ export const CANTO_4: CircuitContent[] = [
       ["'Cheers' é britânico mas viajou", "'Chirz'. Nos Estados Unidos aparece em e-mail informal e como brinde. Formal, nunca."],
     ],
     quiz: [
-      ["'I'm afraid I can't attend' é a versão formal de:", ["I don't want to go", "Can't make it, sorry", "I won't attend", "Maybe later"], 1, "Mesma mensagem, registros diferentes. O formal é mais longo e mais indireto — é o padrão."],
-      ["O que é mais grave: errar gramática ou errar registro?", ["Gramática", "Registro", "São iguais", "Nenhum importa"], 1, "Gramática errada soa como estrangeiro. Registro errado soa como falta de leitura social — custa mais caro."],
+      ["'I'm afraid I can't attend' é a versão formal de:", ["I don't want to go", "Can't make it, sorry", "I won't attend", "Maybe later"], 1, "Mesma mensagem, registros diferentes. O formal é mais longo e mais indireto: é o padrão."],
+      ["O que é mais grave: errar gramática ou errar registro?", ["Gramática", "Registro", "São iguais", "Nenhum importa"], 1, "Gramática errada soa como estrangeiro. Registro errado soa como falta de leitura social: custa mais caro."],
       ["Na dúvida sobre o registro, o que fazer?", ["Sempre formal", "Sempre informal", "Espelhar o registro de quem escreveu", "Perguntar"], 2, "Espelhar é a estratégia mais segura e funciona em qualquer cultura corporativa."],
       ["'Please find attached' aparece em:", ["Conversa de bar", "E-mail formal de trabalho", "Mensagem para amigo", "Apresentação oral"], 1, "É fórmula fixa de e-mail formal. Em mensagem para amigo, seria 'here's the file'."],
     ],
@@ -319,13 +319,13 @@ export const CANTO_4: CircuitContent[] = [
     ],
     sounds: [
       ["Pausa é ferramenta", "Depois de 'First of all' e de 'The key takeaway is', PAUSE. A pausa dá autoridade e te dá tempo de pensar. Nativo faz de propósito."],
-      ["'In a nutshell' emendado", "'inanátshel'. Expressão fixa, sai numa batida — e é o sinal de que o resumo está vindo."],
+      ["'In a nutshell' emendado", "'inanátshel'. Expressão fixa, sai numa batida: e é o sinal de que o resumo está vindo."],
     ],
     quiz: [
       ["Por que apresentar é mais fácil que conversar?", ["O vocabulário é menor", "Você controla conteúdo, ritmo e vocabulário", "As pessoas prestam menos atenção", "É mais curto"], 1, "Ninguém te interrompe com uma palavra desconhecida. É o formato mais previsível do inglês falado."],
       ["'Let me walk you through ___' significa:", ["Vamos caminhar", "Vou explicar passo a passo", "Me acompanhe até lá", "Vou resumir"], 1, "'Walk through' é conduzir alguém pelos detalhes na ordem. Também usado em treinamento e suporte."],
       ["'The key takeaway is ___' introduz:", ["Uma pergunta", "A conclusão principal a ser lembrada", "Uma piada", "Um pedido"], 1, "'Takeaway' é o que a plateia leva embora. Dizer isso explicitamente aumenta muito a retenção."],
-      ["Qual o papel da pausa numa apresentação?", ["Mostrar insegurança", "Dar autoridade e tempo para pensar", "Preencher tempo", "Nenhum"], 1, "Nativo pausa de propósito. Quem tem medo acelera — e acelerar é o que realmente denuncia nervosismo."],
+      ["Qual o papel da pausa numa apresentação?", ["Mostrar insegurança", "Dar autoridade e tempo para pensar", "Preencher tempo", "Nenhum"], 1, "Nativo pausa de propósito. Quem tem medo acelera: e acelerar é o que realmente denuncia nervosismo."],
     ],
   },
 
@@ -372,7 +372,7 @@ export const CANTO_4: CircuitContent[] = [
       "Uma crítica que te machucou e estava certa",
     ],
     sounds: [
-      ["'That said' com T mudo", "'Dhat sed' — o T final quase some antes do S. Marcador de transição, dito rápido."],
+      ["'That said' com T mudo", "'Dhat sed': o T final quase some antes do S. Marcador de transição, dito rápido."],
       ["'I'd suggest' com o D grudado", "'Aid sagJEST'. O acento vai na segunda sílaba de 'suggest' e o G soa como J."],
     ],
     quiz: [
@@ -411,7 +411,7 @@ export const CANTO_4: CircuitContent[] = [
     why: {
       title: "Ironia em inglês mora no tom, não na palavra",
       body:
-        "*Oh, great* dito para cima significa 'que ótimo'. *Oh, great* dito para baixo e devagar significa exatamente o contrário.\n\nA palavra é idêntica; o que muda é a **melodia**. Por isso ironia é a última coisa que estrangeiro pega — e a primeira que gera mal-entendido.\n\nDois marcadores que ajudam:\n\n**Alongamento** — a vogal se estica: *Oooh, greeeat*.\n**Queda** — a entonação desce no fim, quando o entusiasmo real subiria.\n\nSe você não tiver certeza se foi ironia, *Wait, are you serious?* resolve sem constrangimento nenhum.",
+        "*Oh, great* dito para cima significa 'que ótimo'. *Oh, great* dito para baixo e devagar significa exatamente o contrário.\n\nA palavra é idêntica; o que muda é a **melodia**. Por isso ironia é a última coisa que estrangeiro pega: e a primeira que gera mal-entendido.\n\nDois marcadores que ajudam:\n\n**Alongamento**: a vogal se estica: *Oooh, greeeat*.\n**Queda**: a entonação desce no fim, quando o entusiasmo real subiria.\n\nSe você não tiver certeza se foi ironia, *Wait, are you serious?* resolve sem constrangimento nenhum.",
     },
     swaps: ["Oh, great.", "You're kidding me!", "No way!", "I'm just messing with you.", "Very funny.", "That's rough.", "Fair point.", "Yeah, right."],
     expansion: [
@@ -428,10 +428,10 @@ export const CANTO_4: CircuitContent[] = [
     ],
     sounds: [
       ["A vogal esticada da ironia", "'Ooooh, greeeat'. Quanto mais estica, mais irônico. Grave as duas versões e ouça a diferença."],
-      ["Entonação que desce", "Entusiasmo real sobe no fim. Ironia desce. É o sinal mais confiável — treine o ouvido nele."],
+      ["Entonação que desce", "Entusiasmo real sobe no fim. Ironia desce. É o sinal mais confiável: treine o ouvido nele."],
     ],
     quiz: [
-      ["Como se identifica ironia em inglês?", ["Pelas palavras usadas", "Pelo tom: vogal esticada e entonação que desce", "Pelo contexto apenas", "Pela pontuação"], 1, "As palavras são idênticas. Só a melodia muda — e é por isso que é o último recurso que estrangeiro domina."],
+      ["Como se identifica ironia em inglês?", ["Pelas palavras usadas", "Pelo tom: vogal esticada e entonação que desce", "Pelo contexto apenas", "Pela pontuação"], 1, "As palavras são idênticas. Só a melodia muda: e é por isso que é o último recurso que estrangeiro domina."],
       ["'I'm just messing with you' significa:", ["Estou atrapalhando você", "Estou só brincando", "Estou bravo", "Estou confuso"], 1, "É o desmentido da brincadeira. Quando alguém diz isso, a informação anterior era falsa."],
       ["'That's rough' expressa:", ["Está áspero", "Empatia com uma situação ruim", "Discordância", "Sarcasmo"], 1, "É solidariedade informal. Curto, sincero e muito usado entre colegas."],
       ["Se você não tem certeza se foi ironia, o melhor é:", ["Rir junto", "Perguntar: Wait, are you serious?", "Ignorar", "Mudar de assunto"], 1, "Perguntar é totalmente normal e evita mal-entendido. Nativo também pergunta."],
@@ -466,7 +466,7 @@ export const CANTO_4: CircuitContent[] = [
     why: {
       title: "Conversa longa é gerenciamento de turno",
       body:
-        "Conversa de trinta minutos não é conversa de dois minutos quinze vezes. Ela exige **manobras de turno** — blocos cujo único trabalho é mover a conversa.\n\n*That reminds me of...* — puxa um assunto novo a partir do que foi dito\n*Speaking of which...* — emenda por associação\n*Anyway, what were you saying?* — devolve a palavra depois de um desvio\n*Let me think for a second* — compra tempo sem silêncio constrangedor\n*By the way...* — insere algo fora do fio\n\nEsse último bloco é o mais valioso do circuito: **comprar tempo em inglês, em inglês**. Quem fica em silêncio pensando parece travado. Quem diz *let me think for a second* parece reflexivo.",
+        "Conversa de trinta minutos não é conversa de dois minutos quinze vezes. Ela exige **manobras de turno**: blocos cujo único trabalho é mover a conversa.\n\n*That reminds me of...*: puxa um assunto novo a partir do que foi dito\n*Speaking of which...*: emenda por associação\n*Anyway, what were you saying?*: devolve a palavra depois de um desvio\n*Let me think for a second*: compra tempo sem silêncio constrangedor\n*By the way...*: insere algo fora do fio\n\nEsse último bloco é o mais valioso do circuito: **comprar tempo em inglês, em inglês**. Quem fica em silêncio pensando parece travado. Quem diz *let me think for a second* parece reflexivo.",
     },
     swaps: ["That reminds me of something.", "Speaking of which...", "Anyway, what were you saying?", "Let me think for a second.", "By the way...", "How did that go?", "It's been great talking to you.", "Where were we?"],
     expansion: [
@@ -483,7 +483,7 @@ export const CANTO_4: CircuitContent[] = [
     ],
     sounds: [
       ["'Speaking of which' emendado", "'spikingofwich'. Marcador de transição, dito rápido, quase engolido. Se sair devagar, chama atenção demais para si."],
-      ["'Let me' vira 'lemme'", "Mesmo em conversa neutra. 'Lemme think for a second' — e essa frase é o seu botão de pausa em inglês."],
+      ["'Let me' vira 'lemme'", "Mesmo em conversa neutra. 'Lemme think for a second': e essa frase é o seu botão de pausa em inglês."],
     ],
     quiz: [
       ["Para que serve 'Let me think for a second'?", ["Encerrar a conversa", "Comprar tempo sem silêncio constrangedor", "Discordar", "Mudar de assunto"], 1, "Silêncio parece travamento; a frase parece reflexão. Mesmo tempo, impressão oposta."],
@@ -519,7 +519,7 @@ export const CANTO_4: CircuitContent[] = [
     why: {
       title: "O último passo é parar de traduzir",
       body:
-        "Enquanto você monta a frase em português e traduz, sua velocidade máxima é a velocidade da tradução — sempre metade da velocidade da conversa.\n\nO único jeito de sair disso é **usar inglês quando ninguém está ouvindo**. Narrar o que você está fazendo, em voz alta ou na cabeça, com o vocabulário simples que você já tem.\n\nParece bobagem e é o exercício mais eficaz do curso inteiro, por dois motivos: é o único que você pode fazer o dia todo, sem parceiro e sem material; e ele treina exatamente a operação que trava você na conversa real — produzir sem tempo de preparo.\n\nDez minutos por dia mudam mais que uma hora de exercício escrito.",
+        "Enquanto você monta a frase em português e traduz, sua velocidade máxima é a velocidade da tradução: sempre metade da velocidade da conversa.\n\nO único jeito de sair disso é **usar inglês quando ninguém está ouvindo**. Narrar o que você está fazendo, em voz alta ou na cabeça, com o vocabulário simples que você já tem.\n\nParece bobagem e é o exercício mais eficaz do curso inteiro, por dois motivos: é o único que você pode fazer o dia todo, sem parceiro e sem material; e ele treina exatamente a operação que trava você na conversa real: produzir sem tempo de preparo.\n\nDez minutos por dia mudam mais que uma hora de exercício escrito.",
     },
     swaps: ["What am I doing right now?", "I need to remember to ___.", "Where did I put my ___?", "That doesn't make sense.", "Let me try that again.", "Almost there.", "I've got this.", "What's next?"],
     expansion: [
@@ -541,7 +541,7 @@ export const CANTO_4: CircuitContent[] = [
     quiz: [
       ["Por que narrar em inglês funciona tão bem?", ["Aumenta vocabulário", "Treina produzir sem tempo de preparo, o que trava na conversa real", "Melhora a escrita", "É divertido"], 1, "É a mesma operação da conversa real: produzir sob pressão de tempo. E dá para treinar o dia inteiro, sozinho."],
       ["'That doesn't make sense' significa:", ["Isso não tem sentido", "Isso não é sensato", "Não sinto isso", "Não faz sentir"], 0, "'Make sense' é colocação fixa, do circuito 41. Em inglês o sentido se FAZ, não se tem."],
-      ["'I've got this' quer dizer:", ["Eu peguei isso", "Eu dou conta", "Eu tenho isso aqui", "Eu entendi"], 1, "É autoencorajamento. Muito usado antes de algo difícil — e útil em voz alta para si mesmo."],
+      ["'I've got this' quer dizer:", ["Eu peguei isso", "Eu dou conta", "Eu tenho isso aqui", "Eu entendi"], 1, "É autoencorajamento. Muito usado antes de algo difícil: e útil em voz alta para si mesmo."],
       ["Quanto tempo de narração interna vale a pena?", ["Uma hora por dia", "Dez minutos por dia", "Só nos fins de semana", "Não vale a pena"], 1, "Dez minutos consistentes rendem mais que uma hora esporádica. E cabem em qualquer rotina."],
     ],
   },
@@ -573,7 +573,7 @@ export const CANTO_4: CircuitContent[] = [
     why: {
       title: "A maioria de quem fala inglês não é nativo",
       body:
-        "Cerca de **três em cada quatro** conversas em inglês no mundo acontecem entre pessoas que não têm o inglês como língua materna. Indiano com alemão, brasileiro com japonês, escocês com nigeriano.\n\nDuas consequências práticas:\n\n**1.** Seu sotaque brasileiro não é um defeito a eliminar. Sotaque é normal — o que importa é ser **inteligível**, não soar americano. Quase ninguém soa.\n\n**2.** Você precisa treinar o ouvido em mais de um sotaque. Curso que só usa voz americana limpa produz aluno que trava com um indiano no telefone — e no trabalho real, o indiano no telefone é mais frequente que o americano.",
+        "Cerca de **três em cada quatro** conversas em inglês no mundo acontecem entre pessoas que não têm o inglês como língua materna. Indiano com alemão, brasileiro com japonês, escocês com nigeriano.\n\nDuas consequências práticas:\n\n**1.** Seu sotaque brasileiro não é um defeito a eliminar. Sotaque é normal: o que importa é ser **inteligível**, não soar americano. Quase ninguém soa.\n\n**2.** Você precisa treinar o ouvido em mais de um sotaque. Curso que só usa voz americana limpa produz aluno que trava com um indiano no telefone: e no trabalho real, o indiano no telefone é mais frequente que o americano.",
     },
     swaps: ["Sorry, could you repeat that?", "Where are you from originally?", "I love your accent!", "Bear with me, I'm still learning.", "Did I get that right?", "I'm not familiar with that expression.", "That's a new one for me!", "How do you say that where you're from?"],
     expansion: [
@@ -594,7 +594,7 @@ export const CANTO_4: CircuitContent[] = [
     ],
     quiz: [
       ["Que proporção das conversas em inglês no mundo é entre não nativos?", ["Cerca de um quarto", "Cerca de metade", "Cerca de três quartos", "Quase nenhuma"], 2, "A maioria esmagadora. Por isso treinar só com voz americana limpa é uma preparação incompleta."],
-      ["Qual deve ser o objetivo do seu sotaque?", ["Soar americano", "Ser inteligível", "Eliminar o sotaque brasileiro", "Imitar a rainha"], 1, "Inteligibilidade é o critério. Sotaque é identidade, não defeito — e praticamente ninguém elimina o seu."],
+      ["Qual deve ser o objetivo do seu sotaque?", ["Soar americano", "Ser inteligível", "Eliminar o sotaque brasileiro", "Imitar a rainha"], 1, "Inteligibilidade é o critério. Sotaque é identidade, não defeito: e praticamente ninguém elimina o seu."],
       ["'Bear with me' significa:", ["Fique comigo", "Tenha paciência comigo", "Aguente firme", "Venha comigo"], 1, "É pedir paciência enquanto você resolve ou se explica. Nada a ver com urso."],
       ["'Did I get that right?' serve para:", ["Pedir para repetir", "Confirmar se entendeu corretamente", "Discordar", "Pedir desculpa"], 1, "Confirma o entendimento em vez de assumir. Numa conversa multissotaque, é a frase que evita erro caro."],
     ],
@@ -651,7 +651,7 @@ export const CANTO_4: CircuitContent[] = [
       ["O que os diálogos deste circuito têm de diferente?", ["Vocabulário novo", "Blocos de muitos circuitos misturados sem ordem", "Gramática avançada", "Sotaques diferentes"], 1, "É como conversa real funciona: não respeita a ordem do currículo nem avisa qual situação está usando."],
       ["Se você acompanhou sem traduzir, isso significa:", ["Que você é bom em exercício", "Que os blocos saíram do curso e entraram em você", "Que os diálogos eram fáceis", "Nada em especial"], 1, "Reconhecer fora de contexto, sem aviso, é o teste real. É diferente de acertar um exercício sobre o circuito da semana."],
       ["Qual bloco você usaria numa reunião difícil?", ["How was your weekend?", "I see your point, but ___", "Can I have ___, please?", "I love cooking"], 1, "Discordar com almofada é o bloco de maior retorno no ambiente profissional."],
-      ["O que falta agora?", ["Aprender mais blocos", "Usar os que você tem, em condições reais e imprevisíveis", "Estudar gramática", "Melhorar o sotaque"], 1, "Você tem material suficiente para conversar. O que falta é quilometragem em condição real — e isso não se estuda, se faz."],
+      ["O que falta agora?", ["Aprender mais blocos", "Usar os que você tem, em condições reais e imprevisíveis", "Estudar gramática", "Melhorar o sotaque"], 1, "Você tem material suficiente para conversar. O que falta é quilometragem em condição real: e isso não se estuda, se faz."],
     ],
   },
 
@@ -685,7 +685,7 @@ export const CANTO_4: CircuitContent[] = [
     why: {
       title: "O que muda depois do último circuito",
       body:
-        "Nada, e tudo.\n\nNada porque não existe dia da formatura em idioma. Ninguém acorda fluente. Você vai continuar errando preposição, esquecendo o S da terceira pessoa e perdendo palavra em conversa rápida — nativo também perde.\n\nTudo porque a natureza do seu estudo muda. Até aqui você **construiu** a capacidade de conversar. Daqui em diante você a **usa**, e ela cresce sozinha: cada série, cada reunião, cada conversa vira aula sem esforço deliberado.\n\nÉ por isso que o último bloco do curso é *This is just the beginning*. Não é frase motivacional — é a descrição literal do que acontece agora.",
+        "Nada, e tudo.\n\nNada porque não existe dia da formatura em idioma. Ninguém acorda fluente. Você vai continuar errando preposição, esquecendo o S da terceira pessoa e perdendo palavra em conversa rápida: nativo também perde.\n\nTudo porque a natureza do seu estudo muda. Até aqui você **construiu** a capacidade de conversar. Daqui em diante você a **usa**, e ela cresce sozinha: cada série, cada reunião, cada conversa vira aula sem esforço deliberado.\n\nÉ por isso que o último bloco do curso é *This is just the beginning*. Não é frase motivacional: é a descrição literal do que acontece agora.",
     },
     swaps: ["I've been learning English for a year now.", "It's changed a lot for me.", "I still make mistakes, but I keep going.", "I can hold a conversation now.", "What's next for me is ___.", "I'm proud of how far I've come.", "This is just the beginning.", "A year ago I couldn't do this."],
     expansion: [
@@ -702,13 +702,13 @@ export const CANTO_4: CircuitContent[] = [
     ],
     sounds: [
       ["Grave o dia 1 e o dia 728 juntos", "Se você gravou o áudio do primeiro circuito, ouça os dois em sequência. É a prova mais concreta que existe do quanto mudou."],
-      ["O sotaque que sobrou é seu", "Depois de 728 dias, o que restou de sotaque não é falha. É a sua voz em inglês — e ela é inteligível, que era o objetivo."],
+      ["O sotaque que sobrou é seu", "Depois de 728 dias, o que restou de sotaque não é falha. É a sua voz em inglês: e ela é inteligível, que era o objetivo."],
     ],
     quiz: [
       ["'I've been learning English for a year' enfatiza:", ["Que terminou", "Que começou há um ano e continua", "Que vai começar", "Que aprendeu num ano"], 1, "É a construção de ação contínua até agora. Perfeita para falar de aprendizado, que nunca termina."],
       ["Existe um ponto em que se 'termina' de aprender um idioma?", ["Sim, o nível C2", "Não, mas a natureza do estudo muda", "Sim, depois de dois anos", "Sim, quando não erra mais"], 1, "Você para de construir e passa a usar. A partir daí cresce sozinho, sem estudo deliberado."],
       ["'I still make mistakes, but I keep going' descreve:", ["Um fracasso", "A atitude que sustenta o progresso", "Falta de método", "Impaciência"], 1, "Quem para para consertar cada erro fala menos e melhora menos. Seguir errando em voz alta é o que funciona."],
-      ["Depois do circuito 52, o que mais faz diferença?", ["Refazer o curso", "Usar inglês em situações reais, imprevisíveis", "Estudar gramática avançada", "Decorar mais vocabulário"], 1, "Você tem material suficiente. O que falta não se estuda — se vive."],
+      ["Depois do circuito 52, o que mais faz diferença?", ["Refazer o curso", "Usar inglês em situações reais, imprevisíveis", "Estudar gramática avançada", "Decorar mais vocabulário"], 1, "Você tem material suficiente. O que falta não se estuda: se vive."],
     ],
   },
 ];

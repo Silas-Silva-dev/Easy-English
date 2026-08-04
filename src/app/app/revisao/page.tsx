@@ -43,7 +43,7 @@ export default async function ReviewPage() {
       <PageHeader
         eyebrow="Memória"
         title="Revisão espaçada"
-        description="Só os blocos que venceram hoje na SUA agenda. Cada um volta no intervalo em que você está prestes a esquecer — que é onde a revisão vale mais."
+        description="Só os blocos que venceram hoje na SUA agenda. Cada um volta no intervalo em que você está prestes a esquecer: que é onde a revisão vale mais."
       />
 
       <div className="grid gap-4 sm:grid-cols-3">
@@ -63,7 +63,7 @@ export default async function ReviewPage() {
         <StatCard
           label="Travados"
           value={stats?.struggling ?? 0}
-          hint="3+ esquecimentos — vêm primeiro"
+          hint="3+ esquecimentos: vêm primeiro"
           icon={<TrendingUp />}
           tone={(stats?.struggling ?? 0) > 0 ? "destructive" : "neutral"}
         />

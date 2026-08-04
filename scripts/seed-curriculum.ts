@@ -4,7 +4,7 @@
  *   npm run seed:curriculum
  *   npm run seed:curriculum -- --dry     (não escreve nada, só valida)
  *
- * TODO o conteúdo vem de `content/` — nenhuma chamada de API acontece aqui.
+ * TODO o conteúdo vem de `content/`: nenhuma chamada de API acontece aqui.
  * As lições nascem PUBLICADAS porque elas estão prontas: foram redigidas à
  * mão em `content/circuits/` e expandidas por `content/compose-lesson.ts`.
  *
@@ -31,13 +31,13 @@ const DRY = process.argv.includes("--dry");
 
 const COURSE = {
   slug: "ingles-para-conversacao",
-  title: "Inglês Destravado — 4 Cantos",
+  title: "Inglês Destravado: 4 Cantos",
   subtitle: "52 circuitos · 728 dias · da primeira frase à conversa livre",
   description:
     "Inglês para conversação, para brasileiros que começam do zero. Aqui você não estuda " +
     "'verbo to be': aprende blocos de fala prontos e sai usando desde o primeiro dia. " +
-    "Cada circuito é uma situação real — pedir um café, resolver um problema no hotel, " +
-    "participar de uma reunião — trabalhada em 14 dias: os 7 primeiros para adquirir, " +
+    "Cada circuito é uma situação real: pedir um café, resolver um problema no hotel, " +
+    "participar de uma reunião: trabalhada em 14 dias: os 7 primeiros para adquirir, " +
     "os 7 seguintes para consolidar com input autêntico, shadowing e conversa ao vivo por voz. " +
     "O cronograma é medido em dias, não em dias da semana: você faz o Dia 1, depois o Dia 2, " +
     "no ritmo que a sua vida permitir. A tutora de IA ouve sua gravação, transcreve o que você " +
@@ -106,7 +106,7 @@ async function main() {
   const cantoIdByCode = new Map(cantos.map((c) => [c.code, c.id]));
 
   // Módulos de grades antigas saem do catálogo. O cascade limpa as lições
-  // órfãs junto — inofensivo em base nova, destrutivo em base com alunos.
+  // órfãs junto: inofensivo em base nova, destrutivo em base com alunos.
   const { error: cleanupError } = await supabase
     .from("modules")
     .delete()
@@ -145,7 +145,7 @@ async function main() {
       is_published: true,
       week_b_focus:
         `Consolidação de "${circuit.title}": input autêntico, shadowing, conversa ao vivo e ` +
-        `aplicação sem roteiro. Nenhum bloco novo — os mesmos, em condições mais duras.`,
+        `aplicação sem roteiro. Nenhum bloco novo: os mesmos, em condições mais duras.`,
       authentic_input: authenticInputFor(circuit, canto.level),
       live_prompt: livePromptFor(circuit),
     };
@@ -229,7 +229,7 @@ async function main() {
       .upsert(batch, { onConflict: "course_id,day_number" });
 
     if (error) {
-      throw new Error(`Falha ao inserir lições ${i + 1}–${i + batch.length}: ${error.message}`);
+      throw new Error(`Falha ao inserir lições ${i + 1}: ${i + batch.length}: ${error.message}`);
     }
     progress(Math.min(i + CHUNK, lessonRows.length), lessonRows.length, "lições");
   }
@@ -244,7 +244,7 @@ async function main() {
   const withAudio = lessonRows.filter((l) => l.immersion_script || l.listening_script).length;
 
   console.log(`
-✓ Seed concluído — o curso está pronto para uso.
+✓ Seed concluído: o curso está pronto para uso.
 
   Curso .................. ${course.title}
   Cantos ................. ${cantos.length}
@@ -254,7 +254,7 @@ async function main() {
   Com quiz ............... ${withQuiz}
   Com diálogo em áudio ... ${withAudio}
 
-  O áudio é sintetizado no navegador a partir destes textos — não há
+  O áudio é sintetizado no navegador a partir destes textos: não há
   arquivo para gerar nem chave de API envolvida.
 
   Próximo passo: npm run dev

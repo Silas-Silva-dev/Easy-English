@@ -6,7 +6,7 @@ import { serverEnv } from "@/lib/env";
 
 let cached: GoogleGenAI | null = null;
 
-/** Instancia unica do SDK do Gemini. Somente servidor — a chave nunca vai ao browser. */
+/** Instancia unica do SDK do Gemini. Somente servidor: a chave nunca vai ao browser. */
 export function gemini(): GoogleGenAI {
   cached ??= new GoogleGenAI({ apiKey: serverEnv.geminiApiKey });
   return cached;

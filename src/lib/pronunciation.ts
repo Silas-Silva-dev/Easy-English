@@ -1,5 +1,5 @@
 /**
- * Pronúncia figurada — o inglês escrito com as letras do português.
+ * Pronúncia figurada: o inglês escrito com as letras do português.
  *
  *     Nice to meet you.   ->   náis ta mît iu.
  *
@@ -11,7 +11,7 @@
  * letras. Isso não é preguiça: é o único sistema de leitura que ele tem.
  *
  * A figuração dá um sistema que ele JÁ sabe ler e que aponta para o som certo.
- * Ela não substitui ouvir — o áudio continua sendo a fonte —, mas fecha o
+ * Ela não substitui ouvir: o áudio continua sendo a fonte : , mas fecha o
  * buraco entre "ouvi e entendi" e "consigo repetir sem olhar".
  *
  * ===========================================================================
@@ -21,7 +21,7 @@
  *   th                língua entre os dentes, soprando (think)
  *   dh                o mesmo, com voz (this)
  *   r                 no fim de sílaba é o "r" americano, enrolado
- *   ta, a             vogal fraca, quase engolida — é assim mesmo
+ *   ta, a             vogal fraca, quase engolida: é assim mesmo
  *
  * O mapa é gerado por `npm run gen:pronuncia` a partir dos fonemas reais do
  * espeak-ng, nunca da grafia inglesa. Ver `scripts/respell.py`.

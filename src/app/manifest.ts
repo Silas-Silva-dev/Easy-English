@@ -6,13 +6,13 @@ import type { MetadataRoute } from "next";
  * É isto que faz o atalho na tela inicial do celular sair com ícone e nome
  * próprios em vez de um retângulo com a miniatura da página.
  *
- * `display: standalone` abre sem a barra do navegador — o aluno que estuda
+ * `display: standalone` abre sem a barra do navegador: o aluno que estuda
  * todo dia acaba instalando, e sem isso o app perde ~15% da tela útil para a
  * barra de endereço em cada sessão.
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "InglishEasy — Inglês para conversação",
+    name: "InglishEasy: Inglês para conversação",
     short_name: "InglishEasy",
     description:
       "728 dias de inglês para conversação, no seu ritmo, com uma tutora de IA que ouve sua fala e corrige a pronúncia.",

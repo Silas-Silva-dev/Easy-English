@@ -148,7 +148,7 @@ export function AppShell({
     </nav>
   );
 
-  /** Quem está logado, no pé do menu — some a dúvida de "qual conta é esta?". */
+  /** Quem está logado, no pé do menu: some a dúvida de "qual conta é esta?". */
   const identity = (
     <div className="border-sidebar-border border-t p-3">
       <Link
@@ -177,7 +177,7 @@ export function AppShell({
       {/* ------------------------------------------------- Sidebar (desktop)
           `sticky top-0 h-screen` mantém o menu parado enquanto a página rola.
           Só funciona porque o aside é filho direto do grid e tem altura menor
-          que a linha — trocar isso por `fixed` exigiria compensar a margem da
+          que a linha: trocar isso por `fixed` exigiria compensar a margem da
           coluna de conteúdo à mão. */}
       <aside className="bg-sidebar border-sidebar-border hidden border-r lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
         <div className="flex h-16 shrink-0 items-center px-5">

@@ -1,5 +1,5 @@
 /**
- * PRIMEIRO CANTO — Destravar (circuitos 1 a 13)
+ * PRIMEIRO CANTO: Destravar (circuitos 1 a 13)
  *
  * Material redigido à mão. `content/compose-lesson.ts` expande cada circuito
  * daqui nos 14 dias do ritmo, de forma determinística.
@@ -39,7 +39,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "Por que 'I'm' e não 'I am'",
       body:
-        "Você vai ouvir *I'm*, nunca *I am*, em conversa normal. **I am** existe, mas soa duro — americano usa quando quer enfatizar (*I AM going, I promise*).\n\nA regra prática: contraia sempre. Se você fala *I am Ana*, funciona, mas marca você como estrangeiro na primeira frase. E contrair é mais fácil, não mais difícil.",
+        "Você vai ouvir *I'm*, nunca *I am*, em conversa normal. **I am** existe, mas soa duro: americano usa quando quer enfatizar (*I AM going, I promise*).\n\nA regra prática: contraia sempre. Se você fala *I am Ana*, funciona, mas marca você como estrangeiro na primeira frase. E contrair é mais fácil, não mais difícil.",
     },
     swaps: ["Ana", "Pedro", "Carla", "your full name", "your nickname", "Ana, from Brazil", "Ana, Marina's friend", "Ana. I'm new here"],
     expansion: [
@@ -55,7 +55,7 @@ export const CANTO_1: CircuitContent[] = [
       "O que você faz quando não está trabalhando",
     ],
     sounds: [
-      ["O TH de 'thanks'", "A língua encosta entre os dentes e sopra. Não é F nem T. Diga 'thanks' com a língua aparecendo — exagere, depois relaxe."],
+      ["O TH de 'thanks'", "A língua encosta entre os dentes e sopra. Não é F nem T. Diga 'thanks' com a língua aparecendo: exagere, depois relaxe."],
       ["'How are you' vira 'hauaryu'", "Americano não separa as três palavras. Treine dizendo tudo grudado, como se fosse uma palavra só."],
     ],
     quiz: [
@@ -92,7 +92,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "Idade em inglês é ser, não ter",
       body:
-        "Em português você **tem** 32 anos. Em inglês você **é** 32: *I'm 32*.\n\n*I have 32 years* é o erro mais reconhecível de brasileiro falando inglês — o americano entende, mas registra na hora. Não é regra para decorar: é um bloco para instalar. Diga *I'm 32* dez vezes hoje e o problema acabou para sempre.",
+        "Em português você **tem** 32 anos. Em inglês você **é** 32: *I'm 32*.\n\n*I have 32 years* é o erro mais reconhecível de brasileiro falando inglês: o americano entende, mas registra na hora. Não é regra para decorar: é um bloco para instalar. Diga *I'm 32* dez vezes hoje e o problema acabou para sempre.",
     },
     swaps: ["Brazil", "São Paulo", "the south of Brazil", "a small town near Rio", "Portugal originally", "here, actually", "Recife", "a city you've never heard of"],
     expansion: [
@@ -108,7 +108,7 @@ export const CANTO_1: CircuitContent[] = [
       "Se você já morou fora",
     ],
     sounds: [
-      ["'Brazil' não é 'Brasiu'", "Em inglês é bra-ZIL, com o acento na segunda sílaba e um L de língua no céu da boca. Brasileiro tende a apagar o L final — não apague."],
+      ["'Brazil' não é 'Brasiu'", "Em inglês é bra-ZIL, com o acento na segunda sílaba e um L de língua no céu da boca. Brasileiro tende a apagar o L final: não apague."],
       ["O R de 'work' e 'designer'", "O R americano não vibra. A língua se enrola para trás sem encostar em nada. Se está vibrando como em 'carro', está errado."],
     ],
     quiz: [
@@ -145,7 +145,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "Por que 'could' e não 'can'",
       body:
-        "*Can you repeat?* funciona. *Could you repeat?* soa melhor.\n\nEm inglês, o passado de um verbo modal serve para **suavizar o pedido**, não para falar do passado. Por isso *could*, *would* e *might* soam educados: eles criam distância, e distância soa gentil.\n\nÉ o mesmo mecanismo do nosso 'você **poderia**...' em vez de 'você pode'. Não precisa entender a teoria — só use *could* em pedido, sempre.",
+        "*Can you repeat?* funciona. *Could you repeat?* soa melhor.\n\nEm inglês, o passado de um verbo modal serve para **suavizar o pedido**, não para falar do passado. Por isso *could*, *would* e *might* soam educados: eles criam distância, e distância soa gentil.\n\nÉ o mesmo mecanismo do nosso 'você **poderia**...' em vez de 'você pode'. Não precisa entender a teoria: só use *could* em pedido, sempre.",
     },
     swaps: ["say that again", "speak more slowly", "repeat the last part", "write it down", "spell that", "explain that again", "say it one more time", "show me"],
     expansion: [
@@ -168,7 +168,7 @@ export const CANTO_1: CircuitContent[] = [
       ["Você não entendeu absolutamente nada. Qual a melhor saída?", ["Ficar em silêncio até a pessoa desistir", "Sorry, could you say that again?", "Sorrir e concordar", "Trocar para português"], 1, "Silêncio mata a conversa; a pergunta mantém ela viva. E ninguém se incomoda de repetir."],
       ["Você entendeu mais ou menos e quer confirmar. O que usar?", ["What does that mean?", "Do you mean ___ ?", "How do you spell that?", "I don't understand"], 1, "'Do you mean...?' confirma o que você achou que entendeu. É a frase que evita mal-entendido sem parecer que você não entendeu nada."],
       ["Por que o Bruno diz 'My English is still basic, sorry'?", ["Para se desculpar por existir", "Para tirar o peso e baixar a velocidade do outro", "Porque é obrigatório", "Para pedir desconto"], 1, "Avisar muda o comportamento do interlocutor na hora: ele desacelera e simplifica. É estratégia, não desculpa."],
-      ["'How do you spell that?' serve para quê?", ["Perguntar o significado", "Pedir a soletração", "Pedir para repetir", "Pedir para falar devagar"], 1, "Serve para nome, endereço, e-mail — tudo que você precisa anotar certo. Vai salvar você muitas vezes."],
+      ["'How do you spell that?' serve para quê?", ["Perguntar o significado", "Pedir a soletração", "Pedir para repetir", "Pedir para falar devagar"], 1, "Serve para nome, endereço, e-mail: tudo que você precisa anotar certo. Vai salvar você muitas vezes."],
     ],
   },
 
@@ -198,7 +198,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "O 'please' não é opcional",
       body:
-        "Em português, 'me vê um café' sem 'por favor' passa. Em inglês, *Give me a coffee* soa **rude** — não brusco, rude mesmo.\n\nO **please** faz o trabalho que o nosso tom de voz faz. Sem ele, o pedido vira ordem. Cole o *please* no fim de todo pedido até virar reflexo e você elimina de uma vez a impressão de grosseria que muito brasileiro deixa sem querer.",
+        "Em português, 'me vê um café' sem 'por favor' passa. Em inglês, *Give me a coffee* soa **rude**: não brusco, rude mesmo.\n\nO **please** faz o trabalho que o nosso tom de voz faz. Sem ele, o pedido vira ordem. Cole o *please* no fim de todo pedido até virar reflexo e você elimina de uma vez a impressão de grosseria que muito brasileiro deixa sem querer.",
     },
     swaps: ["a coffee", "a large water", "the check", "a bag", "one of those", "two of these", "a receipt", "a minute"],
     expansion: [
@@ -214,14 +214,14 @@ export const CANTO_1: CircuitContent[] = [
       "O que você nunca pediria",
     ],
     sounds: [
-      ["'Can I' vira 'kenai'", "As duas palavras grudam numa só. 'Ken-ai have a coffee' — sem pausa entre elas."],
+      ["'Can I' vira 'kenai'", "As duas palavras grudam numa só. 'Ken-ai have a coffee': sem pausa entre elas."],
       ["'Coffee' não tem O de 'copo'", "É KÁ-fi, com o A bem aberto. 'Cófi' entrega o sotaque na primeira sílaba."],
     ],
     quiz: [
-      ["'For here or to go?' — o que estão perguntando?", ["Se você quer pagar agora", "Se é para comer no local ou levar", "Se você quer sacola", "Onde você quer sentar"], 1, "É a pergunta padrão em qualquer balcão americano. Responda 'For here' ou 'To go' — só isso."],
+      ["'For here or to go?': o que estão perguntando?", ["Se você quer pagar agora", "Se é para comer no local ou levar", "Se você quer sacola", "Onde você quer sentar"], 1, "É a pergunta padrão em qualquer balcão americano. Responda 'For here' ou 'To go': só isso."],
       ["Qual soa mais natural num café?", ["Give me a coffee.", "I want a coffee.", "Can I have a coffee, please?", "Coffee."], 2, "Os três primeiros são compreensíveis, mas só o terceiro soa educado. O 'please' é obrigatório em pedido."],
       ["'Anything else?' aparece em que momento?", ["No começo do pedido", "Quando você termina de pedir", "Quando você paga", "Quando você entra"], 1, "É a deixa para você fechar. 'That's all, thanks' encerra o pedido."],
-      ["Como se pergunta o preço?", ["What is the value?", "How much is it?", "How many is it?", "What price?"], 1, "'How much is it?' — 'how many' é para coisas contáveis (quantos), 'how much' é para preço e quantidade não contável."],
+      ["Como se pergunta o preço?", ["What is the value?", "How much is it?", "How many is it?", "What price?"], 1, "'How much is it?': 'how many' é para coisas contáveis (quantos), 'how much' é para preço e quantidade não contável."],
     ],
   },
 
@@ -251,7 +251,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "Duas formas de dizer a hora, e a que você deve usar",
       body:
-        "Existe a forma clássica (*half past three*, *quarter to five*) e a forma que a maioria usa hoje: **só os números**. *Three thirty*. *Four forty-five*.\n\nA forma numérica é mais fácil, mais comum e impossível de errar. Aprenda a **reconhecer** *half past* e *quarter to* — você vai ouvir. Mas para falar, use os números. Não é preguiça: é o que soa mais atual.",
+        "Existe a forma clássica (*half past three*, *quarter to five*) e a forma que a maioria usa hoje: **só os números**. *Three thirty*. *Four forty-five*.\n\nA forma numérica é mais fácil, mais comum e impossível de errar. Aprenda a **reconhecer** *half past* e *quarter to*: você vai ouvir. Mas para falar, use os números. Não é preguiça: é o que soa mais atual.",
     },
     swaps: ["five dollars", "half past three", "around eight", "twenty bucks", "the third floor", "room 214", "about ten minutes", "almost noon"],
     expansion: [
@@ -271,10 +271,10 @@ export const CANTO_1: CircuitContent[] = [
       ["'Fifteen ninety' grudado", "Números longos saem sem pausa. Se você não pegar, peça o número dígito por dígito: 'one five, ninety'."],
     ],
     quiz: [
-      ["Como você diferencia 13 de 30 na fala?", ["Pelo contexto apenas", "Pelo acento: thirTEEN versus THIRty", "São iguais", "Pela vogal"], 1, "O acento tônico é a única diferença confiável. É por isso que confundir preço é tão comum — e por isso pedir para repetir é normal."],
+      ["Como você diferencia 13 de 30 na fala?", ["Pelo contexto apenas", "Pelo acento: thirTEEN versus THIRty", "São iguais", "Pela vogal"], 1, "O acento tônico é a única diferença confiável. É por isso que confundir preço é tão comum: e por isso pedir para repetir é normal."],
       ["'Half past three' significa:", ["Três e meia", "Meia hora para as três", "Três e quinze", "Duas e meia"], 0, "'Half past' = meia hora DEPOIS. Três e meia. A forma numérica 'three thirty' é mais comum hoje."],
       ["O que fazer quando você não pega um número?", ["Pagar e conferir depois", "Sorry, how much? ou Can you write it down?", "Fingir que entendeu", "Sair da loja"], 1, "As duas frases são normais e ninguém se incomoda. Número errado custa dinheiro; perguntar não custa nada."],
-      ["'Around eight' quer dizer:", ["Exatamente às oito", "Por volta das oito", "Depois das oito", "Antes das oito"], 1, "'Around' é o 'por volta de'. Muito usado — americano raramente promete horário exato em conversa informal."],
+      ["'Around eight' quer dizer:", ["Exatamente às oito", "Por volta das oito", "Depois das oito", "Antes das oito"], 1, "'Around' é o 'por volta de'. Muito usado: americano raramente promete horário exato em conversa informal."],
     ],
   },
 
@@ -304,7 +304,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "O S que aparece do nada em 'he works'",
       body:
-        "*I work*, *you work*, *we work* — mas *he workS*, *she workS*, *it workS*.\n\nSó a terceira pessoa do singular ganha S no presente. É a regra mais chata do inglês e a que menos importa: se você esquecer, **ninguém deixa de te entender**.\n\nNão pare a frase para conferir. Fale, erre, e deixe o S se instalar sozinho de tanto ouvir. Ele cola por exposição, não por vigilância.",
+        "*I work*, *you work*, *we work*: mas *he workS*, *she workS*, *it workS*.\n\nSó a terceira pessoa do singular ganha S no presente. É a regra mais chata do inglês e a que menos importa: se você esquecer, **ninguém deixa de te entender**.\n\nNão pare a frase para conferir. Fale, erre, e deixe o S se instalar sozinho de tanto ouvir. Ele cola por exposição, não por vigilância.",
     },
     swaps: ["wake up at seven", "have coffee first", "go to work by bus", "work from home", "get home around six", "cook dinner", "go to the gym", "go to bed late"],
     expansion: [
@@ -320,14 +320,14 @@ export const CANTO_1: CircuitContent[] = [
       "O que você faz no primeiro minuto depois de acordar",
     ],
     sounds: [
-      ["'Wake up' vira 'weikap'", "Consoante final gruda na vogal seguinte. 'Wake-up', 'get-up', 'pick-it-up' — tudo emendado. É isso que faz o inglês soar rápido."],
+      ["'Wake up' vira 'weikap'", "Consoante final gruda na vogal seguinte. 'Wake-up', 'get-up', 'pick-it-up': tudo emendado. É isso que faz o inglês soar rápido."],
       ["O A de 'after' e 'ask'", "Não é 'áfter' fechado nem 'êfter'. É um A aberto, quase de 'pá'. Exagere um pouco no começo."],
     ],
     quiz: [
       ["Como você diz 'eu acordo às sete'?", ["I wake up in seven", "I wake up at seven", "I wake at seven hours", "I wake up on seven"], 1, "Horário exato usa 'at': at seven, at three thirty. 'In' é para períodos (in the morning), 'on' é para dias (on Monday)."],
       ["Onde entra o S da terceira pessoa?", ["I workS", "You workS", "He workS", "We workS"], 2, "Só he, she e it ganham S no presente. É a regra que mais gera erro e menos gera mal-entendido."],
       ["O que 'After that' faz na frase?", ["Marca o passado", "Encadeia a próxima coisa da sequência", "Indica dúvida", "Pede confirmação"], 1, "É conectivo de sequência. Ele, 'then' e 'first' transformam uma lista de frases soltas numa narrativa."],
-      ["'What's your routine like?' — o 'like' aí significa:", ["Gostar", "Como é, de que jeito é", "Parecido com", "Preferir"], 1, "'What's ___ like?' pergunta como algo é. Nada a ver com gostar — é uma das armadilhas clássicas."],
+      ["'What's your routine like?': o 'like' aí significa:", ["Gostar", "Como é, de que jeito é", "Parecido com", "Preferir"], 1, "'What's ___ like?' pergunta como algo é. Nada a ver com gostar: é uma das armadilhas clássicas."],
     ],
   },
 
@@ -357,7 +357,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "Por que 'I love cookING' e não 'I love to cook'",
       body:
-        "As duas existem e as duas estão certas. Mas na fala do dia a dia, depois de *love*, *like*, *hate* e *enjoy*, americano usa muito mais o **-ing**: *I love cooking*, *I hate waiting*, *I enjoy reading*.\n\nA vantagem prática: o **-ing** nunca muda. *cooking*, *waiting*, *reading* — mesma forma sempre. Um molde, zero conjugação.",
+        "As duas existem e as duas estão certas. Mas na fala do dia a dia, depois de *love*, *like*, *hate* e *enjoy*, americano usa muito mais o **-ing**: *I love cooking*, *I hate waiting*, *I enjoy reading*.\n\nA vantagem prática: o **-ing** nunca muda. *cooking*, *waiting*, *reading*: mesma forma sempre. Um molde, zero conjugação.",
     },
     swaps: ["cooking", "traveling", "watching movies", "listening to podcasts", "running in the morning", "playing guitar", "reading before bed", "meeting new people"],
     expansion: [
@@ -373,7 +373,7 @@ export const CANTO_1: CircuitContent[] = [
       "Algo de que todo mundo gosta e você não",
     ],
     sounds: [
-      ["O -ING final", "O som é nasal e o G quase não aparece: 'cook-in', não 'cook-ingui'. Brasileiro tende a colocar uma vogal no fim — não coloque."],
+      ["O -ING final", "O som é nasal e o G quase não aparece: 'cook-in', não 'cook-ingui'. Brasileiro tende a colocar uma vogal no fim: não coloque."],
       ["'Really' com dois R diferentes", "O primeiro R é enrolado (americano), o L é de língua no céu da boca. 'Ri-a-li', devagar, até separar os dois."],
     ],
     quiz: [
@@ -410,7 +410,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "'This is' apresenta gente, não só coisa",
       body:
-        "Em português a gente diz 'esse é meu irmão' apontando para a foto, e 'esse aqui é o João' apresentando alguém ao vivo. Em inglês é o **mesmo bloco** nos dois casos: *This is my brother*.\n\nInclusive ao telefone: *Hi, this is Ana* — não *I am Ana*. Um bloco, três usos. Guarde inteiro.",
+        "Em português a gente diz 'esse é meu irmão' apontando para a foto, e 'esse aqui é o João' apresentando alguém ao vivo. Em inglês é o **mesmo bloco** nos dois casos: *This is my brother*.\n\nInclusive ao telefone: *Hi, this is Ana*: não *I am Ana*. Um bloco, três usos. Guarde inteiro.",
     },
     swaps: ["brother", "sister", "mom", "dad", "wife", "best friend", "cousin", "coworker"],
     expansion: [
@@ -427,7 +427,7 @@ export const CANTO_1: CircuitContent[] = [
     ],
     sounds: [
       ["'Brother' e o TH sonoro", "Esse TH vibra: a língua entre os dentes COM voz. 'Bro-ther', não 'bro-der'. Ponha a mão na garganta: tem que tremer."],
-      ["'Looks like' vira 'lukslaik'", "O S final gruda no L seguinte. Não separe as palavras — ninguém separa."],
+      ["'Looks like' vira 'lukslaik'", "O S final gruda no L seguinte. Não separe as palavras: ninguém separa."],
     ],
     quiz: [
       ["'He looks like my dad' significa:", ["Ele gosta do meu pai", "Ele se parece com meu pai", "Ele olha para meu pai", "Ele procura meu pai"], 1, "'Look like' = parecer com. Nada a ver com gostar. É a mesma armadilha do 'What's it like?'."],
@@ -463,7 +463,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "'There's' é o nosso 'tem'",
       body:
-        "Brasileiro traduz 'tem um parque perto' como *Have a park near*. Não funciona: em inglês, existência usa **there is** e **there are**.\n\n*There's a park* (um). *There are two parks* (mais de um).\n\nNa fala, *there's* aparece até com plural (*there's two parks*) — não é considerado bonito, mas é o que se ouve. Você use *there's* para singular e não se preocupe com o resto.",
+        "Brasileiro traduz 'tem um parque perto' como *Have a park near*. Não funciona: em inglês, existência usa **there is** e **there are**.\n\n*There's a park* (um). *There are two parks* (mais de um).\n\nNa fala, *there's* aparece até com plural (*there's two parks*): não é considerado bonito, mas é o que se ouve. Você use *there's* para singular e não se preocupe com o resto.",
     },
     swaps: ["park", "supermarket", "gym", "coffee shop", "subway station", "school", "pharmacy", "really good bakery"],
     expansion: [
@@ -480,7 +480,7 @@ export const CANTO_1: CircuitContent[] = [
     ],
     sounds: [
       ["'There's' com TH sonoro + Z", "O TH vibra e o S final soa como Z: 'dhérz'. Não é 'dérs' nem 'térs'."],
-      ["'Neighborhood' é mais curta do que parece", "São três batidas: NEI-bor-hud. Brasileiro tende a pronunciar todas as letras — não pronuncie."],
+      ["'Neighborhood' é mais curta do que parece", "São três batidas: NEI-bor-hud. Brasileiro tende a pronunciar todas as letras: não pronuncie."],
     ],
     quiz: [
       ["Como se diz 'tem um parque perto de casa'?", ["Have a park near my place", "There's a park near my place", "It has a park near my place", "Exists a park near my place"], 1, "Existência em inglês é 'there is' e 'there are'. 'Have' é posse, sempre com dono."],
@@ -516,7 +516,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "Por que 'How do I get to' e não 'How do I arrive'",
       body:
-        "*Get to* é o verbo de chegar em um lugar no inglês falado. *Arrive* existe, mas soa de aeroporto e horário de voo.\n\n*How do I get to the station?* — como eu chego na estação.\n*I get home around six* — eu chego em casa por volta das seis.\n\nRepare que *get* não tem tradução fixa. Não tente traduzir: guarde o bloco inteiro e use.",
+        "*Get to* é o verbo de chegar em um lugar no inglês falado. *Arrive* existe, mas soa de aeroporto e horário de voo.\n\n*How do I get to the station?*: como eu chego na estação.\n*I get home around six*: eu chego em casa por volta das seis.\n\nRepare que *get* não tem tradução fixa. Não tente traduzir: guarde o bloco inteiro e use.",
     },
     swaps: ["the station", "the airport", "downtown", "the nearest pharmacy", "this address", "the bus stop", "the beach", "your place"],
     expansion: [
@@ -538,7 +538,7 @@ export const CANTO_1: CircuitContent[] = [
     quiz: [
       ["Como se pergunta o caminho?", ["Where is the way to the station?", "How do I get to the station?", "How I arrive the station?", "Which is the station road?"], 1, "'How do I get to ___?' é o bloco padrão. Funciona para qualquer destino."],
       ["'It's on your right' significa:", ["Você está certo", "Fica à sua direita", "É o seu direito", "Vire à direita"], 1, "'On your right' localiza; 'turn right' comanda. São coisas diferentes e é fácil confundir na hora."],
-      ["Você ouviu a direção mas não teve certeza. O que dizer?", ["Repeat", "Sorry, left or right?", "I don't know", "Please"], 1, "Perguntar a alternativa específica é mais rápido que pedir para repetir tudo — e mostra que você acompanhou."],
+      ["Você ouviu a direção mas não teve certeza. O que dizer?", ["Repeat", "Sorry, left or right?", "I don't know", "Please"], 1, "Perguntar a alternativa específica é mais rápido que pedir para repetir tudo: e mostra que você acompanhou."],
       ["'You can't miss it' quer dizer:", ["Você não pode perder o horário", "É impossível não ver", "Você não pode errar o caminho", "Não perca essa chance"], 1, "É a frase que americano solta quando o lugar é óbvio. Costuma ser mentira, mas é bem-intencionada."],
     ],
   },
@@ -569,7 +569,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "'Try it on' é diferente de 'try it'",
       body:
-        "*Try it* = experimentar, testar (uma comida, uma ideia).\n*Try it **on*** = provar uma roupa, vestir para ver se serve.\n\nEsse *on* muda tudo, e ele é grudado no verbo. Em inglês existem centenas desses — são os **phrasal verbs**, e o circuito 40 é inteiro dedicado a eles.\n\nPor ora, guarde os dois blocos separados e não tente deduzir: *try it on* não é dedutível de *try*.",
+        "*Try it* = experimentar, testar (uma comida, uma ideia).\n*Try it **on*** = provar uma roupa, vestir para ver se serve.\n\nEsse *on* muda tudo, e ele é grudado no verbo. Em inglês existem centenas desses: são os **phrasal verbs**, e o circuito 40 é inteiro dedicado a eles.\n\nPor ora, guarde os dois blocos separados e não tente deduzir: *try it on* não é dedutível de *try*.",
     },
     swaps: ["a medium", "a large", "blue", "black", "a smaller size", "another color", "the same one", "a different style"],
     expansion: [
@@ -592,7 +592,7 @@ export const CANTO_1: CircuitContent[] = [
       ["Como você pede outro tamanho?", ["Do you have this in a medium?", "Do you have this medium?", "Have you this in medium?", "This is medium?"], 0, "'Do you have this in ___?' é o molde. Serve para tamanho, cor e modelo."],
       ["'Can I try it on?' pergunta se você pode:", ["Comprar", "Provar a roupa", "Testar a qualidade", "Pegar na mão"], 1, "O 'on' é o que faz virar provar roupa. Sem ele, 'try it' é experimentar qualquer coisa."],
       ["'I'm just looking, thanks' serve para:", ["Pedir ajuda", "Dizer educadamente que não quer ajuda agora", "Elogiar a loja", "Pedir desconto"], 1, "É a frase que tira o vendedor de cima sem grosseria. Universal em qualquer loja americana."],
-      ["'It's too tight' quer dizer:", ["Está muito caro", "Está muito apertado", "Está muito curto", "Está muito bonito"], 1, "'Tight' é apertado. 'Too' antes de adjetivo marca excesso — passou do ponto aceitável."],
+      ["'It's too tight' quer dizer:", ["Está muito caro", "Está muito apertado", "Está muito curto", "Está muito bonito"], 1, "'Tight' é apertado. 'Too' antes de adjetivo marca excesso: passou do ponto aceitável."],
     ],
   },
 
@@ -622,7 +622,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "'Could I get' é o pedido mais seguro do inglês",
       body:
-        "Você já tem *Can I have ___?* do circuito 4. *Could I get ___?* é o mesmo molde, um degrau mais educado — e é o que se ouve em restaurante americano o tempo todo.\n\nOs dois funcionam sempre. Se você só quiser guardar um, guarde este: **could** é mais educado que **can**, e **get** é mais falado que **have**.",
+        "Você já tem *Can I have ___?* do circuito 4. *Could I get ___?* é o mesmo molde, um degrau mais educado: e é o que se ouve em restaurante americano o tempo todo.\n\nOs dois funcionam sempre. Se você só quiser guardar um, guarde este: **could** é mais educado que **can**, e **get** é mais falado que **have**.",
     },
     swaps: ["the chicken", "a table for two", "the check", "some water", "the same thing", "one of those", "it without onions", "another one of these"],
     expansion: [
@@ -643,7 +643,7 @@ export const CANTO_1: CircuitContent[] = [
     ],
     quiz: [
       ["Como você pede a conta?", ["Bring the account, please", "Could we get the check, please?", "I want to pay now", "The bill me, please"], 1, "'Check' nos Estados Unidos, 'bill' no Reino Unido. Os dois são entendidos em qualquer lugar."],
-      ["'I'm allergic to nuts' é importante porque:", ["É educado avisar", "Alergia alimentar é levada muito a sério lá", "Faz o prato sair mais rápido", "Dá desconto"], 1, "Restaurante americano trata alergia com protocolo. Avisar não é frescura — é segurança, e eles agradecem."],
+      ["'I'm allergic to nuts' é importante porque:", ["É educado avisar", "Alergia alimentar é levada muito a sério lá", "Faz o prato sair mais rápido", "Dá desconto"], 1, "Restaurante americano trata alergia com protocolo. Avisar não é frescura: é segurança, e eles agradecem."],
       ["'Can we split the bill?' pede para:", ["Dividir a conta entre as pessoas", "Parcelar o pagamento", "Reduzir a conta", "Conferir a conta"], 0, "'Split' é dividir entre pessoas. Parcelar seria 'pay in installments', que praticamente não existe em restaurante lá."],
       ["'What do you recommend?' é útil porque:", ["Mostra que você é educado", "Resolve o cardápio que você não entendeu", "É obrigatório perguntar", "Dá direito a desconto"], 1, "É a saída elegante quando o cardápio tem vinte pratos com nomes que você nunca viu. E costuma render uma boa escolha."],
     ],
@@ -675,7 +675,7 @@ export const CANTO_1: CircuitContent[] = [
     why: {
       title: "Doze circuitos, um mesmo mecanismo",
       body:
-        "Olhe para trás: *Can I have ___?*, *Could you ___?*, *There's a ___ near*, *How do I get to ___?*. Nenhum deles você montou palavra por palavra. Você **instalou o molde** e passou a trocar a peça.\n\nÉ isso que o curso inteiro faz. Não existe um momento futuro em que você vai 'aprender a gramática e aí falar' — o molde já é a gramática, só que instalada pela boca em vez de pela tabela.",
+        "Olhe para trás: *Can I have ___?*, *Could you ___?*, *There's a ___ near*, *How do I get to ___?*. Nenhum deles você montou palavra por palavra. Você **instalou o molde** e passou a trocar a peça.\n\nÉ isso que o curso inteiro faz. Não existe um momento futuro em que você vai 'aprender a gramática e aí falar': o molde já é a gramática, só que instalada pela boca em vez de pela tabela.",
     },
     swaps: ["Can I have a coffee, please?", "Sorry, could you say that again?", "There's a park near my place.", "How do I get to the station?", "I usually wake up at seven.", "This is my brother.", "Could we get the check, please?", "Nice to meet you too."],
     expansion: [

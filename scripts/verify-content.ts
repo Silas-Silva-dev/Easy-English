@@ -39,11 +39,11 @@ function main() {
     if (m.expansion.length < 3) warn(`${where}: só ${m.expansion.length} frases de expansão`);
     if (m.drift.length < 3) warn(`${where}: só ${m.drift.length} assuntos para derivar`);
     if (m.sounds.length < 2) warn(`${where}: só ${m.sounds.length} focos de som`);
-    if (circuit.chunks.length < 4) warn(`${where}: ${circuit.chunks.length} blocos — quiz precisa de 4+`);
+    if (circuit.chunks.length < 4) warn(`${where}: ${circuit.chunks.length} blocos: quiz precisa de 4+`);
 
     // A barra é o separador do roteiro; dentro da fala ela quebra o parser.
     for (const [who, en] of [...m.immersion, ...m.listening]) {
-      if (en.includes("/")) warn(`${where}: fala de ${who} contém "/" — quebra o roteiro`);
+      if (en.includes("/")) warn(`${where}: fala de ${who} contém "/": quebra o roteiro`);
       if (!en.trim()) warn(`${where}: fala vazia de ${who}`);
     }
 
@@ -64,12 +64,12 @@ function main() {
 
     const speakers = [...new Set(piece.lines.map(([who]) => who))];
     if (speakers.length !== 2) {
-      warn(`${where}: ${speakers.length} locutores (${speakers.join(", ")}) — o TTS exige 2`);
+      warn(`${where}: ${speakers.length} locutores (${speakers.join(", ")}): o TTS exige 2`);
     }
     if (piece.lines.length < 20) warn(`${where}: só ${piece.lines.length} falas`);
 
     for (const [who, en, pt] of piece.lines) {
-      if (en.includes("/")) warn(`${where}: fala de ${who} contém "/" — quebra o roteiro`);
+      if (en.includes("/")) warn(`${where}: fala de ${who} contém "/": quebra o roteiro`);
       if (!en.trim()) warn(`${where}: fala vazia de ${who}`);
       if (!pt.trim()) warn(`${where}: fala de ${who} sem tradução`);
     }
@@ -90,7 +90,7 @@ function main() {
   //
   // Duas invariantes que só se descobre ouvindo, e que já quebraram uma vez: a
   // Sarah saiu com voz de homem e o Bruno trocou de voz entre diálogos porque
-  // a voz vinha de um hash cego. Agora vem de uma tabela — e a tabela é
+  // a voz vinha de um hash cego. Agora vem de uma tabela: e a tabela é
   // conferida aqui, antes de virar 461 arquivos de áudio.
   for (const engine of ["piper", "gemini"] as const) {
     for (const job of audioJobs()) {
@@ -113,7 +113,7 @@ function main() {
         else used.set(voice, who);
       }
 
-      // O que de fato vai para o TTS, fala a fala — pega divergência entre o
+      // O que de fato vai para o TTS, fala a fala: pega divergência entre o
       // elenco e o desempate de `voicePairFor`.
       if (new Set(spokenLines(job, engine).map((l) => l.voice)).size !== job.speakers.length) {
         warn(`${where}: as falas saem com menos vozes distintas que locutores`);
@@ -177,7 +177,7 @@ function main() {
         warn(`${where}: questão "${question.id}" aponta para alternativa inexistente`);
       }
       if (new Set(question.options).size !== question.options.length) {
-        warn(`${where}: questão "${question.id}" tem alternativa repetida — a "certa" fica ambígua`);
+        warn(`${where}: questão "${question.id}" tem alternativa repetida: a "certa" fica ambígua`);
       }
       if (question.options.some((o) => !o?.trim())) {
         warn(`${where}: questão "${question.id}" tem alternativa vazia`);

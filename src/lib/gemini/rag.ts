@@ -33,7 +33,7 @@ export async function embedText(
   return normalizeVector(values);
 }
 
-/** Versão em lote — usada na indexação das 728 lições. */
+/** Versão em lote: usada na indexação das 728 lições. */
 export async function embedBatch(
   texts: string[],
   taskType: EmbeddingTaskType = "RETRIEVAL_DOCUMENT",

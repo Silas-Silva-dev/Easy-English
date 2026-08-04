@@ -1,5 +1,5 @@
 /**
- * Redige as peças de escuta estendida do dia 8 — o material que substitui
+ * Redige as peças de escuta estendida do dia 8: o material que substitui
  * "vá procurar no YouTube".
  *
  *   npm run gen:listening                # redige o que falta e para na cota
@@ -102,7 +102,7 @@ function promptFor(circuit: (typeof CIRCUITS)[number]): string {
   return `
 You are writing extended listening material for a Brazilian learner of American English.
 
-CIRCUIT ${circuit.number} — "${circuit.title}" (CEFR ${levelOf(circuit.number)})
+CIRCUIT ${circuit.number}: "${circuit.title}" (CEFR ${levelOf(circuit.number)})
 Situation the student already trained: ${circuit.situation}
 Chunks they already own:
 ${circuit.chunks.map((c) => `  - "${c.en}"`).join("\n")}
@@ -120,29 +120,29 @@ that bridges classroom English and real English. So:
       men:   ${CAST_PEOPLE.m.join(", ")}
     Two reasons, both hard limits. The text-to-speech renders exactly two
     voices, so a third speaker comes out in the wrong one. And each name maps
-    to a fixed voice of the right gender in content/audio-manifest.ts — a name
+    to a fixed voice of the right gender in content/audio-manifest.ts: a name
     outside these lists gets a voice drawn at random and the woman ends up
     speaking with a man's voice.
     Within that limit, make it messy like real talk: they interrupt each
     other, change subject, backtrack, use filler ("uh", "I mean", "you know",
     "like"), and mention other people by name without those people speaking.
   - It must go BEYOND the circuit's vocabulary. Introduce natural words the
-    student has not seen — that is the point of this day. Do not restrict
+    student has not seen: that is the point of this day. Do not restrict
     yourself to the chunk list; just stay plausible for ${levelOf(circuit.number)}.
   - Topic must ORBIT the circuit situation without repeating its dialogue.
     Same world, different scene, more going on.
-  - No line may contain the "/" character — it is the script separator.
+  - No line may contain the "/" character: it is the script separator.
   - Portuguese translation is what a Brazilian would ACTUALLY say, not literal.
 
 Each line is [speaker, english, portuguese].
 
 Also write 3 comprehension questions IN PORTUGUESE about the piece, each with
 4 options and one correct answer. They must require having UNDERSTOOD the
-audio — not be answerable by guessing from the options. Explanation in
+audio: not be answerable by guessing from the options. Explanation in
 Portuguese, short.
 
 IN PORTUGUESE (the student is Brazilian and the whole interface is Portuguese):
-  - "title": a short, concrete title naming the scene. NOT in English — this
+  - "title": a short, concrete title naming the scene. NOT in English: this
     is printed on the lesson screen next to Portuguese text. Describe what
     happens, do not summarize the theme. Good: "O pedido que deu errado na
     cafeteria". Bad: "Ordering Coffee" or "Praticando pedidos".
@@ -150,7 +150,7 @@ IN PORTUGUESE (the student is Brazilian and the whole interface is Portuguese):
     dialogues did not.
 
 "minutes" is the realistic listening time. Only the "english" field of each
-line is in English — everything else the student reads is Portuguese.
+line is in English: everything else the student reads is Portuguese.
 `.trim();
 }
 
@@ -237,12 +237,11 @@ async function generate(circuit: (typeof CIRCUITS)[number], model: string): Prom
   if (piece.lines.length < 20) throw new Error(`só ${piece.lines.length} falas`);
   if (piece.questions.length !== 3) throw new Error(`${piece.questions.length} perguntas`);
 
-  // O TTS multi-locutor do Gemini exige DOIS locutores, nem mais nem menos —
-  // três devolve 400 e a peça ficaria sem áudio. Barramos aqui para o problema
+  // O TTS multi-locutor do Gemini exige DOIS locutores, nem mais nem menos: // três devolve 400 e a peça ficaria sem áudio. Barramos aqui para o problema
   // aparecer na redação, e não lá na frente no lote de áudio.
   const speakers = [...new Set(piece.lines.map(([who]) => who))];
   if (speakers.length !== 2) {
-    throw new Error(`${speakers.length} locutores (${speakers.join(", ")}) — o TTS exige 2`);
+    throw new Error(`${speakers.length} locutores (${speakers.join(", ")}): o TTS exige 2`);
   }
 
   // Nome fora do elenco cai no sorteio de voz e sai com gênero trocado. Rejeita
@@ -280,12 +279,12 @@ async function main() {
   console.log(`  nesta rodada ${targets.length}\n`);
 
   if (!targets.length) {
-    console.log("  Nada a fazer — a biblioteca está completa.\n");
+    console.log("  Nada a fazer: a biblioteca está completa.\n");
     return;
   }
 
   if (options.dryRun) {
-    for (const c of targets) console.log(`  · circuito ${c.number} — ${c.title}`);
+    for (const c of targets) console.log(`  · circuito ${c.number}: ${c.title}`);
     console.log(`\n  (--dry-run: nada foi gerado)\n`);
     return;
   }
@@ -318,7 +317,7 @@ async function main() {
       refusals = 0;
 
       console.log(
-        `  \x1b[32m✓\x1b[0m ${String(written).padStart(2)}/${targets.length}  c${String(circuit.number).padStart(2)}  ${piece.lines.length} falas  — ${piece.title}`,
+        `  \x1b[32m✓\x1b[0m ${String(written).padStart(2)}/${targets.length}  c${String(circuit.number).padStart(2)}  ${piece.lines.length} falas: ${piece.title}`,
       );
     } catch (error) {
       if (isQuotaError(error)) {
@@ -326,7 +325,7 @@ async function main() {
 
         if (refusals < GIVE_UP_AFTER) {
           console.log(
-            `  \x1b[33m·\x1b[0m cota por minuto — esperando ${Math.round(cooldown / 1000)}s (${refusals}/${GIVE_UP_AFTER})`,
+            `  \x1b[33m·\x1b[0m cota por minuto: esperando ${Math.round(cooldown / 1000)}s (${refusals}/${GIVE_UP_AFTER})`,
           );
           await sleep(cooldown);
           cooldown = Math.min(cooldown * 2, COOLDOWN_MAX_MS);
@@ -342,7 +341,7 @@ async function main() {
 
         if (!options.watch) {
           console.log(
-            `\n  Faltam ${CIRCUITS.length - have.size - written}. Rode de novo quando renovar —\n` +
+            `\n  Faltam ${CIRCUITS.length - have.size - written}. Rode de novo quando renovar : \n` +
               `  o que já está em authentic.json não é refeito.\n` +
               `  Para esperar e retomar sozinho: npm run gen:listening -- --watch\n`,
           );
@@ -358,7 +357,7 @@ async function main() {
 
       queue.shift();
       const message = error instanceof Error ? error.message : String(error);
-      console.log(`  \x1b[31m✗\x1b[0m c${circuit.number} — ${message.slice(0, 140)}`);
+      console.log(`  \x1b[31m✗\x1b[0m c${circuit.number}: ${message.slice(0, 140)}`);
     }
 
     if (queue.length) await sleep(options.delayMs);

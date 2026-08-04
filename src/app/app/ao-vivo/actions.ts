@@ -87,7 +87,7 @@ const clamp = (n: unknown) => {
  *
  * A avaliação roda sobre a TRANSCRIÇÃO, não sobre o áudio: a Live API já
  * transcreveu os dois lados, e reprocessar áudio custaria caro sem ganho.
- * Por isso a nota aqui não inclui pronúncia — para pronúncia existe a
+ * Por isso a nota aqui não inclui pronúncia: para pronúncia existe a
  * gravação assíncrona, que ouve o áudio de fato.
  */
 export async function saveLiveSessionAction(input: {
@@ -163,7 +163,7 @@ CRITÉRIOS (0 a 10, com decimais)
 - grammar: precisão estrutural adequada ao nível
 - vocabulary: variedade e adequação das escolhas
 - interaction: manteve a conversa viva? devolveu perguntas? reagiu?
-  Este é o critério mais importante numa conversa — mais que precisão.
+  Este é o critério mais importante numa conversa: mais que precisão.
 - overall: visão geral, ponderando interaction e fluency acima dos outros
 
 NÃO avalie pronúncia: você está lendo uma transcrição, não ouvindo o áudio.
@@ -231,7 +231,7 @@ Comece pelo que funcionou antes de apontar o que falta.
   // tanto o contador de produção quanto a agenda de repetição espaçada.
   //
   // As duas RPCs usam auth.uid() internamente, então precisam do cliente do
-  // usuário — com service_role o auth.uid() seria nulo e a função abortaria.
+  // usuário: com service_role o auth.uid() seria nulo e a função abortaria.
   if (usedKeys.length && scores) {
     const { error: spokenError } = await supabase.rpc("mark_chunks_spoken", {
       p_chunk_keys: usedKeys,
@@ -241,14 +241,14 @@ Comece pelo que funcionou antes de apontar o que falta.
     const grade = gradeFromScore(scores.overall);
     for (const key of usedKeys) {
       const { error } = await supabase.rpc("review_chunk", { p_chunk_key: key, p_grade: grade });
-      // O bloco pode não estar na agenda ainda — não é motivo para falhar.
+      // O bloco pode não estar na agenda ainda: não é motivo para falhar.
       if (error && !/não está na sua agenda/i.test(error.message)) {
         console.error("[live] review_chunk:", error.message);
       }
     }
   }
 
-  // Conta como atividade do dia — a conversa ao vivo é estudo de verdade.
+  // Conta como atividade do dia: a conversa ao vivo é estudo de verdade.
   if (courseId) {
     const { data: enrollment } = await supabase
       .from("enrollments")

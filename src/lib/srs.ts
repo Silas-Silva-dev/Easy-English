@@ -5,14 +5,14 @@
  *
  *   1. A nota não vem de um botão "eu lembrei". Vem do desempenho real:
  *      da nota da tutora quando o aluno FALOU o bloco, ou do acerto na
- *      recuperação ativa. Autoavaliação infla — desempenho medido, não.
+ *      recuperação ativa. Autoavaliação infla: desempenho medido, não.
  *
  *   2. Reconhecer não é o mesmo que produzir. `spoken_count` conta quantas
  *      vezes o aluno de fato disse o bloco em voz alta; um bloco só é
  *      considerado dominado depois de produzido, não só revisado.
  *
  * O cálculo de agenda vive no banco (função `review_chunk`) para que qualquer
- * cliente — app, script, futura API — use exatamente a mesma regra.
+ * cliente: app, script, futura API: use exatamente a mesma regra.
  */
 
 export interface ChunkMastery {
@@ -39,7 +39,7 @@ export interface ChunkMastery {
  * Identidade estável de um bloco.
  *
  * PRECISA produzir exatamente o mesmo slug que `enroll_circuit_chunks` no SQL
- * (migration 20260101000500) — é essa chave que liga o que o aluno falou ao
+ * (migration 20260101000500): é essa chave que liga o que o aluno falou ao
  * item da agenda dele. Se as duas divergirem, `mark_chunks_spoken` não casa
  * nada e o contador de produção falada fica em zero sem erro nenhum.
  */
@@ -55,7 +55,7 @@ export function chunkKey(en: string): string {
  * Converte a nota 0-10 da tutora na escala 0-5 do SM-2.
  *
  * O corte em 3 não é arbitrário: no SM-2, nota < 3 reinicia o intervalo.
- * Uma fala com nota 6/10 tem erro que atrapalha — merece voltar ao começo.
+ * Uma fala com nota 6/10 tem erro que atrapalha: merece voltar ao começo.
  */
 export function gradeFromScore(score0to10: number): number {
   if (score0to10 >= 9.0) return 5;
@@ -76,7 +76,7 @@ export type MasteryStage = "novo" | "aprendendo" | "consolidando" | "dominado" |
 /**
  * Estágio exibido ao aluno.
  *
- * "dominado" exige produção falada, não só revisão — é o que separa
+ * "dominado" exige produção falada, não só revisão: é o que separa
  * reconhecer de conseguir usar.
  */
 export function masteryStage(chunk: ChunkMastery): MasteryStage {
@@ -136,7 +136,7 @@ export function reviewBatchSize(minutes: number): number {
   return Math.max(5, Math.min(60, Math.round((minutes * 60) / 20)));
 }
 
-/** Prévia local do próximo intervalo — só para mostrar na UI antes de salvar. */
+/** Prévia local do próximo intervalo: só para mostrar na UI antes de salvar. */
 export function previewNextInterval(chunk: ChunkMastery, grade: number): number {
   const ef = Math.max(
     1.3,

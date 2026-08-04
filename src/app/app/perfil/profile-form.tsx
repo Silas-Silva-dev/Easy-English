@@ -7,6 +7,7 @@ import { useFormStatus } from "react-dom";
 import { Button } from "@/components/ui/button";
 import { Input, Select } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { ProfileAvatarUpload } from "@/components/profile/profile-avatar-upload";
 import type { Profile, StudyTrack } from "@/lib/types/database";
 import { cn } from "@/lib/utils";
 import { TRACKS } from "@content/curriculum";
@@ -14,11 +15,11 @@ import { TRACKS } from "@content/curriculum";
 import { updateProfileAction } from "../actions";
 
 const LEVELS = [
-  { value: "A1", label: "A1 — Iniciante absoluto" },
-  { value: "A2", label: "A2 — Básico" },
-  { value: "B1", label: "B1 — Intermediário" },
-  { value: "B2", label: "B2 — Intermediário avançado" },
-  { value: "C1", label: "C1 — Avançado" },
+  { value: "A1", label: "A1: Iniciante absoluto" },
+  { value: "A2", label: "A2: Básico" },
+  { value: "B1", label: "B1: Intermediário" },
+  { value: "B2", label: "B2: Intermediário avançado" },
+  { value: "C1", label: "C1: Avançado" },
 ];
 
 const TIMEZONES = [
@@ -53,7 +54,7 @@ export function ProfileForm({
   const current = TRACKS.find((t) => t.id === selected) ?? TRACKS[1];
 
   return (
-    <form action={action} className="space-y-5">
+    <form action={action} className="space-y-6">
       {state.error ? (
         <p className="bg-destructive/10 text-destructive flex items-start gap-2 rounded-lg px-3 py-2.5 text-sm">
           <AlertCircle className="mt-0.5 size-4 shrink-0" />
@@ -67,14 +68,19 @@ export function ProfileForm({
         </p>
       ) : null}
 
+      {/* -------------------------------------------------------- Foto de Perfil */}
+      <div className="bg-muted/30 rounded-xl border p-4 space-y-2">
+        <Label className="block text-sm font-semibold">Foto de perfil</Label>
+        <ProfileAvatarUpload profile={profile} />
+      </div>
+
       <div className="space-y-2">
         <Label htmlFor="fullName">Nome completo</Label>
         <Input id="fullName" name="fullName" defaultValue={profile.full_name ?? ""} required />
       </div>
 
       {/* -------------------------------------------------------- Trilha
-          O conteúdo é o mesmo nas três; o que muda é quanto se faz por dia —
-          e a meta prometida muda junto. É por isso que o limite honesto de
+          O conteúdo é o mesmo nas três; o que muda é quanto se faz por dia: e a meta prometida muda junto. É por isso que o limite honesto de
           cada trilha aparece aqui, na hora da escolha, e não só na landing. */}
       <div className="space-y-2">
         <Label>Ritmo de estudo</Label>

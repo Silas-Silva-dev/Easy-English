@@ -57,7 +57,7 @@ export default async function StudentLayout({ children }: { children: React.Reac
   }
 
   const nav: NavItem[] = [
-    { href: "/app", label: "Meu dia", icon: "dashboard", exact: true },
+    { href: "/app", label: "Meu Painel", icon: "dashboard", exact: true },
     {
       href: "/app/canto/c1",
       label: "Canto 1: Destravar",

@@ -9,7 +9,7 @@
  * navegador e esses arquivos não são lidos por ninguém.
  *
  * Por que um script e não SQL: o Supabase instala um trigger que RECUSA
- * `delete from storage.objects` — arquivo só sai pela Storage API. E enquanto
+ * `delete from storage.objects`: arquivo só sai pela Storage API. E enquanto
  * houver arquivo, o bucket não pode ser removido.
  *
  * É destrutivo e irreversível, por isso exige `--yes`.
@@ -56,7 +56,7 @@ async function main() {
     console.log(`
 Nada foi apagado.
 
-Esses arquivos não são mais lidos pelo aplicativo — a fala do curso passou a ser
+Esses arquivos não são mais lidos pelo aplicativo: a fala do curso passou a ser
 sintetizada no navegador. Para apagá-los de vez e remover o bucket:
 
   npm run cleanup:audio -- --yes

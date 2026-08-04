@@ -22,13 +22,13 @@ if (!files.length) {
 }
 
 const header = `-- ===========================================================================
--- InglishEasy — schema completo (arquivo GERADO)
+-- InglishEasy: schema completo (arquivo GERADO)
 --
 -- Não edite este arquivo: ele é a concatenação de supabase/migrations/ na
 -- ordem correta. Edite as migrations e rode \`npm run db:bundle\`.
 --
 -- COMO USAR: cole tudo no SQL Editor do Supabase e clique em Run.
--- É idempotente — pode rodar mais de uma vez sem duplicar nada.
+-- É idempotente: pode rodar mais de uma vez sem duplicar nada.
 --
 -- Migrations incluídas:
 ${files.map((f, i) => `--   ${i + 1}. ${f}`).join("\n")}
@@ -47,6 +47,6 @@ const body = files
 writeFileSync(OUTPUT, header + body, "utf8");
 
 const lines = (header + body).split("\n").length;
-console.log(`\n✓ supabase/schema.sql gerado — ${files.length} migrations, ${lines} linhas\n`);
+console.log(`\n✓ supabase/schema.sql gerado: ${files.length} migrations, ${lines} linhas\n`);
 for (const file of files) console.log(`   ${file}`);
 console.log("\n  Cole o arquivo no SQL Editor do Supabase e clique em Run.\n");

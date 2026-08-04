@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
  *
  * 0,75x existe para a primeira escuta de iniciante; 1,25x e 1,5x existem
  * porque depois de treinar acelerado a velocidade normal do nativo soa
- * devagar — é o mesmo princípio de treinar com peso e competir sem.
+ * devagar: é o mesmo princípio de treinar com peso e competir sem.
  */
 const SPEEDS = [0.75, 1, 1.25, 1.5] as const;
 
@@ -39,7 +39,7 @@ export interface AudioPlayerProps {
   label?: string;
   /** Esconde o seletor de velocidade (blocos curtos não precisam). */
   compact?: boolean;
-  /** Repete indefinidamente — usado no shadowing. */
+  /** Repete indefinidamente: usado no shadowing. */
   loop?: boolean;
   className?: string;
   onEnded?: () => void;
@@ -75,7 +75,7 @@ export function AudioPlayer({
    * Áudio pré-gerado, quando existir.
    *
    * `scripts/generate-audio.ts` grava os diálogos e blocos em `public/audio/`
-   * com voz neural — fala conectada de verdade, que a voz do sistema
+   * com voz neural: fala conectada de verdade, que a voz do sistema
    * operacional não produz. Enquanto o lote não termina, cada arquivo que já
    * existe passa a ser usado e o resto continua na voz do navegador, sem o
    * aluno perceber a transição.
@@ -83,7 +83,7 @@ export function AudioPlayer({
   const src = React.useMemo(() => audioSrc(text), [text]);
   const audioRef = React.useRef<HTMLAudioElement | null>(null);
   const [hasFile, setHasFile] = React.useState(false);
-  /** 0 a 1. Vale para os dois caminhos — tempo no arquivo, fala na síntese. */
+  /** 0 a 1. Vale para os dois caminhos: tempo no arquivo, fala na síntese. */
   const [progress, setProgress] = React.useState(0);
   /** Segundos. Zero quando não há arquivo: a síntese não sabe a duração. */
   const [duration, setDuration] = React.useState(0);
@@ -101,8 +101,7 @@ export function AudioPlayer({
 
   /**
    * Sonda o arquivo na montagem, não no clique: assim, quando o aluno aperta o
-   * play, já sabemos qual caminho tomar e o `play()` sai dentro do gesto —
-   * exigência do Safari, a mesma que `@/lib/speech` documenta.
+   * play, já sabemos qual caminho tomar e o `play()` sai dentro do gesto: * exigência do Safari, a mesma que `@/lib/speech` documenta.
    */
   React.useEffect(() => {
     setHasFile(false);
@@ -181,7 +180,7 @@ export function AudioPlayer({
 
   /**
    * Prepara o elemento e toca. Usado por `play` e por `restart`, para o
-   * `onended` nunca ficar sem dono — sem ele o áudio acaba e o botão fica
+   * `onended` nunca ficar sem dono: sem ele o áudio acaba e o botão fica
    * preso em "pausar" para sempre.
    */
   const playFile = React.useCallback(
@@ -189,8 +188,7 @@ export function AudioPlayer({
       audio.playbackRate = speed;
       audio.loop = loop;
       audio.onended = () => {
-        // Rebobina para o próximo play, mas só DEPOIS de ter tocado inteiro —
-        // é isso que separa "acabou" de "pausei".
+        // Rebobina para o próximo play, mas só DEPOIS de ter tocado inteiro: // é isso que separa "acabou" de "pausei".
         audio.currentTime = 0;
         setProgress(0);
         setPlaying(false);
@@ -204,7 +202,7 @@ export function AudioPlayer({
     [speed, loop, onEnded, speakFrom],
   );
 
-  /** Toca de onde parou. NÃO rebobina — quem rebobina é `restart`. */
+  /** Toca de onde parou. NÃO rebobina: quem rebobina é `restart`. */
   const play = React.useCallback(() => {
     setError(null);
     setPlaying(true);
@@ -235,7 +233,7 @@ export function AudioPlayer({
       return;
     }
     // Na voz do navegador, `speechSynthesis.pause()` é irregular entre
-    // navegadores. Paramos e guardamos a LINHA — retomar refala a partir dela,
+    // navegadores. Paramos e guardamos a LINHA: retomar refala a partir dela,
     // que é previsível em todo lugar.
     cancelSpeech();
   }
@@ -288,7 +286,7 @@ export function AudioPlayer({
 
     const audio = audioRef.current;
     if (hasFile && audio) {
-      // Com arquivo a velocidade muda AO VIVO, tocando ou pausado — que é o
+      // Com arquivo a velocidade muda AO VIVO, tocando ou pausado: que é o
       // ponto do dia 12 (escuta acelerada): ouvir o efeito na mesma passagem.
       audio.playbackRate = next;
       return;
@@ -344,7 +342,7 @@ export function AudioPlayer({
           {/* Barra clicável e arrastável. É um `input range` de verdade, e não
               uma div pintada, para funcionar também no teclado (setas) e para
               o leitor de tela anunciar a posição. O preenchimento vem de um
-              gradiente sobre a própria trilha — ver `.seek` em globals.css. */}
+              gradiente sobre a própria trilha: ver `.seek` em globals.css. */}
           <div className="mt-2 flex items-center gap-2">
             <input
               type="range"
@@ -415,7 +413,7 @@ export function AudioPlayer({
 /**
  * Portão de imersão do dia 1: o texto só destrava depois de N escutas.
  *
- * Não é gamificação — é o método. Ler antes de ouvir cola a pronúncia do
+ * Não é gamificação: é o método. Ler antes de ouvir cola a pronúncia do
  * português nas letras, e isso é bem mais difícil de desfazer depois.
  */
 export function ImmersionGate({
@@ -451,7 +449,7 @@ export function ImmersionGate({
           <p className="text-sm font-medium">O texto aparece depois de {requiredPlays} escutas</p>
           <p className="text-muted-foreground mx-auto mt-1.5 max-w-md text-xs leading-relaxed">
             Ouvir antes de ler não é firula: se você lê primeiro, seu cérebro cola a pronúncia do
-            português nas letras — e depois é bem mais trabalhoso desfazer.
+            português nas letras: e depois é bem mais trabalhoso desfazer.
           </p>
           <div className="text-muted-foreground mt-3 flex items-center justify-center gap-1.5">
             {Array.from({ length: requiredPlays }, (_, i) => (

@@ -13,7 +13,7 @@ import { DAYS_PER_CIRCUIT, TOTAL_DAYS } from "@content/curriculum";
 
 export const metadata: Metadata = { title: "Cronograma" };
 
-/** Cor de acento por Canto — dá identidade visual a cada fase do curso. */
+/** Cor de acento por Canto: dá identidade visual a cada fase do curso. */
 const CANTO_ACCENT: Record<string, { ring: string; chip: string; bar: string }> = {
   C1: { ring: "border-primary/60 bg-primary/8", chip: "bg-primary/15 text-primary", bar: "bg-primary" },
   C2: { ring: "border-chart-2/60 bg-chart-2/8", chip: "bg-chart-2/15 text-chart-2", bar: "bg-chart-2" },
@@ -40,7 +40,7 @@ export default async function SchedulePage({
   const supabase = await createServerSupabase();
 
   // `week_start`/`week_end` guardam a faixa de CIRCUITOS do canto (1..52),
-  // não semanas de calendário — o cronograma é solto do calendário.
+  // não semanas de calendário: o cronograma é solto do calendário.
   const currentDay = enrollment?.current_day ?? 1;
   const currentCircuit = Math.ceil(currentDay / DAYS_PER_CIRCUIT);
 
@@ -61,7 +61,7 @@ export default async function SchedulePage({
   const moduleList = modules ?? [];
   const completedIds = new Set((completedRows ?? []).map((r) => r.lesson_id));
 
-  // Progresso por canto, calculado em memória — evita 8 queries de contagem.
+  // Progresso por canto, calculado em memória: evita 8 queries de contagem.
   const perModule = new Map<string, { total: number; done: number }>();
   for (const lesson of allLessons ?? []) {
     const bucket = perModule.get(lesson.module_id) ?? { total: 0, done: 0 };
@@ -118,42 +118,54 @@ export default async function SchedulePage({
   const activeDonePct = activeModule && moduleStats ? pct(moduleStats.done, moduleStats.total) : 0;
 
   return (
-    <div className="mx-auto max-w-6xl space-y-8">
-      <PageHeader
-        eyebrow={`${course.title} · Nível ${activeModule?.level ?? "A1"}`}
-        title={activeCantoTitle}
-        description={`Circuitos ${activeModule?.week_start ?? 1} a ${activeModule?.week_end ?? 13} · ${moduleStats?.done ?? 0} de ${moduleStats?.total ?? 0} lições concluídas (${activeDonePct}%)`}
-      />
-
+    <div className="mx-auto w-full max-w-[1400px] space-y-6">
       {activeModule ? (
         <>
           {/* ------------------------------------------ Resumo do canto ativo */}
-          <div className="bg-muted/40 rounded-xl border p-5">
-            <div className="flex flex-wrap items-start justify-between gap-4">
-              <div className="min-w-0 max-w-2xl">
-                <h2 className="text-lg font-semibold">{activeCantoTitle}</h2>
-                <p className="text-muted-foreground mt-1.5 text-sm leading-relaxed">
-                  {activeModule.description}
-                </p>
+          <div className="bg-card shadow-xs rounded-2xl border p-5 sm:p-6 space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b pb-4">
+              <div className="flex items-center gap-2.5">
+                <span className="bg-primary/15 text-primary font-mono text-xs font-bold px-2.5 py-1 rounded-lg">
+                  {activeModule.code}
+                </span>
+                <h1 className="text-xl font-bold tracking-tight sm:text-2xl">{activeCantoTitle}</h1>
+                <Badge variant="neutral" className="text-xs font-medium">
+                  {activeModule.level}
+                </Badge>
               </div>
-              <span className="text-muted-foreground shrink-0 text-sm tabular-nums">
-                {moduleStats?.done ?? 0}/{moduleStats?.total ?? 0} lições
-              </span>
+
+              <div className="flex items-center gap-3">
+                <span className="text-muted-foreground text-xs font-medium tabular-nums">
+                  Circuitos {activeModule.week_start}: {activeModule.week_end} · {moduleStats?.done ?? 0} de {moduleStats?.total ?? 0} lições ({activeDonePct}%)
+                </span>
+                <Progress
+                  value={activeDonePct}
+                  className="hidden h-2 w-28 sm:block"
+                  indicatorClassName="bg-primary"
+                />
+              </div>
             </div>
 
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              {activeModule.description}
+            </p>
+
             {activeModule.can_do.length ? (
-              <div className="mt-5 border-t pt-4">
-                <p className="text-muted-foreground mb-2 text-xs font-medium tracking-wide uppercase">
+              <div className="pt-2 space-y-2.5">
+                <p className="text-muted-foreground text-[11px] font-semibold tracking-wider uppercase">
                   Ao final deste canto você consegue
                 </p>
-                <ul className="grid gap-1.5 sm:grid-cols-2">
+                <div className="flex flex-wrap gap-2">
                   {activeModule.can_do.map((item) => (
-                    <li key={item} className="flex gap-2 text-sm">
-                      <CheckCircle2 className="text-success mt-0.5 size-3.5 shrink-0" />
-                      {item}
-                    </li>
+                    <div
+                      key={item}
+                      className="bg-muted/60 text-foreground border-border/80 inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 text-xs font-medium"
+                    >
+                      <CheckCircle2 className="text-success size-3.5 shrink-0" />
+                      <span>{item}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </div>
             ) : null}
           </div>
@@ -170,6 +182,7 @@ export default async function SchedulePage({
               return (
                 <details
                   key={circuit}
+                  name="circuitos"
                   open={isOpen}
                   className={cn(
                     "group bg-card overflow-hidden rounded-xl border transition-colors",
@@ -183,7 +196,7 @@ export default async function SchedulePage({
                       <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
                         <span className="text-sm font-semibold">Circuito {circuit}</span>
                         <span className="text-muted-foreground text-xs tabular-nums">
-                          Dias {firstDay}–{lastDay}
+                          Dias {firstDay} a {lastDay}
                         </span>
                         {isCurrent ? <Badge variant="success">Atual</Badge> : null}
                         {done === circuitLessons.length && circuitLessons.length > 0 ? (

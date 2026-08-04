@@ -10,7 +10,7 @@
  * Exatamente onde há inglês COM tradução ao lado, que é onde a figuração
  * ajuda: falas de diálogo, listas de exemplos e os blocos do circuito.
  *
- * Drills e prompts de prática ficam de fora de propósito — ali o texto é
+ * Drills e prompts de prática ficam de fora de propósito: ali o texto é
  * misturado (o item do dia 10 é "Circuito 3 (Não entendi): «Sorry, could you
  * say that again?»", metade em português) e figurar português produziria
  * lixo que ninguém revisaria.
@@ -25,7 +25,7 @@
  * A figuração é DERIVADA: sai do texto em inglês por regra, não é redigida.
  * Guardá-la junto do conteúdo obrigaria a editar as duas coisas em sincronia e
  * deixaria as duas divergirem no primeiro esquecimento. Aqui ela vive em
- * `content/pronunciation.json`, indexada pelo próprio texto — corrigiu a fala,
+ * `content/pronunciation.json`, indexada pelo próprio texto: corrigiu a fala,
  * a chave muda, e a rodada seguinte gera a figuração nova.
  */
 
