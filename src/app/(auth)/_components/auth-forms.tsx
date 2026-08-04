@@ -32,18 +32,24 @@ function SubmitButton({ children, className }: { children: React.ReactNode; clas
 }
 
 function FormAlert({ state }: { state: AuthFormState }) {
-  if (state.error) {
+  if (state?.error) {
+    const errorText =
+      typeof state.error === "string"
+        ? state.error
+        : typeof state.error === "object" && state.error !== null && "message" in state.error
+          ? String((state.error as { message?: unknown }).message)
+          : String(state.error);
     return (
       <p
         role="alert"
         className="bg-destructive/10 text-destructive flex items-start gap-2 rounded-lg px-3 py-2.5 text-sm"
       >
         <AlertCircle className="mt-0.5 size-4 shrink-0" />
-        <span>{state.error}</span>
+        <span>{errorText}</span>
       </p>
     );
   }
-  if (state.success) {
+  if (state?.success) {
     return (
       <p
         role="status"

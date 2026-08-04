@@ -125,7 +125,11 @@ export async function requestPasswordResetAction(
   });
 
   if (error) {
-    return { error: error.message };
+    const errorMsg =
+      typeof error.message === "string" && error.message.trim()
+        ? error.message
+        : "Não foi possível enviar o e-mail de redefinição. Verifique os dados ou tente novamente.";
+    return { error: errorMsg };
   }
 
   // Resposta idêntica exista ou não a conta: não vazamos quais e-mails
