@@ -13,15 +13,20 @@ export interface AuthFormState {
 }
 
 /**
+ * Mensagens que existem mas não dizem nada. O caso real: quando o envio de
+ * e-mail do projeto cai, o supabase-js devolve um `AuthRetryableFetchError`
+ * cujo `.message` é a string literal `"{}"` — o corpo vazio da resposta 500
+ * já serializado. Ela passa em qualquer teste de "é string não vazia" e chega
+ * intacta na tela, que foi exatamente o `{}` que apareceu no formulário.
+ */
+const JUNK_MESSAGES = new Set(["{}", "[]", "null", "undefined", "[object Object]"]);
+
+/**
  * Extrai a mensagem de erro do Supabase como string simples.
  *
- * O AuthError é uma instância de classe — quando o Next.js serializa o
- * retorno de um Server Action para o cliente, apenas propriedades próprias
- * e enumeráveis são preservadas. Getters de prototype (como `.message`) são
- * perdidos e o objeto chega como `{}` no cliente.
- *
- * Esta função garante que sempre retornamos uma string antes de sair do
- * servidor.
+ * Retornar string (e não o AuthError) é obrigatório: o Next.js só preserva
+ * propriedades próprias e enumeráveis ao serializar o retorno de um Server
+ * Action, então uma instância de erro chega mutilada no cliente.
  */
 function safeErrorMsg(
   error: unknown,
@@ -35,19 +40,16 @@ function safeErrorMsg(
     const msg =
       (error as { message?: unknown }).message ??
       (error as { msg?: unknown }).msg;
-    if (typeof msg === "string" && msg.trim()) return msg;
+    const text = typeof msg === "string" ? msg.trim() : "";
+    if (text && !JUNK_MESSAGES.has(text)) return text;
   } catch {
     // Ignora
   }
 
-  // Última tentativa: serializa como JSON para mostrar algo útil em dev
-  try {
-    const json = JSON.stringify(error);
-    if (json && json !== "{}" && json !== "null") return json;
-  } catch {
-    // Ignora
-  }
-
+  // Sem mensagem aproveitável. O objeto cru NÃO vira texto de tela: um
+  // JSON.stringify aqui só troca o `{}` por um blob igualmente ilegível para
+  // quem está tentando entrar. Quem precisa do detalhe é o log do servidor,
+  // e cada chamador já registra o erro inteiro antes de usar este retorno.
   return fallback;
 }
 
@@ -101,9 +103,18 @@ export async function signUpAction(
   });
 
   if (error) {
+    console.error("[signUp] Supabase error:", JSON.stringify(error), "| status:", error.status);
     const msg = safeErrorMsg(error);
     if (/already registered|already been registered/i.test(msg)) {
       return { error: "Já existe uma conta com este e-mail. Tente entrar ou recuperar a senha." };
+    }
+    // O cadastro também depende do mailer: sem ele o Supabase cria o usuário
+    // mas não manda a confirmação, e devolve 500.
+    if (error.status === 500 || /error sending|smtp|mail/i.test(msg)) {
+      return {
+        error:
+          "Nosso serviço de e-mail está indisponível no momento, então não conseguimos enviar a confirmação. Tente de novo em alguns minutos.",
+      };
     }
     return { error: msg };
   }
@@ -163,31 +174,42 @@ export async function requestPasswordResetAction(
   try {
     const supabase = await createServerSupabase();
 
-    const siteUrl = serverEnv.siteUrl;
-    const isProduction = siteUrl.startsWith("https://");
-    const redirectTo = isProduction
-      ? `${siteUrl}/auth/confirm?type=recovery&next=/nova-senha`
-      : undefined;
+    // O Supabase só aceita destinos que estejam em Authentication → URL
+    // Configuration → Redirect URLs. Um destino fora da lista não dá erro:
+    // ele é descartado em silêncio e o link cai no Site URL. Por isso mandamos
+    // sempre — em produção vale, e em dev o comportamento é o mesmo de não
+    // mandar, até que `http://localhost:3000/**` entre na lista.
+    const redirectTo = `${serverEnv.siteUrl}/auth/confirm?type=recovery&next=/nova-senha`;
 
-    const { error } = await supabase.auth.resetPasswordForEmail(parsed.data, {
-      ...(redirectTo ? { redirectTo } : {}),
-    });
+    const { error } = await supabase.auth.resetPasswordForEmail(parsed.data, { redirectTo });
 
     if (error) {
+      const message = safeErrorMsg(error);
       console.error(
         "[resetPassword] Supabase error:",
         JSON.stringify(error),
         "| message:",
-        error.message,
+        message,
         "| status:",
         error.status,
       );
-      return {
-        error: safeErrorMsg(
-          error,
-          "Não foi possível enviar o e-mail de redefinição. Tente novamente mais tarde.",
-        ),
-      };
+
+      // Excesso de tentativas: o Supabase limita envios por e-mail e por IP.
+      if (error.status === 429 || /rate limit|after \d+ seconds/i.test(message)) {
+        return { error: "Muitas tentativas seguidas. Aguarde um minuto e peça o link de novo." };
+      }
+
+      // "Error sending recovery email" (500 / unexpected_failure) não é culpa
+      // de quem está tentando entrar: o serviço de e-mail do projeto está fora.
+      // Rode `npm run check:email` para ver o diagnóstico e como corrigir.
+      if (/error sending|smtp|mail/i.test(message) || error.status === 500) {
+        return {
+          error:
+            "Nosso serviço de e-mail está indisponível no momento, então o link não foi enviado. Tente de novo em alguns minutos.",
+        };
+      }
+
+      return { error: "Não foi possível enviar o e-mail de redefinição. Tente novamente." };
     }
 
     // Resposta idêntica exista ou não a conta — não vazamos quais e-mails estão cadastrados.
@@ -222,7 +244,15 @@ export async function updatePasswordAction(
   }
 
   const { error } = await supabase.auth.updateUser({ password: parsed.data });
-  if (error) return { error: safeErrorMsg(error) };
+  if (error) {
+    console.error(
+      "[updatePassword] Supabase error:",
+      JSON.stringify(error),
+      "| status:",
+      error.status,
+    );
+    return { error: safeErrorMsg(error, "Não foi possível salvar a nova senha. Tente novamente.") };
+  }
 
   revalidatePath("/", "layout");
   redirect("/app?senha=atualizada");
@@ -242,8 +272,30 @@ export async function resendVerificationAction(
     options: { emailRedirectTo: `${serverEnv.siteUrl}/auth/confirm` },
   });
 
-  if (error && /rate|limit|seconds/i.test(safeErrorMsg(error))) {
-    return { error: "Aguarde alguns segundos antes de pedir um novo e-mail." };
+  if (error) {
+    console.error(
+      "[resendVerification] Supabase error:",
+      JSON.stringify(error),
+      "| status:",
+      error.status,
+    );
+    const msg = safeErrorMsg(error);
+
+    if (error.status === 429 || /rate|limit|seconds/i.test(msg)) {
+      return { error: "Aguarde alguns segundos antes de pedir um novo e-mail." };
+    }
+
+    // Antes, qualquer falha que não fosse rate limit caía no `success` lá
+    // embaixo: o aluno era mandado esperar na caixa de entrada um e-mail que
+    // nunca tinha saído.
+    if (error.status === 500 || /error sending|smtp|mail/i.test(msg)) {
+      return {
+        error:
+          "Nosso serviço de e-mail está indisponível no momento, então o link não foi reenviado. Tente de novo em alguns minutos.",
+      };
+    }
+
+    return { error: "Não foi possível reenviar o e-mail de verificação. Tente novamente." };
   }
 
   return { success: "E-mail de verificação reenviado. Confira sua caixa de entrada." };

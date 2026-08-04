@@ -117,9 +117,31 @@ não a `anon` no campo errado.
 Em **Authentication → URL Configuration**:
 
 - **Site URL:** `https://seudominio.com.br`
-- **Redirect URLs:** adicione `https://seudominio.com.br/auth/confirm` e `https://seudominio.com.br/nova-senha`
+- **Redirect URLs:** adicione `https://seudominio.com.br/**` e, para conseguir testar
+  na sua máquina, `http://localhost:3000/**`
 
-Sem isso o cadastro funciona, mas o link do e-mail leva a lugar nenhum.
+Sem isso o cadastro funciona, mas o link do e-mail leva a lugar nenhum. E o
+Supabase **não avisa** quando o destino está fora da lista: ele troca pelo Site
+URL em silêncio, e o aluno cai na home em vez da tela de nova senha.
+
+### SMTP — obrigatório, não é opcional
+
+Em **Authentication → Emails → SMTP Settings**, ligue o **Custom SMTP**.
+
+O serviço de e-mail embutido do Supabase não serve para produção: ele só entrega
+para membros do time do projeto e para em **2 mensagens por hora**. Quando ele
+recusa, o app recebe `500 unexpected_failure` com `"Error sending recovery
+email"` — cadastro e recuperação de senha param juntos, porque é o mesmo mailer.
+
+Serve qualquer provedor (Resend, Brevo, SendGrid, Amazon SES, Mailgun). Preencha
+host, porta, usuário, senha e o remetente — e confirme o domínio no provedor:
+sem isso ele aceita a conexão e recusa a mensagem, que dá o mesmo erro.
+
+Para conferir o caminho inteiro — token, destino do link e envio:
+
+```powershell
+npm run check:email -- seu@email.com
+```
 
 ---
 
@@ -188,6 +210,7 @@ A memória é o único item apertado. Se o build morrer por falta dela, adicione
 - [ ] Aplicação Node.js criada no hPanel, Node 22.x, saída `.next`
 - [ ] **Todas as variáveis configuradas antes do primeiro build**, com `NEXT_PUBLIC_SITE_URL` no domínio real
 - [ ] Site URL e Redirect URLs atualizadas no Supabase
+- [ ] Custom SMTP ligado e `npm run check:email -- seu@email.com` verde
 - [ ] Migrations aplicadas no SQL Editor
 - [ ] `npm run check` verde apontando para o Supabase de produção
 - [ ] `npm run seed:curriculum` executado

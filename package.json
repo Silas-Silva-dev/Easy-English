@@ -13,6 +13,7 @@
     "db:push": "supabase db push",
     "db:reset": "supabase db reset",
     "check": "tsx scripts/check-setup.ts",
+    "check:email": "tsx scripts/check-email.ts",
     "models": "tsx scripts/list-models.ts",
     "gen:icons": "tsx scripts/generate-icons.ts",
     "gen:audio": "tsx scripts/generate-audio.ts",
