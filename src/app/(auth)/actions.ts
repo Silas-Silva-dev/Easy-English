@@ -120,8 +120,17 @@ export async function requestPasswordResetAction(
   if (!parsed.success) return { error: parsed.error.issues[0]?.message ?? "E-mail inválido" };
 
   const supabase = await createServerSupabase();
+
+  // Em dev (localhost), o Supabase rejeita redirectTo se a URL não está na allow list.
+  // Usamos a siteUrl da env só quando ela é o domínio real de produção.
+  const siteUrl = serverEnv.siteUrl;
+  const isProduction = siteUrl.startsWith("https://");
+  const redirectTo = isProduction
+    ? `${siteUrl}/auth/confirm?type=recovery&next=/nova-senha`
+    : undefined;
+
   const { error } = await supabase.auth.resetPasswordForEmail(parsed.data, {
-    redirectTo: `${serverEnv.siteUrl}/auth/confirm?type=recovery&next=/nova-senha`,
+    ...(redirectTo ? { redirectTo } : {}),
   });
 
   if (error) {
