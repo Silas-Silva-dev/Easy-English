@@ -134,6 +134,41 @@ Sem isso o cadastro funciona, mas o link do e-mail leva a lugar nenhum. E o
 Supabase **não avisa** quando o destino está fora da lista: ele troca pelo Site
 URL em silêncio, e o aluno cai na home em vez da tela de nova senha.
 
+### ⚠️ `.env.local` NÃO vai para o servidor
+
+Vale para todas as variáveis, mas morde com força nas do Mercado Pago porque a
+falha é silenciosa e parece bug de código.
+
+`.env.local` está no `.gitignore` — ele existe **só na sua máquina**. Preencher
+o token lá e fazer deploy não leva nada para a Hostinger: as variáveis de
+produção se configuram **exclusivamente** no hPanel.
+
+Como o sintoma aparece quando falta `MERCADOPAGO_ACCESS_TOKEN` no servidor:
+
+| Onde | O que você vê | Por quê |
+|---|---|---|
+| Botão "Ir para o pagamento" | erro "pagamento temporariamente indisponível" e nenhum redirecionamento | `startCheckoutAction` para antes de falar com o Mercado Pago |
+| Landing e `/cadastro` | parcela **R$ 34,80** em vez de **R$ 35,83** | a consulta à tabela real falhou e caiu na simulação local |
+| `/admin/pagamentos` | faixa vermelha "Mercado Pago não configurado" | — |
+| Webhook | `401` mesmo em notificação legítima | falta `MERCADOPAGO_WEBHOOK_SECRET` |
+
+Aquela diferença na parcela é o teste mais rápido que existe: se a landing de
+produção mostra o valor da simulação, o servidor não está enxergando o token.
+
+Rode o diagnóstico apontando para o domínio real — ele testa token, tabela de
+parcelas, criação da preferência e webhook (com assinatura de verdade), sem
+cobrar ninguém:
+
+```bash
+npm run check:pagamento -- https://seudominio.com.br
+```
+
+> **Preço exige Redeploy, não reinício.** `CHECKOUT_PRICE_CENTS` e
+> `CHECKOUT_MAX_INSTALLMENTS` são lidas no build porque a landing e o
+> `/cadastro` são pré-renderizadas. Já `MERCADOPAGO_*` são lidas em execução —
+> mas se você acabou de adicionar as duas, faça **Redeploy** mesmo assim, senão
+> a página de vendas continua servindo o HTML antigo com a parcela simulada.
+
 ### Mercado Pago — o webhook é o que libera o acesso
 
 O aluno paga no ambiente do Mercado Pago e volta para o site. Quem realmente
