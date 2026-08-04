@@ -32,6 +32,8 @@ dist/
 !src/app/(auth)/recuperar-senha/**
 !src/app/(auth)/nova-senha/
 !src/app/(auth)/nova-senha/**
+!src/app/nova-senha/
+!src/app/nova-senha/**
 *.pem
 *.key
 *.p12

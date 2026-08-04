@@ -134,10 +134,13 @@ export async function requestPasswordResetAction(
   });
 
   if (error) {
+    // Garante que nunca exibimos um objeto bruto ({}) na tela
     const errorMsg =
       typeof error.message === "string" && error.message.trim()
         ? error.message
-        : "Não foi possível enviar o e-mail de redefinição. Verifique os dados ou tente novamente.";
+        : typeof (error as { code?: unknown }).code === "string"
+          ? `Erro ${(error as { code: string }).code}: não foi possível enviar o e-mail.`
+          : "Não foi possível enviar o e-mail de redefinição. Tente novamente mais tarde.";
     return { error: errorMsg };
   }
 
