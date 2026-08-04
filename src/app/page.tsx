@@ -19,6 +19,9 @@ import {
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { HeroScene } from "@/components/landing/hero-scene";
+import { MobileCta } from "@/components/landing/mobile-cta";
+import { TiltCard } from "@/components/landing/tilt-card";
 import { ThemeToggle } from "@/components/theme-provider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -119,6 +122,21 @@ const CANTOS_DESCRIPTIONS = [
   },
 ];
 
+/**
+ * As placas da cena 3D do hero.
+ *
+ * A barra não é "progresso" inventado: é a posição do canto na escada do CEFR
+ * — C1 leva ao A1, C4 ao B2 — que é exatamente o que a escada em profundidade
+ * representa. Um percentual decorativo aqui insinuaria um número que o produto
+ * não mede.
+ */
+const SCENE_CARDS = CANTOS_DESCRIPTIONS.map((canto, index) => ({
+  code: canto.code,
+  title: canto.title.split(": ")[1] ?? canto.title,
+  level: canto.level,
+  fill: (index + 1) * 25,
+}));
+
 const METHOD_STEPS = [
   {
     step: "01",
@@ -200,7 +218,13 @@ export default async function LandingPage() {
   const longest = options[options.length - 1];
 
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
+    /*
+      `overflow-x-clip`, e não `overflow-x-hidden`: as placas 3D giradas
+      ultrapassam a lateral em telas estreitas e criariam rolagem horizontal.
+      `hidden` resolveria isso também, mas criaria um contêiner de rolagem — e
+      o cartão de preço `lg:sticky` pararia de grudar.
+    */
+    <div className="relative min-h-screen overflow-x-clip bg-background text-foreground">
       {/*
         Sem JavaScript o IntersectionObserver nunca roda e todo bloco com
         <Reveal> ficaria invisível para sempre. Isto devolve a página inteira a
@@ -275,110 +299,129 @@ export default async function LandingPage() {
       </header>
 
       {/* ------------------------------------------------------------- Hero */}
-      <section className="relative overflow-hidden pt-[calc(5rem+var(--safe-top))] pb-20 sm:pt-[calc(6rem+var(--safe-top))] sm:pb-28">
+      {/* `id` serve à barra de compra do celular, que só aparece depois que
+          este bloco sai da tela. */}
+      <section
+        id="hero"
+        className="relative overflow-hidden pt-[calc(4.5rem+var(--safe-top))] pb-16 sm:pt-[calc(6rem+var(--safe-top))] sm:pb-24"
+      >
         <div className="bg-grid pointer-events-none absolute inset-0 -z-10 opacity-70" />
         <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[500px] bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,color-mix(in_oklch,var(--primary)_22%,transparent),transparent)]" />
 
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-semibold text-primary animate-fade mb-6">
-              <Sparkles className="size-3.5" />
-              Curso Completo em 4 Cantos com Tutora de IA em Áudio
+          {/*
+            Duas colunas a partir de lg, empilhado antes disso. No celular a
+            cena 3D vem DEPOIS do texto e dos botões: quem abre no telefone
+            precisa ler a promessa e alcançar o botão sem rolar por decoração.
+          */}
+          <div className="items-center gap-12 lg:grid lg:grid-cols-[1.05fr_.95fr] lg:gap-10">
+            <div className="mx-auto max-w-3xl text-center lg:mx-0 lg:text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/8 px-4 py-1.5 text-xs font-semibold text-primary animate-fade mb-6">
+                <Sparkles className="size-3.5" />
+                Curso Completo em 4 Cantos com Tutora de IA em Áudio
+              </div>
+
+              {/* 4xl (36px) estourava "Pare de travar no inglês." em tela de
+                  360px. O passo extra em 2rem resolve sem encolher o desktop. */}
+              <h1 className="animate-in-up text-[2rem] leading-[1.1] font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
+                <span className="text-gradient">Pare de travar no inglês.</span>
+                <br />
+                Comece a{" "}
+                <span className="text-primary">falar com confiança</span>.
+              </h1>
+
+              <p className="text-muted-foreground animate-in-up mx-auto mt-5 max-w-2xl text-base leading-relaxed font-normal sm:mt-6 sm:text-lg lg:mx-0">
+                Domine o inglês em <strong>4 Cantos</strong>, no ritmo que{" "}
+                <strong>você</strong> escolhe — de 20 minutos a 1h40 por dia.
+                Grave sua fala nos desafios, salve seus áudios na plataforma e
+                receba correções da <strong>Professora Emma (IA)</strong> em
+                texto e áudio.
+              </p>
+
+              <div className="animate-in-up mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start">
+                <Button
+                  asChild
+                  size="xl"
+                  variant="gradient"
+                  className="w-full sm:w-auto shadow-lg shadow-primary/20"
+                >
+                  <Link href="/cadastro">
+                    Quero meu acesso <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
+                <Button
+                  asChild
+                  size="xl"
+                  variant="outline"
+                  className="w-full sm:w-auto"
+                >
+                  <Link href="#cantos">Ver os 4 Cantos do Curso</Link>
+                </Button>
+              </div>
+
+              <p className="text-muted-foreground animate-in-up mt-4 text-sm">
+                Pagamento único de{" "}
+                <strong className="text-foreground">
+                  {formatBRL(priceCents)}
+                </strong>
+                {longest && longest.installments > 1 ? (
+                  <>
+                    {" "}
+                    ou {longest.installments}x de{" "}
+                    <strong className="text-foreground">
+                      {formatBRL(longest.installmentCents)}
+                    </strong>
+                  </>
+                ) : null}{" "}
+                · acesso vitalício, sem mensalidade
+              </p>
             </div>
 
-            <h1 className="animate-in-up text-4xl leading-[1.08] font-extrabold sm:text-6xl tracking-tight">
-              <span className="text-gradient">Pare de travar no inglês.</span>
-              <br />
-              Comece a <span className="text-primary">falar com confiança</span>
-              .
-            </h1>
-
-            <p className="text-muted-foreground animate-in-up mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed font-normal">
-              Domine o inglês em <strong>4 Cantos</strong>, no ritmo que{" "}
-              <strong>você</strong> escolhe — de 20 minutos a 1h40 por dia.
-              Grave sua fala nos desafios, salve seus áudios na plataforma e
-              receba correções da <strong>Professora Emma (IA)</strong> em texto
-              e áudio.
-            </p>
-
-            <div className="animate-in-up mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button
-                asChild
-                size="xl"
-                variant="gradient"
-                className="w-full sm:w-auto shadow-lg shadow-primary/20"
-              >
-                <Link href="/cadastro">
-                  Quero meu acesso <ArrowRight className="size-4" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="xl"
-                variant="outline"
-                className="w-full sm:w-auto"
-              >
-                <Link href="#cantos">Ver os 4 Cantos do Curso</Link>
-              </Button>
+            {/* A escada dos 4 Cantos em profundidade — CSS 3D, zero WebGL. */}
+            <div className="animate-fade mt-14 lg:mt-0">
+              <HeroScene cards={SCENE_CARDS} />
             </div>
+          </div>
 
-            <p className="text-muted-foreground animate-in-up mt-4 text-sm">
-              Pagamento único de{" "}
-              <strong className="text-foreground">
-                {formatBRL(priceCents)}
-              </strong>
-              {longest && longest.installments > 1 ? (
-                <>
-                  {" "}
-                  ou {longest.installments}x de{" "}
-                  <strong className="text-foreground">
-                    {formatBRL(longest.installmentCents)}
-                  </strong>
-                </>
-              ) : null}{" "}
-              · acesso vitalício, sem mensalidade
-            </p>
+          {/* Destaques rápidos */}
+          <div className="mt-14 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-muted-foreground font-medium">
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="text-success size-4" /> Pague uma vez,
+              estude para sempre
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="text-success size-4" /> Respostas da
+              tutora em áudio
+            </span>
+            <span className="flex items-center gap-1.5">
+              <CheckCircle2 className="text-success size-4" /> 728 dias no seu
+              ritmo
+            </span>
+          </div>
 
-            {/* Destaques rápidos */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-muted-foreground font-medium">
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="text-success size-4" /> Pague uma vez,
-                estude para sempre
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="text-success size-4" /> Respostas da
-                tutora em áudio
-              </span>
-              <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="text-success size-4" /> 728 dias no seu
-                ritmo
-              </span>
-            </div>
-
-            {/* Métricas do curso */}
-            <div className="mt-14 grid grid-cols-2 gap-4 rounded-2xl border bg-card/60 p-6 backdrop-blur-md sm:grid-cols-4">
-              {[
-                { k: "4 Cantos", v: "Do A1 ao B2" },
-                { k: "52 Circuitos", v: "Situações Reais" },
-                { k: "728 Dias", v: "Roteiro Completo" },
-                { k: "3 Ritmos", v: "20, 60 ou 100 min" },
-              ].map((s) => (
-                <div key={s.k} className="text-center">
-                  <div className="text-foreground text-2xl font-bold tabular-nums">
-                    {s.k}
-                  </div>
-                  <div className="text-muted-foreground mt-1 text-xs font-medium uppercase tracking-wide">
-                    {s.v}
-                  </div>
+          {/* Métricas do curso */}
+          <div className="mt-10 grid grid-cols-2 gap-4 rounded-2xl border bg-card/60 p-5 backdrop-blur-md sm:mt-14 sm:grid-cols-4 sm:p-6">
+            {[
+              { k: "4 Cantos", v: "Do A1 ao B2" },
+              { k: "52 Circuitos", v: "Situações Reais" },
+              { k: "728 Dias", v: "Roteiro Completo" },
+              { k: "3 Ritmos", v: "20, 60 ou 100 min" },
+            ].map((s) => (
+              <div key={s.k} className="text-center">
+                <div className="text-foreground text-xl font-bold tabular-nums sm:text-2xl">
+                  {s.k}
                 </div>
-              ))}
-            </div>
+                <div className="text-muted-foreground mt-1 text-[10px] font-medium uppercase tracking-wide sm:text-xs">
+                  {s.v}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ------------------------------------------------- Os 4 Cantos */}
-      <section id="cantos" className="border-t py-24 bg-muted/20">
+      <section id="cantos" className="border-t py-16 sm:py-24 bg-muted/20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal className="text-center max-w-3xl mx-auto">
             <Badge
@@ -399,47 +442,52 @@ export default async function LandingPage() {
           <div className="mt-14 grid gap-6 md:grid-cols-2">
             {CANTOS_DESCRIPTIONS.map((canto, index) => (
               <Reveal key={canto.code} delay={index * 70} className="flex">
-                <Card className="card-hover overflow-hidden border w-full">
-                  <CardContent className="p-6 space-y-4">
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-2.5">
-                        <span className="bg-primary/15 text-primary grid size-9 place-items-center rounded-xl font-mono text-sm font-bold">
-                          {canto.code}
-                        </span>
-                        <div>
-                          <h3 className="font-bold text-lg">{canto.title}</h3>
-                          <p className="text-muted-foreground text-xs">
-                            {canto.circuits}
-                          </p>
+                <TiltCard>
+                  <Card className="card-hover overflow-hidden border w-full">
+                    <CardContent className="p-6 space-y-4 text-center sm:text-left">
+                      <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
+                        <div className="flex flex-col items-center gap-2.5 sm:flex-row">
+                          <span className="bg-primary/15 text-primary grid size-9 shrink-0 place-items-center rounded-xl font-mono text-sm font-bold">
+                            {canto.code}
+                          </span>
+                          <div>
+                            <h3 className="font-bold text-lg">{canto.title}</h3>
+                            <p className="text-muted-foreground text-xs">
+                              {canto.circuits}
+                            </p>
+                          </div>
                         </div>
+                        <Badge
+                          variant="neutral"
+                          className="text-xs font-medium"
+                        >
+                          {canto.level}
+                        </Badge>
                       </div>
-                      <Badge variant="neutral" className="text-xs font-medium">
-                        {canto.level}
-                      </Badge>
-                    </div>
 
-                    <p className="text-sm leading-relaxed text-muted-foreground">
-                      {canto.summary}
-                    </p>
-
-                    <div className="border-t pt-4 space-y-2">
-                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-                        Ao final deste canto você consegue:
+                      <p className="text-sm leading-relaxed text-muted-foreground">
+                        {canto.summary}
                       </p>
-                      <ul className="space-y-1.5">
-                        {canto.canDo.map((item, i) => (
-                          <li
-                            key={i}
-                            className="flex items-start gap-2 text-xs leading-normal"
-                          >
-                            <BadgeCheck className="text-success mt-0.5 size-4 shrink-0" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </CardContent>
-                </Card>
+
+                      <div className="border-t pt-4 space-y-2">
+                        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                          Ao final deste canto você consegue:
+                        </p>
+                        <ul className="space-y-1.5">
+                          {canto.canDo.map((item, i) => (
+                            <li
+                              key={i}
+                              className="flex items-start justify-center gap-2 text-xs leading-normal sm:justify-start"
+                            >
+                              <BadgeCheck className="text-success mt-0.5 size-4 shrink-0" />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </TiltCard>
               </Reveal>
             ))}
           </div>
@@ -447,7 +495,7 @@ export default async function LandingPage() {
       </section>
 
       {/* ---------------------------------------------------- Metodologia */}
-      <section id="metodologia" className="border-t py-24">
+      <section id="metodologia" className="border-t py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal className="text-center max-w-3xl mx-auto">
             <Badge
@@ -468,7 +516,7 @@ export default async function LandingPage() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {METHOD_STEPS.map((m, index) => (
               <Reveal key={m.step} delay={index * 70} className="flex">
-                <div className="bg-card rounded-xl border p-6 flex w-full flex-col justify-between">
+                <div className="bg-card flex w-full flex-col justify-between rounded-xl border p-6 text-center sm:text-left">
                   <div>
                     <div className="text-primary/30 font-mono text-4xl font-extrabold mb-2">
                       {m.step}
@@ -499,7 +547,7 @@ export default async function LandingPage() {
         tabela `track_targets`. A migration 400 diz de onde a UI deve tirar o
         que promete: "nunca de um número inventado na landing page".
       */}
-      <section id="ritmos" className="border-t py-24">
+      <section id="ritmos" className="border-t py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <Reveal className="mx-auto max-w-3xl text-center">
             <Badge
@@ -520,7 +568,7 @@ export default async function LandingPage() {
           </Reveal>
 
           {/* O núcleo comum: é daqui que vinha o "15 minutos" */}
-          <Reveal className="mx-auto mt-10 flex max-w-2xl items-start gap-3 rounded-xl border bg-card p-5">
+          <Reveal className="mx-auto mt-10 flex max-w-2xl flex-col items-center gap-3 rounded-xl border bg-card p-5 text-center sm:flex-row sm:items-start sm:text-left">
             <span className="bg-primary/10 text-primary grid size-10 shrink-0 place-items-center rounded-xl">
               <Clock className="size-5" />
             </span>
@@ -543,76 +591,84 @@ export default async function LandingPage() {
 
               return (
                 <Reveal key={track.id} delay={index * 90} className="flex">
-                  <div
-                    className={cn(
-                      "bg-card relative flex w-full flex-col rounded-2xl border p-6",
-                      featured &&
-                        "border-primary/40 ring-primary/20 shadow-lg ring-2",
-                    )}
-                  >
-                    {featured ? (
-                      <Badge className="absolute -top-3 left-6 gap-1 shadow-sm">
-                        <Star className="size-3" /> Mais escolhido
-                      </Badge>
-                    ) : null}
+                  <TiltCard intensity={5}>
+                    <div
+                      className={cn(
+                        "bg-card relative flex w-full flex-col rounded-2xl border p-6 text-center sm:text-left",
+                        featured &&
+                          "border-primary/40 ring-primary/20 shadow-lg ring-2",
+                      )}
+                    >
+                      {featured ? (
+                        // Centralizada no celular; a partir de sm volta a
+                        // ancorar na quina esquerda do cartão.
+                        <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 gap-1 shadow-sm sm:left-6 sm:translate-x-0">
+                          <Star className="size-3" /> Mais escolhido
+                        </Badge>
+                      ) : null}
 
-                    <div className="flex items-baseline justify-between gap-2">
-                      <h3 className="text-lg font-bold">{track.label}</h3>
-                      <Badge variant="neutral" className="text-xs">
-                        Chega ao {track.cefr}
-                      </Badge>
-                    </div>
+                      <div className="flex flex-col items-center gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+                        <h3 className="text-lg font-bold">{track.label}</h3>
+                        <Badge variant="neutral" className="text-xs">
+                          Chega ao {track.cefr}
+                        </Badge>
+                      </div>
 
-                    <div className="mt-4 flex items-baseline gap-1.5">
-                      <span className="text-3xl font-extrabold tabular-nums">
-                        {formatDaily(track.dailyMinutes)}
-                      </span>
-                      <span className="text-muted-foreground text-sm">
-                        por dia
-                      </span>
-                    </div>
-                    <p className="text-muted-foreground mt-1 text-xs">
-                      {track.totalHours} horas ao longo dos 728 dias
-                    </p>
-
-                    <div className="mt-5 flex items-start gap-2">
-                      <Target className="text-success mt-0.5 size-4 shrink-0" />
-                      <p className="text-sm leading-relaxed font-medium">
-                        {track.promise}
+                      <div className="mt-4 flex items-baseline justify-center gap-1.5 sm:justify-start">
+                        <span className="text-3xl font-extrabold tabular-nums">
+                          {formatDaily(track.dailyMinutes)}
+                        </span>
+                        <span className="text-muted-foreground text-sm">
+                          por dia
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground mt-1 text-xs">
+                        {track.totalHours} horas ao longo dos 728 dias
                       </p>
-                    </div>
 
-                    {/*
+                      <div className="mt-5 flex flex-col items-center gap-2 sm:flex-row sm:items-start">
+                        <Target className="text-success size-4 shrink-0 sm:mt-0.5" />
+                        <p className="text-sm leading-relaxed font-medium">
+                          {track.promise}
+                        </p>
+                      </div>
+
+                      {/*
                     O limite honesto não é letra miúda: fica do mesmo tamanho da
                     promessa. É o que faz o aluno escolher sabendo o que recebe,
                     em vez de desistir no mês 8 achando que foi enganado.
-                  */}
-                    <div className="border-muted-foreground/25 mt-4 border-l-2 pl-3">
-                      <p className="text-muted-foreground text-[11px] font-semibold uppercase tracking-wide">
-                        O que essa trilha não entrega
-                      </p>
-                      <p className="text-muted-foreground mt-1 text-sm leading-relaxed">
-                        {track.honestLimit}
-                      </p>
-                    </div>
 
-                    <div className="mt-auto border-t pt-4">
-                      <p className="text-muted-foreground text-[11px] font-semibold uppercase tracking-wide">
-                        Blocos do dia
-                      </p>
-                      <div className="mt-2 flex flex-wrap gap-1.5">
-                        {track.blocks.map((block) => (
-                          <span
-                            key={block}
-                            className="bg-muted text-muted-foreground rounded-full px-2.5 py-1 text-[11px] font-medium"
-                          >
-                            {DAY_BLOCKS[block].label} ·{" "}
-                            {DAY_BLOCKS[block].minutes} min
-                          </span>
-                        ))}
+                    No celular o filete vira uma régua no topo: uma borda à
+                    esquerda com o texto centralizado ficaria solta, apontando
+                    para nada.
+                  */}
+                      <div className="border-muted-foreground/25 mt-4 border-t-2 pt-3 sm:border-t-0 sm:border-l-2 sm:pt-0 sm:pl-3">
+                        <p className="text-muted-foreground text-[11px] font-semibold uppercase tracking-wide">
+                          O que essa trilha não entrega
+                        </p>
+                        <p className="text-muted-foreground mt-1 text-sm leading-relaxed">
+                          {track.honestLimit}
+                        </p>
+                      </div>
+
+                      <div className="mt-auto border-t pt-4">
+                        <p className="text-muted-foreground text-[11px] font-semibold uppercase tracking-wide">
+                          Blocos do dia
+                        </p>
+                        <div className="mt-2 flex flex-wrap justify-center gap-1.5 sm:justify-start">
+                          {track.blocks.map((block) => (
+                            <span
+                              key={block}
+                              className="bg-muted text-muted-foreground rounded-full px-2.5 py-1 text-[11px] font-medium"
+                            >
+                              {DAY_BLOCKS[block].label} ·{" "}
+                              {DAY_BLOCKS[block].minutes} min
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </TiltCard>
                 </Reveal>
               );
             })}
@@ -629,10 +685,10 @@ export default async function LandingPage() {
       </section>
 
       {/* ------------------------------------------------ Tutora IA Emma */}
-      <section id="tutora" className="border-t py-24 bg-muted/20">
+      <section id="tutora" className="border-t py-16 sm:py-24 bg-muted/20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <Reveal className="space-y-6">
+            <Reveal className="space-y-6 text-center sm:text-left">
               <Badge className="gap-1.5 px-3 py-1">
                 <Sparkles className="size-3.5" /> Professora de IA Dedicada
               </Badge>
@@ -652,7 +708,7 @@ export default async function LandingPage() {
               </p>
 
               <div className="space-y-4 pt-2">
-                <div className="flex gap-3">
+                <div className="flex flex-col items-center gap-2 sm:flex-row sm:items-start sm:gap-3">
                   <div className="bg-primary/10 text-primary grid size-10 shrink-0 place-items-center rounded-xl">
                     <Volume2 className="size-5" />
                   </div>
@@ -667,7 +723,7 @@ export default async function LandingPage() {
                   </div>
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex flex-col items-center gap-2 sm:flex-row sm:items-start sm:gap-3">
                   <div className="bg-primary/10 text-primary grid size-10 shrink-0 place-items-center rounded-xl">
                     <Headphones className="size-5" />
                   </div>
@@ -682,7 +738,7 @@ export default async function LandingPage() {
                   </div>
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex flex-col items-center gap-2 sm:flex-row sm:items-start sm:gap-3">
                   <div className="bg-primary/10 text-primary grid size-10 shrink-0 place-items-center rounded-xl">
                     <Radio className="size-5" />
                   </div>
@@ -772,7 +828,10 @@ export default async function LandingPage() {
       </section>
 
       {/* -------------------------------------------------- Investimento */}
-      <section id="investimento" className="border-t py-24 bg-muted/20">
+      <section
+        id="investimento"
+        className="border-t py-16 sm:py-24 bg-muted/20"
+      >
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <Reveal className="mx-auto max-w-2xl text-center">
             <Badge
@@ -797,13 +856,13 @@ export default async function LandingPage() {
           */}
           <Reveal className="mt-14 grid gap-8 lg:grid-cols-[1fr_380px] lg:items-start">
             {/* O que está incluído */}
-            <div className="bg-card rounded-2xl border p-7">
+            <div className="bg-card rounded-2xl border p-7 text-center sm:text-left">
               <h3 className="text-lg font-bold">Tudo isto está incluído</h3>
               <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                 {INCLUDED_IN_PRICE.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2.5 text-sm leading-relaxed"
+                    className="flex items-start justify-center gap-2.5 text-sm leading-relaxed sm:justify-start"
                   >
                     <BadgeCheck className="text-success mt-0.5 size-4.5 shrink-0" />
                     <span>{item}</span>
@@ -811,7 +870,7 @@ export default async function LandingPage() {
                 ))}
               </ul>
 
-              <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 border-t pt-6 text-xs text-muted-foreground font-medium">
+              <div className="mt-7 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 border-t pt-6 text-xs text-muted-foreground font-medium sm:justify-start">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="text-success size-4" /> Pagamento
                   processado pelo Mercado Pago
@@ -866,7 +925,10 @@ export default async function LandingPage() {
                       text: "Cartão de débito e saldo Mercado Pago",
                     },
                   ].map((item) => (
-                    <div key={item.text} className="flex items-center gap-2.5">
+                    <div
+                      key={item.text}
+                      className="flex items-center justify-center gap-2.5 sm:justify-start"
+                    >
                       <item.icon className="text-primary size-4 shrink-0" />
                       <span className="text-muted-foreground">{item.text}</span>
                     </div>
@@ -912,7 +974,7 @@ export default async function LandingPage() {
       </section>
 
       {/* ---------------------------------------------------- FAQ */}
-      <section id="faq" className="border-t py-24">
+      <section id="faq" className="border-t py-16 sm:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
           <Reveal className="text-center max-w-2xl mx-auto mb-14">
             <Badge
@@ -936,7 +998,7 @@ export default async function LandingPage() {
                       ▼
                     </span>
                   </summary>
-                  <p className="text-muted-foreground mt-3 text-sm leading-relaxed border-t pt-3">
+                  <p className="text-muted-foreground mt-3 border-t pt-3 text-center text-sm leading-relaxed sm:text-left">
                     {faq.a}
                   </p>
                 </details>
@@ -947,7 +1009,10 @@ export default async function LandingPage() {
       </section>
 
       {/* --------------------------------------------------------------- CTA */}
-      <section className="border-t py-24 bg-gradient-to-b from-primary/5 to-transparent">
+      <section
+        id="cta-final"
+        className="border-t py-16 sm:py-24 bg-gradient-to-b from-primary/5 to-transparent"
+      >
         <Reveal className="mx-auto max-w-3xl px-4 text-center sm:px-6 space-y-6">
           <h2 className="text-3xl font-bold sm:text-5xl tracking-tight">
             Comece a falar inglês hoje mesmo
@@ -975,6 +1040,15 @@ export default async function LandingPage() {
           </p>
         </Reveal>
       </section>
+
+      {/* Barra de compra fixa — só no celular, e só entre o hero e o preço. */}
+      <MobileCta
+        priceLabel={
+          longest && longest.installments > 1
+            ? `${formatBRL(priceCents)} ou ${longest.installments}x de ${formatBRL(longest.installmentCents)}`
+            : formatBRL(priceCents)
+        }
+      />
 
       {/* ------------------------------------------------------------ Footer */}
       <footer className="border-t py-10">
