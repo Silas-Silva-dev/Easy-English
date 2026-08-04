@@ -23,6 +23,7 @@ import { ThemeToggle } from "@/components/theme-provider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { Reveal } from "@/components/ui/reveal";
 import { formatBRL } from "@/lib/billing";
 import { checkoutEnv } from "@/lib/env";
 import { getInstallmentTable } from "@/lib/mercadopago/installments";
@@ -123,7 +124,7 @@ const METHOD_STEPS = [
     step: "01",
     tag: "Etapa de Aquisição (Dias 1 a 7)",
     title: "Imersão, Blocos & Quiz",
-    body: "Você ouve o diálogo em velocidade real antes de ler o texto. Aprende blocos prontos (\"Can I get a...\") em vez de decorar tabelas de gramática e testa a retenção com quizzes rápidos.",
+    body: 'Você ouve o diálogo em velocidade real antes de ler o texto. Aprende blocos prontos ("Can I get a...") em vez de decorar tabelas de gramática e testa a retenção com quizzes rápidos.',
   },
   {
     step: "02",
@@ -200,14 +201,34 @@ export default async function LandingPage() {
 
   return (
     <div className="relative min-h-screen bg-background text-foreground">
+      {/*
+        Sem JavaScript o IntersectionObserver nunca roda e todo bloco com
+        <Reveal> ficaria invisível para sempre. Isto devolve a página inteira a
+        quem navega com JS desligado e a qualquer rastreador que não execute
+        scripts — uma página de vendas em branco no Google seria um estrago bem
+        maior do que a animação vale.
+      */}
+      <noscript>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: ".reveal{opacity:1;transform:none}",
+          }}
+        />
+      </noscript>
+
       {/* ----------------------------------------------------------- Header */}
       <header className="glass fixed top-0 inset-x-0 z-50 border-b">
         <div className="mx-auto flex h-[calc(4rem+var(--safe-top))] max-w-6xl items-center justify-between px-4 pt-[var(--safe-top)] sm:px-6">
-          <Link href="/" className="flex items-center gap-2.5 font-semibold transition-opacity hover:opacity-90">
+          <Link
+            href="/"
+            className="flex items-center gap-2.5 font-semibold transition-opacity hover:opacity-90"
+          >
             <span className="bg-primary text-primary-foreground grid size-8 place-items-center rounded-xl shadow-md shadow-primary/20">
               <Waves className="size-4.5" />
             </span>
-            <span className="text-[1.1rem] tracking-tight font-bold">Easy English</span>
+            <span className="text-[1.1rem] tracking-tight font-bold">
+              Easy English
+            </span>
           </Link>
 
           {/* Rótulos curtos: com "Ritmos" são 6 itens, e os nomes longos
@@ -233,10 +254,20 @@ export default async function LandingPage() {
 
           <div className="flex items-center gap-2.5">
             <ThemeToggle />
-            <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+            <Button
+              asChild
+              variant="ghost"
+              size="sm"
+              className="hidden sm:inline-flex"
+            >
               <Link href="/login">Entrar</Link>
             </Button>
-            <Button asChild size="sm" variant="gradient" className="h-10 px-4 sm:h-9">
+            <Button
+              asChild
+              size="sm"
+              variant="gradient"
+              className="h-10 px-4 sm:h-9"
+            >
               <Link href="#investimento">Garantir meu acesso</Link>
             </Button>
           </div>
@@ -258,31 +289,51 @@ export default async function LandingPage() {
             <h1 className="animate-in-up text-4xl leading-[1.08] font-extrabold sm:text-6xl tracking-tight">
               <span className="text-gradient">Pare de travar no inglês.</span>
               <br />
-              Comece a <span className="text-primary">falar com confiança</span>.
+              Comece a <span className="text-primary">falar com confiança</span>
+              .
             </h1>
 
             <p className="text-muted-foreground animate-in-up mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed font-normal">
-              Domine o inglês em <strong>4 Cantos</strong>, no ritmo que <strong>você</strong> escolhe — de 20 minutos a 1h40 por dia. Grave sua fala nos desafios, salve seus áudios na plataforma e receba correções da <strong>Professora Emma (IA)</strong> em texto e áudio.
+              Domine o inglês em <strong>4 Cantos</strong>, no ritmo que{" "}
+              <strong>você</strong> escolhe — de 20 minutos a 1h40 por dia.
+              Grave sua fala nos desafios, salve seus áudios na plataforma e
+              receba correções da <strong>Professora Emma (IA)</strong> em texto
+              e áudio.
             </p>
 
             <div className="animate-in-up mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <Button asChild size="xl" variant="gradient" className="w-full sm:w-auto shadow-lg shadow-primary/20">
+              <Button
+                asChild
+                size="xl"
+                variant="gradient"
+                className="w-full sm:w-auto shadow-lg shadow-primary/20"
+              >
                 <Link href="/cadastro">
                   Quero meu acesso <ArrowRight className="size-4" />
                 </Link>
               </Button>
-              <Button asChild size="xl" variant="outline" className="w-full sm:w-auto">
+              <Button
+                asChild
+                size="xl"
+                variant="outline"
+                className="w-full sm:w-auto"
+              >
                 <Link href="#cantos">Ver os 4 Cantos do Curso</Link>
               </Button>
             </div>
 
             <p className="text-muted-foreground animate-in-up mt-4 text-sm">
-              Pagamento único de <strong className="text-foreground">{formatBRL(priceCents)}</strong>
+              Pagamento único de{" "}
+              <strong className="text-foreground">
+                {formatBRL(priceCents)}
+              </strong>
               {longest && longest.installments > 1 ? (
                 <>
                   {" "}
                   ou {longest.installments}x de{" "}
-                  <strong className="text-foreground">{formatBRL(longest.installmentCents)}</strong>
+                  <strong className="text-foreground">
+                    {formatBRL(longest.installmentCents)}
+                  </strong>
                 </>
               ) : null}{" "}
               · acesso vitalício, sem mensalidade
@@ -291,13 +342,16 @@ export default async function LandingPage() {
             {/* Destaques rápidos */}
             <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-muted-foreground font-medium">
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="text-success size-4" /> Pague uma vez, estude para sempre
+                <CheckCircle2 className="text-success size-4" /> Pague uma vez,
+                estude para sempre
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="text-success size-4" /> Respostas da tutora em áudio
+                <CheckCircle2 className="text-success size-4" /> Respostas da
+                tutora em áudio
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="text-success size-4" /> 728 dias no seu ritmo
+                <CheckCircle2 className="text-success size-4" /> 728 dias no seu
+                ritmo
               </span>
             </div>
 
@@ -310,8 +364,12 @@ export default async function LandingPage() {
                 { k: "3 Ritmos", v: "20, 60 ou 100 min" },
               ].map((s) => (
                 <div key={s.k} className="text-center">
-                  <div className="text-foreground text-2xl font-bold tabular-nums">{s.k}</div>
-                  <div className="text-muted-foreground mt-1 text-xs font-medium uppercase tracking-wide">{s.v}</div>
+                  <div className="text-foreground text-2xl font-bold tabular-nums">
+                    {s.k}
+                  </div>
+                  <div className="text-muted-foreground mt-1 text-xs font-medium uppercase tracking-wide">
+                    {s.v}
+                  </div>
                 </div>
               ))}
             </div>
@@ -322,56 +380,67 @@ export default async function LandingPage() {
       {/* ------------------------------------------------- Os 4 Cantos */}
       <section id="cantos" className="border-t py-24 bg-muted/20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="text-center max-w-3xl mx-auto">
-            <Badge variant="neutral" className="text-xs font-semibold uppercase tracking-widest mb-3">
+          <Reveal className="text-center max-w-3xl mx-auto">
+            <Badge
+              variant="neutral"
+              className="text-xs font-semibold uppercase tracking-widest mb-3"
+            >
               Estrutura Curricular
             </Badge>
             <h2 className="text-3xl font-bold sm:text-4xl">
               Os 4 Cantos do Inglês Destravado
             </h2>
             <p className="text-muted-foreground mt-3 text-base">
-              Nossa jornada em espiral leva você do nível iniciante (A1) até a fluência conectada e natural (B2).
+              Nossa jornada em espiral leva você do nível iniciante (A1) até a
+              fluência conectada e natural (B2).
             </p>
-          </div>
+          </Reveal>
 
           <div className="mt-14 grid gap-6 md:grid-cols-2">
-            {CANTOS_DESCRIPTIONS.map((canto) => (
-              <Card key={canto.code} className="card-hover overflow-hidden border">
-                <CardContent className="p-6 space-y-4">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2.5">
-                      <span className="bg-primary/15 text-primary grid size-9 place-items-center rounded-xl font-mono text-sm font-bold">
-                        {canto.code}
-                      </span>
-                      <div>
-                        <h3 className="font-bold text-lg">{canto.title}</h3>
-                        <p className="text-muted-foreground text-xs">{canto.circuits}</p>
+            {CANTOS_DESCRIPTIONS.map((canto, index) => (
+              <Reveal key={canto.code} delay={index * 70} className="flex">
+                <Card className="card-hover overflow-hidden border w-full">
+                  <CardContent className="p-6 space-y-4">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-2.5">
+                        <span className="bg-primary/15 text-primary grid size-9 place-items-center rounded-xl font-mono text-sm font-bold">
+                          {canto.code}
+                        </span>
+                        <div>
+                          <h3 className="font-bold text-lg">{canto.title}</h3>
+                          <p className="text-muted-foreground text-xs">
+                            {canto.circuits}
+                          </p>
+                        </div>
                       </div>
+                      <Badge variant="neutral" className="text-xs font-medium">
+                        {canto.level}
+                      </Badge>
                     </div>
-                    <Badge variant="neutral" className="text-xs font-medium">
-                      {canto.level}
-                    </Badge>
-                  </div>
 
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {canto.summary}
-                  </p>
-
-                  <div className="border-t pt-4 space-y-2">
-                    <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-                      Ao final deste canto você consegue:
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {canto.summary}
                     </p>
-                    <ul className="space-y-1.5">
-                      {canto.canDo.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-xs leading-normal">
-                          <BadgeCheck className="text-success mt-0.5 size-4 shrink-0" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </CardContent>
-              </Card>
+
+                    <div className="border-t pt-4 space-y-2">
+                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
+                        Ao final deste canto você consegue:
+                      </p>
+                      <ul className="space-y-1.5">
+                        {canto.canDo.map((item, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-xs leading-normal"
+                          >
+                            <BadgeCheck className="text-success mt-0.5 size-4 shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -380,32 +449,40 @@ export default async function LandingPage() {
       {/* ---------------------------------------------------- Metodologia */}
       <section id="metodologia" className="border-t py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="text-center max-w-3xl mx-auto">
-            <Badge variant="neutral" className="text-xs font-semibold uppercase tracking-widest mb-3">
+          <Reveal className="text-center max-w-3xl mx-auto">
+            <Badge
+              variant="neutral"
+              className="text-xs font-semibold uppercase tracking-widest mb-3"
+            >
               Como Você Aprende
             </Badge>
             <h2 className="text-3xl font-bold sm:text-4xl">
               Ciclo de 14 Dias por Circuito
             </h2>
             <p className="text-muted-foreground mt-3 text-base">
-              Cada circuito dura 14 dias: 7 dias de aquisição dos blocos de fala e 7 dias de consolidação com áudio e conversa ao vivo.
+              Cada circuito dura 14 dias: 7 dias de aquisição dos blocos de fala
+              e 7 dias de consolidação com áudio e conversa ao vivo.
             </p>
-          </div>
+          </Reveal>
 
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {METHOD_STEPS.map((m) => (
-              <div key={m.step} className="bg-card rounded-xl border p-6 flex flex-col justify-between">
-                <div>
-                  <div className="text-primary/30 font-mono text-4xl font-extrabold mb-2">
-                    {m.step}
+            {METHOD_STEPS.map((m, index) => (
+              <Reveal key={m.step} delay={index * 70} className="flex">
+                <div className="bg-card rounded-xl border p-6 flex w-full flex-col justify-between">
+                  <div>
+                    <div className="text-primary/30 font-mono text-4xl font-extrabold mb-2">
+                      {m.step}
+                    </div>
+                    <span className="text-primary text-[11px] font-semibold uppercase tracking-wider block mb-1">
+                      {m.tag}
+                    </span>
+                    <h3 className="font-bold text-base mt-1 mb-2">{m.title}</h3>
+                    <p className="text-muted-foreground text-xs leading-relaxed">
+                      {m.body}
+                    </p>
                   </div>
-                  <span className="text-primary text-[11px] font-semibold uppercase tracking-wider block mb-1">
-                    {m.tag}
-                  </span>
-                  <h3 className="font-bold text-base mt-1 mb-2">{m.title}</h3>
-                  <p className="text-muted-foreground text-xs leading-relaxed">{m.body}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -424,114 +501,130 @@ export default async function LandingPage() {
       */}
       <section id="ritmos" className="border-t py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <Badge variant="neutral" className="text-xs font-semibold uppercase tracking-widest mb-3">
+          <Reveal className="mx-auto max-w-3xl text-center">
+            <Badge
+              variant="neutral"
+              className="text-xs font-semibold uppercase tracking-widest mb-3"
+            >
               Quanto tempo por dia
             </Badge>
             <h2 className="text-3xl font-bold sm:text-4xl">
               Você escolhe o ritmo. A gente diz aonde ele chega.
             </h2>
             <p className="text-muted-foreground mt-3 text-base leading-relaxed">
-              O conteúdo é o mesmo nas três trilhas — muda quanto você faz por dia. E cada uma vem
-              com o que ela <strong>não</strong> entrega, escrito na mesma letra da promessa. Você
-              troca de trilha quando quiser, no seu perfil.
+              O conteúdo é o mesmo nas três trilhas — muda quanto você faz por
+              dia. E cada uma vem com o que ela <strong>não</strong> entrega,
+              escrito na mesma letra da promessa. Você troca de trilha quando
+              quiser, no seu perfil.
             </p>
-          </div>
+          </Reveal>
 
           {/* O núcleo comum: é daqui que vinha o "15 minutos" */}
-          <div className="mx-auto mt-10 flex max-w-2xl items-start gap-3 rounded-xl border bg-card p-5">
+          <Reveal className="mx-auto mt-10 flex max-w-2xl items-start gap-3 rounded-xl border bg-card p-5">
             <span className="bg-primary/10 text-primary grid size-10 shrink-0 place-items-center rounded-xl">
               <Clock className="size-5" />
             </span>
             <div className="text-sm">
               <p className="font-semibold">
-                O núcleo são {DAY_BLOCKS.core.minutes} minutos, em qualquer trilha
+                O núcleo são {DAY_BLOCKS.core.minutes} minutos, em qualquer
+                trilha
               </p>
               <p className="text-muted-foreground mt-1 leading-relaxed">
-                {DAY_BLOCKS.core.brief} As trilhas mais longas acrescentam blocos a ele — nunca o
-                substituem. Num dia corrido, fazer só o núcleo mantém a constância.
+                {DAY_BLOCKS.core.brief} As trilhas mais longas acrescentam
+                blocos a ele — nunca o substituem. Num dia corrido, fazer só o
+                núcleo mantém a constância.
               </p>
             </div>
-          </div>
+          </Reveal>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
-            {TRACKS.map((track) => {
+            {TRACKS.map((track, index) => {
               const featured = track.id === DEFAULT_TRACK;
 
               return (
-                <div
-                  key={track.id}
-                  className={cn(
-                    "bg-card relative flex flex-col rounded-2xl border p-6",
-                    featured && "border-primary/40 ring-primary/20 shadow-lg ring-2",
-                  )}
-                >
-                  {featured ? (
-                    <Badge className="absolute -top-3 left-6 gap-1 shadow-sm">
-                      <Star className="size-3" /> Mais escolhido
-                    </Badge>
-                  ) : null}
+                <Reveal key={track.id} delay={index * 90} className="flex">
+                  <div
+                    className={cn(
+                      "bg-card relative flex w-full flex-col rounded-2xl border p-6",
+                      featured &&
+                        "border-primary/40 ring-primary/20 shadow-lg ring-2",
+                    )}
+                  >
+                    {featured ? (
+                      <Badge className="absolute -top-3 left-6 gap-1 shadow-sm">
+                        <Star className="size-3" /> Mais escolhido
+                      </Badge>
+                    ) : null}
 
-                  <div className="flex items-baseline justify-between gap-2">
-                    <h3 className="text-lg font-bold">{track.label}</h3>
-                    <Badge variant="neutral" className="text-xs">
-                      Chega ao {track.cefr}
-                    </Badge>
-                  </div>
+                    <div className="flex items-baseline justify-between gap-2">
+                      <h3 className="text-lg font-bold">{track.label}</h3>
+                      <Badge variant="neutral" className="text-xs">
+                        Chega ao {track.cefr}
+                      </Badge>
+                    </div>
 
-                  <div className="mt-4 flex items-baseline gap-1.5">
-                    <span className="text-3xl font-extrabold tabular-nums">
-                      {formatDaily(track.dailyMinutes)}
-                    </span>
-                    <span className="text-muted-foreground text-sm">por dia</span>
-                  </div>
-                  <p className="text-muted-foreground mt-1 text-xs">
-                    {track.totalHours} horas ao longo dos 728 dias
-                  </p>
+                    <div className="mt-4 flex items-baseline gap-1.5">
+                      <span className="text-3xl font-extrabold tabular-nums">
+                        {formatDaily(track.dailyMinutes)}
+                      </span>
+                      <span className="text-muted-foreground text-sm">
+                        por dia
+                      </span>
+                    </div>
+                    <p className="text-muted-foreground mt-1 text-xs">
+                      {track.totalHours} horas ao longo dos 728 dias
+                    </p>
 
-                  <div className="mt-5 flex items-start gap-2">
-                    <Target className="text-success mt-0.5 size-4 shrink-0" />
-                    <p className="text-sm leading-relaxed font-medium">{track.promise}</p>
-                  </div>
+                    <div className="mt-5 flex items-start gap-2">
+                      <Target className="text-success mt-0.5 size-4 shrink-0" />
+                      <p className="text-sm leading-relaxed font-medium">
+                        {track.promise}
+                      </p>
+                    </div>
 
-                  {/*
+                    {/*
                     O limite honesto não é letra miúda: fica do mesmo tamanho da
                     promessa. É o que faz o aluno escolher sabendo o que recebe,
                     em vez de desistir no mês 8 achando que foi enganado.
                   */}
-                  <div className="border-muted-foreground/25 mt-4 border-l-2 pl-3">
-                    <p className="text-muted-foreground text-[11px] font-semibold uppercase tracking-wide">
-                      O que essa trilha não entrega
-                    </p>
-                    <p className="text-muted-foreground mt-1 text-sm leading-relaxed">
-                      {track.honestLimit}
-                    </p>
-                  </div>
+                    <div className="border-muted-foreground/25 mt-4 border-l-2 pl-3">
+                      <p className="text-muted-foreground text-[11px] font-semibold uppercase tracking-wide">
+                        O que essa trilha não entrega
+                      </p>
+                      <p className="text-muted-foreground mt-1 text-sm leading-relaxed">
+                        {track.honestLimit}
+                      </p>
+                    </div>
 
-                  <div className="mt-auto border-t pt-4">
-                    <p className="text-muted-foreground text-[11px] font-semibold uppercase tracking-wide">
-                      Blocos do dia
-                    </p>
-                    <div className="mt-2 flex flex-wrap gap-1.5">
-                      {track.blocks.map((block) => (
-                        <span
-                          key={block}
-                          className="bg-muted text-muted-foreground rounded-full px-2.5 py-1 text-[11px] font-medium"
-                        >
-                          {DAY_BLOCKS[block].label} · {DAY_BLOCKS[block].minutes} min
-                        </span>
-                      ))}
+                    <div className="mt-auto border-t pt-4">
+                      <p className="text-muted-foreground text-[11px] font-semibold uppercase tracking-wide">
+                        Blocos do dia
+                      </p>
+                      <div className="mt-2 flex flex-wrap gap-1.5">
+                        {track.blocks.map((block) => (
+                          <span
+                            key={block}
+                            className="bg-muted text-muted-foreground rounded-full px-2.5 py-1 text-[11px] font-medium"
+                          >
+                            {DAY_BLOCKS[block].label} ·{" "}
+                            {DAY_BLOCKS[block].minutes} min
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Reveal>
               );
             })}
           </div>
 
-          <p className="text-muted-foreground mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed">
-            Não existe trilha errada — existe a que você sustenta. Começar no Essencial e subir
-            depois funciona melhor do que escolher o Intensivo e abandonar no segundo mês.
-          </p>
+          <Reveal>
+            <p className="text-muted-foreground mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed">
+              Não existe trilha errada — existe a que você sustenta. Começar no
+              Essencial e subir depois funciona melhor do que escolher o
+              Intensivo e abandonar no segundo mês.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -539,17 +632,23 @@ export default async function LandingPage() {
       <section id="tutora" className="border-t py-24 bg-muted/20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div className="space-y-6">
+            <Reveal className="space-y-6">
               <Badge className="gap-1.5 px-3 py-1">
                 <Sparkles className="size-3.5" /> Professora de IA Dedicada
               </Badge>
 
               <h2 className="text-3xl font-bold sm:text-4xl leading-tight">
-                Sua tutora de fala que <span className="text-primary">ouve, avalia e responde em áudio</span>.
+                Sua tutora de fala que{" "}
+                <span className="text-primary">
+                  ouve, avalia e responde em áudio
+                </span>
+                .
               </h2>
 
               <p className="text-muted-foreground text-base leading-relaxed">
-                A <strong>Professora Emma</strong> foi treinada especificamente para identificar os vícios fonéticos e os erros estruturais que brasileiros cometem ao falar inglês.
+                A <strong>Professora Emma</strong> foi treinada especificamente
+                para identificar os vícios fonéticos e os erros estruturais que
+                brasileiros cometem ao falar inglês.
               </p>
 
               <div className="space-y-4 pt-2">
@@ -558,9 +657,12 @@ export default async function LandingPage() {
                     <Volume2 className="size-5" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sm">Respostas e Orientações em Áudio</h4>
+                    <h4 className="font-semibold text-sm">
+                      Respostas e Orientações em Áudio
+                    </h4>
                     <p className="text-muted-foreground text-xs mt-0.5">
-                      Além do relatório por escrito, você pode ouvir a tutora explicando as correções em áudio com pronúncia perfeita.
+                      Além do relatório por escrito, você pode ouvir a tutora
+                      explicando as correções em áudio com pronúncia perfeita.
                     </p>
                   </div>
                 </div>
@@ -570,9 +672,12 @@ export default async function LandingPage() {
                     <Headphones className="size-5" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sm">Áudios Salvos na Sua Conta</h4>
+                    <h4 className="font-semibold text-sm">
+                      Áudios Salvos na Sua Conta
+                    </h4>
                     <p className="text-muted-foreground text-xs mt-0.5">
-                      Todas as suas gravações ficam salvas no seu histórico para você ouvir novamente e comprovar sua evolução de sotaque.
+                      Todas as suas gravações ficam salvas no seu histórico para
+                      você ouvir novamente e comprovar sua evolução de sotaque.
                     </p>
                   </div>
                 </div>
@@ -582,17 +687,23 @@ export default async function LandingPage() {
                     <Radio className="size-5" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-sm">Conversa ao Vivo em Tempo Real</h4>
+                    <h4 className="font-semibold text-sm">
+                      Conversa ao Vivo em Tempo Real
+                    </h4>
                     <p className="text-muted-foreground text-xs mt-0.5">
-                      Pratique conversa fluida sem roteiro na sala ao vivo. A Emma responde instantaneamente em voz ao que você diz.
+                      Pratique conversa fluida sem roteiro na sala ao vivo. A
+                      Emma responde instantaneamente em voz ao que você diz.
                     </p>
                   </div>
                 </div>
               </div>
-            </div>
+            </Reveal>
 
             {/* Simulação de Card do Player de Feedback */}
-            <div className="bg-card rounded-2xl border p-6 shadow-xl space-y-4">
+            <Reveal
+              delay={120}
+              className="bg-card rounded-2xl border p-6 shadow-xl space-y-4"
+            >
               <div className="flex items-center justify-between border-b pb-4">
                 <div className="flex items-center gap-3">
                   <div className="bg-primary text-primary-foreground grid size-10 place-items-center rounded-full font-bold text-sm">
@@ -600,7 +711,9 @@ export default async function LandingPage() {
                   </div>
                   <div>
                     <p className="font-bold text-sm">Professora Emma (IA)</p>
-                    <p className="text-muted-foreground text-xs">Avaliação de Fala & Áudio</p>
+                    <p className="text-muted-foreground text-xs">
+                      Avaliação de Fala & Áudio
+                    </p>
                   </div>
                 </div>
                 <Badge variant="success" className="text-xs">
@@ -613,12 +726,15 @@ export default async function LandingPage() {
                   <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
                     Seu áudio gravado
                   </p>
-                  <p className="text-xs italic">"Hi, I want a coffee please and a water."</p>
+                  <p className="text-xs italic">
+                    "Hi, I want a coffee please and a water."
+                  </p>
                 </div>
 
                 <div className="border-primary/20 bg-primary/5 rounded-xl border p-3.5 space-y-2">
                   <p className="text-primary flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide">
-                    <Volume2 className="size-3.5" /> Orientação em áudio da tutora
+                    <Volume2 className="size-3.5" /> Orientação em áudio da
+                    tutora
                   </p>
                   <div className="bg-background rounded-lg p-2.5 flex items-center gap-3 border">
                     <button className="bg-primary text-primary-foreground grid size-8 place-items-center rounded-full shrink-0">
@@ -628,19 +744,29 @@ export default async function LandingPage() {
                       <div className="bg-muted h-1.5 w-full rounded-full overflow-hidden">
                         <div className="bg-primary h-full w-2/3" />
                       </div>
-                      <p className="text-[10px] text-muted-foreground mt-1">0:18 / 0:28 · Ouvir correções faladas</p>
+                      <p className="text-[10px] text-muted-foreground mt-1">
+                        0:18 / 0:28 · Ouvir correções faladas
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 <div className="space-y-1.5 text-xs">
-                  <span className="font-semibold block">Dica de pronúncia:</span>
+                  <span className="font-semibold block">
+                    Dica de pronúncia:
+                  </span>
                   <p className="text-muted-foreground">
-                    Cuidado com a palavra <span className="text-destructive font-medium">water</span>. Diga com o R suave do inglês americano: <code className="bg-muted px-1.5 py-0.5 rounded font-mono text-[11px]">/ˈwɑː.t̬ɚ/</code>.
+                    Cuidado com a palavra{" "}
+                    <span className="text-destructive font-medium">water</span>.
+                    Diga com o R suave do inglês americano:{" "}
+                    <code className="bg-muted px-1.5 py-0.5 rounded font-mono text-[11px]">
+                      /ˈwɑː.t̬ɚ/
+                    </code>
+                    .
                   </p>
                 </div>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -648,26 +774,37 @@ export default async function LandingPage() {
       {/* -------------------------------------------------- Investimento */}
       <section id="investimento" className="border-t py-24 bg-muted/20">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <div className="mx-auto max-w-2xl text-center">
-            <Badge variant="neutral" className="text-xs font-semibold uppercase tracking-widest mb-3">
+          <Reveal className="mx-auto max-w-2xl text-center">
+            <Badge
+              variant="neutral"
+              className="text-xs font-semibold uppercase tracking-widest mb-3"
+            >
               Investimento
             </Badge>
             <h2 className="text-3xl font-bold sm:text-4xl">
               Um pagamento. Dois anos de curso. Acesso para sempre.
             </h2>
             <p className="text-muted-foreground mt-3 text-base">
-              Sem mensalidade, sem renovação automática e sem cobrança surpresa. Você paga uma única
-              vez e o curso inteiro fica na sua conta.
+              Sem mensalidade, sem renovação automática e sem cobrança surpresa.
+              Você paga uma única vez e o curso inteiro fica na sua conta.
             </p>
-          </div>
+          </Reveal>
 
-          <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_380px] lg:items-start">
+          {/*
+            A grade inteira num só <Reveal>, e não cada cartão: o card de preço
+            é `lg:sticky`, e um wrapper com altura própria em volta dele viraria
+            o bloco em que ele gruda — matando o sticky.
+          */}
+          <Reveal className="mt-14 grid gap-8 lg:grid-cols-[1fr_380px] lg:items-start">
             {/* O que está incluído */}
             <div className="bg-card rounded-2xl border p-7">
               <h3 className="text-lg font-bold">Tudo isto está incluído</h3>
               <ul className="mt-6 grid gap-3 sm:grid-cols-2">
                 {INCLUDED_IN_PRICE.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed">
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-sm leading-relaxed"
+                  >
                     <BadgeCheck className="text-success mt-0.5 size-4.5 shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -676,10 +813,12 @@ export default async function LandingPage() {
 
               <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 border-t pt-6 text-xs text-muted-foreground font-medium">
                 <span className="flex items-center gap-1.5">
-                  <ShieldCheck className="text-success size-4" /> Pagamento processado pelo Mercado Pago
+                  <ShieldCheck className="text-success size-4" /> Pagamento
+                  processado pelo Mercado Pago
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <Lock className="text-success size-4" /> Seus dados de cartão não passam por nós
+                  <Lock className="text-success size-4" /> Seus dados de cartão
+                  não passam por nós
                 </span>
               </div>
             </div>
@@ -692,7 +831,9 @@ export default async function LandingPage() {
                 </p>
 
                 <div className="mt-4 flex items-baseline justify-center gap-2">
-                  <span className="text-4xl font-extrabold tabular-nums">{formatBRL(priceCents)}</span>
+                  <span className="text-4xl font-extrabold tabular-nums">
+                    {formatBRL(priceCents)}
+                  </span>
                   <span className="text-muted-foreground text-sm">à vista</span>
                 </div>
 
@@ -700,7 +841,8 @@ export default async function LandingPage() {
                   <p className="text-muted-foreground mt-2 text-sm">
                     ou em até{" "}
                     <strong className="text-foreground">
-                      {longest.installments}x de {formatBRL(longest.installmentCents)}
+                      {longest.installments}x de{" "}
+                      {formatBRL(longest.installmentCents)}
                     </strong>{" "}
                     no cartão
                   </p>
@@ -719,7 +861,10 @@ export default async function LandingPage() {
                       icon: Layers,
                       text: `Cartão de crédito em até ${checkoutEnv.maxInstallments}x`,
                     },
-                    { icon: Lock, text: "Cartão de débito e saldo Mercado Pago" },
+                    {
+                      icon: Lock,
+                      text: "Cartão de débito e saldo Mercado Pago",
+                    },
                   ].map((item) => (
                     <div key={item.text} className="flex items-center gap-2.5">
                       <item.icon className="text-primary size-4 shrink-0" />
@@ -728,15 +873,21 @@ export default async function LandingPage() {
                   ))}
                 </div>
 
-                <Button asChild size="xl" variant="gradient" className="w-full shadow-lg shadow-primary/20">
+                <Button
+                  asChild
+                  size="xl"
+                  variant="gradient"
+                  className="w-full shadow-lg shadow-primary/20"
+                >
                   <Link href="/cadastro">
                     Criar conta e pagar <ArrowRight className="size-4" />
                   </Link>
                 </Button>
 
                 <p className="text-muted-foreground text-center text-xs leading-relaxed">
-                  Você cria a conta, confirma o e-mail e conclui o pagamento no ambiente seguro do
-                  Mercado Pago. O acesso abre automaticamente na aprovação.
+                  Você cria a conta, confirma o e-mail e conclui o pagamento no
+                  ambiente seguro do Mercado Pago. O acesso abre automaticamente
+                  na aprovação.
                 </p>
 
                 <p className="text-muted-foreground border-t pt-4 text-center text-[11px] leading-relaxed">
@@ -746,41 +897,50 @@ export default async function LandingPage() {
                 </p>
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          <p className="text-muted-foreground mx-auto mt-10 max-w-2xl text-center text-xs leading-relaxed">
-            Já tem conta e ainda não concluiu o pagamento?{" "}
-            <Link href="/login" className="text-primary hover:underline">
-              Entre na plataforma
-            </Link>{" "}
-            para retomar de onde parou.
-          </p>
+          <Reveal>
+            <p className="text-muted-foreground mx-auto mt-10 max-w-2xl text-center text-xs leading-relaxed">
+              Já tem conta e ainda não concluiu o pagamento?{" "}
+              <Link href="/login" className="text-primary hover:underline">
+                Entre na plataforma
+              </Link>{" "}
+              para retomar de onde parou.
+            </p>
+          </Reveal>
         </div>
       </section>
 
       {/* ---------------------------------------------------- FAQ */}
       <section id="faq" className="border-t py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <Badge variant="neutral" className="text-xs font-semibold uppercase tracking-widest mb-3">
+          <Reveal className="text-center max-w-2xl mx-auto mb-14">
+            <Badge
+              variant="neutral"
+              className="text-xs font-semibold uppercase tracking-widest mb-3"
+            >
               Tire Suas Dúvidas
             </Badge>
-            <h2 className="text-3xl font-bold sm:text-4xl">Perguntas Frequentes</h2>
-          </div>
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Perguntas Frequentes
+            </h2>
+          </Reveal>
 
           <div className="space-y-4">
             {FAQS.map((faq, i) => (
-              <details key={i} className="group bg-card rounded-xl border p-5 [&::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-center justify-between font-semibold text-base">
-                  <span>{faq.q}</span>
-                  <span className="text-primary transition-transform duration-200 group-open:rotate-180">
-                    ▼
-                  </span>
-                </summary>
-                <p className="text-muted-foreground mt-3 text-sm leading-relaxed border-t pt-3">
-                  {faq.a}
-                </p>
-              </details>
+              <Reveal key={i} delay={Math.min(i, 4) * 60}>
+                <details className="group bg-card rounded-xl border p-5 [&::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer items-center justify-between font-semibold text-base">
+                    <span>{faq.q}</span>
+                    <span className="text-primary transition-transform duration-200 group-open:rotate-180">
+                      ▼
+                    </span>
+                  </summary>
+                  <p className="text-muted-foreground mt-3 text-sm leading-relaxed border-t pt-3">
+                    {faq.a}
+                  </p>
+                </details>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -788,14 +948,20 @@ export default async function LandingPage() {
 
       {/* --------------------------------------------------------------- CTA */}
       <section className="border-t py-24 bg-gradient-to-b from-primary/5 to-transparent">
-        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 space-y-6">
+        <Reveal className="mx-auto max-w-3xl px-4 text-center sm:px-6 space-y-6">
           <h2 className="text-3xl font-bold sm:text-5xl tracking-tight">
             Comece a falar inglês hoje mesmo
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto">
-            Abra o app, faça o bloco do dia no seu ritmo, grave seu áudio e receba a avaliação em áudio da Professora Emma.
+            Abra o app, faça o bloco do dia no seu ritmo, grave seu áudio e
+            receba a avaliação em áudio da Professora Emma.
           </p>
-          <Button asChild size="xl" variant="gradient" className="shadow-xl shadow-primary/25">
+          <Button
+            asChild
+            size="xl"
+            variant="gradient"
+            className="shadow-xl shadow-primary/25"
+          >
             <Link href="/cadastro">
               Garantir meu acesso <ArrowRight className="size-4" />
             </Link>
@@ -807,7 +973,7 @@ export default async function LandingPage() {
               : ""}{" "}
             · pagamento único, acesso vitalício
           </p>
-        </div>
+        </Reveal>
       </section>
 
       {/* ------------------------------------------------------------ Footer */}
@@ -819,7 +985,10 @@ export default async function LandingPage() {
             </span>
             <span>Easy English</span>
           </div>
-          <p className="text-xs">© {new Date().getFullYear()} Easy English. Todos os direitos reservados.</p>
+          <p className="text-xs">
+            © {new Date().getFullYear()} Easy English. Todos os direitos
+            reservados.
+          </p>
         </div>
       </footer>
     </div>

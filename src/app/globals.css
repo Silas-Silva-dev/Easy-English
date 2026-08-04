@@ -355,6 +355,27 @@
   .animate-pulse-ring {
     animation: pulse-ring 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+
+  /* Estado inicial de <Reveal>. O atributo `data-shown` é ligado pelo
+     IntersectionObserver quando o bloco entra na tela.
+
+     Transição em vez de animação de propósito: `animation` dispara na
+     montagem, e é justamente o que NÃO se quer aqui — o bloco precisa esperar
+     a rolagem chegar nele. O bloco `prefers-reduced-motion` lá embaixo zera a
+     duração, então quem pediu menos movimento vê o conteúdo aparecer na hora,
+     sem deslizar. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal[data-shown] {
+    opacity: 1;
+    transform: none;
+  }
   .animate-progress-indeterminate {
     animation: progress-indeterminate 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   }
