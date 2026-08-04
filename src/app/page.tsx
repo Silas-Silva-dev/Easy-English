@@ -31,13 +31,27 @@ import { ThemeToggle } from "@/components/theme-provider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { formatBRL } from "@/lib/billing";
+import { checkoutEnv } from "@/lib/env";
+import { getInstallmentTable } from "@/lib/mercadopago/installments";
 import { CANTOS, CIRCUITS, type CantoSpec } from "@content/curriculum";
 
 export const metadata: Metadata = {
   title: "InglishEasy: Plataforma Completa de Inglês em 4 Cantos com IA",
   description:
-    "Aprenda a falar inglês fluente no seu ritmo com a Professora Emma (IA). 4 Cantos, 52 circuitos, 728 dias de lições práticas com análise de pronúncia em áudio e conversa ao vivo.",
+    "Aprenda a falar inglês fluente no seu ritmo com a Professora Emma (IA). 4 Cantos, 52 circuitos, 728 dias de lições práticas com análise de pronúncia em áudio e conversa ao vivo. Pagamento único, acesso vitalício.",
 };
+
+/**
+ * Regenerada de hora em hora.
+ *
+ * A página continua pré-renderizada (é o que os cabeçalhos de cache do
+ * next.config pressupõem), mas o preço e a tabela de parcelas deixam de ficar
+ * congelados no HTML do build: mudar `CHECKOUT_PRICE_CENTS` passa a valer sem
+ * novo deploy. Um preço errado na página de vendas é uma promessa que o
+ * checkout não cumpre.
+ */
+export const revalidate = 3600;
 
 const CANTOS_DESCRIPTIONS = [
   {
@@ -121,7 +135,30 @@ const METHOD_STEPS = [
   },
 ];
 
+const INCLUDED_IN_PRICE = [
+  "Os 4 Cantos completos: 52 circuitos e 728 dias de lição, do A1 ao B2",
+  "Desafios de fala com gravação e análise de pronúncia por IA (com IPA)",
+  "Correções da Professora Emma em texto e em áudio falado",
+  "Sala de conversa ao vivo por voz, em tempo real e no seu nível",
+  "Revisão espaçada automática de cada bloco de fala que você aprende",
+  "Seus áudios e seu progresso salvos para sempre na sua conta",
+  "Acesso pelo celular, tablet e computador, sem instalar nada",
+  "Novas lições e melhorias da plataforma sem custo adicional",
+];
+
 const FAQS = [
+  {
+    q: "Como funciona o pagamento e o que acontece depois?",
+    a: "É um pagamento único, sem mensalidade e sem renovação automática. Você cria a conta, confirma o e-mail e conclui o pagamento no ambiente seguro do Mercado Pago (a plataforma de pagamentos do Mercado Livre). Assim que o pagamento é aprovado, o acesso ao curso completo abre automaticamente — no PIX isso costuma levar segundos.",
+  },
+  {
+    q: "Posso parcelar? Tem juros?",
+    a: "Pode parcelar no cartão de crédito. A primeira parcela é sem juros; a partir da segunda, o parcelamento segue a tabela de juros da operadora do seu cartão, cobrada por ela. O valor exato de cada parcela aparece na tela do Mercado Pago antes de você confirmar a compra. Se preferir pagar sem nenhum acréscimo, use o PIX ou o cartão à vista.",
+  },
+  {
+    q: "Quais formas de pagamento vocês aceitam?",
+    a: "PIX, cartão de crédito (à vista ou parcelado), cartão de débito e saldo em conta Mercado Pago. Os dados do seu cartão são digitados no ambiente do Mercado Pago e não passam pela nossa plataforma.",
+  },
   {
     q: "Preciso saber inglês para começar no Canto 1?",
     a: "Não! O Canto 1 (Destravar) é desenhado desde o nível A1 inicial. O curso utiliza o método de blocos de fala e imersão progressiva, ideal tanto para quem está do zero quanto para quem tem o inglês travado na mente.",
@@ -144,7 +181,13 @@ const FAQS = [
   },
 ];
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const priceCents = checkoutEnv.priceCents;
+  const { options, source } = await getInstallmentTable(priceCents);
+  // Última linha da tabela: a maior parcela permitida, que é o número que o
+  // visitante procura ("cabe no meu mês?").
+  const longest = options[options.length - 1];
+
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       {/* ----------------------------------------------------------- Header */}
@@ -167,6 +210,9 @@ export default function LandingPage() {
             <a href="#tutora" className="text-muted-foreground hover:text-foreground transition-colors">
               Tutora em Áudio
             </a>
+            <a href="#investimento" className="text-muted-foreground hover:text-foreground transition-colors">
+              Investimento
+            </a>
             <a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors">
               Perguntas
             </a>
@@ -178,7 +224,7 @@ export default function LandingPage() {
               <Link href="/login">Entrar</Link>
             </Button>
             <Button asChild size="sm" variant="gradient" className="h-10 px-4 sm:h-9">
-              <Link href="/cadastro">Começar grátis</Link>
+              <Link href="#investimento">Garantir meu acesso</Link>
             </Button>
           </div>
         </div>
@@ -209,7 +255,7 @@ export default function LandingPage() {
             <div className="animate-in-up mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Button asChild size="xl" variant="gradient" className="w-full sm:w-auto shadow-lg shadow-primary/20">
                 <Link href="/cadastro">
-                  Criar conta grátis <ArrowRight className="size-4" />
+                  Quero meu acesso <ArrowRight className="size-4" />
                 </Link>
               </Button>
               <Button asChild size="xl" variant="outline" className="w-full sm:w-auto">
@@ -217,10 +263,22 @@ export default function LandingPage() {
               </Button>
             </div>
 
+            <p className="text-muted-foreground animate-in-up mt-4 text-sm">
+              Pagamento único de <strong className="text-foreground">{formatBRL(priceCents)}</strong>
+              {longest && longest.installments > 1 ? (
+                <>
+                  {" "}
+                  ou {longest.installments}x de{" "}
+                  <strong className="text-foreground">{formatBRL(longest.installmentCents)}</strong>
+                </>
+              ) : null}{" "}
+              · acesso vitalício, sem mensalidade
+            </p>
+
             {/* Destaques rápidos */}
             <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-muted-foreground font-medium">
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="text-success size-4" /> Áudios de fala salvos na conta
+                <CheckCircle2 className="text-success size-4" /> Pague uma vez, estude para sempre
               </span>
               <span className="flex items-center gap-1.5">
                 <CheckCircle2 className="text-success size-4" /> Respostas da tutora em áudio
@@ -450,6 +508,119 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* -------------------------------------------------- Investimento */}
+      <section id="investimento" className="border-t py-24 bg-muted/20">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="mx-auto max-w-2xl text-center">
+            <Badge variant="neutral" className="text-xs font-semibold uppercase tracking-widest mb-3">
+              Investimento
+            </Badge>
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Um pagamento. Dois anos de curso. Acesso para sempre.
+            </h2>
+            <p className="text-muted-foreground mt-3 text-base">
+              Sem mensalidade, sem renovação automática e sem cobrança surpresa. Você paga uma única
+              vez e o curso inteiro fica na sua conta.
+            </p>
+          </div>
+
+          <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_380px] lg:items-start">
+            {/* O que está incluído */}
+            <div className="bg-card rounded-2xl border p-7">
+              <h3 className="text-lg font-bold">Tudo isto está incluído</h3>
+              <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+                {INCLUDED_IN_PRICE.map((item) => (
+                  <li key={item} className="flex items-start gap-2.5 text-sm leading-relaxed">
+                    <BadgeCheck className="text-success mt-0.5 size-4.5 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 border-t pt-6 text-xs text-muted-foreground font-medium">
+                <span className="flex items-center gap-1.5">
+                  <ShieldCheck className="text-success size-4" /> Pagamento processado pelo Mercado Pago
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <Lock className="text-success size-4" /> Seus dados de cartão não passam por nós
+                </span>
+              </div>
+            </div>
+
+            {/* Card de preço */}
+            <div className="bg-card overflow-hidden rounded-2xl border shadow-xl lg:sticky lg:top-24">
+              <div className="border-b bg-[linear-gradient(110deg,color-mix(in_oklch,var(--primary)_14%,transparent),transparent)] p-7 text-center">
+                <p className="text-primary text-xs font-semibold uppercase tracking-widest">
+                  Acesso completo
+                </p>
+
+                <div className="mt-4 flex items-baseline justify-center gap-2">
+                  <span className="text-4xl font-extrabold tabular-nums">{formatBRL(priceCents)}</span>
+                  <span className="text-muted-foreground text-sm">à vista</span>
+                </div>
+
+                {longest && longest.installments > 1 ? (
+                  <p className="text-muted-foreground mt-2 text-sm">
+                    ou em até{" "}
+                    <strong className="text-foreground">
+                      {longest.installments}x de {formatBRL(longest.installmentCents)}
+                    </strong>{" "}
+                    no cartão
+                  </p>
+                ) : null}
+
+                <p className="text-muted-foreground mt-1 text-xs">
+                  Pagamento único · sem mensalidade
+                </p>
+              </div>
+
+              <div className="p-7 space-y-5">
+                <div className="space-y-2.5 text-sm">
+                  {[
+                    { icon: Zap, text: "PIX: acesso liberado em segundos" },
+                    {
+                      icon: Layers,
+                      text: `Cartão de crédito em até ${checkoutEnv.maxInstallments}x`,
+                    },
+                    { icon: Lock, text: "Cartão de débito e saldo Mercado Pago" },
+                  ].map((item) => (
+                    <div key={item.text} className="flex items-center gap-2.5">
+                      <item.icon className="text-primary size-4 shrink-0" />
+                      <span className="text-muted-foreground">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <Button asChild size="xl" variant="gradient" className="w-full shadow-lg shadow-primary/20">
+                  <Link href="/cadastro">
+                    Criar conta e pagar <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
+
+                <p className="text-muted-foreground text-center text-xs leading-relaxed">
+                  Você cria a conta, confirma o e-mail e conclui o pagamento no ambiente seguro do
+                  Mercado Pago. O acesso abre automaticamente na aprovação.
+                </p>
+
+                <p className="text-muted-foreground border-t pt-4 text-center text-[11px] leading-relaxed">
+                  {source === "estimate"
+                    ? "Valores de parcela simulados. A primeira parcela é sem juros; a partir da segunda incidem os juros da operadora do seu cartão, confirmados pelo Mercado Pago antes de você autorizar a compra."
+                    : "A primeira parcela é sem juros. A partir da segunda incidem os juros da operadora do seu cartão, exibidos pelo Mercado Pago antes de você autorizar a compra."}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-muted-foreground mx-auto mt-10 max-w-2xl text-center text-xs leading-relaxed">
+            Já tem conta e ainda não concluiu o pagamento?{" "}
+            <Link href="/login" className="text-primary hover:underline">
+              Entre na plataforma
+            </Link>{" "}
+            para retomar de onde parou.
+          </p>
+        </div>
+      </section>
+
       {/* ---------------------------------------------------- FAQ */}
       <section id="faq" className="border-t py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6">
@@ -489,9 +660,16 @@ export default function LandingPage() {
           </p>
           <Button asChild size="xl" variant="gradient" className="shadow-xl shadow-primary/25">
             <Link href="/cadastro">
-              Criar conta grátis <ArrowRight className="size-4" />
+              Garantir meu acesso <ArrowRight className="size-4" />
             </Link>
           </Button>
+          <p className="text-muted-foreground text-sm">
+            {formatBRL(priceCents)} à vista
+            {longest && longest.installments > 1
+              ? ` ou ${longest.installments}x de ${formatBRL(longest.installmentCents)}`
+              : ""}{" "}
+            · pagamento único, acesso vitalício
+          </p>
         </div>
       </section>
 

@@ -39,6 +39,65 @@ export const serverEnv = {
 } as const;
 
 /**
+ * Mercado Pago — a API de pagamentos do Mercado Livre.
+ *
+ * O token de PRODUÇÃO (`APP_USR-…`) credita na sua conta real; o de teste
+ * (`TEST-…`) roda no sandbox e não move dinheiro. Nunca exponha nenhum dos
+ * dois no browser: com ele é possível ler e estornar pagamentos da conta.
+ */
+export const mercadoPagoEnv = {
+  get accessToken() {
+    return required("MERCADOPAGO_ACCESS_TOKEN");
+  },
+  /**
+   * Segredo do webhook (Painel → Suas integrações → Webhooks → Assinatura
+   * secreta). Sem ele qualquer um que descubra a URL do webhook manda um POST
+   * dizendo "pagamento aprovado" e ganha o curso de graça — por isso a
+   * validação é obrigatória em produção (ver `assertValidSignature`).
+   */
+  get webhookSecret() {
+    return optional("MERCADOPAGO_WEBHOOK_SECRET", "");
+  },
+  /** Sandbox: aceita webhook sem assinatura válida e loga o motivo. */
+  get isSandbox() {
+    return optional("MERCADOPAGO_ACCESS_TOKEN", "").startsWith("TEST-");
+  },
+  get configured() {
+    return Boolean(optional("MERCADOPAGO_ACCESS_TOKEN", ""));
+  },
+} as const;
+
+/**
+ * Preço do acesso ao curso.
+ *
+ * Em centavos para não arrastar ponto flutuante até a conciliação. O valor
+ * default é o preço vigente; mudar exige apenas a variável de ambiente, sem
+ * novo deploy de código.
+ */
+export const checkoutEnv = {
+  get priceCents() {
+    const raw = Number(optional("CHECKOUT_PRICE_CENTS", "29700"));
+    return Number.isFinite(raw) && raw > 0 ? Math.round(raw) : 29700;
+  },
+  get maxInstallments() {
+    const raw = Number(optional("CHECKOUT_MAX_INSTALLMENTS", "10"));
+    return Number.isFinite(raw) ? Math.min(24, Math.max(1, Math.round(raw))) : 10;
+  },
+  get productTitle() {
+    return optional("CHECKOUT_PRODUCT_TITLE", "InglishEasy — Acesso completo ao curso");
+  },
+  /** Como o nome aparece na fatura do cartão. O Mercado Pago corta em 13 caracteres. */
+  get statementDescriptor() {
+    return optional("CHECKOUT_STATEMENT_DESCRIPTOR", "INGLISHEASY").slice(0, 13);
+  },
+  /** Prazo para concluir o pagamento antes de a preferência expirar. */
+  get expirationHours() {
+    const raw = Number(optional("CHECKOUT_EXPIRATION_HOURS", "48"));
+    return Number.isFinite(raw) && raw > 0 ? Math.round(raw) : 48;
+  },
+} as const;
+
+/**
  * Modelos padrao. O catalogo do Google muda e modelos antigos deixam de ser
  * liberados para contas novas: rode `npm run models` para ver o que a sua
  * chave alcanca e `npm run check` para validar de ponta a ponta.

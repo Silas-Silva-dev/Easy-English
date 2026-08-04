@@ -1,5 +1,5 @@
 import { AppShell, type NavItem } from "@/components/app-shell";
-import { requireActiveUser } from "@/lib/auth/guards";
+import { requirePaidUser } from "@/lib/auth/guards";
 import { getOrCreateEnrollment, getPrimaryCourse } from "@/lib/learning";
 import { createServerSupabase } from "@/lib/supabase/server";
 import { pct } from "@/lib/utils";
@@ -7,7 +7,7 @@ import { pct } from "@/lib/utils";
 import { signOutAction } from "../(auth)/actions";
 
 export default async function StudentLayout({ children }: { children: React.ReactNode }) {
-  const { profile, userId } = await requireActiveUser("/app");
+  const { profile, userId } = await requirePaidUser("/app");
 
   const course = await getPrimaryCourse();
   const enrollment = course ? await getOrCreateEnrollment(userId, course) : null;

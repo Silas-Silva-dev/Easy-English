@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { cache } from "react";
 
 import { createServerSupabase } from "@/lib/supabase/server";
-import type { Profile, UserRole } from "@/lib/types/database";
+import type { AccessGrant, Profile, UserRole } from "@/lib/types/database";
 
 export interface SessionContext {
   userId: string;
@@ -63,6 +63,92 @@ export async function requireActiveUser(nextPath = "/app"): Promise<SessionConte
   }
 
   return ctx;
+}
+
+/**
+ * A concessão de acesso viva do aluno, ou null se ele nunca comprou / teve o
+ * acesso revogado. Memoizado por request: o layout, a página e o menu do app
+ * perguntam a mesma coisa.
+ */
+export const getAccessGrant = cache(async (): Promise<AccessGrant | null> => {
+  const ctx = await getSessionContext();
+  if (!ctx) return null;
+
+  const supabase = await createServerSupabase();
+  const { data } = await supabase
+    .from("access_grants")
+    .select("*")
+    .eq("user_id", ctx.userId)
+    .is("revoked_at", null)
+    .maybeSingle();
+
+  if (!data) return null;
+
+  // Concessão com prazo já vencido não vale mais. O banco também filtra isso
+  // em `has_course_access()`; aqui é para a UI não anunciar acesso expirado.
+  if (data.expires_at && new Date(data.expires_at) <= new Date()) return null;
+
+  return data;
+});
+
+/** Staff nunca é barrada pelo paywall: quem publica a lição precisa abri-la. */
+export function bypassesPaywall(profile: Profile): boolean {
+  return profile.role === "admin" || profile.role === "instructor";
+}
+
+export async function hasCourseAccess(): Promise<boolean> {
+  const ctx = await getSessionContext();
+  if (!ctx) return false;
+  if (bypassesPaywall(ctx.profile)) return true;
+  return (await getAccessGrant()) !== null;
+}
+
+/**
+ * Exige conta ativa E acesso liberado (compra aprovada ou cortesia do admin).
+ *
+ * É o guard de tudo que está atrás do paywall. Quem ainda não pagou não vê
+ * erro: cai no checkout, que é exatamente onde ele precisa estar.
+ */
+export async function requirePaidUser(nextPath = "/app"): Promise<SessionContext> {
+  const ctx = await requireActiveUser(nextPath);
+  if (bypassesPaywall(ctx.profile)) return ctx;
+  if (await getAccessGrant()) return ctx;
+  redirect("/checkout");
+}
+
+export type AccessDenial = "unauthenticated" | "inactive" | "unpaid";
+
+export const ACCESS_DENIAL_MESSAGE: Record<AccessDenial, string> = {
+  unauthenticated: "Não autenticado",
+  inactive: "Conta não verificada ou bloqueada",
+  unpaid: "Acesso não liberado. Conclua o pagamento para continuar.",
+};
+
+export const ACCESS_DENIAL_HTTP_STATUS: Record<AccessDenial, number> = {
+  unauthenticated: 401,
+  inactive: 403,
+  // 402 Payment Required: o cliente sabe distinguir "não pode" de "não pagou".
+  unpaid: 402,
+};
+
+/**
+ * Verificação de paywall para quem NÃO passa pelo layout de /app: rotas de
+ * API e Server Actions.
+ *
+ * Ambas são endpoints públicos de verdade — uma Server Action é invocável por
+ * qualquer um que tenha o id da ação, sem nunca renderizar a página que a
+ * contém. Confiar no guard do layout deixaria as chamadas caras (Gemini) e as
+ * escritas abertas a quem criou conta e não pagou.
+ */
+export async function getPaidSession(): Promise<
+  { ok: true; session: SessionContext } | { ok: false; reason: AccessDenial }
+> {
+  const ctx = await getSessionContext();
+  if (!ctx) return { ok: false, reason: "unauthenticated" };
+  if (ctx.profile.status !== "active") return { ok: false, reason: "inactive" };
+  if (bypassesPaywall(ctx.profile)) return { ok: true, session: ctx };
+  if (!(await getAccessGrant())) return { ok: false, reason: "unpaid" };
+  return { ok: true, session: ctx };
 }
 
 export async function requireRole(

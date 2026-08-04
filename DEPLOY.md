@@ -84,9 +84,19 @@ o que é lido no *build* exige um novo deploy para corrigir; o que é lido em
 | 7 | `GEMINI_MODEL_SPEAKING` | `gemini-3.6-flash` | execução | não |
 | 8 | `GEMINI_MODEL_EMBEDDING` | `gemini-embedding-001` | execução | não |
 | 9 | `GEMINI_MODEL_LIVE` | `gemini-3.1-flash-live-preview` | execução | não |
+| 10 | `MERCADOPAGO_ACCESS_TOKEN` | token de produção (`APP_USR-…`) | execução | **NUNCA** |
+| 11 | `MERCADOPAGO_WEBHOOK_SECRET` | assinatura secreta do webhook | execução | **NUNCA** |
+| 12 | `CHECKOUT_PRICE_CENTS` | `29700` (R$ 297,00) | **build** + execução | não |
+| 13 | `CHECKOUT_MAX_INSTALLMENTS` | `10` | **build** + execução | não |
 
-**1 a 5 são obrigatórias.** Sem elas o build falha (`src/lib/env.ts` recusa valor
-ausente) ou o app sobe sem conseguir autenticar ninguém.
+**1 a 5, 10 e 11 são obrigatórias.** Sem 1 a 5 o build falha (`src/lib/env.ts`
+recusa valor ausente) ou o app sobe sem conseguir autenticar ninguém. Sem 10 e
+11 ninguém consegue pagar — e o cadastro agora é pago.
+
+**12 e 13 são lidas no build** porque o preço aparece na landing e no
+`/cadastro`, que são pré-renderizadas. Mudar o preço exige **Redeploy**, não só
+reiniciar; caso contrário a página de vendas anuncia um valor e o checkout cobra
+outro.
 
 **6 a 9 são opcionais** — o código tem esses mesmos valores como padrão. Defina
 mesmo assim: o catálogo do Google muda, e assim a produção não troca de modelo
@@ -123,6 +133,32 @@ Em **Authentication → URL Configuration**:
 Sem isso o cadastro funciona, mas o link do e-mail leva a lugar nenhum. E o
 Supabase **não avisa** quando o destino está fora da lista: ele troca pelo Site
 URL em silêncio, e o aluno cai na home em vez da tela de nova senha.
+
+### Mercado Pago — o webhook é o que libera o acesso
+
+O aluno paga no ambiente do Mercado Pago e volta para o site. Quem realmente
+libera o curso **não é esse retorno** — é a notificação que o Mercado Pago manda
+para o servidor. Quem paga no PIX e fecha a aba depende só dela.
+
+No painel do desenvolvedor (`mercadopago.com.br/developers/panel`), abra sua
+aplicação → **Webhooks** → *Configurar notificações*:
+
+- **URL de produção:** `https://seudominio.com.br/api/pagamentos/webhook`
+- **Evento:** `Pagamentos`
+- Copie a **assinatura secreta** gerada e coloque em `MERCADOPAGO_WEBHOOK_SECRET`
+
+A assinatura não é enfeite: a rota é pública, e sem validar o HMAC qualquer um
+que descubra a URL manda um POST dizendo "aprovado" e ganha o curso. Por isso o
+código **recusa** notificação sem assinatura válida quando o token é de produção.
+
+Para conferir se está de pé, o painel em **/admin/pagamentos** mostra um aviso
+vermelho quando o token falta e um aviso amarelo quando o segredo do webhook
+falta. Se um pagamento cair e o acesso não abrir, use *Reconsultar no Mercado
+Pago* na linha do pedido — ele refaz a conciliação sem mexer no banco na mão.
+
+> **Cuidado com o token de teste.** `TEST-…` roda no sandbox e não move dinheiro;
+> em produção use o `APP_USR-…`. Com o token de teste a validação de assinatura é
+> dispensada de propósito, para dar para testar sem webhook público.
 
 ### SMTP — obrigatório, não é opcional
 
@@ -211,8 +247,11 @@ A memória é o único item apertado. Se o build morrer por falta dela, adicione
 - [ ] **Todas as variáveis configuradas antes do primeiro build**, com `NEXT_PUBLIC_SITE_URL` no domínio real
 - [ ] Site URL e Redirect URLs atualizadas no Supabase
 - [ ] Custom SMTP ligado e `npm run check:email -- seu@email.com` verde
-- [ ] Migrations aplicadas no SQL Editor
+- [ ] Migrations aplicadas no SQL Editor (inclui `20260101000700_billing.sql`)
 - [ ] `npm run check` verde apontando para o Supabase de produção
 - [ ] `npm run seed:curriculum` executado
 - [ ] HTTPS ativo
-- [ ] Um cadastro de teste completo: criar conta → confirmar e-mail → abrir o Dia 1 → gravar uma fala
+- [ ] Webhook do Mercado Pago apontando para `https://seudominio.com.br/api/pagamentos/webhook` com a assinatura secreta salva
+- [ ] `/admin/pagamentos` sem avisos vermelhos ou amarelos
+- [ ] Um cadastro de teste completo: criar conta → confirmar e-mail → **pagar** → abrir o Dia 1 → gravar uma fala
+- [ ] Um teste de cortesia: **Adicionar aluno sem custo** no admin → o link de senha abre e o aluno entra sem pagar

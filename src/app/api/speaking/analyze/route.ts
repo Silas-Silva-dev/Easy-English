@@ -1,6 +1,10 @@
 import { NextResponse, type NextRequest } from "next/server";
 
-import { getSessionContext } from "@/lib/auth/guards";
+import {
+  ACCESS_DENIAL_HTTP_STATUS,
+  ACCESS_DENIAL_MESSAGE,
+  getPaidSession,
+} from "@/lib/auth/guards";
 import { analyzeSpeaking, normalizeAudioMime } from "@/lib/gemini/speaking";
 import { createAdminSupabase } from "@/lib/supabase/admin";
 import { createServerSupabase } from "@/lib/supabase/server";
@@ -51,9 +55,12 @@ function chunksSpokenIn(transcript: string, chunks: Chunk[]): string[] {
 
 export async function POST(request: NextRequest) {
   // ------------------------------------------------------------ autorização
-  const session = await getSessionContext();
-  if (!session) return bad("Não autenticado", 401);
-  if (session.profile.status !== "active") return bad("Conta não verificada ou bloqueada", 403);
+  // A análise consome Gemini por áudio enviado: o paywall vale aqui também.
+  const auth = await getPaidSession();
+  if (!auth.ok) {
+    return bad(ACCESS_DENIAL_MESSAGE[auth.reason], ACCESS_DENIAL_HTTP_STATUS[auth.reason]);
+  }
+  const session = auth.session;
 
   // ------------------------------------------------------------- validação
   let formData: FormData;

@@ -4,7 +4,7 @@ import { Type, type Schema } from "@google/genai";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
-import { getSessionContext } from "@/lib/auth/guards";
+import { ACCESS_DENIAL_MESSAGE, getPaidSession } from "@/lib/auth/guards";
 import { geminiModels } from "@/lib/env";
 import { gemini, parseJsonResponse, withRetry } from "@/lib/gemini/client";
 import { createServerSupabase } from "@/lib/supabase/server";
@@ -100,9 +100,11 @@ export async function saveLiveSessionAction(input: {
   const parsed = saveSchema.safeParse(input);
   if (!parsed.success) return { ok: false, error: "Dados inválidos" };
 
-  const session = await getSessionContext();
-  if (!session) return { ok: false, error: "Não autenticado" };
-  if (session.profile.status !== "active") return { ok: false, error: "Conta não verificada" };
+  // A avaliação da conversa passa pelo Gemini: uma Server Action é chamável
+  // sem renderizar a página, então o paywall precisa estar aqui dentro.
+  const auth = await getPaidSession();
+  if (!auth.ok) return { ok: false, error: ACCESS_DENIAL_MESSAGE[auth.reason] };
+  const session = auth.session;
 
   const { lessonId, circuitNumber, scenario, durationSeconds, transcript } = parsed.data;
   const supabase = await createServerSupabase();

@@ -10,6 +10,16 @@ export type EnrollmentStatus = "active" | "paused" | "completed" | "cancelled";
 export type ProgressStatus = "not_started" | "in_progress" | "completed";
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1";
 export type SpeakingStatus = "uploaded" | "processing" | "completed" | "failed";
+export type PaymentStatus =
+  | "pending"
+  | "in_process"
+  | "approved"
+  | "rejected"
+  | "cancelled"
+  | "refunded"
+  | "charged_back";
+/** De onde veio o direito de estudar: compra aprovada ou liberação do admin. */
+export type AccessSource = "payment" | "courtesy";
 export type LessonKind =
   | "vocabulary"
   | "grammar"
@@ -455,6 +465,70 @@ export interface AuditLogEntry {
   created_at: string;
 }
 
+/**
+ * Um pedido de compra. Todo valor monetário é inteiro em centavos: `297.00`
+ * em ponto flutuante não sobrevive a uma soma de extrato sem divergir.
+ */
+export interface Order {
+  id: string;
+  user_id: string;
+  email: string;
+  full_name: string | null;
+  amount_cents: number;
+  currency: string;
+  description: string | null;
+  status: PaymentStatus;
+  provider: string;
+  preference_id: string | null;
+  init_point: string | null;
+  /** Chave que amarra o pedido ao webhook do Mercado Pago. */
+  external_reference: string;
+  payment_id: string | null;
+  /** credit_card · debit_card · bank_transfer (PIX) */
+  payment_type: string | null;
+  payment_method: string | null;
+  status_detail: string | null;
+  installments: number | null;
+  installment_amount_cents: number | null;
+  /** Com juros do comprador este valor é MAIOR que `amount_cents`. */
+  total_paid_cents: number | null;
+  /** Líquido creditado depois da taxa do Mercado Pago. */
+  net_received_cents: number | null;
+  paid_at: string | null;
+  expires_at: string | null;
+  raw: Json;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface AccessGrant {
+  id: string;
+  user_id: string;
+  source: AccessSource;
+  order_id: string | null;
+  granted_by: string | null;
+  note: string | null;
+  starts_at: string;
+  /** Nulo = vitalício, que é o padrão da compra única. */
+  expires_at: string | null;
+  revoked_at: string | null;
+  revoked_reason: string | null;
+  created_at: string;
+}
+
+export interface AdminBillingOverview {
+  paid_orders: number;
+  pending_orders: number;
+  rejected_orders: number;
+  refunded_orders: number;
+  gross_cents: number;
+  net_cents: number;
+  paid_orders_30d: number;
+  gross_cents_30d: number;
+  active_grants: number;
+  courtesy_grants: number;
+}
+
 export interface AdminOverview {
   total_users: number;
   active_users: number;
@@ -523,9 +597,12 @@ export interface Database {
       track_targets: Table<TrackTarget>;
       chunk_mastery: Table<ChunkMasteryRow>;
       live_sessions: Table<LiveSession>;
+      orders: Table<Order>;
+      access_grants: Table<AccessGrant>;
     };
     Views: {
       admin_overview: View<AdminOverview>;
+      admin_billing_overview: View<AdminBillingOverview>;
       chunk_review_queue: View<ChunkReviewQueue>;
     };
     Functions: {
@@ -560,9 +637,25 @@ export interface Database {
       is_admin: { Args: Record<string, never>; Returns: boolean };
       is_staff: { Args: Record<string, never>; Returns: boolean };
       auth_role: { Args: Record<string, never>; Returns: UserRole };
+      has_course_access: { Args: { p_user?: string }; Returns: boolean };
+      /** Só alcançável com service_role: ver os GRANTs da migration 700. */
+      grant_course_access: {
+        Args: {
+          p_user: string;
+          p_source: AccessSource;
+          p_order_id?: string | null;
+          p_granted_by?: string | null;
+          p_note?: string | null;
+          p_expires_at?: string | null;
+        };
+        Returns: AccessGrant;
+      };
+      revoke_course_access: { Args: { p_user: string; p_reason?: string | null }; Returns: number };
     };
     Enums: {
       user_role: UserRole;
+      payment_status: PaymentStatus;
+      access_source: AccessSource;
       account_status: AccountStatus;
       enrollment_status: EnrollmentStatus;
       progress_status: ProgressStatus;

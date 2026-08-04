@@ -1,4 +1,4 @@
-import { Search, Users } from "lucide-react";
+import { Gift, Search, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -15,10 +15,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { requireAdmin, ROLE_LABEL, STATUS_LABEL } from "@/lib/auth/guards";
+import { ACCESS_SOURCE_LABEL } from "@/lib/billing";
 import { createServerSupabase } from "@/lib/supabase/server";
-import type { AccountStatus, UserRole } from "@/lib/types/database";
+import type { AccessGrant, AccountStatus, UserRole } from "@/lib/types/database";
 import { cn, formatDate, formatRelative, initials } from "@/lib/utils";
 
+import { NewFreeStudentDialog } from "../pagamentos/billing-actions";
 import { UserRowActions } from "./user-actions";
 
 export const metadata: Metadata = { title: "Usuários" };
@@ -76,6 +78,26 @@ export default async function AdminUsersPage({
   const total = count ?? 0;
   const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
+  /**
+   * Acesso ao curso das linhas visíveis.
+   *
+   * Consulta separada e restrita aos ids da página: um join com
+   * `access_grants` traria a coluna para todos os perfis do banco só para
+   * mostrar 25.
+   */
+  const pageUserIds = (users ?? []).map((user) => user.id);
+  const { data: grants } = pageUserIds.length
+    ? await supabase
+        .from("access_grants")
+        .select("*")
+        .is("revoked_at", null)
+        .in("user_id", pageUserIds)
+    : { data: [] as AccessGrant[] };
+
+  const accessByUser = new Map<string, AccessGrant>(
+    (grants ?? []).map((grant) => [grant.user_id, grant]),
+  );
+
   const buildHref = (patch: Record<string, string | undefined>) => {
     const params = new URLSearchParams();
     const merged = { status, q, papel, p: String(page), ...patch };
@@ -91,7 +113,8 @@ export default async function AdminUsersPage({
       <PageHeader
         eyebrow="Administração"
         title="Usuários"
-        description={`${total} conta(s) cadastrada(s). Gerencie papéis, verificação de e-mail e bloqueios.`}
+        description={`${total} conta(s) cadastrada(s). Gerencie papéis, verificação de e-mail, bloqueios e o acesso ao curso.`}
+        action={<NewFreeStudentDialog />}
       />
 
       {/* --------------------------------------------------------- Filtros */}
@@ -135,13 +158,20 @@ export default async function AdminUsersPage({
                 <TableHead>Usuário</TableHead>
                 <TableHead>Papel</TableHead>
                 <TableHead>Status</TableHead>
+                <TableHead>Acesso ao curso</TableHead>
                 <TableHead>Cadastro</TableHead>
                 <TableHead>Última atividade</TableHead>
                 <TableHead className="w-12" />
               </TableRow>
             </TableHeader>
             <TableBody>
-              {users.map((user) => (
+              {users.map((user) => {
+                const grant = accessByUser.get(user.id);
+                // Staff entra no curso pelo papel: não precisa de concessão, e
+                // mostrar "sem acesso" para um admin seria simplesmente falso.
+                const isStaffUser = user.role === "admin" || user.role === "instructor";
+
+                return (
                 <TableRow key={user.id}>
                   <TableCell>
                     <div className="flex items-center gap-3">
@@ -174,6 +204,26 @@ export default async function AdminUsersPage({
                     ) : null}
                   </TableCell>
 
+                  <TableCell>
+                    {isStaffUser ? (
+                      <Badge variant="neutral">Acesso por papel</Badge>
+                    ) : grant ? (
+                      <>
+                        <Badge variant={grant.source === "courtesy" ? "warning" : "success"}>
+                          {grant.source === "courtesy" ? <Gift /> : null}
+                          {ACCESS_SOURCE_LABEL[grant.source]}
+                        </Badge>
+                        {grant.note ? (
+                          <p className="text-muted-foreground mt-1 max-w-40 truncate text-[11px]">
+                            {grant.note}
+                          </p>
+                        ) : null}
+                      </>
+                    ) : (
+                      <Badge variant="neutral">Não pagou</Badge>
+                    )}
+                  </TableCell>
+
                   <TableCell className="text-muted-foreground text-sm whitespace-nowrap">
                     {formatDate(user.created_at)}
                   </TableCell>
@@ -183,10 +233,16 @@ export default async function AdminUsersPage({
                   </TableCell>
 
                   <TableCell>
-                    <UserRowActions user={user} isSelf={user.id === session.userId} />
+                    <UserRowActions
+                      user={user}
+                      isSelf={user.id === session.userId}
+                      hasAccess={Boolean(grant)}
+                      showAccessActions={!isStaffUser}
+                    />
                   </TableCell>
                 </TableRow>
-              ))}
+                );
+              })}
             </TableBody>
           </Table>
         </div>

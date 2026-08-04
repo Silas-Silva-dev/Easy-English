@@ -183,11 +183,11 @@ export function SignUpForm() {
         <p className="text-muted-foreground text-xs">Mínimo de 8 caracteres.</p>
       </div>
 
-      <SubmitButton>Criar minha conta</SubmitButton>
+      <SubmitButton>Criar conta e continuar</SubmitButton>
 
       <p className="text-muted-foreground text-center text-xs leading-relaxed">
-        Ao criar a conta você concorda em receber o e-mail de verificação necessário para ativar o
-        acesso.
+        Criar a conta não gera cobrança. Você confirma o e-mail e só então escolhe como pagar, no
+        ambiente seguro do Mercado Pago.
       </p>
     </form>
   );

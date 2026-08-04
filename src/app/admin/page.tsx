@@ -3,10 +3,12 @@ import {
   FileEdit,
   GraduationCap,
   Mic,
+  Receipt,
   ShieldAlert,
   TrendingUp,
   UserCheck,
   Users,
+  Wallet,
 } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -18,14 +20,21 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { PageHeader } from "@/components/ui/misc";
 import { StatCard } from "@/components/ui/stat-card";
 import { requireStaff, ROLE_LABEL } from "@/lib/auth/guards";
+import { formatBRL } from "@/lib/billing";
 import { createServerSupabase } from "@/lib/supabase/server";
 import { formatRelative, pct } from "@/lib/utils";
 
 export const metadata: Metadata = { title: "Visão geral" };
 
 export default async function AdminDashboard() {
-  await requireStaff("/admin");
+  const { profile } = await requireStaff("/admin");
   const supabase = await createServerSupabase();
+
+  // Faturamento é assunto de dono: instrutor não vê receita.
+  const isAdmin = profile.role === "admin";
+  const { data: billing } = isAdmin
+    ? await supabase.from("admin_billing_overview").select("*").maybeSingle()
+    : { data: null };
 
   const [{ data: overview }, { data: recentUsers }, { data: recentSessions }, { data: signupSeries }] =
     await Promise.all([
@@ -143,6 +152,39 @@ export default async function AdminDashboard() {
           tone="streak"
         />
       </div>
+
+      {/* ----------------------------------------------------- Faturamento */}
+      {isAdmin ? (
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <StatCard
+            label="Receita aprovada"
+            value={formatBRL(billing?.gross_cents ?? 0)}
+            hint={`${billing?.paid_orders ?? 0} pedido(s) pago(s)`}
+            icon={<Wallet />}
+            tone="success"
+          />
+          <StatCard
+            label="Vendas em 30 dias"
+            value={formatBRL(billing?.gross_cents_30d ?? 0)}
+            hint={`${billing?.paid_orders_30d ?? 0} venda(s) no período`}
+            icon={<Receipt />}
+          />
+          <StatCard
+            label="Acessos ativos"
+            value={billing?.active_grants ?? 0}
+            hint={`${billing?.courtesy_grants ?? 0} liberado(s) sem custo`}
+            icon={<GraduationCap />}
+            tone="primary"
+          />
+          <StatCard
+            label="Pagamentos em aberto"
+            value={billing?.pending_orders ?? 0}
+            hint={`${billing?.rejected_orders ?? 0} recusado(s) · ${billing?.refunded_orders ?? 0} estornado(s)`}
+            icon={<Receipt />}
+            tone={(billing?.pending_orders ?? 0) > 0 ? "warning" : "neutral"}
+          />
+        </div>
+      ) : null}
 
       <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
         <Card>

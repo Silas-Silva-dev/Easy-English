@@ -2,7 +2,11 @@ import { GoogleGenAI, Modality } from "@google/genai";
 import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 
-import { getSessionContext } from "@/lib/auth/guards";
+import {
+  ACCESS_DENIAL_HTTP_STATUS,
+  ACCESS_DENIAL_MESSAGE,
+  getPaidSession,
+} from "@/lib/auth/guards";
 import { geminiModels, serverEnv } from "@/lib/env";
 import { BRAZILIAN_INTERFERENCE_GUIDE } from "@/lib/gemini/prompts";
 import { createServerSupabase } from "@/lib/supabase/server";
@@ -30,11 +34,16 @@ const LEVEL_PACE: Record<string, string> = {
  * não de ser reaproveitado por terceiros.
  */
 export async function POST(request: NextRequest) {
-  const session = await getSessionContext();
-  if (!session) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
-  if (session.profile.status !== "active") {
-    return NextResponse.json({ error: "Conta não verificada" }, { status: 403 });
+  // Cada token aberto vira minutos de Gemini Live faturados: o paywall precisa
+  // valer aqui, não só na página que chama esta rota.
+  const auth = await getPaidSession();
+  if (!auth.ok) {
+    return NextResponse.json(
+      { error: ACCESS_DENIAL_MESSAGE[auth.reason] },
+      { status: ACCESS_DENIAL_HTTP_STATUS[auth.reason] },
+    );
   }
+  const session = auth.session;
 
   let body: unknown = {};
   try {

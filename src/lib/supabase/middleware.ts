@@ -3,8 +3,12 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import type { Database } from "@/lib/types/database";
 
-/** Rotas que exigem sessao autenticada. */
-const PROTECTED_PREFIXES = ["/app", "/admin"];
+/**
+ * Rotas que exigem sessao autenticada.
+ * `/checkout` entra aqui porque o pedido nasce vinculado a um usuario: sem
+ * sessao nao ha a quem creditar o acesso depois do pagamento.
+ */
+const PROTECTED_PREFIXES = ["/app", "/admin", "/checkout"];
 
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });

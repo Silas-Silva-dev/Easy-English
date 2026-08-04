@@ -25,6 +25,7 @@ import { Textarea } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import type { Profile } from "@/lib/types/database";
 
+import { UserAccessActions } from "../pagamentos/billing-actions";
 import {
   deleteUserAction,
   updateUserRoleAction,
@@ -33,7 +34,19 @@ import {
   type ActionResult,
 } from "../actions";
 
-export function UserRowActions({ user, isSelf }: { user: Profile; isSelf: boolean }) {
+export function UserRowActions({
+  user,
+  isSelf,
+  hasAccess,
+  showAccessActions,
+}: {
+  user: Profile;
+  isSelf: boolean;
+  /** Tem concessão de acesso viva ao curso. */
+  hasAccess: boolean;
+  /** Falso para admin/instrutor: eles entram pelo papel, não por concessão. */
+  showAccessActions: boolean;
+}) {
   const [pending, startTransition] = React.useTransition();
   const [suspendOpen, setSuspendOpen] = React.useState(false);
   const [deleteOpen, setDeleteOpen] = React.useState(false);
@@ -73,6 +86,19 @@ export function UserRowActions({ user, isSelf }: { user: Profile; isSelf: boolea
               {user.role === role ? " •" : ""}
             </DropdownMenuItem>
           ))}
+
+          {showAccessActions ? (
+            <>
+              <DropdownMenuSeparator />
+              <DropdownMenuLabel>Curso</DropdownMenuLabel>
+              <UserAccessActions
+                userId={user.id}
+                email={user.email}
+                hasAccess={hasAccess}
+                isSelf={isSelf}
+              />
+            </>
+          ) : null}
 
           <DropdownMenuSeparator />
           <DropdownMenuLabel>Conta</DropdownMenuLabel>
