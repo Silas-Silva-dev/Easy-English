@@ -12,6 +12,7 @@ import type { MetadataRoute } from "next";
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
+    id: "/app",
     name: "InglishEasy: Inglês para conversação",
     short_name: "InglishEasy",
     description:
@@ -20,13 +21,28 @@ export default function manifest(): MetadataRoute.Manifest {
     scope: "/",
     display: "standalone",
     orientation: "portrait",
-    // Fundo do splash do app instalado: acompanha o tema claro, que é o padrão.
-    // Se ficasse escuro, o app abriria com um piscada preta antes da página branca.
+    prefer_related_applications: false,
     background_color: "#ffffff",
     theme_color: "#FF4A17",
     lang: "pt-BR",
     dir: "ltr",
     categories: ["education"],
+    screenshots: [
+      {
+        src: "/og-image.png",
+        sizes: "1200x630",
+        type: "image/png",
+        form_factor: "wide",
+        label: "InglishEasy - Plataforma de Inglês para Conversação",
+      },
+      {
+        src: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
+        form_factor: "narrow",
+        label: "InglishEasy App Mobile",
+      },
+    ],
     icons: [
       {
         src: "/icon-192.png",
