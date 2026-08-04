@@ -32,13 +32,12 @@ function SubmitButton({ children, className }: { children: React.ReactNode; clas
 }
 
 function FormAlert({ state }: { state: AuthFormState }) {
-  if (state?.error) {
-    const errorText =
-      typeof state.error === "string"
-        ? state.error
-        : typeof state.error === "object" && state.error !== null && "message" in state.error
-          ? String((state.error as { message?: unknown }).message)
-          : String(state.error);
+  // state.error deve ser sempre string — AuthError do Supabase perde getters
+  // quando serializado pelo Next.js de Server Action para o cliente.
+  const errorText =
+    typeof state?.error === "string" && state.error.trim() ? state.error : null;
+
+  if (errorText) {
     return (
       <p
         role="alert"
@@ -49,7 +48,7 @@ function FormAlert({ state }: { state: AuthFormState }) {
       </p>
     );
   }
-  if (state?.success) {
+  if (typeof state?.success === "string" && state.success.trim()) {
     return (
       <p
         role="status"

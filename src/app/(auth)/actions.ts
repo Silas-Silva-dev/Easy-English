@@ -12,6 +12,45 @@ export interface AuthFormState {
   success?: string;
 }
 
+/**
+ * Extrai a mensagem de erro do Supabase como string simples.
+ *
+ * O AuthError é uma instância de classe — quando o Next.js serializa o
+ * retorno de um Server Action para o cliente, apenas propriedades próprias
+ * e enumeráveis são preservadas. Getters de prototype (como `.message`) são
+ * perdidos e o objeto chega como `{}` no cliente.
+ *
+ * Esta função garante que sempre retornamos uma string antes de sair do
+ * servidor.
+ */
+function safeErrorMsg(
+  error: unknown,
+  fallback = "Ocorreu um erro. Tente novamente mais tarde.",
+): string {
+  if (!error) return fallback;
+  if (typeof error === "string" && error.trim()) return error;
+
+  // Tenta extrair .message de qualquer forma (getter, propriedade própria, etc.)
+  try {
+    const msg =
+      (error as { message?: unknown }).message ??
+      (error as { msg?: unknown }).msg;
+    if (typeof msg === "string" && msg.trim()) return msg;
+  } catch {
+    // Ignora
+  }
+
+  // Última tentativa: serializa como JSON para mostrar algo útil em dev
+  try {
+    const json = JSON.stringify(error);
+    if (json && json !== "{}" && json !== "null") return json;
+  } catch {
+    // Ignora
+  }
+
+  return fallback;
+}
+
 const emailSchema = z.string().trim().toLowerCase().email("Informe um e-mail válido");
 const passwordSchema = z
   .string()
@@ -62,10 +101,11 @@ export async function signUpAction(
   });
 
   if (error) {
-    if (/already registered|already been registered/i.test(error.message)) {
+    const msg = safeErrorMsg(error);
+    if (/already registered|already been registered/i.test(msg)) {
       return { error: "Já existe uma conta com este e-mail. Tente entrar ou recuperar a senha." };
     }
-    return { error: error.message };
+    return { error: msg };
   }
 
   // Quando a confirmação de e-mail está ligada, o Supabase devolve o usuário
@@ -95,7 +135,8 @@ export async function signInAction(
   const { error } = await supabase.auth.signInWithPassword(parsed.data);
 
   if (error) {
-    if (/email not confirmed/i.test(error.message)) {
+    const msg = safeErrorMsg(error);
+    if (/email not confirmed/i.test(msg)) {
       redirect(`/verificar-email?email=${encodeURIComponent(parsed.data.email)}`);
     }
     return { error: "E-mail ou senha incorretos." };
@@ -119,37 +160,45 @@ export async function requestPasswordResetAction(
   const parsed = emailSchema.safeParse(formData.get("email"));
   if (!parsed.success) return { error: parsed.error.issues[0]?.message ?? "E-mail inválido" };
 
-  const supabase = await createServerSupabase();
+  try {
+    const supabase = await createServerSupabase();
 
-  // Em dev (localhost), o Supabase rejeita redirectTo se a URL não está na allow list.
-  // Usamos a siteUrl da env só quando ela é o domínio real de produção.
-  const siteUrl = serverEnv.siteUrl;
-  const isProduction = siteUrl.startsWith("https://");
-  const redirectTo = isProduction
-    ? `${siteUrl}/auth/confirm?type=recovery&next=/nova-senha`
-    : undefined;
+    const siteUrl = serverEnv.siteUrl;
+    const isProduction = siteUrl.startsWith("https://");
+    const redirectTo = isProduction
+      ? `${siteUrl}/auth/confirm?type=recovery&next=/nova-senha`
+      : undefined;
 
-  const { error } = await supabase.auth.resetPasswordForEmail(parsed.data, {
-    ...(redirectTo ? { redirectTo } : {}),
-  });
+    const { error } = await supabase.auth.resetPasswordForEmail(parsed.data, {
+      ...(redirectTo ? { redirectTo } : {}),
+    });
 
-  if (error) {
-    // Garante que nunca exibimos um objeto bruto ({}) na tela
-    const errorMsg =
-      typeof error.message === "string" && error.message.trim()
-        ? error.message
-        : typeof (error as { code?: unknown }).code === "string"
-          ? `Erro ${(error as { code: string }).code}: não foi possível enviar o e-mail.`
-          : "Não foi possível enviar o e-mail de redefinição. Tente novamente mais tarde.";
-    return { error: errorMsg };
+    if (error) {
+      console.error(
+        "[resetPassword] Supabase error:",
+        JSON.stringify(error),
+        "| message:",
+        error.message,
+        "| status:",
+        error.status,
+      );
+      return {
+        error: safeErrorMsg(
+          error,
+          "Não foi possível enviar o e-mail de redefinição. Tente novamente mais tarde.",
+        ),
+      };
+    }
+
+    // Resposta idêntica exista ou não a conta — não vazamos quais e-mails estão cadastrados.
+    return {
+      success:
+        "Se existir uma conta com este e-mail, enviamos um link de redefinição. Confira também a caixa de spam.",
+    };
+  } catch (err) {
+    console.error("[resetPassword] Erro inesperado:", err);
+    return { error: "Ocorreu um erro inesperado. Tente novamente mais tarde." };
   }
-
-  // Resposta idêntica exista ou não a conta: não vazamos quais e-mails
-  // estão cadastrados.
-  return {
-    success:
-      "Se existir uma conta com este e-mail, enviamos um link de redefinição. Confira também a caixa de spam.",
-  };
 }
 
 export async function updatePasswordAction(
@@ -173,7 +222,7 @@ export async function updatePasswordAction(
   }
 
   const { error } = await supabase.auth.updateUser({ password: parsed.data });
-  if (error) return { error: error.message };
+  if (error) return { error: safeErrorMsg(error) };
 
   revalidatePath("/", "layout");
   redirect("/app?senha=atualizada");
@@ -193,7 +242,7 @@ export async function resendVerificationAction(
     options: { emailRedirectTo: `${serverEnv.siteUrl}/auth/confirm` },
   });
 
-  if (error && /rate|limit|seconds/i.test(error.message)) {
+  if (error && /rate|limit|seconds/i.test(safeErrorMsg(error))) {
     return { error: "Aguarde alguns segundos antes de pedir um novo e-mail." };
   }
 
