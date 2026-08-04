@@ -45,80 +45,189 @@ export interface AudioJob {
   label: string;
 }
 
-/**
- * Vozes do catálogo de pré-definidas do Gemini.
- *
- * O mapeamento é por NOME do personagem, não por posição: assim a Ana soa
- * igual no circuito 1 e no 40, e o aluno reconhece quem está falando. Um
- * elenco fixo também mantém a geração determinística — mesmo roteiro, mesmo
- * áudio, quantas vezes rodar.
- */
-const GEMINI_CAST = [
-  "Kore",
-  "Puck",
-  "Charon",
-  "Aoede",
-  "Fenrir",
-  "Leda",
-  "Orus",
-  "Zephyr",
-] as const;
-
-/**
- * Elenco do Piper — TTS neural local, sem chave e sem cota.
- *
- * Alternado feminino/masculino de propósito: como o desempate de vozes iguais
- * anda para o índice seguinte, vizinhos de gêneros diferentes deixam o diálogo
- * mais fácil de acompanhar justamente quando houve colisão.
- */
-const PIPER_CAST = [
-  "en_US-amy-medium",
-  "en_US-ryan-medium",
-  "en_US-lessac-medium",
-  "en_US-joe-medium",
-  "en_US-kristin-medium",
-  "en_US-hfc_male-medium",
-] as const;
-
 export type Engine = "gemini" | "piper";
 
-function castFor(engine: Engine): readonly string[] {
-  return engine === "piper" ? PIPER_CAST : GEMINI_CAST;
+/**
+ * ===========================================================================
+ * O ELENCO
+ * ===========================================================================
+ * Antes a voz de cada personagem era um hash do nome sobre uma lista única de
+ * vozes. Isso produziu dois defeitos que só aparecem ouvindo:
+ *
+ *   - GÊNERO TROCADO. O hash não sabe quem é quem: a Sarah do circuito 1 saiu
+ *     com voz masculina, o Mike com voz feminina, a Kate e a Elena com voz de
+ *     homem. Treze dos trinta e seis personagens estavam errados, e os quatro
+ *     protagonistas recorrentes do curso (Bruno, Mike, Kate, Sarah) estavam
+ *     entre eles — ou seja, quase todo diálogo do curso.
+ *
+ *   - VOZ INSTÁVEL. Quando dois nomes caíam no mesmo índice, o desempate
+ *     empurrava o segundo para a voz seguinte. Resultado: o Bruno falava com
+ *     `lessac` num diálogo e `joe` em outro, dependendo de com quem estava
+ *     conversando. O aluno não consegue reconhecer um personagem que muda de
+ *     voz — que era exatamente o que este arquivo dizia querer garantir.
+ *
+ * A correção é uma tabela explícita. São 36 personagens: cabe inteira na tela,
+ * dá para revisar lendo, e não há hash que possa surpreender. Cada um declara
+ * o gênero e um NAIPE (0, 1 ou 2) dentro do próprio gênero. O naipe é que vira
+ * voz, e vira voz diferente em cada motor — assim a mesma tabela serve para o
+ * Piper e para o Gemini sem duplicar decisão.
+ *
+ * `verify:content` confere duas invariantes que a tabela precisa manter:
+ * nenhum personagem falando sem elenco, e nenhum diálogo com dois personagens
+ * na mesma voz.
+ */
+type Gender = "f" | "m";
+
+/** [gênero, naipe dentro do gênero] */
+type CastEntry = [Gender, 0 | 1 | 2];
+
+const CAST: Record<string, CastEntry> = {
+  // --- protagonistas recorrentes -------------------------------------------
+  Ana: ["f", 1],
+  Bruno: ["m", 1],
+  Mike: ["m", 0],
+  Kate: ["f", 0],
+  Sarah: ["f", 2],
+
+  // --- personagens das escutas estendidas do dia 8 -------------------------
+  Jake: ["m", 0],
+  Elena: ["f", 2],
+  Dana: ["f", 0],
+  Rafa: ["m", 1],
+  // "Tech" se apresenta como Marcus na fala; "Lu" é a cliente do outro lado.
+  Tech: ["m", 0],
+  Lu: ["f", 1],
+  Ines: ["f", 1],
+  Tom: ["m", 2],
+  Bia: ["f", 0],
+  Priya: ["f", 2],
+  Caio: ["m", 0],
+  Jo: ["f", 0],
+  Vini: ["m", 1],
+  Mark: ["m", 2],
+  Liam: ["m", 0],
+
+  // --- papéis ---------------------------------------------------------------
+  // Papel não tem gênero embutido: a escolha aqui é para o curso ter homens e
+  // mulheres nos dois lados do balcão, e não médico-homem / recepcionista-mulher
+  // em toda cena.
+  Agent: ["m", 2],
+  Barista: ["f", 0],
+  Cashier: ["m", 1],
+  Clerk: ["m", 2],
+  Client: ["m", 1],
+  Doctor: ["m", 0],
+  Host: ["f", 2],
+  Interviewer: ["f", 0],
+  Man: ["m", 2],
+  Manager: ["f", 2],
+  Officer: ["f", 2],
+  Pharmacist: ["f", 0],
+  Receptionist: ["f", 0],
+  Vendor: ["f", 2],
+  Waiter: ["m", 2],
+  Woman: ["f", 2],
+};
+
+/**
+ * Nomes de PESSOA do elenco, separados por gênero.
+ *
+ * As escutas estendidas do dia 8 são redigidas pelo Gemini, que inventa os
+ * nomes dos dois personagens. Nome inventado cai no fallback e sai com gênero
+ * sorteado — o defeito que esta tabela existe para não ter. Então o gerador
+ * escolhe daqui, e `verify:content` reclama de qualquer estranho que apareça.
+ *
+ * Só nomes de pessoa: um papel ("Barista", "Manager") como locutor de uma
+ * conversa de copa ou de festa não faz sentido.
+ */
+export const CAST_PEOPLE: Record<Gender, string[]> = {
+  f: ["Ana", "Kate", "Sarah", "Elena", "Dana", "Ines", "Bia", "Priya", "Jo", "Lu"],
+  m: ["Bruno", "Mike", "Jake", "Rafa", "Tom", "Caio", "Vini", "Mark", "Liam"],
+};
+
+/**
+ * Vozes pré-definidas do Gemini, separadas por gênero.
+ * Kore/Aoede/Leda/Zephyr são femininas; Puck/Charon/Fenrir/Orus, masculinas.
+ */
+const GEMINI_VOICES: Record<Gender, readonly string[]> = {
+  f: ["Kore", "Aoede", "Leda"],
+  m: ["Puck", "Charon", "Fenrir"],
+};
+
+/** Vozes do Piper — TTS neural local, sem chave e sem cota. */
+const PIPER_VOICES: Record<Gender, readonly string[]> = {
+  f: ["en_US-amy-medium", "en_US-lessac-medium", "en_US-kristin-medium"],
+  m: ["en_US-ryan-medium", "en_US-joe-medium", "en_US-hfc_male-medium"],
+};
+
+function poolFor(engine: Engine, gender: Gender): readonly string[] {
+  return engine === "piper" ? PIPER_VOICES[gender] : GEMINI_VOICES[gender];
 }
 
-function voiceIndex(speaker: string, size: number): number {
+/**
+ * Elenco de quem não está na tabela.
+ *
+ * Acontece quando uma escuta estendida nova inventa um nome. O gerador é
+ * instruído a usar só nomes de `CAST_NAMES` e `verify:content` reclama de
+ * qualquer estranho, então isto aqui é rede de segurança e não caminho normal:
+ * mantém o áudio saindo, com voz estável para aquele nome, em vez de derrubar
+ * o lote inteiro por um personagem.
+ */
+function fallbackEntry(speaker: string): CastEntry {
   let sum = 0;
   for (let i = 0; i < speaker.length; i++) sum = (sum * 31 + speaker.charCodeAt(i)) >>> 0;
-  return sum % size;
+  return [sum % 2 === 0 ? "f" : "m", (sum % 3) as 0 | 1 | 2];
 }
 
+function entryFor(speaker: string): CastEntry {
+  return CAST[speaker] ?? fallbackEntry(speaker);
+}
+
+/** True quando o personagem tem elenco declarado — usado por `verify:content`. */
+export function isCast(speaker: string): boolean {
+  return speaker in CAST;
+}
+
+/**
+ * A voz de um personagem. Depende SÓ do nome e do motor — nunca de com quem
+ * ele está conversando. É isso que faz a Ana soar igual no circuito 1 e no 40.
+ */
 export function voiceFor(speaker: string, engine: Engine = "gemini"): string {
-  const cast = castFor(engine);
-  return cast[voiceIndex(speaker, cast.length)];
+  const [gender, slot] = entryFor(speaker);
+  const pool = poolFor(engine, gender);
+  return pool[slot % pool.length];
 }
 
-/** A voz "professor" dos blocos soltos — sempre a mesma, nos dois motores. */
+/**
+ * A voz "professor" dos blocos soltos.
+ *
+ * Um bloco repetido entre circuitos vira UM arquivo só (o nome sai do texto),
+ * então ele não pode herdar a voz do personagem que o diz — seria voz
+ * diferente para o mesmo arquivo. Narrador fixo é a escolha certa aqui, e
+ * ouvir o bloco numa segunda voz ainda ajuda: o aluno aprende a reconhecer a
+ * frase, não o timbre de quem a disse.
+ */
 export function narratorVoice(engine: Engine): string {
-  return castFor(engine)[0];
+  return poolFor(engine, "f")[0];
 }
 
 /**
  * As duas vozes de um diálogo, garantidamente DIFERENTES.
  *
- * Dois nomes podem cair no mesmo índice do elenco — são 8 vozes para dezenas
- * de personagens. Se isso passasse, a API recusaria o pedido (ela exige duas
- * vozes distintas) ou, pior, os dois lados da conversa sairiam com a mesma
- * voz e o aluno não separaria os turnos — exatamente o problema que
- * `pickDialogueVoices` em `src/lib/speech.ts` já documenta.
- *
- * O desempate anda para a próxima voz do elenco, então continua determinístico.
+ * Com a tabela explícita as colisões já não deveriam existir — `verify:content`
+ * falha se existirem. O desempate continua aqui porque o modo multi-locutor do
+ * Gemini RECUSA o pedido com duas vozes iguais, e um personagem novo caído no
+ * fallback ainda pode colidir. Ele anda dentro do MESMO gênero, para não
+ * consertar a colisão criando o defeito que esta tabela veio corrigir.
  */
 export function voicePairFor(a: string, b: string, engine: Engine = "gemini"): [string, string] {
-  const cast = castFor(engine);
-  const first = voiceIndex(a, cast.length);
-  let second = voiceIndex(b, cast.length);
-  if (second === first) second = (first + 1) % cast.length;
-  return [cast[first], cast[second]];
+  const first = voiceFor(a, engine);
+  const second = voiceFor(b, engine);
+  if (first !== second) return [first, second];
+
+  const [gender, slot] = entryFor(b);
+  const pool = poolFor(engine, gender);
+  return [first, pool[(slot + 1) % pool.length]];
 }
 
 /**

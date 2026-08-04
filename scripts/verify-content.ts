@@ -8,6 +8,7 @@
  * repetida, diálogo com barra (que quebraria o separador do roteiro).
  */
 
+import { audioJobs, isCast, spokenLines, voiceFor } from "@content/audio-manifest";
 import { composeLesson } from "@content/compose-lesson";
 import { assertContentComplete, CONTENT_BY_CIRCUIT } from "@content/circuits";
 import { AUTHENTIC_PIECES, authenticPieceFor } from "@content/circuits/authentic";
@@ -81,6 +82,41 @@ function main() {
       }
       if (new Set(q.options).size !== q.options.length) {
         warn(`${where}: "${q.question.slice(0, 40)}" tem alternativa repetida`);
+      }
+    }
+  }
+
+  // ------------------------------------------------ elenco de vozes
+  //
+  // Duas invariantes que só se descobre ouvindo, e que já quebraram uma vez: a
+  // Sarah saiu com voz de homem e o Bruno trocou de voz entre diálogos porque
+  // a voz vinha de um hash cego. Agora vem de uma tabela — e a tabela é
+  // conferida aqui, antes de virar 461 arquivos de áudio.
+  for (const engine of ["piper", "gemini"] as const) {
+    for (const job of audioJobs()) {
+      if (job.kind !== "dialogue") continue;
+      const where = `áudio ${job.label} [${engine}]`;
+
+      for (const who of job.speakers) {
+        if (!isCast(who)) {
+          warn(`${where}: "${who}" não está no elenco de content/audio-manifest.ts`);
+        }
+      }
+
+      // Duas pessoas na mesma voz: o Gemini recusa o pedido, e no Piper o
+      // aluno deixa de separar os turnos da conversa.
+      const used = new Map<string, string>();
+      for (const who of job.speakers) {
+        const voice = voiceFor(who, engine);
+        const taken = used.get(voice);
+        if (taken) warn(`${where}: "${who}" e "${taken}" dividem a voz ${voice}`);
+        else used.set(voice, who);
+      }
+
+      // O que de fato vai para o TTS, fala a fala — pega divergência entre o
+      // elenco e o desempate de `voicePairFor`.
+      if (new Set(spokenLines(job, engine).map((l) => l.voice)).size !== job.speakers.length) {
+        warn(`${where}: as falas saem com menos vozes distintas que locutores`);
       }
     }
   }

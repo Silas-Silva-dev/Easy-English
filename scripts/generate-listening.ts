@@ -31,6 +31,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { CAST_PEOPLE, isCast } from "../content/audio-manifest";
 import { CANTOS, CIRCUITS } from "../content/curriculum";
 
 import { env, genai, sleep } from "./_shared";
@@ -113,9 +114,15 @@ that bridges classroom English and real English. So:
 
   - Real conversational American English. Contractions always. Reductions in
     the spelling where natural ("gonna", "wanna", "kinda", "lemme").
-  - EXACTLY TWO speakers, with names. Not one, not three — the text-to-speech
-    that voices this piece renders exactly two voices, so a third speaker
-    would come out in the wrong voice.
+  - EXACTLY TWO speakers, and their names MUST be one from each list below.
+    Pick the pair that fits the scene; do not invent a name.
+      women: ${CAST_PEOPLE.f.join(", ")}
+      men:   ${CAST_PEOPLE.m.join(", ")}
+    Two reasons, both hard limits. The text-to-speech renders exactly two
+    voices, so a third speaker comes out in the wrong one. And each name maps
+    to a fixed voice of the right gender in content/audio-manifest.ts — a name
+    outside these lists gets a voice drawn at random and the woman ends up
+    speaking with a man's voice.
     Within that limit, make it messy like real talk: they interrupt each
     other, change subject, backtrack, use filler ("uh", "I mean", "you know",
     "like"), and mention other people by name without those people speaking.
@@ -236,6 +243,13 @@ async function generate(circuit: (typeof CIRCUITS)[number], model: string): Prom
   const speakers = [...new Set(piece.lines.map(([who]) => who))];
   if (speakers.length !== 2) {
     throw new Error(`${speakers.length} locutores (${speakers.join(", ")}) — o TTS exige 2`);
+  }
+
+  // Nome fora do elenco cai no sorteio de voz e sai com gênero trocado. Rejeita
+  // aqui: a peça é reescrita agora, em vez de virar áudio errado depois.
+  const strangers = speakers.filter((who) => !isCast(who));
+  if (strangers.length) {
+    throw new Error(`locutor fora do elenco: ${strangers.join(", ")}`);
   }
 
   // O título vai para a tela do aluno, ao lado de texto em português. O modelo

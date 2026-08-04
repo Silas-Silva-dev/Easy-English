@@ -309,11 +309,26 @@ function isQuotaError(error: unknown): boolean {
 
 const VOICES_DIR = join(process.cwd(), ".piper-voices");
 
+/**
+ * Os ids que existem em disco AGORA.
+ *
+ * Relido no fim de cada lote em vez de somar `já existiam + gerados`. Com
+ * `--force` as duas parcelas se sobrepõem — os 461 arquivos que já estavam lá
+ * eram os mesmos 462 que acabaram de ser reescritos — e a soma anunciava
+ * "923/462 áudios, faltam -461". O disco é a única fonte que não erra isso.
+ */
+function countOnDisk(): Set<string> {
+  return new Set(
+    readdirSync(OUT_DIR)
+      .filter((f) => f.endsWith(".mp3"))
+      .map((f) => f.replace(/\.mp3$/, "")),
+  );
+}
+
 async function runPiper(
   pending: AudioJob[],
   ledger: Record<string, Engine>,
-  alreadyDone: number,
-  total: number,
+  wanted: AudioJob[],
 ): Promise<void> {
   if (!existsSync(VOICES_DIR)) {
     console.error(
@@ -379,7 +394,9 @@ async function runPiper(
 
   rmSync(jobsPath, { force: true });
 
-  const now = alreadyDone + generated;
+  const ready = countOnDisk();
+  const now = wanted.filter((j) => ready.has(j.id)).length;
+  const total = wanted.length;
   console.log(`\n  ${now}/${total} áudios em public/audio/`);
   if (failed) console.log(`  \x1b[31m${failed}\x1b[0m falharam — rode de novo para tentar só eles.`);
   console.log(
@@ -419,11 +436,7 @@ async function main() {
         : j.kind === "chunk",
   );
 
-  const onDisk = new Set(
-    readdirSync(OUT_DIR)
-      .filter((f) => f.endsWith(".mp3"))
-      .map((f) => f.replace(/\.mp3$/, "")),
-  );
+  const onDisk = countOnDisk();
 
   const ledger = readLedger();
 
@@ -466,7 +479,7 @@ async function main() {
 
   // ------------------------------------------------------------ motor local
   if (options.engine === "piper") {
-    await runPiper(pending, ledger, done, wanted.length);
+    await runPiper(pending, ledger, wanted);
     return;
   }
 
@@ -556,7 +569,9 @@ async function main() {
     if (queue.length) await sleep(options.delayMs);
   }
 
-  const total = done + generated;
+  // Do disco, não `done + generated`: ver countOnDisk.
+  const ready = countOnDisk();
+  const total = wanted.filter((j) => ready.has(j.id)).length;
   console.log(`\n  ${total}/${wanted.length} áudios prontos em public/audio/`);
   if (failed) console.log(`  \x1b[31m${failed}\x1b[0m falharam — rode de novo para tentar só eles.`);
   if (total === wanted.length) {
