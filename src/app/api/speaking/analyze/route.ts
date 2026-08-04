@@ -118,13 +118,15 @@ export async function POST(request: NextRequest) {
   }
 
   // ------------------------------------------------- upload no bucket privado
-  const extension = normalizeAudioMime(file.type).split("/")[1]?.replace("mpeg", "mp3") ?? "webm";
+  const normalizedMime = normalizeAudioMime(file.type);
+  const extension = normalizedMime.split("/")[1]?.replace("mpeg", "mp3") ?? "webm";
   const audioPath = `${session.userId}/${Date.now()}-${crypto.randomUUID()}.${extension}`;
   const bytes = new Uint8Array(await file.arrayBuffer());
 
-  const { error: uploadError } = await supabase.storage
+  const adminSupabase = createAdminSupabase();
+  const { error: uploadError } = await adminSupabase.storage
     .from("speaking-audio")
-    .upload(audioPath, bytes, { contentType: file.type, upsert: false });
+    .upload(audioPath, bytes, { contentType: normalizedMime, upsert: false });
 
   if (uploadError) {
     console.error("[speaking] upload falhou:", uploadError.message);

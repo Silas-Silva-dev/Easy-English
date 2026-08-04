@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 import { getSessionContext } from "@/lib/auth/guards";
+import { createAdminSupabase } from "@/lib/supabase/admin";
 import { createServerSupabase } from "@/lib/supabase/server";
 
 export const runtime = "nodejs";
@@ -40,7 +41,8 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Acesso negado ao áudio" }, { status: 403 });
   }
 
-  const { data, error } = await supabase.storage.from("speaking-audio").download(targetPath);
+  const adminSupabase = createAdminSupabase();
+  const { data, error } = await adminSupabase.storage.from("speaking-audio").download(targetPath);
 
   if (error || !data) {
     console.error("[speaking/audio] Erro ao carregar áudio:", error?.message);
