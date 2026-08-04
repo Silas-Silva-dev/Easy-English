@@ -3607,5 +3607,179 @@
       }
     ],
     "n": 27
+  },
+  {
+    "kind": "conversa",
+    "title": "Histórias de Viagem e Aventuras",
+    "why": "Esta conversa expõe você ao uso do Present Perfect misturado ao Past Simple em um ritmo natural de bate-papo, com reduções do dia a dia e histórias cruzadas sobre terceiros.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Mark",
+        "Hey Sarah, have you ever thought about just quitting your job and moving abroad?",
+        "Ei Sarah, você já pensou em simplesmente largar seu emprego e ir morar fora?"
+      ],
+      [
+        "Sarah",
+        "Oh, all the time! Honestly, I've wanted to do that since college.",
+        "Nossa, toda hora! Sinceramente, eu quero fazer isso desde a faculdade."
+      ],
+      [
+        "Mark",
+        "Really? Have you ever actually lived in another country before?",
+        "Sério? Você já morou de fato em outro país antes?"
+      ],
+      [
+        "Sarah",
+        "Well, I lived in Spain for like six months back in 2018. It was amazing.",
+        "Bom, eu morei na Espanha tipo uns seis meses lá em 2018. Foi incrível."
+      ],
+      [
+        "Mark",
+        "No way! I've never been to Europe. Was it hard adapting to the culture?",
+        "Mentira! Eu nunca fui pra Europa. Foi difícil se adaptar à cultura?"
+      ],
+      [
+        "Sarah",
+        "Kinda, yeah. The language barrier was tough at first, you know?",
+        "Um pouco, sim. A barreira do idioma foi difícil no começo, sabe?"
+      ],
+      [
+        "Mark",
+        "I can imagine. Have you ever had to speak Spanish in a business meeting?",
+        "Consigo imaginar. Você já teve que falar espanhol numa reunião de negócios?"
+      ],
+      [
+        "Sarah",
+        "Haha, once! It was a total disaster, but hey, you learn from your mistakes.",
+        "Haha, uma vez! Foi um desastre total, mas ó, a gente aprende com os erros."
+      ],
+      [
+        "Mark",
+        "Right. What about weird food? Have you ever eaten anything super crazy over there?",
+        "Pois é. E comida estranha? Você já comeu alguma coisa super louca por lá?"
+      ],
+      [
+        "Sarah",
+        "Oh, definitely. I tried raw octopus in Barcelona. It's the weirdest thing I've ever had.",
+        "Ah, com certeza. Eu experimentei polvo cru em Barcelona. É a coisa mais estranha que já comi."
+      ],
+      [
+        "Mark",
+        "Eww, gross! I don't think I could ever do that. I'm kinda picky.",
+        "Eca, que nojo! Acho que eu nunca conseguiria. Sou meio chato pra comer."
+      ],
+      [
+        "Sarah",
+        "Come on, Mark! Life's short. Have you ever done anything adventurous?",
+        "Qual é, Mark! A vida é curta. Você já fez alguma coisa aventureira?"
+      ],
+      [
+        "Mark",
+        "Well... I went skydiving last year with Dave from accounting.",
+        "Bom... eu fui de paraquedas no ano passado com o Dave da contabilidade."
+      ],
+      [
+        "Sarah",
+        "Wait, Dave? Dave went skydiving? I thought he was afraid of heights!",
+        "Pera, o Dave? O Dave pulou de paraquedas? Achei que ele tivesse medo de altura!"
+      ],
+      [
+        "Mark",
+        "He is! He screamed the entire time. It was the funniest thing I've ever seen.",
+        "E tem! Ele gritou o tempo todo. Foi a coisa mais engraçada que eu já vi."
+      ],
+      [
+        "Sarah",
+        "That's crazy! I've always wanted to go skydiving, but I'm kinda terrified.",
+        "Que loucura! Eu sempre quis pular de paraquedas, mas tenho meio que pavor."
+      ],
+      [
+        "Mark",
+        "You gotta try it! Honestly, it's the best experience I've ever had.",
+        "Você tem que experimentar! Sinceramente, é a melhor experiência que já tive."
+      ],
+      [
+        "Sarah",
+        "Maybe next summer. So, how about Dave? Has he ever done it again?",
+        "Talvez no próximo verão. E o Dave? Ele já fez isso de novo?"
+      ],
+      [
+        "Mark",
+        "Are you kidding? He swore he'd never touch a plane again!",
+        "Tá brincando? Ele jurou que nunca mais pisa num avião!"
+      ],
+      [
+        "Sarah",
+        "Haha! Poor Dave. Lemme ask you something else, have you ever been to Asia?",
+        "Haha! Coitado do Dave. Deixa eu te perguntar outra coisa, você já foi pra Ásia?"
+      ],
+      [
+        "Mark",
+        "Nope, never. But my sister moved to Japan last month, so I wanna visit her.",
+        "Não, nunca. Mas minha irmã se mudou pro Japão no mês passado, então quero visitar ela."
+      ],
+      [
+        "Sarah",
+        "Oh, lucky you! Japan is right at the top of my bucket list.",
+        "Ah, que sorte a sua! O Japão tá no topo da minha lista de desejos."
+      ],
+      [
+        "Mark",
+        "Mine too. I've saved up some money, so I'm gonna buy the tickets next week.",
+        "A minha também. Guardei uma grana, então vou comprar as passagens semana que vem."
+      ],
+      [
+        "Sarah",
+        "That's awesome! Lemme know how it goes. I'm so jealous right now.",
+        "Que demais! Me avisa como foi. Tô com tanta inveja agora."
+      ],
+      [
+        "Mark",
+        "Will do! Anyway, back to work before the boss catches us talking.",
+        "Pode deixar! Enfim, de volta ao trabalho antes que o chefe pegue a gente conversando."
+      ],
+      [
+        "Sarah",
+        "Right! Talk to you later, Mark.",
+        "Verdade! A gente se fala depois, Mark."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "O que a Sarah achou da experiência de comer polvo cru em Barcelona?",
+        "options": [
+          "Achou uma delícia e recomendou ao Mark.",
+          "Achou a coisa mais estranha que já comeu.",
+          "Não conseguiu comer porque ficou com nojo.",
+          "Passou mal após o jantar no restaurante."
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah afirma categoricamente: 'It's the weirdest thing I've ever had' (é a coisa mais estranha que já comi)."
+      },
+      {
+        "question": "Por que a reação do Dave ao salto de paraquedas foi engraçada para o Mark?",
+        "options": [
+          "Dave desistiu do salto na hora de pular do avião.",
+          "Dave esqueceu o paraquedas e teve que usar o de emergência.",
+          "Dave tem medo de altura e passou o tempo todo gritando.",
+          "Dave acabou caindo em cima de uma árvore no pouso."
+        ],
+        "answerIndex": 2,
+        "explanation": "Mark conta que Dave morre de medo de altura e gritou o tempo todo durante o salto."
+      },
+      {
+        "question": "Qual é o plano imediato do Mark em relação à viagem para o Japão?",
+        "options": [
+          "Ele vai morar lá com a irmã no mês que vem.",
+          "Ele já comprou as passagens para viajar no próximo verão.",
+          "Ele desistiu da viagem porque achou as passagens caras.",
+          "Ele economizou dinheiro e vai comprar as passagens semana que vem."
+        ],
+        "answerIndex": 3,
+        "explanation": "Mark explica que juntou dinheiro e vai comprar os bilhetes na semana seguinte ('I'm gonna buy the tickets next week')."
+      }
+    ],
+    "n": 28
   }
 ]

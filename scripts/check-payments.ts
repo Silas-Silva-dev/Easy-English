@@ -1,8 +1,8 @@
 /**
  * Diagnóstico do pagamento — Mercado Pago de ponta a ponta.
  *
- *   npm run check:pagamento
- *   npm run check:pagamento -- https://seudominio.com.br
+ *   npm run check:pagamento                                  (usa .env.production)
+ *   npm run check:pagamento -- https://seudominio.com.br     (força um domínio)
  *
  * Separa os motivos pelos quais "cliquei em pagar e não aconteceu nada":
  *
@@ -17,11 +17,54 @@
  */
 
 import { createHmac } from "node:crypto";
+import { existsSync, readFileSync } from "node:fs";
 
-import { config as loadEnv } from "dotenv";
+import { config as loadEnv, parse as parseEnv } from "dotenv";
 
 loadEnv({ path: ".env.local", quiet: true });
 loadEnv({ path: ".env", quiet: true });
+
+/**
+ * De onde sai o domínio testado.
+ *
+ * O `.env.local` manda no ambiente do processo e aponta para o localhost — o
+ * que é certo para desenvolver e errado para este diagnóstico, que existe para
+ * conferir PRODUÇÃO. Testar localhost aqui dá um verde que não significa nada:
+ * a preferência sai sem `notification_url` e o webhook conferido é o da sua
+ * máquina, não o do servidor que recebe o dinheiro.
+ *
+ * Por isso o `.env.production` — o arquivo que você importa no hPanel — tem
+ * precedência sobre o `.env.local`, e o argumento da linha de comando sobre
+ * todos.
+ */
+function readEnvFile(path: string): Record<string, string> {
+  if (!existsSync(path)) return {};
+  try {
+    return parseEnv(readFileSync(path));
+  } catch {
+    return {};
+  }
+}
+
+/** Descarta o marcador que o .env.production traz até ser preenchido. */
+function isPlaceholder(value: string): boolean {
+  return /SEU[-_]NOVO[-_]DOMINIO|seudominio|exemplo\.com/i.test(value);
+}
+
+function resolveSiteUrl(): { url: string; source: string } {
+  const candidates = [
+    { source: "argumento da linha de comando", value: process.argv[2] },
+    { source: ".env.production", value: readEnvFile(".env.production").NEXT_PUBLIC_SITE_URL },
+    { source: ".env.local", value: process.env.NEXT_PUBLIC_SITE_URL },
+  ];
+
+  for (const candidate of candidates) {
+    const value = candidate.value?.trim().replace(/\/$/, "");
+    if (value && !isPlaceholder(value)) return { url: value, source: candidate.source };
+  }
+
+  return { url: "http://localhost:3000", source: "padrão (nenhum domínio informado)" };
+}
 
 const ok = (msg: string) => console.log(`  \x1b[32m✓\x1b[0m ${msg}`);
 const info = (msg: string) => console.log(`    \x1b[2m${msg}\x1b[0m`);
@@ -53,32 +96,8 @@ function readBody(text: string): unknown {
   }
 }
 
-/**
- * Data no formato que o Mercado Pago aceita em `expiration_date_to`.
- *
- * Ele exige deslocamento explícito (`-03:00`) e RECUSA o sufixo `Z` que o
- * `toISOString()` produz. Este helper espelha o de src/lib/mercadopago para o
- * diagnóstico testar exatamente o que a aplicação envia.
- */
-function mpDate(date: Date): string {
-  const pad = (n: number, size = 2) => String(Math.abs(n)).padStart(size, "0");
-  const offsetMin = -date.getTimezoneOffset();
-  const sign = offsetMin >= 0 ? "+" : "-";
-
-  return (
-    `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}` +
-    `T${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}` +
-    `.${pad(date.getMilliseconds(), 3)}${sign}${pad(Math.floor(Math.abs(offsetMin) / 60))}:` +
-    `${pad(Math.abs(offsetMin) % 60)}`
-  );
-}
-
 async function main() {
-  const siteUrl = (
-    process.argv[2]?.trim() ||
-    process.env.NEXT_PUBLIC_SITE_URL?.trim() ||
-    "http://localhost:3000"
-  ).replace(/\/$/, "");
+  const { url: siteUrl, source: siteSource } = resolveSiteUrl();
 
   const token = process.env.MERCADOPAGO_ACCESS_TOKEN?.trim();
   const secret = process.env.MERCADOPAGO_WEBHOOK_SECRET?.trim();
@@ -86,7 +105,7 @@ async function main() {
   const maxInstallments = Number(process.env.CHECKOUT_MAX_INSTALLMENTS?.trim() || "10");
 
   console.log("\n\x1b[1mDiagnóstico de pagamento — Mercado Pago\x1b[0m");
-  console.log(`\x1b[2mSite: ${siteUrl}\x1b[0m\n`);
+  console.log(`\x1b[2mSite: ${siteUrl}  (origem: ${siteSource})\x1b[0m\n`);
 
   // ------------------------------------------------------------- 1. Ambiente
   console.log("\x1b[1m1. Variáveis de ambiente\x1b[0m");
@@ -128,8 +147,9 @@ async function main() {
 
   if (!/^https:\/\//i.test(siteUrl)) {
     warn(
-      `NEXT_PUBLIC_SITE_URL não é HTTPS (${siteUrl})`,
-      "Em localhost a preferência sai sem notification_url e sem auto_return.",
+      `O domínio testado não é HTTPS (${siteUrl}) — isto NÃO valida produção`,
+      "A preferência sai sem notification_url e o webhook conferido é o da sua " +
+        "máquina. Rode: npm run check:pagamento -- https://seudominio.com.br",
     );
   } else {
     ok(`Site em HTTPS: ${siteUrl}`);
@@ -231,7 +251,17 @@ async function main() {
       process.env.CHECKOUT_STATEMENT_DESCRIPTOR?.trim() || "EASYENGLISH"
     ).slice(0, 13),
     expires: true,
-    expiration_date_to: mpDate(expiresAt),
+    /**
+     * O MESMO formato de src/lib/mercadopago/checkout.ts.
+     *
+     * Aqui havia um helper que montava a data com deslocamento explícito
+     * (`-03:00`), sob a suspeita de que o Mercado Pago recusasse o sufixo `Z`
+     * do `toISOString()`. Testei os dois formatos lado a lado contra a API:
+     * ambos devolvem 201. A suspeita era falsa — e o helper fazia o diagnóstico
+     * enviar algo diferente do que a aplicação envia, que é o único jeito de um
+     * diagnóstico dar verde e o botão continuar quebrado.
+     */
+    expiration_date_to: expiresAt.toISOString(),
     binary_mode: false,
   };
 

@@ -5,7 +5,7 @@ import { randomUUID } from "node:crypto";
 import { redirect } from "next/navigation";
 
 import { getAccessGrant, requireActiveUser } from "@/lib/auth/guards";
-import { checkoutEnv, mercadoPagoEnv } from "@/lib/env";
+import { checkoutEnv, mercadoPagoEnv, serverEnv } from "@/lib/env";
 import { checkoutUrl, createPreference } from "@/lib/mercadopago/checkout";
 import { getPayment, normalizePayment } from "@/lib/mercadopago/payments";
 import { applyPaymentToOrder } from "@/lib/orders";
@@ -14,6 +14,22 @@ import type { Order } from "@/lib/types/database";
 
 export interface CheckoutState {
   error?: string;
+}
+
+/**
+ * Para onde a preferência JÁ GRAVADA manda o aluno de volta, ou null quando não
+ * dá para saber.
+ *
+ * A preferência é um retrato: `back_urls` e `notification_url` são congelados no
+ * Mercado Pago quando ela é criada e não acompanham mudanças posteriores de
+ * `NEXT_PUBLIC_SITE_URL`. Guardamos a resposta inteira em `orders.raw`, então dá
+ * para conferir antes de reaproveitar.
+ */
+function preferenceReturnUrl(raw: Order["raw"]): string | null {
+  const success = (raw as { preference?: { back_urls?: { success?: unknown } } } | null)?.preference
+    ?.back_urls?.success;
+
+  return typeof success === "string" ? success : null;
 }
 
 /**
@@ -61,8 +77,25 @@ export async function startCheckoutAction(
       .limit(1)
       .maybeSingle();
 
+    /**
+     * Preferência criada sob OUTRO domínio não serve mais.
+     *
+     * O sintoma visível é o "Voltar para a loja" do Mercado Pago cair num
+     * endereço morto. O grave é invisível: aquela preferência também carrega o
+     * `notification_url` antigo, então um pagamento feito nela notifica o
+     * domínio que não existe mais e o aluno NUNCA é liberado.
+     *
+     * Quando não dá para saber (pedido sem `raw`, de antes deste campo), o
+     * benefício da dúvida fica com o reaproveitamento: rejeitar às cegas faria
+     * cada clique abrir um pedido novo, que é exatamente a poluição que a
+     * lógica de reaproveitar existe para evitar.
+     */
+    const returnUrl = openOrder ? preferenceReturnUrl(openOrder.raw) : null;
+    const sameSite = returnUrl === null || returnUrl.startsWith(`${serverEnv.siteUrl}/`);
+
     const stillValid =
       openOrder &&
+      sameSite &&
       openOrder.amount_cents === amountCents &&
       (!openOrder.expires_at || new Date(openOrder.expires_at) > new Date());
 
