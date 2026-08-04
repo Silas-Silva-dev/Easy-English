@@ -6,9 +6,6 @@ import type { Database } from "@/lib/types/database";
 /** Rotas que exigem sessao autenticada. */
 const PROTECTED_PREFIXES = ["/app", "/admin"];
 
-/** Rotas de autenticacao: usuario ja logado e redirecionado para dentro. */
-const AUTH_ROUTES = ["/login", "/cadastro", "/recuperar-senha"];
-
 export async function updateSession(request: NextRequest) {
   let response = NextResponse.next({ request });
 
@@ -26,7 +23,9 @@ export async function updateSession(request: NextRequest) {
           }
           response = NextResponse.next({ request });
           for (const { name, value, options } of cookiesToSet) {
-            response.cookies.set(name, value, options);
+            // Omitir maxAge e expires transforma o cookie em cookie de sessão (expira ao fechar o navegador)
+            const { maxAge, expires, ...sessionOptions } = options;
+            response.cookies.set(name, value, sessionOptions);
           }
         },
       },
@@ -41,20 +40,12 @@ export async function updateSession(request: NextRequest) {
 
   const { pathname, search } = request.nextUrl;
   const isProtected = PROTECTED_PREFIXES.some((p) => pathname === p || pathname.startsWith(`${p}/`));
-  const isAuthRoute = AUTH_ROUTES.some((p) => pathname === p || pathname.startsWith(`${p}/`));
 
   if (!user && isProtected) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
     url.search = "";
     url.searchParams.set("next", `${pathname}${search}`);
-    return NextResponse.redirect(url);
-  }
-
-  if (user && isAuthRoute) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/app";
-    url.search = "";
     return NextResponse.redirect(url);
   }
 

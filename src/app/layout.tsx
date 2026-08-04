@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
     default: "InglishEasy: Inglês para conversação com tutora de IA",
-    template: "%s · InglishEasy",
+    template: "%s",
   },
   description:
     "Plataforma de cursos de inglês focada em conversação. 728 dias no seu ritmo, com uma tutora de IA que ouve sua fala, corrige a pronúncia e mostra exatamente como melhorar.",

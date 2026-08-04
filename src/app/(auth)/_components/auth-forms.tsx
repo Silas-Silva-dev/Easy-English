@@ -2,6 +2,7 @@
 
 import { AlertCircle, CheckCircle2, Eye, EyeOff } from "lucide-react";
 import * as React from "react";
+import Link from "next/link";
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
 
@@ -38,7 +39,7 @@ function FormAlert({ state }: { state: AuthFormState }) {
         className="bg-destructive/10 text-destructive flex items-start gap-2 rounded-lg px-3 py-2.5 text-sm"
       >
         <AlertCircle className="mt-0.5 size-4 shrink-0" />
-        {state.error}
+        <span>{state.error}</span>
       </p>
     );
   }
@@ -49,7 +50,7 @@ function FormAlert({ state }: { state: AuthFormState }) {
         className="bg-success/10 text-success flex items-start gap-2 rounded-lg px-3 py-2.5 text-sm"
       >
         <CheckCircle2 className="mt-0.5 size-4 shrink-0" />
-        {state.success}
+        <span>{state.success}</span>
       </p>
     );
   }

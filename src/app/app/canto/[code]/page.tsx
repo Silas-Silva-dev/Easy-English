@@ -1,6 +1,25 @@
+import type { Metadata } from "next";
 import SchedulePage from "@/app/app/cronograma/page";
 import { getPrimaryCourse } from "@/lib/learning";
 import { createServerSupabase } from "@/lib/supabase/server";
+
+const CANTO_TITLES: Record<string, string> = {
+  c1: "Canto 1: Destravar",
+  c2: "Canto 2: Contar",
+  c3: "Canto 3: Resolver",
+  c4: "Canto 4: Soar natural",
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ code: string }>;
+}): Promise<Metadata> {
+  const { code } = await params;
+  const lower = code.toLowerCase();
+  const title = CANTO_TITLES[lower] ?? `Canto ${code.toUpperCase()}`;
+  return { title };
+}
 
 export default async function CantoPage({
   params,

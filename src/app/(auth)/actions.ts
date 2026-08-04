@@ -120,9 +120,13 @@ export async function requestPasswordResetAction(
   if (!parsed.success) return { error: parsed.error.issues[0]?.message ?? "E-mail inválido" };
 
   const supabase = await createServerSupabase();
-  await supabase.auth.resetPasswordForEmail(parsed.data, {
+  const { error } = await supabase.auth.resetPasswordForEmail(parsed.data, {
     redirectTo: `${serverEnv.siteUrl}/auth/confirm?type=recovery&next=/nova-senha`,
   });
+
+  if (error) {
+    return { error: error.message };
+  }
 
   // Resposta idêntica exista ou não a conta: não vazamos quais e-mails
   // estão cadastrados.

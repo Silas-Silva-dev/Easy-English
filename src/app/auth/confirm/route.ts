@@ -1,7 +1,8 @@
+import { createServerClient } from "@supabase/ssr";
 import type { EmailOtpType } from "@supabase/supabase-js";
 import { NextResponse, type NextRequest } from "next/server";
 
-import { createServerSupabase } from "@/lib/supabase/server";
+import type { Database } from "@/lib/types/database";
 
 /**
  * Destino dos links enviados por e-mail pelo Supabase (confirmação de cadastro,
@@ -20,14 +21,31 @@ export async function GET(request: NextRequest) {
   const nextParam = searchParams.get("next");
   const next = nextParam?.startsWith("/") && !nextParam.startsWith("//") ? nextParam : "/app";
 
-  const supabase = await createServerSupabase();
+  const targetPath = type === "recovery" ? "/nova-senha" : `${next}?conta=verificada`;
+  const response = NextResponse.redirect(new URL(targetPath, origin));
+
+  const supabase = createServerClient<Database>(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+    {
+      cookies: {
+        getAll() {
+          return request.cookies.getAll();
+        },
+        setAll(cookiesToSet) {
+          for (const { name, value, options } of cookiesToSet) {
+            request.cookies.set(name, value);
+            response.cookies.set(name, value, options);
+          }
+        },
+      },
+    },
+  );
 
   if (tokenHash && type) {
     const { error } = await supabase.auth.verifyOtp({ type, token_hash: tokenHash });
     if (!error) {
-      return NextResponse.redirect(
-        new URL(type === "recovery" ? "/nova-senha" : `${next}?conta=verificada`, origin),
-      );
+      return response;
     }
     return NextResponse.redirect(new URL("/login?erro=link-invalido", origin));
   }
@@ -35,9 +53,7 @@ export async function GET(request: NextRequest) {
   if (code) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
-      return NextResponse.redirect(
-        new URL(type === "recovery" ? "/nova-senha" : `${next}?conta=verificada`, origin),
-      );
+      return response;
     }
   }
 

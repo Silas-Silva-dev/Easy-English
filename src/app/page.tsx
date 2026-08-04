@@ -31,7 +31,6 @@ import { ThemeToggle } from "@/components/theme-provider";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { getSessionContext } from "@/lib/auth/guards";
 import { CANTOS, CIRCUITS, type CantoSpec } from "@content/curriculum";
 
 export const metadata: Metadata = {
@@ -145,9 +144,7 @@ const FAQS = [
   },
 ];
 
-export default async function LandingPage() {
-  const session = await getSessionContext();
-
+export default function LandingPage() {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       {/* ----------------------------------------------------------- Header */}
@@ -177,22 +174,12 @@ export default async function LandingPage() {
 
           <div className="flex items-center gap-2.5">
             <ThemeToggle />
-            {session ? (
-              <Button asChild size="sm" variant="gradient" className="h-10 px-4 sm:h-9">
-                <Link href="/app">
-                  Meu painel <ArrowRight className="size-4" />
-                </Link>
-              </Button>
-            ) : (
-              <>
-                <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
-                  <Link href="/login">Entrar</Link>
-                </Button>
-                <Button asChild size="sm" variant="gradient" className="h-10 px-4 sm:h-9">
-                  <Link href="/cadastro">Começar grátis</Link>
-                </Button>
-              </>
-            )}
+            <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
+              <Link href="/login">Entrar</Link>
+            </Button>
+            <Button asChild size="sm" variant="gradient" className="h-10 px-4 sm:h-9">
+              <Link href="/cadastro">Começar grátis</Link>
+            </Button>
           </div>
         </div>
       </header>
