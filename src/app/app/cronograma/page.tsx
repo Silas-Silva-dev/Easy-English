@@ -2,6 +2,7 @@ import { CheckCircle2, ChevronRight, Circle, Clock, Lock, PlayCircle } from "luc
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { CircuitAccordionItem } from "@/components/cronograma/circuit-accordion-item";
 import { Badge } from "@/components/ui/badge";
 import { EmptyState, PageHeader } from "@/components/ui/misc";
 import { Progress } from "@/components/ui/progress";
@@ -180,14 +181,11 @@ export default async function SchedulePage({
               const isOpen = circuit === openCircuit;
 
               return (
-                <details
+                <CircuitAccordionItem
                   key={circuit}
-                  name="circuitos"
-                  open={isOpen}
-                  className={cn(
-                    "group bg-card overflow-hidden rounded-xl border transition-colors",
-                    isCurrent && "border-primary/45",
-                  )}
+                  circuit={circuit}
+                  isOpen={isOpen}
+                  isCurrent={isCurrent}
                 >
                   <summary className="flex cursor-pointer list-none items-center gap-3 p-4 [&::-webkit-details-marker]:hidden">
                     <ChevronRight className="text-muted-foreground size-4 shrink-0 transition-transform duration-200 group-open:rotate-90" />
@@ -229,18 +227,18 @@ export default async function SchedulePage({
 
                       return (
                         <div key={phase}>
-                          <p className="text-muted-foreground mb-2 text-[11px] font-medium tracking-widest uppercase">
+                          <p className="text-muted-foreground mb-2 text-[10px] font-bold tracking-wider uppercase">
                             {phase === "A"
-                              ? "Aquisição · dias 1 a 7"
-                              : "Consolidação · dias 8 a 14"}
+                              ? `Aquisição · dias ${firstDay} a ${firstDay + 6}`
+                              : `Consolidação · dias ${firstDay + 7} a ${lastDay}`}
                           </p>
-                          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
+                          <div className="grid grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-7">
                             {phaseLessons.map((lesson) => (
                               <DayCard
                                 key={lesson.id}
                                 lesson={lesson}
                                 completed={completedIds.has(lesson.id)}
-                                isCurrent={currentDay === lesson.day_number}
+                                isCurrent={lesson.day_number === enrollment?.current_day}
                               />
                             ))}
                           </div>
@@ -248,7 +246,7 @@ export default async function SchedulePage({
                       );
                     })}
                   </div>
-                </details>
+                </CircuitAccordionItem>
               );
             })}
           </div>
