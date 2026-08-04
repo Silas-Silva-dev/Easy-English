@@ -34,6 +34,9 @@ dist/
 !src/app/(auth)/nova-senha/**
 !src/app/nova-senha/
 !src/app/nova-senha/**
+# ...e o template de e-mail, que "*[Pp]assword*" engolia. Ele é markup de
+# layout, não credencial: ficava de fora do repositório sem ninguém notar.
+!supabase/templates/reset-password.html
 *.pem
 *.key
 *.p12
