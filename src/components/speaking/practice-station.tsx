@@ -1,6 +1,6 @@
 "use client";
 
-import { Mic, Quote, RefreshCcw } from "lucide-react";
+import { Mic, Quote, RefreshCcw, Sparkles } from "lucide-react";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -75,9 +75,9 @@ export function PracticeStation({
           ) : null}
 
           {result ? (
-            <div className="flex justify-center">
+            <div className="flex items-center justify-center pt-2">
               <Button variant="outline" onClick={() => setResult(null)}>
-                <RefreshCcw className="size-4" /> Tentar de novo
+                <RefreshCcw className="size-4" /> Gravado · Regravar fala
               </Button>
             </div>
           ) : (
@@ -87,7 +87,16 @@ export function PracticeStation({
       </Card>
 
       {result ? (
-        <div ref={resultRef} className="scroll-mt-24">
+        <div ref={resultRef} className="scroll-mt-24 space-y-4">
+          <div className="flex items-center justify-between gap-3 border-b pb-3">
+            <div className="flex items-center gap-2">
+              <Sparkles className="text-primary size-5 animate-pulse" />
+              <h3 className="text-base font-bold tracking-tight">Avaliação & Correção da Sua Fala</h3>
+            </div>
+            <Button variant="outline" size="sm" onClick={() => setResult(null)}>
+              <RefreshCcw className="size-3.5" /> Refazer gravação
+            </Button>
+          </div>
           <SpeakingFeedbackPanel result={result} />
         </div>
       ) : null}

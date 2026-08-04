@@ -47,6 +47,15 @@ export default async function LessonPage({ params }: Params) {
 
   if (!lesson) notFound();
 
+  function getCantoInfo(weekNumber: number) {
+    if (weekNumber <= 13) return { href: "/app/canto/c1", label: "Voltar ao Canto 1: Destravar" };
+    if (weekNumber <= 26) return { href: "/app/canto/c2", label: "Voltar ao Canto 2: Contar" };
+    if (weekNumber <= 39) return { href: "/app/canto/c3", label: "Voltar ao Canto 3: Resolver" };
+    return { href: "/app/canto/c4", label: "Voltar ao Canto 4: Soar natural" };
+  }
+
+  const cantoInfo = getCantoInfo(lesson.week_number);
+
   // Lição em rascunho só é visível para quem administra o conteúdo.
   if (!lesson.is_published) {
     return (
@@ -57,7 +66,7 @@ export default async function LessonPage({ params }: Params) {
           description={`O conteúdo do dia ${day} está em preparação. Continue pelo seu cronograma normal.`}
           action={
             <Button asChild variant="outline">
-              <Link href="/app">Voltar ao painel</Link>
+              <Link href={cantoInfo.href}>{cantoInfo.label}</Link>
             </Button>
           }
         />
@@ -83,10 +92,10 @@ export default async function LessonPage({ params }: Params) {
     <div className="mx-auto max-w-3xl space-y-7">
       <header className="space-y-3">
         <Link
-          href="/app"
+          href={cantoInfo.href}
           className="text-muted-foreground hover:text-foreground -ml-2 inline-flex min-h-10 items-center gap-1.5 px-2 text-sm transition-colors"
         >
-          <ArrowLeft className="size-3.5" /> Voltar ao painel
+          <ArrowLeft className="size-3.5" /> {cantoInfo.label}
         </Link>
 
         <div className="flex flex-wrap items-center gap-2">

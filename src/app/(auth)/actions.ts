@@ -109,7 +109,7 @@ export async function signOutAction() {
   const supabase = await createServerSupabase();
   await supabase.auth.signOut();
   revalidatePath("/", "layout");
-  redirect("/login");
+  redirect("/");
 }
 
 export async function requestPasswordResetAction(

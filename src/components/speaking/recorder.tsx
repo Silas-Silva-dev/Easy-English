@@ -123,8 +123,8 @@ export function SpeakingRecorder({
         blobRef.current = blob;
         if (audioUrl) URL.revokeObjectURL(audioUrl);
         setAudioUrl(URL.createObjectURL(blob));
-        setPhase("recorded");
         cleanup();
+        void submitBlob(blob);
       };
 
       recorder.start(250);
@@ -166,8 +166,8 @@ export function SpeakingRecorder({
     setPhase("idle");
   }
 
-  async function submit() {
-    const blob = blobRef.current;
+  async function submitBlob(blobToSubmit?: Blob) {
+    const blob = blobToSubmit ?? blobRef.current;
     if (!blob) return;
 
     setPhase("analyzing");
@@ -188,10 +188,12 @@ export function SpeakingRecorder({
 
       if (payload.audible === false) {
         toast.warning("Não consegui ouvir sua voz. Verifique o microfone e grave novamente.");
+        setPhase("idle");
+        return;
       } else if (payload.languageDetected === "pt") {
         toast.warning("Você falou em português. Tente responder em inglês — mesmo com erros.");
       } else {
-        toast.success("Análise pronta!");
+        toast.success("Correção da tutora pronta!");
       }
 
       onResult(payload as SpeakingResult);
@@ -279,7 +281,7 @@ export function SpeakingRecorder({
               <Button type="button" variant="outline" onClick={reset}>
                 <RotateCcw className="size-4" /> Regravar
               </Button>
-              <Button type="button" variant="gradient" onClick={submit}>
+              <Button type="button" variant="gradient" onClick={() => submitBlob()}>
                 <Send className="size-4" /> Enviar para correção
               </Button>
             </div>

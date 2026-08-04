@@ -322,17 +322,15 @@ export function AppShell({
                 </DropdownMenuItem>
               ) : null}
 
-              <DropdownMenuSeparator />
-
-              <form action={signOut}>
-                <button type="submit" className="w-full">
-                  <DropdownMenuItem variant="destructive" asChild>
-                    <span>
-                      <LogOut /> Sair
-                    </span>
-                  </DropdownMenuItem>
-                </button>
-              </form>
+              <DropdownMenuItem
+                variant="destructive"
+                className="cursor-pointer"
+                onSelect={() => {
+                  void signOut();
+                }}
+              >
+                <LogOut className="size-4" /> Sair
+              </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </header>

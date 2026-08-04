@@ -1209,330 +1209,2960 @@
   },
   {
     "kind": "conversa",
-    "title": "Looking at Family Photos",
-    "why": "Este áudio treina a compreensão de conversas reais sobre fotos de família com ritmo natural, marcadores de conversa (como 'like' e 'you know') e vocabulário expandido de parentesco e distância.",
+    "title": "Olhando fotos da família no celular durante o intervalo",
+    "why": "Treina a escuta de correções no meio da fala, interrupções naturais, fala rápida com reduções e identificação de parentes em fotos.",
     "minutes": 2,
     "lines": [
       [
-        "Chloe",
-        "Hey Marcus, check out this picture on my phone.",
-        "Ei Marcus, dá uma olhada nessa foto no meu celular."
+        "Mark",
+        "Hey, Sarah, look at this pic on my phone!",
+        "Ei, Sarah, olha essa foto no meu celular!"
       ],
       [
-        "Marcus",
-        "Oh, wow! Is this... like, a big family reunion or something?",
-        "Nossa, uau! Isso é... tipo, uma reunião de família grande ou algo assim?"
+        "Sarah",
+        "Oh, wow! Who's that guy on the left?",
+        "Nossa, uau! Quem é aquele cara na esquerda?"
       ],
       [
-        "Chloe",
-        "Yeah, it was my grandma's eightieth birthday last weekend.",
-        "É, foi o aniversário de oitenta anos da minha avó no fim de semana passado."
+        "Mark",
+        "That's my brother, Leo. He looks like my dad, right?",
+        "É o meu irmão, Leo. Ele parece com o meu pai, né?"
       ],
       [
-        "Marcus",
-        "That's awesome. Who's the guy next to you holding the grill fork?",
-        "Que legal. Quem é o cara do seu lado segurando o garfo do churrasco?"
+        "Sarah",
+        "Yeah, totally! Is he the one who lives in Chicago?",
+        "É, total! É ele que mora em Chicago?"
       ],
       [
-        "Chloe",
-        "Oh, that's my older brother, Leo. He thinks he's a professional chef.",
-        "Ah, esse é o meu irmão mais velho, Leo. Ele acha que é chef profissional."
+        "Mark",
+        "No, wait, that's my cousin, Dan. Leo lives nearby.",
+        "Não, pera, esse é o meu primo, Dan. O Leo mora aqui perto."
       ],
       [
-        "Marcus",
-        "Haha, he really looks like your dad, honestly.",
-        "Haha, ele se parece muito com o seu pai, sinceramente."
+        "Sarah",
+        "Oh, right. And who's the girl holding the baby?",
+        "Ah, tá. E quem é a garota segurando o bebê?"
       ],
       [
-        "Chloe",
-        "Right? Everybody says that! But trust me, his personality is totally different.",
-        "Né? Todo mundo fala isso! Mas vai por mim, a personalidade dele é totalmente diferente."
+        "Mark",
+        "That's my sister, Maya. She has two kids now.",
+        "É a minha irmã, Maya. Ela tem dois filhos agora."
       ],
       [
-        "Marcus",
-        "Really? How so?",
-        "Sério? Como assim?"
+        "Sarah",
+        "She's so pretty! Is that her husband next to her?",
+        "Ela é tão linda! É o marido dela do lado dela?"
       ],
       [
-        "Chloe",
-        "Well, Leo is super energetic and loud, you know? My dad is kinda quiet.",
-        "Bom, o Leo é super agitado e barulhento, sabe? Meu pai é meio caladão."
+        "Mark",
+        "Yeah, that's Greg. We're really close, actually.",
+        "É, é o Greg. A gente é super próximo, na real."
       ],
       [
-        "Marcus",
-        "I get it. And who's the little kid jumping in the pool?",
-        "Entendi. E quem é a criancinha pulando na piscina?"
+        "Sarah",
+        "That's awesome. Do you have any siblings besides Maya and Leo?",
+        "Que legal. Você tem mais algum irmão além da Maya e do Leo?"
       ],
       [
-        "Chloe",
-        "That's my nephew, Toby. He's Leo's son. He's five and crazy active.",
-        "Esse é meu sobrinho, Toby. Ele é filho do Leo. Tem cinco anos e é super elétrico."
+        "Mark",
+        "Nope, just us three. But my house was always full, you know?",
+        "Não, só nós três. Mas minha casa vivia cheia, sabe?"
       ],
       [
-        "Marcus",
-        "Man, he looks like he's gonna splash everyone!",
-        "Cara, parece que ele vai molhar todo mundo!"
+        "Sarah",
+        "I get it! I mean, I have four brothers, so...",
+        "Entendo! Quer dizer, eu tenho quatro irmãos, então..."
       ],
       [
-        "Chloe",
-        "Oh, he did! He ruined my cousin's dress two minutes after this photo.",
-        "Ah, e molhou mesmo! Ele estragou o vestido da minha prima dois minutos depois dessa foto."
+        "Mark",
+        "Wow, four? That's kinda crazy!",
+        "Uau, quatro? É meio loucura!"
       ],
       [
-        "Marcus",
-        "Oh no, poor cousin! Wait, do you have any siblings besides Leo?",
-        "Putz, coitada da sua prima! Pera, você tem mais algum irmão além do Leo?"
+        "Sarah",
+        "Tell me about it! Lemme show you a picture of them.",
+        "Nem me fala! Deixa eu te mostrar uma foto deles."
       ],
       [
-        "Chloe",
-        "Yeah, I have a younger sister, Maya. She's the one wearing the green hat.",
-        "Tenho, tenho uma irmã mais nova, a Maya. Ela é a que tá de chapéu verde."
+        "Mark",
+        "Oh, cool, pull it up!",
+        "Ah, legal, abre aí!"
       ],
       [
-        "Marcus",
-        "Ah, I see her. She kinda looks like you!",
-        "Ah, tô vendo. Ela se parece meio que com você!"
+        "Sarah",
+        "See? This is my oldest brother, Tom.",
+        "Viu? Esse é o meu irmão mais velho, o Tom."
       ],
       [
-        "Chloe",
-        "People say that, but we're really close even though she lives in Chicago now.",
-        "O pessoal fala isso, mas a gente é super ligada, embora ela more em Chicago agora."
+        "Sarah",
+        "And the twin guys are Alex and Chris.",
+        "E os gêmeos são o Alex e o Chris."
       ],
       [
-        "Marcus",
-        "Chicago? That's kinda far! How often do you guys talk?",
-        "Chicago? É meio longe! Com que frequência vocês se falam?"
+        "Mark",
+        "Wait, they're twins? They look so different!",
+        "Pera, eles são gêmeos? Eles parecem tão diferentes!"
       ],
       [
-        "Chloe",
-        "We call each other, like, every single day on FaceTime.",
-        "A gente se liga, tipo, todo santo dia pelo FaceTime."
+        "Sarah",
+        "I know, right? And this little guy is Sam.",
+        "Né? E esse carinha é o Sam."
       ],
       [
-        "Marcus",
-        "That's really sweet. I wanna see my family more often too.",
-        "Isso é muito legal. Eu quero ver minha família com mais frequência também."
+        "Mark",
+        "He's kinda young! How old is he?",
+        "Ele é meio novo! Quantos anos ele tem?"
       ],
       [
-        "Chloe",
-        "Where does your family live, Marcus?",
-        "Onde a sua família mora, Marcus?"
+        "Sarah",
+        "He's ten. He's the one who loves soccer.",
+        "Ele tem dez. É ele que ama futebol."
       ],
       [
-        "Marcus",
-        "Mostly in Texas. My parents have a small farm out there.",
-        "A maioria no Texas. Meus pais têm um sítio pequeno lá."
+        "Mark",
+        "That's cool. That's a huge family photo!",
+        "Que massa. É uma foto de família enorme!"
       ],
       [
-        "Chloe",
-        "Oh, nice! Lemme see some photos next time, okay?",
-        "Ah, que massa! Me mostra algumas fotos da próxima vez, tá?"
+        "Sarah",
+        "Yeah, we took it at my grandma's house last month.",
+        "É, a gente tirou na casa da minha avó no mês passado."
       ],
       [
-        "Marcus",
-        "Deal! Lemme just find the good ones on my camera roll tonight.",
-        "Fechado! Deixa só eu achar as fotos boas no meu rolo da câmera hoje à noite."
+        "Mark",
+        "That's really nice, Sarah. Family is everything.",
+        "Isso é muito legal, Sarah. Família é tudo."
+      ],
+      [
+        "Sarah",
+        "Absolutely. Lemme go back to work before the boss sees us!",
+        "Com certeza. Deixa eu voltar pro trabalho antes que o chefe veja a gente!"
+      ],
+      [
+        "Mark",
+        "Haha, good idea!",
+        "Haha, boa ideia!"
       ]
     ],
     "questions": [
       {
-        "question": "Qual foi a ocasião para a foto que Chloe está mostrando a Marcus?",
+        "question": "Onde mora o irmão do Mark, o Leo?",
         "options": [
-          "O aniversário de 80 anos da avó de Chloe",
-          "O casamento do irmão mais velho de Chloe",
-          "A formatura da irmã mais nova de Chloe",
-          "O aniversário de 5 anos do sobrinho de Chloe"
-        ],
-        "answerIndex": 0,
-        "explanation": "Chloe menciona no início do diálogo que a foto foi tirada no aniversário de 80 anos da avó dela ('my grandma's eightieth birthday')."
-      },
-      {
-        "question": "O que o sobrinho de Chloe (Toby) fez logo após a foto ser tirada?",
-        "options": [
-          "Derrubou o garfo do churrasco",
-          "Pulou na piscina e estragou o vestido da prima",
-          "Perdeu o chapéu verde na água",
-          "Correu para longe da família"
+          "Em Chicago",
+          "Perto da casa do Mark",
+          "Na casa da avó da Sarah",
+          "Em outra cidade distante"
         ],
         "answerIndex": 1,
-        "explanation": "Chloe conta que Toby pulou na piscina e estragou o vestido da prima dela ('ruined my cousin's dress') dois minutos depois da foto."
+        "explanation": "Mark corrige o engano da Sarah e esclarece que quem mora em Chicago é seu primo Dan, enquanto seu irmão Leo mora perto."
       },
       {
-        "question": "Onde mora a maioria da família de Marcus?",
+        "question": "Quantos irmãos no total a Sarah tem?",
         "options": [
-          "Em Chicago, no centro da cidade",
-          "Na mesma cidade que Chloe",
-          "No Texas, onde os pais têm um sítio",
-          "Em um apartamento na Flórida"
+          "Dois",
+          "Três",
+          "Quatro",
+          "Cinco"
         ],
         "answerIndex": 2,
-        "explanation": "Marcus explica que a maior parte da família mora no Texas, onde os pais dele possuem um pequeno sítio ('small farm out there')."
+        "explanation": "Sarah diz expressamente 'I have four brothers' (Tenho quatro irmãos)."
+      },
+      {
+        "question": "Onde a foto da família da Sarah foi tirada?",
+        "options": [
+          "No escritório do trabalho",
+          "Na casa da avó dela",
+          "Em um jogo de futebol",
+          "Em Chicago"
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah diz que a foto foi tirada na casa da avó dela no mês passado ('at my grandma's house last month')."
       }
     ],
     "n": 8
   },
   {
     "kind": "conversa",
-    "title": "Perdido sem celular",
-    "why": "Esta conversa treina a sua capacidade de entender direções reais com correções no meio da fala, hesitações e vocabulário cotidiano do inglês americano.",
+    "title": "O pedido de informação no meio de uma rua em obras",
+    "why": "Treina a compreensão de instruções de caminho reais com imprevistos, como ruas interditadas, pontos de referência adicionais e cortes na fala.",
     "minutes": 2,
     "lines": [
       [
         "Leo",
-        "Hey, excuse me... do you know where the subway station is?",
-        "Com licença... você sabe onde fica a estação de metrô?"
+        "Hey, excuse me... do you know where the train station is?",
+        "Oi, com licença... você sabe onde fica a estação de trem?"
       ],
       [
-        "Chloe",
-        "Uh, which one? There's one on 4th Street and another near the park.",
-        "Ih, qual delas? Tem uma na rua 4 e outra perto do parque."
-      ],
-      [
-        "Leo",
-        "The one near the museum... I think? My phone just died, so...",
-        "A que fica perto do museu... eu acho? Meu celular acabou a bateria, então..."
-      ],
-      [
-        "Chloe",
-        "Oh, man. That sucks. Okay, so you're gonna go straight down this block.",
-        "Poxa, que chato. Tá, então você vai reto neste quarteirão."
+        "Sarah",
+        "Oh, the main one or the subway?",
+        "Ah, a principal ou o metrô?"
       ],
       [
         "Leo",
-        "Okay, straight here...",
-        "Tá, direto por aqui..."
+        "Uh, the main train station. My phone died, so...",
+        "Aahn, a estação principal. A bateria do meu celular acabou, então..."
       ],
       [
-        "Chloe",
-        "Yeah, and then... wait, no! Don't turn on Elm Street.",
-        "É, e aí... espera, não! Não vira na rua Elm."
-      ],
-      [
-        "Leo",
-        "Don't turn on Elm. Got it.",
-        "Não virar na Elm. Entendi."
-      ],
-      [
-        "Chloe",
-        "Right. You wanna cross Elm and take a left on Pine Street instead.",
-        "Isso. Na verdade, você atravessa a Elm e vira à esquerda na rua Pine."
+        "Sarah",
+        "Right, okay. So, you wanna go down this street, like, two blocks.",
+        "Certo, beleza. Então, você quer descer essa rua, tipo, dois quarteirões."
       ],
       [
         "Leo",
-        "Wait, left on Pine? Is it next to that big bakery?",
-        "Espera, esquerda na Pine? É do lado daquela padaria grande?"
+        "Two blocks down... got it.",
+        "Dois quarteirões pra baixo... entendi."
       ],
       [
-        "Chloe",
-        "No, no, that's Oak Street. You're thinking of Mike's Bakery, right?",
-        "Não, não, essa é a rua Oak. Você tá pensando na padaria do Mike, né?"
-      ],
-      [
-        "Leo",
-        "Yeah! Exactly, Mike's Bakery.",
-        "É! Essa mesma, a padaria do Mike."
-      ],
-      [
-        "Chloe",
-        "Okay, so pass the bakery, keep walkin' for like two minutes, and you'll see a red building.",
-        "Tá, então passa a padaria, continua andando por uns dois minutos e você vai ver um prédio vermelho."
+        "Sarah",
+        "Yeah, but wait! Don't turn on Elm Street, it's blocked today.",
+        "É, mas espera! Não vira na Rua Elm, tá fechada hoje."
       ],
       [
         "Leo",
-        "Red building. Is the station right there?",
-        "Prédio vermelho. A estação fica bem ali?"
+        "Oh, really? Why is that?",
+        "Ah, é? Por quê?"
       ],
       [
-        "Chloe",
-        "Kinda. It's right behind it. You gotta enter through the plaza.",
-        "Mais ou menos. Fica bem atrás dele. Você tem que entrar pela praça."
-      ],
-      [
-        "Leo",
-        "Oh, okay. Lemme write this down... wait, I don't have a pen.",
-        "Ah, tá. Deixa eu anotar isso... poxa, não tenho caneta."
-      ],
-      [
-        "Chloe",
-        "Haha, don't worry. It's super easy, honest!",
-        "Haha, relaxa. É super fácil, juro!"
+        "Sarah",
+        "They're fixing the road or somethin'. My friend Mike told me this mornin'.",
+        "Estão arrumando a rua ou algo assim. Meu amigo Mike me falou hoje de manhã."
       ],
       [
         "Leo",
-        "So, straight, cross Elm, left on Pine, past the bakery...",
-        "Então, direto, atravessa a Elm, esquerda na Pine, passa a padaria..."
+        "Ah, okay. So where do I turn then?",
+        "Ah, entendi. Então onde eu dobro?"
       ],
       [
-        "Chloe",
-        "Yep! And then look for the red building.",
-        "Isso! E aí procura o prédio vermelho."
-      ],
-      [
-        "Leo",
-        "And the station is behind the plaza?",
-        "E a estação fica atrás da praça?"
-      ],
-      [
-        "Chloe",
-        "Behind the red building, inside the plaza. Can't miss it.",
-        "Atrás do prédio vermelho, dentro da praça. Não tem erro."
+        "Sarah",
+        "Turn right on Pine Street instead. You'll see a big red coffee shop on the corner.",
+        "Vira à direita na Rua Pine. Você vai ver uma cafeteria vermelha grande na esquina."
       ],
       [
         "Leo",
-        "Awesome. Is it far on foot? Like ten minutes?",
-        "Demais. É longe a pé? Uns dez minutos?"
+        "A red coffee shop... okay, and then?",
+        "Uma cafeteria vermelha... tá, e depois?"
       ],
       [
-        "Chloe",
-        "Nah, five minutes top. My friend Dave walks there every day.",
-        "Que nada, no máximo cinco minutos. Meu amigo Dave faz esse caminho todo dia."
+        "Sarah",
+        "Keep walkin' straight past the bakery, and... wait, lemme think.",
+        "Continua andando reto passando a padaria, e... pera, deixa eu pensar."
       ],
       [
         "Leo",
-        "Great! Thanks a lot for your help!",
-        "Ótimo! Muito obrigado pela ajuda!"
+        "Is it near the park?",
+        "É perto do parque?"
       ],
       [
-        "Chloe",
-        "No problem at all! Good luck!",
-        "De nada! Boa sorte!"
+        "Sarah",
+        "Yeah, exactly! It's right across from the park.",
+        "É, isso mesmo! Fica bem em frente ao parque."
+      ],
+      [
+        "Leo",
+        "Wait, so is it on the left or the right side of the street?",
+        "Espera, então fica do lado esquerdo ou direito da rua?"
+      ],
+      [
+        "Sarah",
+        "It's on your left, kinda behind the big fountain.",
+        "Fica à sua esquerda, meio atrás da fonte grande."
+      ],
+      [
+        "Leo",
+        "Awesome. How long does it take to walk there?",
+        "Demais. Quanto tempo leva andando até lá?"
+      ],
+      [
+        "Sarah",
+        "Maybe ten minutes? If you walk fast, maybe seven.",
+        "Uns dez minutos? Se você andar rápido, uns sete."
+      ],
+      [
+        "Leo",
+        "That's not far at all. Thanks a lot!",
+        "Não é longe mesmo. Muito obrigado!"
+      ],
+      [
+        "Sarah",
+        "No problem! Oh, and if you get lost, just ask for the Central Station.",
+        "De nada! Ah, e se você se perder, é só perguntar pela Estação Central."
+      ],
+      [
+        "Leo",
+        "Central Station, got it. Have a good day!",
+        "Estação Central, anotado. Tenha um bom dia!"
+      ],
+      [
+        "Sarah",
+        "You too! Hope you make your train!",
+        "Você também! Tomara que você pegue seu trem!"
+      ],
+      [
+        "Leo",
+        "Me too, thanks again!",
+        "Eu também, valeu de novo!"
+      ],
+      [
+        "Sarah",
+        "Take care!",
+        "Se cuida!"
+      ],
+      [
+        "Leo",
+        "Bye!",
+        "Tchau!"
       ]
     ],
     "questions": [
       {
-        "question": "Por que Leo precisa pedir informações na rua?",
+        "question": "Por que o rapaz (Leo) está pedindo informações na rua?",
         "options": [
-          "Ele perdeu o mapa físico da cidade.",
-          "A bateria do celular dele acabou.",
-          "Ele não entende as placas em inglês.",
-          "A estação de metrô mudou de endereço."
+          "Porque o GPS do carro dele parou de funcionar.",
+          "Porque a bateria do celular dele acabou.",
+          "Porque ele perdeu o mapa impresso.",
+          "Porque ele não sabe ler as placas de trânsito."
         ],
         "answerIndex": 1,
-        "explanation": "Leo menciona 'My phone just died', ou seja, o celular dele descarregou/apagou."
+        "explanation": "Leo menciona explicitamente que a bateria do celular descarregou ('My phone died')."
       },
       {
-        "question": "Onde fica a estação de metrô de acordo com Chloe?",
+        "question": "Por que Sarah orienta Leo a não dobrar na Rua Elm?",
         "options": [
-          "Dentro da padaria do Mike.",
-          "Na esquina da rua Elm com a rua Oak.",
-          "Atrás do prédio vermelho, na praça.",
-          "Em frente ao museu principal."
+          "Porque a rua está interditada para obras.",
+          "Porque a estação não fica perto daquela região.",
+          "Porque a rua é muito perigosa.",
+          "Porque a cafeteria fica na Rua Pine."
         ],
-        "answerIndex": 2,
-        "explanation": "Chloe explica que a estação fica atrás do prédio vermelho, com acesso pela praça ('behind it... enter through the plaza')."
+        "answerIndex": 0,
+        "explanation": "Sarah avisa que a Rua Elm está bloqueada porque estão fazendo reformas no asfalto ('fixing the road')."
       },
       {
-        "question": "Quanto tempo leva para chegar à estação caminhando?",
+        "question": "Onde fica localizada a estação de trem segundo Sarah?",
         "options": [
-          "Cerca de dez minutos.",
-          "No máximo cinco minutos.",
-          "Quinze minutos.",
-          "Vinte minutos."
+          "Em frente à padaria, do lado direito.",
+          "Do lado esquerdo, atrás da fonte e em frente ao parque.",
+          "Atrás da cafeteria vermelha na Rua Elm.",
+          "No final da rua Pine, logo após a padaria."
         ],
         "answerIndex": 1,
-        "explanation": "Chloe diz 'Nah, five minutes top', o que significa no máximo cinco minutos."
+        "explanation": "Sarah explica que a estação fica do lado esquerdo ('on your left'), atrás da fonte e bem em frente ao parque."
       }
     ],
     "n": 10
+  },
+  {
+    "kind": "conversa",
+    "title": "A troca da jaqueta sem etiqueta na loja de roupas",
+    "why": "Treina a compreensão de conversas reais com interrupções, menção a terceiros, itens em promoção e política de troca sem nota fiscal.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Jessica",
+        "Hi! Welcome back, did you find everything okay or...",
+        "Oi! Bem-vindo de volta, você achou tudo certo ou..."
+      ],
+      [
+        "Mark",
+        "Hey, yeah, well... actually, my sister Sarah got me this jacket yesterday.",
+        "Oi, sim, bem... na verdade, minha irmã Sarah me deu essa jaqueta ontem."
+      ],
+      [
+        "Jessica",
+        "Oh, cute! Is it too small or something?",
+        "Ah, que bonitinha! Ficou pequena ou algo assim?"
+      ],
+      [
+        "Mark",
+        "No, like, the sleeves are fine, but it's kinda tight around the shoulders.",
+        "Não, tipo, as mangas estão boas, mas fica meio apertada nos ombros."
+      ],
+      [
+        "Jessica",
+        "Gotcha. Let me see... do you have the receipt with you?",
+        "Entendi. Deixa eu ver... você tá com a nota fiscal aí?"
+      ],
+      [
+        "Mark",
+        "Uh, that's the thing. Sarah lost it, I think.",
+        "Ahm, esse é o problema. A Sarah perdeu, eu acho."
+      ],
+      [
+        "Jessica",
+        "Oof, okay. Is the tag still on it?",
+        "Eita, tá. A etiqueta ainda tá nela?"
+      ],
+      [
+        "Mark",
+        "Well, no... she ripped it off before giving it to me.",
+        "Bem, não... ela arrancou antes de me dar."
+      ],
+      [
+        "Jessica",
+        "Oh man, that's tricky. Lemme ask my manager real quick.",
+        "Poxa vida, aí complica. Deixa eu perguntar pra minha gerente bem rápido."
+      ],
+      [
+        "Mark",
+        "Thanks, I really appreciate it. I just wanna swap for a large.",
+        "Obrigado, agradeço mesmo. Só quero trocar por uma grande."
+      ],
+      [
+        "Jessica",
+        "So, yeah... she said we can do store credit if we find the item in the system.",
+        "Então, sim... ela disse que a gente pode dar crédito na loja se achar o item no sistema."
+      ],
+      [
+        "Mark",
+        "Awesome! Where's the large section again?",
+        "Demais! Onde fica a seção dos tamanhos grandes mesmo?"
+      ],
+      [
+        "Jessica",
+        "Right over there, near the clearance rack. Behind those green sweaters.",
+        "Bem ali, perto da arara de promoção. Atrás daqueles casacos verdes."
+      ],
+      [
+        "Mark",
+        "Oh, wait. Is this one on sale too?",
+        "Ah, espera. Essa aqui também tá na promoção?"
+      ],
+      [
+        "Jessica",
+        "Let me scan it... yep, twenty percent off today!",
+        "Deixa eu escanear... sim, vinte por cento de desconto hoje!"
+      ],
+      [
+        "Mark",
+        "Sweet! So I actually get some money back?",
+        "Que massa! Então na verdade eu recebo um dinheiro de volta?"
+      ],
+      [
+        "Jessica",
+        "Well, store credit, yeah! You can pick a shirt or something else.",
+        "Bem, crédito na loja, sim! Você pode escolher uma camiseta ou outra coisa."
+      ],
+      [
+        "Mark",
+        "Cool. Lemme go grab a medium shirt for my brother Mike then.",
+        "Legal. Deixa eu ir pegar uma camiseta média pro meu irmão Mike então."
+      ],
+      [
+        "Jessica",
+        "Take your time! The fitting rooms are open if you wanna try anything.",
+        "Sem pressa! Os provadores estão abertos se você quiser experimentar algo."
+      ],
+      [
+        "Mark",
+        "Nah, I'm good. I know Mike's size. He's super skinny.",
+        "Que nada, tô tranquilo. Eu sei o tamanho do Mike. Ele é super magro."
+      ],
+      [
+        "Jessica",
+        "Haha, fair enough. Just bring the shirt here when you're ready.",
+        "Haha, justo. É só trazer a camiseta aqui quando tiver pronto."
+      ],
+      [
+        "Mark",
+        "Found one! This navy blue one looks great.",
+        "Achei uma! Essa azul-marinho parece ótima."
+      ],
+      [
+        "Jessica",
+        "Nice choice. Okay, so that balances out your total completely!",
+        "Boa escolha. Beleza, então isso zera o seu total completamente!"
+      ],
+      [
+        "Mark",
+        "Perfect! Thanks for all your help, Jessica.",
+        "Perfeito! Obrigado por toda a ajuda, Jessica."
+      ],
+      [
+        "Jessica",
+        "Anytime! Have a great weekend!",
+        "De nada! Tenha um ótimo fim de semana!"
+      ],
+      [
+        "Mark",
+        "You too, bye!",
+        "Você também, tchau!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que o Mark não tinha a nota fiscal da jaqueta?",
+        "options": [
+          "Ele comprou na promoção e a loja não entrega nota fiscal.",
+          "A irmã dele, Sarah, acabou perdendo a nota fiscal.",
+          "Ele esqueceu a nota no carro antes de entrar na loja.",
+          "A gerente da loja guardou a nota fiscal no dia anterior."
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark explica no início da conversa que sua irmã Sarah perdeu a nota fiscal."
+      },
+      {
+        "question": "O que a gerente autorizou a Jessica a fazer mesmo sem nota e sem etiqueta?",
+        "options": [
+          "Devolver todo o valor da compra em dinheiro na hora.",
+          "Entregar um cupom de desconto exclusivo para a próxima visita.",
+          "Dar crédito na loja se o produto fosse localizado no sistema.",
+          "Trocar o item apenas se o cliente levasse três peças novas."
+        ],
+        "answerIndex": 2,
+        "explanation": "Jessica consulta a gerente e informa que é possível dar crédito na loja se encontrarem o produto no sistema."
+      },
+      {
+        "question": "Por que o Mark não precisou pagar nada no final da transação?",
+        "options": [
+          "A gerente deu uma camiseta de presente para compensar o transtorno.",
+          "A jaqueta entrou em promoção e o valor restante cobriu a camiseta do irmão.",
+          "A camiseta do irmão dele era gratuita por conta de uma oferta de aniversário.",
+          "O caixa cometeu um erro e acabou cancelando a cobrança da diferença."
+        ],
+        "answerIndex": 1,
+        "explanation": "Como a jaqueta estava com 20% de desconto, o crédito sobrou e cobriu exatamente o valor da camiseta que ele pegou para o irmão."
+      }
+    ],
+    "n": 11
+  },
+  {
+    "kind": "conversa",
+    "title": "Ajuste de pedido especial e dúvidas sobre o cardápio",
+    "why": "Treina a compreensão de negociações reais em restaurantes, como pedir exceções de horário, identificar ingredientes alérgicos em molhos e entender recomendações do garçom.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Carla",
+        "Hey... um, excuse me? Are you guys still serving breakfast, or is it strictly lunch now?",
+        "Com licença... vocês ainda estão servindo café da manhã ou já é só almoço?"
+      ],
+      [
+        "Ethan",
+        "Uh, lunch started like ten minutes ago, but lemme check with the kitchen real quick.",
+        "É... o almoço começou faz uns dez minutos, mas deixa eu checar com a cozinha rapidinho."
+      ],
+      [
+        "Carla",
+        "Oh, awesome! I really wanna get the pancake stack if it's still possible.",
+        "Nossa, ótimo! Eu queria muito pedir as panquecas se ainda for possível."
+      ],
+      [
+        "Ethan",
+        "Alright, good news! Chef says he can do one last batch of pancakes.",
+        "Beleza, boa notícia! O chef disse que consegue fazer uma última leva de panquecas."
+      ],
+      [
+        "Carla",
+        "Sweet! But, wait, do those come with peanut butter or anything like that?",
+        "Que bom! Mas, espera, elas vêm com pasta de amendoim ou algo do tipo?"
+      ],
+      [
+        "Carla",
+        "Because I'm kinda allergic to nuts, so I gotta be super careful.",
+        "É que eu sou meio alérgica a castanhas, então tenho que tomar muito cuidado."
+      ],
+      [
+        "Ethan",
+        "No nuts in the pancakes, but the house syrup has maple and almond extract.",
+        "Sem castanhas nas panquecas, mas a calda da casa tem bordo e extrato de amêndoa."
+      ],
+      [
+        "Carla",
+        "Oh, wow, thanks for telling me! I guess I'll just stick with plain butter and honey then.",
+        "Nossa, sério, obrigada por avisar! Acho que vou querer só manteiga pura e mel então."
+      ],
+      [
+        "Ethan",
+        "Got it. No syrup, plain butter and honey on the side. What about a drink?",
+        "Anotado. Sem calda, manteiga pura e mel à parte. E pra beber?"
+      ],
+      [
+        "Carla",
+        "Hmm, do you have fresh iced tea? Unsweetened, if you have it.",
+        "Hmm, vocês têm chá gelado natural? Sem açúcar, se tiver."
+      ],
+      [
+        "Ethan",
+        "We do! But honestly, our peach lemonade is way better today. Marcus just made a fresh pitcher.",
+        "Temos sim! Mas, pra ser sincero, a nossa limonada de pêssego tá muito melhor hoje. O Marcus acabou de fazer uma jarra novinha."
+      ],
+      [
+        "Carla",
+        "Ooh, that sounds tempting, but is it super sweet? I don't like drinks with too much sugar.",
+        "Nossa, parece tentador, mas é muito doce? Eu não gosto de bebida com muito açúcar."
+      ],
+      [
+        "Ethan",
+        "It's a little tart, actually. Not sugary at all. You're gonna love it.",
+        "É meio azedinha, na verdade. Nada melada. Você vai amar."
+      ],
+      [
+        "Carla",
+        "Okay, you convinced me! Lemme get a large peach lemonade then.",
+        "Tá bom, você me convenceu! Me vê uma limonada de pêssego grande então."
+      ],
+      [
+        "Ethan",
+        "Cool. So that's the pancake stack, extra butter, honey, and a large peach lemonade. Anything else?",
+        "Show. Então fica o prato de panquecas, manteiga extra, mel e uma limonada de pêssego grande. Mais alguma coisa?"
+      ],
+      [
+        "Carla",
+        "Actually, my friend Sarah might show up in like twenty minutes. Can I keep the menu?",
+        "Na verdade, minha amiga Sarah talvez chegue daqui a uns vinte minutos. Posso ficar com o cardápio?"
+      ],
+      [
+        "Ethan",
+        "Sure thing! I'll leave it right here at the corner of the table.",
+        "Com certeza! Vou deixar bem aqui no canto da mesa."
+      ],
+      [
+        "Carla",
+        "Oh, and can we split the check later if she orders something?",
+        "Ah, e a gente pode dividir a conta depois se ela pedir alguma coisa?"
+      ],
+      [
+        "Ethan",
+        "Yeah, totally. We can split it by item or just fifty-fifty, whatever's easier for you guys.",
+        "Sim, com certeza. A gente pode dividir por item ou meio a meio, o que for mais fácil pra vocês."
+      ],
+      [
+        "Carla",
+        "Perfect! Oh, wait, how long does the pancake stack usually take?",
+        "Perfeito! Ah, espera, quanto tempo costuma demorar a panqueca?"
+      ],
+      [
+        "Ethan",
+        "Around fifteen minutes, give or take. We're a bit busy right now.",
+        "Unsos quinze minutos, mais ou menos. Estamos um pouco movimentados agora."
+      ],
+      [
+        "Carla",
+        "No problem at all! I'm not in a rush today.",
+        "Sem problemas! Não tô com pressa hoje."
+      ],
+      [
+        "Ethan",
+        "Awesome. I'll bring your drink out in just a sec, okay?",
+        "Massa. Já trago a sua bebida num segundo, tá?"
+      ],
+      [
+        "Carla",
+        "Great, thanks a lot! You've been super helpful, Ethan.",
+        "Ótimo, muito obrigada! Você ajudou demais, Ethan."
+      ],
+      [
+        "Ethan",
+        "My pleasure! Just call me if you need anything else.",
+        "Imagina! Qualquer coisa é só me chamar."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Carla precisava confirmar se o café da manhã ainda estava sendo servido?",
+        "options": [
+          "O horário do almoço tinha começado há cerca de dez minutos.",
+          "O restaurante estava prestes a fechar para o intervalo.",
+          "A amiga dela, Sarah, havia pedido panquecas pelo telefone.",
+          "O garçom disse que o chef já tinha ido embora."
+        ],
+        "answerIndex": 0,
+        "explanation": "Ethan explica que o almoço tinha começado faz uns dez minutos, mas que iria checar na cozinha se o chef ainda podia preparar as panquecas."
+      },
+      {
+        "question": "Por que Carla recusou a calda tradicional da casa para acompanhar as panquecas?",
+        "options": [
+          "A calda continha extrato de amêndoa, o que representava risco por conta da sua alergia.",
+          "O garçom informou que a calda era exageradamente doce.",
+          "A calda de bordo estava em falta na cozinha naquele momento.",
+          "Ela preferiu misturar pasta de amendoim com a manteiga."
+        ],
+        "answerIndex": 0,
+        "explanation": "Ethan alertou que a calda da casa continha extrato de amêndoa. Como Carla é alérgica a nozes e castanhas, ela optou por manteiga pura e mel."
+      },
+      {
+        "question": "O que fez Carla mudar de ideia e pedir a limonada de pêssego em vez do chá gelado?",
+        "options": [
+          "O garçom explicou que a limonada era levemente azedinha e nada melada.",
+          "Ela descobriu que o chá gelado já viria com bastante açúcar.",
+          "A limonada de pêssego era a opção mais barata do cardápio.",
+          "Sua amiga Sarah recomendou a limonada recém-feita por Marcus."
+        ],
+        "answerIndex": 0,
+        "explanation": "Carla não queria uma bebida muito doce, e Ethan garantiu que a limonada de pêssego era um pouco azedinha ('tart') e não muito açucarada."
+      }
+    ],
+    "n": 12
+  },
+  {
+    "kind": "conversa",
+    "title": "O dia atribulado de Maya pela cidade",
+    "why": "Treina a escuta de fala natural e acelerada em inglês americano, com reduções, interrupções e conectivos reais do dia a dia.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Leo",
+        "Hey Maya! Wow, you look super tired. Long day?",
+        "Ei, Maya! Nossa, você tá com uma cara de cansada. Dia longo?"
+      ],
+      [
+        "Maya",
+        "Yeah, kinda! I mean, I got up early, grabbed coffee, and then... well, everything went wrong.",
+        "É, meio que sim! Digo, eu acordei cedo, peguei um café e depois... bem, deu tudo errado."
+      ],
+      [
+        "Leo",
+        "Oh no, really? What happened?",
+        "Ah não, sério? O que rolou?"
+      ],
+      [
+        "Maya",
+        "So, you know that little bakery near my place?",
+        "Sabe aquela padariazinha perto da minha casa?"
+      ],
+      [
+        "Leo",
+        "Yeah, the one on Fifth Street?",
+        "Sei, aquela na Rua Cinco?"
+      ],
+      [
+        "Maya",
+        "Right! I usually get an iced latte there, but today the line was huge.",
+        "Exato! Eu costumo tomar um latte gelado lá, mas hoje a fila tava gigante."
+      ],
+      [
+        "Leo",
+        "Oh, so you went somewhere else?",
+        "Ah, aí você foi pra outro lugar?"
+      ],
+      [
+        "Maya",
+        "Yeah. I tried to find that new café downtown. But I got totally lost.",
+        "Foi. Tentei achar aquele café novo no centro. Mas me perdi todinha."
+      ],
+      [
+        "Leo",
+        "Wait, why didn't you use your GPS?",
+        "Pera, por que você não usou o GPS?"
+      ],
+      [
+        "Maya",
+        "My phone died! So I had to ask a guy, like, 'Excuse me, how do I get to Main Street?'",
+        "Meu celular descarregou! Aí tive que perguntar pra um cara tipo, 'Com licença, como eu chego na Rua Principal?'"
+      ],
+      [
+        "Leo",
+        "And did he help you?",
+        "E ele te ajudou?"
+      ],
+      [
+        "Maya",
+        "Well... he talked so fast! I had to say, 'Sorry, could you say that again?' like three times!",
+        "Bem... ele falava rápido demais! Tive que falar 'Desculpa, pode repetir?' umas três vezes!"
+      ],
+      [
+        "Leo",
+        "Haha, classic! But hey, did you finally find it?",
+        "Haha, clássico! Mas e aí, achou no fim das contas?"
+      ],
+      [
+        "Maya",
+        "I did! And I met Sam there. He was like, 'Hi, I'm Sam, nice to meet you!'",
+        "Achei! E encontrei o Sam lá. Ele mandou um 'Oi, sou o Sam, prazer em te conhecer!'"
+      ],
+      [
+        "Leo",
+        "Wait, Sam? From the gym?",
+        "Pera, o Sam? Aquele da academia?"
+      ],
+      [
+        "Maya",
+        "Yeah! We sat together and ordered. I was so hungry, I just said, 'Can I have a bacon sandwich, please?'",
+        "É! A gente sentou junto e pediu. Eu tava com tanta fome que só mandei 'Pode me dar um sanduíche de bacon, por favor?'"
+      ],
+      [
+        "Leo",
+        "Nice! Did you guys get the check together?",
+        "Massa! Vocês pediram a conta juntos?"
+      ],
+      [
+        "Maya",
+        "Yeah, I asked the waiter, 'Could we get the check, please?' and we split it.",
+        "Sim, pedi pro garçom 'Pode trazer a conta, por favor?' e a gente dividiu."
+      ],
+      [
+        "Leo",
+        "Sounds like a busy morning. Are you gonna relax now?",
+        "Parece que a manhã foi agitada. Vai descansar agora?"
+      ],
+      [
+        "Maya",
+        "I wanna, but I gotta meet my sister later. Lemme tell you, I just wanna sleep!",
+        "Queria, mas tenho que encontrar minha irmã mais tarde. Vou te contar, só quero dormir!"
+      ],
+      [
+        "Leo",
+        "Well, lemme get you a quick water before you go.",
+        "Bom, deixa eu te pegar uma água rápida antes de você ir."
+      ],
+      [
+        "Maya",
+        "Thanks, Leo. You're a lifesaver.",
+        "Valeu, Leo. Você me salvou."
+      ],
+      [
+        "Leo",
+        "No problem! So, is Sam gonna join us this weekend?",
+        "De boa! E aí, o Sam vai se juntar com a gente este fim de semana?"
+      ],
+      [
+        "Maya",
+        "Maybe! He said he usually works on Saturdays, though.",
+        "Talvez! Mas ele disse que costuma trabalhar aos sábados."
+      ],
+      [
+        "Leo",
+        "Ah, got it. Well, take it easy rest of the day!",
+        "Ah, entendi. Bom, relaxa no resto do dia!"
+      ],
+      [
+        "Maya",
+        "Will do! See ya later, Leo.",
+        "Vou sim! Até mais tarde, Leo."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Maya se perdeu ao procurar o café novo?",
+        "options": [
+          "O celular dela descarregou e ela ficou sem GPS.",
+          "O aplicativo de mapas deu o endereço errado.",
+          "A rua do café estava interditada.",
+          "Ela pegou o ônibus errado no centro."
+        ],
+        "answerIndex": 0,
+        "explanation": "Maya diz explicitamente 'My phone died!' para explicar por que não usou o GPS e precisou pedir informações na rua."
+      },
+      {
+        "question": "Qual foi a dificuldade de Maya ao pedir informação para o pedestre na rua?",
+        "options": [
+          "O homem não falava inglês.",
+          "O homem ignorou a pergunta dela.",
+          "O homem falava rápido demais e ela teve que pedir para repetir três vezes.",
+          "O homem deu uma direção completamente errada."
+        ],
+        "answerIndex": 2,
+        "explanation": "Maya conta que o homem falava muito rápido e ela precisou dizer 'Sorry, could you say that again?' umas três vezes."
+      },
+      {
+        "question": "Por que Sam pode não ir ao encontro no fim de semana?",
+        "options": [
+          "Ele vai viajar com a família.",
+          "Ele costuma trabalhar aos sábados.",
+          "Ele não gosta de sair aos finais de semana.",
+          "Ele precisa ir à academia durante o dia."
+        ],
+        "answerIndex": 1,
+        "explanation": "Maya explica que Sam talvez não vá porque 'he usually works on Saturdays' (ele costuma trabalhar aos sábados)."
+      }
+    ],
+    "n": 13
+  },
+  {
+    "kind": "conversa",
+    "title": "Reencontro no trabalho após um fim de semana caótico",
+    "why": "Treina a compreensão de relatos de fim de semana mais detalhados, com imprevistos reais, conectores naturais e reduções da fala cotidiana.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Mark",
+        "Hey Sarah, good morning! How's it going?",
+        "E aí Sarah, bom dia! Como estão as coisas?"
+      ],
+      [
+        "Sarah",
+        "Morning, Mark! Ugh, I'm kinda exhausted, honestly.",
+        "Bom dia, Mark! Nossa, tô meio exausta, pra ser sincera."
+      ],
+      [
+        "Mark",
+        "Oh no, really? How was your weekend? I thought you were gonna relax.",
+        "Poxa, sério? Como foi seu fim de semana? Achei que você ia descansar."
+      ],
+      [
+        "Sarah",
+        "That was the plan! But then my brother called on Saturday morning.",
+        "Esse era o plano! Mas aí meu irmão ligou no sábado de manhã."
+      ],
+      [
+        "Mark",
+        "Wait, Leo? Is he back in town?",
+        "Peraí, o Leo? Ele voltou pra cidade?"
+      ],
+      [
+        "Sarah",
+        "Yeah, out of nowhere! He needed help moving into his new apartment.",
+        "É, do nada! Ele precisava de ajuda pra se mudar pro apartamento novo dele."
+      ],
+      [
+        "Mark",
+        "Oh man, moving is the worst. Did you have to carry heavy stuff?",
+        "Nossa, mudança é o ó. Você teve que carregar coisa pesada?"
+      ],
+      [
+        "Sarah",
+        "Total nightmare. We spent like six hours carrying furniture up three flights of stairs.",
+        "Um pesadelo total. A gente passou tipo seis horas subindo móveis por três lances de escada."
+      ],
+      [
+        "Mark",
+        "Ouch. No elevator?",
+        "Ai. Sem elevador?"
+      ],
+      [
+        "Sarah",
+        "Nope! It was broken, of course. So my back is killing me today.",
+        "Nenhum! Tava quebrado, claro. Então minhas costas estão me matando hoje."
+      ],
+      [
+        "Mark",
+        "Man, that sucks. Did at least he buy you pizza after?",
+        "Nossa, que zica. Pelo menos ele te pagou uma pizza depois?"
+      ],
+      [
+        "Sarah",
+        "Well, he promised pizza, but then his friend Jake showed up with a broken couch...",
+        "Bom, ele prometeu pizza, mas aí o amigo dele, Jake, apareceu com um sofá quebrado..."
+      ],
+      [
+        "Mark",
+        "Wait, what? A broken couch?",
+        "Pera, quê? Um sofá quebrado?"
+      ],
+      [
+        "Sarah",
+        "Yeah! It got stuck in the hallway! We spent another hour trying to push it through.",
+        "É! Ficou preso no corredor! A gente passou mais uma hora tentando empurrar."
+      ],
+      [
+        "Mark",
+        "Haha, classic! So you didn't get to watch that movie you wanted?",
+        "Haha, clássico! Então você não conseguiu ver aquele filme que queria?"
+      ],
+      [
+        "Sarah",
+        "Nope, not even close. What about you? Did you do anything fun?",
+        "Nem de longe. E você? Fez alguma coisa legal?"
+      ],
+      [
+        "Mark",
+        "Well, I was gonna go to the beach, but it started raining around noon.",
+        "Bom, eu ia pra praia, mas começou a chover lá pelo meio-dia."
+      ],
+      [
+        "Sarah",
+        "Oh right, the weather was super weird on Sunday.",
+        "Ah é, o tempo tava super esquisito no domingo."
+      ],
+      [
+        "Mark",
+        "So I just stayed home and tried to bake sourdough bread for the first time.",
+        "Então eu só fiquei em casa e tentei fazer pão de fermentação natural pela primeira vez."
+      ],
+      [
+        "Sarah",
+        "Ooh, nice! How'd it turn out?",
+        "Uau, que legal! Como ficou?"
+      ],
+      [
+        "Mark",
+        "Terrible, actually. It came out hard as a rock.",
+        "Péssimo, na real. Ficou duro feito uma pedra."
+      ],
+      [
+        "Sarah",
+        "Haha! Well, at least you didn't destroy your back like I did.",
+        "Haha! Bom, pelo menos você não acabou com as costas igual a mim."
+      ],
+      [
+        "Mark",
+        "True! Lemme get you a cup of coffee before the meeting starts.",
+        "Verdade! Deixa eu te pegar um café antes da reunião começar."
+      ],
+      [
+        "Sarah",
+        "Oh, please do! I really need the caffeine today.",
+        "Ah, por favor! Eu preciso mesmo de cafeína hoje."
+      ],
+      [
+        "Mark",
+        "Black coffee, right? I'll be right back.",
+        "Café puro, né? Já volto."
+      ],
+      [
+        "Sarah",
+        "You're a lifesaver, Mark!",
+        "Você é um anjo, Mark!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Sarah está tão cansada na segunda-feira de manhã?",
+        "options": [
+          "Porque ela passou a noite toda estudando para a reunião de hoje.",
+          "Porque ela foi à praia e pegou muito sol no domingo.",
+          "Porque ajudou o irmão a mudar de apartamento subindo escadas.",
+          "Porque ficou até tarde tentando consertar um sofá no apartamento dela."
+        ],
+        "answerIndex": 2,
+        "explanation": "Sarah explica que seu irmão Leo pediu ajuda na mudança e ela passou seis horas subindo móveis por três lances de escada porque o elevador estava quebrado."
+      },
+      {
+        "question": "O que impediu Mark de aproveitar o dia na praia no domingo?",
+        "options": [
+          "O elevador do prédio dele estava quebrado.",
+          "Começou a chover por volta do meio-dia.",
+          "O amigo dele pediu ajuda com um sofá preso.",
+          "Ele teve que preparar uma apresentação para o trabalho."
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark conta que planejava ir à praia, mas mudou de ideia porque começou a chover por volta do meio-dia."
+      },
+      {
+        "question": "Qual foi o resultado da experiência de Mark na cozinha durante o fim de semana?",
+        "options": [
+          "Ele fez uma pizza deliciosa para comemorar com os amigos.",
+          "O pão de fermentação natural que ele fez ficou duro como uma pedra.",
+          "Ele queimou o café da manhã antes de ir para a reunião.",
+          "O pão ficou ótimo e ele trouxe um pedaço para Sarah."
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark tentou fazer pão de fermentação natural pela primeira vez, mas disse que o resultado foi péssimo e o pão ficou 'duro como uma pedra'."
+      }
+    ],
+    "n": 14
+  },
+  {
+    "kind": "conversa",
+    "title": "O dia em que o Marcus trancou a chave e o cachorro no carro",
+    "why": "Treina a compreensão de relatos dinâmicos do dia a dia com interrupções, reações espontâneas, gírias e reduções naturais do inglês falado.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Marcus",
+        "Hey Sarah, you won't believe what happened to me yesterday!",
+        "Sarah, você não vai acreditar no que me aconteceu ontem!"
+      ],
+      [
+        "Sarah",
+        "Oh boy, what did you do this time?",
+        "Eita, o que você aprontou dessa vez?"
+      ],
+      [
+        "Marcus",
+        "So, I was walking out of the grocery store, right?",
+        "Então, eu tava saindo do mercado, sabe?"
+      ],
+      [
+        "Sarah",
+        "Uh-huh, with all those heavy bags?",
+        "Aham, com aquelas sacolas pesadas todas?"
+      ],
+      [
+        "Marcus",
+        "Yeah! And I put everything in the trunk, but then...",
+        "É! E eu botei tudo no porta-malas, mas aí..."
+      ],
+      [
+        "Sarah",
+        "Wait, don't tell me you locked your keys inside.",
+        "Peraí, não me diz que você trancou a chave lá dentro."
+      ],
+      [
+        "Marcus",
+        "Worse. I dropped my keys inside, slammed the trunk, and realized my phone was in there too!",
+        "Pior. Eu deixei a chave cair lá dentro, bati o porta-malas e percebi que meu celular tava lá dentro também!"
+      ],
+      [
+        "Sarah",
+        "Oh no! In that hot parking lot?",
+        "Nossa, não! Naquele estacionamento quente?"
+      ],
+      [
+        "Marcus",
+        "Exactly! All of a sudden, this random guy comes outta nowhere.",
+        "Exatamente! Do nada, aparece um cara do nada."
+      ],
+      [
+        "Sarah",
+        "A mechanic? Or just some weirdo?",
+        "Um mecânico? Ou só um estranho?"
+      ],
+      [
+        "Marcus",
+        "Well, kinda both! He had this long wire tool in his trunk.",
+        "Bom, meio que os dois! Ele tinha uma ferramenta de arame longa no porta-malas dele."
+      ],
+      [
+        "Sarah",
+        "No way. Did he actually try to pick the lock?",
+        "Mentira. Ele tentou mesmo abrir a tranca?"
+      ],
+      [
+        "Marcus",
+        "Yeah, he was like, 'Lemme help ya, buddy!'",
+        "Sim, ele mandou um 'Deixa eu te ajudar, amigão!'"
+      ],
+      [
+        "Sarah",
+        "I mean, that's nice, but kind of suspicious, right?",
+        "Quer dizer, bacana, mas meio suspeito, né?"
+      ],
+      [
+        "Marcus",
+        "Total red flag! And then it got worse.",
+        "Sinal vermelho total! E aí ficou pior."
+      ],
+      [
+        "Sarah",
+        "How could it get worse?",
+        "Como podia ficar pior?"
+      ],
+      [
+        "Marcus",
+        "The store security guard walked over and thought we were stealing my own car!",
+        "O segurança da loja veio vindo e achou que a gente tava roubando o meu próprio carro!"
+      ],
+      [
+        "Sarah",
+        "Shut up! You gotta be kidding me!",
+        "Mentira! Você tá de brincadeira comigo!"
+      ],
+      [
+        "Marcus",
+        "I was like, 'Dude, I swear it's my car, look at my dog in the backseat!'",
+        "Eu tipo, 'Mano, juro que o carro é meu, olha meu cachorro no banco de trás!'"
+      ],
+      [
+        "Sarah",
+        "Wait, Buster was in the car the whole time?!",
+        "Espera, o Buster tava no carro esse tempo todo?!"
+      ],
+      [
+        "Marcus",
+        "Yeah! He was just sitting there, eating my grocery bread.",
+        "Sim! Ele tava lá sentado, comendo o pão das minhas compras."
+      ],
+      [
+        "Sarah",
+        "That is crazy! Did the guard call the police?",
+        "Que loucura! O segurança chamou a polícia?"
+      ],
+      [
+        "Marcus",
+        "Luckily, no. I showed him my ID through the window, and he unlocked it with a special tool.",
+        "Por sorte, não. Mostrei meu documento pelo vidro pra ele, e ele abriu com uma ferramenta especial."
+      ],
+      [
+        "Sarah",
+        "Phew! So in the end, everything was fine?",
+        "Ufa! Então no final deu tudo certo?"
+      ],
+      [
+        "Marcus",
+        "Well, except for my loaf of bread! Buster ate the whole thing.",
+        "Bom, tirando o meu pão de forma! O Buster comeu tudo."
+      ],
+      [
+        "Sarah",
+        "Honestly, it was so embarrassing, but hilarious!",
+        "Sinceramente, que vergonha, mas muito engraçado!"
+      ],
+      [
+        "Marcus",
+        "Yeah, I'm never gonna put my keys in the trunk again!",
+        "É, nunca mais vou pôr minha chave no porta-malas!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "O que fez a situação de Marcus piorar no estacionamento do mercado?",
+        "options": [
+          "O cachorro dele fugiu do carro assim que a porta se abriu.",
+          "O segurança da loja achou que Marcus e o estranho estavam roubando o veículo.",
+          "O motor do carro começou a soltar fumaça por causa do calor.",
+          "A polícia chegou e guinchou o carro antes de ouvirem a explicação de Marcus."
+        ],
+        "answerIndex": 1,
+        "explanation": "O segurança do mercado aproximou-se e suspeitou que Marcus e o homem com a ferramenta de arame estavam tentando roubar o próprio carro do Marcus."
+      },
+      {
+        "question": "Quem estava dentro do carro trancado durante o incidente?",
+        "options": [
+          "A amiga de Marcus, Sarah.",
+          "O filho pequeno de Marcus.",
+          "O cachorro de Marcus, chamado Buster.",
+          "Ninguém, apenas as sacolas de compras."
+        ],
+        "answerIndex": 2,
+        "explanation": "O cachorro Buster estava no banco traseiro o tempo todo, inclusive comendo o pão das compras."
+      },
+      {
+        "question": "Como o problema de abrir o carro foi resolvido no final?",
+        "options": [
+          "O segurança abriu o carro depois que Marcus lhe mostrou a identidade pelo vidro.",
+          "O estranho conseguiu destravar a porta usando a ferramenta de arame dele.",
+          "Marcus quebrou a janela do passageiro para pegar a chave.",
+          "Sarah trouxe a chave reserva do Marcus até o local."
+        ],
+        "answerIndex": 0,
+        "explanation": "Marcus comprovou que era dono do carro mostrando seu documento (ID) pelo vidro ao segurança, que usou uma ferramenta especial para destravá-lo."
+      }
+    ],
+    "n": 15
+  },
+  {
+    "kind": "conversa",
+    "title": "Relembrando fotos antigas e histórias de infância",
+    "why": "Expõe o aluno a descrições de personalidade no passado, mudanças de comportamento e vocabulário natural sobre fase escolar e hobbies da infância.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Leo",
+        "Hey Maya, look at this old picture I found on my phone!",
+        "Ei Maya, olha essa foto antiga que eu achei no meu celular!"
+      ],
+      [
+        "Maya",
+        "Oh wow, is that... wait, is that you with long hair?",
+        "Nossa, esse é... pera, é você de cabelo comprido?"
+      ],
+      [
+        "Leo",
+        "Yeah, man! I used to have hair down to my shoulders back in high school.",
+        "É, cara! Eu tinha cabelo até os ombros na época do ensino médio."
+      ],
+      [
+        "Maya",
+        "No way! I can't even imagine that! You look so different.",
+        "Mentira! Não consigo nem imaginar isso! Você tá muito diferente."
+      ],
+      [
+        "Leo",
+        "I know, right? I was kinda rebellious back then, listening to heavy metal all day.",
+        "Pois é, né? Eu era meio rebelde naquela época, escutava heavy metal o dia todo."
+      ],
+      [
+        "Maya",
+        "Wait, really? You? But you're so quiet now!",
+        "Peraí, sério? Você? Mas você é tão calmo agora!"
+      ],
+      [
+        "Leo",
+        "Well, people change, you know? What about you? What were you like as a kid?",
+        "Bom, as pessoas mudam, sabe? E você? Como você era quando criança?"
+      ],
+      [
+        "Maya",
+        "Oh, I was super shy. Like, I wouldn't even talk to neighbors.",
+        "Ah, eu era super tímida. Tipo, eu não falava nem com os vizinhos."
+      ],
+      [
+        "Leo",
+        "Get out of here! You? Shy? You talk to literally everyone!",
+        "Ah, para com isso! Você? Tímida? Você conversa com todo mundo!"
+      ],
+      [
+        "Maya",
+        "I swear! I used to hide behind my mom whenever guests came over.",
+        "Juro! Eu me escondia atrás da minha mãe toda vez que chegava visita."
+      ],
+      [
+        "Leo",
+        "That's hilarious. So, when did that change?",
+        "Que engraçado. E quando foi que isso mudou?"
+      ],
+      [
+        "Maya",
+        "Hmm, I guess when I joined the theater club in middle school.",
+        "Hum, acho que quando eu entrei pro clube de teatro no ensino fundamental."
+      ],
+      [
+        "Leo",
+        "Theater? Wow, that's a huge step for a shy kid.",
+        "Teatro? Nossa, isso foi um grande passo pra uma criança tímida."
+      ],
+      [
+        "Maya",
+        "Yeah, my teacher, Mrs. Gable, kind of forced me to join, actually.",
+        "É, a minha professora, a Sra. Gable, meio que me forçou a entrar, na verdade."
+      ],
+      [
+        "Leo",
+        "She sounds awesome. Did you like it right away?",
+        "Ela parece incrível. Você gostou de primeira?"
+      ],
+      [
+        "Maya",
+        "Not at first! I was terrified. But then I made friends with Sam and Clara.",
+        "De primeira não! Eu tava apavorada. Mas aí eu fiz amizade com o Sam e a Clara."
+      ],
+      [
+        "Leo",
+        "Oh, Sam from your college stories?",
+        "Ah, o Sam das suas histórias da faculdade?"
+      ],
+      [
+        "Maya",
+        "Yep! We used to practice our lines in his backyard every afternoon.",
+        "Ele mesmo! A gente ensaiava nossas falas no quintal dele todo fim de tarde."
+      ],
+      [
+        "Leo",
+        "Man, I kinda miss those simple times. Life was so much easier.",
+        "Nossa, eu sinto meio que saudade dessa época simples. A vida era muito mais fácil."
+      ],
+      [
+        "Maya",
+        "Right? No bills, no full-time job... just homework and riding bikes.",
+        "Né? Sem contas, sem trabalho em tempo integral... só lição de casa e andar de bicicleta."
+      ],
+      [
+        "Leo",
+        "Do you still ride bikes?",
+        "Você ainda anda de bicicleta?"
+      ],
+      [
+        "Maya",
+        "Nah, I don't do that anymore. Traffic in the city is way too crazy.",
+        "Não, não faço mais isso. O trânsito na cidade é loucura demais."
+      ],
+      [
+        "Leo",
+        "Tell me about it. But hey, we should totally get coffee with Sam sometime.",
+        "Nem me fala. Mas ó, a gente devia super tomar um café com o Sam qualquer dia."
+      ],
+      [
+        "Maya",
+        "Oh, for sure! He's gonna love seeing your old long hair picture!",
+        "Ah, com certeza! Ele vai amar ver a foto do seu cabelo comprido de antigamente!"
+      ],
+      [
+        "Leo",
+        "Hey, don't you dare show him that!",
+        "Ei, nem pense em mostrar isso pra ele!"
+      ],
+      [
+        "Maya",
+        "Too late, I'm gonna ask you to send it to me right now!",
+        "Tarde demais, vou pedir pra você me mandar agora mesmo!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que a Maya ficou surpresa ao ver a foto antiga do Leo?",
+        "options": [
+          "Porque ele tinha o cabelo comprido até os ombros.",
+          "Porque ele estava tocando violão em um show de rock.",
+          "Porque ele parecia muito mais velho do que é hoje.",
+          "Porque ele estava fantasiado para uma peça de teatro."
+        ],
+        "answerIndex": 0,
+        "explanation": "Maya fica impressionada porque Leo tinha cabelo comprido até os ombros no ensino médio, algo que ela não conseguia imaginar."
+      },
+      {
+        "question": "O que fez Maya deixar de ser uma criança tímida?",
+        "options": [
+          "Mudar de cidade e ir para uma nova escola.",
+          "Entrar no clube de teatro por incentivo de uma professora.",
+          "Aprender a andar de bicicleta com os vizinhos.",
+          "Começar a escutar heavy metal com o Leo."
+        ],
+        "answerIndex": 1,
+        "explanation": "Maya explica que era super tímida até entrar no clube de teatro no ensino fundamental, encorajada pela professora Sra. Gable."
+      },
+      {
+        "question": "Por que a Maya não anda mais de bicicleta atualmente?",
+        "options": [
+          "Porque ela prefere fazer caminhadas no parque.",
+          "Porque ela vendeu a bicicleta antiga para pagar contas.",
+          "Porque acha o trânsito da cidade perigoso demais.",
+          "Porque não tem mais tempo livre depois do trabalho."
+        ],
+        "answerIndex": 2,
+        "explanation": "Maya afirma que não anda mais de bicicleta porque o trânsito na cidade é muito louco ('way too crazy')."
+      }
+    ],
+    "n": 16
+  },
+  {
+    "kind": "conversa",
+    "title": "Tentando combinar a ida a um churrasco surpresa de aniversário",
+    "why": "Expõe o aluno a conversas reais onde planos mudam em cima da hora, envolvendo caronas, pendências do cotidiano e fala acelerada com reduções.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Jake",
+        "Hey Sarah, you got a second? What're you up to this weekend?",
+        "Oi Sarah, tem um segundinho? O que você vai fazer no fim de semana?"
+      ],
+      [
+        "Sarah",
+        "Oh, hey Jake! Uh, I dunno yet, honestly. I was thinkin' about headin' out of town.",
+        "Ah, oi Jake! Er, não sei ainda, sinceramente. Tava pensando em sair da cidade."
+      ],
+      [
+        "Jake",
+        "Oh, yeah? Where to?",
+        "É mesmo? Pra onde?"
+      ],
+      [
+        "Sarah",
+        "Well, my cousin Mia invited me to her beach house in San Diego, but... yeah.",
+        "Bom, minha prima Mia me convidou pra casa de praia dela em San Diego, mas... é."
+      ],
+      [
+        "Jake",
+        "But what? Sounds awesome!",
+        "Mas o quê? Parece incrível!"
+      ],
+      [
+        "Sarah",
+        "Her dog's sick, so she might cancel the whole thing. Lemme know if you wanna... wait, what were you gonna say?",
+        "O cachorro dela tá doente, então ela pode cancelar tudo. Me avisa se você quiser... pera, o que você ia falar?"
+      ],
+      [
+        "Jake",
+        "Right, so... a few of us are throwin' a surprise barbecue for Leo on Saturday afternoon.",
+        "Ah sim, então... a gente vai fazer um churrasco surpresa pro Leo no sábado à tarde."
+      ],
+      [
+        "Jake",
+        "You wanna join us? It's gonna be at Dave's place around three.",
+        "Quer ir com a gente? Vai ser na casa do Dave lá pelas três."
+      ],
+      [
+        "Sarah",
+        "Oh, man, I'd love to! Leo's turning thirty, right?",
+        "Poxa, eu amaria! O Leo tá fazendo trinta, né?"
+      ],
+      [
+        "Sarah",
+        "But wait, is Dave's place near the station? My car's still at the mechanic shop.",
+        "Mas espera, a casa do Dave é perto da estação? Meu carro ainda tá no mecânico."
+      ],
+      [
+        "Jake",
+        "No, it's kinda far, actually. But hey, I can pick you up!",
+        "Não, é meio longe, na verdade. Mas ó, posso te buscar!"
+      ],
+      [
+        "Sarah",
+        "Really? That'd be awesome. What time are you headin' there?",
+        "Sério? Seria demais. Que horas você vai pra lá?"
+      ],
+      [
+        "Jake",
+        "Probably around two thirty. I gotta stop by the bakery first to pick up the cake.",
+        "Provavelmente lá pelas duas e meia. Preciso passar na padaria antes pra pegar o bolo."
+      ],
+      [
+        "Sarah",
+        "Perfect. Wait, what if Mia calls and says the beach trip is back on?",
+        "Perfeito. Peraí, e se a Mia ligar dizendo que a viagem pra praia tá de pé de novo?"
+      ],
+      [
+        "Jake",
+        "Hmm... when will you know for sure?",
+        "Hmm... quando você vai saber com certeza?"
+      ],
+      [
+        "Sarah",
+        "She said she'd text me by tonight, after the vet visit.",
+        "Ela disse que me mandava mensagem até hoje à noite, depois do veterinário."
+      ],
+      [
+        "Jake",
+        "Alright, cool. Just drop me a message as soon as you figure it out.",
+        "Beleza, de boa. Me manda uma mensagem assim que você decidir."
+      ],
+      [
+        "Sarah",
+        "Will do. Oh, should I bring anything to the barbecue if I go?",
+        "Pode deixar. Ah, preciso levar alguma coisa pro churrasco se eu for?"
+      ],
+      [
+        "Jake",
+        "Nah, Dave's gonna buy all the meat and drinks. Well... maybe some snacks?",
+        "Que nada, o Dave vai comprar toda a carne e as bebidas. Bom... talvez uns petiscos?"
+      ],
+      [
+        "Sarah",
+        "Got it. I can make those garlic breads everyone loves.",
+        "Entendi. Posso fazer aqueles pães de alho que todo mundo ama."
+      ],
+      [
+        "Jake",
+        "Dude, yes! Those are the best.",
+        "Cara, sim! Aqueles são os melhores."
+      ],
+      [
+        "Sarah",
+        "Haha, okay! But wait, don't tell Leo I might come, okay? Keep it a secret!",
+        "Haha, tá bom! Mas peraí, não conta pro Leo que eu talvez vá, tá? Guarda segredo!"
+      ],
+      [
+        "Jake",
+        "Haha, don't worry, my lips are sealed.",
+        "Haha, relaxa, minha boca é um túmulo."
+      ],
+      [
+        "Sarah",
+        "Awesome. Lemme check my schedule for Sunday too, just in case.",
+        "Demais. Deixa eu checar minha agenda pro domingo também, só por garantia."
+      ],
+      [
+        "Jake",
+        "Why, what's happening Sunday?",
+        "Ué, o que tem no domingo?"
+      ],
+      [
+        "Sarah",
+        "Nothin', I just wanna sleep all day if I don't go to San Diego!",
+        "Nada, só quero dormir o dia todo se eu não for pra San Diego!"
+      ],
+      [
+        "Jake",
+        "Fair enough! Talk to you tonight then?",
+        "Justo! A gente se fala hoje à noite então?"
+      ],
+      [
+        "Sarah",
+        "Yeah, talk later!",
+        "É, até mais!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que a viagem de Sarah para a praia está correndo o risco de ser cancelada?",
+        "options": [
+          "O carro dela está quebrado no mecânico.",
+          "A prima dela pode cancelar o passeio porque o cachorro está doente.",
+          "Jake a convidou para sair no mesmo horário.",
+          "A previsão do tempo indica chuva em San Diego."
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah menciona que sua prima Mia pode cancelar tudo porque o cachorro dela adoeceu e precisa ir ao veterinário."
+      },
+      {
+        "question": "Como Jake se propõe a ajudar Sarah a ir ao churrasco do Leo?",
+        "options": [
+          "Oferecendo-se para ir de trem com ela.",
+          "Pagando o conserto do carro dela no mecânico.",
+          "Dando uma carona para ela antes de ir para a casa do Dave.",
+          "Pedindo para o Dave remarcar o horário da festa."
+        ],
+        "answerIndex": 2,
+        "explanation": "Como o carro de Sarah está no mecânico e a casa de Dave é longe da estação, Jake se oferece para buscá-la por volta das 14h30."
+      },
+      {
+        "question": "O que Sarah pretende fazer no domingo caso acabe não viajando para San Diego?",
+        "options": [
+          "Ajudar Jake a organizar a festa de aniversário do Leo.",
+          "Fazer pães de alho para vender.",
+          "Passar o dia inteiro dormindo.",
+          "Ir à padaria comprar um bolo."
+        ],
+        "answerIndex": 2,
+        "explanation": "No final da conversa, Sarah brinca dizendo que no domingo só quer dormir o dia todo se a viagem de San Diego não rolar."
+      }
+    ],
+    "n": 17
+  },
+  {
+    "kind": "conversa",
+    "title": "A reorganização do jantar de última hora",
+    "why": "Treina a compreensão de negociações de horário reais, com trocas de planos, imprevistos de terceiros e vocabulário natural do dia a dia.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Lucas",
+        "Hey Amanda, got a second? We gotta figure out this dinner thing with Greg.",
+        "Ei Amanda, tem um segundo? A gente precisa resolver essa história do jantar com o Greg."
+      ],
+      [
+        "Amanda",
+        "Oh, right! Is he still free on Friday, or did he change his mind again?",
+        "Ah, é mesmo! Ele ainda tá livre na sexta ou mudou de idéia de novo?"
+      ],
+      [
+        "Lucas",
+        "Well, he said Friday works, but honestly, his schedule is kinda all over the place.",
+        "Bom, ele disse que sexta dá, mas sinceramente, a agenda dele tá meio maluca."
+      ],
+      [
+        "Amanda",
+        "Classic Greg. Look, if we do Friday, it's gotta be after seven. I have a dentist appointment at five.",
+        "Clássico do Greg. Olha, se a gente for na sexta, tem que ser depois das sete. Tenho dentista às cinco."
+      ],
+      [
+        "Lucas",
+        "Seven? Oof, that's a bit tight. I mean, my presentation ends at six-thirty downtown.",
+        "Sete? Puts, fica meio apertado. Tipo, minha apresentação termina às seis e meia no centro."
+      ],
+      [
+        "Amanda",
+        "So... can we make it like eight instead? That gives you time to hit traffic.",
+        "Então... dá pra ser tipo umas oito? Aí dá tempo de você pegar o trânsito."
+      ],
+      [
+        "Lucas",
+        "Yeah, eight is much better. Lemme text Greg real quick... wait, he's typing.",
+        "É, oito é bem melhor. Deixa eu mandar mensagem pro Greg rapidinho... pera, ele tá digitando."
+      ],
+      [
+        "Amanda",
+        "What's he saying? Don't tell me something came up.",
+        "O que ele tá dizendo? Não me diz que surgiu algum imprevisto."
+      ],
+      [
+        "Lucas",
+        "Uh, actually... yeah. He says his boss asked him to stay late on Friday. Ugh.",
+        "É, na verdade... sim. Ele disse que o chefe pediu pra ele ficar até mais tarde na sexta. Putz."
+      ],
+      [
+        "Amanda",
+        "Are you kidding me? We've been trying to schedule this for like two weeks!",
+        "Você tá de brincadeira? A gente tá tentando marcar isso faz umas duas semanas!"
+      ],
+      [
+        "Lucas",
+        "I know, right? But hey, he asked if we can push it to Saturday night.",
+        "Pois é! Mas ó, ele perguntou se a gente pode passar pro sábado à noite."
+      ],
+      [
+        "Amanda",
+        "Saturday? Hmm... I kinda had plans with my sister, but I think she's canceling anyway.",
+        "Sábado? Hum... eu meio que tinha planos com a minha irmã, mas acho que ela vai cancelar de qualquer jeito."
+      ],
+      [
+        "Lucas",
+        "Cool. Does eight work for Saturday then? Same place, that taco spot near the park?",
+        "Massa. Oito horas dá certo no sábado então? Mesmo lugar, aquele restaurante mexicano perto do parque?"
+      ],
+      [
+        "Amanda",
+        "Wait, the taco place? I thought we were going to that new Italian restaurant downtown.",
+        "Pera, o mexicano? Achei que a gente ia naquele italiano novo no centro."
+      ],
+      [
+        "Lucas",
+        "Oh, right! Sorry, I mixed it up. Italian it is.",
+        "Ah, é mesmo! Foi mal, confundi. Vai ser italiano então."
+      ],
+      [
+        "Amanda",
+        "Great. Do you wanna make the reservation, or should I?",
+        "Ótimo. Você quer fazer a reserva ou eu faço?"
+      ],
+      [
+        "Lucas",
+        "I'll do it right now online. Let me check... oh wait, they don't have tables for eight PM.",
+        "Eu faço agora na internet. Deixa eu ver... ah pera, eles não têm mesa pra oito da noite."
+      ],
+      [
+        "Amanda",
+        "Really? How about eight-thirty? Is that too late for you guys?",
+        "Sério? Que tal oito e meia? Fica muito tarde pra vocês?"
+      ],
+      [
+        "Lucas",
+        "Eight-thirty works for me. Lemme grab a table for three people at eight-thirty.",
+        "Oito e meia dá pra mim. Deixa eu pegar uma mesa pra três pessoas às oito e meia."
+      ],
+      [
+        "Amanda",
+        "Perfect! So Saturday, eight-thirty, at the Italian place. Don't let Greg reschedule again!",
+        "Perfeito! Então sábado, oito e meia, no italiano. Não deixa o Greg remarcar de novo!"
+      ],
+      [
+        "Lucas",
+        "Done! Table booked. I'll send a group invite so nobody forgets.",
+        "Pronto! Mesa reservada. Vou mandar um convite no grupo pra ninguém esquecer."
+      ],
+      [
+        "Amanda",
+        "Awesome. Hey, do you wanna grab a coffee right now while we're at it?",
+        "Demais. Ei, quer pegar um café agora aproveitando que estamos aqui?"
+      ],
+      [
+        "Lucas",
+        "Wish I could, but I gotta run to a meeting in five minutes.",
+        "Queria poder, mas tenho que correr pra uma reunião daqui a cinco minutos."
+      ],
+      [
+        "Amanda",
+        "Alright, no worries! Catch you later, Lucas. See you Saturday!",
+        "Tranquilo, sem problemas! A gente se fala depois, Lucas. Te vejo sábado!"
+      ],
+      [
+        "Lucas",
+        "See ya! Fingers crossed Greg doesn't cancel again.",
+        "Até! Torcendo pro Greg não cancelar de novo."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que o jantar não pôde acontecer na sexta-feira?",
+        "options": [
+          "Amanda tinha uma consulta médica no início da noite.",
+          "O chefe de Greg pediu para ele trabalhar até mais tarde.",
+          "Lucas tinha uma apresentação que terminava muito tarde.",
+          "O restaurante italiano não tinha vagas para a noite de sexta."
+        ],
+        "answerIndex": 1,
+        "explanation": "Greg enviou uma mensagem a Lucas avisando que seu chefe pediu para ele ficar até mais tarde na sexta-feira."
+      },
+      {
+        "question": "Qual foi a complicação ao tentar fazer a reserva no restaurante italiano para sábado?",
+        "options": [
+          "O restaurante não aceitava reservas online para três pessoas.",
+          "Não havia mesas disponíveis para o horário das oito da noite.",
+          "Lucas havia confundido o local e tentou reservar o restaurante mexicano.",
+          "O restaurante estaria fechado para um evento privado."
+        ],
+        "answerIndex": 1,
+        "explanation": "Lucas tentou reservar para as 20h, mas o site informou que não havia mesas nesse horário, então mudaram para as 20h30."
+      },
+      {
+        "question": "Por que Lucas não aceitou tomar um café com Amanda ao fim da conversa?",
+        "options": [
+          "Ele precisava ir ao centro para uma apresentação.",
+          "Ele tinha que ligar para a irmã da Amanda.",
+          "Ele precisava ir para uma reunião em cinco minutos.",
+          "Ele queria ir para casa descansar antes do fim de semana."
+        ],
+        "answerIndex": 2,
+        "explanation": "Lucas disse que adoraria, mas precisava correr porque tinha uma reunião em cinco minutos."
+      }
+    ],
+    "n": 18
+  },
+  {
+    "kind": "conversa",
+    "title": "Debate sobre a nova política de trabalho presencial",
+    "why": "Treina a capacidade de acompanhar opiniões divergentes e nuances de concordância com ritmo natural, interrupções e gírias do dia a dia corporativo.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Mark",
+        "Hey Rachel, did ya see that email from Brenda about the new office rules?",
+        "Oi Rachel, você viu o e-mail da Brenda sobre as novas regras do escritório?"
+      ],
+      [
+        "Rachel",
+        "Yeah, I did. Honestly, I'm kinda torn about it.",
+        "Vi sim. Sinceramente, tô meio dividida sobre isso."
+      ],
+      [
+        "Mark",
+        "Really? I thought everybody hated the idea of coming in four days a week.",
+        "Sério? Achei que todo mundo tinha odiado a ideia de vir quatro dias por semana."
+      ],
+      [
+        "Rachel",
+        "Well, I see your point, but... I actually focus better here than at home.",
+        "Bom, eu entendo seu ponto, mas... na real eu me concentro melhor aqui do que em casa."
+      ],
+      [
+        "Mark",
+        "Come on! The commute is like, an hour and a half every single day.",
+        "Ah, para! O trânsito é tipo uma hora e meia todo santo dia."
+      ],
+      [
+        "Rachel",
+        "Fair enough. The traffic is terrible, I'm not gonna lie.",
+        "Verdade. O trânsito é horrível, não vou mentir."
+      ],
+      [
+        "Mark",
+        "Right! Plus, Dave said his whole team is way more productive remote.",
+        "Viu! Além disso, o Dave disse que a equipe dele é bem mais produtiva no remoto."
+      ],
+      [
+        "Rachel",
+        "I'm not so sure about that, though. Dave's team missed two deadlines last month.",
+        "Não tenho tanta certeza disso, não. A equipe do Dave perdeu dois prazos mês passado."
+      ],
+      [
+        "Mark",
+        "Wait, that was because of the software crash, not remote work!",
+        "Peraí, aquilo foi por causa da pifada no programa, não do trabalho remoto!"
+      ],
+      [
+        "Rachel",
+        "Hmm, maybe. But you know, having everyone together helps with brainstorming.",
+        "Hum, pode ser. Mas você sabe, ter todo mundo junto ajuda na hora de ter ideias."
+      ],
+      [
+        "Mark",
+        "That's a good point, I guess. But three days was working just fine.",
+        "É um bom ponto, acho. Mas três dias já tava funcionando super bem."
+      ],
+      [
+        "Rachel",
+        "It depends on the situation, honestly. For creative projects, in-person is way better.",
+        "Depende da situação, sinceramente. Pra projetos criativos, presencial é muito melhor."
+      ],
+      [
+        "Mark",
+        "Yeah, but my job is mostly individual coding. I don't need to sit next to people for that.",
+        "É, mas meu trabalho é a maior parte programando sozinho. Não preciso sentar do lado de ninguém pra isso."
+      ],
+      [
+        "Rachel",
+        "True. Lemme ask you something, did you talk to Brenda about it?",
+        "É verdade. Deixa eu te perguntar uma coisa, você falou com a Brenda sobre isso?"
+      ],
+      [
+        "Mark",
+        "Not yet. I wanna bring it up in the town hall tomorrow.",
+        "Ainda não. Quero levantar isso na reunião geral amanhã."
+      ],
+      [
+        "Rachel",
+        "Ugh, I don't know if that's a good idea, Mark. Management seems pretty set on this.",
+        "Eita, não sei se é uma boa ideia, Mark. A gerência parece bem decidida sobre isso."
+      ],
+      [
+        "Mark",
+        "So we should just accept it? I totally agree that we need collaboration, but this is too much.",
+        "Então a gente devia só aceitar? Eu concordo totalmente que a gente precisa colaborar, mas isso é demais."
+      ],
+      [
+        "Rachel",
+        "Look, I totally agree that four days is a bit extreme, but complaining in public might backfire.",
+        "Olha, eu concordo totalmente que quatro dias é um pouco exagerado, mas reclamar em público pode dar ruim."
+      ],
+      [
+        "Mark",
+        "Hmm, I mean... you might be right. Maybe a private chat first?",
+        "Hum, quer dizer... você pode ter razão. Talvez uma conversa privada primeiro?"
+      ],
+      [
+        "Rachel",
+        "Exactly. Talk to her one-on-one before making a scene.",
+        "Exato. Fala com ela no individual antes de fazer um auê."
+      ],
+      [
+        "Mark",
+        "Alright, fair enough. I'm gonna email her today then.",
+        "Beleza, justo. Vou mandar e-mail pra ela hoje então."
+      ],
+      [
+        "Rachel",
+        "Good plan. Hey, speaking of Brenda, is she coming to lunch with us?",
+        "Bom plano. Ei, falando na Brenda, ela vai almoçar com a gente?"
+      ],
+      [
+        "Mark",
+        "I think so. Let me text her real quick.",
+        "Acho que sim. Deixa eu mandar mensagem pra ela rapidinho."
+      ],
+      [
+        "Rachel",
+        "Cool. Let me just grab my coat and we can go.",
+        "Massa. Deixa eu só pegar meu casaco e a gente pode ir."
+      ],
+      [
+        "Mark",
+        "Sounds good! Let's agree to disagree on the commute though.",
+        "Fechado! Mas vamos concordar em discordar sobre o trânsito então."
+      ],
+      [
+        "Rachel",
+        "Haha, deal! See ya downstairs in two minutes.",
+        "Haha, fechado! Te vejo lá embaixo em dois minutos."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Qual é o motivo principal do desentendimento inicial entre Mark e Rachel?",
+        "options": [
+          "Mark quer trabalhar presencialmente mais dias, enquanto Rachel prefere o trabalho remoto.",
+          "Brenda demitiu Dave por ter perdido dois prazos importantes no mês passado.",
+          "Mark está incomodado com a nova exigência de ir ao escritório quatro dias por semana, enquanto Rachel vê aspectos positivos.",
+          "Rachel não concorda com a ideia de Mark de ir almoçar com Brenda."
+        ],
+        "answerIndex": 2,
+        "explanation": "Mark reclama do tempo de trânsito e prefere o trabalho remoto, enquanto Rachel acha que estar no escritório ajuda na concentração e na criatividade."
+      },
+      {
+        "question": "Por que a equipe do Dave perdeu prazos no mês passado, segundo Mark?",
+        "options": [
+          "Por causa do modelo de trabalho totalmente remoto.",
+          "Devido a uma falha no sistema ou software.",
+          "Porque os funcionários faltaram por causa do trânsito.",
+          "Porque Brenda mudou o gerenciamento do projeto."
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark esclarece que o atraso foi causado por uma falha técnica (software crash), e não por estarem em home office."
+      },
+      {
+        "question": "Qual conselho Rachel dá a Mark sobre como expressar sua insatisfação?",
+        "options": [
+          "Falar publicamente na reunião geral de amanhã.",
+          "Pedir demissão imediatamente e procurar outro trabalho.",
+          "Conversar em particular com Brenda antes de levantar a questão em público.",
+          "Ignorar o e-mail da Brenda e continuar indo apenas três dias."
+        ],
+        "answerIndex": 2,
+        "explanation": "Rachel aconselha Mark a conversar a sós com Brenda em um papo individual para evitar criar atrito ou uma situação ruim na reunião geral."
+      }
+    ],
+    "n": 19
+  },
+  {
+    "kind": "conversa",
+    "title": "Escolhendo a hospedagem para a viagem de fim de semana",
+    "why": "Treina a compreensão de comparações reais com interrupções, mudança rápida de planos e vocabulário cotidiano de viagem e custos.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Mark",
+        "Hey Sarah, did ya check out those two places for our weekend trip?",
+        "Ei Sarah, você deu uma olhada naqueles dois lugares pra nossa viagem de fim de semana?"
+      ],
+      [
+        "Sarah",
+        "Yeah, I did! The cabin by the lake and that downtown apartment, right?",
+        "Sim, olhei! A cabana na beira do lago e aquele apartamento no centro, né?"
+      ],
+      [
+        "Mark",
+        "Exactly. I mean, the cabin is way cheaper, but it's kinda far.",
+        "Exatamente. Tipo, a cabana é bem mais barata, mas é um pouco longe."
+      ],
+      [
+        "Sarah",
+        "True, but on the other hand, the downtown place has a pool and a huge kitchen.",
+        "Verdade, mas por outro lado, o lugar no centro tem piscina e uma cozinha enorme."
+      ],
+      [
+        "Mark",
+        "Yeah, but... wait, did ya see the cleaning fee for the apartment? It's crazy high!",
+        "É, mas... espera, você viu a taxa de limpeza do apartamento? É alta demais!"
+      ],
+      [
+        "Sarah",
+        "Oh, really? Lemme look... Wow, ninety dollars? That's ridiculous!",
+        "Ah, sério? Deixa eu ver... Nossa, noventa dólares? Que absurdo!"
+      ],
+      [
+        "Mark",
+        "See? So in the end, it's not even that much cheaper to stay downtown.",
+        "Viu só? Então no fim das contas nem vale tanto a pena ficar no centro."
+      ],
+      [
+        "Sarah",
+        "Hmm, good point. But what about the drive? The cabin is like, three hours away.",
+        "Hum, bem pensado. Mas e o caminho de carro? A cabana fica tipo a três horas de distância."
+      ],
+      [
+        "Mark",
+        "Yeah, I know. But Mike said he can drive us in his SUV, so we don't gotta rent a car.",
+        "É, eu sei. Mas o Mike disse que pode levar a gente no SUV dele, então não precisamos alugar carro."
+      ],
+      [
+        "Sarah",
+        "Oh, nice! Mike's coming too? I thought he had to work this weekend.",
+        "Ah, que massa! O Mike vai também? Achei que ele tinha que trabalhar neste fim de semana."
+      ],
+      [
+        "Mark",
+        "Nah, he swapped shifts with Leo. So he's totally free now.",
+        "Que nada, ele trocou de turno com o Leo. Então tá totalmente livre agora."
+      ],
+      [
+        "Sarah",
+        "Sweet! That changes things. But wait... is there good Wi-Fi at the cabin?",
+        "Shoow! Isso muda as coisas. Mas espera... tem Wi-Fi bom na cabana?"
+      ],
+      [
+        "Mark",
+        "Uh, the owner said it's okay, but honestly, it's pretty spotty up in the mountains.",
+        "Ahn, o dono disse que é razoável, mas sinceramente, oscila bastante lá nas montanhas."
+      ],
+      [
+        "Sarah",
+        "Ugh, I gotta finish a project on Saturday morning, remember?",
+        "Putz, eu preciso terminar um projeto no sábado de manhã, lembra?"
+      ],
+      [
+        "Mark",
+        "Right, right... I forgot about that. So ya need a stable connection.",
+        "Verdade, verdade... tinha esquecido disso. Então você precisa de uma conexão estável."
+      ],
+      [
+        "Sarah",
+        "Yeah, if the Wi-Fi drops, my boss is gonna kill me!",
+        "É, se o Wi-Fi cair, meu chefe me mata!"
+      ],
+      [
+        "Mark",
+        "Okay, well... what if we look at a third option?",
+        "Beleza, bom... e se a gente olhasse uma terceira opção?"
+      ],
+      [
+        "Sarah",
+        "Like what? We kinda need to book today, ya know?",
+        "Tipo o quê? A gente meio que precisa reservar hoje, sabe?"
+      ],
+      [
+        "Mark",
+        "Look, my cousin Dave has a beach house near Santa Cruz. He mentioned it yesterday.",
+        "Olha, meu primo Dave tem uma casa de praia perto de Santa Cruz. Ele comentou isso ontem."
+      ],
+      [
+        "Sarah",
+        "Wait, really? Is it available this weekend?",
+        "Peraí, sério? Tá disponível neste fim de semana?"
+      ],
+      [
+        "Mark",
+        "I think so! It's closer than the cabin, has great Wi-Fi, and he won't charge a cleaning fee.",
+        "Acho que sim! É mais perto que a cabana, tem Wi-Fi ótimo e ele não vai cobrar taxa de limpeza."
+      ],
+      [
+        "Sarah",
+        "That sounds way better than both of the other places!",
+        "Isso parece bem melhor do que as outras duas opções!"
+      ],
+      [
+        "Mark",
+        "Right? It's definitely the best option for us. Lemme text him right now to make sure.",
+        "Né? É com certeza a melhor opção pra gente. Deixa eu mandar mensagem pra ele agora mesmo pra confirmar."
+      ],
+      [
+        "Sarah",
+        "Awesome! Ask him if we can check in early on Friday, too.",
+        "Maravilha! Pergunta pra ele se a gente pode fazer o check-in mais cedo na sexta também."
+      ],
+      [
+        "Mark",
+        "Will do. Man, I'm so glad we didn't rush to pick the apartment.",
+        "Pode deixar. Cara, ainda bem que a gente não se afobou pra escolher o apartamento."
+      ],
+      [
+        "Sarah",
+        "Me too! Fingers crossed Dave says yes!",
+        "Eu também! Torcendo pra que o Dave diga sim!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Sarah hesita em escolher a cabana nas montanhas no início?",
+        "options": [
+          "Porque a taxa de limpeza da cabana é extremamente cara.",
+          "Porque a viagem é longa e a conexão de Wi-Fi é instável para o trabalho dela.",
+          "Porque ela não quer viajar no carro de Mike.",
+          "Porque o apartamento no centro fica mais perto da praia."
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah menciona que a cabana é longe (3 horas) e que precisa terminar um projeto no sábado, mas a internet da cabana oscila muito."
+      },
+      {
+        "question": "Como Mike conseguiu se juntar à viagem no fim de semana?",
+        "options": [
+          "Ele pediu folga ao chefe na sexta-feira.",
+          "Ele trocou de turno de trabalho com um colega chamado Leo.",
+          "Ele decidiu trabalhar remotamente da praia.",
+          "Ele cancelou todos os compromissos do fim de semana."
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark explica que Mike trocou de turno ('swapped shifts') com o Leo, ficando com o fim de semana totalmente livre."
+      },
+      {
+        "question": "Qual é a vantagem da casa do primo Dave em relação às outras duas opções?",
+        "options": [
+          "Tem piscina aquecida e fica dentro do centro da cidade.",
+          "É mais barata que o apartamento e inclui transporte gratuito.",
+          "É mais perto que a cabana, tem Wi-Fi ótimo e não cobra taxa de limpeza.",
+          "Está disponível para reserva imediata com cancelamento grátis."
+        ],
+        "answerIndex": 2,
+        "explanation": "Mark lista que a casa de Dave em Santa Cruz é mais perto, tem excelente conexão de internet e Dave não vai cobrar taxa de limpeza."
+      }
+    ],
+    "n": 20
+  },
+  {
+    "kind": "conversa",
+    "title": "O desabafo de Sarah sobre as notícias do dia na cozinha da empresa",
+    "why": "Prepara você para acompanhar conversas reais onde notícias boas e ruins se misturam e as pessoas reagem a múltiplos acontecimentos de uma só vez.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Mark",
+        "Hey Sarah, you look totally wiped out. Are you okay?",
+        "Ei Sarah, você parece acabada. Tá tudo bem?"
+      ],
+      [
+        "Sarah",
+        "Uh, honestly? Not really. It's been a crazy morning.",
+        "Ah, sinceramente? Não muito. Foi uma manhã louca."
+      ],
+      [
+        "Mark",
+        "Oh no. What happened? Did something go wrong with the project?",
+        "Poxa, sério? O que aconteceu? Deu algo errado no projeto?"
+      ],
+      [
+        "Sarah",
+        "Well, kind of, but no... Brenda got promoted today!",
+        "Bom, mais ou menos, mas não... A Brenda foi promovida hoje!"
+      ],
+      [
+        "Mark",
+        "Wait, really? That's amazing! I'm so happy for her!",
+        "Pera, sério? Isso é incrível! Tô muito feliz por ela!"
+      ],
+      [
+        "Sarah",
+        "Yeah, I know, me too, but... now I gotta take over all her clients.",
+        "É, eu sei, eu também, mas... agora eu tenho que assumir todos os clientes dela."
+      ],
+      [
+        "Mark",
+        "Oh, wow. That must be really overwhelming...",
+        "Nossa, caramba. Isso deve ser bem pesado..."
+      ],
+      [
+        "Sarah",
+        "Tell me about it! I mean, I wanna be happy for her, but I'm super stressed lately.",
+        "Nem me fale! Tipo, eu quero ficar feliz por ela, mas tô super estressada ultimamente."
+      ],
+      [
+        "Mark",
+        "Yeah, that's a lot on your plate. And on top of that, you look like you didn't sleep at all.",
+        "É, é muita coisa pra você dar conta. E além disso, você tá com cara de quem não dormiu nada."
+      ],
+      [
+        "Sarah",
+        "Because I didn't! My car got towed this morning, like, right outside my apartment.",
+        "Porque eu não dormi mesmo! Meu carro foi guinchado hoje de manhã, tipo, na frente do meu prédio."
+      ],
+      [
+        "Mark",
+        "Shut up! Are you serious? That's terrible!",
+        "Mentira! Tá falando sério? Que péssimo!"
+      ],
+      [
+        "Sarah",
+        "I know! I had to take an Uber, and I was late for the team meeting.",
+        "Pois é! Tive que pegar um Uber e cheguei atrasada pra reunião da equipe."
+      ],
+      [
+        "Mark",
+        "Man, I'm so sorry to hear that. What a nightmare.",
+        "Cara, sinto muito por isso. Que pesadelo."
+      ],
+      [
+        "Sarah",
+        "Yeah... I kinda panicked when I saw the empty parking spot.",
+        "É... eu meio que entrei em pânico quando vi a vaga vazia."
+      ],
+      [
+        "Mark",
+        "I bet! Lemme know if you need a ride home later, okay? I can totally drop you off.",
+        "Imagino! Me avisa se precisar de uma carona pra casa mais tarde, tá? Posso te levar de boa."
+      ],
+      [
+        "Sarah",
+        "Really? You'd do that? That's so sweet of you, Mark.",
+        "Sério? Você faria isso? Que fofo da sua parte, Mark."
+      ],
+      [
+        "Mark",
+        "Of course! We're a team. Plus, you helped me last week when I was losing my mind.",
+        "Claro! Somos um time. Além disso, você me ajudou semana passada quando eu tava enlouquecendo."
+      ],
+      [
+        "Sarah",
+        "True, true... Ugh, I just need a huge cup of coffee right now.",
+        "Verdade, verdade... Nossa, eu só preciso de uma xícara enorme de café agora."
+      ],
+      [
+        "Mark",
+        "Go sit down. I'm gonna make some fresh coffee for both of us.",
+        "Vai lá sentar. Eu vou passar um café fresquinho pra gente."
+      ],
+      [
+        "Sarah",
+        "Thanks, Mark. I really appreciate it.",
+        "Obrigada, Mark. Agradeço de verdade."
+      ],
+      [
+        "Mark",
+        "Don't worry about it. Things are gonna settle down soon.",
+        "Imagina. As coisas vão se ajeitar logo."
+      ],
+      [
+        "Sarah",
+        "I hope so. Oh, did you hear about Leo's news, by the way?",
+        "Tomara. Ah, aliás, você soube da novidade do Leo?"
+      ],
+      [
+        "Mark",
+        "No, what about Leo? Don't tell me another bad thing happened!",
+        "Não, o que tem o Leo? Não me diz que aconteceu outra coisa ruim!"
+      ],
+      [
+        "Sarah",
+        "Haha, no! He's getting married next month!",
+        "Hahaha, não! Ele vai se casar no mês que vem!"
+      ],
+      [
+        "Mark",
+        "Get out of here! That's awesome!",
+        "Não brinca! Que massa!"
+      ],
+      [
+        "Sarah",
+        "I know, right? So at least someone's having a great week!",
+        "Né? Pelo menos alguém tá tendo uma semana ótima!"
+      ],
+      [
+        "Mark",
+        "Hey, your week is gonna get better too. Here's your coffee.",
+        "Ei, a sua semana vai melhorar também. Aqui tá o seu café."
+      ],
+      [
+        "Sarah",
+        "Ah, you're a lifesaver. Thanks again.",
+        "Ah, você salvou minha vida. Obrigada de novo."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Sarah está estressada com a promoção de Brenda?",
+        "options": [
+          "Porque ela queria ter sido promovida no lugar de Brenda.",
+          "Porque vai precisar assumir a carteira de clientes de Brenda.",
+          "Porque Brenda vai mudar para outra filial da empresa.",
+          "Porque ela não gosta de Brenda e não quer comemorar."
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah explica que fica feliz por Brenda, mas estressada porque agora terá que assumir todos os clientes dela."
+      },
+      {
+        "question": "O que aconteceu com o carro de Sarah naquela manhã?",
+        "options": [
+          "O carro quebrou no meio do caminho para o escritório.",
+          "Ela sofreu uma pequena batida no estacionamento.",
+          "O carro foi guinchado na frente do prédio onde ela mora.",
+          "Ela esqueceu onde tinha estacionado e achou que foi roubado."
+        ],
+        "answerIndex": 2,
+        "explanation": "Sarah conta que o carro dela foi guinchado ('got towed') na frente do seu apartamento."
+      },
+      {
+        "question": "Qual é a boa notícia sobre Leo mencionada no final da conversa?",
+        "options": [
+          "Ele conseguiu uma promoção na empresa.",
+          "Ele vai se casar no mês seguinte.",
+          "Ele comprou um carro novo.",
+          "Ele vai dar uma carona para Sarah."
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah compartilha que Leo vai se casar no próximo mês ('He's getting married next month!')."
+      }
+    ],
+    "n": 21
+  },
+  {
+    "kind": "conversa",
+    "title": "O sufoco com a impressora antes da reunião",
+    "why": "Treina o entendimento de trocas de favores e negociações de ajuda no trabalho em ritmo natural, com interrupções, imprevistos e linguagem informal do dia a dia.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Leo",
+        "Hey, Jenna, lemme ask you something real quick.",
+        "Ei, Jenna, deixa eu te perguntar uma coisa bem rápida."
+      ],
+      [
+        "Jenna",
+        "Uh, sure, Leo, but I'm kinda running late for...",
+        "Ahn, claro, Leo, mas tô meio atrasada pra..."
+      ],
+      [
+        "Leo",
+        "I know, I know! Sorry to bother you, but the copier is stuck again.",
+        "Eu sei, eu sei! Desculpa te incomodar, mas a copiadora travou de novo."
+      ],
+      [
+        "Jenna",
+        "Again? Did you check the paper tray?",
+        "De novo? Você checou a bandeja de papel?"
+      ],
+      [
+        "Leo",
+        "Yeah, I tried, but... look, I'm gonna break it if I force it.",
+        "Sim, tentei, mas... olha, vou acabar quebrando aquilo se eu forçar."
+      ],
+      [
+        "Jenna",
+        "Okay, calm down. Do you need a hand pulling that lever?",
+        "Calma, respira. Precisa de uma ajuda pra puxar aquela alavanca?"
+      ],
+      [
+        "Leo",
+        "Man, I'd appreciate it. I got this huge report for Mark in ten minutes.",
+        "Nossa, eu agradeceria demais. Tenho esse relatório enorme pro Mark em dez minutos."
+      ],
+      [
+        "Jenna",
+        "Wait, Mark's meeting is today? I thought it was tomorrow!",
+        "Espera, a reunião do Mark é hoje? Achei que fosse amanhã!"
+      ],
+      [
+        "Leo",
+        "No, he moved it up. Didn't you get his email?",
+        "Não, ele adiantou. Você não recebeu o e-mail dele?"
+      ],
+      [
+        "Jenna",
+        "Oh, man! I didn't even check my inbox today.",
+        "Puxa vida! Nem olhei minha caixa de entrada hoje."
+      ],
+      [
+        "Leo",
+        "Well, if you help me fix this paper jam, I can help you print your stuff right after.",
+        "Bom, se você me ajudar a resolver esse engarrafamento de papel, posso te ajudar a imprimir as suas coisas logo em seguida."
+      ],
+      [
+        "Jenna",
+        "Deal! Show me what's wrong with the tray.",
+        "Fechado! Me mostra o que tá de errado com a bandeja."
+      ],
+      [
+        "Leo",
+        "See this green light? It's flashing red now.",
+        "Tô vendo essa luz verde? Agora tá piscando em vermelho."
+      ],
+      [
+        "Jenna",
+        "Oh, you just gotta open the side door first, you know?",
+        "Ah, você só tem que abrir a porta lateral primeiro, sabe?"
+      ],
+      [
+        "Leo",
+        "Wait, there's a side door? I had no idea!",
+        "Peraí, tem uma porta lateral? Eu não tinha a menor ideia!"
+      ],
+      [
+        "Jenna",
+        "Yeah, look. Lemme grab this handle here...",
+        "É, olha só. Deixa eu pegar essa maçaneta aqui..."
+      ],
+      [
+        "Leo",
+        "Careful, it's kinda tight.",
+        "Cuidado, tá meio dura."
+      ],
+      [
+        "Jenna",
+        "Got it! See? The jammed paper was right behind this roller.",
+        "Consegui! Viu? O papel preso tava bem atrás desse rolo."
+      ],
+      [
+        "Leo",
+        "Dude, you're a lifesaver! I was panicking for real.",
+        "Nossa, você salvou minha vida! Eu tava em pânico de verdade."
+      ],
+      [
+        "Jenna",
+        "Don't worry about it! Now, can you hold the door for me while I grab my files?",
+        "Imagina! Agora, você pode segurar a porta pra mim enquanto pego meus arquivos?"
+      ],
+      [
+        "Leo",
+        "Sure, no problem! I'll print your pages first.",
+        "Com certeza, sem problemas! Vou imprimir suas páginas primeiro."
+      ],
+      [
+        "Jenna",
+        "Thanks, Leo. Hey, do you wanna split a coffee after the meeting?",
+        "Obrigada, Leo. Ei, quer tomar um café junto depois da reunião?"
+      ],
+      [
+        "Leo",
+        "Definitely. My treat today for saving my skin!",
+        "Com certeza. Eu pago hoje por você ter salvado minha pele!"
+      ],
+      [
+        "Jenna",
+        "Deal. Now hurry up, Mark is coming down the hallway!",
+        "Fechado. Agora se apressa, o Mark tá vindo pelo corredor!"
+      ],
+      [
+        "Leo",
+        "Oh shoot, okay, pressing print right now!",
+        "Eita, tá bom, apertando pra imprimir agora mesmo!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Leo estava desesperado para consertar a copiadora?",
+        "options": [
+          "Ele precisava imprimir um relatório importante para o Mark em dez minutos.",
+          "Ele achou que tinha quebrado a máquina da empresa por acidente.",
+          "Jenna tinha pedido para ele imprimir os arquivos dela com urgência.",
+          "Mark estava esperando por ele na sala de reuniões há muito tempo."
+        ],
+        "answerIndex": 0,
+        "explanation": "Leo explica que tem um relatório enorme para entregar ao chefe Mark em dez minutos."
+      },
+      {
+        "question": "Como Jenna conseguiu destravar o papel na máquina?",
+        "options": [
+          "Ela desligou a copiadora da tomada e ligou novamente.",
+          "Ela abriu uma porta lateral e tirou o papel preso atrás do rolo.",
+          "Ela puxou a alavanca da bandeja de papel com força.",
+          "Ela trocou a luz vermelha da máquina apertando o botão verde."
+        ],
+        "answerIndex": 1,
+        "explanation": "Jenna mostra a Leo que era preciso abrir a porta lateral primeiro para alcançar o papel preso atrás do rolo."
+      },
+      {
+        "question": "O que Leo promete fazer para retribuir o favor de Jenna?",
+        "options": [
+          "Fazer o relatório no lugar dela para a reunião.",
+          "Falar com o Mark para adiar a apresentação dela.",
+          "Pagar um café para ela depois da reunião.",
+          "Consertar o computador dela no final do expediente."
+        ],
+        "answerIndex": 2,
+        "explanation": "Leo aceita o convite do café e diz 'My treat today for saving my skin!', garantindo que vai pagar o café como agradecimento."
+      }
+    ],
+    "n": 22
+  },
+  {
+    "kind": "conversa",
+    "title": "O encontro no corredor e o café que acabou",
+    "why": "Treina acompanhar uma conversa informal mais longa com interrupções, imprevistos de trabalho e vocabulário cotidiano real.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Mark",
+        "Hey Sarah! How's it going?",
+        "E aí, Sarah! Como vão as coisas?"
+      ],
+      [
+        "Sarah",
+        "Oh hey, Mark! Pretty good, just kinda tired, you know?",
+        "Ah, oi, Mark! Tudo bem, só um pouco cansada, sabe?"
+      ],
+      [
+        "Mark",
+        "Tell me about it. Busy week?",
+        "Nem me fala. Semana corrida?"
+      ],
+      [
+        "Sarah",
+        "Yeah, super busy. I mean, the new project is taking forever.",
+        "É, super corrida. Quer dizer, o projeto novo tá demorando uma eternidade."
+      ],
+      [
+        "Mark",
+        "Oh really? I thought Dave was helping you with that.",
+        "Sério? Achei que o Dave tava te ajudando com isso."
+      ],
+      [
+        "Sarah",
+        "Well, yeah, but he's gotta finish his own reports first.",
+        "Pois é, mas ele tem que terminar os relatórios dele primeiro."
+      ],
+      [
+        "Mark",
+        "Right, right. Man, crazy weather today, huh? It was pouring earlier.",
+        "Certo, faz sentido. Cara, que tempo doido hoje, né? Tava chovendo muito mais cedo."
+      ],
+      [
+        "Sarah",
+        "I know! I got totally soaked walking from my car.",
+        "Eu sei! Fiquei totalmente encharcada vindo do carro."
+      ],
+      [
+        "Mark",
+        "Ouch. Did you get a coffee yet?",
+        "Putz. Você já tomou um café?"
+      ],
+      [
+        "Sarah",
+        "Not yet. I was actually just heading to the breakroom.",
+        "Ainda não. Eu tava indo agora mesmo pro espaço de descanso."
+      ],
+      [
+        "Mark",
+        "Awesome, lemme walk with you. I need a refuel too.",
+        "Massa, deixa eu ir com você. Preciso me recarregar também."
+      ],
+      [
+        "Sarah",
+        "Cool! So, how's your team doing with the whole system update?",
+        "Legal! E aí, como tá sua equipe com aquela atualização do sistema?"
+      ],
+      [
+        "Mark",
+        "Ugh, don't even get me started. It's a complete mess.",
+        "Nossa, nem me lembra disso. Tá uma bagunça completa."
+      ],
+      [
+        "Sarah",
+        "Oh no, really? What happened?",
+        "Ah não, sério? O que rolou?"
+      ],
+      [
+        "Mark",
+        "Well, the server went down twice this morning...",
+        "Bom, o servidor caiu duas vezes hoje de manhã..."
+      ],
+      [
+        "Sarah",
+        "Wait, twice? That's terrible!",
+        "Pera, duas vezes? Que terrível!"
+      ],
+      [
+        "Mark",
+        "Yeah, so everyone is kinda panicking, you know?",
+        "É, aí tá todo mundo meio em pânico, sabe?"
+      ],
+      [
+        "Sarah",
+        "I bet! Are you gonna have to stay late tonight?",
+        "Imagino! Você vai ter que ficar até tarde hoje?"
+      ],
+      [
+        "Mark",
+        "Hopefully not. Mike is looking into it right now.",
+        "Espero que não. O Mike tá dando uma olhada nisso agora."
+      ],
+      [
+        "Sarah",
+        "Fingers crossed! Oh, looks like the coffee pot is empty.",
+        "Dedos cruzados! Ah, parece que a cafeteira tá vazia."
+      ],
+      [
+        "Mark",
+        "Ah, bummer. Gotta make a new batch then.",
+        "Que chato. Terei que fazer um café novo então."
+      ],
+      [
+        "Sarah",
+        "Anyway, I should get going back to my desk for a call.",
+        "Enfim, preciso voltar pra minha mesa pra uma ligação."
+      ],
+      [
+        "Mark",
+        "Yeah, same here. Good talking to you, Sarah!",
+        "É, eu também. Muito bom falar com você, Sarah!"
+      ],
+      [
+        "Sarah",
+        "Good talking to you too! See ya around.",
+        "Bom falar com você também! A gente se vê por aí."
+      ],
+      [
+        "Mark",
+        "Catch you later!",
+        "Até mais!"
+      ],
+      [
+        "Sarah",
+        "Bye!",
+        "Tchau!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que o projeto de Sarah não está avançando tão rápido quanto o esperado?",
+        "options": [
+          "Porque ela teve que cobrir o turno de Mike.",
+          "Porque o Dave precisa terminar os próprios relatórios antes de ajudá-la.",
+          "Porque o servidor caiu duas vezes durante a manhã.",
+          "Porque ela se molhou na chuva e se atrasou para a empresa."
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah explica que Dave deveria ajudá-la, mas ele tem que terminar os relatórios dele primeiro."
+      },
+      {
+        "question": "O que causou confusão e estresse na equipe de Mark durante a manhã?",
+        "options": [
+          "A cafeteira da área de descanso quebrou.",
+          "O cliente cancelou a reunião em cima da hora.",
+          "O servidor caiu duas vezes.",
+          "Eles perderam a ligação agendada com o Mike."
+        ],
+        "answerIndex": 2,
+        "explanation": "Mark menciona que o servidor caiu duas vezes de manhã, deixando a equipe meio em pânico."
+      },
+      {
+        "question": "O que Mark e Sarah descobrem ao chegar ao espaço de descanso?",
+        "options": [
+          "Que o Mike já tinha resolvido o problema do sistema.",
+          "Que a jarra de café está vazia e precisarão fazer mais.",
+          "Que o horário de intervalo de ambos já terminou.",
+          "Que a reunião da Sarah foi cancelada."
+        ],
+        "answerIndex": 1,
+        "explanation": "Ao olhar a cafeteira, Sarah nota que ela está vazia ('coffee pot is empty') e Mark diz que terá que fazer um novo café."
+      }
+    ],
+    "n": 23
+  },
+  {
+    "kind": "conversa",
+    "title": "Mudança de planos de última hora pelo telefone",
+    "why": "Treina a compreensão de conversas telefônicas com ruído de fundo, interrupções, imprevistos reais e fala acelerada além dos bordões básicos.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Mark",
+        "Hey Sarah, can you hear me? I'm on the highway right now.",
+        "Oi Sarah, tá me ouvindo? Tô na estrada agora."
+      ],
+      [
+        "Sarah",
+        "Barely! You're breaking up bad. Where are you?",
+        "Quase nada! A ligação tá cortando muito. Onde você tá?"
+      ],
+      [
+        "Mark",
+        "I'm heading to... wait, lemme pull over for a second.",
+        "Tô indo pra... espera, deixa eu encostar o carro um segundo."
+      ],
+      [
+        "Sarah",
+        "Okay, yeah. Did you talk to Mike about the venue?",
+        "Beleza. Você falou com o Mike sobre o local?"
+      ],
+      [
+        "Mark",
+        "Yeah, I mean, he said the place is full, so...",
+        "Falei, quer dizer, ele disse que o lugar tá lotado, então..."
+      ],
+      [
+        "Sarah",
+        "Wait, what? Full? But we reserved the table!",
+        "Pera, o quê? Lotado? Mas a gente reservou a mesa!"
+      ],
+      [
+        "Mark",
+        "I know, right? But apparently, Dave forgot to confirm it.",
+        "Pois é, né? Mas pelo visto, o Dave esqueceu de confirmar."
+      ],
+      [
+        "Sarah",
+        "Ugh, Dave always does this! So what's the plan now?",
+        "Aff, o Dave sempre faz isso! E qual é o plano agora?"
+      ],
+      [
+        "Mark",
+        "Well, Mike suggested that place near... uh, what's it called?",
+        "Bom, o Mike sugeriu aquele lugar perto do... é, como chama?"
+      ],
+      [
+        "Sarah",
+        "The downtown diner? The one with the green neon sign?",
+        "A lanchonete do centro? Aquela com o letreiro em neon verde?"
+      ],
+      [
+        "Mark",
+        "No, no, kinda across the street from the cinema.",
+        "Não, não, tipo do outro lado da rua do cinema."
+      ],
+      [
+        "Sarah",
+        "Oh, Luigi's! Is everybody gonna fit there?",
+        "Ah, o Luigi's! Vai caber todo mundo lá?"
+      ],
+      [
+        "Mark",
+        "Yeah, I think so. Hold on, someone's calling me.",
+        "Acho que sim. Espera aí, tem alguém me ligando."
+      ],
+      [
+        "Sarah",
+        "Is it Dave? Tell him he's in trouble!",
+        "É o Dave? Fala pra ele que ele tá encrencado!"
+      ],
+      [
+        "Mark",
+        "No, it's my mom. Lemme just ignore it real quick.",
+        "Não, é minha mãe. Deixa eu só recusar aqui rapidinho."
+      ],
+      [
+        "Sarah",
+        "Alright. So what time are we gonna meet then?",
+        "Tranquilo. Então que horas a gente vai se encontrar?"
+      ],
+      [
+        "Mark",
+        "I'm gonna get there around seven, if traffic permits.",
+        "Vou chegar lá por volta das sete, se o trânsito deixar."
+      ],
+      [
+        "Sarah",
+        "Sorry, I didn't catch that last part. Seven or eight?",
+        "Desculpa, não entendi a última parte. Sete ou oito?"
+      ],
+      [
+        "Mark",
+        "Seven! Seven p.m.! Can you text the group?",
+        "Sete! Sete da noite! Você pode mandar mensagem no grupo?"
+      ],
+      [
+        "Sarah",
+        "Yeah, I'm on it. Oh, wait, did you bring the cake?",
+        "Posso, tô fazendo isso. Ah, espera, você trouxe o bolo?"
+      ],
+      [
+        "Mark",
+        "Shoot! I totally forgot it at home!",
+        "Puts! Esqueci totalmente em casa!"
+      ],
+      [
+        "Sarah",
+        "Mark! Are you serious? You had one job!",
+        "Mark! É sério? Você só tinha uma coisa pra fazer!"
+      ],
+      [
+        "Mark",
+        "I know, I know! I'm turnin' around right now to get it.",
+        "Eu sei, eu sei! Tô voltando agora mesmo pra pegar."
+      ],
+      [
+        "Sarah",
+        "Okay, hurry up! See you there in a bit.",
+        "Tá bom, se apressa! Te vejo lá daqui a pouco."
+      ],
+      [
+        "Mark",
+        "Alright, talk soon!",
+        "Beleza, a gente se fala já já!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que eles não poderão ir ao primeiro local combinado para o encontro?",
+        "options": [
+          "O restaurante fechou para reformas inesperadas.",
+          "Dave esqueceu de confirmar a reserva e o local lotou.",
+          "A mãe do Mark ligou cancelando o evento.",
+          "O trânsito na estrada impediu a chegada do grupo."
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark explica que Dave esqueceu de confirmar a reserva, por isso o local ficou lotado."
+      },
+      {
+        "question": "Qual imprevisto o Mark percebe no final da ligação?",
+        "options": [
+          "Ele ligou para o número errado da pizzaria.",
+          "Ele errou o caminho para o cinema.",
+          "Esqueceu o bolo em casa e precisa voltar para buscar.",
+          "Esqueceu de mandar mensagem no grupo do evento."
+        ],
+        "answerIndex": 2,
+        "explanation": "Quando Sarah pergunta do bolo, Mark percebe que esqueceu o bolo em casa e diz que está voltando para pegar."
+      },
+      {
+        "question": "Onde fica localizado o novo restaurante (Luigi's)?",
+        "options": [
+          "Ao lado do letreiro de neon verde do centro.",
+          "Praticamente do outro lado da rua do cinema.",
+          "Na estrada logo após o posto de gasolina.",
+          "Perto da casa da mãe do Mark."
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark descreve o Luigi's como sendo do outro lado da rua em relação ao cinema ('across the street from the cinema')."
+      }
+    ],
+    "n": 24
+  },
+  {
+    "kind": "conversa",
+    "title": "Resolvendo a troca de um projetor com defeito",
+    "why": "Treina a compreensão de negociações reais sob pressão de tempo, lidando com imprevistos de estoque e resoluções com entregadores no inglês do dia a dia.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Leo",
+        "Hey, Rachel, right? I was here yesterday about that office projector?",
+        "Oi, Rachel, certo? Eu estive aqui ontem por causa daquele projetor de escritório."
+      ],
+      [
+        "Rachel",
+        "Oh, hey! Yeah, Leo, right? Did you get it set up alright?",
+        "Ah, oi! Sim, Leo, né? Deu tudo certo com a instalação?"
+      ],
+      [
+        "Leo",
+        "Well, actually... no. We unpacked it this morning, and it's kinda messed up.",
+        "Bom, na verdade... não. A gente desembalou hoje de manhã e ele tá meio com defeito."
+      ],
+      [
+        "Rachel",
+        "Oh no, serious? What's wrong with it?",
+        "Ah não, sério? Qual é o problema dele?"
+      ],
+      [
+        "Leo",
+        "First off, the lens has a huge crack on it. Like, totally smashed.",
+        "Pra começar, a lente tá com uma rachadura enorme. Tipo, totalmente quebrada."
+      ],
+      [
+        "Rachel",
+        "Wait, really? It was completely sealed in the box, though!",
+        "Pera, sério? Mas estava completamente selado na caixa!"
+      ],
+      [
+        "Leo",
+        "Yeah, I know! But that's not even all... the power cord wasn't even in there.",
+        "É, eu sei! Mas não é só isso... nem o cabo de força tava lá dentro."
+      ],
+      [
+        "Rachel",
+        "Man, that's terrible. Lemme check the inventory on my computer real quick.",
+        "Nossa, que péssimo. Deixa eu checar o estoque no meu computador rapidinho."
+      ],
+      [
+        "Leo",
+        "Thanks. See, the thing is, I got a big client meeting at two PM today...",
+        "Obrigado. É que assim, eu tenho uma reunião importante com cliente às duas da tarde hoje..."
+      ],
+      [
+        "Rachel",
+        "Right, you mentioned that yesterday. Um, okay, so... bad news.",
+        "Certo, você comentou isso ontem. Hm, tá, então... notícia ruim."
+      ],
+      [
+        "Leo",
+        "Oh, don't tell me you're out of stock...",
+        "Ah, não me diz que tá sem estoque..."
+      ],
+      [
+        "Rachel",
+        "We don't have that exact model here right now, but...",
+        "A gente não tem esse modelo exato aqui agora, mas..."
+      ],
+      [
+        "Leo",
+        "Ugh, you gotta be kidding me! What am I gonna do now?",
+        "Nossa, você tá brincando comigo! O que eu vou fazer agora?"
+      ],
+      [
+        "Rachel",
+        "Hold on, lemme finish! The Downtown store has three of 'em.",
+        "Calma, deixa eu terminar! A loja do Centro tem três deles."
+      ],
+      [
+        "Leo",
+        "Downtown? That's, like, a forty-minute drive with traffic!",
+        "No Centro? Isso dá tipo uns quarenta minutos de carro com trânsito!"
+      ],
+      [
+        "Rachel",
+        "I know, but I can have a courier deliver one directly to your office by noon.",
+        "Eu sei, mas eu posso pedir pra um motoboy entregar um direto no seu escritório até meio-dia."
+      ],
+      [
+        "Leo",
+        "Wait, for real? Will that cost me extra?",
+        "Pera, sério? Isso vai me custar mais caro?"
+      ],
+      [
+        "Rachel",
+        "No way, absolutely not. That's on us, totally free of charge.",
+        "De jeito nenhum, com certeza não. É por nossa conta, totalmente de graça."
+      ],
+      [
+        "Leo",
+        "Okay, wow. That would actually save my life, Rachel.",
+        "Caramba, uau. Isso vai salvar a minha vida, Rachel."
+      ],
+      [
+        "Rachel",
+        "I'll also grab a brand new power cord from our backroom just in case.",
+        "Eu também vou pegar um cabo de força novinho no nosso estoque interno por garantia."
+      ],
+      [
+        "Leo",
+        "Perfect. So, do I need to bring this broken one back right now?",
+        "Perfeito. Então, eu preciso levar esse quebrado de volta agora?"
+      ],
+      [
+        "Rachel",
+        "Nah, just keep it there for now. The courier can swap it when he arrives.",
+        "Não, só deixa aí por enquanto. O entregador troca quando chegar."
+      ],
+      [
+        "Leo",
+        "Awesome. I really appreciate you sorting this out so fast.",
+        "Show. Agradeço demais por resolver isso tão rápido."
+      ],
+      [
+        "Rachel",
+        "No problem at all, Leo! Sorry for the hassle. You'll have it by noon.",
+        "Imagina, Leo! Desculpa pelo transtorno. Até meio-dia tá na mão."
+      ],
+      [
+        "Leo",
+        "Sounds great. I'll be waiting at the front desk then.",
+        "Beleza. Vou ficar esperando na recepção então."
+      ],
+      [
+        "Rachel",
+        "Perfect, see ya later!",
+        "Perfeito, até mais!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Qual era o duplo problema com o projetor que Leo abriu de manhã?",
+        "options": [
+          "A lente veio quebrada e faltava o cabo de força na caixa.",
+          "O projetor não ligava na tomada e veio sem o controle remoto.",
+          "A caixa veio aberta e o aparelho estava com riscos na carcaça.",
+          "O modelo veio errado e sem o manual de instruções."
+        ],
+        "answerIndex": 0,
+        "explanation": "Leo explica que a lente estava rachada/quebrada e que o cabo de energia (power cord) nem veio dentro da caixa."
+      },
+      {
+        "question": "Por que Leo estava tão desesperado por uma solução rápida?",
+        "options": [
+          "Ele precisava viajar para outra cidade em quarenta minutos.",
+          "Ele tinha uma reunião importante com um cliente às 14h do mesmo dia.",
+          "A loja física iria fechar para balanço ao meio-dia.",
+          "Ele precisava devolver o produto quebrado no mesmo horário em que comprou."
+        ],
+        "answerIndex": 1,
+        "explanation": "Leo menciona que tem uma reunião importante com cliente às 14h ('big client meeting at two PM today')."
+      },
+      {
+        "question": "Qual foi a solução oferecida por Rachel para resolver a situação?",
+        "options": [
+          "Pedir para Leo ir dirigindo buscar o aparelho na unidade do Centro.",
+          "Fazer um reembolso total do valor pago imediatamente.",
+          "Enviar um motoboy da loja do Centro para entregar um aparelho novo no escritório até meio-dia, sem custo.",
+          "Emprestar o projetor do estoque interno da própria loja até o novo chegar."
+        ],
+        "answerIndex": 2,
+        "explanation": "Rachel manda um entregador (courier) da unidade do Centro levar o aparelho direto ao escritório de Leo até o meio-dia, sem cobrar nada extra por isso."
+      }
+    ],
+    "n": 25
   }
 ]
