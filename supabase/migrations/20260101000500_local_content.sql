@@ -1,5 +1,5 @@
 -- ===========================================================================
--- InglishEasy — Dias soltos do calendário + conteúdo 100% local
+-- Easy English — Dias soltos do calendário + conteúdo 100% local
 --
 -- Duas mudanças de rumo:
 --

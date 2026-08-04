@@ -40,8 +40,8 @@ Trocar a chave é obrigatório — remover o arquivo do histórico **não basta*
 git init
 git branch -M main
 git add .
-git commit -m "InglishEasy: plataforma de ingles para conversacao"
-git remote add origin https://github.com/SEU_USUARIO/inglisheasy.git
+git commit -m "Easy English: plataforma de ingles para conversacao"
+git remote add origin https://github.com/SEU_USUARIO/easy-english.git
 git push -u origin main
 ```
 
@@ -55,7 +55,7 @@ Crie o repositório como **privado**. O `.env.local` não vai junto, mas o conte
 
 | Campo | Valor |
 |---|---|
-| Repositório | `SEU_USUARIO/inglisheasy`, branch `main` |
+| Repositório | `SEU_USUARIO/easy-english`, branch `main` |
 | Framework | **Next.js** (a detecção automática acerta) |
 | Versão do Node | **22.x** — o projeto exige 20.9+ (`engines` no package.json) |
 | Diretório de saída | `.next` |

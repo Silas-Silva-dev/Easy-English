@@ -1,5 +1,5 @@
 -- ===========================================================================
--- InglishEasy — Row Level Security
+-- Easy English — Row Level Security
 --
 -- Regras gerais:
 --   * admin      -> acesso total a tudo

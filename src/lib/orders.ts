@@ -77,6 +77,36 @@ export async function applyPaymentToOrder(
   const next = updated ?? order;
 
   if (payment.status === "approved") {
+    /**
+     * Confere o valor antes de liberar.
+     *
+     * A comparação é com `transaction_amount` (o preço do produto), nunca com
+     * o total pago: no parcelamento o aluno paga mais que o preço por causa
+     * dos juros do cartão, e comparar com o total recusaria toda compra
+     * parcelada.
+     *
+     * Hoje o valor não é manipulável pelo comprador — a preferência do
+     * Checkout Pro fixa o preço, e forjar um pagamento exigiria o access
+     * token. A verificação existe porque liberar acesso é irreversível na
+     * prática: se algum dia um preço errado, uma preferência adulterada ou uma
+     * mudança na API do Mercado Pago produzir um pagamento a menor, é melhor o
+     * pedido parar para revisão humana do que o curso sair de graça em
+     * silêncio. Tolerância de 1 centavo para arredondamento de conversão.
+     */
+    const expected = next.amount_cents;
+    const charged = payment.transactionAmountCents;
+
+    if (charged !== null && charged < expected - 1) {
+      console.error("[orders] VALOR PAGO MENOR QUE O PEDIDO — acesso NAO liberado:", {
+        orderId: next.id,
+        userId: next.user_id,
+        paymentId: payment.paymentId,
+        esperadoCentavos: expected,
+        pagoCentavos: charged,
+      });
+      return next;
+    }
+
     // Idempotente no banco: se já existe concessão viva, ela é devolvida sem
     // criar uma segunda (ver `grant_course_access` na migration 700).
     const { error: grantError } = await supabase.rpc("grant_course_access", {

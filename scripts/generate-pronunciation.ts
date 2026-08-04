@@ -98,7 +98,7 @@ function collect(): string[] {
 }
 
 function respellAll(texts: string[]): Promise<Record<string, string>> {
-  const inputPath = join(tmpdir(), `inglisheasy-respell-${process.pid}.json`);
+  const inputPath = join(tmpdir(), `easyenglish-respell-${process.pid}.json`);
   writeFileSync(inputPath, JSON.stringify(texts), "utf8");
 
   return new Promise((resolve, reject) => {

@@ -1,5 +1,5 @@
 -- ===========================================================================
--- InglishEasy — Cobrança no cadastro (Mercado Pago) e liberação de acesso
+-- Easy English — Cobrança no cadastro (Mercado Pago) e liberação de acesso
 --
 -- O cadastro deixa de ser gratuito. A partir daqui existem DOIS conceitos
 -- separados, e essa separação é o ponto central desta migration:

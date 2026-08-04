@@ -13,7 +13,7 @@ import {
 
 type Theme = "light" | "dark" | "system";
 
-const STORAGE_KEY = "inglisheasy-theme";
+const STORAGE_KEY = "easyenglish-theme";
 
 /**
  * O tema claro e o padrao do sistema. Quem preferir o escuro escolhe no menu,

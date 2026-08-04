@@ -1,5 +1,5 @@
 -- ===========================================================================
--- InglishEasy — Reparo idempotente
+-- Easy English — Reparo idempotente
 --
 -- Cole ESTE ARQUIVO INTEIRO no SQL Editor do Supabase e clique em Run.
 -- Pode rodar quantas vezes quiser: nada é duplicado nem apagado.

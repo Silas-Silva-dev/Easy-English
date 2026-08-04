@@ -1,5 +1,5 @@
 -- ===========================================================================
--- InglishEasy — Duas brechas fechadas no banco
+-- Easy English — Duas brechas fechadas no banco
 --
 -- Ambas vieram de uma auditoria adversarial do schema e sobreviveram à
 -- tentativa de refutação. Nenhuma é explorável por aluno anônimo, mas as duas

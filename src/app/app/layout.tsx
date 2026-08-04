@@ -94,7 +94,7 @@ export default async function StudentLayout({ children }: { children: React.Reac
       profile={profile}
       nav={nav}
       brandHref="/app"
-      brandLabel="InglishEasy"
+      brandLabel="Easy English"
       streak={enrollment?.streak_current ?? 0}
       signOut={signOutAction}
     >

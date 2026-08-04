@@ -1,5 +1,5 @@
 -- ===========================================================================
--- InglishEasy — Schema base
+-- Easy English — Schema base
 -- Perfis, papeis, catalogo de cursos, trilha de aprendizado, tutor de IA e RAG.
 -- ===========================================================================
 

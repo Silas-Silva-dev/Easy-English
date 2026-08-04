@@ -204,7 +204,7 @@ async function main() {
     items: [
       {
         id: reference,
-        title: process.env.CHECKOUT_PRODUCT_TITLE?.trim() || "InglishEasy — Acesso completo",
+        title: process.env.CHECKOUT_PRODUCT_TITLE?.trim() || "Easy English — Acesso completo",
         description: "Verificação automática de integração. Nenhuma cobrança é gerada.",
         category_id: "learnings",
         quantity: 1,
@@ -212,7 +212,7 @@ async function main() {
         unit_price: priceCents / 100,
       },
     ],
-    payer: { email: "diagnostico@inglisheasy.local", name: "Diagnostico" },
+    payer: { email: "diagnostico@easyenglish.local", name: "Diagnostico" },
     external_reference: reference,
     metadata: { order_id: reference },
     ...(isPublicSite
@@ -228,7 +228,7 @@ async function main() {
       excluded_payment_types: [{ id: "ticket" }, { id: "atm" }],
     },
     statement_descriptor: (
-      process.env.CHECKOUT_STATEMENT_DESCRIPTOR?.trim() || "INGLISHEASY"
+      process.env.CHECKOUT_STATEMENT_DESCRIPTOR?.trim() || "EASYENGLISH"
     ).slice(0, 13),
     expires: true,
     expiration_date_to: mpDate(expiresAt),

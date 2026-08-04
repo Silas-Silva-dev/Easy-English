@@ -28,7 +28,7 @@ export default async function NewPasswordPage() {
           <span className="bg-primary text-primary-foreground grid size-8 place-items-center rounded-lg">
             <Waves className="size-4" />
           </span>
-          InglishEasy
+          Easy English
         </Link>
 
         <header className="space-y-2 text-center">

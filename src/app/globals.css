@@ -3,7 +3,7 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ==========================================================================
-   Tokens de design — InglishEasy
+   Tokens de design — Easy English
    Paleta: laranja de alta energia sobre base clara.
    O tema claro e o padrao; o escuro (.dark) fica como alternativa opcional.
    ========================================================================== */

@@ -1,5 +1,5 @@
 -- ===========================================================================
--- InglishEasy — Método "Blocos e Situações"
+-- Easy English — Método "Blocos e Situações"
 --
 -- Reorganiza o curso: em vez de módulos por tempo verbal, o curso passa a ser
 -- 4 CANTOS (fases) x 13 CIRCUITOS (situações reais), 1 circuito por semana.

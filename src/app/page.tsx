@@ -37,7 +37,7 @@ import { getInstallmentTable } from "@/lib/mercadopago/installments";
 import { CANTOS, CIRCUITS, type CantoSpec } from "@content/curriculum";
 
 export const metadata: Metadata = {
-  title: "InglishEasy: Plataforma Completa de Inglês em 4 Cantos com IA",
+  title: "Easy English: Plataforma Completa de Inglês em 4 Cantos com IA",
   description:
     "Aprenda a falar inglês fluente no seu ritmo com a Professora Emma (IA). 4 Cantos, 52 circuitos, 728 dias de lições práticas com análise de pronúncia em áudio e conversa ao vivo. Pagamento único, acesso vitalício.",
 };
@@ -197,7 +197,7 @@ export default async function LandingPage() {
             <span className="bg-primary text-primary-foreground grid size-8 place-items-center rounded-xl shadow-md shadow-primary/20">
               <Waves className="size-4.5" />
             </span>
-            <span className="text-[1.1rem] tracking-tight font-bold">InglishEasy</span>
+            <span className="text-[1.1rem] tracking-tight font-bold">Easy English</span>
           </Link>
 
           <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
@@ -680,9 +680,9 @@ export default async function LandingPage() {
             <span className="bg-primary text-primary-foreground grid size-6 place-items-center rounded-lg">
               <Waves className="size-3.5" />
             </span>
-            <span>InglishEasy</span>
+            <span>Easy English</span>
           </div>
-          <p className="text-xs">© {new Date().getFullYear()} InglishEasy. Todos os direitos reservados.</p>
+          <p className="text-xs">© {new Date().getFullYear()} Easy English. Todos os direitos reservados.</p>
         </div>
       </footer>
     </div>

@@ -61,47 +61,59 @@ export async function startCheckoutAction(
       .limit(1)
       .maybeSingle();
 
-    const reusable =
+    const stillValid =
       openOrder &&
-      openOrder.init_point &&
       openOrder.amount_cents === amountCents &&
       (!openOrder.expires_at || new Date(openOrder.expires_at) > new Date());
 
-    if (reusable && openOrder) {
-      destination = openOrder.init_point as string;
+    if (stillValid && openOrder?.init_point) {
+      destination = openOrder.init_point;
     } else {
-      const externalReference = randomUUID();
+      /**
+       * Reaproveita a LINHA quando o pedido existe mas ficou sem link.
+       *
+       * É o pedido cuja preferência não chegou a ser criada — a chamada ao
+       * Mercado Pago caiu no meio. Sem este ramo, cada nova tentativa inseria
+       * outra linha: um aluno impaciente (ou alguém batendo na Server Action
+       * de propósito, que é um endpoint público como qualquer outro) enche a
+       * tabela de pedidos órfãos e polui o painel financeiro.
+       */
+      let order = stillValid ? openOrder : null;
 
-      const { data: order, error: insertError } = await supabase
-        .from("orders")
-        .insert({
-          user_id: session.userId,
-          email: session.email,
-          full_name: session.profile.full_name,
-          amount_cents: amountCents,
-          currency: "BRL",
-          description: checkoutEnv.productTitle,
-          status: "pending",
-          provider: "mercadopago",
-          external_reference: externalReference,
-          expires_at: expiresAt.toISOString(),
-        })
-        .select()
-        .single();
+      if (!order) {
+        const { data: created, error: insertError } = await supabase
+          .from("orders")
+          .insert({
+            user_id: session.userId,
+            email: session.email,
+            full_name: session.profile.full_name,
+            amount_cents: amountCents,
+            currency: "BRL",
+            description: checkoutEnv.productTitle,
+            status: "pending",
+            provider: "mercadopago",
+            external_reference: randomUUID(),
+            expires_at: expiresAt.toISOString(),
+          })
+          .select()
+          .single();
 
-      if (insertError || !order) {
-        console.error("[checkout] falha ao criar pedido:", insertError?.message);
-        return { error: "Não foi possível abrir o pagamento. Tente novamente." };
+        if (insertError || !created) {
+          console.error("[checkout] falha ao criar pedido:", insertError?.message);
+          return { error: "Não foi possível abrir o pagamento. Tente novamente." };
+        }
+
+        order = created;
       }
 
       const preference = await createPreference({
         orderId: order.id,
-        externalReference,
+        externalReference: order.external_reference,
         amountCents,
         title: checkoutEnv.productTitle,
         description: "Acesso completo aos 4 Cantos, 52 circuitos e 728 dias de lições.",
         payer: { name: session.profile.full_name, email: session.email },
-        expiresAt,
+        expiresAt: order.expires_at ? new Date(order.expires_at) : expiresAt,
       });
 
       await supabase

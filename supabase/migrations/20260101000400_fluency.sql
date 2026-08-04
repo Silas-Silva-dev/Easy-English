@@ -1,5 +1,5 @@
 -- ===========================================================================
--- InglishEasy — Do "se vira" à conversa livre
+-- Easy English — Do "se vira" à conversa livre
 --
 -- Esta migration existe porque 91 horas (15 min x 365 dias) não levam ninguém
 -- a conversar sobre qualquer assunto com um nativo. As estimativas sérias

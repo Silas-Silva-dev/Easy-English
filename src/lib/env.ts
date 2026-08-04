@@ -84,11 +84,11 @@ export const checkoutEnv = {
     return Number.isFinite(raw) ? Math.min(24, Math.max(1, Math.round(raw))) : 10;
   },
   get productTitle() {
-    return optional("CHECKOUT_PRODUCT_TITLE", "InglishEasy — Acesso completo ao curso");
+    return optional("CHECKOUT_PRODUCT_TITLE", "Easy English — Acesso completo ao curso");
   },
   /** Como o nome aparece na fatura do cartão. O Mercado Pago corta em 13 caracteres. */
   get statementDescriptor() {
-    return optional("CHECKOUT_STATEMENT_DESCRIPTOR", "INGLISHEASY").slice(0, 13);
+    return optional("CHECKOUT_STATEMENT_DESCRIPTOR", "EASYENGLISH").slice(0, 13);
   },
   /** Prazo para concluir o pagamento antes de a preferência expirar. */
   get expirationHours() {

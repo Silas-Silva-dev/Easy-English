@@ -22,7 +22,7 @@ if (!files.length) {
 }
 
 const header = `-- ===========================================================================
--- InglishEasy: schema completo (arquivo GERADO)
+-- Easy English: schema completo (arquivo GERADO)
 --
 -- Não edite este arquivo: ele é a concatenação de supabase/migrations/ na
 -- ordem correta. Edite as migrations e rode \`npm run db:bundle\`.

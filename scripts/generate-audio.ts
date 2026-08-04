@@ -344,7 +344,7 @@ async function runPiper(
     lines: spokenLines(job, "piper"),
   }));
 
-  const jobsPath = join(tmpdir(), `inglisheasy-piper-${process.pid}.json`);
+  const jobsPath = join(tmpdir(), `easyenglish-piper-${process.pid}.json`);
   writeFileSync(jobsPath, JSON.stringify(payload), "utf8");
 
   const labels = new Map(pending.map((j) => [j.id, j.label]));

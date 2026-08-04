@@ -21,7 +21,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           <span className="grid size-9 place-items-center rounded-lg bg-white/15">
             <Waves className="size-5" />
           </span>
-          InglishEasy
+          Easy English
         </Link>
 
         <div className="relative max-w-md">
@@ -41,7 +41,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         </div>
 
         <p className="relative text-xs text-white/55">
-          © {new Date().getFullYear()} InglishEasy
+          © {new Date().getFullYear()} Easy English
         </p>
       </aside>
 
@@ -55,7 +55,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
             <span className="bg-primary text-primary-foreground grid size-7 place-items-center rounded-md">
               <Waves className="size-3.5" />
             </span>
-            InglishEasy
+            Easy English
           </Link>
           <ThemeToggle />
         </div>

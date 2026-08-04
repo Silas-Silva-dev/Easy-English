@@ -1,5 +1,5 @@
 -- ===========================================================================
--- InglishEasy — Buckets de Storage e respectivas policies
+-- Easy English — Buckets de Storage e respectivas policies
 -- Convencao de caminho: <bucket>/<user_id>/<arquivo>
 -- ===========================================================================
 

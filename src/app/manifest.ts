@@ -13,8 +13,8 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: "/app",
-    name: "InglishEasy: Inglês para conversação",
-    short_name: "InglishEasy",
+    name: "Easy English: Inglês para conversação",
+    short_name: "Easy English",
     description:
       "728 dias de inglês para conversação, no seu ritmo, com uma tutora de IA que ouve sua fala e corrige a pronúncia.",
     start_url: "/app",
@@ -33,14 +33,14 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: "1200x630",
         type: "image/png",
         form_factor: "wide",
-        label: "InglishEasy - Plataforma de Inglês para Conversação",
+        label: "Easy English - Plataforma de Inglês para Conversação",
       },
       {
         src: "/icon-512.png",
         sizes: "512x512",
         type: "image/png",
         form_factor: "narrow",
-        label: "InglishEasy App Mobile",
+        label: "Easy English App Mobile",
       },
     ],
     icons: [

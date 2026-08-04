@@ -29,7 +29,7 @@ import { CheckoutForm } from "./checkout-form";
 
 export const metadata: Metadata = {
   title: "Finalizar matrícula",
-  description: "Conclua o pagamento e libere o acesso completo ao InglishEasy.",
+  description: "Conclua o pagamento e libere o acesso completo ao Easy English.",
   robots: { index: false, follow: false },
 };
 
@@ -113,7 +113,7 @@ export default async function CheckoutPage() {
             <span className="bg-primary text-primary-foreground grid size-8 place-items-center rounded-xl">
               <Waves className="size-4.5" />
             </span>
-            <span className="tracking-tight">InglishEasy</span>
+            <span className="tracking-tight">Easy English</span>
           </Link>
 
           <div className="flex items-center gap-2">
@@ -169,7 +169,7 @@ export default async function CheckoutPage() {
               <Badge variant="neutral" className="text-[11px] font-semibold tracking-widest uppercase">
                 Falta pouco, {session.profile.full_name?.split(" ")[0] ?? "aluno"}
               </Badge>
-              <h1 className="text-2xl font-bold sm:text-3xl">Libere seu acesso ao InglishEasy</h1>
+              <h1 className="text-2xl font-bold sm:text-3xl">Libere seu acesso ao Easy English</h1>
               <p className="text-muted-foreground text-sm leading-relaxed sm:text-base">
                 Sua conta <strong className="text-foreground">{session.email}</strong> já está
                 confirmada. Falta apenas o pagamento para o cronograma de 728 dias abrir.
@@ -279,8 +279,8 @@ export default async function CheckoutPage() {
 
             <p className="text-muted-foreground mt-4 px-2 text-center text-xs leading-relaxed">
               Precisa de ajuda para concluir? Escreva para{" "}
-              <a href="mailto:suporte@inglisheasy.com" className="text-primary hover:underline">
-                suporte@inglisheasy.com
+              <a href="mailto:suporte@easyenglish.com" className="text-primary hover:underline">
+                suporte@easyenglish.com
               </a>
               .
             </p>

@@ -59,7 +59,7 @@ function gotrueMessage(body: unknown): string {
 }
 
 async function main() {
-  console.log("\n\x1b[1mDiagnóstico de e-mail do InglishEasy\x1b[0m\n");
+  console.log("\n\x1b[1mDiagnóstico de e-mail do Easy English\x1b[0m\n");
 
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL?.trim().replace(/\/$/, "");
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY?.trim();

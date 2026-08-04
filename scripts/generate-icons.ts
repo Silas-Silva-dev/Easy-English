@@ -264,7 +264,7 @@ function iconSvg(): string {
   const wave = (cy: number) =>
     `M 19 ${cy} C 27 ${cy - 7}, 37 ${cy + 7}, 45 ${cy} S 63 ${cy - 7}, 77 ${cy}`;
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="InglishEasy">
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="Easy English">
   <rect width="96" height="96" rx="22" fill="#FF4A17"/>
   <g fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round">
     <path d="${wave(32)}"/>

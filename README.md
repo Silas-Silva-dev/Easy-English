@@ -1,4 +1,4 @@
-# InglishEasy
+# Easy English
 
 Plataforma de cursos online com painel administrativo e **tutora de IA que ouve o aluno falar inglês e corrige a pronúncia**.
 

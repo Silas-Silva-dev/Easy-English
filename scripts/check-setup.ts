@@ -92,7 +92,7 @@ const TABLES = [
 ];
 
 async function main() {
-  console.log("\n\x1b[1mDiagnóstico do InglishEasy\x1b[0m\n");
+  console.log("\n\x1b[1mDiagnóstico do Easy English\x1b[0m\n");
 
   // ----------------------------------------------------- 1. Variáveis
   console.log("\x1b[1m1. Variáveis de ambiente\x1b[0m");

@@ -69,6 +69,15 @@ export interface NormalizedPayment {
   installmentAmountCents: number | null;
   totalPaidCents: number | null;
   netReceivedCents: number | null;
+  /**
+   * Preço do produto, SEM os juros do parcelamento.
+   *
+   * Separado de `totalPaidCents` porque só ele é comparável com
+   * `orders.amount_cents`: num parcelamento em 10x o aluno paga R$ 358,30, mas
+   * `transaction_amount` continua R$ 297,00. Confundir os dois faria a
+   * conferência de valor recusar toda compra parcelada.
+   */
+  transactionAmountCents: number | null;
   paidAt: string | null;
 }
 
@@ -89,6 +98,7 @@ export function normalizePayment(payment: MpPayment): NormalizedPayment {
     totalPaidCents:
       amountToCents(details.total_paid_amount) ?? amountToCents(payment.transaction_amount),
     netReceivedCents: amountToCents(details.net_received_amount),
+    transactionAmountCents: amountToCents(payment.transaction_amount),
     paidAt: payment.date_approved ?? null,
   };
 }

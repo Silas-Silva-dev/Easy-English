@@ -1,5 +1,5 @@
 {
-  "name": "inglisheasy",
+  "name": "easy-english",
   "version": "1.0.0",
   "private": true,
   "description": "Plataforma de cursos online com painel administrativo e tutor de conversacao em ingles com IA (Gemini).",
@@ -15,6 +15,7 @@
     "check": "tsx scripts/check-setup.ts",
     "check:email": "tsx scripts/check-email.ts",
     "check:pagamento": "tsx scripts/check-payments.ts",
+    "check:seguranca": "tsx scripts/check-security.ts",
     "models": "tsx scripts/list-models.ts",
     "gen:icons": "tsx scripts/generate-icons.ts",
     "gen:audio": "tsx scripts/generate-audio.ts",

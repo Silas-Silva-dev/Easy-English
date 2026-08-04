@@ -92,7 +92,7 @@ export default async function CheckoutReturnPage({
           <span className="bg-primary text-primary-foreground grid size-8 place-items-center rounded-lg">
             <Waves className="size-4" />
           </span>
-          InglishEasy
+          Easy English
         </Link>
 
         <div className="bg-card rounded-2xl border p-8 text-center shadow-lg">
@@ -247,7 +247,7 @@ function UnknownState() {
           <Link href="/checkout">Voltar ao checkout</Link>
         </Button>
         <Button asChild variant="ghost" size="sm" className="w-full">
-          <a href="mailto:suporte@inglisheasy.com">Falar com o suporte</a>
+          <a href="mailto:suporte@easyenglish.com">Falar com o suporte</a>
         </Button>
       </div>
     </>
