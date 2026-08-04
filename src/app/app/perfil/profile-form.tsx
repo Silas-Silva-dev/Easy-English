@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input, Select } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ProfileAvatarUpload } from "@/components/profile/profile-avatar-upload";
+import { TIMEZONES } from "@/lib/timezones";
 import type { Profile, StudyTrack } from "@/lib/types/database";
 import { cn } from "@/lib/utils";
 import { TRACKS } from "@content/curriculum";
@@ -20,17 +21,6 @@ const LEVELS = [
   { value: "B1", label: "B1: Intermediário" },
   { value: "B2", label: "B2: Intermediário avançado" },
   { value: "C1", label: "C1: Avançado" },
-];
-
-const TIMEZONES = [
-  "America/Sao_Paulo",
-  "America/Manaus",
-  "America/Belem",
-  "America/Fortaleza",
-  "America/Cuiaba",
-  "America/Rio_Branco",
-  "America/Noronha",
-  "UTC",
 ];
 
 function SaveButton() {
@@ -155,8 +145,8 @@ export function ProfileForm({
         <Label htmlFor="timezone">Fuso horário</Label>
         <Select id="timezone" name="timezone" defaultValue={profile.timezone}>
           {TIMEZONES.map((tz) => (
-            <option key={tz} value={tz}>
-              {tz}
+            <option key={tz.value} value={tz.value}>
+              {tz.label}
             </option>
           ))}
         </Select>

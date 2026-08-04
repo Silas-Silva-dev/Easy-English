@@ -186,3 +186,16 @@ export const STATUS_LABEL: Record<Profile["status"], string> = {
   suspended: "Suspensa",
   banned: "Banida",
 };
+
+/**
+ * A cor anda junto do rótulo.
+ *
+ * A tela de Perfil trazia `variant="success"` fixo, então "Suspensa" e "Banida"
+ * apareciam em verde — o inverso do que a palavra dizia.
+ */
+export const STATUS_BADGE: Record<Profile["status"], "success" | "warning" | "destructive"> = {
+  pending_verification: "warning",
+  active: "success",
+  suspended: "destructive",
+  banned: "destructive",
+};

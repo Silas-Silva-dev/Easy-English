@@ -1,16 +1,19 @@
 "use client";
 
-import { Camera, Trash2, User } from "lucide-react";
+import { Camera, Trash2 } from "lucide-react";
 import * as React from "react";
 import { toast } from "sonner";
 
-import { updateAvatarAction } from "@/app/app/actions";
+import { removeAvatarAction, uploadAvatarAction } from "@/app/app/actions";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import type { Profile } from "@/lib/types/database";
 import { initials } from "@/lib/utils";
 
 import { AvatarCropModal } from "./avatar-crop-modal";
+
+/** Teto do arquivo ORIGINAL escolhido; o que sobe é o recorte, bem menor. */
+const MAX_SOURCE_BYTES = 20 * 1024 * 1024;
 
 export function ProfileAvatarUpload({ profile }: { profile: Profile }) {
   const [avatarUrl, setAvatarUrl] = React.useState<string | null>(profile.avatar_url);
@@ -28,6 +31,14 @@ export function ProfileAvatarUpload({ profile }: { profile: Profile }) {
       return;
     }
 
+    // O que sobe é sempre o recorte de 400x400, então o original pode ser
+    // grande. Mas `readAsDataURL` carrega o arquivo inteiro na memória da aba,
+    // inflado em 33%: sem teto, uma foto de 80 MB trava o navegador do aluno.
+    if (file.size > MAX_SOURCE_BYTES) {
+      toast.error("Imagem muito pesada. Escolha uma de até 20 MB.");
+      return;
+    }
+
     const reader = new FileReader();
     reader.onload = (event) => {
       const result = event.target?.result as string;
@@ -42,30 +53,34 @@ export function ProfileAvatarUpload({ profile }: { profile: Profile }) {
     e.target.value = "";
   }
 
-  // Salva a foto cortada e otimizada
-  async function handleCropSave(compressedDataUrl: string) {
+  // Sobe o recorte para o bucket `avatars` e guarda só a URL no perfil.
+  async function handleCropSave(blob: Blob) {
     try {
-      const res = await updateAvatarAction(compressedDataUrl);
-      if (!res.ok) throw new Error(res.error ?? "Falha ao salvar foto");
+      const formData = new FormData();
+      // A extensão do nome não importa (o servidor deriva do MIME), mas o
+      // FormData exige um nome de arquivo para tratar o campo como File.
+      formData.append("file", blob, "avatar");
 
-      setAvatarUrl(compressedDataUrl);
-      toast.success("Foto de perfil atualizada com sucesso!");
+      const res = await uploadAvatarAction(formData);
+      if (!res.ok || !res.url) throw new Error(res.error ?? "Falha ao salvar foto");
+
+      setAvatarUrl(res.url);
+      toast.success("Foto de perfil atualizada.");
     } catch (err) {
-      const message = err instanceof Error ? err.message : "Erro ao atualizar foto";
-      toast.error(message);
+      toast.error(err instanceof Error ? err.message : "Erro ao atualizar foto");
     }
   }
 
   // Remove a foto de perfil
   async function handleRemoveAvatar() {
     try {
-      const res = await updateAvatarAction("");
+      const res = await removeAvatarAction();
       if (!res.ok) throw new Error(res.error ?? "Falha ao remover foto");
 
       setAvatarUrl(null);
       toast.success("Foto de perfil removida.");
     } catch (err) {
-      toast.error("Erro ao remover foto de perfil.");
+      toast.error(err instanceof Error ? err.message : "Erro ao remover foto de perfil");
     }
   }
 

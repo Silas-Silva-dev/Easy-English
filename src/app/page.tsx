@@ -1,25 +1,17 @@
 import {
   ArrowRight,
   BadgeCheck,
-  BookOpen,
-  BrainCircuit,
   CheckCircle2,
   Clock,
-  Flame,
-  Globe,
   Headphones,
   Layers,
   Lock,
-  MessageSquare,
-  Mic,
   PlayCircle,
   Radio,
-  Repeat,
   ShieldCheck,
   Sparkles,
   Star,
   Target,
-  Trophy,
   Volume2,
   Waves,
   Zap,
@@ -34,12 +26,15 @@ import { Card, CardContent } from "@/components/ui/card";
 import { formatBRL } from "@/lib/billing";
 import { checkoutEnv } from "@/lib/env";
 import { getInstallmentTable } from "@/lib/mercadopago/installments";
-import { CANTOS, CIRCUITS, type CantoSpec } from "@content/curriculum";
+import { cn } from "@/lib/utils";
+// CANTOS/CIRCUITS saíram: eram importados e nunca usados — a seção dos cantos
+// é montada a partir da constante CANTOS_DESCRIPTIONS, logo abaixo.
+import { DAY_BLOCKS, TRACKS, type TrackSpec } from "@content/curriculum";
 
 export const metadata: Metadata = {
   title: "Easy English: Plataforma Completa de Inglês em 4 Cantos com IA",
   description:
-    "Aprenda a falar inglês fluente no seu ritmo com a Professora Emma (IA). 4 Cantos, 52 circuitos, 728 dias de lições práticas com análise de pronúncia em áudio e conversa ao vivo. Pagamento único, acesso vitalício.",
+    "Aprenda a falar inglês com a Professora Emma (IA). 4 Cantos, 52 circuitos, 728 dias de lições práticas com análise de pronúncia em áudio e conversa ao vivo. Três ritmos, de 20 min a 1h40 por dia, com a meta de cada um dita na cara. Pagamento único, acesso vitalício.",
 };
 
 /**
@@ -52,6 +47,21 @@ export const metadata: Metadata = {
  * checkout não cumpre.
  */
 export const revalidate = 3600;
+
+/** 20 → "20 min" · 60 → "1h" · 100 → "1h40" */
+function formatDaily(minutes: number): string {
+  if (minutes < 60) return `${minutes} min`;
+  const h = Math.floor(minutes / 60);
+  const m = minutes % 60;
+  return m === 0 ? `${h}h` : `${h}h${String(m).padStart(2, "0")}`;
+}
+
+/**
+ * A trilha padrão da plataforma — é a que `profiles.preferred_track` assume e
+ * a que `courses.daily_minutes` (60) reflete. Ganha destaque visual para o
+ * visitante não ter que adivinhar qual escolher.
+ */
+const DEFAULT_TRACK: TrackSpec["id"] = "complete";
 
 const CANTOS_DESCRIPTIONS = [
   {
@@ -165,7 +175,7 @@ const FAQS = [
   },
   {
     q: "Quanto tempo preciso dedicar por dia?",
-    a: "Apenas 15 a 20 minutos diários! As lições são objetivas para garantir constância. Cada dia tem um papel fixo, permitindo que você estude sem perda de tempo.",
+    a: "Depende do resultado que você quer, e a gente prefere ser honesto sobre isso. O núcleo da lição são 15 minutos e é igual em todas as trilhas — é ele que sustenta o hábito. A partir daí você escolhe: Essencial (20 min/dia) para se virar sozinho no dia a dia, Completo (60 min/dia) para conversar sobre qualquer assunto com um nativo, ou Intensivo (1h40/dia) para discutir e trabalhar em inglês. Você pode trocar de trilha quando quiser, direto no seu perfil.",
   },
   {
     q: "Como a tutora de IA Emma corrige a minha pronúncia?",
@@ -200,22 +210,25 @@ export default async function LandingPage() {
             <span className="text-[1.1rem] tracking-tight font-bold">Easy English</span>
           </Link>
 
-          <nav className="hidden items-center gap-8 text-sm font-medium md:flex">
-            <a href="#cantos" className="text-muted-foreground hover:text-foreground transition-colors">
-              Os 4 Cantos
-            </a>
-            <a href="#metodologia" className="text-muted-foreground hover:text-foreground transition-colors">
-              Metodologia
-            </a>
-            <a href="#tutora" className="text-muted-foreground hover:text-foreground transition-colors">
-              Tutora em Áudio
-            </a>
-            <a href="#investimento" className="text-muted-foreground hover:text-foreground transition-colors">
-              Investimento
-            </a>
-            <a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors">
-              Perguntas
-            </a>
+          {/* Rótulos curtos: com "Ritmos" são 6 itens, e os nomes longos
+              estouravam a barra já em 768px, junto com logo e botões. */}
+          <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
+            {[
+              { href: "#cantos", label: "4 Cantos" },
+              { href: "#metodologia", label: "Método" },
+              { href: "#ritmos", label: "Ritmos" },
+              { href: "#tutora", label: "Tutora" },
+              { href: "#investimento", label: "Preço" },
+              { href: "#faq", label: "Dúvidas" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
           </nav>
 
           <div className="flex items-center gap-2.5">
@@ -249,7 +262,7 @@ export default async function LandingPage() {
             </h1>
 
             <p className="text-muted-foreground animate-in-up mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-relaxed font-normal">
-              Domine o inglês em <strong>4 Cantos</strong> com 15 minutos por dia. Grave sua fala nos desafios, salve seus áudios na plataforma e receba correções da <strong>Professora Emma (IA)</strong> em texto e áudio.
+              Domine o inglês em <strong>4 Cantos</strong>, no ritmo que <strong>você</strong> escolhe — de 20 minutos a 1h40 por dia. Grave sua fala nos desafios, salve seus áudios na plataforma e receba correções da <strong>Professora Emma (IA)</strong> em texto e áudio.
             </p>
 
             <div className="animate-in-up mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -294,7 +307,7 @@ export default async function LandingPage() {
                 { k: "4 Cantos", v: "Do A1 ao B2" },
                 { k: "52 Circuitos", v: "Situações Reais" },
                 { k: "728 Dias", v: "Roteiro Completo" },
-                { k: "15 min/dia", v: "No seu ritmo" },
+                { k: "3 Ritmos", v: "20, 60 ou 100 min" },
               ].map((s) => (
                 <div key={s.k} className="text-center">
                   <div className="text-foreground text-2xl font-bold tabular-nums">{s.k}</div>
@@ -395,6 +408,130 @@ export default async function LandingPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ----------------------------------------------------- Ritmos */}
+      {/*
+        Esta seção existe para consertar uma promessa que a página fazia e o
+        curso não cumpria: "15 minutos por dia" até o B2. Os 15 minutos são o
+        NÚCLEO da lição, comum às três trilhas — não a trilha inteira. Chegar
+        ao B2 é a trilha Completo: 60 min/dia, 728 horas.
+
+        Os números abaixo saem de TRACKS (content/curriculum.ts), que espelha a
+        tabela `track_targets`. A migration 400 diz de onde a UI deve tirar o
+        que promete: "nunca de um número inventado na landing page".
+      */}
+      <section id="ritmos" className="border-t py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <Badge variant="neutral" className="text-xs font-semibold uppercase tracking-widest mb-3">
+              Quanto tempo por dia
+            </Badge>
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Você escolhe o ritmo. A gente diz aonde ele chega.
+            </h2>
+            <p className="text-muted-foreground mt-3 text-base leading-relaxed">
+              O conteúdo é o mesmo nas três trilhas — muda quanto você faz por dia. E cada uma vem
+              com o que ela <strong>não</strong> entrega, escrito na mesma letra da promessa. Você
+              troca de trilha quando quiser, no seu perfil.
+            </p>
+          </div>
+
+          {/* O núcleo comum: é daqui que vinha o "15 minutos" */}
+          <div className="mx-auto mt-10 flex max-w-2xl items-start gap-3 rounded-xl border bg-card p-5">
+            <span className="bg-primary/10 text-primary grid size-10 shrink-0 place-items-center rounded-xl">
+              <Clock className="size-5" />
+            </span>
+            <div className="text-sm">
+              <p className="font-semibold">
+                O núcleo são {DAY_BLOCKS.core.minutes} minutos, em qualquer trilha
+              </p>
+              <p className="text-muted-foreground mt-1 leading-relaxed">
+                {DAY_BLOCKS.core.brief} As trilhas mais longas acrescentam blocos a ele — nunca o
+                substituem. Num dia corrido, fazer só o núcleo mantém a constância.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
+            {TRACKS.map((track) => {
+              const featured = track.id === DEFAULT_TRACK;
+
+              return (
+                <div
+                  key={track.id}
+                  className={cn(
+                    "bg-card relative flex flex-col rounded-2xl border p-6",
+                    featured && "border-primary/40 ring-primary/20 shadow-lg ring-2",
+                  )}
+                >
+                  {featured ? (
+                    <Badge className="absolute -top-3 left-6 gap-1 shadow-sm">
+                      <Star className="size-3" /> Mais escolhido
+                    </Badge>
+                  ) : null}
+
+                  <div className="flex items-baseline justify-between gap-2">
+                    <h3 className="text-lg font-bold">{track.label}</h3>
+                    <Badge variant="neutral" className="text-xs">
+                      Chega ao {track.cefr}
+                    </Badge>
+                  </div>
+
+                  <div className="mt-4 flex items-baseline gap-1.5">
+                    <span className="text-3xl font-extrabold tabular-nums">
+                      {formatDaily(track.dailyMinutes)}
+                    </span>
+                    <span className="text-muted-foreground text-sm">por dia</span>
+                  </div>
+                  <p className="text-muted-foreground mt-1 text-xs">
+                    {track.totalHours} horas ao longo dos 728 dias
+                  </p>
+
+                  <div className="mt-5 flex items-start gap-2">
+                    <Target className="text-success mt-0.5 size-4 shrink-0" />
+                    <p className="text-sm leading-relaxed font-medium">{track.promise}</p>
+                  </div>
+
+                  {/*
+                    O limite honesto não é letra miúda: fica do mesmo tamanho da
+                    promessa. É o que faz o aluno escolher sabendo o que recebe,
+                    em vez de desistir no mês 8 achando que foi enganado.
+                  */}
+                  <div className="border-muted-foreground/25 mt-4 border-l-2 pl-3">
+                    <p className="text-muted-foreground text-[11px] font-semibold uppercase tracking-wide">
+                      O que essa trilha não entrega
+                    </p>
+                    <p className="text-muted-foreground mt-1 text-sm leading-relaxed">
+                      {track.honestLimit}
+                    </p>
+                  </div>
+
+                  <div className="mt-auto border-t pt-4">
+                    <p className="text-muted-foreground text-[11px] font-semibold uppercase tracking-wide">
+                      Blocos do dia
+                    </p>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {track.blocks.map((block) => (
+                        <span
+                          key={block}
+                          className="bg-muted text-muted-foreground rounded-full px-2.5 py-1 text-[11px] font-medium"
+                        >
+                          {DAY_BLOCKS[block].label} · {DAY_BLOCKS[block].minutes} min
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <p className="text-muted-foreground mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed">
+            Não existe trilha errada — existe a que você sustenta. Começar no Essencial e subir
+            depois funciona melhor do que escolher o Intensivo e abandonar no segundo mês.
+          </p>
         </div>
       </section>
 
@@ -656,7 +793,7 @@ export default async function LandingPage() {
             Comece a falar inglês hoje mesmo
           </h2>
           <p className="text-muted-foreground text-base sm:text-lg max-w-xl mx-auto">
-            Abra o app, faça os 15 minutos do dia, grave seu áudio e receba a avaliação em áudio da Professora Emma.
+            Abra o app, faça o bloco do dia no seu ritmo, grave seu áudio e receba a avaliação em áudio da Professora Emma.
           </p>
           <Button asChild size="xl" variant="gradient" className="shadow-xl shadow-primary/25">
             <Link href="/cadastro">

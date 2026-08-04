@@ -5,6 +5,7 @@ import { z } from "zod";
 
 import { getSessionContext } from "@/lib/auth/guards";
 import { createServerSupabase } from "@/lib/supabase/server";
+import { TIMEZONE_VALUES } from "@/lib/timezones";
 
 const completeSchema = z.object({
   lessonId: z.string().uuid(),
@@ -136,12 +137,30 @@ export async function completeLessonAction(input: {
   };
 }
 
+/**
+ * As mensagens são escritas à mão porque o texto do zod vai direto para a tela
+ * do aluno — sem elas ele lê "Too small: expected string to have >=2 characters"
+ * numa interface em português.
+ *
+ * `timezone` era `string().min(1).max(64)` e virou enum pelo mesmo motivo que a
+ * migration 900 criou `safe_timezone()`: um fuso que o Postgres não reconhece
+ * derruba `register_study_activity`, e como quem chama só loga o erro, o aluno
+ * perderia minutos e ofensiva em silêncio, para sempre.
+ */
 const profileSchema = z.object({
-  fullName: z.string().trim().min(2).max(120),
-  dailyGoalMinutes: z.coerce.number().int().min(5).max(180),
-  targetLevel: z.enum(["A1", "A2", "B1", "B2", "C1"]),
-  timezone: z.string().trim().min(1).max(64),
-  track: z.enum(["essential", "complete", "intensive"]),
+  fullName: z
+    .string()
+    .trim()
+    .min(2, "Informe seu nome completo.")
+    .max(120, "Nome muito longo (máximo 120 caracteres)."),
+  dailyGoalMinutes: z.coerce
+    .number("Informe a meta em minutos.")
+    .int("A meta deve ser um número inteiro de minutos.")
+    .min(5, "A meta mínima é de 5 minutos por dia.")
+    .max(180, "A meta máxima é de 180 minutos por dia."),
+  targetLevel: z.enum(["A1", "A2", "B1", "B2", "C1"], "Escolha um nível alvo válido."),
+  timezone: z.enum(TIMEZONE_VALUES, "Escolha um fuso horário da lista."),
+  track: z.enum(["essential", "complete", "intensive"], "Escolha uma trilha válida."),
 });
 
 export async function updateProfileAction(
@@ -150,6 +169,9 @@ export async function updateProfileAction(
 ): Promise<{ error?: string; success?: string }> {
   const session = await getSessionContext();
   if (!session) return { error: "Não autenticado" };
+  // A página está atrás de `requirePaidUser`, mas Server Action não passa por
+  // layout nenhum: quem checa aqui é esta linha.
+  if (session.profile.status !== "active") return { error: "Conta não verificada" };
 
   const parsed = profileSchema.safeParse({
     fullName: formData.get("fullName"),
@@ -190,19 +212,121 @@ export async function updateProfileAction(
   return { success: "Perfil atualizado." };
 }
 
-export async function updateAvatarAction(
-  avatarUrl: string,
-): Promise<{ ok: boolean; error?: string }> {
+/**
+ * ---------------------------------------------------------------------------
+ * Foto de perfil
+ *
+ * A versão anterior recebia o data URL base64 e gravava a imagem INTEIRA na
+ * coluna `profiles.avatar_url`. Como `getSessionContext()` faz `select *` em
+ * profiles a cada requisição autenticada, essa foto era relida em toda
+ * navegação, e o `app-shell` ainda a reimprimia inline no HTML de cada página,
+ * onde nenhum CDN consegue cachear.
+ *
+ * Agora o arquivo vai para o bucket `avatars` — que existia desde a migration
+ * 200 e nunca tinha sido usado — e a coluna guarda só a URL pública, servida
+ * pelo CDN do Supabase com cache de um ano (o nome tem UUID, então trocar a
+ * foto gera outra URL e o cache nunca fica velho).
+ * ---------------------------------------------------------------------------
+ */
+const MAX_AVATAR_BYTES = 512 * 1024;
+
+/** O bucket aceita estes três (migration 200); a extensão sai daqui. */
+const AVATAR_EXTENSION: Record<string, string> = {
+  "image/webp": "webp",
+  "image/jpeg": "jpg",
+  "image/png": "png",
+};
+
+type ServerSupabase = Awaited<ReturnType<typeof createServerSupabase>>;
+
+/** Mantém uma foto por aluno: sem isto cada troca deixaria um órfão pago. */
+async function removeStaleAvatars(
+  supabase: ServerSupabase,
+  userId: string,
+  keepPath: string | null,
+): Promise<void> {
+  const { data } = await supabase.storage.from("avatars").list(userId);
+  const stale = (data ?? [])
+    .map((file) => `${userId}/${file.name}`)
+    .filter((path) => path !== keepPath);
+
+  if (stale.length > 0) await supabase.storage.from("avatars").remove(stale);
+}
+
+export async function uploadAvatarAction(
+  formData: FormData,
+): Promise<{ ok: boolean; url?: string; error?: string }> {
+  const session = await getSessionContext();
+  if (!session) return { ok: false, error: "Não autenticado" };
+  if (session.profile.status !== "active") return { ok: false, error: "Conta não verificada" };
+
+  // Server Action é endpoint público: o recorte no navegador entrega ~40 KB,
+  // mas nada impede uma chamada direta com o arquivo que o atacante quiser.
+  const file = formData.get("file");
+  if (!(file instanceof File) || file.size === 0) {
+    return { ok: false, error: "Nenhuma imagem recebida." };
+  }
+  if (file.size > MAX_AVATAR_BYTES) {
+    return { ok: false, error: "Imagem muito grande. O limite é 512 KB." };
+  }
+
+  const extension = AVATAR_EXTENSION[file.type];
+  if (!extension) {
+    return { ok: false, error: "Formato não suportado. Use JPEG, PNG ou WebP." };
+  }
+
+  const supabase = await createServerSupabase();
+  const path = `${session.userId}/${crypto.randomUUID()}.${extension}`;
+
+  const { error: uploadError } = await supabase.storage.from("avatars").upload(path, file, {
+    contentType: file.type,
+    cacheControl: "31536000",
+    upsert: false,
+  });
+
+  if (uploadError) {
+    console.error("[perfil] falha ao subir avatar:", uploadError.message);
+    return { ok: false, error: "Não foi possível enviar a imagem." };
+  }
+
+  const {
+    data: { publicUrl },
+  } = supabase.storage.from("avatars").getPublicUrl(path);
+
+  const { error } = await supabase
+    .from("profiles")
+    .update({ avatar_url: publicUrl })
+    .eq("id", session.userId);
+
+  if (error) {
+    // Sem isto o arquivo ficaria no bucket sem ninguém apontando para ele.
+    await supabase.storage.from("avatars").remove([path]);
+    console.error("[perfil] falha ao gravar avatar_url:", error.message);
+    return { ok: false, error: "Não foi possível salvar a foto." };
+  }
+
+  await removeStaleAvatars(supabase, session.userId, path);
+
+  revalidatePath("/app", "layout");
+  revalidatePath("/app/perfil");
+  return { ok: true, url: publicUrl };
+}
+
+export async function removeAvatarAction(): Promise<{ ok: boolean; error?: string }> {
   const session = await getSessionContext();
   if (!session) return { ok: false, error: "Não autenticado" };
 
   const supabase = await createServerSupabase();
+  // `null`, não string vazia: a coluna é nullable e a constraint da migration
+  // 900 rejeita qualquer coisa que não seja nula ou uma URL https.
   const { error } = await supabase
     .from("profiles")
-    .update({ avatar_url: avatarUrl })
+    .update({ avatar_url: null })
     .eq("id", session.userId);
 
-  if (error) return { ok: false, error: error.message };
+  if (error) return { ok: false, error: "Não foi possível remover a foto." };
+
+  await removeStaleAvatars(supabase, session.userId, null);
 
   revalidatePath("/app", "layout");
   revalidatePath("/app/perfil");

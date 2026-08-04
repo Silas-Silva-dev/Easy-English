@@ -1,6 +1,6 @@
 "use client";
 
-import { Check, Loader2, Move, RotateCw, Sparkles, X, ZoomIn, ZoomOut } from "lucide-react";
+import { Check, Move, RotateCw, Sparkles, X, ZoomIn, ZoomOut } from "lucide-react";
 import * as React from "react";
 
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,30 @@ interface AvatarCropModalProps {
   imageSrc: string;
   isOpen: boolean;
   onClose: () => void;
-  onCropSave: (compressedDataUrl: string) => Promise<void>;
+  /**
+   * Entrega um Blob, não mais um data URL: o arquivo vai para o bucket
+   * `avatars` e base64 só inflaria 33% o que vai subir.
+   */
+  onCropSave: (blob: Blob) => Promise<void>;
+}
+
+/**
+ * WebP economiza uns 30% sobre JPEG na mesma qualidade percebida. Navegador que
+ * não suporta o formato não avisa: `toBlob` devolve PNG silenciosamente — daí a
+ * conferência do `type` antes de aceitar.
+ */
+async function encode(canvas: HTMLCanvasElement, type: string, quality: number) {
+  return new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, type, quality));
+}
+
+async function canvasToBlob(canvas: HTMLCanvasElement): Promise<Blob> {
+  const webp = await encode(canvas, "image/webp", 0.85);
+  if (webp && webp.type === "image/webp") return webp;
+
+  const jpeg = await encode(canvas, "image/jpeg", 0.82);
+  if (jpeg) return jpeg;
+
+  throw new Error("Não foi possível gerar a imagem");
 }
 
 export function AvatarCropModal({
@@ -177,9 +200,7 @@ export function AvatarCropModal({
       ctx.drawImage(img, -drawW / 2, -drawH / 2, drawW, drawH);
       ctx.restore();
 
-      // Compressão automática em JPEG 82% qualidade (~30KB)
-      const compressedDataUrl = outputCanvas.toDataURL("image/jpeg", 0.82);
-      await onCropSave(compressedDataUrl);
+      await onCropSave(await canvasToBlob(outputCanvas));
       onClose();
     } catch (err) {
       console.error("Erro ao cortar foto:", err);

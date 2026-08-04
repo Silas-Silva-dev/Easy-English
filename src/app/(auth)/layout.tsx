@@ -1,12 +1,20 @@
-import { Mic, ShieldCheck, Sparkles, Waves } from "lucide-react";
+import { Infinity as InfinityIcon, Mic, Sparkles, Waves } from "lucide-react";
 import Link from "next/link";
 
 import { ThemeToggle } from "@/components/theme-provider";
 
+/**
+ * Cada linha aqui é conferível no banco — `courses` e `track_targets`.
+ *
+ * A migration 400 é explícita sobre isso: as metas "são de onde a UI tira o
+ * que promete ao aluno — nunca de um número inventado". A versão anterior
+ * anunciava "seus dados isolados e protegidos no banco", que descreve a
+ * implementação de RLS e não diz nada a quem quer falar inglês.
+ */
 const HIGHLIGHTS = [
   { icon: Mic, text: "Tutora de IA que ouve e corrige sua pronúncia" },
   { icon: Sparkles, text: "728 lições prontas, do A1 ao B2" },
-  { icon: ShieldCheck, text: "Seus dados isolados e protegidos no banco" },
+  { icon: InfinityIcon, text: "Pagamento único: seu acesso não expira" },
 ];
 
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
@@ -25,8 +33,15 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         </Link>
 
         <div className="relative max-w-md">
+          {/*
+            Dizia "Um ano. Quinze minutos por dia." — errado nos dois números e
+            desmentido pela própria bala logo abaixo, que fala em 728 lições.
+            O curso tem 728 dias (dois anos) e a trilha padrão pede 60 min/dia.
+            Aqui fica só o que o banco sustenta; o ritmo o aluno escolhe no
+            perfil, entre as três trilhas.
+          */}
           <h2 className="font-display text-3xl leading-tight font-bold">
-            Um ano. Quinze minutos por dia. Uma conversa que você finalmente sustenta.
+            Dois anos de roteiro. Uma conversa que você finalmente sustenta.
           </h2>
           <ul className="mt-8 space-y-4">
             {HIGHLIGHTS.map((h) => (
