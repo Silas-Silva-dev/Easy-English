@@ -42,6 +42,8 @@ export interface SpeakingResult {
   }[];
   pronunciationNotes: { word: string; ipa: string; heard: string; tip_pt: string }[];
   suggestedPhrases: { en: string; pt: string; context?: string }[];
+  audioUrl?: string;
+  tutorAudioUrl?: string;
   nextSteps: string[];
 }
 
@@ -125,6 +127,38 @@ export function SpeakingFeedbackPanel({ result }: { result: SpeakingResult }) {
           <ScoreRow label="Gramática" value={scores.grammar} />
           <ScoreRow label="Vocabulário" value={scores.vocabulary} />
           <ScoreRow label="Cumprimento da tarefa" value={scores.task} />
+        </CardContent>
+      </Card>
+
+      {/* ------------------------------------------- Áudio gravado & Resposta em áudio */}
+      <Card className="border-primary/25 bg-primary/4">
+        <CardHeader className="pb-2">
+          <CardTitle className="text-primary flex items-center gap-2 text-sm">
+            <Volume2 className="size-4" /> Seu áudio salvo & Orientações da Professora Emma
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <div className="space-y-1.5">
+            <p className="text-muted-foreground text-xs font-medium uppercase tracking-wide">
+              Seu áudio gravado (salvo na plataforma)
+            </p>
+            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+            <audio
+              src={result.audioUrl ?? `/api/speaking/audio?sessionId=${result.sessionId}`}
+              controls
+              className="w-full"
+            />
+          </div>
+
+          {result.tutorAudioUrl ? (
+            <div className="border-primary/20 bg-background space-y-1.5 rounded-lg border p-3">
+              <p className="text-primary flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide">
+                <Sparkles className="size-3.5" /> Orientação e correções faladas pela tutora
+              </p>
+              {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+              <audio src={result.tutorAudioUrl} controls autoPlay={false} className="w-full" />
+            </div>
+          ) : null}
         </CardContent>
       </Card>
 

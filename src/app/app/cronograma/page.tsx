@@ -109,72 +109,21 @@ export default async function SchedulePage({
     : [...byCircuit.keys()][0];
 
   const moduleStats = activeModule ? perModule.get(activeModule.id) : undefined;
+  const activeShortTitle = activeModule
+    ? activeModule.title.split(/[\u2014\u2013-]/).pop()?.trim() ?? activeModule.title
+    : "";
+  const activeCantoTitle = activeModule
+    ? `Canto ${activeModule.code.replace("C", "")}: ${activeShortTitle}`
+    : "Cronograma de Aulas";
+  const activeDonePct = activeModule && moduleStats ? pct(moduleStats.done, moduleStats.total) : 0;
 
   return (
     <div className="mx-auto max-w-6xl space-y-8">
       <PageHeader
-        eyebrow={course.title}
-        title={`Cronograma de ${TOTAL_DAYS} dias`}
-        description="Dia 1, Dia 2, Dia 3 — no seu ritmo, sem data marcada. Cada circuito são 14 dias com papéis fixos, e a ordem importa: a progressão em espiral depende dela."
+        eyebrow={`${course.title} · Nível ${activeModule?.level ?? "A1"}`}
+        title={activeCantoTitle}
+        description={`Circuitos ${activeModule?.week_start ?? 1} a ${activeModule?.week_end ?? 13} · ${moduleStats?.done ?? 0} de ${moduleStats?.total ?? 0} lições concluídas (${activeDonePct}%)`}
       />
-
-      {/* ------------------------------------------------ Os quatro Cantos */}
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {moduleList.map((mod) => {
-          const active = mod.id === activeModule?.id;
-          const accent = CANTO_ACCENT[mod.code] ?? FALLBACK_ACCENT;
-          const stats = perModule.get(mod.id) ?? { total: 0, done: 0 };
-          const donePct = pct(stats.done, stats.total);
-          const isCurrent = currentCircuit >= mod.week_start && currentCircuit <= mod.week_end;
-          // O título vem como "Primeiro Canto — Destravar"; o cartão já mostra
-          // o código, então fica só a promessa.
-          const shortTitle = mod.title.split("—").pop()?.trim() ?? mod.title;
-
-          return (
-            <Link
-              key={mod.id}
-              href={`/app/cronograma?modulo=${mod.id}`}
-              aria-current={active ? "page" : undefined}
-              className={cn(
-                "group bg-card relative flex flex-col rounded-xl border p-4 transition-all",
-                active ? `${accent.ring} shadow-sm` : "hover:bg-accent hover:-translate-y-0.5",
-              )}
-            >
-              <div className="flex items-center justify-between gap-2">
-                <span
-                  className={cn(
-                    "grid size-8 shrink-0 place-items-center rounded-lg font-mono text-xs font-bold",
-                    accent.chip,
-                  )}
-                >
-                  {mod.code}
-                </span>
-                <div className="flex items-center gap-1.5">
-                  {isCurrent ? <Badge variant="success">Você está aqui</Badge> : null}
-                  <Badge variant="neutral" className="text-[10px]">
-                    {mod.level}
-                  </Badge>
-                </div>
-              </div>
-
-              <p className="mt-3 leading-snug font-semibold">{shortTitle}</p>
-              <p className="text-muted-foreground mt-0.5 text-xs">
-                Circuitos {mod.week_start}–{mod.week_end}
-              </p>
-
-              <div className="mt-auto pt-4">
-                <div className="text-muted-foreground mb-1.5 flex items-baseline justify-between text-[11px] tabular-nums">
-                  <span>{donePct}%</span>
-                  <span>
-                    {stats.done}/{stats.total}
-                  </span>
-                </div>
-                <Progress value={donePct} className="h-1.5" indicatorClassName={accent.bar} />
-              </div>
-            </Link>
-          );
-        })}
-      </div>
 
       {activeModule ? (
         <>
@@ -182,7 +131,7 @@ export default async function SchedulePage({
           <div className="bg-muted/40 rounded-xl border p-5">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="min-w-0 max-w-2xl">
-                <h2 className="text-lg font-semibold">{activeModule.title}</h2>
+                <h2 className="text-lg font-semibold">{activeCantoTitle}</h2>
                 <p className="text-muted-foreground mt-1.5 text-sm leading-relaxed">
                   {activeModule.description}
                 </p>

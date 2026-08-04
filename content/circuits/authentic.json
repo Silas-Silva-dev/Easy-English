@@ -1209,176 +1209,330 @@
   },
   {
     "kind": "conversa",
-    "title": "Olhando fotos da família no celular durante o intervalo",
-    "why": "Treina a escuta de correções no meio da fala, interrupções naturais, fala rápida com reduções e identificação de parentes em fotos.",
+    "title": "Looking at Family Photos",
+    "why": "Este áudio treina a compreensão de conversas reais sobre fotos de família com ritmo natural, marcadores de conversa (como 'like' e 'you know') e vocabulário expandido de parentesco e distância.",
     "minutes": 2,
     "lines": [
       [
-        "Mark",
-        "Hey, Sarah, look at this pic on my phone!",
-        "Ei, Sarah, olha essa foto no meu celular!"
+        "Chloe",
+        "Hey Marcus, check out this picture on my phone.",
+        "Ei Marcus, dá uma olhada nessa foto no meu celular."
       ],
       [
-        "Sarah",
-        "Oh, wow! Who's that guy on the left?",
-        "Nossa, uau! Quem é aquele cara na esquerda?"
+        "Marcus",
+        "Oh, wow! Is this... like, a big family reunion or something?",
+        "Nossa, uau! Isso é... tipo, uma reunião de família grande ou algo assim?"
       ],
       [
-        "Mark",
-        "That's my brother, Leo. He looks like my dad, right?",
-        "É o meu irmão, Leo. Ele parece com o meu pai, né?"
+        "Chloe",
+        "Yeah, it was my grandma's eightieth birthday last weekend.",
+        "É, foi o aniversário de oitenta anos da minha avó no fim de semana passado."
       ],
       [
-        "Sarah",
-        "Yeah, totally! Is he the one who lives in Chicago?",
-        "É, total! É ele que mora em Chicago?"
+        "Marcus",
+        "That's awesome. Who's the guy next to you holding the grill fork?",
+        "Que legal. Quem é o cara do seu lado segurando o garfo do churrasco?"
       ],
       [
-        "Mark",
-        "No, wait, that's my cousin, Dan. Leo lives nearby.",
-        "Não, pera, esse é o meu primo, Dan. O Leo mora aqui perto."
+        "Chloe",
+        "Oh, that's my older brother, Leo. He thinks he's a professional chef.",
+        "Ah, esse é o meu irmão mais velho, Leo. Ele acha que é chef profissional."
       ],
       [
-        "Sarah",
-        "Oh, right. And who's the girl holding the baby?",
-        "Ah, tá. E quem é a garota segurando o bebê?"
+        "Marcus",
+        "Haha, he really looks like your dad, honestly.",
+        "Haha, ele se parece muito com o seu pai, sinceramente."
       ],
       [
-        "Mark",
-        "That's my sister, Maya. She has two kids now.",
-        "É a minha irmã, Maya. Ela tem dois filhos agora."
+        "Chloe",
+        "Right? Everybody says that! But trust me, his personality is totally different.",
+        "Né? Todo mundo fala isso! Mas vai por mim, a personalidade dele é totalmente diferente."
       ],
       [
-        "Sarah",
-        "She's so pretty! Is that her husband next to her?",
-        "Ela é tão linda! É o marido dela do lado dela?"
+        "Marcus",
+        "Really? How so?",
+        "Sério? Como assim?"
       ],
       [
-        "Mark",
-        "Yeah, that's Greg. We're really close, actually.",
-        "É, é o Greg. A gente é super próximo, na real."
+        "Chloe",
+        "Well, Leo is super energetic and loud, you know? My dad is kinda quiet.",
+        "Bom, o Leo é super agitado e barulhento, sabe? Meu pai é meio caladão."
       ],
       [
-        "Sarah",
-        "That's awesome. Do you have any siblings besides Maya and Leo?",
-        "Que legal. Você tem mais algum irmão além da Maya e do Leo?"
+        "Marcus",
+        "I get it. And who's the little kid jumping in the pool?",
+        "Entendi. E quem é a criancinha pulando na piscina?"
       ],
       [
-        "Mark",
-        "Nope, just us three. But my house was always full, you know?",
-        "Não, só nós três. Mas minha casa vivia cheia, sabe?"
+        "Chloe",
+        "That's my nephew, Toby. He's Leo's son. He's five and crazy active.",
+        "Esse é meu sobrinho, Toby. Ele é filho do Leo. Tem cinco anos e é super elétrico."
       ],
       [
-        "Sarah",
-        "I get it! I mean, I have four brothers, so...",
-        "Entendo! Quer dizer, eu tenho quatro irmãos, então..."
+        "Marcus",
+        "Man, he looks like he's gonna splash everyone!",
+        "Cara, parece que ele vai molhar todo mundo!"
       ],
       [
-        "Mark",
-        "Wow, four? That's kinda crazy!",
-        "Uau, quatro? É meio loucura!"
+        "Chloe",
+        "Oh, he did! He ruined my cousin's dress two minutes after this photo.",
+        "Ah, e molhou mesmo! Ele estragou o vestido da minha prima dois minutos depois dessa foto."
       ],
       [
-        "Sarah",
-        "Tell me about it! Lemme show you a picture of them.",
-        "Nem me fala! Deixa eu te mostrar uma foto deles."
+        "Marcus",
+        "Oh no, poor cousin! Wait, do you have any siblings besides Leo?",
+        "Putz, coitada da sua prima! Pera, você tem mais algum irmão além do Leo?"
       ],
       [
-        "Mark",
-        "Oh, cool, pull it up!",
-        "Ah, legal, abre aí!"
+        "Chloe",
+        "Yeah, I have a younger sister, Maya. She's the one wearing the green hat.",
+        "Tenho, tenho uma irmã mais nova, a Maya. Ela é a que tá de chapéu verde."
       ],
       [
-        "Sarah",
-        "See? This is my oldest brother, Tom.",
-        "Viu? Esse é o meu irmão mais velho, o Tom."
+        "Marcus",
+        "Ah, I see her. She kinda looks like you!",
+        "Ah, tô vendo. Ela se parece meio que com você!"
       ],
       [
-        "Sarah",
-        "And the twin guys are Alex and Chris.",
-        "E os gêmeos são o Alex e o Chris."
+        "Chloe",
+        "People say that, but we're really close even though she lives in Chicago now.",
+        "O pessoal fala isso, mas a gente é super ligada, embora ela more em Chicago agora."
       ],
       [
-        "Mark",
-        "Wait, they're twins? They look so different!",
-        "Pera, eles são gêmeos? Eles parecem tão diferentes!"
+        "Marcus",
+        "Chicago? That's kinda far! How often do you guys talk?",
+        "Chicago? É meio longe! Com que frequência vocês se falam?"
       ],
       [
-        "Sarah",
-        "I know, right? And this little guy is Sam.",
-        "Né? E esse carinha é o Sam."
+        "Chloe",
+        "We call each other, like, every single day on FaceTime.",
+        "A gente se liga, tipo, todo santo dia pelo FaceTime."
       ],
       [
-        "Mark",
-        "He's kinda young! How old is he?",
-        "Ele é meio novo! Quantos anos ele tem?"
+        "Marcus",
+        "That's really sweet. I wanna see my family more often too.",
+        "Isso é muito legal. Eu quero ver minha família com mais frequência também."
       ],
       [
-        "Sarah",
-        "He's ten. He's the one who loves soccer.",
-        "Ele tem dez. É ele que ama futebol."
+        "Chloe",
+        "Where does your family live, Marcus?",
+        "Onde a sua família mora, Marcus?"
       ],
       [
-        "Mark",
-        "That's cool. That's a huge family photo!",
-        "Que massa. É uma foto de família enorme!"
+        "Marcus",
+        "Mostly in Texas. My parents have a small farm out there.",
+        "A maioria no Texas. Meus pais têm um sítio pequeno lá."
       ],
       [
-        "Sarah",
-        "Yeah, we took it at my grandma's house last month.",
-        "É, a gente tirou na casa da minha avó no mês passado."
+        "Chloe",
+        "Oh, nice! Lemme see some photos next time, okay?",
+        "Ah, que massa! Me mostra algumas fotos da próxima vez, tá?"
       ],
       [
-        "Mark",
-        "That's really nice, Sarah. Family is everything.",
-        "Isso é muito legal, Sarah. Família é tudo."
-      ],
-      [
-        "Sarah",
-        "Absolutely. Lemme go back to work before the boss sees us!",
-        "Com certeza. Deixa eu voltar pro trabalho antes que o chefe veja a gente!"
-      ],
-      [
-        "Mark",
-        "Haha, good idea!",
-        "Haha, boa ideia!"
+        "Marcus",
+        "Deal! Lemme just find the good ones on my camera roll tonight.",
+        "Fechado! Deixa só eu achar as fotos boas no meu rolo da câmera hoje à noite."
       ]
     ],
     "questions": [
       {
-        "question": "Onde mora o irmão do Mark, o Leo?",
+        "question": "Qual foi a ocasião para a foto que Chloe está mostrando a Marcus?",
         "options": [
-          "Em Chicago",
-          "Perto da casa do Mark",
-          "Na casa da avó da Sarah",
-          "Em outra cidade distante"
+          "O aniversário de 80 anos da avó de Chloe",
+          "O casamento do irmão mais velho de Chloe",
+          "A formatura da irmã mais nova de Chloe",
+          "O aniversário de 5 anos do sobrinho de Chloe"
         ],
-        "answerIndex": 1,
-        "explanation": "Mark corrige o engano da Sarah e esclarece que quem mora em Chicago é seu primo Dan, enquanto seu irmão Leo mora perto."
+        "answerIndex": 0,
+        "explanation": "Chloe menciona no início do diálogo que a foto foi tirada no aniversário de 80 anos da avó dela ('my grandma's eightieth birthday')."
       },
       {
-        "question": "Quantos irmãos no total a Sarah tem?",
+        "question": "O que o sobrinho de Chloe (Toby) fez logo após a foto ser tirada?",
         "options": [
-          "Dois",
-          "Três",
-          "Quatro",
-          "Cinco"
+          "Derrubou o garfo do churrasco",
+          "Pulou na piscina e estragou o vestido da prima",
+          "Perdeu o chapéu verde na água",
+          "Correu para longe da família"
+        ],
+        "answerIndex": 1,
+        "explanation": "Chloe conta que Toby pulou na piscina e estragou o vestido da prima dela ('ruined my cousin's dress') dois minutos depois da foto."
+      },
+      {
+        "question": "Onde mora a maioria da família de Marcus?",
+        "options": [
+          "Em Chicago, no centro da cidade",
+          "Na mesma cidade que Chloe",
+          "No Texas, onde os pais têm um sítio",
+          "Em um apartamento na Flórida"
         ],
         "answerIndex": 2,
-        "explanation": "Sarah diz expressamente 'I have four brothers' (Tenho quatro irmãos)."
-      },
-      {
-        "question": "Onde a foto da família da Sarah foi tirada?",
-        "options": [
-          "No escritório do trabalho",
-          "Na casa da avó dela",
-          "Em um jogo de futebol",
-          "Em Chicago"
-        ],
-        "answerIndex": 1,
-        "explanation": "Sarah diz que a foto foi tirada na casa da avó dela no mês passado ('at my grandma's house last month')."
+        "explanation": "Marcus explica que a maior parte da família mora no Texas, onde os pais dele possuem um pequeno sítio ('small farm out there')."
       }
     ],
     "n": 8
+  },
+  {
+    "kind": "conversa",
+    "title": "Perdido sem celular",
+    "why": "Esta conversa treina a sua capacidade de entender direções reais com correções no meio da fala, hesitações e vocabulário cotidiano do inglês americano.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Leo",
+        "Hey, excuse me... do you know where the subway station is?",
+        "Com licença... você sabe onde fica a estação de metrô?"
+      ],
+      [
+        "Chloe",
+        "Uh, which one? There's one on 4th Street and another near the park.",
+        "Ih, qual delas? Tem uma na rua 4 e outra perto do parque."
+      ],
+      [
+        "Leo",
+        "The one near the museum... I think? My phone just died, so...",
+        "A que fica perto do museu... eu acho? Meu celular acabou a bateria, então..."
+      ],
+      [
+        "Chloe",
+        "Oh, man. That sucks. Okay, so you're gonna go straight down this block.",
+        "Poxa, que chato. Tá, então você vai reto neste quarteirão."
+      ],
+      [
+        "Leo",
+        "Okay, straight here...",
+        "Tá, direto por aqui..."
+      ],
+      [
+        "Chloe",
+        "Yeah, and then... wait, no! Don't turn on Elm Street.",
+        "É, e aí... espera, não! Não vira na rua Elm."
+      ],
+      [
+        "Leo",
+        "Don't turn on Elm. Got it.",
+        "Não virar na Elm. Entendi."
+      ],
+      [
+        "Chloe",
+        "Right. You wanna cross Elm and take a left on Pine Street instead.",
+        "Isso. Na verdade, você atravessa a Elm e vira à esquerda na rua Pine."
+      ],
+      [
+        "Leo",
+        "Wait, left on Pine? Is it next to that big bakery?",
+        "Espera, esquerda na Pine? É do lado daquela padaria grande?"
+      ],
+      [
+        "Chloe",
+        "No, no, that's Oak Street. You're thinking of Mike's Bakery, right?",
+        "Não, não, essa é a rua Oak. Você tá pensando na padaria do Mike, né?"
+      ],
+      [
+        "Leo",
+        "Yeah! Exactly, Mike's Bakery.",
+        "É! Essa mesma, a padaria do Mike."
+      ],
+      [
+        "Chloe",
+        "Okay, so pass the bakery, keep walkin' for like two minutes, and you'll see a red building.",
+        "Tá, então passa a padaria, continua andando por uns dois minutos e você vai ver um prédio vermelho."
+      ],
+      [
+        "Leo",
+        "Red building. Is the station right there?",
+        "Prédio vermelho. A estação fica bem ali?"
+      ],
+      [
+        "Chloe",
+        "Kinda. It's right behind it. You gotta enter through the plaza.",
+        "Mais ou menos. Fica bem atrás dele. Você tem que entrar pela praça."
+      ],
+      [
+        "Leo",
+        "Oh, okay. Lemme write this down... wait, I don't have a pen.",
+        "Ah, tá. Deixa eu anotar isso... poxa, não tenho caneta."
+      ],
+      [
+        "Chloe",
+        "Haha, don't worry. It's super easy, honest!",
+        "Haha, relaxa. É super fácil, juro!"
+      ],
+      [
+        "Leo",
+        "So, straight, cross Elm, left on Pine, past the bakery...",
+        "Então, direto, atravessa a Elm, esquerda na Pine, passa a padaria..."
+      ],
+      [
+        "Chloe",
+        "Yep! And then look for the red building.",
+        "Isso! E aí procura o prédio vermelho."
+      ],
+      [
+        "Leo",
+        "And the station is behind the plaza?",
+        "E a estação fica atrás da praça?"
+      ],
+      [
+        "Chloe",
+        "Behind the red building, inside the plaza. Can't miss it.",
+        "Atrás do prédio vermelho, dentro da praça. Não tem erro."
+      ],
+      [
+        "Leo",
+        "Awesome. Is it far on foot? Like ten minutes?",
+        "Demais. É longe a pé? Uns dez minutos?"
+      ],
+      [
+        "Chloe",
+        "Nah, five minutes top. My friend Dave walks there every day.",
+        "Que nada, no máximo cinco minutos. Meu amigo Dave faz esse caminho todo dia."
+      ],
+      [
+        "Leo",
+        "Great! Thanks a lot for your help!",
+        "Ótimo! Muito obrigado pela ajuda!"
+      ],
+      [
+        "Chloe",
+        "No problem at all! Good luck!",
+        "De nada! Boa sorte!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Leo precisa pedir informações na rua?",
+        "options": [
+          "Ele perdeu o mapa físico da cidade.",
+          "A bateria do celular dele acabou.",
+          "Ele não entende as placas em inglês.",
+          "A estação de metrô mudou de endereço."
+        ],
+        "answerIndex": 1,
+        "explanation": "Leo menciona 'My phone just died', ou seja, o celular dele descarregou/apagou."
+      },
+      {
+        "question": "Onde fica a estação de metrô de acordo com Chloe?",
+        "options": [
+          "Dentro da padaria do Mike.",
+          "Na esquina da rua Elm com a rua Oak.",
+          "Atrás do prédio vermelho, na praça.",
+          "Em frente ao museu principal."
+        ],
+        "answerIndex": 2,
+        "explanation": "Chloe explica que a estação fica atrás do prédio vermelho, com acesso pela praça ('behind it... enter through the plaza')."
+      },
+      {
+        "question": "Quanto tempo leva para chegar à estação caminhando?",
+        "options": [
+          "Cerca de dez minutos.",
+          "No máximo cinco minutos.",
+          "Quinze minutos.",
+          "Vinte minutos."
+        ],
+        "answerIndex": 1,
+        "explanation": "Chloe diz 'Nah, five minutes top', o que significa no máximo cinco minutos."
+      }
+    ],
+    "n": 10
   }
 ]

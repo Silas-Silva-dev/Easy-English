@@ -5,6 +5,8 @@ import { Type, type Schema } from "@google/genai";
 import { geminiModels } from "@/lib/env";
 import { gemini, parseJsonResponse, withRetry } from "@/lib/gemini/client";
 import { speakingCoachSystemPrompt } from "@/lib/gemini/prompts";
+import { buildContextBlock } from "@/lib/gemini/rag";
+import { retrieveContext } from "@/lib/gemini/tutor";
 import type { CefrLevel } from "@/lib/types/database";
 
 export interface SpeakingAnalysis {
@@ -23,6 +25,7 @@ export interface SpeakingAnalysis {
   };
   summary_pt: string;
   encouragement_pt: string;
+  tutor_audio_script?: string;
   corrections: {
     original: string;
     corrected: string;
@@ -82,6 +85,10 @@ const SPEAKING_SCHEMA: Schema = {
         vocabulary: { type: Type.NUMBER },
         task: { type: Type.NUMBER },
       },
+    },
+    tutor_audio_script: {
+      type: Type.STRING,
+      description: "Texto fluido para ser lido em voz alta pela tutora Emma sintetizando o elogio, o resumo e as principais correcoes para o aluno.",
     },
     summary_pt: {
       type: Type.STRING,
@@ -161,12 +168,24 @@ export async function analyzeSpeaking(params: {
   lessonTitle?: string | null;
   grammarFocus?: string | null;
   targetVocabulary?: string[];
+  courseId?: string | null;
 }): Promise<{ analysis: SpeakingAnalysis; model: string }> {
-  const { audio, mimeType, prompt, level, lessonTitle, grammarFocus, targetVocabulary } = params;
+  const { audio, mimeType, prompt, level, lessonTitle, grammarFocus, targetVocabulary, courseId } = params;
 
   const bytes = audio instanceof Uint8Array ? audio : new Uint8Array(audio);
   const base64 = Buffer.from(bytes).toString("base64");
   const model = geminiModels.speaking;
+
+  // Recupera o contexto indexado do curso para ancorar a avaliação no material oficial
+  let context = "";
+  try {
+    const chunks = await retrieveContext(prompt, courseId, 4);
+    if (chunks.length) {
+      context = buildContextBlock(chunks);
+    }
+  } catch (e) {
+    console.warn("[speaking] Falha ao recuperar RAG contexto:", e);
+  }
 
   const response = await withRetry(() =>
     gemini().models.generateContent({
@@ -202,6 +221,7 @@ export async function analyzeSpeaking(params: {
           lessonTitle,
           grammarFocus,
           targetVocabulary,
+          context,
         }),
         temperature: 0.35,
         responseMimeType: "application/json",

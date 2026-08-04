@@ -72,8 +72,9 @@ export function speakingCoachSystemPrompt(params: {
   lessonTitle?: string | null;
   grammarFocus?: string | null;
   targetVocabulary?: string[];
+  context?: string;
 }) {
-  const { level, lessonTitle, grammarFocus, targetVocabulary = [] } = params;
+  const { level, lessonTitle, grammarFocus, targetVocabulary = [], context } = params;
 
   return `
 Voce e "Emma", professora de ingles com 15 anos de experiencia em fonetica e
@@ -88,6 +89,8 @@ CONTEXTO DA PRATICA
 - Licao atual: ${lessonTitle ?? "pratica livre de conversacao"}
 - Foco gramatical: ${grammarFocus ?? "nenhum especifico"}
 - Vocabulario alvo: ${targetVocabulary.length ? targetVocabulary.join(", ") : "livre"}
+
+${context ? `CONTEUDO DO CURSO INDEXADO RELACIONADO:\n${context}` : ""}
 
 REGRAS INEGOCIAVEIS
 1. Transcreva EXATAMENTE o que voce ouviu, incluindo erros, hesitacoes e

@@ -187,24 +187,26 @@ export function LessonPlayer({
           <div className="flex flex-wrap gap-1.5">
             {steps.map((s, i) => {
               const Icon = s.icon;
-              const done = i < currentIndex;
+              const isDoneStep = alreadyCompleted || i < currentIndex;
               const active = i === currentIndex;
               return (
                 <button
                   key={s.id}
                   onClick={() => setStep(s.id)}
                   className={cn(
-                    // min-h-10: errar a etapa dispara scrollTo e joga o aluno
-                    // para o topo — alvo de 28px não serve no dedo.
                     "flex min-h-10 items-center gap-1.5 rounded-full px-3 py-2.5 text-xs font-medium transition-colors",
-                    active
-                      ? "bg-primary text-primary-foreground"
-                      : done
-                        ? "bg-success/12 text-success"
-                        : "bg-muted text-muted-foreground hover:bg-accent",
+                    alreadyCompleted
+                      ? active
+                        ? "bg-success/20 text-success ring-2 ring-success/50 font-bold"
+                        : "bg-success/12 text-success hover:bg-success/20"
+                      : active
+                        ? "bg-primary text-primary-foreground"
+                        : isDoneStep
+                          ? "bg-success/12 text-success"
+                          : "bg-muted text-muted-foreground hover:bg-accent",
                   )}
                 >
-                  {done ? <CheckCircle2 className="size-3.5" /> : <Icon className="size-3.5" />}
+                  {isDoneStep ? <CheckCircle2 className="size-3.5" /> : <Icon className="size-3.5" />}
                   {s.label}
                 </button>
               );

@@ -159,31 +159,39 @@ export default async function ConversationPage({
               return (
                 <div
                   key={item.id}
-                  className="flex items-center justify-between gap-4 rounded-lg border px-4 py-3"
+                  className="space-y-2 rounded-lg border px-4 py-3"
                 >
-                  <div className="min-w-0">
-                    <p className="truncate text-sm">{item.prompt}</p>
-                    <p className="text-muted-foreground mt-0.5 text-xs">
-                      {formatRelative(item.created_at)}
-                    </p>
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-medium">{item.prompt}</p>
+                      <p className="text-muted-foreground mt-0.5 text-xs">
+                        {formatRelative(item.created_at)}
+                      </p>
+                    </div>
+                    {feedback?.overall_score != null ? (
+                      <Badge
+                        variant={
+                          feedback.overall_score >= 8
+                            ? "success"
+                            : feedback.overall_score >= 6
+                              ? "warning"
+                              : "destructive"
+                        }
+                      >
+                        {Number(feedback.overall_score).toFixed(1)}
+                      </Badge>
+                    ) : (
+                      <Badge variant={item.status === "failed" ? "destructive" : "neutral"}>
+                        {SESSION_STATUS[item.status] ?? item.status}
+                      </Badge>
+                    )}
                   </div>
-                  {feedback?.overall_score != null ? (
-                    <Badge
-                      variant={
-                        feedback.overall_score >= 8
-                          ? "success"
-                          : feedback.overall_score >= 6
-                            ? "warning"
-                            : "destructive"
-                      }
-                    >
-                      {Number(feedback.overall_score).toFixed(1)}
-                    </Badge>
-                  ) : (
-                    <Badge variant={item.status === "failed" ? "destructive" : "neutral"}>
-                      {SESSION_STATUS[item.status] ?? item.status}
-                    </Badge>
-                  )}
+                  {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+                  <audio
+                    src={`/api/speaking/audio?sessionId=${item.id}`}
+                    controls
+                    className="w-full pt-1"
+                  />
                 </div>
               );
             })}

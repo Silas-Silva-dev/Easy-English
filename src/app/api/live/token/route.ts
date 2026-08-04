@@ -77,6 +77,18 @@ export async function POST(request: NextRequest) {
       "Free conversation. Start by asking the student how their day is going, then follow wherever the conversation leads.";
   }
 
+  let ragContext = "";
+  try {
+    const { buildContextBlock } = await import("@/lib/gemini/rag");
+    const { retrieveContext } = await import("@/lib/gemini/tutor");
+    const ragChunks = await retrieveContext(scenario, null, 3);
+    if (ragChunks.length) {
+      ragContext = buildContextBlock(ragChunks);
+    }
+  } catch (e) {
+    console.warn("[live/token] Falha ao carregar RAG para conversa ao vivo:", e);
+  }
+
   const systemInstruction = `
 You are Emma, an American English conversation partner for a Brazilian learner.
 
@@ -98,6 +110,8 @@ Do not announce them, do not drill them:
 ${chunks.map((c) => `  - "${c.en}"`).join("\n")}`
     : ""
 }
+
+${ragContext ? `COURSE KNOWLEDGE CONTEXT:\n${ragContext}` : ""}
 
 HOW TO BEHAVE
 - Keep your turns SHORT. Two or three sentences, then hand it back. The student

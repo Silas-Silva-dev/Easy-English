@@ -4,6 +4,7 @@ import {
   Brain,
   ChevronDown,
   LayoutDashboard,
+  Loader2,
   LogOut,
   Menu,
   Mic,
@@ -36,6 +37,7 @@ import type { Profile } from "@/lib/types/database";
 export interface NavItem {
   href: string;
   label: string;
+  sublabel?: string;
   icon: keyof typeof ICONS;
   exact?: boolean;
   badge?: string;
@@ -82,21 +84,33 @@ export function AppShell({
 }) {
   const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
+  const [navigatingHref, setNavigatingHref] = React.useState<string | null>(null);
 
-  React.useEffect(() => setOpen(false), [pathname]);
+  React.useEffect(() => {
+    setOpen(false);
+    setNavigatingHref(null);
+  }, [pathname]);
 
   const isActive = (item: NavItem) =>
     item.exact ? pathname === item.href : pathname === item.href || pathname.startsWith(`${item.href}/`);
+
+  const handleNavClick = (href: string) => {
+    if (href !== pathname) {
+      setNavigatingHref(href);
+    }
+  };
 
   const navList = (
     <nav className="space-y-1">
       {nav.map((item) => {
         const Icon = ICONS[item.icon];
         const active = isActive(item);
+        const isNavigating = navigatingHref === item.href;
         return (
           <Link
             key={item.href}
             href={item.href}
+            onClick={() => handleNavClick(item.href)}
             aria-current={active ? "page" : undefined}
             className={cn(
               // min-h-11 garante alvo de toque confortável no celular.
@@ -106,9 +120,24 @@ export function AppShell({
                 : "text-muted-foreground hover:bg-accent hover:text-foreground",
             )}
           >
-            <Icon className="size-4 shrink-0" />
-            <span className="flex-1 truncate">{item.label}</span>
-            {item.badge ? (
+            {isNavigating ? (
+              <Loader2 className="text-primary size-4 shrink-0 animate-spin" />
+            ) : (
+              <Icon className="size-4 shrink-0" />
+            )}
+            <div className="min-w-0 flex-1">
+              <span className="block truncate font-medium">{item.label}</span>
+              {item.sublabel ? (
+                <span className="text-muted-foreground/80 block truncate text-[11px] font-normal">
+                  {item.sublabel}
+                </span>
+              ) : null}
+            </div>
+            {isNavigating ? (
+              <Badge variant="neutral" className="text-primary animate-pulse text-[10px]">
+                Carregando…
+              </Badge>
+            ) : item.badge ? (
               <Badge variant="neutral" className="text-[10px]">
                 {item.badge}
               </Badge>
@@ -214,6 +243,13 @@ export function AppShell({
         </div>
       ) : null}
 
+      {/* Barra de progresso de navegação no topo extremo da tela */}
+      {navigatingHref ? (
+        <div className="bg-primary/20 pointer-events-none fixed top-0 inset-x-0 z-50 h-1 overflow-hidden">
+          <div className="bg-primary animate-progress-indeterminate h-full w-full" />
+        </div>
+      ) : null}
+
       {/* ------------------------------------------------------------ Coluna */}
       <div className="flex min-w-0 flex-col">
         {/* A altura soma a barra de status do iOS ao 4rem de sempre, e o mesmo
@@ -234,6 +270,15 @@ export function AppShell({
           </Button>
 
           <div className="flex-1" />
+
+          {navigatingHref ? (
+            <Badge
+              variant="neutral"
+              className="border-primary/25 bg-primary/8 text-primary animate-pulse flex items-center gap-1.5 text-xs font-medium"
+            >
+              <Loader2 className="size-3.5 animate-spin" /> Carregando página…
+            </Badge>
+          ) : null}
 
           {typeof streak === "number" && streak > 0 ? (
             <Badge variant="streak" className="hidden sm:inline-flex">

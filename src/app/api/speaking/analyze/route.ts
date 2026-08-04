@@ -156,6 +156,7 @@ export async function POST(request: NextRequest) {
       lessonTitle,
       grammarFocus,
       targetVocabulary,
+      courseId,
     });
 
     await supabase
@@ -211,6 +212,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       sessionId: sessionRow.id,
       feedbackId: feedback?.id ?? null,
+      audioUrl: `/api/speaking/audio?sessionId=${sessionRow.id}`,
       audible: analysis.audible,
       languageDetected: analysis.language_detected,
       transcript: analysis.transcript,
@@ -219,6 +221,7 @@ export async function POST(request: NextRequest) {
       scores: analysis.scores,
       summary: analysis.summary_pt,
       encouragement: analysis.encouragement_pt,
+      tutorAudioScript: analysis.tutor_audio_script,
       corrections: analysis.corrections,
       pronunciationNotes: analysis.pronunciation_notes,
       suggestedPhrases: analysis.suggested_phrases,
