@@ -3259,5 +3259,179 @@
       }
     ],
     "n": 24
+  },
+  {
+    "kind": "conversa",
+    "title": "Resolvendo um problema com o fornecedor",
+    "why": "Treina a resolução de problemas reais de entrega no ambiente de trabalho, lidando com imprevistos de fornecedores e prioridades de última hora entre colegas.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Sarah",
+        "Hey Mark, sorry to interrupt, but we gotta talk about the shipment that came in this morning.",
+        "Oi Mark, desculpa interromper, mas a gente precisa falar sobre a encomenda que chegou hoje de manhã."
+      ],
+      [
+        "Mark",
+        "Oh, hey Sarah. Wait, you mean the monitors for the new conference room?",
+        "Ah, oi Sarah. Espera, você tá falando dos monitores pra nova sala de reunião?"
+      ],
+      [
+        "Sarah",
+        "Yeah, exactly those. Um, there's a huge problem with the order.",
+        "É, esses mesmos. Ahn, tem um problema enorme com o pedido."
+      ],
+      [
+        "Mark",
+        "Uh oh... don't tell me they sent the wrong size again.",
+        "Eita... não me diz que mandaram o tamanho errado de novo."
+      ],
+      [
+        "Sarah",
+        "Worse. I mean, two of the boxes are completely crushed, and one monitor has a cracked screen.",
+        "Pior. Quer dizer, duas caixas tão totalmente amassadas, e um monitor tá com a tela trincada."
+      ],
+      [
+        "Mark",
+        "Are you kidding me? We have that big presentation with Leo's team on Friday!",
+        "Você tá de brincadeira? A gente tem aquela apresentação gigante com a equipe do Leo na sexta!"
+      ],
+      [
+        "Sarah",
+        "I know, right? That's why I'm kinda freaking out here.",
+        "Eu sei, né? É por isso que eu tô meio surtando aqui."
+      ],
+      [
+        "Mark",
+        "Alright, lemme check the receipt. Did you sign for the delivery?",
+        "Beleza, deixa eu ver a nota. Você assinou o recebimento da entrega?"
+      ],
+      [
+        "Sarah",
+        "Well, Dave from reception signed it before I could even open the boxes.",
+        "Bom, o Dave da recepção assinou antes mesmo de eu conseguir abrir as caixas."
+      ],
+      [
+        "Mark",
+        "Ah, man. Dave needs to stop doing that. Okay, it's fine. Who's the supplier?",
+        "Putz, cara. O Dave precisa parar de fazer isso. Tá, de boa. Quem é o fornecedor?"
+      ],
+      [
+        "Sarah",
+        "It's TechCorp. I tried calling their support line, but I was on hold forever.",
+        "É a TechCorp. Eu tentei ligar pro suporte deles, mas fiquei no aguardo uma eternidade."
+      ],
+      [
+        "Mark",
+        "Classic TechCorp... Okay, look, I'm gonna email their account manager directly.",
+        "Típico da TechCorp... Tá, olha, eu vou mandar um e-mail pro gerente de contas deles direto."
+      ],
+      [
+        "Sarah",
+        "Do you think they can send replacements by tomorrow?",
+        "Você acha que eles conseguem mandar os substitutos até amanhã?"
+      ],
+      [
+        "Mark",
+        "Honestly? Probably not by tomorrow, but maybe Thursday morning if we push.",
+        "Sinceramente? Provavelmente amanhã não, mas talvez quinta de manhã se a gente pressionar."
+      ],
+      [
+        "Sarah",
+        "What about a refund for the damaged one? Can we get that?",
+        "E o reembolso do que tá danificado? A gente consegue?"
+      ],
+      [
+        "Mark",
+        "Yeah, definitely. But right now we need working screens more than cash.",
+        "Sim, com certeza. Mas agora a gente precisa mais de telas funcionando do que do dinheiro."
+      ],
+      [
+        "Sarah",
+        "True. Should I talk to Leo and tell him we might need to reschedule?",
+        "Verdade. Devo falar com o Leo e avisar que a gente talvez precisa remarcar?"
+      ],
+      [
+        "Mark",
+        "No, don't tell Leo yet. He's gonna stress out for no reason.",
+        "Não, não fala com o Leo ainda. Ele vai estressar a toa."
+      ],
+      [
+        "Sarah",
+        "Okay, but if we don't hear back by two PM, I'm calling them again.",
+        "Tá bom, mas se a gente não tiver resposta até as duas da tarde, eu ligo pra eles de novo."
+      ],
+      [
+        "Mark",
+        "Fair enough. Lemme take pictures of the broken screen real quick.",
+        "Justo. Deixa eu tirar umas fotos da tela quebrada bem rápido."
+      ],
+      [
+        "Sarah",
+        "Good idea. I already put the damaged box near your desk.",
+        "Boa ideia. Eu já coloquei a caixa danificada perto da sua mesa."
+      ],
+      [
+        "Mark",
+        "Thanks. You know, last month Apex Supplies did the exact same thing.",
+        "Valeu. Você sabe, mês passado a Apex Supplies fez a mesmíssima coisa."
+      ],
+      [
+        "Sarah",
+        "Really? Why do we keep buying from these guys?",
+        "Sério? Por que a gente continua comprando desse pessoal?"
+      ],
+      [
+        "Mark",
+        "Because they're cheap, Sarah! But like my dad says, cheap comes expensive.",
+        "Porque eles são baratos, Sarah! Mas como meu pai diz, o barato sai caro."
+      ],
+      [
+        "Sarah",
+        "Ain't that the truth. Anyway, lemme know as soon as they reply.",
+        "Nem me fala. De qualquer forma, me avisa assim que eles responderem."
+      ],
+      [
+        "Mark",
+        "Will do. Go get some coffee, you look like you need it!",
+        "Pode deixar. Vai tomar um café, você tá com cara de quem tá precisando!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Qual é o problema principal trazido por Sarah sobre a encomenda recebida?",
+        "options": [
+          "Os monitores vieram no tamanho errado.",
+          "A encomenda foi entregue no endereço antigo da empresa.",
+          "Duas caixas vieram amassadas e um monitor veio com a tela trincada.",
+          "O fornecedor cobrou o valor incorreto na nota fiscal."
+        ],
+        "answerIndex": 2,
+        "explanation": "Sarah explica no início que duas caixas vieram amassadas e uma das telas veio trincada."
+      },
+      {
+        "question": "Por que Mark faz uma reclamação sobre o Dave da recepção?",
+        "options": [
+          "Porque Dave deixou as caixas caírem no chão.",
+          "Porque Dave assinou o recebimento da entrega sem conferir o conteúdo das caixas.",
+          "Porque Dave recusou o recebimento da entrega da TechCorp.",
+          "Porque Dave esqueceu de avisar a equipe que o pedido tinha chegado."
+        ],
+        "answerIndex": 1,
+        "explanation": "Dave assinou o comprovante de entrega antes que Sarah pudesse abrir as caixas para checar o estado dos produtos."
+      },
+      {
+        "question": "Qual é a recomendação de Mark em relação ao Leo?",
+        "options": [
+          "Avisá-lo imediatamente para reagendar a apresentação.",
+          "Pedir para o Leo ligar diretamente para o gerente da TechCorp.",
+          "Não falar com ele ainda para evitar que ele fique estressado sem necessidade.",
+          "Pedir autorização do Leo para solicitar um reembolso."
+        ],
+        "answerIndex": 2,
+        "explanation": "Mark orienta Sarah a não falar com o Leo por enquanto para não causar estresse desnecessário antes de tentarem resolver com o fornecedor."
+      }
+    ],
+    "n": 25
   }
 ]
