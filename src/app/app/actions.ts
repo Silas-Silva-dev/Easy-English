@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
 import { getSessionContext } from "@/lib/auth/guards";
+import { createAdminSupabase } from "@/lib/supabase/admin";
 import { createServerSupabase } from "@/lib/supabase/server";
 import { TIMEZONE_VALUES } from "@/lib/timezones";
 
@@ -92,7 +93,8 @@ export async function completeLessonAction(input: {
   }
 
   // Contabiliza minutos e recalcula a ofensiva no banco.
-  const { data: updated, error: rpcError } = await supabase.rpc("register_study_activity", {
+  const admin = createAdminSupabase();
+  const { data: updated, error: rpcError } = await admin.rpc("register_study_activity", {
     p_enrollment_id: enrollment.id,
     p_minutes: minutes,
     p_lessons_done: alreadyCompleted ? 0 : 1,

@@ -2,7 +2,9 @@ import "server-only";
 
 import { cache } from "react";
 
+import { createAdminSupabase } from "@/lib/supabase/admin";
 import { createServerSupabase } from "@/lib/supabase/server";
+import { getTodayDateString } from "@/lib/timezones";
 import type {
   Course,
   Enrollment,
@@ -45,6 +47,17 @@ export async function getOrCreateEnrollment(
     .maybeSingle();
 
   if (existing) {
+    // Se os minutos totais estão zerados mas o aluno já praticou/concluiu lições, ressincroniza automaticamente
+    if (existing.minutes_total === 0) {
+      try {
+        const synced = await syncEnrollmentStudyStats(userId, existing.id);
+        existing.minutes_total = synced.minutesTotal;
+        existing.streak_current = synced.streakCurrent;
+      } catch (e) {
+        console.warn("[learning] Falha ao auto-sincronizar estudos:", e);
+      }
+    }
+
     // A data alvo é gravada uma vez, na matrícula. Se a duração do curso mudou
     // depois (365 -> 728, por exemplo), ela passa a apontar um prazo que não
     // existe mais: então recalculamos a partir do início real da matrícula.
@@ -268,28 +281,39 @@ export function forecastCompletion({
 }): CompletionForecast {
   const remainingLessons = Math.max(0, totalDays - (currentDay - 1));
 
-  const since = new Date();
-  since.setDate(since.getDate() - windowDays);
-  const sinceKey = since.toISOString().slice(0, 10);
-
-  const lessonsDone = studyDays
-    .filter((d) => d.study_date >= sinceKey)
-    .reduce((sum, d) => sum + d.lessons_done, 0);
-
-  // Menos de 3 lições na janela não é ritmo, é ruído: uma única lição em 28
-  // dias projetaria 56 anos de curso.
-  const assumed = lessonsDone < 3;
-  const lessonsPerWeek = assumed ? 7 : (lessonsDone / windowDays) * 7;
-
   if (remainingLessons === 0) {
-    return { date: new Date(), lessonsPerWeek, remainingLessons: 0, assumed };
-  }
-  if (lessonsPerWeek <= 0) {
-    return { date: null, lessonsPerWeek: 0, remainingLessons, assumed };
+    return { date: new Date(), lessonsPerWeek: 7, remainingLessons: 0, assumed: false };
   }
 
+  // Considera apenas dias que possuem atividade de estudo ou lições concluídas
+  const activeDays = studyDays.filter((d) => d.lessons_done > 0 || d.minutes > 0);
+  const totalLessonsInWindow = activeDays.reduce((sum, d) => sum + d.lessons_done, 0);
+
+  let lessonsPerWeek = 7;
+  let assumed = true;
+
+  if (activeDays.length > 0 && totalLessonsInWindow > 0) {
+    // Calcula o intervalo real de dias decorridos desde a primeira lição
+    const timestamps = activeDays.map((d) => new Date(`${d.study_date}T12:00:00`).getTime());
+    const minTimestamp = Math.min(...timestamps);
+    const maxTimestamp = Math.max(...timestamps, new Date().getTime());
+
+    // Dias ativos no calendário do aluno (mínimo 1 dia)
+    const activeSpanDays = Math.max(1, Math.ceil((maxTimestamp - minTimestamp) / (1000 * 3600 * 24)));
+    const effectiveDays = Math.min(windowDays, activeSpanDays);
+
+    // Ritmo real de lições por dia
+    const ratePerDay = totalLessonsInWindow / effectiveDays;
+    const effectiveRate = Math.max(0.5, ratePerDay);
+
+    lessonsPerWeek = Math.round(effectiveRate * 7 * 10) / 10;
+    assumed = false;
+  }
+
+  const daysNeeded = Math.ceil(remainingLessons / (lessonsPerWeek / 7));
   const date = new Date();
-  date.setDate(date.getDate() + Math.ceil((remainingLessons / lessonsPerWeek) * 7));
+  date.setDate(date.getDate() + daysNeeded);
+
   return { date, lessonsPerWeek, remainingLessons, assumed };
 }
 
@@ -302,3 +326,162 @@ export const DAY_ORDER: Lesson["kind"][] = [
   "review",
   "assessment",
 ];
+
+/**
+ * Sincroniza e recalcula o tempo total de estudo, a meta diária e a ofensiva a partir dos registros
+ * de lições concluídas, práticas de fala e conversas ao vivo do aluno.
+ */
+export async function syncEnrollmentStudyStats(
+  userId: string,
+  enrollmentId: string,
+): Promise<{ minutesTotal: number; streakCurrent: number }> {
+  const admin = createAdminSupabase();
+
+  const [{ data: progressRows }, { data: liveRows }, { data: speakingRows }, { data: profile }] =
+    await Promise.all([
+      admin
+        .from("lesson_progress")
+        .select("minutes_spent, completed_at, started_at")
+        .eq("enrollment_id", enrollmentId)
+        .eq("status", "completed"),
+      admin.from("live_sessions").select("duration_seconds, ended_at,started_at").eq("user_id", userId),
+      admin.from("speaking_sessions").select("duration_seconds, created_at").eq("user_id", userId).eq("status", "completed"),
+      admin.from("profiles").select("timezone, daily_goal_minutes").eq("id", userId).maybeSingle(),
+    ]);
+
+  const tz = profile?.timezone || "America/Sao_Paulo";
+  const goal = profile?.daily_goal_minutes || 15;
+
+  const dailyMap = new Map<string, { minutes: number; lessonsDone: number }>();
+
+  function addEntry(dateIso: string | null, minutes: number, isLesson: boolean) {
+    if (!dateIso) return;
+    let dateKey = dateIso.slice(0, 10);
+    try {
+      const formatter = new Intl.DateTimeFormat("en-CA", {
+        timeZone: tz,
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      });
+      dateKey = formatter.format(new Date(dateIso));
+    } catch {
+      // fallback
+    }
+    const current = dailyMap.get(dateKey) ?? { minutes: 0, lessonsDone: 0 };
+    current.minutes += minutes;
+    if (isLesson) current.lessonsDone += 1;
+    dailyMap.set(dateKey, current);
+  }
+
+  for (const p of progressRows ?? []) {
+    const mins = Math.max(1, p.minutes_spent || 15);
+    addEntry(p.completed_at || p.started_at, mins, true);
+  }
+
+  for (const s of liveRows ?? []) {
+    const mins = Math.max(1, Math.round((s.duration_seconds ?? 60) / 60));
+    addEntry(s.ended_at || s.started_at, mins, false);
+  }
+
+  for (const sp of speakingRows ?? []) {
+    const mins = Math.max(1, Math.round((sp.duration_seconds ?? 60) / 60));
+    addEntry(sp.created_at, mins, false);
+  }
+
+  let totalMins = 0;
+  let totalLessonsDone = progressRows?.length ?? 0;
+
+  for (const [dateKey, data] of dailyMap.entries()) {
+    totalMins += data.minutes;
+    const goalMet = data.minutes >= goal;
+
+    await admin.from("study_days").upsert(
+      {
+        user_id: userId,
+        enrollment_id: enrollmentId,
+        study_date: dateKey,
+        minutes: data.minutes,
+        lessons_done: data.lessonsDone,
+        goal_met: goalMet,
+      },
+      { onConflict: "enrollment_id,study_date" },
+    );
+  }
+
+  // Recalcular streak
+  const { data: allStudyDays } = await admin
+    .from("study_days")
+    .select("study_date, goal_met")
+    .eq("enrollment_id", enrollmentId)
+    .order("study_date", { ascending: false });
+
+  const todayKey = getTodayDateString(tz);
+  let streakCurrent = 0;
+  let streakLongest = 0;
+
+  if (allStudyDays?.length) {
+    const metDates = new Set(allStudyDays.filter((d) => d.goal_met).map((d) => d.study_date));
+
+    let currentCheck = new Date(`${todayKey}T12:00:00`);
+    let dateStr = getTodayDateString(tz);
+
+    if (!metDates.has(dateStr)) {
+      currentCheck.setDate(currentCheck.getDate() - 1);
+      dateStr = new Intl.DateTimeFormat("en-CA", {
+        timeZone: tz,
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(currentCheck);
+    }
+
+    while (metDates.has(dateStr)) {
+      streakCurrent++;
+      currentCheck.setDate(currentCheck.getDate() - 1);
+      dateStr = new Intl.DateTimeFormat("en-CA", {
+        timeZone: tz,
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+      }).format(currentCheck);
+    }
+
+    let run = 0;
+    const sortedAll = [...allStudyDays].sort((a, b) => a.study_date.localeCompare(b.study_date));
+    let lastDate: Date | null = null;
+
+    for (const day of sortedAll) {
+      if (day.goal_met) {
+        const curDate = new Date(`${day.study_date}T12:00:00`);
+        if (lastDate) {
+          const diff = Math.round((curDate.getTime() - lastDate.getTime()) / (1000 * 3600 * 24));
+          if (diff === 1) {
+            run++;
+          } else {
+            run = 1;
+          }
+        } else {
+          run = 1;
+        }
+        lastDate = curDate;
+        if (run > streakLongest) streakLongest = run;
+      } else {
+        run = 0;
+        lastDate = null;
+      }
+    }
+  }
+
+  await admin
+    .from("enrollments")
+    .update({
+      minutes_total: totalMins,
+      lessons_completed: totalLessonsDone,
+      streak_current: streakCurrent,
+      streak_longest: Math.max(streakLongest, streakCurrent),
+    })
+    .eq("id", enrollmentId);
+
+  return { minutesTotal: totalMins, streakCurrent };
+}

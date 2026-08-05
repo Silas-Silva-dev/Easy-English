@@ -208,6 +208,26 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    // Registra o tempo de estudo praticado na sessão de fala
+    try {
+      const { data: enrollment } = await admin
+        .from("enrollments")
+        .select("id")
+        .eq("user_id", session.userId)
+        .maybeSingle();
+
+      if (enrollment) {
+        const mins = Math.max(1, Math.round((duration ?? 60) / 60));
+        await admin.rpc("register_study_activity", {
+          p_enrollment_id: enrollment.id,
+          p_minutes: mins,
+          p_lessons_done: 0,
+        });
+      }
+    } catch (e) {
+      console.warn("[speaking] falha ao registrar minutos praticados:", e);
+    }
+
     return NextResponse.json({
       sessionId: sessionRow.id,
       feedbackId: feedback?.id ?? null,

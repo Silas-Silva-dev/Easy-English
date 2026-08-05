@@ -38,6 +38,7 @@ import {
   LESSON_KIND_LABEL,
 } from "@/lib/learning";
 import { createServerSupabase } from "@/lib/supabase/server";
+import { getTodayDateString } from "@/lib/timezones";
 import { formatMinutes, pct } from "@/lib/utils";
 import { CANTOS, type CantoSpec } from "@content/curriculum";
 
@@ -99,7 +100,7 @@ export default async function StudentDashboard() {
     cantoProgress[c.code] = { done, total, pct: pct(done, total) };
   }
 
-  const today = new Date().toISOString().slice(0, 10);
+  const today = getTodayDateString(profile.timezone);
   const todayRecord = studyDays.find((d) => d.study_date === today);
   const minutesToday = todayRecord?.minutes ?? 0;
   const goal = profile.daily_goal_minutes;

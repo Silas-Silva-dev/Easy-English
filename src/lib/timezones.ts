@@ -31,3 +31,21 @@ export const TIMEZONE_VALUES = TIMEZONES.map((t) => t.value) as unknown as [
   Timezone,
   ...Timezone[],
 ];
+
+/**
+ * Retorna a data atual no formato YYYY-MM-DD no fuso horário especificado (padrão America/Sao_Paulo).
+ */
+export function getTodayDateString(timezone?: string): string {
+  const tz = timezone || "America/Sao_Paulo";
+  try {
+    const formatter = new Intl.DateTimeFormat("en-CA", {
+      timeZone: tz,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+    return formatter.format(new Date());
+  } catch {
+    return new Date().toISOString().slice(0, 10);
+  }
+}
