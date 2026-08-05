@@ -245,7 +245,7 @@ export default async function LandingPage() {
         <div className="mx-auto flex h-[calc(4rem+var(--safe-top))] max-w-6xl items-center justify-between px-4 pt-[var(--safe-top)] sm:px-6">
           <Link
             href="/"
-            className="flex items-center gap-2.5 font-semibold transition-opacity hover:opacity-90"
+            className="flex shrink-0 items-center gap-2.5 whitespace-nowrap font-semibold transition-opacity hover:opacity-90"
           >
             <span className="bg-primary text-primary-foreground grid size-8 place-items-center rounded-xl shadow-md shadow-primary/20">
               <Waves className="size-4.5" />
@@ -289,7 +289,7 @@ export default async function LandingPage() {
               asChild
               size="sm"
               variant="gradient"
-              className="h-10 px-4 sm:h-9"
+              className="hidden sm:inline-flex h-9 px-4"
             >
               <Link href="#investimento">Garantir meu acesso</Link>
             </Button>
