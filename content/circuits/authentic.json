@@ -7639,5 +7639,358 @@
       }
     ],
     "n": 48
+  },
+  {
+    "kind": "conversa",
+    "title": "O ensaio de última hora no escritório",
+    "why": "Treina a compreensão do ritmo acelerado de uma conversa profissional informal, com hesitações, autocorreções e expressões idiomáticas do dia a dia.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Mark",
+        "Hey Sarah, lemme ask you something real quick before the team gets here.",
+        "Sarah, deixa eu te perguntar um negócio rapidinho antes de o pessoal chegar."
+      ],
+      [
+        "Sarah",
+        "Yeah, what's up? I gotta finish this report, but I'm listening.",
+        "Fala, o que foi? Tenho que terminar esse relatório, mas tô ouvindo."
+      ],
+      [
+        "Mark",
+        "So... I was trying to draft my presentation in my head on the drive over, and it was a total mess.",
+        "Então... eu tava tentando montar a apresentação na cabeça no caminho pra cá, e foi uma bagunça total."
+      ],
+      [
+        "Sarah",
+        "Like... you couldn't find the right words, or you were just overthinking the whole structure?",
+        "Tipo... você não achava as palavras certas ou tava viajando demais na estrutura?"
+      ],
+      [
+        "Mark",
+        "Both, honestly! I kept asking myself, 'What am I doing right now?' like every two minutes.",
+        "Os dois, sinceramente! Eu ficava me perguntando tipo 'o que eu tô fazendo agora?' a cada dois minutos."
+      ],
+      [
+        "Sarah",
+        "Classic! You're trying to build perfect sentences instead of just letting the thoughts flow out.",
+        "Típico! Você fica tentando montar frases perfeitas em vez de só deixar as ideias fluírem."
+      ],
+      [
+        "Mark",
+        "Exactly. I'd start a sentence, stop mid-way, and think, 'Wait, that doesn't make sense.'",
+        "Exato. Eu começava uma frase, parava no meio e pensava: 'Pera aí, isso não faz sentido'."
+      ],
+      [
+        "Sarah",
+        "You gotta stop micromanaging your brain, Mark. Just say what comes first.",
+        "Você tem que parar de querer controlar cada detalhe da sua cabeça, Mark. Só fala o que vier primeiro."
+      ],
+      [
+        "Mark",
+        "I know, I know. But then I lost my keys at the coffee shop because I was so distracted!",
+        "Eu sei, eu sei. Mas aí eu perdi minhas chaves na cafeteria de tão distraído que eu tava!"
+      ],
+      [
+        "Sarah",
+        "Wait, what? Where did you put my— I mean, your keys? Did you find 'em?",
+        "Pera, o quê? Onde você colocou as mi— quer dizer, as suas chaves? Achou elas?"
+      ],
+      [
+        "Mark",
+        "Yeah, they were right on the counter next to the napkins. The barista looked at me like I was crazy.",
+        "Achei, tavam bem no balcão do lado dos guardanapos. O barista me olhou com uma cara de 'você é doido'."
+      ],
+      [
+        "Sarah",
+        "Haha! Classic Monday brain. Anyway, back to the pitch... what's the main point?",
+        "Rss! Coisas de segunda-feira. Mas enfim, voltando pra apresentação... qual é a ideia principal?"
+      ],
+      [
+        "Mark",
+        "Well, I need to remember to highlight the Q3 budget cuts first, or Dave's gonna lose his mind.",
+        "Bom, preciso lembrar de destacar os cortes de orçamento do terceiro trimestre primeiro, senão o Dave surta."
+      ],
+      [
+        "Sarah",
+        "Right, Dave hates surprises. So start with the numbers, then move to the project timeline.",
+        "Verdade, o Dave odeia surpresas. Então começa pelos números e depois passa pro cronograma do projeto."
+      ],
+      [
+        "Mark",
+        "Okay, lemme try that again. Uh... 'Team, today we're looking at budget adjustments...'",
+        "Beleza, deixa eu tentar de novo. Hã... 'Pessoal, hoje vamos analisar os ajustes orçamentários...'"
+      ],
+      [
+        "Sarah",
+        "No, no, too formal! You sound like a robot. Talk to us like we're real people.",
+        "Não, não, formal demais! Você parece um robô. Fala com a gente como se fôssemos pessoas de verdade."
+      ],
+      [
+        "Mark",
+        "Fine, fine. Kinda like... 'Look, we gotta trim some fat off Q3, but here's how we save the project.'",
+        "Tá bom, tá bom. Tipo... 'Olha, a gente tem que cortar uns gastos no terceiro trimestre, mas é assim que vamos salvar o projeto.'"
+      ],
+      [
+        "Sarah",
+        "There you go! See? That felt way more natural.",
+        "Aí sim! Viu só? Soou muito mais natural."
+      ],
+      [
+        "Mark",
+        "Yeah, but then my brain goes into overdrive trying to translate every detail!",
+        "É, mas aí minha cabeça entra em parafuso tentando traduzir cada detalhe!"
+      ],
+      [
+        "Sarah",
+        "Stop right there. Don't translate. Just stick to the main idea and trust your instincts.",
+        "Para por aí. Não traduz. Foca só na ideia principal e confia no teu taco."
+      ],
+      [
+        "Mark",
+        "Alright... almost there. Let me run through the second slide real quick.",
+        "Beleza... tá quase. Deixa eu repassar o segundo slide rapidinho."
+      ],
+      [
+        "Sarah",
+        "Go for it, but hurry up, Dave just walked into the lobby.",
+        "Vai fundo, mas agiliza aí que o Dave acabou de entrar na recepção."
+      ],
+      [
+        "Mark",
+        "Okay, so... we're reallocating marketing funds to dev, which keeps us on track for November.",
+        "Beleza, então... vamos reaproveitar a verba do marketing na equipe de desenvolvimento, o que nos mantém no prazo pra novembro."
+      ],
+      [
+        "Sarah",
+        "Perfect. Short, clear, no fluff. How'd that feel?",
+        "Perfeito. Curto, claro, sem encheção de linguiça. Como foi a sensação?"
+      ],
+      [
+        "Mark",
+        "Way better. I've got this. I just needed to get out of my own head for a second.",
+        "Muito melhor. Tô pronto. Eu só precisava parar de pirar na minha própria cabeça por um segundo."
+      ],
+      [
+        "Sarah",
+        "Told ya. Now grab your laptop before Dave steals the big conference room.",
+        "Te falei. Agora pega teu notebook antes que o Dave pegue a sala de reunião grande."
+      ],
+      [
+        "Mark",
+        "On it! Thanks, Sarah, you're a lifesaver.",
+        "Tô indo! Valeu, Sarah, você salvou minha pele."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Mark estava tendo dificuldades para organizar sua apresentação enquanto dirigia?",
+        "options": [
+          "Ele estava tentando decorar um texto longo palavra por palavra.",
+          "Ele tentava criar frases perfeitas na cabeça em vez de deixar o pensamento fluir.",
+          "Ele perdeu a atenção por causa de uma ligação urgente do Dave.",
+          "Ele não tinha recebido os números do orçamento do terceiro trimestre."
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark conta que travava a cada frase tentando analisar e montar frases perfeitas na cabeça em vez de falar com naturalidade."
+      },
+      {
+        "question": "Qual foi a principal orientação de Sarah para Mark melhorar a fala da apresentação?",
+        "options": [
+          "Falar de forma menos formal e parar de tentar traduzir cada detalhe.",
+          "Apresentar primeiro os prazos do projeto e deixar os números para o final.",
+          "Ler o relatório diretamente do notebook para não esquecer nada.",
+          "Esperar o Dave chegar para decidir o tom da conversa."
+        ],
+        "answerIndex": 0,
+        "explanation": "Sarah aponta que Mark soava como um robô de tão formal e pede para ele parar de traduzir e falar de forma mais natural."
+      },
+      {
+        "question": "O que Mark decide fazer ao final da conversa?",
+        "options": [
+          "Voltar à cafeteria para procurar suas chaves novamente.",
+          "Pedir para Sarah apresentar no lugar dele.",
+          "Pegar o laptop e ir para a sala de reunião antes que seja ocupada.",
+          "Refazer o segundo slide da apresentação no notebook."
+        ],
+        "answerIndex": 2,
+        "explanation": "Ao se sentir confiante ('I've got this'), Mark acata o aviso de Sarah para pegar o notebook e garantir a sala antes de Dave."
+      }
+    ],
+    "n": 49
+  },
+  {
+    "kind": "conversa",
+    "title": "A conversa pós-reunião sobre os sotaques e gírias da equipe global",
+    "why": "Treina a interpretação de conversas em ritmo natural com referências a gírias regionais do inglês ao redor do mundo e hesitações do dia a dia.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Mark",
+        "Man, that Zoom call with the global squad was a complete whirlwind, wasn't it?",
+        "Nossa, aquela reunião no Zoom com a equipe internacional foi um verdadeiro furacão, né?"
+      ],
+      [
+        "Sarah",
+        "Totally! I mean, I love working with people from all over, but my brain is fried after trying to catch every detail.",
+        "Totalmente! Quer dizer, eu amo trabalhar com gente do mundo todo, mas meu cérebro fritou tentando entender cada detalhe."
+      ],
+      [
+        "Mark",
+        "Same here. When Raj was breakin' down the backend architecture, I was really tryin' to focus, but he talks at a hundred miles an hour.",
+        "Comigo também. Quando o Raj tava explicando a arquitetura do sistema, eu tava me esforçando pra focar, mas ele fala a mil por hora."
+      ],
+      [
+        "Sarah",
+        "Oh, Raj is super smart, but his pace is wild! And then Callan interrupted him with that heavy Scottish accent... lemme tell ya, I caught maybe three words.",
+        "Ah, o Raj é inteligente demais, mas o ritmo dele é louco! E aí o Callan interrompeu ele com aquele sotaque escocês super pesado... vou te contar, entendi umas três palavras."
+      ],
+      [
+        "Mark",
+        "Wait, Callan's from Glasgow, right? He kept sayin' 'wee' before every single task. Like, 'it's just a wee tweak'.",
+        "Peraí, o Callan é de Glasgow, né? Ele ficava falando 'wee' antes de qualquer tarefa. Tipo, 'é só um ajuste pequenininho'."
+      ],
+      [
+        "Sarah",
+        "Yeah, 'wee' just means tiny! I actually learned that last year from an Aussie client who lived in Scotland. It's kinda funny how words travel.",
+        "Sim, 'wee' quer dizer pequenininho! Na verdade aprendi isso ano passado com um cliente australiano que morou na Escócia. É meio engraçado como as palavras circulam."
+      ],
+      [
+        "Mark",
+        "That's a new one for me! I was sitting there thinking it was some technical jargon or an acronym we hadn't learned yet.",
+        "Essa é nova pra mim! Eu tava ali sentado achando que era algum jargão técnico ou uma sigla que a gente não tinha visto ainda."
+      ],
+      [
+        "Sarah",
+        "No, no, just slang! But hey, did ya manage to write down what Tobi said about the release date?",
+        "Não, não, só gíria! Mas e aí, cê conseguiu anotar o que o Tobi falou sobre a data de lançamento?"
+      ],
+      [
+        "Mark",
+        "Uh, Tobi... right, from the Lagos office! Man, I love his Nigerian accent, it's got such a nice rhythm, but he said 'we'll fix it now now'.",
+        "Ahn, o Tobi... verdade, do escritório de Lagos! Cara, adoro o sotaque nigeriano dele, tem um ritmo tão legal, mas ele falou 'vamos arrumar isso now now'."
+      ],
+      [
+        "Sarah",
+        "Wait, 'now now'? Does that mean right this second, or like... later today?",
+        "Pera, 'now now'? Isso significa neste exato segundo ou tipo... mais tarde hoje?"
+      ],
+      [
+        "Mark",
+        "That's what confused me! Bear with me, I'm still learning how different teams express urgency, but I think 'now now' means shortly, not immediately.",
+        "Foi isso que me confundiu! Dá um desconto, ainda tô aprendendo como equipes diferentes expressam urgência, mas acho que 'now now' significa em breve, não imediatamente."
+      ],
+      [
+        "Sarah",
+        "Hold on, lemme look at my notes. Tobi also mentioned that Chloe, from Sydney, is gonna review the code first.",
+        "Peraí, deixa eu olhar minhas anotações. O Tobi também mencionou que a Chloe, lá de Sydney, vai revisar o código primeiro."
+      ],
+      [
+        "Mark",
+        "Ah, Chloe! Her Aussie accent is usually pretty clear to me, but she uses 'arvo' all the time. 'I'll check it this arvo'.",
+        "Ah, a Chloe! O sotaque australiano dela costuma ser bem claro pra mim, mas ela usa 'arvo' o tempo todo. 'Vou checar isso nesta arvo'."
+      ],
+      [
+        "Sarah",
+        "Right! 'Arvo' is afternoon! Did I get that right, or am I mixing up her slang with someone else's?",
+        "Isso! 'Arvo' é tarde! Acertei ou tô confundindo a gíria dela com a de outra pessoa?"
+      ],
+      [
+        "Mark",
+        "You got it right! 'Arvo' is afternoon, 'brekkie' is breakfast... I spent a month in Melbourne two years ago, so some of those stuck with me.",
+        "Mandou bem, é isso mesmo! 'Arvo' é tarde, 'brekkie' é café da manhã... passei um mês em Melbourne dois anos atrás, então algumas grudaram na minha cabeça."
+      ],
+      [
+        "Sarah",
+        "Must be nice! Honestly, I'm not familiar with that expression at all. Everyday English in international teams is like a whole new language.",
+        "Que beleza! Sinceramente, não tô familiarizada com essa expressão de jeito nenhum. Inglês do dia a dia em equipes internacionais é tipo um idioma totalmente novo."
+      ],
+      [
+        "Mark",
+        "Tell me about it. I mean, we learn standard textbook American English, and then boom, you're on a call with five continents at once.",
+        "Nem me fala. Quer dizer, a gente aprende inglês americano padrão de livro, e aí do nada você tá numa chamada com cinco continentes ao mesmo tempo."
+      ],
+      [
+        "Sarah",
+        "Exactly! Like, when Raj said 'do one thing', he didn't mean literally one thing, it's just a filler phrase they use in India before making a suggestion.",
+        "Exatamente! Tipo, quando o Raj disse 'do one thing', ele não quis dizer literalmente faça uma coisa, é só uma expressão de transição que eles usam na Índia antes de dar uma sugestão."
+      ],
+      [
+        "Mark",
+        "Wait, really? Wow, I totally misinterpreted that. I thought he was giving me a single directive!",
+        "Pera, sério? Nossa, interpretei totalmente errado. Achei que ele tava me dando uma ordem única!"
+      ],
+      [
+        "Sarah",
+        "Nope! He was just saying 'here's a suggestion'. So, wanna divide up the recap email so we don't look completely lost?",
+        "Nada! Ele só tava dizendo 'aqui vai uma sugestão'. E aí, quer dividir o e-mail de resumo pra gente não parecer totalmente perdido?"
+      ],
+      [
+        "Mark",
+        "Yeah, good idea. You handle Callan's points from Scotland and Chloe's from Australia, and I'll cover Raj and Tobi.",
+        "É, boa ideia. Você cuida dos pontos do Callan da Escócia e da Chloe da Austrália, e eu cubro o Raj e o Tobi."
+      ],
+      [
+        "Mark",
+        "Wait, scratch that... maybe we should quickly ping Tobi on Slack just to double check if 'now now' meant today or tomorrow.",
+        "Pera, cancela... talvez a gente devesse mandar uma mensagem rápida pro Tobi no Slack só pra confirmar se 'now now' era pra hoje ou amanhã."
+      ],
+      [
+        "Sarah",
+        "Good call. I'll send him a message right now, and I'll ask Chloe about her time zone schedule too.",
+        "Boa. Vou mandar uma mensagem pra ele agora mesmo e já pergunto pra Chloe sobre o horário do fuso dela também."
+      ],
+      [
+        "Mark",
+        "Awesome. Hey, thanks for helping me unpack all this. It's kinda chaotic, but honestly? I love hearing all these different accents.",
+        "Show. Ei, valeu por me ajudar a desembolar tudo isso. É meio caótico, mas pra ser sincero? Adoro ouvir todos esses sotaques diferentes."
+      ],
+      [
+        "Sarah",
+        "Me too! It's challenging, but it makes the job way more interesting than just talking to people from Ohio.",
+        "Eu também! É desafiador, mas deixa o trabalho muito mais interessante do que só falar com gente de Ohio."
+      ],
+      [
+        "Mark",
+        "Haha, true that! Alright, lemme finish my coffee and then we'll draft that recap.",
+        "Haha, pura verdade! Beleza, deixa eu terminar meu café e aí a gente rascunha esse resumo."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Mark ficou confuso quando Callan usou a palavra 'wee' durante a reunião?",
+        "options": [
+          "Porque achou que Callan estava usando um termo técnico ou uma sigla que ele ainda não conhecia.",
+          "Porque achou que Callan estava falando em outro idioma por causa do sotaque escocês carregado.",
+          "Porque a palavra 'wee' significava algo completamente diferente no inglês australiano.",
+          "Porque não entendeu se a tarefa mencionada era urgente ou se podia ser feita depois."
+        ],
+        "answerIndex": 0,
+        "explanation": "Mark pensou que 'wee' era um jargão técnico ou sigla, até Sarah explicar que era apenas uma gíria escocesa para 'pequeno'."
+      },
+      {
+        "question": "De acordo com Sarah, o que Raj quis dizer ao usar a expressão 'do one thing'?",
+        "options": [
+          "Ele estava dando uma ordem direta para realizar uma única tarefa prioritária.",
+          "Ele estava pedindo desculpas por ter interrompido a explicação do colega.",
+          "Ele estava usando uma expressão comum na Índia para introduzir uma sugestão.",
+          "Ele estava avisando que a equipe deveria focar em um único país por vez."
+        ],
+        "answerIndex": 2,
+        "explanation": "Sarah explica que 'do one thing' na Índia é uma frase usada para introduzir uma sugestão, e não uma ordem literal."
+      },
+      {
+        "question": "Qual decisão Mark e Sarah tomam antes de finalizar o e-mail de resumo?",
+        "options": [
+          "Marcar uma nova chamada no Zoom com toda a equipe global.",
+          "Mandar uma mensagem no Slack para Tobi para confirmar o prazo exato.",
+          "Pedir para Chloe redigir o resumo por causa do fuso horário.",
+          "Pesquisar o significado das gírias australianas em um dicionário online."
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark sugere enviar uma mensagem rápida no Slack para Tobi para tirar a dúvida sobre o prazo de 'now now'."
+      }
+    ],
+    "n": 50
   }
 ]
