@@ -8,7 +8,7 @@ import {
 import { analyzeSpeaking, normalizeAudioMime } from "@/lib/gemini/speaking";
 import { createAdminSupabase } from "@/lib/supabase/admin";
 import { createServerSupabase } from "@/lib/supabase/server";
-import { chunkKey } from "@/lib/srs";
+import { chunksSpokenIn } from "@/lib/srs";
 import type { CefrLevel, Chunk } from "@/lib/types/database";
 
 export const runtime = "nodejs";
@@ -19,38 +19,6 @@ const ALLOWED_MIME = /^audio\/(webm|mp4|mpeg|mp3|wav|ogg|aac|x-m4a|m4a)\b/i;
 
 function bad(message: string, status = 400) {
   return NextResponse.json({ error: message }, { status });
-}
-
-/** Normaliza para comparar fala transcrita com o bloco escrito. */
-function normalize(text: string) {
-  return text
-    .toLowerCase()
-    .replace(/['’]/g, "")
-    .replace(/[^a-z0-9\s]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-/**
- * Quais blocos do circuito o aluno REALMENTE falou nesta gravação.
- *
- * O SRS só promove um bloco a "dominado" depois de produzido em voz alta, e
- * essa é a única evidência honesta disso que temos: a transcrição do que saiu
- * da boca dele, não a de o que ele deveria ter dito. Por isso a comparação é
- * contra `transcript` e nunca contra `corrected_text`.
- */
-function chunksSpokenIn(transcript: string, chunks: Chunk[]): string[] {
-  const said = normalize(transcript);
-  if (!said) return [];
-
-  return chunks
-    .filter((chunk) => {
-      // A parte fixa do molde é o que importa; o "___" é a peça que varia.
-      const core = normalize(chunk.en.replace(/_+/g, " "));
-      if (core.length < 6) return false;
-      return said.includes(core);
-    })
-    .map((chunk) => chunkKey(chunk.en));
 }
 
 export async function POST(request: NextRequest) {

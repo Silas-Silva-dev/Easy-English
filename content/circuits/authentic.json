@@ -6933,5 +6933,179 @@
       }
     ],
     "n": 43
+  },
+  {
+    "kind": "conversa",
+    "title": "A análise do feedback após a apresentação de vendas",
+    "why": "Prepara você para entender o ritmo acelerado de uma discussão pós-reunião, com imprevistos reais, interrupções e linguagem corporativa informal.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Sarah",
+        "Hey, Mark, standard walk-through or did you completely wing that second half?",
+        "Ei, Mark, você seguiu o roteiro padrão ou improvisou totalmente a segunda metade?"
+      ],
+      [
+        "Mark",
+        "Uh, honest truth? I kinda panicked when the projector froze.",
+        "Uh, sendo sincero? Eu meio que entrei em pânico quando o projetor travou."
+      ],
+      [
+        "Sarah",
+        "I noticed! You jumped straight from the budget overview to the final slide.",
+        "Eu percebi! Você pulou direto da visão geral do orçamento pro último slide."
+      ],
+      [
+        "Mark",
+        "I know, I know! I mean, I wanted to walk 'em through the numbers, but...",
+        "Eu sei, eu sei! Quero dizer, eu queria detalhar os números pra eles, mas..."
+      ],
+      [
+        "Sarah",
+        "You skipped the whole user retention breakdown! Dave was looking super confused.",
+        "Você pulou toda a análise de retenção de usuários! O Dave tava com uma cara de perdido."
+      ],
+      [
+        "Mark",
+        "Gosh, really? Lemme check my notes... yeah, I had two entire charts on that.",
+        "Nossa, sério? Deixa eu ver minhas anotações... é, eu tinha dois gráficos inteiros sobre isso."
+      ],
+      [
+        "Sarah",
+        "Look, the key takeaway is that you survived, but you gotta handle curveballs better.",
+        "Olha, o ponto principal é que você sobreviveu, mas precisa lidar melhor com imprevistos."
+      ],
+      [
+        "Mark",
+        "Right. I mean, first of all, the remote wasn't responding at all.",
+        "Pois é. Quero dizer, pra começar, o controle não tava respondendo de jeito nenhum."
+      ],
+      [
+        "Sarah",
+        "Sure, tech glitches happen all the time. Next time, just pause and take a breath.",
+        "Claro, falhas técnicas acontecem o tempo todo. Na próxima vez, só dá uma pausa e respira."
+      ],
+      [
+        "Mark",
+        "I guess I was just wanna get it over with, you know?",
+        "Acho que eu só queria acabar logo com aquilo, sabe?"
+      ],
+      [
+        "Sarah",
+        "Totally got that vibe. And when Lisa asked about ROI, you froze again.",
+        "Deu pra perceber totalmente esse clima. E quando a Lisa perguntou sobre o retorno, você travou de novo."
+      ],
+      [
+        "Mark",
+        "Well, she interrupted me right when I was about to say, 'in a nutshell'!",
+        "Poxa, ela me interrompeu bem na hora que eu ia resumir a ideia!"
+      ],
+      [
+        "Sarah",
+        "Mark, stakeholders always interrupt. You gotta pivot without losing your cool.",
+        "Mark, investidores sempre interrompem. Você tem que mudar o foco sem perder a calma."
+      ],
+      [
+        "Mark",
+        "Yeah, you're right. I should've said, 'I'd be happy to take questions at the end'.",
+        "É, você tá certa. Eu deveria ter dito: 'vou responder às perguntas com prazer no final'."
+      ],
+      [
+        "Sarah",
+        "Exactly. Or address her point in ten seconds and bounce right back.",
+        "Exato. Ou responder ao ponto dela em dez segundos e voltar imediatamente pro assunto."
+      ],
+      [
+        "Mark",
+        "So, do you think we lost the deal because of my rambling?",
+        "Então, você acha que a gente perdeu o negócio por causa da minha enrolação?"
+      ],
+      [
+        "Sarah",
+        "Nah, not necessarily. The core offer is still solid.",
+        "Nãaa, não necessariamente. A proposta principal ainda é muito sólida."
+      ],
+      [
+        "Mark",
+        "Whew. That's a relief. But we gotta follow up with Dave, right?",
+        "Uf. Que alívio. Mas a gente precisa dar um retorno pro Dave, né?"
+      ],
+      [
+        "Sarah",
+        "Yep. Send him a quick recap email with the missing slides attached.",
+        "Sim. Manda um e-mail de resumo rápido pra ele com os slides que faltaram em anexo."
+      ],
+      [
+        "Mark",
+        "Gonna do that right now before I forget the details.",
+        "Vou fazer isso agora mesmo antes que eu esqueça os detalhes."
+      ],
+      [
+        "Sarah",
+        "Good idea. And hey, your opening story? That was actually pretty neat.",
+        "Boa ideia. E ei, a sua história de abertura? Aquela foi bem legal, na verdade."
+      ],
+      [
+        "Mark",
+        "Thanks! I worked on that hook for like three days.",
+        "Valeu! Eu trabalhei naquele gancho por uns três dias."
+      ],
+      [
+        "Sarah",
+        "It showed! Just gotta keep that same confidence when things derail.",
+        "Deu pra ver! Só precisa manter essa mesma confiança quando as coisas saírem do trilho."
+      ],
+      [
+        "Mark",
+        "Got it. Next time I'll keep my composure, no matter what.",
+        "Entendi. Na próxima vez vou manter a postura, não importa o que aconteça."
+      ],
+      [
+        "Sarah",
+        "That's the spirit. Now go draft that email to Dave.",
+        "Esse é o espírito. Agora vai lá redigir esse e-mail pro Dave."
+      ],
+      [
+        "Mark",
+        "On it. Lemme grab another coffee first though!",
+        "Tô nisso. Mas deixa eu pegar outro café primeiro!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Mark pulou a seção sobre retenção de usuários durante a apresentação?",
+        "options": [
+          "Ele se apavorou quando o projetor travou e pulou para o último slide.",
+          "Dave pediu expressamente para ignorar aquela parte do relatório.",
+          "Ele esqueceu de incluir esses dados nas anotações de estudo.",
+          "Lisa o interrompeu e mandou encerrar a reunião mais cedo."
+        ],
+        "answerIndex": 0,
+        "explanation": "Mark admite ter entrado em pânico quando o projetor travou, o que o fez pular direto do orçamento para o slide final."
+      },
+      {
+        "question": "Qual conselho principal Sarah dá sobre como reagir a interrupções de investidores?",
+        "options": [
+          "Pedir para reagendar a reunião quando alguém fizer perguntas difíceis.",
+          "Adaptar o foco rapidamente sem perder a calma e retomar o raciocínio.",
+          "Ignorar as perguntas e continuar lendo o slide até o final.",
+          "Delegar a resposta para outro colega de equipe imediatamente."
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah explica que investidores sempre interrompem e que ele deve saber mudar o foco ('pivot') sem perder a compostura."
+      },
+      {
+        "question": "Qual é a ação imediata sugerida por Sarah para reparar a omissão de dados com Dave?",
+        "options": [
+          "Marcar uma nova apresentação presencial no dia seguinte.",
+          "Ligar para Dave e pedir desculpas pelo erro técnico.",
+          "Enviar um e-mail com um resumo e os slides faltantes anexados.",
+          "Reescrever toda a proposta comercial do zero."
+        ],
+        "answerIndex": 2,
+        "explanation": "Sarah sugere mandar um e-mail de resumo rápido anexando os dois gráficos de retenção que não foram exibidos."
+      }
+    ],
+    "n": 45
   }
 ]

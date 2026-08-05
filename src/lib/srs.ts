@@ -51,6 +51,42 @@ export function chunkKey(en: string): string {
     .replace(/^-|-$/g, "");
 }
 
+/** Normaliza para comparar fala transcrita com o bloco escrito. */
+function normalizeSpoken(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9\s]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * Quais blocos do circuito o aluno REALMENTE falou numa gravação.
+ *
+ * O SRS só promove um bloco a "dominado" depois de produzido em voz alta, e
+ * essa é a única evidência honesta disso que temos: a transcrição do que saiu
+ * da boca dele, não a de o que ele deveria ter dito. Por isso a comparação é
+ * contra `transcript` e nunca contra `corrected_text`.
+ *
+ * Mora aqui, e não na rota, porque a regra precisa ser executável fora do Next:
+ * é ela que revela se trocar o modelo de transcrição muda o que o aluno recebe
+ * como "dominado" — uma quebra que não gera erro nenhum.
+ */
+export function chunksSpokenIn(transcript: string, chunks: { en: string }[]): string[] {
+  const said = normalizeSpoken(transcript);
+  if (!said) return [];
+
+  return chunks
+    .filter((chunk) => {
+      // A parte fixa do molde é o que importa; o "___" é a peça que varia.
+      const core = normalizeSpoken(chunk.en.replace(/_+/g, " "));
+      if (core.length < 6) return false;
+      return said.includes(core);
+    })
+    .map((chunk) => chunkKey(chunk.en));
+}
+
 /**
  * Converte a nota 0-10 da tutora na escala 0-5 do SM-2.
  *

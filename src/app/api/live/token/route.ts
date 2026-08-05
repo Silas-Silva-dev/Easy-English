@@ -16,6 +16,13 @@ export const runtime = "nodejs";
 const schema = z.object({
   lessonId: z.string().uuid().nullish(),
   scenario: z.string().trim().max(4000).nullish(),
+  /**
+   * Handle de retomada devolvido pelo servidor na sessão anterior. Com token
+   * efêmero, a config das `liveConnectConstraints` PREVALECE sobre a que o
+   * cliente envia no connect: passar o handle só no browser não retoma nada
+   * (verificado contra a API). Por isso ele sobe até aqui.
+   */
+  resumeHandle: z.string().trim().max(512).nullish(),
 });
 
 const LEVEL_PACE: Record<string, string> = {
@@ -161,6 +168,13 @@ ${BRAZILIAN_INTERFERENCE_GUIDE}
             speechConfig: {
               voiceConfig: { prebuiltVoiceConfig: { voiceName: "Aoede" } },
             },
+            // Habilita os handles de retomada. O servidor encerra a sessão por
+            // volta dos 10 min (e antes disso se o áudio parar de fluir); sem
+            // isto, a reconexão do cliente começaria uma conversa em branco e a
+            // tutora esqueceria tudo o que o aluno tinha acabado de dizer.
+            sessionResumption: parsed.data.resumeHandle
+              ? { handle: parsed.data.resumeHandle }
+              : {},
           },
         },
       },

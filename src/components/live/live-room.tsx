@@ -16,6 +16,22 @@ const INPUT_RATE = 16000;
 const OUTPUT_RATE = 24000;
 
 /**
+ * O servidor encerra a sessão sozinho por volta dos 10 minutos: manda `goAway`
+ * avisando quantos segundos restam e, se o cliente não reabrir a conexão,
+ * derruba com "client failed to close the connection after receiving a GoAway
+ * signal". A mesma queda acontece por inatividade quando o aluno fica mudo por
+ * ~3 minutos, aí sem aviso nenhum.
+ *
+ * Antes disto a aula simplesmente acabava: o `onclose` voltava a tela para
+ * "idle" em silêncio, e o aluno achava que tinha travado. Agora abrimos a
+ * conexão nova ANTES de fechar a velha (make-before-break) e retomamos o
+ * contexto pelo handle de `sessionResumption`, de modo que a Emma continua a
+ * conversa de onde parou.
+ */
+const MAX_RECONEXOES = 4;
+const BACKOFF_RECONEXAO_MS = 800;
+
+/**
  * Worklet de captura: converte Float32 do microfone em PCM 16-bit e envia
  * ao thread principal em blocos de ~64 ms.
  *
@@ -115,6 +131,29 @@ export function LiveRoom({
   const partialUserRef = React.useRef("");
   const partialModelRef = React.useRef("");
 
+  // ------------------------------------------------------------- reconexão
+  const [reconectando, setReconectando] = React.useState(false);
+  /** Handle devolvido pelo servidor para retomar o contexto da conversa. */
+  const resumeHandleRef = React.useRef<string | null>(null);
+  /** Só a sessão "ativa" processa callbacks: a antiga vira inerte na troca. */
+  const activeIdRef = React.useRef(0);
+  const idCounterRef = React.useRef(0);
+  const reconectandoRef = React.useRef(false);
+  const tentativasRef = React.useRef(0);
+  /** O aluno pediu para encerrar: uma queda aqui não deve reconectar. */
+  const encerrandoRef = React.useRef(false);
+  /**
+   * `stop()` é recriada a cada render, mas os callbacks da sessão guardam a
+   * versão do render em que a conexão abriu. Sem espelhar em ref, o `turns`
+   * lido no encerramento seria sempre o do início (vazio) e a conversa não
+   * chegaria a ser salva.
+   */
+  const turnsRef = React.useRef<Turn[]>([]);
+  /** Quebram o ciclo: `handleMessage` precisa reconectar, e reconectar usa `handleMessage`. */
+  const reconectarRef = React.useRef<((motivo: string) => Promise<void>) | null>(null);
+  const quedaRef = React.useRef<((motivo: string) => Promise<void>) | null>(null);
+  const stopRef = React.useRef<(() => Promise<void>) | null>(null);
+
   React.useEffect(() => {
     mutedRef.current = muted;
   }, [muted]);
@@ -135,7 +174,22 @@ export function LiveRoom({
     setSpeaking(false);
   }, []);
 
-  React.useEffect(() => cleanup, [cleanup]);
+  React.useEffect(() => {
+    return () => {
+      // O aluno saiu da tela: encerra de vez. Sem marcar o encerramento, o
+      // `onclose` da sessão entenderia isso como queda e tentaria reconectar
+      // um componente que já não existe.
+      encerrandoRef.current = true;
+      activeIdRef.current = 0;
+      try {
+        sessionRef.current?.close();
+      } catch {
+        // já fechada
+      }
+      sessionRef.current = null;
+      cleanup();
+    };
+  }, [cleanup]);
 
   /** Enfileira o áudio recebido para tocar sem sobreposição nem lacuna. */
   const enqueueAudio = React.useCallback((pcm: Int16Array) => {
@@ -163,8 +217,39 @@ export function LiveRoom({
     };
   }, []);
 
+  /** Fecha os parciais pendentes como um turno, para não perder fala na troca. */
+  const flushParciais = React.useCallback(() => {
+    const user = partialUserRef.current.trim();
+    const model = partialModelRef.current.trim();
+    partialUserRef.current = "";
+    partialModelRef.current = "";
+    if (!user && !model) return;
+
+    setTurns((prev) => {
+      const next = [...prev];
+      if (user) next.push({ role: "user", text: user, at: Date.now() });
+      if (model) next.push({ role: "model", text: model, at: Date.now() });
+      turnsRef.current = next;
+      return next;
+    });
+  }, []);
+
   const handleMessage = React.useCallback(
     (message: LiveServerMessage) => {
+      // Guardar o handle mais recente é o que permite retomar o contexto: sem
+      // ele a reconexão abriria uma conversa em branco e a Emma "esqueceria"
+      // tudo o que o aluno acabou de dizer.
+      const resumo = message.sessionResumptionUpdate;
+      if (resumo?.resumable && resumo.newHandle) {
+        resumeHandleRef.current = resumo.newHandle;
+      }
+
+      // Aviso de que o servidor vai encerrar. Temos alguns segundos: usa-os
+      // para abrir a próxima conexão antes que esta caia.
+      if (message.goAway) {
+        void reconectarRef.current?.("goAway");
+      }
+
       const content = message.serverContent;
       if (!content) return;
 
@@ -181,19 +266,7 @@ export function LiveRoom({
       const outputText = content.outputTranscription?.text;
       if (outputText) partialModelRef.current += outputText;
 
-      if (content.turnComplete) {
-        const user = partialUserRef.current.trim();
-        const model = partialModelRef.current.trim();
-        partialUserRef.current = "";
-        partialModelRef.current = "";
-
-        setTurns((prev) => {
-          const next = [...prev];
-          if (user) next.push({ role: "user", text: user, at: Date.now() });
-          if (model) next.push({ role: "model", text: model, at: Date.now() });
-          return next;
-        });
-      }
+      if (content.turnComplete) flushParciais();
 
       if (content.interrupted) {
         // O aluno falou por cima: descarta o que estava na fila.
@@ -201,26 +274,153 @@ export function LiveRoom({
         setSpeaking(false);
       }
     },
-    [enqueueAudio],
+    [enqueueAudio, flushParciais],
   );
+
+  /**
+   * Abre uma sessão. O token efêmero é de uso único, então toda reconexão pede
+   * um novo ao servidor — é uma chamada à nossa própria API, e o aviso de
+   * `goAway` dá folga de sobra para fazer isso antes da queda.
+   */
+  const abrirSessao = React.useCallback(
+    async (handle: string | null): Promise<Session> => {
+      // O handle vai para o SERVIDOR, não para o `connect` abaixo: com token
+      // efêmero é a config das `liveConnectConstraints` que vale, e um handle
+      // enviado só daqui é silenciosamente ignorado.
+      const tokenResponse = await fetch("/api/live/token", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ lessonId, scenario, resumeHandle: handle }),
+      });
+      const tokenPayload = await tokenResponse.json();
+      if (!tokenResponse.ok) throw new Error(tokenPayload?.error ?? "Falha ao obter acesso");
+
+      const ai = new GoogleGenAI({
+        apiKey: tokenPayload.token,
+        httpOptions: { apiVersion: "v1alpha" },
+      });
+
+      const id = ++idCounterRef.current;
+
+      return ai.live.connect({
+        model: tokenPayload.model,
+        config: {
+          responseModalities: [Modality.AUDIO],
+          // Pedir resumption já na primeira sessão: é assim que o servidor
+          // passa a emitir os handles que a próxima conexão vai usar. O handle
+          // em si já foi aplicado no token, acima.
+          sessionResumption: {},
+        },
+        callbacks: {
+          onopen: () => {
+            // A partir daqui esta é a sessão ativa; a anterior fica inerte.
+            activeIdRef.current = id;
+            setPhase("live");
+          },
+          onmessage: (message: LiveServerMessage) => {
+            if (id !== activeIdRef.current) return;
+            handleMessage(message);
+          },
+          onerror: (event: ErrorEvent) => {
+            if (id !== activeIdRef.current) return;
+            void quedaRef.current?.(event.message || "erro na conexão de voz");
+          },
+          onclose: () => {
+            if (id !== activeIdRef.current) return;
+            void quedaRef.current?.("conexão encerrada pelo servidor");
+          },
+        },
+      });
+    },
+    [handleMessage, lessonId, scenario],
+  );
+
+  /**
+   * Troca de conexão sem o aluno perceber: abre a nova, redireciona o
+   * microfone (o worklet lê `sessionRef` a cada bloco) e só então fecha a
+   * velha. Se a nova falhar, a antiga continua no ar.
+   */
+  const reconectar = React.useCallback(
+    async (motivo: string): Promise<void> => {
+      if (reconectandoRef.current || encerrandoRef.current) return;
+      if (tentativasRef.current >= MAX_RECONEXOES) return;
+
+      reconectandoRef.current = true;
+      tentativasRef.current += 1;
+      setReconectando(true);
+
+      const anterior = sessionRef.current;
+
+      try {
+        // O que estava sendo dito fica registrado antes da troca.
+        flushParciais();
+
+        const nova = await abrirSessao(resumeHandleRef.current);
+        sessionRef.current = nova;
+
+        try {
+          anterior?.close();
+        } catch {
+          // já fechada pelo servidor
+        }
+
+        tentativasRef.current = 0;
+      } catch (error) {
+        console.error(`[live] reconexão falhou (${motivo}):`, error);
+
+        if (tentativasRef.current >= MAX_RECONEXOES) {
+          setError(
+            "A conexão de voz caiu e não voltou. Sua conversa até aqui foi salva: comece de novo quando quiser.",
+          );
+          reconectandoRef.current = false;
+          setReconectando(false);
+          await stopRef.current?.();
+          return;
+        }
+
+        // Nova tentativa com espera crescente.
+        const espera = BACKOFF_RECONEXAO_MS * 2 ** (tentativasRef.current - 1);
+        reconectandoRef.current = false;
+        setTimeout(() => void reconectarRef.current?.(motivo), espera);
+        return;
+      }
+
+      reconectandoRef.current = false;
+      setReconectando(false);
+    },
+    [abrirSessao, flushParciais],
+  );
+
+  /** Queda da sessão ativa: reconecta, a não ser que tenha sido o aluno. */
+  const queda = React.useCallback(
+    async (motivo: string): Promise<void> => {
+      if (encerrandoRef.current) return;
+      await reconectar(motivo);
+    },
+    [reconectar],
+  );
+
+  React.useEffect(() => {
+    reconectarRef.current = reconectar;
+    quedaRef.current = queda;
+  }, [reconectar, queda]);
 
   async function start() {
     setError(null);
     setPhase("connecting");
     setTurns([]);
+    turnsRef.current = [];
     setSeconds(0);
 
-    try {
-      // 1. Token efêmero: a chave real nunca chega ao browser.
-      const tokenResponse = await fetch("/api/live/token", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lessonId, scenario }),
-      });
-      const tokenPayload = await tokenResponse.json();
-      if (!tokenResponse.ok) throw new Error(tokenPayload?.error ?? "Falha ao obter acesso");
+    encerrandoRef.current = false;
+    reconectandoRef.current = false;
+    tentativasRef.current = 0;
+    resumeHandleRef.current = null;
+    partialUserRef.current = "";
+    partialModelRef.current = "";
 
-      // 2. Microfone
+    try {
+      // 1. Microfone
       const stream = await navigator.mediaDevices.getUserMedia({
         audio: {
           echoCancellation: true,
@@ -231,7 +431,7 @@ export function LiveRoom({
       });
       streamRef.current = stream;
 
-      // 3. Contextos de áudio
+      // 2. Contextos de áudio
       const inCtx = new AudioContext({ sampleRate: INPUT_RATE });
       const outCtx = new AudioContext({ sampleRate: OUTPUT_RATE });
       inCtxRef.current = inCtx;
@@ -243,31 +443,11 @@ export function LiveRoom({
       workletUrlRef.current = workletUrl;
       await inCtx.audioWorklet.addModule(workletUrl);
 
-      // 4. Sessão ao vivo
-      const ai = new GoogleGenAI({
-        apiKey: tokenPayload.token,
-        httpOptions: { apiVersion: "v1alpha" },
-      });
+      // 3. Sessão ao vivo (o token efêmero é pedido dentro de `abrirSessao`,
+      //    para que reconectar use exatamente o mesmo caminho da 1ª conexão).
+      sessionRef.current = await abrirSessao(null);
 
-      const session = await ai.live.connect({
-        model: tokenPayload.model,
-        config: { responseModalities: [Modality.AUDIO] },
-        callbacks: {
-          onopen: () => setPhase("live"),
-          onmessage: handleMessage,
-          onerror: (event: ErrorEvent) => {
-            setError(event.message || "Erro na conexão de voz");
-            void stop();
-          },
-          onclose: () => {
-            setPhase((p) => (p === "closing" ? p : "idle"));
-            cleanup();
-          },
-        },
-      });
-      sessionRef.current = session;
-
-      // 5. Microfone -> sessão
+      // 4. Microfone -> sessão
       const source = inCtx.createMediaStreamSource(stream);
       const node = new AudioWorkletNode(inCtx, "capture-processor");
 
@@ -311,7 +491,13 @@ export function LiveRoom({
   }
 
   async function stop() {
+    // Sinaliza ANTES de fechar: sem isto o `onclose` da sessão entenderia o
+    // encerramento como queda e abriria uma reconexão órfã.
+    encerrandoRef.current = true;
+    activeIdRef.current = 0;
+
     setPhase("closing");
+    setReconectando(false);
     const duration = Math.round((Date.now() - startedAtRef.current) / 1000);
 
     try {
@@ -320,9 +506,12 @@ export function LiveRoom({
       // já fechada
     }
     sessionRef.current = null;
+    flushParciais();
     cleanup();
 
-    const finalTurns = turns;
+    // Da ref, não do estado: quando o encerramento parte de um callback da
+    // sessão, o `turns` capturado no closure é o do início da conversa.
+    const finalTurns = turnsRef.current;
     if (finalTurns.length >= 2) {
       const result = await saveLiveSessionAction({
         lessonId: lessonId ?? null,
@@ -338,6 +527,12 @@ export function LiveRoom({
 
     setPhase("idle");
   }
+
+  // Em efeito, não no corpo do render: escrever em ref durante a renderização
+  // não é seguro sob renderização concorrente.
+  React.useEffect(() => {
+    stopRef.current = stop;
+  });
 
   const mmss = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 
@@ -380,6 +575,14 @@ export function LiveRoom({
             {phase === "live" ? (
               <>
                 <p className="text-2xl font-semibold tabular-nums">{mmss}</p>
+                {reconectando ? (
+                  // Discreto de propósito: a conversa não parou, só a conexão
+                  // está sendo trocada por baixo.
+                  <p className="text-muted-foreground mt-1 flex items-center justify-center gap-1.5 text-xs">
+                    <Loader2 className="size-3 animate-spin" />
+                    Reconectando… pode continuar falando
+                  </p>
+                ) : null}
                 <Badge variant={speaking ? "default" : "neutral"} className="mt-2">
                   {speaking ? "Emma está falando" : "Sua vez: fale"}
                 </Badge>
