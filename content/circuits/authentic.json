@@ -4855,5 +4855,1561 @@
       }
     ],
     "n": 30
+  },
+  {
+    "kind": "conversa",
+    "title": "Tentando um lugar na lista de espera após o atraso da conexão",
+    "why": "Treina a compreensão de termos reais do aeroporto (standby, gate-check, vouchers) e fala rápida com imprevistos operacionais.",
+    "minutes": 3,
+    "lines": [
+      [
+        "David",
+        "Excuse me, Elena? I was told to come straight here from gate B4.",
+        "Com licença, Elena? Me disseram para vir direto do portão B4."
+      ],
+      [
+        "Elena",
+        "Oh, right, David, correct? Lemme check your boarding pass real quick.",
+        "Ah, sim, David, certo? Deixa eu ver seu cartão de embarque bem rapidinho."
+      ],
+      [
+        "David",
+        "Yeah, my flight to Chicago got delayed, and... well, I'm kinda freaking out about my baggage.",
+        "É, meu voo pra Chicago atrasou e... bom, tô meio em pânico com a minha bagagem."
+      ],
+      [
+        "Elena",
+        "Okay, hang on. So, your original flight is stuck on the tarmac in Atlanta.",
+        "Tá, espera aí. Então, seu voo original tá preso na pista em Atlanta."
+      ],
+      [
+        "David",
+        "Right, and the guy at the counter said I could maybe get on this one?",
+        "Isso, e o cara no balcão disse que talvez eu conseguisse entrar neste?"
+      ],
+      [
+        "Elena",
+        "Well, we're currently on a delay here too, but you're listed as standby.",
+        "Bom, a gente tá com atraso aqui também, mas você tá na lista de espera."
+      ],
+      [
+        "David",
+        "Standby? Wait, I thought I had a confirmed seat!",
+        "Standby? Peraí, eu achei que tinha um assento confirmado!"
+      ],
+      [
+        "Elena",
+        "I know, I get it, but since you missed the automated check-in window, the system released it.",
+        "Eu sei, eu entendo, mas como você perdeu o prazo do check-in automático, o sistema liberou."
+      ],
+      [
+        "David",
+        "Uh, nobody told me that... Is there any chance I'll actually make it on?",
+        "É... ninguém me falou isso. Tem alguma chance de eu realmente conseguir embarcar?"
+      ],
+      [
+        "Elena",
+        "Honestly? We've got like three open seats in coach and two people ahead of you.",
+        "Sendo sincera? A gente tem tipo três assentos vagos na econômica e duas pessoas na sua frente."
+      ],
+      [
+        "David",
+        "Oh man... What about my checked bag? Is it gonna end up in Chicago before me?",
+        "Nossa... E a minha mala despachada? Vai acabar indo pra Chicago antes de mim?"
+      ],
+      [
+        "Elena",
+        "Nope, security rules say your bag won't travel without you on domestic routes.",
+        "Não, pelas regras de segurança, sua mala não viaja sem você em voos domésticos."
+      ],
+      [
+        "David",
+        "Okay, well, that's a relief at least, I guess.",
+        "Tá, bom, pelo menos isso é um alívio, eu acho."
+      ],
+      [
+        "Elena",
+        "Look, if you don't get on this flight, I can issue a meal voucher while you wait.",
+        "Olha, se você não entrar neste voo, eu posso emitir um voucher de refeição enquanto espera."
+      ],
+      [
+        "David",
+        "A voucher? Like for the food court near gate C10?",
+        "Um voucher? Tipo pra praça de alimentação perto do portão C10?"
+      ],
+      [
+        "Elena",
+        "Yeah, exactly. It covers up to fifteen bucks at most spots.",
+        "Isso, exatamente. Cobre até quinze dólares na maioria dos lugares."
+      ],
+      [
+        "David",
+        "Alright, and what about the next flight after this one?",
+        "Beleza, e quanto ao próximo voo depois deste?"
+      ],
+      [
+        "Elena",
+        "There's one at six p.m., but it's pretty packed too because of the weather.",
+        "Tem um às seis da tarde, mas tá bem cheio também por causa do clima."
+      ],
+      [
+        "David",
+        "I mean, I really can't miss this meeting tomorrow morning.",
+        "É que... eu realmente não posso perder essa reunião amanhã de manhã."
+      ],
+      [
+        "Elena",
+        "I hear ya. Tell you what, lemme talk to my supervisor, Marcus.",
+        "Entendo perfeitamente. Sabe de uma coisa? Deixa eu falar com meu supervisor, o Marcus."
+      ],
+      [
+        "David",
+        "Oh, thanks. I really appreciate you trying to figure this out.",
+        "Ah, obrigado. Agradeço mesmo por tentar resolver isso."
+      ],
+      [
+        "Elena",
+        "No problem. Just sit right there near the podium while I clear the priority list.",
+        "Sem problemas. Só senta ali perto do balcão enquanto eu levo a lista de prioridade."
+      ],
+      [
+        "David",
+        "Should I carry my duffel bag onboard or check it right here?",
+        "Devo levar minha mala de mão a bordo ou despachar aqui mesmo?"
+      ],
+      [
+        "Elena",
+        "If your name gets called, you'll have to gate-check it anyway. It's too bulky.",
+        "Se chamarem seu nome, você vai ter que despachar no portão de qualquer jeito. Ela é muito volumosa."
+      ],
+      [
+        "David",
+        "Got it. Do I pay extra for that?",
+        "Entendi. Eu pago a mais por isso?"
+      ],
+      [
+        "Elena",
+        "No, gate-checking is free if the overhead bins are full.",
+        "Não, despachar no portão é de graça se os compartimentos superiores estiverem cheios."
+      ],
+      [
+        "David",
+        "Awesome. I'll just wait here then and keep my fingers crossed.",
+        "Maravilha. Vou esperar aqui então e torcer."
+      ],
+      [
+        "Elena",
+        "Give me like five minutes, David. We'll get you sorted out.",
+        "Me dá uns cinco minutos, David. A gente vai dar um jeito no seu caso."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que o assento confirmado de David foi liberado pelo sistema?",
+        "options": [
+          "O voo foi cancelado devido ao mau tempo em Atlanta.",
+          "Ele perdeu a janela de horário do check-in automático.",
+          "Sua mala despachada era grande demais para o avião.",
+          "Ele não pagou a taxa do despacho de bagagem a tempo."
+        ],
+        "answerIndex": 1,
+        "explanation": "Elena explica que o sistema liberou a vaga porque David perdeu a janela do check-in automático."
+      },
+      {
+        "question": "O que acontece com a mala de David se ele não embarcar nesse voo?",
+        "options": [
+          "Ela será enviada para Chicago no voo original sem ele.",
+          "Ele precisará pagar uma taxa para recuperá-la.",
+          "Ela não viajará sem ele por normas de segurança em voos domésticos.",
+          "Ela será devolvida imediatamente no portão B4."
+        ],
+        "answerIndex": 2,
+        "explanation": "Elena afirma que as regras de segurança impedem que malas viajem em voos domésticos sem o passageiro a bordo."
+      },
+      {
+        "question": "O que Elena promete fazer para ajudar David?",
+        "options": [
+          "Conseguir uma passagem gratuita na primeira classe.",
+          "Conversar com seu supervisor, Marcus, para resolver a situação.",
+          "Cancelar as passagens das pessoas na frente dele na lista.",
+          "Transferir a bagagem dele diretamente para o portão C10."
+        ],
+        "answerIndex": 2,
+        "explanation": "Elena diz que vai conversar com seu supervisor Marcus para tentar encontrar uma solução para David."
+      }
+    ],
+    "n": 31
+  },
+  {
+    "kind": "conversa",
+    "title": "A confusão com as datas da reserva no hotel",
+    "why": "Treina a compreensão de imprevistos em recepções de hotel, negociações de pagamento de última hora e fala natural com hesitações e termos práticos do dia a dia.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Sarah",
+        "Hi there! Welcome to the Grand Oak. How can I help you today?",
+        "Olá! Bem-vindo ao Grand Oak. Como posso te ajudar hoje?"
+      ],
+      [
+        "Mark",
+        "Hey. So... I'm supposed to check in, but my coworker Dave booked it under his company card.",
+        "Oi. Então... era pra eu fazer o check-in, mas meu colega Dave reservou no cartão da empresa."
+      ],
+      [
+        "Sarah",
+        "Okay, let's see. What's the last name on the reservation?",
+        "Certo, vamos ver. Qual é o sobrenome na reserva?"
+      ],
+      [
+        "Mark",
+        "It should be under Miller... or maybe Harrison? Dave Harrison.",
+        "Deveria estar em nome de Miller... ou talvez Harrison? Dave Harrison."
+      ],
+      [
+        "Sarah",
+        "Hmm, I see a Harrison, but it looks like... wait, was this booked for tonight or tomorrow?",
+        "Hmm, estou vendo um Harrison, mas parece que... peraí, isso foi reservado para hoje à noite ou amanhã?"
+      ],
+      [
+        "Mark",
+        "Tonight! Uh, I mean, we're here for the tech summit, you know?",
+        "Hoje à noite! Quer dizer, nós viemos para o evento de tecnologia, sabe?"
+      ],
+      [
+        "Sarah",
+        "Right, well... the system shows Dave's reservation starts tomorrow afternoon, actually.",
+        "Certo, bom... o sistema mostra que a reserva do Dave começa amanhã à tarde, na verdade."
+      ],
+      [
+        "Mark",
+        "Oh, man. Are you kidding me? He always messes up the dates!",
+        "Poxa vida. Você tá brincando? Ele sempre confunde as datas!"
+      ],
+      [
+        "Sarah",
+        "It happens all the time, don't worry. Lemme check if we got any available suites right now.",
+        "Isso acontece o tempo todo, não se preocupe. Deixa eu ver se temos alguma suíte disponível agora."
+      ],
+      [
+        "Mark",
+        "Thanks. I really wanna just drop my luggage and take a shower, kinda exhausted.",
+        "Obrigado. Eu só quero mesmo largar as malas e tomar um banho, tô meio exausto."
+      ],
+      [
+        "Sarah",
+        "I totally get it. So, I do have a deluxe king room on the fifth floor available.",
+        "Eu entendo perfeitamente. Bom, eu tenho sim um quarto deluxe king disponível no quinto andar."
+      ],
+      [
+        "Mark",
+        "Awesome. Can we just put that on my personal card for tonight and switch tomorrow?",
+        "Sensacional. A gente pode colocar esse no meu cartão pessoal por hoje à noite e trocar amanhã?"
+      ],
+      [
+        "Sarah",
+        "Yeah, we can definitely do that. But just so you know, there's an incidentals deposit.",
+        "Sim, com certeza podemos fazer isso. Mas só para você saber, tem um caução para despesas extras."
+      ],
+      [
+        "Mark",
+        "That's fine. Oh, by the way, does that room have a desk? I gotta finish some slides.",
+        "Tranquilo. Ah, a propósito, esse quarto tem escrivaninha? Eu preciso terminar uns slides."
+      ],
+      [
+        "Sarah",
+        "Yep, all our deluxe rooms have full work desks and high-speed Wi-Fi.",
+        "Sim, todos os nossos quartos deluxe têm escrivaninha completa e Wi-Fi de alta velocidade."
+      ],
+      [
+        "Mark",
+        "Perfect. And what about breakfast? Is it served in the lobby or...?",
+        "Perfeito. E quanto ao café da manhã? É servido no saguão ou...?"
+      ],
+      [
+        "Sarah",
+        "Breakfast is on the second floor from six to ten. But... uh, it's not included in this rate.",
+        "O café da manhã é no segundo andar das seis às dez. Mas... ah, não está incluído nessa tarifa."
+      ],
+      [
+        "Mark",
+        "Ah, gotcha. No problem, I'll probably just grab a coffee down the street anyway.",
+        "Ah, entendi. Sem problemas, eu provavelmente vou só pegar um café ali na rua mesmo."
+      ],
+      [
+        "Sarah",
+        "Fair enough! Alright, I just need your ID and a physical card to swipe.",
+        "Faz sentido! Certo, eu só preciso do seu documento e de um cartão físico para passar."
+      ],
+      [
+        "Mark",
+        "Here you go. Oh, wait, can I get two key cards? Dave might meet me later.",
+        "Aqui está. Ah, espera, posso pegar dois cartões-chave? O Dave pode se juntar a mim mais tarde."
+      ],
+      [
+        "Sarah",
+        "Sure thing. Here are your keys for room 512. Elevators are right behind you.",
+        "Claro que sim. Aqui estão suas chaves para o quarto 512. Os elevadores ficam bem atrás de você."
+      ],
+      [
+        "Mark",
+        "Great. Is there any chance I could get a late check-out for Friday?",
+        "Ótimo. Tem alguma chance de eu conseguir um check-out mais tarde na sexta-feira?"
+      ],
+      [
+        "Sarah",
+        "I can't promise anything yet, but call us Friday morning and we'll try to stretch it to one PM.",
+        "Não posso prometer nada ainda, mas nos ligue na sexta de manhã e tentaremos esticar até uma da tarde."
+      ],
+      [
+        "Mark",
+        "Sounds like a plan. Thanks a lot for fixing Dave's mess, Sarah!",
+        "Combinado então. Muito obrigado por resolver a bagunça do Dave, Sarah!"
+      ],
+      [
+        "Sarah",
+        "No problem at all! Enjoy your stay, Mark, and good luck with your presentation.",
+        "De nada! Aproveite a estadia, Mark, e boa sorte com a sua apresentação."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Mark encontrou dificuldades no momento em que chegou para fazer o check-in?",
+        "options": [
+          "O cartão corporativo do seu colega foi recusado pelo sistema do hotel.",
+          "A reserva feita por seu colega Dave estava agendada para o dia seguinte.",
+          "O hotel estava com a lotação máxima devido ao evento de tecnologia.",
+          "Mark não estava portando seus documentos de identificação com foto."
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah verifica no sistema que a reserva feita por Dave só inicia na tarde do dia seguinte, e não naquela noite."
+      },
+      {
+        "question": "Como Mark resolveu o problema da hospedagem para a primeira noite?",
+        "options": [
+          "Decidiu ir para outro hotel próximo onde o café da manhã já estivesse incluído.",
+          "Resolveu esperar seu colega Dave chegar para alterar a reserva na recepção.",
+          "Optou por pagar um quarto deluxe com seu próprio cartão de crédito pessoal.",
+          "Pediu para cancelar a reserva antiga e exigiu o reembolso do valor integral."
+        ],
+        "answerIndex": 2,
+        "explanation": "Mark decide colocar a diária daquela noite em seu cartão pessoal e fazer a migração no dia seguinte."
+      },
+      {
+        "question": "O que a recepcionista Sarah explicou sobre o café da manhã?",
+        "options": [
+          "É servido no saguão do hotel e já está totalmente incluso no valor pago.",
+          "Não será servido durante a semana devido a reformas no restaurante do hotel.",
+          "É servido no segundo andar, porém não está incluído na tarifa daquele quarto.",
+          "Está disponível no quarto via serviço de quarto mediante taxa fixa de entrega."
+        ],
+        "answerIndex": 2,
+        "explanation": "Sarah informa que o café da manhã funciona no segundo andar, das 6h às 10h, mas não faz parte da tarifa daquele quarto."
+      }
+    ],
+    "n": 32
+  },
+  {
+    "kind": "conversa",
+    "title": "Entendendo a conta do atendimento médico",
+    "why": "Prepara você para encarar a burocracia real do sistema de saúde americano, lidando com seguros, termos de farmácia e cobranças inesperadas.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Mark",
+        "Hey Sarah, lemme ask you somethin'... I got this crazy bill from that urgent care clinic.",
+        "Ei, Sarah, me deixa te perguntar uma coisa... Recebi uma conta absurda daquela clínica de atendimento rápido."
+      ],
+      [
+        "Sarah",
+        "Wait, the one on 5th Street? I thought you paid your copay yesterday!",
+        "Peraí, aquela da Rua 5? Achei que você tinha pago a coparticipação ontem!"
+      ],
+      [
+        "Mark",
+        "Yeah, I paid like fifty bucks at the desk, but now they're sayin' my insurance was out-of-network.",
+        "É, eu paguei uns cinquenta dólares no balcão, mas agora tão dizendo que meu seguro era fora da rede credenciada."
+      ],
+      [
+        "Sarah",
+        "Oh, man. That sucks. Did you call the customer service number on the back of your card?",
+        "Puxa vida. Que chato. Você ligou pro atendimento ao cliente no verso do seu cartão?"
+      ],
+      [
+        "Mark",
+        "I tried, but I was on hold for like twenty minutes and then I kinda panicked and hung up.",
+        "Eu tentei, mas fiquei na espera uns vinte minutos e aí meio que entrei em pânico e desliguei."
+      ],
+      [
+        "Sarah",
+        "Classic. Look, you gotta call 'em back. Tell 'em it was an emergency...",
+        "Típico. Olha, você tem que ligar de volta pra eles. Fala que foi uma emergência..."
+      ],
+      [
+        "Mark",
+        "Well, it wasn't a total emergency, you know? I mean, my stomach was killing me, but...",
+        "Bom, não foi bem uma emergência total, sabe? Quer dizer, minha barriga tava me matando, mas..."
+      ],
+      [
+        "Sarah",
+        "Doesn't matter! If urgent care was the only thing open, sometimes they cover it anyway.",
+        "Não importa! Se a clínica de emergência era a única coisa aberta, às vezes eles cobrem do mesmo jeito."
+      ],
+      [
+        "Mark",
+        "Really? Even for that stomach flu thing?",
+        "Sério? Mesmo por causa daquela virose estomacal?"
+      ],
+      [
+        "Sarah",
+        "Yeah, totally. Plus, did you get those meds at the pharmacy?",
+        "É, com certeza. E mais, você pegou aqueles remédios na farmácia?"
+      ],
+      [
+        "Mark",
+        "Oh, right! The pharmacist said I needed a prior authorization or somethin' for the antibiotics.",
+        "Ah, é! O farmacêutico disse que eu precisava de uma autorização prévia ou algo assim pros antibióticos."
+      ],
+      [
+        "Sarah",
+        "Ugh, prior auth is the worst. That means your doctor gotta write a letter to the insurance company first.",
+        "Nossa, autorização prévia é o ó. Isso significa que seu médico tem que mandar uma carta pra seguradora primeiro."
+      ],
+      [
+        "Mark",
+        "Seriously? I just wanted to get my pills and go to sleep!",
+        "Sério? Eu só queria pegar meus remédios e ir dormir!"
+      ],
+      [
+        "Sarah",
+        "I know, right? Welcome to American healthcare, buddy.",
+        "Pois é, né? Bem-vindo ao sistema de saúde americano, meu amigo."
+      ],
+      [
+        "Mark",
+        "So... what do I do now? Should I go back to the clinic?",
+        "E aí... o que eu faço agora? Devo voltar na clínica?"
+      ],
+      [
+        "Sarah",
+        "No, just call the doctor's office first. Tell 'em the pharmacy rejected the claim.",
+        "Não, só liga pro consultório do médico primeiro. Fala que a farmácia recusou a cobertura."
+      ],
+      [
+        "Mark",
+        "Okay. And what about this two-hundred-dollar bill?",
+        "Tá. E o que eu faço com essa conta de duzentos dólares?"
+      ],
+      [
+        "Sarah",
+        "Don't pay it yet! Ask for an itemized bill first.",
+        "Não paga ainda! Pede uma fatura detalhada primeiro."
+      ],
+      [
+        "Mark",
+        "An itemized bill? What's that?",
+        "Uma fatura detalhada? O que é isso?"
+      ],
+      [
+        "Sarah",
+        "It's a detailed list of every single thing they charged you for. Half the time, the price goes down!",
+        "É uma lista detalhada de cada coisinha que te cobraram. Metade das vezes o preço cai!"
+      ],
+      [
+        "Mark",
+        "Wow, okay. That's kinda crazy, but I'll try it.",
+        "Nossa, tá bom. Isso é meio doido, mas vou tentar."
+      ],
+      [
+        "Sarah",
+        "Trust me. My brother Dave had a five-hundred-dollar bill last year and got it down to eighty.",
+        "Confia em mim. Meu irmão Dave recebeu uma conta de quinhentos dólares no ano passado e baixou pra oitenta."
+      ],
+      [
+        "Mark",
+        "No way! Alright, lemme find my phone...",
+        "Mentira! Beleza, deixa eu achar meu telefone..."
+      ],
+      [
+        "Sarah",
+        "And hey, if you need me to speak to the agent with you, just put it on speaker.",
+        "E ó, se precisar que eu fale com o atendente com você, é só colocar no viva-voz."
+      ],
+      [
+        "Mark",
+        "Thanks Sarah, you're a lifesaver. I was really stressed about this.",
+        "Valeu, Sarah, você tá salvando minha vida. Eu tava super estressado com isso."
+      ],
+      [
+        "Sarah",
+        "Don't sweat it. Just don't wait too long or it goes to collections!",
+        "Relaxa. Só não demora muito pra resolver, senão vai pra cobrança!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que o Mark recebeu uma cobrança adicional depois de ir à clínica de atendimento rápido?",
+        "options": [
+          "Porque ele esqueceu de pagar a taxa inicial no balcão de atendimento.",
+          "Porque o plano de saúde informou que a clínica era fora da rede credenciada.",
+          "Porque ele precisou realizar exames de emergência muito caros.",
+          "Porque ele passou a noite inteira internado em observação."
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark pagou a taxa inicial (copay) de 50 dólares, mas depois recebeu uma conta porque a clínica era considerada 'out-of-network' (fora da rede) do seu seguro."
+      },
+      {
+        "question": "O que impediu Mark de pegar os antibióticos diretamente na farmácia?",
+        "options": [
+          "A farmácia não tinha o remédio em estoque no momento.",
+          "A receita médica enviada pelo doutor estava rasurada.",
+          "A seguradora exigia uma autorização prévia antes de liberar a medicação.",
+          "O farmacêutico exigiu um documento de identidade americano."
+        ],
+        "answerIndex": 2,
+        "explanation": "O farmacêutico avisou que era necessária uma 'prior authorization' (autorização prévia), exigindo que o médico contate a seguradora antes da liberação do remédio."
+      },
+      {
+        "question": "Qual é a estratégia sugerida por Sarah para tentar reduzir o valor da conta de 200 dólares?",
+        "options": [
+          "Ignorar as cobranças até que o valor caduque com o tempo.",
+          "Pedir uma fatura detalhada com a discriminação de cada item cobrado.",
+          "Ir pessoalmente até a clínica para reclamar com a gerência.",
+          "Transferir a dívida para o nome do seu amigo Dave."
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah orienta Mark a pedir um 'itemized bill' (fatura detalhada), pois rever cada cobrança detalhadamente costuma fazer o valor total diminuir."
+      }
+    ],
+    "n": 33
+  },
+  {
+    "kind": "conversa",
+    "title": "A cobrança indevida na devolução do carro alugado",
+    "why": "Treina a compreensão de negociações dinâmicas e reais em balcões de atendimento, lidando com taxas ocultas, desculpas de funcionários e resolução imediata.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Leo",
+        "Hey there... uh, I'm returning this SUV, but I just looked at my receipt and something's kinda off.",
+        "Olá... é, tô devolvendo esse SUV, mas acabei de olhar meu comprovante e tem algo meio estranho."
+      ],
+      [
+        "Karen",
+        "Okay, lemme pull up your account real quick. What's the name on the reservation?",
+        "Beleza, deixa eu abrir sua conta rapidinho. Qual é o nome na reserva?"
+      ],
+      [
+        "Leo",
+        "It's Leo Miller. See, right here... I was charged twice for the insurance coverage.",
+        "É Leo Miller. Olha, bem aqui... fui cobrado duas vezes pela cobertura do seguro."
+      ],
+      [
+        "Karen",
+        "Oh, well, that second fee is actually for the roadside assistance package you added at pickup.",
+        "Ah, bom, essa segunda taxa na verdade é do pacote de assistência na estrada que você adicionou na retirada."
+      ],
+      [
+        "Leo",
+        "Wait, no, I specifically told the guy on Tuesday—I think his name was Mike—that I didn't want any add-ons.",
+        "Espera, não, eu falei especificamente pro rapaz na terça — acho que o nome dele era Mike — que eu não queria nenhum adicional."
+      ],
+      [
+        "Karen",
+        "Right, but it shows here that it was checked off on the tablet when you signed.",
+        "Certo, mas consta aqui que foi marcado no tablet quando você assinou."
+      ],
+      [
+        "Leo",
+        "Look, I'm afraid there's been a mistake. He rushed me through the signature screen without explaining it.",
+        "Olha, receio que tenha havido um engano. Ele me apressou na tela de assinatura sem me explicar nada."
+      ],
+      [
+        "Karen",
+        "I get it, but once it's in the system, it's kinda tricky to remove after the rental period starts.",
+        "Eu entendo, mas depois que entra no sistema, é meio complicado remover depois que o período de aluguel começa."
+      ],
+      [
+        "Leo",
+        "I understand, but this isn't what I agreed to. I was charged like eighty dollars extra for something I declined.",
+        "Eu entendo, mas não foi isso que eu combinei. Me cobraram tipo oitenta dólares a mais por algo que eu recusei."
+      ],
+      [
+        "Karen",
+        "Uh, lemme see if I can override it... Yeah, I can't do that from my terminal without manager approval.",
+        "Três, deixa eu ver se consigo anular... É, não posso fazer isso do meu terminal sem a aprovação do gerente."
+      ],
+      [
+        "Leo",
+        "Okay, then I'd like to speak to a manager, please. Is there someone available right now?",
+        "Tá, então eu gostaria de falar com um gerente, por favor. Tem alguém disponível agora?"
+      ],
+      [
+        "Karen",
+        "Well, Steve is in a meeting back in the office, but he's gonna be tied up for at least twenty minutes.",
+        "Bom, o Steve tá numa reunião lá atrás no escritório, mas ele vai ficar preso por pelo menos vinte minutos."
+      ],
+      [
+        "Leo",
+        "Honestly, this is unacceptable. I have a flight to catch in two hours, so I can't just hang around here.",
+        "Sinceramente, isso é inaceitável. Tenho um voo pra pegar daqui a duas horas, então não posso simplesmente ficar mofando aqui."
+      ],
+      [
+        "Karen",
+        "Look, I don't want you missing your flight. What if I issue a store credit for your next rental?",
+        "Olha, não quero que você perca seu voo. E se eu te der um crédito na loja pra sua próxima locação?"
+      ],
+      [
+        "Leo",
+        "No, I don't travel here often. I need a direct refund to my credit card today.",
+        "Não, eu não venho pra cá com frequência. Preciso de um reembolso direto no meu cartão de crédito hoje."
+      ],
+      [
+        "Karen",
+        "Okay, okay... let me call Steve's cell real quick and see if he can approve the refund remotely.",
+        "Tá, tá bom... deixa eu ligar pro celular do Steve rapidinho e ver se ele pode aprovar o reembolso remotamente."
+      ],
+      [
+        "Leo",
+        "What can you do to fix this right now if he doesn't answer?",
+        "O que você pode fazer pra resolver isso agora mesmo se ele não atender?"
+      ],
+      [
+        "Karen",
+        "If he doesn't pick up, I can open an urgent dispute ticket and email you the confirmation number.",
+        "Se ele não atender, posso abrir um chamado de contestação urgente e te mandar o número de confirmação por e-mail."
+      ],
+      [
+        "Leo",
+        "Okay, but how long does that process usually take to hit my account?",
+        "Tá, mas quanto tempo esse processo costuma levar pra cair na minha conta?"
+      ],
+      [
+        "Karen",
+        "Usually three to five business days. Hang on, he's actually answering... Hey Steve, I have Mr. Miller here...",
+        "Geralmente de três a cinco dias úteis. Peraí, ele tá atendendo... Oi Steve, tô com o Sr. Miller aqui..."
+      ],
+      [
+        "Karen",
+        "Okay... yeah... he says it was an agent error on Mike's shift. He's overriding the charge right now.",
+        "Beleza... é... ele disse que foi erro de agente no turno do Mike. Ele tá cancelando a cobrança agora mesmo."
+      ],
+      [
+        "Leo",
+        "Oh, awesome. So it's gonna go straight back to my card?",
+        "Ah, excelente. Então vai voltar direto pro meu cartão?"
+      ],
+      [
+        "Karen",
+        "Yep, already done! Here's your revised receipt showing the adjusted total.",
+        "Sim, já foi feito! Aqui está o seu comprovante atualizado mostrando o total ajustado."
+      ],
+      [
+        "Leo",
+        "That's a huge relief. I appreciate your help with this, Karen.",
+        "É um grande alívio. Agradeço sua ajuda com isso, Karen."
+      ],
+      [
+        "Karen",
+        "No problem at all! Sorry for the hassle, and have a safe flight back home!",
+        "Imagina! Desculpe pelo transtorno e tenha um bom voo de volta pra casa!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Leo recebeu uma cobrança indevida no recibo do aluguel do carro?",
+        "options": [
+          "Ele atrasou a devolução do veículo em mais de duas horas.",
+          "O atendente do turno anterior incluiu um pacote de assistência na estrada sem permissão explicada.",
+          "Ele causou danos ao SUV e a locadora cobrou a taxa de reparo.",
+          "A locadora cobrou duas vezes pelo mesmo valor diário do aluguel."
+        ],
+        "answerIndex": 1,
+        "explanation": "O funcionário Mike marcou o pacote de assistência no tablet sem explicar devidamente para Leo na hora da retirada."
+      },
+      {
+        "question": "Qual foi a primeira proposta de solução oferecida pela atendente Karen?",
+        "options": [
+          "Um reembolso imediato em dinheiro vivo no balcão.",
+          "Um cupom de desconto para a tarifa diária do carro.",
+          "Um crédito na empresa para ser usado em uma locação futura.",
+          "O cancelamento completo do valor total da reserva."
+        ],
+        "answerIndex": 2,
+        "explanation": "Karen ofereceu um crédito na loja ('store credit'), mas Leo recusou porque não viaja com frequência para o local."
+      },
+      {
+        "question": "Como o problema do valor extra foi finalmente solucionado?",
+        "options": [
+          "Leo teve que esperar vinte minutos até o gerente sair da reunião presencial.",
+          "Karen abriu um chamado de contestação que demoraria até cinco dias úteis.",
+          "Karen ligou para o celular do gerente Steve, que autorizou o estorno imediato.",
+          "Leo desistiu do reembolso para não perder seu voo de volta."
+        ],
+        "answerIndex": 2,
+        "explanation": "Karen ligou para o celular de Steve, que confirmou o erro do funcionário Mike e fez o estorno diretamente no sistema."
+      }
+    ],
+    "n": 34
+  },
+  {
+    "kind": "conversa",
+    "title": "A dúvida sobre aceitar uma nova proposta de emprego",
+    "why": "Treina a compreensão de conselhos reais com hesitações, gírias corporativas e expressões idiomáticas do dia a dia.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Leo",
+        "Hey Sarah, got a minute? I'm kinda losing my mind here over this offer from Apex.",
+        "Hey Sarah, tem um minutinho? Tô quase enlouquecendo com essa proposta da Apex."
+      ],
+      [
+        "Sarah",
+        "Wait, they actually got back to you? That's awesome! ...Or is it?",
+        "Peraê, eles realmente te deram retorno? Que demais! ...Ou não?"
+      ],
+      [
+        "Leo",
+        "I mean, yeah, the pay is great, but... I don't know, man. Dave promised me a promotion next month if this product launch goes well.",
+        "Quer dizer, sim, o salário é ótimo, mas... sei lá, cara. O Dave me prometeu uma promoção mês que vem se o lançamento desse produto der certo."
+      ],
+      [
+        "Sarah",
+        "Look, Dave's been promising that promotion since, what, last November? If I were you, I'd take everything Dave says with a grain of salt.",
+        "Olha, o Dave tá prometendo essa promoção desde, o quê, novembro passado? Se eu fosse você, ficava com um pé atrás com tudo o que o Dave fala."
+      ],
+      [
+        "Leo",
+        "I know, I know, but Rachel said he already submitted the paperwork to HR.",
+        "Eu sei, eu sei, mas a Rachel falou que ele já enviou a papelada pro RH."
+      ],
+      [
+        "Sarah",
+        "Rachel doesn't work in HR, Leo. Have you thought about asking HR directly?",
+        "A Rachel não trabalha no RH, Leo. Você já pensou em perguntar direto pro RH?"
+      ],
+      [
+        "Leo",
+        "No way, that'd look bad. It might make Dave think I'm trying to go over his head.",
+        "De jeito nenhum, pegaria mal. Podia fazer o Dave achar que tô tentando passar por cima dele."
+      ],
+      [
+        "Sarah",
+        "Fair point. But listen, Apex is offering a solid twenty percent bump right now, right?",
+        "Verdade. Mas escuta, a Apex tá oferecendo um aumento de vinte por cento logo de cara, não é?"
+      ],
+      [
+        "Leo",
+        "Yeah, plus remote work three days a week. But if I leave now, I kinda throw my current team under the bus mid-project.",
+        "É, e ainda trabalho remoto três dias por semana. Só que se eu sair agora, meio que deixo minha equipe na mão no meio do projeto."
+      ],
+      [
+        "Sarah",
+        "Uh, lemme get this straight. You're gonna turn down a huge raise because you feel guilty?",
+        "Pera, deixa ver se entendi. Você vai recusar um puta aumento só porque tá com pena?"
+      ],
+      [
+        "Leo",
+        "It's not just guilt! It's... professional courtesy, you know?",
+        "Não é só pena! É... consideração profissional, sabe?"
+      ],
+      [
+        "Sarah",
+        "Honestly? It might be worth sitting down with Dave and just layin' your cards on the table.",
+        "Sinceramente? Talvez valha a pena sentar com o Dave e jogar limpo com ele."
+      ],
+      [
+        "Leo",
+        "Like... tell him about the other offer?",
+        "Tipo... falar pra ele da outra proposta?"
+      ],
+      [
+        "Sarah",
+        "Exactly. You don't have to be aggressive. Just say you love the team, but you got an unsolicited offer that's hard to ignore.",
+        "Exatamente. Você não precisa ser agressivo. Só diz que ama a equipe, mas recebeu uma proposta irrecusável que não dá pra ignorar."
+      ],
+      [
+        "Leo",
+        "Hmm. What if he gets pissed off and fires me on the spot?",
+        "Hum. E se ele ficar puto da vida e me mandar embora na hora?"
+      ],
+      [
+        "Sarah",
+        "Come on, he won't do that. He needs you for the launch! But hey, at the end of the day, that's up to you.",
+        "Ah, fala sério, ele não vai fazer isso. Ele precisa de você pro lançamento! Mas ó, no fim das contas, a decisão é sua."
+      ],
+      [
+        "Leo",
+        "Man, I hate these kind of decisions. My stomach's been in knots all morning.",
+        "Nossa, odeio esse tipo de decisão. Meu estômago tá dando nó a manhã inteira."
+      ],
+      [
+        "Sarah",
+        "I get it. But whatever you decide, I support you. You've worked your butt off here.",
+        "Eu entendo. Mas seja o que você decidir, tô contigo. Você se matou de trabalhar aqui."
+      ],
+      [
+        "Leo",
+        "Thanks, Sarah. So... what do you think you'll do if you were in my shoes right now?",
+        "Valeu, Sarah. Então... o que você acha que faria se estivesse no meu lugar agora?"
+      ],
+      [
+        "Sarah",
+        "Me? I'd take the Apex job in a heartbeat. Life's too short to wait around for Dave's promises.",
+        "Eu? Pegava a vaga da Apex num piscar de olhos. A vida é curta demais pra ficar esperando as promessas do Dave."
+      ],
+      [
+        "Leo",
+        "Haha, you're always so blunt. Lemme think about it during lunch.",
+        "Haha, você é sempre tão direta. Deixa eu pensar nisso durante o almoço."
+      ],
+      [
+        "Sarah",
+        "Do that. Wanna grab a taco down the street?",
+        "Faz isso. Quer pegar um taco ali na rua?"
+      ],
+      [
+        "Leo",
+        "Yeah, sure. I definitely need some comfort food right now.",
+        "Bora. Definitivamente preciso de algo pra confortar o coração agora."
+      ],
+      [
+        "Sarah",
+        "Cool, lemme just finish this email and we're good to go.",
+        "Beleza, deixa eu só terminar este e-mail e a gente vai."
+      ],
+      [
+        "Leo",
+        "Take your time. I'll be staring at my ceiling stressing out.",
+        "Sem pressa. Vou ficar olhando pro teto me descabelando."
+      ],
+      [
+        "Sarah",
+        "Stop overthinking it! Let's go eat.",
+        "Para de noiar! Bora comer."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Leo hesita em aceitar a proposta da Apex?",
+        "options": [
+          "Porque a empresa Apex fica muito longe da casa dele.",
+          "Porque o salário oferecido é menor do que ele ganha atualmente.",
+          "Porque ele teme deixar sua equipe atual na mão durante um projeto.",
+          "Porque a Rachel disse que ele será demitido do emprego atual."
+        ],
+        "answerIndex": 2,
+        "explanation": "Leo menciona que se sair agora, vai 'deixar a equipe na mão' (throw under the bus) bem no meio de um projeto importante."
+      },
+      {
+        "question": "O que Sarah sugere que Leo faça em relação a Dave?",
+        "options": [
+          "Que ele abra o jogo com Dave sobre a proposta recebida.",
+          "Que ele vá direto ao RH pedir o aumento prometido.",
+          "Que ele peça demissão imediatamente sem avisar Dave.",
+          "Que ele finja que não recebeu proposta nenhuma."
+        ],
+        "answerIndex": 0,
+        "explanation": "Sarah aconselha Leo a sentar com Dave e 'jogar as cartas na mesa', explicando honestamente sobre a proposta da Apex."
+      },
+      {
+        "question": "Qual é a opinião pessoal de Sarah sobre a situação se ela estivesse no lugar de Leo?",
+        "options": [
+          "Ela esperaria a promoção prometida por Dave em novembro.",
+          "Ela aceitaria a vaga na Apex imediatamente.",
+          "Ela preferiria não dar opinião para não influenciar Leo.",
+          "Ela sugeriria que Leo abrisse sua própria empresa."
+        ],
+        "answerIndex": 1,
+        "explanation": "Quando Leo pergunta o que ela faria no lugar dele, Sarah responde que aceitaria a vaga na Apex 'in a heartbeat' (num piscar de olhos)."
+      }
+    ],
+    "n": 35
+  },
+  {
+    "kind": "conversa",
+    "title": "Mark e Sarah relembrando oportunidades recusadas no trabalho",
+    "why": "Treina a compreensão de conversas reais sobre arrependimentos profissionais, hipóteses no passado e planos para não repetir os mesmos erros.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Mark",
+        "Hey Sarah, did you hear about Lucas? He just bought a house in Chicago.",
+        "Ei Sarah, você soube do Lucas? Ele acabou de comprar uma casa em Chicago."
+      ],
+      [
+        "Sarah",
+        "Wait, really? Chicago? Man, I could've been living there too if I hadn't turned down that transfer three years ago.",
+        "Pera, sério? Chicago? Cara, eu podia tá morando lá também se não tivesse recusado aquela transferência três anos atrás."
+      ],
+      [
+        "Mark",
+        "Oh, right! You were offered that position at headquarters, weren't you?",
+        "Ah, é mesmo! Te ofereceram aquele cargo na matriz, não foi?"
+      ],
+      [
+        "Sarah",
+        "Yeah... I mean, I was so scared of starting over, you know? But looking back, I kinda regret backing out.",
+        "É... tipo, eu tava com tanto medo de começar do zero, sabe? Mas olhando pra trás, eu meio que me arrependo de ter caído fora."
+      ],
+      [
+        "Mark",
+        "Seriously? I thought you were super happy you stayed here.",
+        "Sério? Eu achei que você tava super feliz de ter ficado aqui."
+      ],
+      [
+        "Sarah",
+        "I was, at first. But lately... I don't know, I keep thinking about what if, like, what if I'd gone?",
+        "Eu tava, no começo. Mas ultimamente... sei lá, fico pensando no 'e se', tipo, e se eu tivesse ido?"
+      ],
+      [
+        "Mark",
+        "Yeah, but if you'd moved, you wouldn't have met Daniel or started your own agency.",
+        "É, mas se você tivesse se mudado, você não teria conhecido o Daniel nem aberto sua própria agência."
+      ],
+      [
+        "Sarah",
+        "True, true. I mean, everything happens for a reason, right? But still...",
+        "Verdade, verdade. Digo, tudo acontece por um motivo, né? Mas mesmo assim..."
+      ],
+      [
+        "Mark",
+        "If you'd known how hard running an agency is, would you have left?",
+        "Se você soubesse como é difícil tocar uma agência, você teria ido embora?"
+      ],
+      [
+        "Sarah",
+        "In a heartbeat! I should've just taken the risk. I was being way too cautious back then.",
+        "Sem pensar duas vezes! Eu devia ter corrido o risco. Eu tava sendo cautelosa demais naquela época."
+      ],
+      [
+        "Mark",
+        "Look, I had a kinda similar thing happen when I rejected that startup offer in 2021.",
+        "Olha, aconteceu algo meio parecido comigo quando eu recusei aquela proposta da startup em 2021."
+      ],
+      [
+        "Sarah",
+        "Oh yeah! With that tech guy... what was his name again? Greg?",
+        "Ah é! Com aquele cara da tecnologia... qual era o nome dele mesmo? Greg?"
+      ],
+      [
+        "Mark",
+        "Yeah, Greg! They offered me equity, but I wanted stability. Now the company is huge.",
+        "É, Greg! Eles me ofereceram participação, mas eu queria estabilidade. Agora a empresa tá gigante."
+      ],
+      [
+        "Sarah",
+        "Ouch! Do you ever beat yourself up over it?",
+        "Nossa! Você fica se remoendo por causa disso às vezes?"
+      ],
+      [
+        "Mark",
+        "Honestly? Once in a while, yeah. If I'd taken it, I'd probably be retired by now!",
+        "Sinceramente? De vez em quando, sim. Se eu tivesse aceitado, provavelmente já tava aposentado agora!"
+      ],
+      [
+        "Sarah",
+        "Haha, right? But hey, you didn't know back then. Nobody has a crystal ball.",
+        "Haha, pois é! Mas ó, você não tinha como saber. Ninguém tem bola de cristal."
+      ],
+      [
+        "Mark",
+        "Exactly. And to be fair, I learned a lot here, so I don't totally regret it.",
+        "Exatamente. E pra ser justo, aprendi muito aqui, então não me arrependo totalmente."
+      ],
+      [
+        "Sarah",
+        "That's a good way to look at it. It was the right call at the time.",
+        "É um bom jeito de ver as coisas. Foi a escolha certa na época."
+      ],
+      [
+        "Mark",
+        "Right. You can't live in the past. So, what about you? Any big moves coming up?",
+        "Com certeza. Não dá pra viver no passado. Mas e você? Alguma mudança grande vindo aí?"
+      ],
+      [
+        "Sarah",
+        "Well... lemme tell you a secret. I'm actually interviewing for a remote gig based in Seattle.",
+        "Bom... deixa eu te contar um segredo. Na verdade tô fazendo entrevista pra um trabalho remoto de Seattle."
+      ],
+      [
+        "Mark",
+        "No way! Really? You wanna move again?",
+        "Mentira! Sério? Você quer se mudar de novo?"
+      ],
+      [
+        "Sarah",
+        "Maybe! I'm not gonna make the same mistake twice. If they make an offer, I'm taking it.",
+        "Talvez! Não vou cometer o mesmo erro duas vezes. Se fizerem a proposta, eu aceito."
+      ],
+      [
+        "Mark",
+        "Wow, Sarah! That's awesome. When do you find out if you got it?",
+        "Nossa, Sarah! Demais. Quando você fica sabendo se passou?"
+      ],
+      [
+        "Sarah",
+        "Next Tuesday. Cross your fingers for me!",
+        "Na próxima terça. Torce por mim!"
+      ],
+      [
+        "Mark",
+        "You know I will! Man, we gotta celebrate if this works out.",
+        "Pode deixar! Cara, a gente tem que comemorar se der certo."
+      ],
+      [
+        "Sarah",
+        "Definitely! Drinks are on me if it happens!",
+        "Com certeza! Os drinks são por minha conta se rolar!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Sarah se arrepende de não ter aceitado a transferência para Chicago no passado?",
+        "options": [
+          "Porque ela queria morar no mesmo bairro do amigo Lucas.",
+          "Porque percebeu que foi cautelosa demais por medo de recomeçar do zero.",
+          "Porque a agência de publicidade dela acabou falindo recentemente.",
+          "Porque o namorado dela, Daniel, a pressionou a se mudar na época."
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah desabafa que teve medo de começar do zero e admite que estava sendo cautelosa demais ao recuar."
+      },
+      {
+        "question": "Qual foi o motivo do arrependimento de Mark em relação à startup em 2021?",
+        "options": [
+          "Ele aceitou a vaga, mas a empresa fechou em poucos meses.",
+          "Ele recusou a proposta porque queria estabilidade, e hoje a empresa cresceu muito.",
+          "Ele tentou abrir uma empresa com Greg, mas não conseguiu investimento.",
+          "Ele perdeu a entrevista porque esqueceu a data do processo seletivo."
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark conta que recusou a oferta de Greg para ter estabilidade, mas a startup cresceu tanto que ele brinca que já estaria aposentado."
+      },
+      {
+        "question": "Qual é o segredo que Sarah revela sobre os seus planos atuais?",
+        "options": [
+          "Ela comprou uma casa em Chicago para morar perto de Lucas.",
+          "Ela vai fechar sua agência para fazer uma viagem pelo mundo.",
+          "Ela está participando de um processo seletivo para um trabalho remoto em Seattle.",
+          "Ela já aceitou uma proposta para se mudar presencialmente para Seattle na próxima semana."
+        ],
+        "answerIndex": 2,
+        "explanation": "Sarah revela em segredo que está fazendo entrevistas para uma vaga remota baseada em Seattle e promete aceitar se receber a oferta."
+      }
+    ],
+    "n": 36
+  },
+  {
+    "kind": "conversa",
+    "title": "A confusão de recados sobre a reunião e o relatório",
+    "why": "Treina a interpretação de múltiplos recados cruzados no ambiente de trabalho em ritmo natural, com interrupções e vocabulário corporativo do dia a dia.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Mark",
+        "Hey Sarah, did you catch up with Greg after the morning sync?",
+        "Ei Sarah, você conseguiu falar com o Greg depois da reunião de alinhamento da manhã?"
+      ],
+      [
+        "Sarah",
+        "Yeah, kinda. He said he was gonna email the client, but then Marcos called him.",
+        "Sim, mais ou menos. Ele disse que ia mandar um e-mail pro cliente, mas aí o Marcos ligou pra ele."
+      ],
+      [
+        "Mark",
+        "Wait, Marcos from accounting? I heard that he was out on sick leave today.",
+        "Espera, o Marcos da contabilidade? Eu ouvi dizer que ele estava de atestado hoje."
+      ],
+      [
+        "Sarah",
+        "That's what I thought too! But Greg mentioned something about an urgent budget review.",
+        "Eu também achava isso! Mas o Greg mencionou algo sobre uma revisão orçamentária urgente."
+      ],
+      [
+        "Mark",
+        "Man, things are so chaotic today. What did Greg say about our deadline?",
+        "Nossa, as coisas estão muito caóticas hoje. O que o Greg falou sobre o nosso prazo?"
+      ],
+      [
+        "Sarah",
+        "Well, he told me to hold off on the presentation until Amanda approves the numbers.",
+        "Bom, ele me disse pra esperar com a apresentação até a Amanda aprovar os números."
+      ],
+      [
+        "Mark",
+        "Amanda? She asked if I could help her with that yesterday, but I was swamped.",
+        "A Amanda? Ela me perguntou se eu podia ajudar com isso ontem, mas eu estava atolado de trabalho."
+      ],
+      [
+        "Sarah",
+        "According to her, the whole report had to be redone because the numbers didn't match.",
+        "Segundo ela, o relatório inteiro teve que ser refeito porque os números não batiam."
+      ],
+      [
+        "Mark",
+        "Ugh, classic. Did Greg mention when she's supposed to finish it?",
+        "Ixi, típico. O Greg falou quando é que ela deve terminar?"
+      ],
+      [
+        "Sarah",
+        "He wasn't really sure, but he said she promised to send it by noon.",
+        "Ele não tinha certeza, mas disse que ela prometeu enviar até o meio-dia."
+      ],
+      [
+        "Mark",
+        "It's already twelve thirty! Lemme guess, no email yet?",
+        "Já são meio-dia e meio! Deixa eu adivinhar, nenhum e-mail ainda?"
+      ],
+      [
+        "Sarah",
+        "Nope. That's what I was told, anyway, but you know how she gets stuck in meetings.",
+        "Pois é. Foi o que me disseram, de qualquer forma, mas você sabe como ela fica presa em reuniões."
+      ],
+      [
+        "Mark",
+        "Yeah... Oh, by the way, did Julia ask you about the room reservation?",
+        "É... Ah, por falar nisso, a Julia te perguntou sobre a reserva da sala?"
+      ],
+      [
+        "Sarah",
+        "She did! She said we needed a bigger space because the board members are coming.",
+        "Perguntou! Ela disse que a gente precisava de um espaço maior porque o pessoal da diretoria vem."
+      ],
+      [
+        "Mark",
+        "Board members? Nobody told me about any board meeting today!",
+        "O pessoal da diretoria? Ninguém me falou nada sobre reunião da diretoria hoje!"
+      ],
+      [
+        "Sarah",
+        "Like I said, total chaos. Lemme check if Greg's back at his desk.",
+        "Como eu disse, caos total. Deixa eu ver se o Greg voltou pra mesa dele."
+      ],
+      [
+        "Mark",
+        "Good idea. Wanna head to the kitchen first? I really need some coffee.",
+        "Boa ideia. Quer ir pra cozinha antes? Eu preciso muito de um café."
+      ],
+      [
+        "Sarah",
+        "Sure, but make it quick. I wanna know if Greg talked to the VP yet.",
+        "Claro, mas vamos rápido. Quero saber se o Greg já falou com o vice-presidente."
+      ],
+      [
+        "Mark",
+        "Wait, he was supposed to talk to the VP too?",
+        "Espera, ele devia falar com o vice-presidente também?"
+      ],
+      [
+        "Sarah",
+        "Yeah, he mentioned that right before he got pulled into Marcos's call.",
+        "Sim, ele mencionou isso logo antes de ser puxado pra ligação do Marcos."
+      ],
+      [
+        "Mark",
+        "Gosh, I swear every five minutes there's a new update nobody told me about.",
+        "Nossa, eu juro que a cada cinco minutos tem uma novidade que ninguém me contou."
+      ],
+      [
+        "Sarah",
+        "Welcome to our team! I'll ping Amanda while you grab the coffees.",
+        "Bem-vindo ao nosso time! Vou mandar uma mensagem pra Amanda enquanto você pega os cafés."
+      ],
+      [
+        "Mark",
+        "Deal. Ask her if she needs me to double-check the figures.",
+        "Fechado. Pergunta pra ela se ela quer que eu dê uma checada dupla nos números."
+      ],
+      [
+        "Sarah",
+        "Will do. If she says yes, you're gonna be busy all afternoon!",
+        "Pode deixar. Se ela disser que sim, você vai ficar ocupado a tarde inteira!"
+      ],
+      [
+        "Mark",
+        "Don't scare me like that! See you in two minutes.",
+        "Não me assusta assim! Te vejo em dois minutos."
+      ],
+      [
+        "Sarah",
+        "Alright, hurry up!",
+        "Beleza, se apressa!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que a apresentação da equipe do Mark e da Sarah precisa aguardar?",
+        "options": [
+          "Porque o Greg se esqueceu de enviar o e-mail para o cliente.",
+          "Porque a Amanda precisa aprovar os números do relatório refito.",
+          "Porque o Marcos da contabilidade pediu um adiamento formal.",
+          "Porque a sala de reunião foi ocupada pela diretoria."
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah explica que Greg mandou segurar a apresentação até Amanda aprovar os números, já que o relatório teve de ser refeito."
+      },
+      {
+        "question": "Para qual horário a Amanda havia prometido entregar os números corrigidos?",
+        "options": [
+          "Para as dez horas da manhã.",
+          "Para o meio-dia.",
+          "Para as doze e meia.",
+          "Para o final do dia."
+        ],
+        "answerIndex": 1,
+        "explanation": "Sarah relata que Greg disse que Amanda havia prometido enviar o relatório até o meio-dia (by noon)."
+      },
+      {
+        "question": "O que o Mark vai fazer enquanto a Sarah envia uma mensagem para a Amanda?",
+        "options": [
+          "Buscar cafés para os dois na cozinha.",
+          "Falar com o vice-presidente sobre a reunião.",
+          "Reservar uma sala maior para os diretores.",
+          "Revisar o relatório contábil do Marcos."
+        ],
+        "answerIndex": 0,
+        "explanation": "Mark sugere ir à cozinha pegar cafés enquanto Sarah envia a mensagem (ping) para a Amanda."
+      }
+    ],
+    "n": 37
+  },
+  {
+    "kind": "conversa",
+    "title": "Ajuste de escopo e orçamento com a equipe de tecnologia",
+    "why": "Treina a negociação de prazos e escopo sob pressão real de trabalho, com interrupções, cortes de custos e imprevistos com clientes.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Mark",
+        "Hey Sarah, you got a second? We kinda got a situation with the new app rollout.",
+        "Ei Sarah, tem um minutinho? A gente meio que tá com um problema no lançamento do aplicativo novo."
+      ],
+      [
+        "Sarah",
+        "Uh, sure, what's up? Don't tell me Greg pushed the deadline again...",
+        "Ah, claro, o que foi? Não me diz que o Greg adiou o prazo de novo..."
+      ],
+      [
+        "Mark",
+        "Well, not Greg, but the dev team says the scope expanded way too much this week.",
+        "Bom, não o Greg, mas o pessoal do desenvolvimento disse que o escopo aumentou demais esta semana."
+      ],
+      [
+        "Sarah",
+        "Wait, what? We already agreed on the core features last Tuesday!",
+        "Peraí, como assim? A gente já tinha combinado as funcionalidades principais na terça passada!"
+      ],
+      [
+        "Mark",
+        "I know, I know, but the client wants that custom dashboard added before launch.",
+        "Eu sei, eu sei, só que o cliente quer aquele painel personalizado adicionado antes do lançamento."
+      ],
+      [
+        "Sarah",
+        "That's gonna add at least two weeks! We can't afford that right now.",
+        "Isso vai colocar mais umas duas semanas no prazo! Não temos como bancar isso agora."
+      ],
+      [
+        "Mark",
+        "Look, I told 'em that's a bit outside our budget, but they're refusing to sign without it.",
+        "Olha, eu falei pra eles que isso fica um pouco fora do nosso orçamento, mas eles tão se recusando a assinar sem isso."
+      ],
+      [
+        "Sarah",
+        "Lemme guess... they're not willing to pay extra for the rush order either?",
+        "Deixa eu adivinhar... eles também não tão dispostos a pagar a mais pela urgência?"
+      ],
+      [
+        "Mark",
+        "Pretty much. So, I was thinking... would you be open to a different timeline for phase two?",
+        "Basicamente isso. Então, eu tava pensando... você estaria aberta a um cronograma diferente pra fase dois?"
+      ],
+      [
+        "Sarah",
+        "Mark, if we delay the phase one launch, marketing is gonna lose their minds.",
+        "Mark, se a gente atrasar o lançamento da fase um, o pessoal do marketing vai enlouquecer."
+      ],
+      [
+        "Mark",
+        "I hear ya, but listen... what if we deliver the basic dashboard now, and patch the rest later?",
+        "Eu te entendo, mas escuta... e se a gente entregar o painel básico agora e arrumar o resto depois?"
+      ],
+      [
+        "Sarah",
+        "Hmm... could we meet halfway and just give 'em a simplified version next month?",
+        "Hmm... dá pra gente chegar num meio-termo e entregar só uma versão simplificada no mês que vem?"
+      ],
+      [
+        "Mark",
+        "That might work, but we'd need to convince Greg to shift his team's focus today.",
+        "Pode dar certo, mas a gente precisaria convencer o Greg a mudar o foco da equipe dele hoje mesmo."
+      ],
+      [
+        "Sarah",
+        "Ugh, Greg's gonna throw a fit. He hates changing priorities mid-sprint.",
+        "Poxa, o Greg vai dar um chilique. Ele odeia mudar prioridade no meio de uma sprint."
+      ],
+      [
+        "Mark",
+        "Yeah, well, lack of budget is a total deal breaker for us, so he'll have to adapt.",
+        "É, pois é, mas a falta de verba é um ponto inegociável pra gente, então ele vai ter que se adaptar."
+      ],
+      [
+        "Sarah",
+        "True. So... how much extra is the dev team asking for if we keep the original date?",
+        "Verdade. Mas e aí... quanto a mais a equipe de dev tá pedindo se a gente mantiver a data original?"
+      ],
+      [
+        "Mark",
+        "They want ten grand extra for overtime. Which we definitely don't have.",
+        "Eles querem dez mil a mais por causa das horas extras. Coisa que com certeza a gente não tem."
+      ],
+      [
+        "Sarah",
+        "Yeah, no way. Ten thousand is completely out of the question.",
+        "É, sem chance. Dez mil tá totalmente fora de cogitação."
+      ],
+      [
+        "Mark",
+        "Right. So lemme check with the tech lead and get back to you in an hour.",
+        "Beleza. Então deixa eu checar com o líder técnico e te dou um retorno em uma hora."
+      ],
+      [
+        "Sarah",
+        "Okay, but wanna brainstorm a quick backup plan just in case Greg says no?",
+        "Tá bom, mas quer pensar rápido num plano B caso o Greg diga não?"
+      ],
+      [
+        "Mark",
+        "Good idea. We could drop the reporting tool temporarily to save time.",
+        "Boa ideia. A gente podia tirar a ferramenta de relatórios temporariamente pra economizar tempo."
+      ],
+      [
+        "Sarah",
+        "Actually, I think we can work with that! That saves us about four days of work.",
+        "Pensando bem, acho que dá pra trabalhar com isso! Isso economiza uns quatro dias de trabalho."
+      ],
+      [
+        "Mark",
+        "Perfect. If Greg agrees to that tweak, I think sounds like we have a deal with the client.",
+        "Perfeito. Se o Greg concordar com esse ajuste, acho que dá pra fechar com o cliente."
+      ],
+      [
+        "Sarah",
+        "Great. Call Greg now, and lemme know what he says before our three o'clock meeting.",
+        "Ótimo. Liga pro Greg agora e me avisa o que ele falar antes da nossa reunião das três."
+      ],
+      [
+        "Mark",
+        "On it! Wish me luck, he's probably on his third cup of coffee by now.",
+        "Tô indo! Me deseja sorte, ele já deve estar na terceira xícara de café a essa hora."
+      ],
+      [
+        "Sarah",
+        "You're gonna need it! Text me as soon as you're done.",
+        "Você vai precisar mesmo! Me manda mensagem assim que terminar."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que a equipe de desenvolvimento alegou que o prazo original ficou inviável?",
+        "options": [
+          "Porque o Greg mudou a data final sem avisar ninguém.",
+          "Porque o cliente exigiu um painel personalizado antes do lançamento.",
+          "Porque a equipe de marketing cancelou o contrato da fase um.",
+          "Porque o orçamento do projeto foi cortado pela metade."
+        ],
+        "answerIndex": 1,
+        "explanation": "Mark explica que o escopo aumentou porque o cliente exige a inclusão do 'custom dashboard' antes do lançamento do app."
+      },
+      {
+        "question": "Qual foi o plano B aceito por Sarah para economizar cerca de quatro dias de trabalho?",
+        "options": [
+          "Aumentar o orçamento em dez mil dólares para cobrir horas extras.",
+          "Transferir a responsabilidade do painel para a equipe de marketing.",
+          "Remover temporariamente a ferramenta de relatórios do escopo.",
+          "Adiar a reunião das três horas com o cliente."
+        ],
+        "answerIndex": 2,
+        "explanation": "Mark sugere tirar temporariamente a 'reporting tool' e Sarah concorda que isso economiza cerca de quatro dias de trabalho."
+      },
+      {
+        "question": "Qual é a principal resistência esperada da parte de Greg ao ouvir a proposta?",
+        "options": [
+          "Ele se recusa a tomar café durante o expediente.",
+          "Ele não aceita trabalhar com clientes que pedem prazos curtos.",
+          "Ele detesta mudar as prioridades do trabalho no meio de uma sprint.",
+          "Ele quer receber dez mil dólares a mais para fazer o projeto."
+        ],
+        "answerIndex": 2,
+        "explanation": "Sarah comenta que Greg vai dar um chilique porque 'hates changing priorities mid-sprint' (odeia mudar prioridades no meio de uma sprint)."
+      }
+    ],
+    "n": 38
+  },
+  {
+    "kind": "conversa",
+    "title": "O reencontro inesperado e os planos de última hora para a noite",
+    "why": "Treina a compreensão de phrasal verbs encadeados e fala rápida e natural com interrupções e expressões cotidianas.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Lucas",
+        "Hey Jessica! You're never gonna guess who I just ran into at the grocery store.",
+        "Ei Jessica! Você nunca vai adivinhar quem eu acabei de encontrar no mercado."
+      ],
+      [
+        "Jessica",
+        "Uh, let me guess... Marcos? No, wait, he moved to Chicago, right?",
+        "Hã, deixa eu adivinhar... O Marcos? Não, espera, ele se mudou pra Chicago, né?"
+      ],
+      [
+        "Lucas",
+        "Yeah, but he came back! Well, just for the weekend to figure some family stuff out.",
+        "É, mas ele voltou! Quer dizer, só pro fim de semana pra resolver uns negócios de família."
+      ],
+      [
+        "Jessica",
+        "Wow, shut up! Did you guys catch up or were you in a hurry?",
+        "Caramba, mentira! Vocês conseguiram botar o papo em dia ou você tava com pressa?"
+      ],
+      [
+        "Lucas",
+        "We talked for like ten minutes. He wanted to hang out tonight, but something came up at work.",
+        "A gente conversou por tipo uns dez minutos. Ele queria sair hoje à noite, mas surgiu um imprevisto no trabalho."
+      ],
+      [
+        "Jessica",
+        "Oh no, don't tell me you have to pull an all-nighter again.",
+        "Ah não, não me diz que você vai ter que virar a noite trabalhando de novo."
+      ],
+      [
+        "Lucas",
+        "Kinda. My boss expects me to clean up this data mess before tomorrow morning.",
+        "Mais ou menos. Meu chefe quer que eu organize essa bagunça de dados antes de amanhã de manhã."
+      ],
+      [
+        "Jessica",
+        "Ugh, that sucks. So I guess our movie night is off then?",
+        "Nossa, que chato. Então imagino que a nossa noite do cinema tá cancelada, né?"
+      ],
+      [
+        "Lucas",
+        "Well, not necessarily! If I can speed things up, I might finish by eight. Can you pick up the pizza?",
+        "Bom, não necessariamente! Se eu conseguir agilizar as coisas, posso terminar lá pelas oito. Você consegue buscar a pizza?"
+      ],
+      [
+        "Jessica",
+        "Sure, I can drop by that place on Fifth Street. But wait, did Marcos say he'd show up later?",
+        "Claro, posso passar naquela pizzaria da Rua Cinco. Mas espera, o Marcos disse que vai aparecer mais tarde?"
+      ],
+      [
+        "Lucas",
+        "He said he'd try to drop in after nine if his dinner with his sister doesn't drag on.",
+        "Ele disse que ia tentar dar uma passada depois das nove se o jantar dele com a irmã não se arrastar."
+      ],
+      [
+        "Jessica",
+        "Okay, cool. Lemme know as soon as you finish your work so I don't order too early.",
+        "Beleza. Me avisa assim que você terminar o trabalho pra eu não pedir cedo demais."
+      ],
+      [
+        "Lucas",
+        "Will do. Oh, by the way, did you ever look into that gym membership we talked about?",
+        "Pode deixar. Ah, a propósito, você chegou a dar uma olhada naquela mensalidade da academia que a gente falou?"
+      ],
+      [
+        "Jessica",
+        "Oh, I totally forgot! I was gonna check their website, but I got carried away with chores.",
+        "Ah, esqueci totalmente! Eu ia ver o site deles, mas acabei me empolgando com as tarefas de casa."
+      ],
+      [
+        "Lucas",
+        "Classic Jessica! Anyway, don't give up on it, they're having a promotion this week.",
+        "Clássico de você, Jessica! De qualquer forma, não desiste disso não, eles estão com uma promoção esta semana."
+      ],
+      [
+        "Jessica",
+        "Alright, alright, I'll sign up tonight. But hey, don't work too hard, okay?",
+        "Tá bom, tá bom, vou me inscrever hoje à noite. Mas ó, não vai se matar de trabalhar, tá?"
+      ],
+      [
+        "Lucas",
+        "I'm trying not to! I'm really looking forward to relaxing tonight.",
+        "Tô tentando! Tô doido pra relaxar hoje à noite."
+      ],
+      [
+        "Jessica",
+        "Me too. I'll buy extra garlic sauce for the pizza, I know you love it.",
+        "Eu também. Vou comprar molho de alho extra pra pizza, sei que você ama."
+      ],
+      [
+        "Lucas",
+        "You're a lifesaver. Lemme get back to this spreadsheet before my manager checks in.",
+        "Você é uma salva-vidas. Deixa eu voltar pra essa planilha antes que meu gerente venha me cobrar."
+      ],
+      [
+        "Jessica",
+        "Go for it! Text me when you're wrapping up.",
+        "Vai lá! Me manda mensagem quando estiver finalizando."
+      ],
+      [
+        "Lucas",
+        "Will do. Talk to you in a bit!",
+        "Pode deixar. Falo com você daqui a pouco!"
+      ],
+      [
+        "Jessica",
+        "Bye! Don't let the boss stress you out!",
+        "Tchau! Não deixa o chefe te estressar!"
+      ],
+      [
+        "Lucas",
+        "Too late for that, but I'm pushing through!",
+        "Tarde demais pra isso, mas tô firme e forte!"
+      ],
+      [
+        "Jessica",
+        "That's the spirit! Catch you later.",
+        "Esse é o espírito! A gente se fala mais tarde."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Marcos voltou para a cidade no fim de semana?",
+        "options": [
+          "Para visitar a academia nova que abriu na região.",
+          "Para resolver assuntos familiares.",
+          "Para trabalhar em um novo projeto com Lucas.",
+          "Para passar o fim de semana assistindo a filmes na casa de Jessica."
+        ],
+        "answerIndex": 1,
+        "explanation": "Lucas menciona que Marcos voltou apenas pelo fim de semana para 'figure some family stuff out' (resolver coisas de família)."
+      },
+      {
+        "question": "O que Lucas precisa fazer no trabalho antes de poder aproveitar a noite?",
+        "options": [
+          "Ir buscar a pizza na Rua Cinco.",
+          "Fazer uma visita rápida à irmã de Marcos.",
+          "Organizar uma bagunça de dados a pedido do chefe.",
+          "Fazer a inscrição na promoção da academia."
+        ],
+        "answerIndex": 2,
+        "explanation": "O chefe de Lucas espera que ele organize uma bagunça de dados ('clean up this data mess') antes de amanhã de manhã."
+      },
+      {
+        "question": "Qual é a condição para Marcos talvez aparecer mais tarde na casa deles?",
+        "options": [
+          "Se o jantar dele com a irmã não se arrastar demais.",
+          "Se a pizza chegar com o molho de alho extra que Lucas gosta.",
+          "Se Lucas conseguir terminar a planilha até as nove da noite.",
+          "Se Jessica for buscá-lo de carro após o expediente."
+        ],
+        "answerIndex": 0,
+        "explanation": "Lucas explica que Marcos tentará passar lá se o jantar dele com a irmã não demorar ('if his dinner with his sister doesn't drag on')."
+      }
+    ],
+    "n": 40
   }
 ]
