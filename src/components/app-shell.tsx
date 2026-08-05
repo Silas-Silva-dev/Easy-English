@@ -3,6 +3,7 @@
 import {
   Brain,
   ChevronDown,
+  Languages,
   LayoutDashboard,
   Loader2,
   LogOut,
@@ -64,6 +65,7 @@ const ICONS = {
   progress: TrendingUp,
   settings: Settings,
   shield: Shield,
+  translate: Languages,
 } as const;
 
 const ROLE_LABEL: Record<Profile["role"], string> = {
