@@ -47,12 +47,15 @@ export function LessonPlayer({
   alreadyCompleted,
   nextPublishedDay,
   initialSpeakingResult = null,
+  initialAnswers = {},
 }: {
   lesson: Lesson;
   alreadyCompleted: boolean;
   nextPublishedDay: number | null;
   /** Avaliação de fala já salva desta lição, reidratada do banco. */
   initialSpeakingResult?: SpeakingResult | null;
+  /** Respostas do quiz salvas no banco para lições já concluídas. */
+  initialAnswers?: Record<number, number>;
 }) {
   const hasVocabulary = lesson.chunks?.length > 0 || lesson.vocabulary.length > 0;
   const hasQuiz = lesson.quiz.length > 0;
@@ -71,8 +74,12 @@ export function LessonPlayer({
   );
 
   const [step, setStep] = React.useState<Step>("content");
-  const [answers, setAnswers] = React.useState<Record<number, number>>({});
-  const [revealed, setRevealed] = React.useState(false);
+  // Reidrata as respostas salvas: se a lição já foi concluída e havia respostas
+  // no banco, o aluno vê suas escolhas com as correções exibidas de imediato.
+  const [answers, setAnswers] = React.useState<Record<number, number>>(initialAnswers);
+  const [revealed, setRevealed] = React.useState(
+    Object.keys(initialAnswers).length === lesson.quiz.length && lesson.quiz.length > 0,
+  );
   // A avaliação mora AQUI, e não dentro do PracticeStation: trocar de etapa
   // desmonta a estação e o resultado recém-recebido morria junto com ela.
   const [speakingResult, setSpeakingResult] = React.useState<SpeakingResult | null>(

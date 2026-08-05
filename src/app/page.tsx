@@ -282,7 +282,6 @@ export default async function LandingPage() {
               asChild
               variant="ghost"
               size="sm"
-              className="hidden sm:inline-flex"
             >
               <Link href="/login">Entrar</Link>
             </Button>

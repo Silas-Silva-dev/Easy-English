@@ -81,7 +81,7 @@ export default async function LessonPage({ params }: Params) {
     enrollment
       ? supabase
           .from("lesson_progress")
-          .select("status")
+          .select("status, quiz_answers, score")
           .eq("enrollment_id", enrollment.id)
           .eq("lesson_id", lesson.id)
           .maybeSingle()
@@ -91,6 +91,16 @@ export default async function LessonPage({ params }: Params) {
     // próprio áudio e a avaliação da tutora, em vez de recomeçar do zero.
     lesson.speaking_prompt ? getLastSpeakingResult(userId, lesson.id) : Promise.resolve(null),
   ]);
+
+  // Reidrata as respostas do quiz salvas no banco para que o aluno que reabrir
+  // uma lição já concluída veja suas respostas e as correções sem precisar
+  // refazer o quiz do zero.
+  const savedAnswers =
+    progress?.status === "completed" && Array.isArray(progress.quiz_answers)
+      ? Object.fromEntries(
+          (progress.quiz_answers as number[]).map((answer, i) => [i, answer] as [number, number]),
+        )
+      : {};
 
   return (
     <div className="mx-auto max-w-3xl space-y-7">
@@ -128,6 +138,7 @@ export default async function LessonPage({ params }: Params) {
         alreadyCompleted={progress?.status === "completed"}
         nextPublishedDay={nextLesson?.day_number ?? null}
         initialSpeakingResult={speakingResult}
+        initialAnswers={savedAnswers}
       />
     </div>
   );
