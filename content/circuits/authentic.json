@@ -6759,5 +6759,179 @@
       }
     ],
     "n": 42
+  },
+  {
+    "kind": "conversa",
+    "title": "O imprevisto do protótipo e a apresentação para o chefe",
+    "why": "Treina a percepção de expressões idiomáticas encadeadas em uma conversa rápida e de alto estresse profissional.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Marcus",
+        "Chloe, hey, d'you got a second? We really gotta talk about the Henderson pitch.",
+        "Chloe, ei, cê tem um segundo? A gente precisa muito falar sobre a proposta pro Henderson."
+      ],
+      [
+        "Chloe",
+        "Uh, sure, but lemme finish updating this spreadsheet real quick or my head's gonna explode.",
+        "Ah, claro, mas deixa eu só terminar de atualizar essa planilha rapidinho senão minha cabeça vai explodir."
+      ],
+      [
+        "Marcus",
+        "Okay, look, I know we said yesterday that making the slides would be a piece of cake, but...",
+        "Tá, olha só, eu sei que a gente disse ontem que fazer os slides ia ser molezinha, mas..."
+      ],
+      [
+        "Chloe",
+        "Oh no. Don't tell me Dave spilled the beans about the budget already.",
+        "Ah não. Não me diz que o Dave deu com a língua nos dentes sobre o orçamento já."
+      ],
+      [
+        "Marcus",
+        "No, no, Dave didn't say anything, but Henderson just sent an email. He wants a full prototype by tomorrow morning.",
+        "Não, não, o Dave não falou nada, mas o Henderson acabou de mandar um e-mail. Ele quer um protótipo completo até amanhã de manhã."
+      ],
+      [
+        "Chloe",
+        "Are you serious? Tomorrow? Man, he's totally barking up the wrong tree if he thinks we can pull that off.",
+        "Cê tá falando sério? Amanhã? Cara, ele tá totalmente viajando se acha que a gente consegue fazer isso."
+      ],
+      [
+        "Marcus",
+        "I know, right? But look, we're on the same page here, so we kinda gotta bite the bullet and handle it.",
+        "Eu sei, né? Mas olha, a gente tá alinhado aqui, então a gente meio que tem que encarar a bucha e resolver."
+      ],
+      [
+        "Chloe",
+        "Ugh, alright. I mean, it's not rocket science, but building a mock-up overnight is just crazy.",
+        "Aff, tá bom. Quer dizer, não é nenhum bicho de sete cabeças, mas criar um modelo do zero de um dia pro outro é loucura."
+      ],
+      [
+        "Marcus",
+        "Exactly. So I was thinking, instead of stressing out, maybe we just cut to the chase and present what we already built?",
+        "Exato. Então eu tava pensando, em vez de surtar, talvez a gente vá direto ao ponto e apresente o que já tem pronto?"
+      ],
+      [
+        "Chloe",
+        "Hmm, that might work. But wait, did you check the backend integration? Last time it went down, remember?",
+        "Hmm, isso pode dar certo. Mas espera, cê checou a integração do sistema? Da última vez deu pau, lembra?"
+      ],
+      [
+        "Marcus",
+        "Yeah, well, that's water under the bridge, Chloe. Sam fixed that bug hours ago.",
+        "Sim, bom, isso é águas passadas, Chloe. O Sam corrigiu esse erro faz horas."
+      ],
+      [
+        "Chloe",
+        "Knock on wood! Cause if that server crashes during the call, we're done for.",
+        "Bate na madeira! Porque se aquele servidor cair durante a chamada, a gente tá frito."
+      ],
+      [
+        "Marcus",
+        "Relax, he hit the nail on the head with his fix. It's solid now.",
+        "Relaaaxa, ele acertou em cheio no conserto. Tá firme e forte agora."
+      ],
+      [
+        "Chloe",
+        "Okay, good. So, uh, what's our plan for tonight? Are we staying late or what?",
+        "Tá bom, ótimo. Então, tipo, qual é o plano pra hoje à noite? A gente vai ficar até tarde ou o quê?"
+      ],
+      [
+        "Marcus",
+        "Well, I'm kinda feeling under the weather today, to be honest. My throat's killing me.",
+        "Bom, eu tô meio indisposto hoje, pra ser sincero. Minha garganta tá me matando."
+      ],
+      [
+        "Chloe",
+        "Oh, Marcus, why didn't you say so earlier? You look exhausted.",
+        "Nossa, Marcus, por que você não falou antes? Você tá com uma cara de cansado."
+      ],
+      [
+        "Marcus",
+        "I know, I know. I just didn't wanna let you down.",
+        "Eu sei, eu sei. Só não queria te deixar na mão."
+      ],
+      [
+        "Chloe",
+        "Hey, don't worry about it. Let's play it by ear for the next couple hours and see how much we finish.",
+        "Ei, relaxa com isso. Vamos deixar rolar pelas próximas duas horas e ver quanto a gente consegue terminar."
+      ],
+      [
+        "Marcus",
+        "Thanks, Chloe. If we finish the core slides by five, maybe we can call it a day early.",
+        "Valeu, Chloe. Se a gente terminar os slides principais até às cinco, talvez dê pra encerrar o expediente mais cedo."
+      ],
+      [
+        "Chloe",
+        "Deal. In a nutshell, we just need three solid slides and a quick demo.",
+        "Fechado. Resumindo a história, a gente só precisa de três slides bem feitos e uma demonstração rápida."
+      ],
+      [
+        "Marcus",
+        "Right. Uh, should we break the ice tomorrow with that joke about the coffee machine?",
+        "Certo. Hã, a gente devia quebrar o gelo amanhã com aquela piada sobre a máquina de café?"
+      ],
+      [
+        "Chloe",
+        "Absolutely not! Henderson has zero sense of humor before his second espresso.",
+        "Com certeza não! O Henderson não tem humor nenhum antes do segundo café dele."
+      ],
+      [
+        "Marcus",
+        "Good point. Glad I asked before putting my foot in my mouth.",
+        "Bem lembrado. Ainda bem que perguntei antes de falar besteira."
+      ],
+      [
+        "Chloe",
+        "Haha, yeah. Okay, back to work! Hand me that folder on your desk.",
+        "Haha, pois é. Beleza, mãos à obra! Me passa aquela pasta ali na sua mesa."
+      ],
+      [
+        "Marcus",
+        "Here you go. Let me know if you need help with the graphics.",
+        "Toma aqui. Me avisa se precisar de ajuda com os gráficos."
+      ],
+      [
+        "Chloe",
+        "Will do! Now grab some tea and take it easy for a minute.",
+        "Pode deixar! Agora vai tomar um chá e descansa um pouco."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Marcus e Chloe estão sob pressão para a reunião com Henderson?",
+        "options": [
+          "Porque o servidor da empresa caiu e eles perderam o trabalho.",
+          "Porque o chefe pediu um protótipo completo para a manhã seguinte.",
+          "Porque Dave contou segredos do orçamento para o cliente.",
+          "Porque Marcus precisa sair mais cedo para ir ao médico."
+        ],
+        "answerIndex": 1,
+        "explanation": "Marcus explica que Henderson enviou um e-mail exigindo um protótipo completo pronto já na manhã do dia seguinte."
+      },
+      {
+        "question": "Como Chloe reage quando Marcus revela que está se sentindo indisposto ('under the weather')?",
+        "options": [
+          "Ela exige que ele vá embora imediatamente e faça o trabalho sozinho.",
+          "Ela fica irritada por ele não ter avisado antes de começar a planilha.",
+          "Ela sugere irem ajustando o ritmo sem pressão ('play it by ear') para ver o que conseguem entregar.",
+          "Ela diz que ele precisa tomar um café expresso para aguentar virar a noite."
+        ],
+        "answerIndex": 2,
+        "explanation": "Chloe demonstra empatia e propõe ir levando a situação sem estresse ('play it by ear') para não sobrecarregar Marcus."
+      },
+      {
+        "question": "Por que Chloe recusa a ideia de Marcus de fazer uma piada sobre a máquina de café para quebrar o gelo?",
+        "options": [
+          "Porque a piada é sobre a empresa e pode soar desrespeitosa.",
+          "Porque Henderson não tem nenhum senso de humor antes de tomar seu segundo café.",
+          "Porque Marcus costuma esquecer o final da piada ao falar em público.",
+          "Porque a piada estragaria a demonstração do protótipo."
+        ],
+        "answerIndex": 1,
+        "explanation": "Chloe alerta que o chefe (Henderson) tem 'zero senso de humor' antes de tomar a segunda xícara de café expresso."
+      }
+    ],
+    "n": 43
   }
 ]

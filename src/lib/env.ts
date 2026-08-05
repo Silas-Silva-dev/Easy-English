@@ -103,9 +103,22 @@ export const checkoutEnv = {
  * chave alcanca e `npm run check` para validar de ponta a ponta.
  */
 export const geminiModels = {
+  /**
+   * Deliberadamente DIFERENTE do modelo de fala: a cota do free tier e contada
+   * por projeto E por modelo. Enquanto os dois apontavam para o mesmo
+   * `gemini-3.6-flash`, cada mensagem no tutor de texto consumia uma das ~20
+   * analises de audio disponiveis no dia. O tutor e tarefa de texto e cabe bem
+   * no flash-lite, que tem cota diaria muito maior.
+   */
   get tutor() {
-    return optional("GEMINI_MODEL_TUTOR", "gemini-3.6-flash");
+    return optional("GEMINI_MODEL_TUTOR", "gemini-3.1-flash-lite");
   },
+  /**
+   * A fala fica no modelo mais forte: e a unica chamada que precisa OUVIR o
+   * audio e diagnosticar fonema (ver BRAZILIAN_INTERFERENCE_GUIDE em
+   * `gemini/prompts.ts`). Nao troque por um flash-lite sem comparar o `heard` e
+   * o `ipa` de `pronunciation_notes` em audios reais de aluno.
+   */
   get speaking() {
     return optional("GEMINI_MODEL_SPEAKING", "gemini-3.6-flash");
   },
