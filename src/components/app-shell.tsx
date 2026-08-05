@@ -43,6 +43,19 @@ export interface NavItem {
   badge?: string;
 }
 
+/** Grupo colapsável de itens de navegação exibido na sidebar. */
+export interface NavGroup {
+  /** Rótulo do cabeçalho do grupo (ex.: "Curso 4 Cantos"). */
+  label: string;
+  /** Descrição exibida abaixo do rótulo (ex.: "Inglês focado na fala"). */
+  description?: string;
+  /** Itens filho do grupo. */
+  items: NavItem[];
+  /** Posição (0-indexed) na lista `nav` onde o grupo deve ser inserido.
+   *  0 = antes do primeiro item, 1 = após o primeiro, etc. */
+  insertAfter: number;
+}
+
 const ICONS = {
   dashboard: LayoutDashboard,
   mic: Mic,
@@ -68,6 +81,7 @@ const ROLE_TONE: Record<Profile["role"], "neutral" | "success" | "streak"> = {
 export function AppShell({
   profile,
   nav,
+  navGroups = [],
   brandHref,
   brandLabel,
   streak,
@@ -76,6 +90,8 @@ export function AppShell({
 }: {
   profile: Profile;
   nav: NavItem[];
+  /** Grupos colapsáveis inseridos na lista de navegação. */
+  navGroups?: NavGroup[];
   brandHref: string;
   brandLabel: string;
   streak?: number;
@@ -85,6 +101,21 @@ export function AppShell({
   const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
   const [navigatingHref, setNavigatingHref] = React.useState<string | null>(null);
+
+  // Cada grupo começa aberto se algum filho estiver ativo.
+  const [groupOpen, setGroupOpen] = React.useState<Record<number, boolean>>(() =>
+    Object.fromEntries(
+      navGroups.map((g, gi) => [
+        gi,
+        g.items.some(
+          (it) =>
+            it.exact
+              ? pathname === it.href
+              : pathname === it.href || pathname.startsWith(`${it.href}/`),
+        ),
+      ]),
+    ),
+  );
 
   React.useEffect(() => {
     setOpen(false);
@@ -100,53 +131,112 @@ export function AppShell({
     }
   };
 
-  const navList = (
-    <nav className="space-y-1">
-      {nav.map((item) => {
-        const Icon = ICONS[item.icon];
-        const active = isActive(item);
-        const isNavigating = navigatingHref === item.href;
-        return (
-          <Link
-            key={item.href}
-            href={item.href}
-            onClick={() => handleNavClick(item.href)}
-            aria-current={active ? "page" : undefined}
-            className={cn(
-              // min-h-11 garante alvo de toque confortável no celular.
-              "flex min-h-11 items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-              active
-                ? "bg-primary/10 text-primary"
-                : "text-muted-foreground hover:bg-accent hover:text-foreground",
-            )}
-          >
-            {isNavigating ? (
-              <Loader2 className="text-primary size-4 shrink-0 animate-spin" />
-            ) : (
-              <Icon className="size-4 shrink-0" />
-            )}
-            <div className="min-w-0 flex-1">
-              <span className="block truncate font-medium">{item.label}</span>
-              {item.sublabel ? (
-                <span className="text-muted-foreground/80 block truncate text-[11px] font-normal">
-                  {item.sublabel}
-                </span>
-              ) : null}
-            </div>
-            {isNavigating ? (
-              <Badge variant="neutral" className="text-primary animate-pulse text-[10px]">
-                Carregando…
-              </Badge>
-            ) : item.badge ? (
-              <Badge variant="neutral" className="text-[10px]">
-                {item.badge}
-              </Badge>
+  /** Renderiza um único item de link de navegação. */
+  const renderNavItem = (item: NavItem, indented = false) => {
+    const Icon = ICONS[item.icon];
+    const active = isActive(item);
+    const isNavigating = navigatingHref === item.href;
+    return (
+      <Link
+        key={item.href}
+        href={item.href}
+        onClick={() => handleNavClick(item.href)}
+        aria-current={active ? "page" : undefined}
+        className={cn(
+          // min-h-11 garante alvo de toque confortável no celular.
+          "flex min-h-11 items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+          indented && "pl-4",
+          active
+            ? "bg-primary/10 text-primary"
+            : "text-muted-foreground hover:bg-accent hover:text-foreground",
+        )}
+      >
+        {isNavigating ? (
+          <Loader2 className="text-primary size-4 shrink-0 animate-spin" />
+        ) : (
+          <Icon className="size-4 shrink-0" />
+        )}
+        <div className="min-w-0 flex-1">
+          <span className="block truncate font-medium">{item.label}</span>
+          {item.sublabel ? (
+            <span className="text-muted-foreground/80 block truncate text-[11px] font-normal">
+              {item.sublabel}
+            </span>
+          ) : null}
+        </div>
+        {isNavigating ? (
+          <Badge variant="neutral" className="text-primary animate-pulse text-[10px]">
+            Carregando…
+          </Badge>
+        ) : item.badge ? (
+          <Badge variant="neutral" className="text-[10px]">
+            {item.badge}
+          </Badge>
+        ) : null}
+      </Link>
+    );
+  };
+
+  /** Renderiza um grupo colapsável de itens. */
+  const renderNavGroup = (group: NavGroup, gi: number) => {
+    const expanded = groupOpen[gi] ?? false;
+    const anyChildActive = group.items.some((it) => isActive(it));
+    return (
+      <div key={`group-${gi}`}>
+        <button
+          type="button"
+          onClick={() => setGroupOpen((prev) => ({ ...prev, [gi]: !expanded }))}
+          className={cn(
+            "flex w-full min-h-11 items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+            anyChildActive
+              ? "text-primary hover:bg-primary/5"
+              : "text-muted-foreground hover:bg-accent hover:text-foreground",
+          )}
+          aria-expanded={expanded}
+        >
+          {/* Ícone de grade pequena para representar o grupo de cantos */}
+          <LayoutDashboard className="size-4 shrink-0" />
+          <div className="min-w-0 flex-1 text-left">
+            <span className="block truncate font-medium">{group.label}</span>
+            {group.description ? (
+              <span className="text-muted-foreground/70 block truncate text-[11px] font-normal">
+                {group.description}
+              </span>
             ) : null}
-          </Link>
-        );
-      })}
-    </nav>
-  );
+          </div>
+          <ChevronDown
+            className={cn(
+              "size-3.5 shrink-0 transition-transform duration-200",
+              anyChildActive ? "text-primary" : "text-muted-foreground",
+              expanded && "rotate-180",
+            )}
+          />
+        </button>
+
+        {expanded ? (
+          <div className="mt-0.5 ml-3 space-y-0.5 border-l border-border/60 pl-2">
+            {group.items.map((item) => renderNavItem(item, true))}
+          </div>
+        ) : null}
+      </div>
+    );
+  };
+
+  /**
+   * Intercala itens planos e grupos colapsáveis na ordem correta.
+   * Cada grupo declara `insertAfter` — índice do item plano após o qual
+   * o grupo deve aparecer (0-indexed).
+   */
+  const navList = (() => {
+    const elements: React.ReactNode[] = [];
+    nav.forEach((item, i) => {
+      elements.push(renderNavItem(item));
+      navGroups.forEach((group, gi) => {
+        if (group.insertAfter === i) elements.push(renderNavGroup(group, gi));
+      });
+    });
+    return <nav className="space-y-1">{elements}</nav>;
+  })();
 
   /** Quem está logado, no pé do menu: some a dúvida de "qual conta é esta?". */
   const identity = (

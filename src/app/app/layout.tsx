@@ -1,4 +1,4 @@
-import { AppShell, type NavItem } from "@/components/app-shell";
+import { AppShell, type NavGroup, type NavItem } from "@/components/app-shell";
 import { requirePaidUser } from "@/lib/auth/guards";
 import { getOrCreateEnrollment, getPrimaryCourse } from "@/lib/learning";
 import { createServerSupabase } from "@/lib/supabase/server";
@@ -58,6 +58,14 @@ export default async function StudentLayout({ children }: { children: React.Reac
 
   const nav: NavItem[] = [
     { href: "/app", label: "Meu Painel", icon: "dashboard", exact: true },
+    { href: "/app/revisao", label: "Revisão", icon: "brain" },
+    { href: "/app/conversacao", label: "Praticar fala", icon: "mic" },
+    { href: "/app/ao-vivo", label: "Conversa ao vivo", icon: "radio" },
+    { href: "/app/progresso", label: "Meu progresso", icon: "progress" },
+    { href: "/app/perfil", label: "Perfil", icon: "settings" },
+  ];
+
+  const cantoItems: NavItem[] = [
     {
       href: "/app/canto/c1",
       label: "Canto 1: Destravar",
@@ -82,17 +90,23 @@ export default async function StudentLayout({ children }: { children: React.Reac
       sublabel: `${cantoStats.C4?.pct ?? 0}% concluído`,
       icon: "dashboard",
     },
-    { href: "/app/revisao", label: "Revisão", icon: "brain" },
-    { href: "/app/conversacao", label: "Praticar fala", icon: "mic" },
-    { href: "/app/ao-vivo", label: "Conversa ao vivo", icon: "radio" },
-    { href: "/app/progresso", label: "Meu progresso", icon: "progress" },
-    { href: "/app/perfil", label: "Perfil", icon: "settings" },
+  ];
+
+  const navGroups: NavGroup[] = [
+    {
+      label: "Curso 4 Cantos",
+      description: "Inglês focado na fala",
+      items: cantoItems,
+      // Aparece logo após "Meu Painel" (índice 0).
+      insertAfter: 0,
+    },
   ];
 
   return (
     <AppShell
       profile={profile}
       nav={nav}
+      navGroups={navGroups}
       brandHref="/app"
       brandLabel="Easy English"
       streak={enrollment?.streak_current ?? 0}
