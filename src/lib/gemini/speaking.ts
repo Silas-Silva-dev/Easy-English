@@ -319,16 +319,17 @@ export async function analyzeSpeaking(params: {
     } catch (error) {
       lastError = error;
       const message = error instanceof Error ? error.message : String(error);
-      const isQuotaError = /\b(429)\b|quota|rate.?limit|resource_exhausted/i.test(message);
+      const isRetriableModelError =
+        /\b(429|404)\b|quota|rate.?limit|resource_exhausted|not found/i.test(message);
 
-      if (isQuotaError) {
+      if (isRetriableModelError) {
         console.warn(
-          `[speaking] Cota excedida/Rate limit no modelo "${model}". Alternando para o próximo modelo de fallback na fila...`,
+          `[speaking] Falha no modelo "${model}" (${message.slice(0, 100)}). Alternando para o próximo modelo de fallback na fila...`,
         );
         continue;
       }
 
-      // Se não for erro de cota (ex: conteúdo bloqueado), aborta de imediato.
+      // Se não for erro de cota ou modelo inexistente (ex: conteúdo bloqueado por segurança), aborta de imediato.
       throw error;
     }
   }
