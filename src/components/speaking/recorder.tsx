@@ -19,6 +19,19 @@ function formatTime(seconds: number) {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
+/**
+ * Mensagem útil quando o servidor NÃO devolveu JSON (HTML de proxy, 413 do
+ * edge, 504 da plataforma). Sem isso o aluno via "Unexpected token '<'".
+ */
+function httpErrorMessage(status: number): string {
+  if (status === 401) return "Sua sessão expirou. Entre novamente para enviar a gravação.";
+  if (status === 402 || status === 403) return "Seu acesso não está liberado para a correção de fala.";
+  if (status === 413) return "Áudio muito longo. Grave no máximo 5 minutos.";
+  if (status === 429) return "A tutora está sobrecarregada agora. Tente de novo em alguns instantes.";
+  if (status >= 500) return "A tutora não respondeu desta vez. Seu áudio continua aqui: toque em Enviar para correção.";
+  return "Não foi possível enviar seu áudio. Tente novamente.";
+}
+
 /** Escolhe o melhor container suportado pelo navegador atual. */
 function pickMimeType(): string {
   const candidates = [
@@ -56,6 +69,21 @@ export function SpeakingRecorder({
   const timerRef = React.useRef<ReturnType<typeof setInterval> | null>(null);
   const rafRef = React.useRef<number | null>(null);
   const audioCtxRef = React.useRef<AudioContext | null>(null);
+  const startedAtRef = React.useRef(0);
+  // `onstop` é criado uma única vez, no render em que a gravação começou: ler
+  // `seconds` de dentro dele devolvia sempre 0 e a duração chegava zerada ao
+  // banco. A duração fechada no stop vive numa ref, imune a closure obsoleta.
+  const durationRef = React.useRef(0);
+  // `audioUrl` também é lido por closures antigos (o `onstop` e o cleanup de
+  // unmount, ambos com deps vazias): só um ref revoga a URL certa e evita
+  // segurar o blob na memória depois de trocar de gravação.
+  const audioUrlRef = React.useRef<string | null>(null);
+
+  const setAudio = React.useCallback((url: string | null) => {
+    if (audioUrlRef.current) URL.revokeObjectURL(audioUrlRef.current);
+    audioUrlRef.current = url;
+    setAudioUrl(url);
+  }, []);
 
   const cleanup = React.useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
@@ -72,7 +100,7 @@ export function SpeakingRecorder({
   React.useEffect(() => {
     return () => {
       cleanup();
-      if (audioUrl) URL.revokeObjectURL(audioUrl);
+      if (audioUrlRef.current) URL.revokeObjectURL(audioUrlRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -119,26 +147,37 @@ export function SpeakingRecorder({
       };
 
       recorder.onstop = () => {
+        durationRef.current = Math.max(
+          1,
+          Math.round((Date.now() - startedAtRef.current) / 1000),
+        );
+        setSeconds(durationRef.current);
+
         const blob = new Blob(chunksRef.current, { type: mimeType || "audio/webm" });
         blobRef.current = blob;
-        if (audioUrl) URL.revokeObjectURL(audioUrl);
-        setAudioUrl(URL.createObjectURL(blob));
+        setAudio(URL.createObjectURL(blob));
         cleanup();
         void submitBlob(blob);
       };
 
       recorder.start(250);
+      startedAtRef.current = Date.now();
+      durationRef.current = 0;
       setSeconds(0);
       setPhase("recording");
 
+      // Relógio de parede: o setInterval sozinho atrasa quando a aba perde foco,
+      // e a duração exibida deixaria de bater com a enviada.
       timerRef.current = setInterval(() => {
-        setSeconds((prev) => {
-          if (prev + 1 >= MAX_SECONDS) {
-            recorderRef.current?.stop();
-            toast.info("Tempo máximo de gravação atingido (3 minutos).");
-          }
-          return prev + 1;
-        });
+        const elapsed = Math.floor((Date.now() - startedAtRef.current) / 1000);
+        setSeconds(elapsed);
+        // O timer só é limpo no `cleanup()` de dentro do `onstop`: sem checar o
+        // estado, o tique seguinte chamaria `stop()` num recorder já inativo
+        // (InvalidStateError) e repetiria o toast.
+        if (elapsed >= MAX_SECONDS && recorderRef.current?.state === "recording") {
+          recorderRef.current.stop();
+          toast.info("Tempo máximo de gravação atingido (3 minutos).");
+        }
       }, 1000);
     } catch (err) {
       cleanup();
@@ -158,9 +197,9 @@ export function SpeakingRecorder({
   }
 
   function reset() {
-    if (audioUrl) URL.revokeObjectURL(audioUrl);
     blobRef.current = null;
-    setAudioUrl(null);
+    durationRef.current = 0;
+    setAudio(null);
     setSeconds(0);
     setError(null);
     setPhase("idle");
@@ -177,18 +216,39 @@ export function SpeakingRecorder({
     const extension = blob.type.includes("mp4") ? "m4a" : blob.type.includes("ogg") ? "ogg" : "webm";
     formData.append("audio", blob, `pratica.${extension}`);
     formData.append("prompt", prompt);
-    formData.append("duration", String(seconds));
+    formData.append("duration", String(durationRef.current));
     if (lessonId) formData.append("lessonId", lessonId);
 
     try {
       const response = await fetch("/api/speaking/analyze", { method: "POST", body: formData });
-      const payload = await response.json();
 
-      if (!response.ok) throw new Error(payload?.error ?? "Falha ao analisar o áudio");
+      // Lê como texto antes de parsear: chamar `.json()` sem checar `ok` virava
+      // SyntaxError em toda resposta não-JSON (HTML de proxy, 504 da
+      // plataforma) e apagava o status real, que é o que permite diagnosticar.
+      const rawBody = await response.text();
+      let payload: (SpeakingResult & { error?: string }) | null = null;
+      try {
+        payload = rawBody ? JSON.parse(rawBody) : null;
+      } catch {
+        payload = null;
+      }
+
+      if (!response.ok) {
+        console.error("[speaking] envio falhou", response.status, rawBody.slice(0, 300));
+        throw new Error(payload?.error ?? httpErrorMessage(response.status));
+      }
+      if (!payload) throw new Error(httpErrorMessage(response.status));
 
       if (payload.audible === false) {
+        // Vai para "recorded", não "idle": o aluno precisa ouvir justamente a
+        // gravação que o sistema disse não ter entendido para descobrir o
+        // problema do microfone. Em "idle" o blob seguia vivo em memória mas
+        // sumia da tela.
+        setError(
+          "Não consegui ouvir sua voz nesta gravação. Ouça o áudio abaixo, verifique o microfone e grave de novo.",
+        );
         toast.warning("Não consegui ouvir sua voz. Verifique o microfone e grave novamente.");
-        setPhase("idle");
+        setPhase("recorded");
         return;
       } else if (payload.languageDetected === "pt") {
         toast.warning("Você falou em português. Tente responder em inglês: mesmo com erros.");
@@ -196,7 +256,7 @@ export function SpeakingRecorder({
         toast.success("Correção da tutora pronta!");
       }
 
-      onResult(payload as SpeakingResult);
+      onResult(payload);
       reset();
     } catch (err) {
       const message = err instanceof Error ? err.message : "Erro inesperado";

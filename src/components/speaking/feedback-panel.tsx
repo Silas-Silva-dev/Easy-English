@@ -44,6 +44,8 @@ export interface SpeakingResult {
   suggestedPhrases: { en: string; pt: string; context?: string }[];
   audioUrl?: string;
   tutorAudioUrl?: string;
+  /** ISO da gravação: distingue avaliação reidratada de recém-feita. */
+  recordedAt?: string;
   nextSteps: string[];
 }
 
@@ -115,6 +117,11 @@ export function SpeakingFeedbackPanel({ result }: { result: SpeakingResult }) {
                 </div>
                 {result.encouragement ? (
                   <p className="mt-2.5 text-sm font-medium">{result.encouragement}</p>
+                ) : null}
+                {result.recordedAt ? (
+                  <p className="text-muted-foreground mt-1 text-xs">
+                    Gravado em {new Date(result.recordedAt).toLocaleDateString("pt-BR")}
+                  </p>
                 ) : null}
               </div>
             </div>

@@ -18,20 +18,32 @@ export function PracticeStation({
   promptHelp,
   lessonId,
   rubric,
-  onCompleted,
+  initialResult = null,
+  onResultChange,
 }: {
   prompt: string;
   promptHelp?: string;
   lessonId?: string;
   rubric?: { criterion: string; description: string }[];
-  onCompleted?: (result: SpeakingResult) => void;
+  /** Avaliação anterior já salva: reabre a lição mostrando áudio e correção. */
+  initialResult?: SpeakingResult | null;
+  /** Toda mudança da avaliação (nova, ou limpa pelo "Regravar") sobe para o pai. */
+  onResultChange?: (result: SpeakingResult | null) => void;
 }) {
-  const [result, setResult] = React.useState<SpeakingResult | null>(null);
+  const [result, setResult] = React.useState<SpeakingResult | null>(initialResult);
   const resultRef = React.useRef<HTMLDivElement>(null);
 
-  function handleResult(next: SpeakingResult) {
+  // Quem renderiza a estação pode ser o dono do estado: na lição o LessonPlayer
+  // sobrevive à troca de etapa, esta estação não. Sem espelhar para cima, voltar
+  // para a etapa "Fala" remontava a estação e ressemeava o valor antigo do
+  // servidor, apagando a avaliação recém-recebida.
+  function updateResult(next: SpeakingResult | null) {
     setResult(next);
-    onCompleted?.(next);
+    onResultChange?.(next);
+  }
+
+  function handleResult(next: SpeakingResult) {
+    updateResult(next);
     requestAnimationFrame(() => {
       resultRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     });
@@ -76,7 +88,7 @@ export function PracticeStation({
 
           {result ? (
             <div className="flex items-center justify-center pt-2">
-              <Button variant="outline" onClick={() => setResult(null)}>
+              <Button variant="outline" onClick={() => updateResult(null)}>
                 <RefreshCcw className="size-4" /> Gravado · Regravar fala
               </Button>
             </div>
@@ -93,7 +105,7 @@ export function PracticeStation({
               <Sparkles className="text-primary size-5 animate-pulse" />
               <h3 className="text-base font-bold tracking-tight">Avaliação & Correção da Sua Fala</h3>
             </div>
-            <Button variant="outline" size="sm" onClick={() => setResult(null)}>
+            <Button variant="outline" size="sm" onClick={() => updateResult(null)}>
               <RefreshCcw className="size-3.5" /> Refazer gravação
             </Button>
           </div>

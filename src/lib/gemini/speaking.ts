@@ -1,6 +1,6 @@
 import "server-only";
 
-import { Type, type Schema } from "@google/genai";
+import { FinishReason, ThinkingLevel, Type, type Schema } from "@google/genai";
 
 import { geminiModels } from "@/lib/env";
 import { gemini, parseJsonResponse, withRetry } from "@/lib/gemini/client";
@@ -148,6 +148,19 @@ const SPEAKING_SCHEMA: Schema = {
   },
 };
 
+/**
+ * Motivos de parada em que insistir nao adianta: o modelo nao ficou sem texto
+ * por acaso, ele recusou o conteudo. Retentar so queimaria quota e atrasaria o
+ * erro na tela do aluno.
+ */
+const BLOQUEIOS_DEFINITIVOS = new Set<FinishReason>([
+  FinishReason.SAFETY,
+  FinishReason.PROHIBITED_CONTENT,
+  FinishReason.BLOCKLIST,
+  FinishReason.SPII,
+  FinishReason.RECITATION,
+]);
+
 function clampScore(value: unknown): number {
   const n = typeof value === "number" ? value : Number(value);
   if (!Number.isFinite(n)) return 0;
@@ -187,7 +200,12 @@ export async function analyzeSpeaking(params: {
     console.warn("[speaking] Falha ao recuperar RAG contexto:", e);
   }
 
-  const response = await withRetry(() =>
+  // `thinkingLevel` so existe na familia Gemini 3. Se o modelo configurado por
+  // env for de outra geracao, a API responde 400 e NENHUMA analise funcionaria:
+  // por isso o campo e degradavel em vez de obrigatorio.
+  let comThinking = true;
+
+  const requestOnce = () =>
     gemini().models.generateContent({
       model,
       contents: [
@@ -226,11 +244,59 @@ export async function analyzeSpeaking(params: {
         temperature: 0.35,
         responseMimeType: "application/json",
         responseSchema: SPEAKING_SCHEMA,
+        // Corrigir uma gravacao e tarefa de julgamento curto. Sem teto de
+        // raciocinio o modelo as vezes gasta o turno inteiro pensando e fecha
+        // sem nenhuma parte de texto. Nao ha `maxOutputTokens` de proposito: a
+        // saida e um JSON grande e um teto so trocaria "resposta vazia" por
+        // "JSON truncado".
+        ...(comThinking ? { thinkingConfig: { thinkingLevel: ThinkingLevel.LOW } } : {}),
       },
-    }),
-  );
+    });
 
-  const analysis = parseJsonResponse<SpeakingAnalysis>(response.text);
+  // O parse mora DENTRO do withRetry de proposito. `gemini-3.6-flash` raciocina
+  // antes de responder e, de vez em quando, fecha o turno so com "thought
+  // parts": o SDK entrega `text: undefined` e o parse estourava fora do alcance
+  // do retry. Era exatamente essa a falha que aparecia assim que o aluno
+  // terminava de gravar e sumia ao reenviar o mesmo audio: o botao "Enviar para
+  // correcao" era, na pratica, o retry que o servidor deixou de fazer.
+  const analysis = await withRetry(
+    async () => {
+      let response;
+      try {
+        response = await requestOnce();
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        // Modelo que nao conhece o campo: repete sem ele e segue a vida.
+        if (!comThinking || !/thinking/i.test(message)) throw error;
+        console.warn("[speaking] modelo rejeitou thinkingConfig, repetindo sem ele");
+        comThinking = false;
+        response = await requestOnce();
+      }
+
+      const finishReason = response.candidates?.[0]?.finishReason;
+      const text = response.text?.trim();
+
+      if (!text) {
+        // Bloqueio de conteudo sai com uma mensagem que o withRetry NAO
+        // reconhece como retriavel, para falhar de imediato.
+        if (finishReason && BLOQUEIOS_DEFINITIVOS.has(finishReason)) {
+          throw new Error(`O Gemini bloqueou a analise do audio (${finishReason})`);
+        }
+        // Esta string vai para `speaking_sessions.error_message`: com os dois
+        // motivos da para distinguir corte por tokens de bloqueio de prompt.
+        throw new Error(
+          `Resposta vazia do Gemini (finishReason=${finishReason ?? "?"}, ` +
+            `blockReason=${response.promptFeedback?.blockReason ?? "-"})`,
+        );
+      }
+
+      return parseJsonResponse<SpeakingAnalysis>(text);
+    },
+    // Duas tentativas, nao tres: a rota tem `maxDuration = 120` e cada analise
+    // de audio leva de 15 a 30s. Uma terceira rodada arriscaria estourar o
+    // limite da plataforma, que devolve erro nao-JSON.
+    { attempts: 2, baseDelayMs: 500 },
+  );
 
   // Normaliza as notas: o modelo ocasionalmente devolve escala 0-100 ou nulos.
   analysis.scores = {

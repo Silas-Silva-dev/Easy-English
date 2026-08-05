@@ -168,6 +168,28 @@ export async function POST(request: NextRequest) {
       courseId,
     });
 
+    // Áudio inaudível não é avaliação. Se ficasse "completed" com feedback, a
+    // reidratação da lição o traria de volta como a última avaliação do aluno e
+    // ainda liberaria concluir a lição com uma gravação que o próprio sistema
+    // disse não ter ouvido. As notas 0 também sujariam o gráfico de evolução.
+    if (!analysis.audible) {
+      await supabase
+        .from("speaking_sessions")
+        .update({
+          status: "failed",
+          transcript: analysis.transcript,
+          model,
+          error_message: "Áudio inaudível",
+        })
+        .eq("id", sessionRow.id);
+
+      return NextResponse.json({
+        sessionId: sessionRow.id,
+        audible: false,
+        languageDetected: analysis.language_detected,
+      });
+    }
+
     await supabase
       .from("speaking_sessions")
       .update({ status: "completed", transcript: analysis.transcript, model })
@@ -222,6 +244,9 @@ export async function POST(request: NextRequest) {
       sessionId: sessionRow.id,
       feedbackId: feedback?.id ?? null,
       audioUrl: `/api/speaking/audio?sessionId=${sessionRow.id}`,
+      // Mesmo shape que a reidratação devolve, para o painel não distinguir
+      // avaliação recém-feita de avaliação lida do banco.
+      recordedAt: sessionRow.created_at,
       audible: analysis.audible,
       languageDetected: analysis.language_detected,
       transcript: analysis.transcript,

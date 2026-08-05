@@ -22,6 +22,7 @@ import { toast } from "sonner";
 import { AudioPlayer, ImmersionGate } from "@/components/audio/audio-player";
 import { PronunciationLine } from "@/components/lesson/pronunciation-line";
 import { LessonBlockView, RichText } from "@/components/lesson/lesson-blocks";
+import type { SpeakingResult } from "@/components/speaking/feedback-panel";
 import { PracticeStation } from "@/components/speaking/practice-station";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -45,10 +46,13 @@ export function LessonPlayer({
   lesson,
   alreadyCompleted,
   nextPublishedDay,
+  initialSpeakingResult = null,
 }: {
   lesson: Lesson;
   alreadyCompleted: boolean;
   nextPublishedDay: number | null;
+  /** Avaliação de fala já salva desta lição, reidratada do banco. */
+  initialSpeakingResult?: SpeakingResult | null;
 }) {
   const hasVocabulary = lesson.chunks?.length > 0 || lesson.vocabulary.length > 0;
   const hasQuiz = lesson.quiz.length > 0;
@@ -69,7 +73,14 @@ export function LessonPlayer({
   const [step, setStep] = React.useState<Step>("content");
   const [answers, setAnswers] = React.useState<Record<number, number>>({});
   const [revealed, setRevealed] = React.useState(false);
-  const [spoke, setSpoke] = React.useState(false);
+  // A avaliação mora AQUI, e não dentro do PracticeStation: trocar de etapa
+  // desmonta a estação e o resultado recém-recebido morria junto com ela.
+  const [speakingResult, setSpeakingResult] = React.useState<SpeakingResult | null>(
+    initialSpeakingResult,
+  );
+  // Quem já gravou nesta lição não é cobrado de novo ao reabrir. `spoke` é
+  // monotônico: pedir para regravar não faz o aviso voltar.
+  const [spoke, setSpoke] = React.useState(Boolean(initialSpeakingResult));
   const [saving, setSaving] = React.useState(false);
   const [result, setResult] = React.useState<{ streak: number; nextDay: number | null } | null>(null);
   const startedAt = React.useRef(Date.now());
@@ -593,7 +604,11 @@ export function LessonPlayer({
             prompt={lesson.speaking_prompt}
             lessonId={lesson.id}
             rubric={lesson.speaking_rubric}
-            onCompleted={() => setSpoke(true)}
+            initialResult={speakingResult}
+            onResultChange={(next) => {
+              setSpeakingResult(next);
+              if (next) setSpoke(true);
+            }}
           />
         </div>
       ) : null}

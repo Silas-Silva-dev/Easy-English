@@ -15,6 +15,7 @@ import {
   getPrimaryCourse,
   LESSON_KIND_LABEL,
 } from "@/lib/learning";
+import { getLastSpeakingResult } from "@/lib/speaking";
 import { createServerSupabase } from "@/lib/supabase/server";
 
 interface Params {
@@ -76,7 +77,7 @@ export default async function LessonPage({ params }: Params) {
 
   const supabase = await createServerSupabase();
 
-  const [{ data: progress }, nextLesson] = await Promise.all([
+  const [{ data: progress }, nextLesson, speakingResult] = await Promise.all([
     enrollment
       ? supabase
           .from("lesson_progress")
@@ -86,6 +87,9 @@ export default async function LessonPage({ params }: Params) {
           .maybeSingle()
       : Promise.resolve({ data: null }),
     getNextLesson(course.id, day + 1),
+    // A fala já corrigida volta com a lição: o aluno reabre e continua vendo o
+    // próprio áudio e a avaliação da tutora, em vez de recomeçar do zero.
+    lesson.speaking_prompt ? getLastSpeakingResult(userId, lesson.id) : Promise.resolve(null),
   ]);
 
   return (
@@ -123,6 +127,7 @@ export default async function LessonPage({ params }: Params) {
         lesson={lesson}
         alreadyCompleted={progress?.status === "completed"}
         nextPublishedDay={nextLesson?.day_number ?? null}
+        initialSpeakingResult={speakingResult}
       />
     </div>
   );

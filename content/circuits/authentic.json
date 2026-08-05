@@ -6411,5 +6411,353 @@
       }
     ],
     "n": 40
+  },
+  {
+    "kind": "conversa",
+    "title": "A conversa de alinhamento no escritório antes de uma reunião com o chefe",
+    "why": "Treina a percepção de combinações naturais e expressões informais em uma discussão corporativa acelerada.",
+    "minutes": 3,
+    "lines": [
+      [
+        "Diego",
+        "Hey Amanda, gotta sec? I kinda wanna go over the pitch before Carlos gets here.",
+        "Ei Amanda, tem um segundo? Eu queria repassar a apresentação antes do Carlos chegar."
+      ],
+      [
+        "Amanda",
+        "Yeah, sure. I was just trying to make sense of these metrics... they look a bit off.",
+        "Sim, claro. Eu tava só tentando entender essas métricas... parecem meio estranhas."
+      ],
+      [
+        "Diego",
+        "Right, so... I did some digging last night, and honestly? We need to make a tough call.",
+        "Pois é, então... dei uma pesquisada ontem à noite e, sendo sincero? Precisamos tomar uma decisão difícil."
+      ],
+      [
+        "Amanda",
+        "Wait, are you saying we should drop the whole campaign? After all that work?",
+        "Peraí, você tá dizendo que a gente devia descartar a campanha inteira? Depois de todo aquele trabalho?"
+      ],
+      [
+        "Diego",
+        "Not entirely, but... look, if we don't address the main issue now, it's gonna backfire.",
+        "Não inteiramente, mas... olha, se a gente não resolver o problema principal agora, vai dar tiro pela culatra."
+      ],
+      [
+        "Amanda",
+        "I mean, I get your point, but Lucas spent weeks running those tests!",
+        "Tipo, eu entendo seu ponto, mas o Lucas passou semanas fazendo aqueles testes!"
+      ],
+      [
+        "Diego",
+        "I know, I know! But keep in mind that the client specifically asked to boost conversions.",
+        "Eu sei, eu sei! Mas leva em consideração que o cliente pediu especificamente pra aumentar as conversões."
+      ],
+      [
+        "Amanda",
+        "Fair enough. But lemme ask you something... did you actually take a look at the second draft?",
+        "Justo. Mas deixa eu te perguntar uma coisa... você chegou a dar uma olhada no segundo rascunho?"
+      ],
+      [
+        "Diego",
+        "Uh, yeah, briefly. To be honest, I couldn't really make head or tail of the user journey.",
+        "É, rapidamente. Pra ser sincero, não consegui entender nada da jornada do usuário."
+      ],
+      [
+        "Amanda",
+        "Exactly! That's why we need to pay close attention to what the design team is proposing.",
+        "Exatamente! É por isso que a gente precisa prestar muita atenção no que a equipe de design tá propondo."
+      ],
+      [
+        "Diego",
+        "Okay, so... how do you wanna play this with Carlos? He hates changing plans last minute.",
+        "Beleza, então... como você quer conduzir isso com o Carlos? Ele odeia mudar os planos no último minuto."
+      ],
+      [
+        "Amanda",
+        "We gotta break the news gently. Start by praising the progress, then bring up the data.",
+        "A gente tem que dar a notícia com calma. Começa elogiando o progresso, depois traz os dados."
+      ],
+      [
+        "Diego",
+        "Sounds like a plan. Oh, did you get in touch with Marina about the budget yet?",
+        "Parece um bom plano. Ah, você já entrou em contato com a Marina sobre o orçamento?"
+      ],
+      [
+        "Amanda",
+        "Not yet, she was in meetings all morning. Lemme shoot her a quick message right now.",
+        "Ainda não, ela passou a manhã inteira em reunião. Mando uma mensagem rápida pra ela agora mesmo."
+      ],
+      [
+        "Diego",
+        "Great. Also, keep track of all the changes we make, or we'll get lost later.",
+        "Ótimo. E também, anota todas as mudanças que a gente fizer, senão a gente se perde depois."
+      ],
+      [
+        "Amanda",
+        "Way ahead of you, Diego. I already started a shared document.",
+        "Tô um passo à frente, Diego. Já comecei um documento compartilhado."
+      ],
+      [
+        "Diego",
+        "Awesome. Wait, is that Carlos walking down the hallway?",
+        "Demais. Pera, é o Carlos vindo pelo corredor?"
+      ],
+      [
+        "Amanda",
+        "Yep, that's him. Quick, take a deep breath, let's not make a scene.",
+        "É ele mesmo. Rápido, respira fundo, não vamos dar vexame."
+      ],
+      [
+        "Diego",
+        "Relax, I got this. We'll just present the facts and reach a compromise.",
+        "Relaxa, deixa comigo. A gente só vai apresentar os fatos e chegar num meio-termo."
+      ],
+      [
+        "Amanda",
+        "Just don't jump to conclusions like you did last week, okay?",
+        "Só não tira conclusões precipitadas como fez semana passada, tá?"
+      ],
+      [
+        "Diego",
+        "Hey! That was totally different and you know it.",
+        "Ei! Aquilo foi totalmente diferente e você sabe disso."
+      ],
+      [
+        "Amanda",
+        "Whatever you say! Just stick to the main talking points.",
+        "Se você tá dizendo! Só foca nos pontos principais."
+      ],
+      [
+        "Diego",
+        "Alright, alright. Hey Carlos! Good morning, come on in!",
+        "Tá bom, tá bom. Fala Carlos! Bom dia, entra aí!"
+      ],
+      [
+        "Amanda",
+        "Hey Carlos! We were just going over the presentation deck for you.",
+        "Oi Carlos! A gente tava justamente repassando os slides da apresentação pra você."
+      ],
+      [
+        "Diego",
+        "Yeah, we took a quick look at the latest numbers and wanted to suggest a small tweak.",
+        "É, a gente deu uma olhada rápida nos números mais recentes e queria sugerir um pequeno ajuste."
+      ],
+      [
+        "Amanda",
+        "Nothing major, just a few adjustments to make sure we hit the target.",
+        "Nada demais, só alguns ajustes pra garantir que a gente atinja a meta."
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Diego quer fazer alterações na proposta antes da reunião com Carlos?",
+        "options": [
+          "Porque os dados analisados mostram que a estratégia atual não vai trazer o resultado que o cliente pediu.",
+          "Porque a equipe de design errou todos os prazos e não entregou os rascunhos.",
+          "Porque a Marina cortou o orçamento do projeto e inviabilizou a campanha.",
+          "Porque o Lucas se recusou a realizar os testes necessários durante as últimas semanas."
+        ],
+        "answerIndex": 0,
+        "explanation": "Diego explica que analisou as métricas e percebeu que, se não ajustarem a campanha, ela não vai atender ao objetivo principal do cliente de aumentar conversões."
+      },
+      {
+        "question": "Qual estratégia Amanda sugere para apresentar as mudanças para o chefe (Carlos)?",
+        "options": [
+          "Cancelar a reunião presencial e enviar um e-mail detalhado para evitar confronto.",
+          "Dar a notícia com calma, elogiando o progresso antes de mostrar os dados preocupantes.",
+          "Admitir os erros da equipe logo no início para demonstrar honestidade.",
+          "Pedir para o Diego falar sozinho enquanto ela tenta contato com o setor financeiro."
+        ],
+        "answerIndex": 1,
+        "explanation": "Amanda orienta dar a notícia com calma ('break the news gently'), elogiando o progresso primeiro para depois trazer os dados."
+      },
+      {
+        "question": "O que Amanda já tinha feito quando Diego pediu para registrar as alterações do projeto?",
+        "options": [
+          "Já tinha enviado uma mensagem urgente para Marina sobre os custos.",
+          "Já tinha refeito toda a apresentação de slides para mostrar a Carlos.",
+          "Já tinha criado um documento compartilhado para acompanhar as mudanças.",
+          "Já tinha avisado a equipe de design sobre os novos requisitos do cliente."
+        ],
+        "answerIndex": 2,
+        "explanation": "Quando Diego diz para acompanharem as mudanças ('keep track'), Amanda responde que já se antecipou e criou um documento compartilhado."
+      }
+    ],
+    "n": 41
+  },
+  {
+    "kind": "conversa",
+    "title": "A reorganização dos planos para o jantar de sexta",
+    "why": "Treina a compreensão de múltiplos encadeamentos e reduções da fala rápida em uma conversa informal sobre imprevistos cotidianos.",
+    "minutes": 2,
+    "lines": [
+      [
+        "Leo",
+        "Hey Maya, whaddaya think we should do about tomorrow?",
+        "Ei Maya, o que você acha que a gente devia fazer amanhã?"
+      ],
+      [
+        "Maya",
+        "Dunno, honestly. I thought Mark was gonna handle the reservations.",
+        "Sei lá, honestamente. Pensei que o Mark ia cuidar das reservas."
+      ],
+      [
+        "Leo",
+        "Well, he called me earlier 'n said he couldn't get a table.",
+        "Bom, ele me ligou mais cedo e disse que não conseguiu mesa."
+      ],
+      [
+        "Maya",
+        "Whatcha mean he couldn't? He promised he'd do it last week!",
+        "Como assim não conseguiu? Ele prometeu que ia fazer isso semana passada!"
+      ],
+      [
+        "Leo",
+        "I know, but he kinda forgot until this morning, you know how he is.",
+        "Eu sei, mas ele meio que esqueceu até hoje de manhã, você sabe como ele é."
+      ],
+      [
+        "Maya",
+        "Ugh, classic Mark. Lemme see if I can call the bistro directly.",
+        "Aff, típico do Mark. Deixa eu ver se consigo ligar direto pro restaurante."
+      ],
+      [
+        "Leo",
+        "Gimme a sec, I think Sarah said she knew the owner there.",
+        "Pera aí um segundo, acho que a Sarah disse que conhecia o dono de lá."
+      ],
+      [
+        "Maya",
+        "Wait, really? Why didn't ya say that earlier?",
+        "Pera, sério? Por que você não falou isso antes?"
+      ],
+      [
+        "Leo",
+        "I'm tellin' ya now! She gotta check her phone first though.",
+        "Tô te falando agora! Mas ela tem que checar o celular primeiro."
+      ],
+      [
+        "Maya",
+        "Okay, well, I'm kinda tired of waiting for everyone to figure things out.",
+        "Tá bom, bem, tô meio cansada de esperar todo mundo se resolver."
+      ],
+      [
+        "Leo",
+        "Look, what do ya wanna do instead? Grab some takeout?",
+        "Olha, o que você quer fazer em vez disso? Pegar uma comida pra viagem?"
+      ],
+      [
+        "Maya",
+        "Nah, I don't wanna just stay home on a Friday night.",
+        "Não, não quero simplesmente ficar em casa numa sexta à noite."
+      ],
+      [
+        "Leo",
+        "We coulda just gone to that new taco place downtown.",
+        "A gente podia simplesmente ter ido naquele lugar novo de tacos no centro."
+      ],
+      [
+        "Maya",
+        "Oh, I heard about that! Ya think it's gonna be super crowded?",
+        "Ah, ouvi falar desse! Você acha que vai tá lotadaço?"
+      ],
+      [
+        "Leo",
+        "Probably, but if we go outta our way and arrive early, we'll be fine.",
+        "Provavelmente, mas se a gente fizer um esforço e chegar cedo, dá certo."
+      ],
+      [
+        "Maya",
+        "Alright, sounds like a plan. Should I text Sarah anyway?",
+        "Beleza, combinado então. Devo mandar mensagem pra Sarah mesmo assim?"
+      ],
+      [
+        "Leo",
+        "Yeah, lemme know what she says whenever she replies.",
+        "É, me avisa o que ela disser quando ela responder."
+      ],
+      [
+        "Maya",
+        "Will do. But hey, who's gonna pick up Dave from the airport?",
+        "Pode deixar. Mas ei, quem vai pegar o Dave no aeroporto?"
+      ],
+      [
+        "Leo",
+        "Wait, Dave's comin' today? Nobody told me!",
+        "Pera, o Dave vem hoje? Ninguém me avisou!"
+      ],
+      [
+        "Maya",
+        "I mean, he sent a message in the group chat like two hours ago...",
+        "Digo, ele mandou mensagem no grupo tipo duas horas atrás..."
+      ],
+      [
+        "Leo",
+        "Man, I gotta pay more attention to my notifications.",
+        "Nossa, tenho que prestar mais atenção nas minhas notificações."
+      ],
+      [
+        "Maya",
+        "Ya definitely do. So, can ya go get him or what?",
+        "Com certeza tem. E aí, você pode ir pegar ele ou o quê?"
+      ],
+      [
+        "Leo",
+        "Yeah, I guess I can. Whaddaya wanna do while I'm gone?",
+        "É, acho que posso. O que você quer fazer enquanto eu estiver fora?"
+      ],
+      [
+        "Maya",
+        "I'll start getting ready 'n maybe order us a quick coffee.",
+        "Vou começar a me arrumar e talvez pedir um café rápido pra gente."
+      ],
+      [
+        "Leo",
+        "Cool. Lemme just grab my keys 'n I'm outta here.",
+        "Massa. Deixa só eu pegar minhas chaves e fui."
+      ],
+      [
+        "Maya",
+        "Drive safe! Don't forget to tell Dave we're getting tacos!",
+        "Dirija com cuidado! Não esquece de avisar o Dave que vamos comer tacos!"
+      ]
+    ],
+    "questions": [
+      {
+        "question": "Por que Mark não conseguiu fazer a reserva no restaurante?",
+        "options": [
+          "Ele esqueceu de ligar até a manhã do próprio dia.",
+          "O restaurante estava fechado para um evento privado.",
+          "Sarah já tinha reservado todas as mesas com o dono.",
+          "Ele se confundiu com o dia da viagem de Dave."
+        ],
+        "answerIndex": 0,
+        "explanation": "Leo explica que Mark meio que esqueceu do compromisso e só tentou ligar na manhã daquele dia."
+      },
+      {
+        "question": "Qual opção de jantar Maya e Leo concordam em seguir?",
+        "options": [
+          "Pedir comida pra viagem e comer em casa.",
+          "Esperar o retorno da Sarah sobre o bistrô.",
+          "Ir cedo ao novo restaurante de tacos no centro.",
+          "Jantar no aeroporto enquanto esperam o Dave."
+        ],
+        "answerIndex": 2,
+        "explanation": "Eles concordam em ir ao novo restaurante de tacos no centro, chegando cedo para evitar a lotação."
+      },
+      {
+        "question": "Qual imprevisto pega Leo de surpresa durante a conversa?",
+        "options": [
+          "Sarah perdeu o celular e não pode responder.",
+          "Dave está chegando hoje e precisa ser buscado no aeroporto.",
+          "O carro dele está sem combustível para ir ao centro.",
+          "O restaurante de tacos não aceita reservas."
+        ],
+        "answerIndex": 1,
+        "explanation": "Leo descobre no meio da conversa que Dave mandou mensagem no grupo avisando que chegaria hoje e precisava de carona no aeroporto."
+      }
+    ],
+    "n": 42
   }
 ]
