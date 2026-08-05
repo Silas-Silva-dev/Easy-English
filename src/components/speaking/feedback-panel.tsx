@@ -40,7 +40,13 @@ export interface SpeakingResult {
     category: "pronunciation" | "grammar" | "vocabulary" | "fluency" | "naturalness";
     severity: "low" | "medium" | "high";
   }[];
-  pronunciationNotes: { word: string; ipa: string; heard: string; tip_pt: string }[];
+  pronunciationNotes: {
+    word: string;
+    phonetic_pt?: string;
+    ipa: string;
+    heard: string;
+    tip_pt: string;
+  }[];
   suggestedPhrases: { en: string; pt: string; context?: string }[];
   audioUrl?: string;
   tutorAudioUrl?: string;
@@ -256,17 +262,24 @@ export function SpeakingFeedbackPanel({ result }: { result: SpeakingResult }) {
           </CardHeader>
           <CardContent className="grid gap-3 sm:grid-cols-2">
             {result.pronunciationNotes.map((note, i) => (
-              <div key={i} className="rounded-lg border p-4">
+              <div key={i} className="rounded-lg border p-4 space-y-2">
                 <div className="flex flex-wrap items-baseline gap-2">
-                  <span className="font-semibold">{note.word}</span>
-                  <code className="text-primary bg-primary/8 rounded px-1.5 py-0.5 font-mono text-xs">
-                    {note.ipa}
-                  </code>
+                  <span className="font-semibold text-base">{note.word}</span>
+                  {note.phonetic_pt ? (
+                    <code className="text-primary bg-primary/10 border-primary/20 border inline-block rounded px-2 py-0.5 font-semibold text-xs">
+                      {note.phonetic_pt}
+                    </code>
+                  ) : null}
+                  {note.ipa ? (
+                    <code className="text-muted-foreground bg-muted inline-block rounded px-2 py-0.5 font-mono text-[11px]">
+                      IPA: {note.ipa}
+                    </code>
+                  ) : null}
                 </div>
-                <p className="text-muted-foreground mt-1.5 text-xs">
+                <p className="text-muted-foreground text-xs">
                   Você falou: <span className="text-destructive font-medium">{note.heard}</span>
                 </p>
-                <p className="mt-2 text-sm leading-relaxed">{note.tip_pt}</p>
+                <p className="text-sm leading-relaxed">{note.tip_pt}</p>
               </div>
             ))}
           </CardContent>

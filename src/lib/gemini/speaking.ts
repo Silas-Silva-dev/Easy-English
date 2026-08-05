@@ -35,6 +35,7 @@ export interface SpeakingAnalysis {
   }[];
   pronunciation_notes: {
     word: string;
+    phonetic_pt?: string;
     ipa: string;
     heard: string;
     tip_pt: string;
@@ -119,9 +120,14 @@ const SPEAKING_SCHEMA: Schema = {
       type: Type.ARRAY,
       items: {
         type: Type.OBJECT,
-        required: ["word", "ipa", "heard", "tip_pt"],
+        required: ["word", "phonetic_pt", "ipa", "heard", "tip_pt"],
         properties: {
           word: { type: Type.STRING },
+          phonetic_pt: {
+            type: Type.STRING,
+            description:
+              "Pronuncia intuitiva aproximada em portugues do Brasil (ex: 'THÊNKS', 'LÊI-ter', 'tu-guÉ-der'). Marque a silaba tonica em MAIUSCULAS.",
+          },
           ipa: { type: Type.STRING, description: "Pronuncia alvo em IPA" },
           heard: { type: Type.STRING, description: "Aproximacao do que o aluno de fato falou" },
           tip_pt: { type: Type.STRING, description: "Instrucao articulatoria pratica em portugues" },
