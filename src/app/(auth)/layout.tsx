@@ -1,0 +1,84 @@
+import { Infinity as InfinityIcon, Mic, Sparkles, Waves } from "lucide-react";
+import Link from "next/link";
+
+import { ThemeToggle } from "@/components/theme-provider";
+
+/**
+ * Cada linha aqui é conferível no banco — `courses` e `track_targets`.
+ *
+ * A migration 400 é explícita sobre isso: as metas "são de onde a UI tira o
+ * que promete ao aluno — nunca de um número inventado". A versão anterior
+ * anunciava "seus dados isolados e protegidos no banco", que descreve a
+ * implementação de RLS e não diz nada a quem quer falar inglês.
+ */
+const HIGHLIGHTS = [
+  { icon: Mic, text: "Tutora de IA que ouve e corrige sua pronúncia" },
+  { icon: Sparkles, text: "728 lições prontas, do A1 ao B2" },
+  { icon: InfinityIcon, text: "Pagamento único: seu acesso não expira" },
+];
+
+export default function AuthLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="grid min-h-screen lg:grid-cols-2">
+      {/* Painel de marca: some no mobile para não roubar a dobra */}
+      <aside className="bg-primary text-primary-foreground relative hidden overflow-hidden lg:flex lg:flex-col lg:justify-between lg:p-12">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_20%_0%,rgba(255,255,255,0.22),transparent)]" />
+        <div className="pointer-events-none absolute -right-24 -bottom-24 size-96 rounded-full bg-white/10 blur-3xl" />
+
+        <Link href="/" className="relative flex items-center gap-2.5 text-lg font-semibold">
+          <span className="grid size-9 place-items-center rounded-lg bg-white/15">
+            <Waves className="size-5" />
+          </span>
+          Easy English
+        </Link>
+
+        <div className="relative max-w-md">
+          {/*
+            Dizia "Um ano. Quinze minutos por dia." — errado nos dois números e
+            desmentido pela própria bala logo abaixo, que fala em 728 lições.
+            O curso tem 728 dias (dois anos) e a trilha padrão pede 60 min/dia.
+            Aqui fica só o que o banco sustenta; o ritmo o aluno escolhe no
+            perfil, entre as três trilhas.
+          */}
+          <h2 className="font-display text-3xl leading-tight font-bold">
+            Dois anos de roteiro. Uma conversa que você finalmente sustenta.
+          </h2>
+          <ul className="mt-8 space-y-4">
+            {HIGHLIGHTS.map((h) => (
+              <li key={h.text} className="flex items-start gap-3 text-sm text-white/85">
+                <span className="mt-0.5 grid size-7 shrink-0 place-items-center rounded-md bg-white/15">
+                  <h.icon className="size-3.5" />
+                </span>
+                {h.text}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <p className="relative text-xs text-white/55">
+          © {new Date().getFullYear()} Easy English
+        </p>
+      </aside>
+
+      {/* Formulário */}
+      <main className="relative flex flex-col">
+        <div className="bg-grid pointer-events-none absolute inset-0 -z-10 lg:hidden" />
+
+        {/* Reserva a barra de status do iOS: ver --safe-top em globals.css. */}
+        <div className="flex items-center justify-between p-5 pt-[calc(1.25rem+var(--safe-top))]">
+          <Link href="/" className="flex items-center gap-2 font-semibold lg:invisible">
+            <span className="bg-primary text-primary-foreground grid size-7 place-items-center rounded-md">
+              <Waves className="size-3.5" />
+            </span>
+            Easy English
+          </Link>
+          <ThemeToggle />
+        </div>
+
+        <div className="flex flex-1 items-center justify-center px-5 pb-[calc(4rem+var(--safe-bottom))]">
+          <div className="animate-in-up w-full max-w-sm">{children}</div>
+        </div>
+      </main>
+    </div>
+  );
+}

@@ -1,0 +1,30 @@
+# Normaliza quebra de linha ao entrar no repositório.
+#
+# Você desenvolve no Windows (CRLF) e o servidor da Hostinger roda Linux (LF).
+# Sem isto, o primeiro deploy vira um diff de "arquivo inteiro alterado" e
+# scripts com shebang podem falhar com "bad interpreter: ^M".
+* text=auto eol=lf
+
+# Arquivos que precisam manter CRLF no Windows.
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+
+# Binários — nunca converter.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.webp binary
+*.woff  binary
+*.woff2 binary
+*.ttf  binary
+*.otf  binary
+*.wav  binary
+*.mp3  binary
+*.pdf  binary
+
+# Gerado — some do diff no GitHub e não conta como código do projeto.
+supabase/schema.sql   linguist-generated=true
+package-lock.json     linguist-generated=true

@@ -1,0 +1,104 @@
+# ---------------------------------------------------------------------------
+# Dependências e build
+# ---------------------------------------------------------------------------
+node_modules/
+.next/
+out/
+build/
+dist/
+.turbo/
+
+# ---------------------------------------------------------------------------
+# SEGREDOS — nada daqui pode chegar ao GitHub
+#
+# Os padrões abaixo cobrem também nomes que começam com ponto. O padrão antigo
+# `Credenciais*.txt` NÃO casava com ".Credenciais DB.txt": o nome começa com
+# ".", e o git compara o nome inteiro. A senha do banco teria ido no push.
+# ---------------------------------------------------------------------------
+.env
+.env.local
+.env*.local
+.env.production
+.env.development
+
+*[Cc]redenciai*
+*[Cc]redential*
+*[Ss]enha*
+*[Pp]assword*
+*secret*
+
+# Exceções: pastas de rotas do Next.js que contêm "senha" no nome
+!src/app/(auth)/recuperar-senha/
+!src/app/(auth)/recuperar-senha/**
+!src/app/(auth)/nova-senha/
+!src/app/(auth)/nova-senha/**
+!src/app/nova-senha/
+!src/app/nova-senha/**
+# ...e o template de e-mail, que "*[Pp]assword*" engolia. Ele é markup de
+# layout, não credencial: ficava de fora do repositório sem ninguém notar.
+!supabase/templates/reset-password.html
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Chaves de serviço baixadas do Supabase / Google
+service-account*.json
+*service_role*
+
+# ---------------------------------------------------------------------------
+# Logs e temporários
+# ---------------------------------------------------------------------------
+npm-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.log
+
+# ---------------------------------------------------------------------------
+# Sistema operacional e editores
+# ---------------------------------------------------------------------------
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+*.swp
+*~
+
+# ---------------------------------------------------------------------------
+# TypeScript / Next
+# ---------------------------------------------------------------------------
+next-env.d.ts
+*.tsbuildinfo
+
+# ---------------------------------------------------------------------------
+# Supabase CLI
+# ---------------------------------------------------------------------------
+supabase/.temp/
+supabase/.branches/
+
+# Bytecode dos scripts Python (piper_worker, respell)
+__pycache__/
+*.pyc
+
+# ---------------------------------------------------------------------------
+# Vozes do Piper (TTS local)
+#
+# ~360 MB de modelos .onnx baixados por `npm run gen:audio:setup`. NÃO vão para
+# o repositório: são reproduzíveis por download e só servem para GERAR o áudio.
+# O que precisa ser versionado é o resultado, em public/audio/.
+# ---------------------------------------------------------------------------
+.piper-voices/
+
+# ---------------------------------------------------------------------------
+# Plataformas de deploy
+# ---------------------------------------------------------------------------
+.vercel
+
+# ---------------------------------------------------------------------------
+# Credenciais de conta de servico do Google (Cloud TTS).
+# O caminho certo e guardar FORA do repositorio; isto e a rede de seguranca
+# para quando alguem baixar o JSON direto na pasta do projeto.
+# ---------------------------------------------------------------------------
+*-service-account*.json
+gcp-*.json
+service-account*.json

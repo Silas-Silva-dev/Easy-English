@@ -1,0 +1,217 @@
+"use server";
+
+import { randomUUID } from "node:crypto";
+
+import { redirect } from "next/navigation";
+
+import { getAccessGrant, requireActiveUser } from "@/lib/auth/guards";
+import { checkoutEnv, mercadoPagoEnv, serverEnv } from "@/lib/env";
+import { checkoutUrl, createPreference } from "@/lib/mercadopago/checkout";
+import { getPayment, normalizePayment } from "@/lib/mercadopago/payments";
+import { applyPaymentToOrder } from "@/lib/orders";
+import { createAdminSupabase } from "@/lib/supabase/admin";
+import type { Order } from "@/lib/types/database";
+
+export interface CheckoutState {
+  error?: string;
+}
+
+/**
+ * Para onde a preferência JÁ GRAVADA manda o aluno de volta, ou null quando não
+ * dá para saber.
+ *
+ * A preferência é um retrato: `back_urls` e `notification_url` são congelados no
+ * Mercado Pago quando ela é criada e não acompanham mudanças posteriores de
+ * `NEXT_PUBLIC_SITE_URL`. Guardamos a resposta inteira em `orders.raw`, então dá
+ * para conferir antes de reaproveitar.
+ */
+function preferenceReturnUrl(raw: Order["raw"]): string | null {
+  const success = (raw as { preference?: { back_urls?: { success?: unknown } } } | null)?.preference
+    ?.back_urls?.success;
+
+  return typeof success === "string" ? success : null;
+}
+
+/**
+ * Abre (ou reabre) o pagamento do acesso ao curso.
+ *
+ * O pedido é gravado ANTES de falar com o Mercado Pago. Se a criação da
+ * preferência falhar no meio, sobra uma linha `pending` sem `preference_id` —
+ * visível no painel e recuperável. O contrário (pedir primeiro, gravar
+ * depois) deixaria uma cobrança viva no Mercado Pago sem nenhum registro
+ * local para reconciliar quando o dinheiro caísse.
+ */
+export async function startCheckoutAction(
+  _prev: CheckoutState,
+  _formData: FormData,
+): Promise<CheckoutState> {
+  const session = await requireActiveUser("/checkout");
+
+  // Já pagou (ou ganhou cortesia) enquanto a aba estava aberta.
+  if (await getAccessGrant()) redirect("/app");
+
+  if (!mercadoPagoEnv.configured) {
+    console.error("[checkout] MERCADOPAGO_ACCESS_TOKEN ausente");
+    return { error: "O pagamento está temporariamente indisponível. Tente novamente em instantes." };
+  }
+
+  const supabase = createAdminSupabase();
+  const amountCents = checkoutEnv.priceCents;
+  const expiresAt = new Date(Date.now() + checkoutEnv.expirationHours * 60 * 60 * 1000);
+
+  let destination: string;
+
+  try {
+    /**
+     * Reaproveita um pedido em aberto e ainda válido.
+     *
+     * Sem isso, cada volta do aluno à tela criaria um pedido novo: o painel
+     * encheria de `pending` órfãos e, pior, ele poderia pagar dois deles.
+     */
+    const { data: openOrder } = await supabase
+      .from("orders")
+      .select("*")
+      .eq("user_id", session.userId)
+      .in("status", ["pending", "in_process"])
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+
+    /**
+     * Preferência criada sob OUTRO domínio não serve mais.
+     *
+     * O sintoma visível é o "Voltar para a loja" do Mercado Pago cair num
+     * endereço morto. O grave é invisível: aquela preferência também carrega o
+     * `notification_url` antigo, então um pagamento feito nela notifica o
+     * domínio que não existe mais e o aluno NUNCA é liberado.
+     *
+     * Quando não dá para saber (pedido sem `raw`, de antes deste campo), o
+     * benefício da dúvida fica com o reaproveitamento: rejeitar às cegas faria
+     * cada clique abrir um pedido novo, que é exatamente a poluição que a
+     * lógica de reaproveitar existe para evitar.
+     */
+    const returnUrl = openOrder ? preferenceReturnUrl(openOrder.raw) : null;
+    const sameSite = returnUrl === null || returnUrl.startsWith(`${serverEnv.siteUrl}/`);
+
+    const stillValid =
+      openOrder &&
+      sameSite &&
+      openOrder.amount_cents === amountCents &&
+      (!openOrder.expires_at || new Date(openOrder.expires_at) > new Date());
+
+    if (stillValid && openOrder?.init_point) {
+      destination = openOrder.init_point;
+    } else {
+      /**
+       * Reaproveita a LINHA quando o pedido existe mas ficou sem link.
+       *
+       * É o pedido cuja preferência não chegou a ser criada — a chamada ao
+       * Mercado Pago caiu no meio. Sem este ramo, cada nova tentativa inseria
+       * outra linha: um aluno impaciente (ou alguém batendo na Server Action
+       * de propósito, que é um endpoint público como qualquer outro) enche a
+       * tabela de pedidos órfãos e polui o painel financeiro.
+       */
+      let order = stillValid ? openOrder : null;
+
+      if (!order) {
+        const { data: created, error: insertError } = await supabase
+          .from("orders")
+          .insert({
+            user_id: session.userId,
+            email: session.email,
+            full_name: session.profile.full_name,
+            amount_cents: amountCents,
+            currency: "BRL",
+            description: checkoutEnv.productTitle,
+            status: "pending",
+            provider: "mercadopago",
+            external_reference: randomUUID(),
+            expires_at: expiresAt.toISOString(),
+          })
+          .select()
+          .single();
+
+        if (insertError || !created) {
+          console.error("[checkout] falha ao criar pedido:", insertError?.message);
+          return { error: "Não foi possível abrir o pagamento. Tente novamente." };
+        }
+
+        order = created;
+      }
+
+      const preference = await createPreference({
+        orderId: order.id,
+        externalReference: order.external_reference,
+        amountCents,
+        title: checkoutEnv.productTitle,
+        description: "Acesso completo aos 4 Cantos, 52 circuitos e 728 dias de lições.",
+        payer: { name: session.profile.full_name, email: session.email },
+        expiresAt: order.expires_at ? new Date(order.expires_at) : expiresAt,
+      });
+
+      await supabase
+        .from("orders")
+        .update({
+          preference_id: preference.id,
+          init_point: checkoutUrl(preference),
+          raw: { preference } as never,
+        })
+        .eq("id", order.id);
+
+      destination = checkoutUrl(preference);
+    }
+  } catch (error) {
+    console.error("[checkout] erro ao criar preferencia:", error);
+    return {
+      error:
+        "Não conseguimos falar com o Mercado Pago agora. Aguarde alguns segundos e tente de novo.",
+    };
+  }
+
+  // `redirect()` lança para interromper o fluxo: precisa ficar FORA do try,
+  // senão o catch acima o engoliria e o aluno veria um erro genérico depois
+  // de o pagamento já ter sido aberto com sucesso.
+  redirect(destination);
+}
+
+/**
+ * Reconciliação sob demanda, usada pela tela de retorno.
+ *
+ * O webhook é a fonte da verdade, mas ele e o navegador correm em paralelo:
+ * o aluno costuma chegar de volta antes da notificação. Sem esta consulta
+ * direta, quem acabou de pagar veria "aguardando" por alguns segundos e
+ * concluiria que a compra falhou.
+ */
+export async function syncOrderFromPayment(paymentId: string): Promise<Order | null> {
+  /**
+   * Uma Server Action exportada é um endpoint público: qualquer um com o id
+   * da ação a invoca com o `paymentId` que quiser, sem nunca abrir esta tela.
+   * Exigir sessão e confinar o efeito ao pedido de QUEM CHAMA fecha a porta —
+   * sem isso, um terceiro conseguiria disparar reconciliação em pedidos
+   * alheios e sondar quais ids de pagamento existem.
+   */
+  const session = await requireActiveUser("/checkout");
+
+  if (!/^\d+$/.test(paymentId)) return null;
+
+  try {
+    const payment = normalizePayment(await getPayment(paymentId));
+    if (!payment.externalReference) return null;
+
+    const supabase = createAdminSupabase();
+
+    const { data: order } = await supabase
+      .from("orders")
+      .select("*")
+      .eq("external_reference", payment.externalReference)
+      .eq("user_id", session.userId)
+      .maybeSingle();
+
+    if (!order) return null;
+
+    return applyPaymentToOrder(order, payment);
+  } catch (error) {
+    console.error("[checkout] falha ao sincronizar pagamento:", error);
+    return null;
+  }
+}
