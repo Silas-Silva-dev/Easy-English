@@ -159,6 +159,7 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Code", monospace;
+  --font-serif: var(--font-serif), ui-serif, Georgia, "Times New Roman", serif;
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -492,5 +493,456 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ==========================================================================
+   Certificado — uma geometria só para a tela e para o papel
+
+   O quadro tem a proporção de uma A4 paisagem e é um container de consulta:
+   todas as medidas de dentro estão em `cqw`, que é fração da largura da folha.
+   Resultado: a prévia da tela e o PDF impresso são exatamente o mesmo desenho,
+   mudando só a escala. Os números saíram do projeto em milímetros e pontos —
+   1cqw = 2.97mm, porque a folha tem 297mm de largura.
+   ========================================================================== */
+
+/* Abaixo da largura mínima da folha a prévia rola na horizontal, em vez de
+   encolher o texto a ponto de ninguém conseguir ler. */
+.cert-viewport {
+  overflow-x: auto;
+}
+
+.certificate-sheet {
+  container-type: inline-size;
+  position: relative;
+  aspect-ratio: 297 / 210;
+  width: 100%;
+  min-width: 44rem;
+  max-width: 56rem;
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+/* Guilhoché, faixas e arabescos: cobrem a folha inteira, por baixo de tudo. */
+.certificate-sheet .cert-security-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.certificate-sheet .cert-security {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.certificate-sheet .certificate-inner {
+  position: relative;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5.051cqw 6.061cqw;
+}
+
+/* ---- Moldura e brilho de fundo ---- */
+.certificate-sheet .cert-border-outer,
+.certificate-sheet .cert-border-inner,
+.certificate-sheet .cert-wash {
+  position: absolute;
+}
+
+.certificate-sheet .cert-border-outer {
+  inset: 2.02cqw;
+  border-style: solid;
+  border-width: 0.236cqw;
+  border-radius: 0.842cqw;
+}
+
+.certificate-sheet .cert-border-inner {
+  inset: 2.862cqw;
+  border-style: solid;
+  border-width: 0.084cqw;
+  border-radius: 0.505cqw;
+}
+
+.certificate-sheet .cert-wash {
+  inset: 0;
+}
+
+/* Todo o conteúdo fica acima das camadas decorativas. */
+.certificate-sheet .cert-header,
+.certificate-sheet .cert-name,
+.certificate-sheet .cert-body,
+.certificate-sheet .cert-metrics,
+.certificate-sheet .cert-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- Cabeçalho ---- */
+.certificate-sheet .cert-header {
+  text-align: center;
+}
+
+.certificate-sheet .cert-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.01cqw;
+  margin-bottom: 0.842cqw;
+}
+
+.certificate-sheet .cert-brand-mark {
+  display: grid;
+  place-items: center;
+  width: 4.04cqw;
+  height: 4.04cqw;
+  border-radius: 1.01cqw;
+}
+
+.certificate-sheet .cert-brand-icon {
+  width: 2.357cqw;
+  height: 2.357cqw;
+}
+
+.certificate-sheet .cert-brand-name {
+  font-size: 2.851cqw;
+  line-height: 1.1;
+}
+
+.certificate-sheet .cert-eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.01cqw;
+}
+
+.certificate-sheet .cert-rule {
+  width: 5.387cqw;
+  height: 0.118cqw;
+}
+
+.certificate-sheet .cert-eyebrow-text {
+  font-size: 1.128cqw;
+  line-height: 1.2;
+  letter-spacing: 0.24em;
+  white-space: nowrap;
+}
+
+.certificate-sheet .cert-title {
+  margin-top: 1.01cqw;
+  font-size: 4.751cqw;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: 0.005em;
+}
+
+.certificate-sheet .cert-lead {
+  margin-top: 0.842cqw;
+  font-size: 1.425cqw;
+  line-height: 1.4;
+}
+
+/* ---- Nome do aluno ---- */
+.certificate-sheet .cert-name {
+  text-align: center;
+}
+
+.certificate-sheet .cert-name-text {
+  font-size: 5.702cqw;
+  font-weight: 700;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+/* Filete duplo com losango ao centro, no lugar de uma barra simples. */
+.certificate-sheet .cert-name-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.673cqw;
+  margin-top: 1.01cqw;
+}
+
+.certificate-sheet .cert-name-rule-line {
+  width: 11.448cqw;
+  height: 0.101cqw;
+}
+
+.certificate-sheet .cert-name-rule-gem {
+  width: 0.673cqw;
+  height: 0.673cqw;
+  rotate: 45deg;
+}
+
+/* ---- Texto do curso ---- */
+.certificate-sheet .cert-body {
+  max-width: 72.391cqw;
+  margin-inline: auto;
+  font-size: 1.604cqw;
+  line-height: 1.75;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+/* ---- Métricas: três colunas entre filetes, sem caixa ---- */
+.certificate-sheet .cert-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1.515cqw 0;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-top-width: 0.084cqw;
+  border-bottom-width: 0.084cqw;
+  text-align: center;
+}
+
+.certificate-sheet .cert-metric + .cert-metric {
+  border-left-style: solid;
+  border-left-width: 0.084cqw;
+}
+
+.certificate-sheet .cert-metric-label {
+  display: block;
+  font-size: 1.01cqw;
+  line-height: 1.2;
+  letter-spacing: 0.18em;
+}
+
+.certificate-sheet .cert-metric-value {
+  margin-top: 0.505cqw;
+  font-size: 1.782cqw;
+  font-weight: 600;
+  line-height: 1.2;
+  /* A serifada usa algarismos antigos por padrao; numa data e numa nota isso
+     vira ruido, entao pedimos os alinhados. */
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* ---- Rodapé: validação à esquerda, assinatura digital à direita ---- */
+.certificate-sheet .cert-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.694cqw;
+  /* 3mm a mais de cada lado: e o que mantem a borda do bloco de validacao e a
+     assinatura fora das cantoneiras da moldura. */
+  padding-inline: 1.01cqw;
+}
+
+/* O QR e os dados de autenticidade formam um bloco único, lido da esquerda
+   para a direita, com um filete separando o código do texto. */
+.certificate-sheet .cert-validation {
+  display: flex;
+  align-items: center;
+  gap: 1.347cqw;
+  padding: 1.347cqw;
+  border-style: solid;
+  border-width: 0.084cqw;
+  border-radius: 0.842cqw;
+}
+
+.certificate-sheet .cert-qr-code {
+  width: 9.428cqw;
+  height: 9.428cqw;
+  flex-shrink: 0;
+  border-style: solid;
+  border-width: 0.067cqw;
+  border-radius: 0.337cqw;
+  background: #ffffff;
+}
+
+.certificate-sheet .cert-validation-body {
+  text-align: left;
+}
+
+.certificate-sheet .cert-validation-title {
+  display: flex;
+  align-items: center;
+  gap: 0.505cqw;
+  font-size: 1.01cqw;
+  line-height: 1.2;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+}
+
+.certificate-sheet .cert-validation-icon {
+  width: 1.347cqw;
+  height: 1.347cqw;
+  flex-shrink: 0;
+}
+
+.certificate-sheet .cert-validation-code {
+  margin-top: 0.404cqw;
+  font-size: 1.782cqw;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.certificate-sheet .cert-validation-hint {
+  max-width: 21.5cqw;
+  margin-top: 0.337cqw;
+  font-size: 1.01cqw;
+  line-height: 1.35;
+}
+
+/* ---- Assinatura digital ---- */
+.certificate-sheet .cert-signature {
+  display: flex;
+  align-items: center;
+  gap: 1.684cqw;
+}
+
+.certificate-sheet .cert-signature-seal {
+  width: 8.081cqw;
+  height: 8.081cqw;
+  flex-shrink: 0;
+}
+
+.certificate-sheet .cert-signature-body {
+  text-align: center;
+}
+
+.certificate-sheet .cert-signature-name {
+  font-size: 2.613cqw;
+  font-weight: 600;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.certificate-sheet .cert-signature-rule {
+  display: block;
+  width: 20.875cqw;
+  height: 0.135cqw;
+  margin: 0.505cqw auto;
+}
+
+.certificate-sheet .cert-signature-role {
+  font-size: 1.069cqw;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.18em;
+  white-space: nowrap;
+}
+
+.certificate-sheet .cert-signature-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.404cqw;
+  margin-top: 0.505cqw;
+  font-size: 1.01cqw;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.certificate-sheet .cert-signature-icon {
+  width: 1.077cqw;
+  height: 1.077cqw;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Impressão — a mesma folha, agora com 297mm de largura de verdade
+
+   Como toda a geometria acima é relativa à largura do container, basta fixar a
+   folha em 297mm x 210mm que cada `cqw` volta a valer os 2.97mm do projeto e o
+   papel sai idêntico à prévia da tela.
+   ========================================================================== */
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  /* Tokens travados no tema claro: impresso no tema escuro o certificado
+     sairia com fundo preto e ilegível depois de fotocopiado. */
+  :root,
+  .dark {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.17 0.008 45);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.17 0.008 45);
+    --popover: oklch(1 0 0);
+    --muted: oklch(0.965 0.005 55);
+    --muted-foreground: oklch(0.42 0.012 50);
+    --secondary: oklch(0.965 0.005 55);
+    --secondary-foreground: oklch(0.26 0.01 45);
+    --accent: oklch(0.962 0.012 45);
+    --border: oklch(0.88 0.005 55);
+    --primary: oklch(0.6 0.222 38);
+  }
+
+  html,
+  body {
+    width: 297mm;
+    height: 210mm;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    overflow: hidden !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Controles de interface ficam fora do papel de vez — `visibility` sozinho
+     manteria a caixa ocupando espaço e rendia páginas em branco. */
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  #certificate-print-target,
+  #certificate-print-target * {
+    visibility: visible !important;
+  }
+
+  body * {
+    will-change: auto !important;
+    animation: none !important;
+    transition: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* Qualquer ancestral com transform/filter viraria bloco de contenção e o
+     `position: fixed` da folha passaria a se ancorar nele, e não na página.
+     A exclusão do próprio certificado é essencial: em SVG o `transform` é
+     atributo de apresentação e perde para o CSS, então um `transform: none`
+     indiscriminado desmontaria o guilhoché e o selo. */
+  body,
+  body :not(#certificate-print-target, #certificate-print-target *) {
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .cert-viewport {
+    overflow: visible !important;
+  }
+
+  #certificate-print-target.certificate-sheet {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 297mm !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    height: 210mm !important;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    z-index: 2147483647 !important;
+    break-inside: avoid !important;
+    break-after: avoid !important;
   }
 }

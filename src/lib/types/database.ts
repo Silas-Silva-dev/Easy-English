@@ -599,6 +599,7 @@ export interface Database {
       live_sessions: Table<LiveSession>;
       orders: Table<Order>;
       access_grants: Table<AccessGrant>;
+      certificates: Table<Certificate>;
     };
     Views: {
       admin_overview: View<AdminOverview>;
@@ -666,3 +667,39 @@ export interface Database {
     CompositeTypes: Record<string, never>;
   };
 }
+
+export interface Certificate {
+  id: string;
+  user_id: string;
+  course_id: string;
+  enrollment_id: string | null;
+  code: string;
+  hash_signature: string;
+  student_name: string;
+  course_title: string;
+  workload_hours: number;
+  average_score: number;
+  completed_at: string;
+  issued_at: string;
+  metadata: {
+    cefr_level?: CefrLevel;
+    modules_completed?: number;
+    total_lessons?: number;
+    track_name?: string;
+    [key: string]: any;
+  };
+  created_at: string;
+  updated_at: string;
+}
+
+export interface CertificateEligibility {
+  isEligible: boolean;
+  publishedLessons: number;
+  completedLessons: number;
+  lessonsProgressPct: number;
+  averageScore: number;
+  minScoreRequired: number;
+  calculatedWorkloadHours: number;
+  reasons: string[];
+}
+

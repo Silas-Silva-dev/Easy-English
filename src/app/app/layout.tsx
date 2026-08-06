@@ -63,6 +63,7 @@ export default async function StudentLayout({ children }: { children: React.Reac
     { href: "/app/ao-vivo", label: "Conversa ao vivo", icon: "radio" },
     { href: "/app/tradutor", label: "Tradutor", icon: "translate" },
     { href: "/app/progresso", label: "Meu progresso", icon: "progress" },
+    { href: "/app/certificado", label: "Meu certificado", icon: "award" },
     { href: "/app/perfil", label: "Perfil", icon: "settings" },
   ];
 

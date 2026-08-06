@@ -294,3 +294,86 @@ export async function toggleCoursePublishAction(
     return { ok: false, error: error instanceof Error ? error.message : "Erro inesperado" };
   }
 }
+
+// ---------------------------------------------------------------- certificados
+export async function generateTestCertificateAction(params: {
+  studentName?: string;
+  workloadHours?: number;
+  averageScore?: number;
+}): Promise<ActionResult & { certificateCode?: string }> {
+  try {
+    const session = await assertAdmin();
+
+    // Buscar curso padrão
+    const supabase = await createServerSupabase();
+    const { data: course } = await supabase
+      .from("courses")
+      .select("id")
+      .eq("slug", "ingles-para-conversacao")
+      .maybeSingle();
+
+    if (!course) return { ok: false, error: "Curso principal não encontrado." };
+
+    const cert = await import("@/lib/certificate").then((m) =>
+      m.issueAdminTestCertificate({
+        userId: session.userId,
+        studentName: params.studentName || session.profile.full_name || "Aluno de Teste Easy English",
+        courseId: course.id,
+        workloadHours: params.workloadHours || 180,
+        averageScore: params.averageScore || 9.8,
+      }),
+    );
+
+    if (!cert) return { ok: false, error: "Falha ao gerar certificado de teste." };
+
+    await audit(session, "certificate.test_generated", "certificates", cert.id, {
+      code: cert.code,
+      studentName: cert.student_name,
+    });
+
+    revalidatePath("/admin/certificados");
+    revalidatePath("/app/certificado");
+    revalidatePath("/verificar-certificado");
+    revalidatePath(`/verificar-certificado/${cert.code}`);
+
+    return {
+      ok: true,
+      message: `Certificado de teste emitido com sucesso! Código: ${cert.code}`,
+      certificateCode: cert.code,
+    };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : "Erro inesperado" };
+  }
+}
+
+export async function deleteCertificateAction(certificateId: string): Promise<ActionResult> {
+  try {
+    const session = await assertAdmin();
+    const adminSupabase = createAdminSupabase();
+
+    // Buscar código antes de deletar para revalidar rotas públicas
+    const { data: cert } = await adminSupabase
+      .from("certificates")
+      .select("code")
+      .eq("id", certificateId)
+      .maybeSingle();
+
+    const { deleteCertificateById } = await import("@/lib/certificate");
+    const success = await deleteCertificateById(certificateId);
+    if (!success) return { ok: false, error: "Erro ao excluir certificado do banco de dados." };
+
+    await audit(session, "certificate.deleted", "certificates", certificateId);
+
+    revalidatePath("/admin/certificados");
+    revalidatePath("/app/certificado");
+    revalidatePath("/verificar-certificado");
+    if (cert?.code) {
+      revalidatePath(`/verificar-certificado/${cert.code}`);
+    }
+
+    return { ok: true, message: "Certificado excluído do banco de dados com sucesso. Não é mais possível verificá-lo." };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : "Erro inesperado" };
+  }
+}
+

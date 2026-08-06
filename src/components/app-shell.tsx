@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  Award,
   Brain,
   ChevronDown,
   Languages,
@@ -63,6 +64,7 @@ const ICONS = {
   radio: Radio,
   brain: Brain,
   progress: TrendingUp,
+  award: Award,
   settings: Settings,
   shield: Shield,
   translate: Languages,

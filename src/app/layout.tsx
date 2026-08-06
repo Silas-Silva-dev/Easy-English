@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Cormorant_Garamond, Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Toaster } from "sonner";
 
 import { ThemeProvider, themeInitScript } from "@/components/theme-provider";
@@ -16,6 +16,16 @@ const display = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["600", "700", "800"],
   variable: "--font-display",
+  display: "swap",
+});
+
+// Serifada de contraste alto, usada só no certificado: e o que da a ele cara de
+// diploma em vez de cara de tela de aplicativo.
+const serif = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
   display: "swap",
 });
 
@@ -92,7 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className={`${inter.variable} ${display.variable} antialiased`}>
+      <body className={`${inter.variable} ${display.variable} ${serif.variable} antialiased`}>
         <ThemeProvider>
           {children}
           {/* O toast nasce no topo, onde fica a barra de status do iOS no app

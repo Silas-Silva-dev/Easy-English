@@ -10,6 +10,7 @@ const NAV: NavItem[] = [
   { href: "/admin/cursos", label: "Cursos", icon: "dashboard" },
   { href: "/admin/licoes", label: "Lições", icon: "dashboard" },
   { href: "/admin/conversacao", label: "Práticas de fala", icon: "mic" },
+  { href: "/admin/certificados", label: "Certificados", icon: "award" },
   { href: "/admin/auditoria", label: "Auditoria", icon: "settings" },
   { href: "/app", label: "Voltar ao curso", icon: "progress" },
 ];

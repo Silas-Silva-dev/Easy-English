@@ -18,6 +18,7 @@
     "compare:fala": "tsx --conditions=react-server scripts/compare-speaking-models.ts",
     "check:pagamento": "tsx scripts/check-payments.ts",
     "check:seguranca": "tsx scripts/check-security.ts",
+    "check:qr": "tsx scripts/check-qr.ts",
     "models": "tsx scripts/list-models.ts",
     "gen:icons": "tsx scripts/generate-icons.ts",
     "gen:audio": "tsx scripts/generate-audio.ts",

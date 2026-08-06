@@ -30,6 +30,18 @@ export const serverEnv = {
   get siteUrl() {
     return optional("NEXT_PUBLIC_SITE_URL", "http://localhost:3000").replace(/\/$/, "");
   },
+  /**
+   * Dominio publico dos links de verificacao de certificado — e o endereco que
+   * vai dentro do QR Code impresso.
+   *
+   * Fica separado do `siteUrl` de proposito: um certificado emitido enquanto
+   * voce desenvolve tem de apontar para o site de producao, senao o QR leva
+   * para `localhost` e nao abre no celular de ninguem. Sem a variavel, cai no
+   * `siteUrl` e o comportamento continua o de antes.
+   */
+  get certificateBaseUrl() {
+    return optional("NEXT_PUBLIC_CERTIFICATE_BASE_URL", this.siteUrl).replace(/\/$/, "");
+  },
   get adminBootstrapEmails() {
     return optional("ADMIN_BOOTSTRAP_EMAILS", "")
       .split(",")
