@@ -181,6 +181,11 @@ export function CertificateFrame({ certificate, verificationUrl }: CertificateFr
           </footer>
         </div>
       </div>
+
+      <p className="no-print mt-3 text-center text-xs text-muted-foreground sm:hidden">
+        Prévia reduzida do documento. Use <strong className="font-medium text-foreground">
+        Imprimir / Salvar PDF</strong> para o arquivo em tamanho real.
+      </p>
     </div>
   );
 }

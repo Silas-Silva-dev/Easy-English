@@ -506,8 +506,10 @@
    1cqw = 2.97mm, porque a folha tem 297mm de largura.
    ========================================================================== */
 
-/* Abaixo da largura mínima da folha a prévia rola na horizontal, em vez de
-   encolher o texto a ponto de ninguém conseguir ler. */
+/* A folha sempre cabe inteira na largura disponivel: no celular vale mais ver o
+   documento completo, ainda que reduzido, do que ter de arrastar de lado e ver
+   so um pedaco. O texto miudo o leitor resolve com o zoom do proprio navegador,
+   e o arquivo em tamanho real sai pelo botao de imprimir. */
 .cert-viewport {
   overflow-x: auto;
 }
@@ -517,7 +519,6 @@
   position: relative;
   aspect-ratio: 297 / 210;
   width: 100%;
-  min-width: 44rem;
   max-width: 56rem;
   margin-inline: auto;
   overflow: hidden;

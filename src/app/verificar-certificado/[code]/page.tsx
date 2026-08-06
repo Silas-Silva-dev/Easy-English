@@ -68,7 +68,7 @@ export default async function PublicVerifyCertificatePage({ params }: VerifyPage
                         <Badge variant="success" className="bg-emerald-600 text-white">
                           AUTÊNTICO E VÁLIDO
                         </Badge>
-                        <span className="text-xs text-muted-foreground font-mono">{certificate.code}</span>
+                        <span className="font-mono text-xs whitespace-nowrap text-muted-foreground">{certificate.code}</span>
                       </div>
                       <h2 className="mt-1 text-lg font-bold text-foreground">
                         Certificado Verificado com Sucesso
