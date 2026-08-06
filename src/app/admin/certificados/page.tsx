@@ -6,6 +6,7 @@ import {
   AdminDeleteCertificateButton,
   AdminTestCertificateButton,
 } from "@/components/certificate/admin-test-certificate-button";
+import { CertificateScoreSettings } from "@/components/certificate/certificate-score-settings";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,12 +14,24 @@ import { PageHeader } from "@/components/ui/misc";
 import { StatCard } from "@/components/ui/stat-card";
 import { requireStaff } from "@/lib/auth/guards";
 import { listAllCertificates } from "@/lib/certificate";
+import { createServerSupabase } from "@/lib/supabase/server";
 
 export const metadata: Metadata = { title: "Gestão de Certificados — Admin" };
 
 export default async function AdminCertificatesPage() {
   await requireStaff("/admin/certificados");
-  const certificates = await listAllCertificates();
+  const supabase = await createServerSupabase();
+
+  const [certificates, { data: courses }] = await Promise.all([
+    listAllCertificates(),
+    supabase.from("courses").select("id, title, min_certificate_score").order("created_at"),
+  ]);
+
+  const scoreSettings = (courses ?? []).map((course) => ({
+    id: course.id,
+    title: course.title,
+    minScore: Number(course.min_certificate_score ?? 7),
+  }));
 
   const totalCertificates = certificates.length;
   const avgScore =
@@ -41,6 +54,8 @@ export default async function AdminCertificatesPage() {
         />
         <AdminTestCertificateButton />
       </div>
+
+      <CertificateScoreSettings courses={scoreSettings} />
 
       <div className="grid gap-4 sm:grid-cols-3">
         <StatCard

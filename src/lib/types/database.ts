@@ -244,6 +244,8 @@ export interface Course {
   accent_color: string | null;
   duration_days: number;
   daily_minutes: number;
+  /** Media minima nas avaliacoes de fala exigida para emitir o certificado. */
+  min_certificate_score: number;
   is_published: boolean;
   published_at: string | null;
   created_by: string | null;
@@ -698,6 +700,8 @@ export interface CertificateEligibility {
   completedLessons: number;
   lessonsProgressPct: number;
   averageScore: number;
+  /** Quantas avaliacoes de fala o aluno ja tem. Sem nenhuma, nao ha media. */
+  speakingEvaluations: number;
   minScoreRequired: number;
   calculatedWorkloadHours: number;
   reasons: string[];

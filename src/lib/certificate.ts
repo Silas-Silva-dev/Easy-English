@@ -55,18 +55,22 @@ export function verifyCertificateSignature(cert: Certificate): boolean {
   return cert.hash_signature === expected;
 }
 
+/** Corte usado apenas se o curso ainda não tiver a nota mínima cadastrada. */
+const DEFAULT_MIN_CERTIFICATE_SCORE = 7.0;
+
 /**
  * Verifica a elegibilidade do aluno para obtenção do certificado.
  * Requisitos estritos:
  * 1. Conclusão de 100% das lições publicadas do curso.
- * 2. Média das avaliações de fala/prática >= 7.0 (ou nota 10 se ainda não houver gravações).
+ * 2. Pelo menos uma avaliação de fala registrada — sem gravação não há média.
+ * 3. Média das avaliações de fala >= a nota mínima cadastrada no curso.
  */
 export const checkCertificateEligibility = cache(
   async (userId: string, courseId: string): Promise<CertificateEligibility> => {
     const supabase = await createServerSupabase();
 
     // 1. Buscar estatísticas das lições do curso
-    const [{ data: publishedLessons }, { data: enrollment }] = await Promise.all([
+    const [{ data: publishedLessons }, { data: enrollment }, { data: course }] = await Promise.all([
       supabase
         .from("lessons")
         .select("id, estimated_minutes")
@@ -78,7 +82,15 @@ export const checkCertificateEligibility = cache(
         .eq("user_id", userId)
         .eq("course_id", courseId)
         .maybeSingle(),
+      supabase
+        .from("courses")
+        .select("min_certificate_score")
+        .eq("id", courseId)
+        .maybeSingle(),
     ]);
+
+    // A nota de corte é cadastrada no curso, pelo painel administrativo.
+    const minScoreRequired = Number(course?.min_certificate_score ?? DEFAULT_MIN_CERTIFICATE_SCORE);
 
     const totalPublished = publishedLessons?.length ?? 0;
     
@@ -97,7 +109,8 @@ export const checkCertificateEligibility = cache(
         completedLessons: 0,
         lessonsProgressPct: 0,
         averageScore: 0,
-        minScoreRequired: 7.0,
+        speakingEvaluations: 0,
+        minScoreRequired,
         calculatedWorkloadHours,
         reasons: ["Matrícula não encontrada no curso."],
       };
@@ -119,14 +132,17 @@ export const checkCertificateEligibility = cache(
       .select("overall_score")
       .eq("user_id", userId);
 
-    let averageScore = 10.0;
-    if (feedbackRows && feedbackRows.length > 0) {
-      const sum = feedbackRows.reduce((acc, row) => acc + Number(row.overall_score || 0), 0);
-      averageScore = Number((sum / feedbackRows.length).toFixed(2));
+    // Sem nenhuma gravação não existe média: antes o valor caía num 10.0 fixo e
+    // liberava o certificado para quem nunca foi avaliado.
+    const evaluations = feedbackRows ?? [];
+    const speakingEvaluations = evaluations.length;
+    let averageScore = 0;
+    if (speakingEvaluations > 0) {
+      const sum = evaluations.reduce((acc, row) => acc + Number(row.overall_score || 0), 0);
+      averageScore = Number((sum / speakingEvaluations).toFixed(2));
     }
 
     const reasons: string[] = [];
-    const minScoreRequired = 7.0;
 
     if (totalPublished === 0 || completed < totalPublished) {
       reasons.push(
@@ -134,7 +150,11 @@ export const checkCertificateEligibility = cache(
       );
     }
 
-    if (averageScore < minScoreRequired) {
+    if (speakingEvaluations === 0) {
+      reasons.push(
+        "Você ainda não tem nenhuma avaliação de fala registrada. Grave as práticas de conversação para que sua média seja calculada.",
+      );
+    } else if (averageScore < minScoreRequired) {
       reasons.push(
         `Sua média atual nas avaliações de fala é ${averageScore.toFixed(1)}. É necessário atingir média mínima de ${minScoreRequired.toFixed(1)}.`,
       );
@@ -148,12 +168,19 @@ export const checkCertificateEligibility = cache(
       completedLessons: completed,
       lessonsProgressPct: progressPct,
       averageScore,
+      speakingEvaluations,
       minScoreRequired,
       calculatedWorkloadHours,
       reasons,
     };
   },
 );
+
+/** Marca gravada por `issueAdminTestCertificate` nas emissoes de homologacao. */
+function isTestCertificate(certificate: Certificate): boolean {
+  const metadata = certificate.metadata as { is_test_certificate?: boolean } | null;
+  return metadata?.is_test_certificate === true;
+}
 
 /**
  * Emite ou busca o certificado existente do aluno.
@@ -174,7 +201,11 @@ export async function getOrCreateUserCertificate(
     .eq("course_id", courseId)
     .maybeSingle();
 
-  if (existing) {
+  // Certificado de teste, emitido pelo painel para homologar o visual e o QR,
+  // nao e conquista de aluno nenhum: para ele esse registro nao existe, e a
+  // tela segue mostrando o progresso do curso. O codigo continua verificavel
+  // no portal publico, que e para o que ele foi criado.
+  if (existing && !isTestCertificate(existing as Certificate)) {
     return { certificate: existing as Certificate, eligibility };
   }
 
@@ -211,26 +242,32 @@ export async function getOrCreateUserCertificate(
     hours,
   });
 
+  // `upsert` e nao `insert`: a tabela tem unique (user_id, course_id) e pode
+  // haver uma linha de teste ocupando o lugar. Aluno elegivel recebe o
+  // certificado de verdade por cima dela.
   const { data: created, error } = await adminSupabase
     .from("certificates")
-    .insert({
-      user_id: userId,
-      course_id: courseId,
-      enrollment_id: enrollment?.id || null,
-      code,
-      hash_signature: signature,
-      student_name: studentName,
-      course_title: courseTitle,
-      workload_hours: hours,
-      average_score: eligibility.averageScore,
-      completed_at: completedAt,
-      issued_at: completedAt,
-      metadata: {
-        total_lessons: eligibility.publishedLessons,
-        cefr_level: "B2",
-        platform: "Easy English Language Academy",
+    .upsert(
+      {
+        user_id: userId,
+        course_id: courseId,
+        enrollment_id: enrollment?.id || null,
+        code,
+        hash_signature: signature,
+        student_name: studentName,
+        course_title: courseTitle,
+        workload_hours: hours,
+        average_score: eligibility.averageScore,
+        completed_at: completedAt,
+        issued_at: completedAt,
+        metadata: {
+          total_lessons: eligibility.publishedLessons,
+          cefr_level: "B2",
+          platform: "Easy English Language Academy",
+        },
       },
-    })
+      { onConflict: "user_id,course_id" },
+    )
     .select("*")
     .single();
 

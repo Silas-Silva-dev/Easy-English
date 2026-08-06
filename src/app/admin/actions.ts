@@ -296,6 +296,45 @@ export async function toggleCoursePublishAction(
 }
 
 // ---------------------------------------------------------------- certificados
+/**
+ * Nota minima que o aluno precisa atingir nas avaliacoes de fala para o
+ * certificado ser emitido. Fica no curso, e nao numa constante do codigo, para
+ * o admin conseguir ajustar o corte sem depender de deploy.
+ */
+export async function updateCourseMinScoreAction(
+  courseId: string,
+  minScore: number,
+): Promise<ActionResult> {
+  try {
+    const actor = await assertAdmin();
+
+    if (!Number.isFinite(minScore) || minScore < 0 || minScore > 10) {
+      return { ok: false, error: "A média mínima precisa ficar entre 0 e 10." };
+    }
+    // Uma casa decimal: e o que a coluna numeric(3,1) guarda.
+    const value = Math.round(minScore * 10) / 10;
+
+    const supabase = await createServerSupabase();
+    const { error } = await supabase
+      .from("courses")
+      .update({ min_certificate_score: value })
+      .eq("id", courseId);
+
+    if (error) return { ok: false, error: error.message };
+
+    await audit(actor, "course.min_certificate_score_updated", "courses", courseId, {
+      minScore: value,
+    });
+    revalidatePath("/admin/certificados");
+    revalidatePath("/admin/cursos");
+    revalidatePath("/app/certificado");
+
+    return { ok: true, message: `Média mínima definida em ${value.toFixed(1)}.` };
+  } catch (error) {
+    return { ok: false, error: error instanceof Error ? error.message : "Erro inesperado" };
+  }
+}
+
 export async function generateTestCertificateAction(params: {
   studentName?: string;
   workloadHours?: number;

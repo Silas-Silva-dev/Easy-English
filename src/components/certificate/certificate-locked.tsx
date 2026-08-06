@@ -14,7 +14,11 @@ interface CertificateLockedProps {
 
 export function CertificateLocked({ eligibility, courseTitle }: CertificateLockedProps) {
   const isLessonsDone = eligibility.completedLessons >= eligibility.publishedLessons;
-  const isScoreDone = eligibility.averageScore >= eligibility.minScoreRequired;
+  // Sem gravação avaliada não existe média, então o critério não pode ser dado
+  // como cumprido nem exibido como "0.0" — seria nota, e não ausência de nota.
+  const hasEvaluations = eligibility.speakingEvaluations > 0;
+  const isScoreDone = hasEvaluations && eligibility.averageScore >= eligibility.minScoreRequired;
+  const minScoreLabel = eligibility.minScoreRequired.toFixed(1);
 
   return (
     <div className="mx-auto max-w-3xl space-y-6">
@@ -71,25 +75,29 @@ export function CertificateLocked({ eligibility, courseTitle }: CertificateLocke
             </p>
           </div>
 
-          {/* Requisito 2: Média Mínima de Avaliação (7.0) */}
+          {/* Requisito 2: media minima cadastrada no curso, sobre as praticas de fala */}
           <div className="space-y-2 rounded-lg border p-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2 font-medium text-sm">
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center gap-2 text-sm font-medium">
                 <Mic className="size-4 text-primary" />
-                <span>2. Média mínima de 7.0 nas práticas de fala</span>
+                <span>2. Média mínima de {minScoreLabel} nas práticas de fala</span>
               </div>
               <Badge variant={isScoreDone ? "success" : "warning"}>
-                Sua Média: {eligibility.averageScore.toFixed(1)} / 10.0
+                {hasEvaluations
+                  ? `Sua Média: ${eligibility.averageScore.toFixed(1)} / 10.0`
+                  : "Sem avaliações ainda"}
               </Badge>
             </div>
             <Progress
-              value={Math.min(100, (eligibility.averageScore / 10) * 100)}
+              value={hasEvaluations ? Math.min(100, (eligibility.averageScore / 10) * 100) : 0}
               className="h-2"
             />
             <p className="text-xs text-muted-foreground">
-              {isScoreDone
-                ? "✓ Sua média atual atende ao critério de aprovação!"
-                : `Nota média atual é ${eligibility.averageScore.toFixed(1)}. Continue praticando a fala para alcançar ${eligibility.minScoreRequired.toFixed(1)}.`}
+              {!hasEvaluations
+                ? `Grave suas práticas de conversação para que a média seja calculada. É ela que precisa alcançar ${minScoreLabel}.`
+                : isScoreDone
+                  ? "✓ Sua média atual atende ao critério de aprovação!"
+                  : `Nota média atual é ${eligibility.averageScore.toFixed(1)} em ${eligibility.speakingEvaluations} ${eligibility.speakingEvaluations === 1 ? "avaliação" : "avaliações"}. Continue praticando a fala para alcançar ${minScoreLabel}.`}
             </p>
           </div>
 
