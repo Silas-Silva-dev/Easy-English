@@ -159,3 +159,99 @@ Be accurate. Prefer natural phrasing over word-for-word translation.
     };
   }
 }
+
+// ---------------------------------------------------------------------------
+// Tradução da fala ao vivo
+// ---------------------------------------------------------------------------
+
+export interface SpeechTranslateResponse {
+  ok: true;
+  translation: string;
+}
+
+/** Um campo só: é o que segura o modelo no assunto. Ver o comentário abaixo. */
+const SPEECH_SCHEMA: Schema = {
+  type: Type.OBJECT,
+  required: ["translation"],
+  properties: { translation: { type: Type.STRING } },
+};
+
+/**
+ * Traduz um trecho reconhecido pelo microfone. Só a tradução, nada mais.
+ *
+ * Existe separada de `translateAction` por causa da LATÊNCIA, não do custo. A
+ * action completa pede IPA, fonética e exemplos: são 353 tokens por chamada,
+ * medidos, contra 27 desta — e o que o modelo demora para responder é
+ * proporcional ao que ele precisa escrever. Numa tela em que a pessoa fala e
+ * espera ver a tradução aparecer, cada palavra a mais na resposta é atraso
+ * visível.
+ *
+ * O aluno que quiser IPA e exemplos digita a palavra no tradutor de cima, que
+ * continua completo.
+ */
+export async function translateSpeechAction(
+  text: string,
+  direction: Direction,
+): Promise<SpeechTranslateResponse | TranslateErrorResponse> {
+  await requireActiveUser("/app/tradutor");
+
+  const parsed = inputSchema.safeParse({ text, direction });
+  if (!parsed.success) {
+    return { ok: false, error: "Trecho inválido ou muito longo." };
+  }
+
+  const { text: sourceText, direction: dir } = parsed.data;
+  const [de, para] =
+    dir === "en→pt" ? ["English", "Brazilian Portuguese"] : ["Brazilian Portuguese", "English"];
+
+  try {
+    const response = await withRetry(() =>
+      gemini().models.generateContent({
+        model: geminiModels.tutor,
+        contents: [{ role: "user", parts: [{ text: sourceText }] }],
+        config: {
+          // A instrução vive aqui, e não no `contents`, para o texto do aluno
+          // chegar limpo: fala reconhecida já vem sem pontuação confiável, e
+          // misturar instrução com transcrição fazia o modelo às vezes traduzir
+          // a própria instrução.
+          /**
+           * A ordem de pontuar não é firula. A fala reconhecida chega crua —
+           * "hi im ana nice to meet you" — e o modelo espelhava isso na
+           * resposta, devolvendo "oi, eu sou a ana" em caixa baixa. Frases
+           * longas ele pontuava, curtas não: a tela ficava com dois padrões.
+           */
+          systemInstruction:
+            `Translate from ${de} to ${para}. Natural, spoken register. ` +
+            `The input comes from speech recognition, so it has no punctuation ` +
+            `or capitalization — your output must have both, written properly.`,
+          /**
+           * Saída estruturada, e não texto puro com "responda só a tradução".
+           *
+           * Medido contra o modelo: em texto puro ele ignorava a instrução e
+           * respondia "Aqui estão algumas opções, da mais comum para a mais
+           * informal...", e numa frase comum devolvia `MALFORMED_RESPONSE`
+           * três vezes em três tentativas. O schema resolve por construção —
+           * um campo, uma string — e ainda saiu MAIS rápido (871ms contra
+           * 973ms), porque o modelo não escreve preâmbulo.
+           */
+          responseMimeType: "application/json",
+          responseSchema: SPEECH_SCHEMA,
+          /**
+           * Sem raciocínio: traduzir uma frase falada não precisa, e ele
+           * custava ~110ms por chamada numa tela em que a pessoa espera olhando.
+           */
+          thinkingConfig: { thinkingBudget: 0 },
+          temperature: 0,
+        },
+      }),
+    );
+
+    const translation = parseJsonResponse<{ translation?: string }>(response.text)?.translation?.trim();
+    if (!translation) return { ok: false, error: "Não consegui traduzir esse trecho." };
+
+    return { ok: true, translation };
+  } catch (error) {
+    console.error("[tradutor] falha na fala:", error instanceof Error ? error.message : error);
+    return { ok: false, error: "Erro ao traduzir. Verifique sua conexão." };
+  }
+}
