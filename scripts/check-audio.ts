@@ -1,5 +1,5 @@
 /**
- * Quais áudios do curso o aluno ouve na voz do Piper — e quais caem na voz do
+ * Quais áudios do curso o aluno ouve na voz gerada — e quais caem na voz do
  * navegador.
  *
  *   npm run check:audio
@@ -141,18 +141,38 @@ async function main() {
    * livro-razão diz. Um arquivo em disco SEM registro é de antes de o registro
    * existir, e conta como não migrado.
    */
-  let ledger: Record<string, string> = {};
+  /**
+   * Uma entrada do livro-razão.
+   *
+   * Começou como o nome do motor, uma string solta. Passou a guardar também o
+   * MODELO quando o problema deixou de ser "de qual motor saiu" e virou "de
+   * qual modelo" — misturar modelos dá timbres diferentes para o mesmo
+   * personagem. As duas formas convivem no arquivo, então ler exige aceitar
+   * as duas: tratar tudo como string fazia cada objeto virar sua própria
+   * chave no agrupamento, e o relatório listava 500 linhas de
+   * "1 · 0% [object Object]" em vez de um resumo.
+   */
+  type LedgerEntry = string | { engine: string; model?: string };
+
+  let ledger: Record<string, LedgerEntry> = {};
   try {
     ledger = JSON.parse(
       readFileSync(join(OUT_DIR, "engines.json"), "utf8"),
-    ) as Record<string, string>;
+    ) as Record<string, LedgerEntry>;
   } catch {
     /* sem livro-razão: tudo cai em "sem registro" abaixo */
   }
 
+  /** O modelo, quando registrado; senão o motor. É o que interessa ao ouvido. */
+  const rotulo = (entry: LedgerEntry | undefined): string => {
+    if (!entry) return "sem registro";
+    if (typeof entry === "string") return entry;
+    return entry.model ?? entry.engine;
+  };
+
   const byEngine = new Map<string, number>();
   for (const id of onDisk) {
-    const engine = ledger[id] ?? "sem registro";
+    const engine = rotulo(ledger[id]);
     byEngine.set(engine, (byEngine.get(engine) ?? 0) + 1);
   }
 
@@ -163,6 +183,16 @@ async function main() {
     if (engine === "sem registro") bad(line);
     else ok(line);
   }
+
+  /**
+   * A voz dominante, para o relatório não afirmar um motor que já saiu de cena.
+   *
+   * Estava escrito "Piper" no texto fixo. Depois da migração para o Gemini o
+   * relatório passou a dizer que 478 áudios tocavam numa voz que nenhum deles
+   * usava mais — e é justamente este relatório que se consulta para saber se a
+   * migração terminou.
+   */
+  const vozDominante = [...byEngine].sort((a, b) => b[1] - a[1])[0]?.[0] ?? "nenhum motor";
 
   // -------------------------------------------------------- 3. Lado do banco
   // É o texto que o aluno realmente vê, e portanto o hash que o player pede.
@@ -214,7 +244,7 @@ async function main() {
     `  ${lessons.length} lições · ${total} textos distintos com áudio`,
   );
   if (missing.length === 0) {
-    ok(`${covered}/${total} (100%) tocam com a voz do Piper`);
+    ok(`${covered}/${total} (100%) tocam com a voz gerada (${vozDominante})`);
   } else {
     bad(
       `${total - covered} de ${total} caem na voz do navegador (${pct}% cobertos)`,

@@ -64,7 +64,14 @@ import {
 } from "../content/audio-manifest";
 
 import { GOOGLE_SAMPLE_RATE, listVoices, synthesizeLine } from "./google-tts";
-import { env, genaiTts, sleep, usingDedicatedTtsKey } from "./_shared";
+import {
+  env,
+  genaiTts,
+  sleep,
+  usingDedicatedTtsKey,
+  usingVertexTts,
+  vertexTts,
+} from "./_shared";
 
 const OUT_DIR = join(process.cwd(), "public", "audio");
 
@@ -106,6 +113,8 @@ interface Options {
   dryRun: boolean;
   watch: boolean;
   waitMinutes: number;
+  /** Quantos áudios gerar ao mesmo tempo. Ver o padrão em parseArgs. */
+  concurrency: number;
 }
 
 /**
@@ -178,6 +187,55 @@ function parseArgs(argv: string[]): Options {
     process.exit(1);
   }
 
+  /**
+   * Quantos áudios de cada vez.
+   *
+   * Validado como --only e --engine, e não com `Math.max(1, Number(x))`:
+   * Math.max propaga NaN em vez de aparar, e `Array.from({ length: NaN })`
+   * devolve lista VAZIA. Um `--concurrency` sem número (ou com um typo)
+   * criava zero trabalhadores, não gerava nada, e ainda assim imprimia o
+   * resumo e saía com código 0 — um lote que parecia ter rodado.
+   */
+  const bruta = get("concurrency") ?? String(usingVertexTts() ? 6 : 1);
+  const concurrency = Math.floor(Number(bruta));
+  if (!Number.isFinite(concurrency) || concurrency < 1) {
+    console.error(
+      `
+✗ --concurrency precisa ser um inteiro >= 1 (recebi "${bruta}")
+`,
+    );
+    process.exit(1);
+  }
+
+  /**
+   * Quais modelos usar, em ordem de preferência.
+   *
+   * Dois nomes de variável por acidente histórico: o serviço lê
+   * `GEMINI_TTS_MODEL` (é o que está no .env.local) e este script lia
+   * `GEMINI_MODEL_TTS`, que não existe em lugar nenhum. Rodar
+   * `npm run gen:audio` sem `--model` ignorava o modelo escolhido e voltava ao
+   * rodízio dos três — misturando timbres, que é justamente o que fixar um
+   * modelo evita. Aceita os dois, preferindo o documentado.
+   *
+   * `||` e não `??` de propósito: uma variável definida como "" precisa cair
+   * no padrão, e não virar lista vazia — sem modelo nenhum o laço não teria o
+   * que tentar e a rodada morreria sem gerar nada.
+   */
+  const models = (
+    get("model") ||
+    process.env.GEMINI_TTS_MODEL?.trim() ||
+    process.env.GEMINI_MODEL_TTS?.trim() ||
+    DEFAULT_TTS_MODELS.join(",")
+  )
+    .split(",")
+    .map((m) => m.trim())
+    .filter(Boolean);
+
+  if (!models.length) {
+    console.error(`\n✗ --model não deixou nenhum modelo utilizável.\n`);
+    process.exit(1);
+  }
+
   return {
     limit: Number(get("limit") ?? Number.POSITIVE_INFINITY),
     circuit: get("circuit") ? Number(get("circuit")) : null,
@@ -193,11 +251,22 @@ function parseArgs(argv: string[]): Options {
      * e a cobrança é por caractere, não por chamada. Com 6s por fala o curso
      * levaria mais de um dia; sem espera, uns 20 minutos.
      */
-    delayMs: Number(get("delay") ?? (engine === "google" ? 0 : 6000)),
-    models: (get("model") ?? env("GEMINI_MODEL_TTS", DEFAULT_TTS_MODELS.join(",")))
-      .split(",")
-      .map((m) => m.trim())
-      .filter(Boolean),
+    delayMs: Number(
+      get("delay") ?? (engine === "google" || usingVertexTts() ? 0 : 6000),
+    ),
+    /**
+     * Uma chamada por vez, exceto no Vertex.
+     *
+     * Na chave de API o teto é de 10 requisições por minuto: paralelizar só
+     * trocaria a espera por uma fila de 429. No Vertex a rajada de teste levou
+     * 20 chamadas simultâneas sem nenhuma recusa, e aí o lote inteiro deixa de
+     * ser medido em horas.
+     *
+     * 6 é conservador de propósito: sobra folga para o `retry` de sobrecarga e
+     * o gargalo passa a ser o ffmpeg, não a rede.
+     */
+    concurrency,
+    models,
     force: has("force"),
     dryRun: has("dry-run"),
     watch: has("watch"),
@@ -279,12 +348,27 @@ const CHUNK_STYLE =
   "natural speed, natural linking. Say it once.";
 
 /** Uma chamada ao TTS. Devolve PCM cru e a taxa de amostragem. */
+/**
+ * Cliente do TTS, montado uma vez só.
+ *
+ * Um por processo, não um por chamada: no modo Vertex o cliente guarda o token
+ * OAuth, e recriá-lo a cada áudio refaria a troca de credencial 500 vezes.
+ *
+ * O Vertex ganha quando está configurado porque só ele escapa do teto diário
+ * da Gemini API — mesmos modelos, mesmas vozes, contabilidade por minuto.
+ */
+let ttsClientCache: ReturnType<typeof genaiTts> | null = null;
+function ttsClient() {
+  if (!ttsClientCache) ttsClientCache = vertexTts() ?? genaiTts();
+  return ttsClientCache;
+}
+
 async function speak(
   text: string,
   speechConfig: object,
   model: string,
 ): Promise<{ pcm: Buffer; rate: number }> {
-  const response = await genaiTts().models.generateContent({
+  const response = await ttsClient().models.generateContent({
     model,
     contents: [{ role: "user", parts: [{ text }] }],
     config: { responseModalities: ["AUDIO"], speechConfig },
@@ -670,15 +754,27 @@ async function main() {
     (j) => engineOf(ledger[j.id]) === options.engine,
   ).length;
 
+  // Por onde as chamadas saem. Vale dizer em voz alta porque decide o teto do
+  // lote: pelo Vertex são centenas por minuto, pela chave de API são 100 por
+  // DIA — e a diferença entre "pronto hoje" e "pronto na semana que vem" não
+  // pode depender de adivinhar qual dos dois está ativo.
+  const transportLabel = usingVertexTts()
+    ? " · Vertex AI"
+    : usingDedicatedTtsKey()
+      ? " · chave dedicada"
+      : "";
+
   const engineLabel =
     options.engine === "gemini"
-      ? ` (${options.models.join(" → ")})${usingDedicatedTtsKey() ? " · chave dedicada" : ""}`
+      ? ` (${options.models.join(" → ")})${transportLabel}`
       : options.engine === "google"
         ? " (Cloud TTS · Neural2)"
         : " (local, sem cota)";
 
   console.log(`\n\x1b[1mÁudio das lições\x1b[0m`);
   console.log(`  motor    ${options.engine}${engineLabel}`);
+  if (options.concurrency > 1)
+    console.log(`  paralelo ${options.concurrency} áudios ao mesmo tempo`);
   console.log(
     `  catálogo ${all.length} áudios (${all.filter((j) => j.kind === "dialogue").length} diálogos + ${all.filter((j) => j.kind === "chunk").length} blocos)`,
   );
@@ -760,121 +856,185 @@ async function main() {
   // Sobrecarga transitória: recuo exponencial no MESMO job, sem descartar.
   const TRANSIENT_BASE_MS = 4_000;
   const TRANSIENT_MAX_TRIES = 6;
-  let transientTries = 0;
 
-  while (queue.length) {
-    const job = queue[0];
+  /**
+   * Encerramento antecipado: a cota fechou e ninguém pediu --watch.
+   *
+   * Compartilhado porque agora há vários trabalhadores na mesma fila: o
+   * primeiro que esbarra na cota levanta a bandeira e os outros param na volta
+   * seguinte, em vez de cada um imprimir o mesmo aviso.
+   */
+  let aborted = false;
+
+  /** A parada foi por cota (e não por fim da fila). Decide o aviso final. */
+  let quotaStopped = false;
+
+  /** Evita o mesmo "dormindo N min" repetido uma vez por trabalhador. */
+  let sleepAnnouncedFor = 0;
+
+  /**
+   * Gera UM áudio, com as tentativas dele.
+   *
+   * As tentativas moram aqui dentro, e não na fila, porque são do item: cota,
+   * sobrecarga e erro de conteúdo pedem respostas diferentes e todas elas
+   * precisam do mesmo job em mãos. `transientTries` é local de propósito —
+   * era uma variável só para o lote inteiro, o que já estava errado em série
+   * (um item sobrecarregado gastava as tentativas do próximo) e ficaria pior
+   * com vários itens ao mesmo tempo.
+   */
+  async function processJob(job: AudioJob): Promise<void> {
     const outPath = join(OUT_DIR, `${job.id}.mp3`);
+    let transientTries = 0;
 
-    // Todos bloqueados: dorme até o primeiro liberar (ou encerra sem --watch).
-    if (options.engine === "gemini" && !availableModel()) {
-      const waitMs = Math.max(1000, nextFree() - Date.now());
+    while (!aborted) {
+      // Todos bloqueados: dorme até o primeiro liberar (ou encerra sem --watch).
+      if (options.engine === "gemini" && !availableModel()) {
+        const wakeAt = nextFree();
+        const waitMs = Math.max(1000, wakeAt - Date.now());
 
-      if (!options.watch) {
-        const left = wanted.length - done - generated;
+        if (!options.watch) {
+          // Só levanta a bandeira — o aviso sai depois que todos pararem,
+          // com os números já estáveis. Ver o bloco após o Promise.all.
+          aborted = true;
+          quotaStopped = true;
+          return;
+        }
+
+        if (wakeAt !== sleepAnnouncedFor) {
+          sleepAnnouncedFor = wakeAt;
+          console.log(
+            `  [33m·[0m todos os modelos na cota — dormindo ${Math.ceil(waitMs / 60_000)} min e retomando sozinho`,
+          );
+        }
+        await sleep(waitMs);
+        continue; // mesmo job
+      }
+
+      const model = options.engine === "gemini" ? availableModel()! : "";
+
+      try {
+        const { pcm, rate } =
+          options.engine === "google"
+            ? await synthesizeGoogle(job, options.delayMs)
+            : await synthesize(job, model, options.delayMs);
+        await pcmToMp3(pcm, rate, outPath);
+
+        generated++;
+
+        /**
+         * Registra o motor deste arquivo.
+         *
+         * Só o caminho do Piper fazia isso: os áudios gerados pelo Gemini saíam
+         * do lote sem entrar no livro-razão. Efeito prático: `--upgrade` os
+         * tratava como "de outro motor" e regerava tudo de novo, e não havia como
+         * responder "este arquivo saiu de qual motor?" — que é exatamente a
+         * pergunta que se faz depois de trocar de TTS.
+         *
+         * O transporte (chave de API ou Vertex) NÃO entra aqui de propósito: o
+         * modelo é o mesmo dos dois lados, então o áudio é o mesmo. Registrar a
+         * diferença faria `--upgrade` refazer o que já está pronto e correto.
+         *
+         * Gravado a cada arquivo, como no Piper: uma queda no meio do lote não
+         * perde o registro do que já foi feito.
+         */
+        ledger[job.id] = model ? { engine: options.engine, model } : options.engine;
+        writeLedger(ledger);
+
+        const secs = (pcm.length / (rate * 2)).toFixed(1);
+        const tag = model ? `  [2m${model.replace(/^gemini-|-preview$|-tts-preview$/g, "")}[0m` : "";
         console.log(
-          `
-  [33m▲ Os ${options.models.length} modelos de TTS estão na cota.[0m ` +
-            `${generated} gerados nesta rodada.
-
-` +
-            `  Faltam ${left} áudios. Rode de novo quando a cota renovar:
-` +
-            `  o script continua exatamente daqui, os ${done + generated} prontos não são refeitos.
-` +
-            `  Para ele mesmo esperar e retomar sozinho: npm run gen:audio -- --watch
-`,
+          `  [32m✓[0m ${String(generated).padStart(3)}/${pending.length}  ${secs.padStart(5)}s  ${job.label}${tag}`,
         );
         return;
-      }
+      } catch (error) {
+        if (isQuotaError(error)) {
+          // Fecha SÓ este modelo. O laço já escolhe outro na próxima volta.
+          // Sem `retryDelay` no corpo, assume o pior: o modelo fechou por hoje.
+          const sugerido = retryDelayMs(error) ?? DAY_BLOCK_MS;
+          const wait = Math.min(sugerido, MAX_BLOCK_MS);
+          blockedUntil.set(model, Date.now() + wait);
 
-      const mins = Math.ceil(waitMs / 60_000);
-      console.log(
-        `  [33m·[0m todos os modelos na cota — dormindo ${mins} min e retomando sozinho`,
-      );
-      await sleep(waitMs);
-      continue; // mesmo job
-    }
-
-    const model = options.engine === "gemini" ? availableModel()! : "";
-
-    try {
-      const { pcm, rate } =
-        options.engine === "google"
-          ? await synthesizeGoogle(job, options.delayMs)
-          : await synthesize(job, model, options.delayMs);
-      await pcmToMp3(pcm, rate, outPath);
-
-      queue.shift();
-      generated++;
-      transientTries = 0;
-
-      /**
-       * Registra o motor deste arquivo.
-       *
-       * Só o caminho do Piper fazia isso: os áudios gerados pelo Gemini saíam
-       * do lote sem entrar no livro-razão. Efeito prático: `--upgrade` os
-       * tratava como "de outro motor" e regerava tudo de novo, e não havia como
-       * responder "este arquivo saiu de qual motor?" — que é exatamente a
-       * pergunta que se faz depois de trocar de TTS.
-       *
-       * Gravado a cada arquivo, como no Piper: uma queda no meio do lote não
-       * perde o registro do que já foi feito.
-       */
-      ledger[job.id] = model ? { engine: options.engine, model } : options.engine;
-      writeLedger(ledger);
-
-      const secs = (pcm.length / (rate * 2)).toFixed(1);
-      const tag = model ? `  [2m${model.replace(/^gemini-|-preview$|-tts-preview$/g, "")}[0m` : "";
-      console.log(
-        `  [32m✓[0m ${String(generated).padStart(3)}/${pending.length}  ${secs.padStart(5)}s  ${job.label}${tag}`,
-      );
-    } catch (error) {
-      if (isQuotaError(error)) {
-        // Fecha SÓ este modelo. O laço já escolhe outro na próxima volta.
-        // Sem `retryDelay` no corpo, assume o pior: o modelo fechou por hoje.
-        const sugerido = retryDelayMs(error) ?? DAY_BLOCK_MS;
-        const wait = Math.min(sugerido, MAX_BLOCK_MS);
-        blockedUntil.set(model, Date.now() + wait);
-
-        const outros = options.models.filter((m) => (blockedUntil.get(m) ?? 0) <= Date.now());
-        console.log(
-          `  [33m·[0m ${model}: cota ${quotaKindLabel(sugerido)} ` +
-            `(a API pediu ${Math.ceil(sugerido / 1000)}s; reconsultando em ${Math.ceil(wait / 1000)}s)` +
-            (outros.length ? ` — seguindo em ${outros[0]}` : ""),
-        );
-        continue; // mesmo job, outro modelo
-      }
-
-      if (isTransientError(error)) {
-        transientTries++;
-        if (transientTries <= TRANSIENT_MAX_TRIES) {
-          const wait = TRANSIENT_BASE_MS * 2 ** (transientTries - 1);
+          const outros = options.models.filter((m) => (blockedUntil.get(m) ?? 0) <= Date.now());
           console.log(
-            `  [33m·[0m ${model || options.engine} sobrecarregado: ` +
-              `nova tentativa em ${Math.round(wait / 1000)}s (${transientTries}/${TRANSIENT_MAX_TRIES})`,
+            `  [33m·[0m ${model}: cota ${quotaKindLabel(sugerido)} ` +
+              `(a API pediu ${Math.ceil(sugerido / 1000)}s; reconsultando em ${Math.ceil(wait / 1000)}s)` +
+              (outros.length ? ` — seguindo em ${outros[0]}` : ""),
           );
-          await sleep(wait);
-          continue; // mesmo job
+          continue; // mesmo job, outro modelo
         }
-        // Insistiu demais: bloqueia o modelo por um tempo e tenta em outro.
-        blockedUntil.set(model, Date.now() + MINUTE_BLOCK_MS);
-        transientTries = 0;
-        continue;
+
+        if (isTransientError(error)) {
+          transientTries++;
+          if (transientTries <= TRANSIENT_MAX_TRIES) {
+            const wait = TRANSIENT_BASE_MS * 2 ** (transientTries - 1);
+            console.log(
+              `  [33m·[0m ${model || options.engine} sobrecarregado: ` +
+                `nova tentativa em ${Math.round(wait / 1000)}s (${transientTries}/${TRANSIENT_MAX_TRIES})`,
+            );
+            await sleep(wait);
+            continue; // mesmo job
+          }
+          // Insistiu demais: bloqueia o modelo por um tempo e tenta em outro.
+          blockedUntil.set(model, Date.now() + MINUTE_BLOCK_MS);
+          transientTries = 0;
+          continue;
+        }
+
+        // Erro do item, não da cota nem da API: registra, segue para o próximo.
+        failed++;
+        const message = error instanceof Error ? error.message : String(error);
+        console.log(`  [31m✗[0m ${job.label}
+      ${message.slice(0, 160)}`);
+        return;
       }
-
-      // Erro do item, não da cota nem da API: registra, segue para o próximo.
-      queue.shift();
-      failed++;
-      transientTries = 0;
-      const message = error instanceof Error ? error.message : String(error);
-      console.log(
-        `  [31m✗[0m ${job.label}
-      ${message.slice(0, 160)}`,
-      );
     }
+  }
 
-    if (queue.length) await sleep(options.delayMs);
+  /**
+   * Um trabalhador puxa da fila até ela secar.
+   *
+   * `shift()` é seguro sem trava: o Node só troca de tarefa nos `await`, e
+   * entre pegar o job e a fila encolher não há nenhum.
+   */
+  async function worker(): Promise<void> {
+    while (!aborted) {
+      const job = queue.shift();
+      if (!job) return;
+      await processJob(job);
+      if (queue.length && options.delayMs) await sleep(options.delayMs);
+    }
+  }
+
+  await Promise.all(Array.from({ length: options.concurrency }, () => worker()));
+
+  /**
+   * Parou por cota e ninguém pediu --watch: este aviso É o fim da rodada.
+   *
+   * Ele morava dentro do laço, onde o `return` saía de main() inteiro. Com a
+   * fila paralela o `return` passou a sair só do job, e o resumo comum caía
+   * logo abaixo — a rodada terminava dizendo "rode de novo quando a cota
+   * renovar" e, na linha seguinte, "rode de novo quando quiser".
+   *
+   * Imprimir aqui também conserta os números: lá dentro, `generated` era lido
+   * com até concurrency-1 áudios ainda em voo, e os `✓` deles saíam DEPOIS do
+   * aviso de parada.
+   */
+  if (quotaStopped) {
+    const left = wanted.length - done - generated;
+    console.log(
+      `
+  [33m▲ Os ${options.models.length} modelos de TTS estão na cota.[0m ` +
+        `${generated} gerados nesta rodada.
+
+` +
+        `  Faltam ${left} áudios. Rode de novo quando a cota renovar:
+` +
+        `  o script continua exatamente daqui, os ${done + generated} prontos não são refeitos.
+` +
+        `  Para ele mesmo esperar e retomar sozinho: npm run gen:audio -- --watch
+`,
+    );
+    return;
   }
 
   // Do disco, não `done + generated`: ver countOnDisk.

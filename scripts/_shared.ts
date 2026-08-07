@@ -5,6 +5,8 @@
  * marcados com "server-only". Aqui montamos os clientes na mão.
  */
 
+import { readFileSync } from "node:fs";
+
 import { GoogleGenAI } from "@google/genai";
 import { createClient } from "@supabase/supabase-js";
 import { config as loadEnv } from "dotenv";
@@ -57,6 +59,72 @@ export function genaiTts() {
 /** True quando a geração de áudio está usando a chave dedicada. */
 export function usingDedicatedTtsKey(): boolean {
   return Boolean(process.env.GEMINI_TTS_API_KEY?.trim());
+}
+
+/**
+ * Cliente de TTS pelo Vertex AI — os MESMOS modelos, outra contabilidade.
+ *
+ * A Gemini API limita os modelos de TTS por REQUISIÇÕES POR DIA: 100 no
+ * nível 1, conforme o painel de limites. São 500 áudios no curso, então o lote
+ * levava dias — e comprar mais crédito não muda nada, porque o teto conta
+ * chamadas, não dinheiro.
+ *
+ * O Vertex serve os mesmos modelos contando por minuto em vez de por dia.
+ * Medido contra este projeto: 20 chamadas simultâneas passaram em 2,8s
+ * enquanto a chave de API já recusava havia horas.
+ *
+ * Autentica por conta de serviço (`VERTEX_CREDENTIALS` aponta o JSON) ou pelas
+ * credenciais padrão do ambiente. Sem nenhuma das duas devolve null e o lote
+ * segue pela chave de API, como antes.
+ */
+export function vertexTts(): GoogleGenAI | null {
+  const configured = process.env.VERTEX_CREDENTIALS?.trim();
+  const keyFile = configured || process.env.GOOGLE_APPLICATION_CREDENTIALS?.trim();
+  if (!keyFile) return null;
+
+  // A biblioteca de autenticação lê esta variável; VERTEX_CREDENTIALS existe
+  // só para dar um nome próprio ao arquivo do TTS e não brigar com outra
+  // credencial que o ambiente já use.
+  process.env.GOOGLE_APPLICATION_CREDENTIALS = keyFile;
+
+  let project = process.env.VERTEX_PROJECT?.trim();
+  if (!project) {
+    // Sem cair de volta na chave de API em silêncio: quem apontou uma
+    // credencial quer o Vertex, e degradar sem avisar devolveria o lote ao
+    // teto diário sem nenhum sinal de que foi isso que aconteceu.
+    try {
+      project = JSON.parse(readFileSync(keyFile, "utf8")).project_id;
+    } catch (error) {
+      console.error(
+        `\n✗ Não consegui ler a credencial do Vertex em ${keyFile}\n` +
+          `  ${(error as Error).message}\n` +
+          `  Corrija o caminho em VERTEX_CREDENTIALS ou informe VERTEX_PROJECT.\n`,
+      );
+      process.exit(1);
+    }
+  }
+  if (!project) {
+    console.error(
+      `\n✗ ${keyFile} não traz "project_id".\n  Informe o projeto em VERTEX_PROJECT.\n`,
+    );
+    process.exit(1);
+  }
+
+  return new GoogleGenAI({
+    vertexai: true,
+    project,
+    // "global" reparte a carga entre regiões — é o que aguentou a rajada sem
+    // recusar nenhuma das 20 chamadas.
+    location: process.env.VERTEX_LOCATION?.trim() || "global",
+  });
+}
+
+/** True quando o lote de áudio está indo pelo Vertex. */
+export function usingVertexTts(): boolean {
+  return Boolean(
+    process.env.VERTEX_CREDENTIALS?.trim() ||
+      process.env.GOOGLE_APPLICATION_CREDENTIALS?.trim(),
+  );
 }
 
 export const MODELS = {

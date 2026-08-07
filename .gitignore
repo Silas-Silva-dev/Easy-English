@@ -105,3 +105,9 @@ service-account*.json
 
 # Log do servico de geracao de audio
 .audio-log/
+
+# Credenciais de conta de servico do Google (qualquer nome)
+.gcp/
+gen-lang-client-*.json
+*-compute@developer*.json
+*.iam.gserviceaccount.com.json

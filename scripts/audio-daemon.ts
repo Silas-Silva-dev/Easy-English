@@ -172,11 +172,27 @@ function status() {
   const width = 34;
   const filled = Math.round((gemini / jobs.length) * width);
 
+  /**
+   * Por onde as chamadas saem — a linha mais importante deste painel.
+   *
+   * Os dois caminhos usam o mesmo modelo e produzem o mesmo áudio, mas têm
+   * tetos incomparáveis: o Vertex conta por minuto, a chave de API conta 100
+   * por DIA. Um lote de 500 sai em minutos de um lado e em dias do outro, e
+   * descobrir de qual lado se está não pode depender de ler o log.
+   */
+  const transporte =
+    process.env.VERTEX_CREDENTIALS?.trim() || process.env.GOOGLE_APPLICATION_CREDENTIALS?.trim()
+      ? "\x1b[32mVertex AI\x1b[0m (conta por minuto)"
+      : process.env.GEMINI_TTS_API_KEY?.trim()
+        ? "Gemini API · chave dedicada \x1b[33m(100/dia)\x1b[0m"
+        : "Gemini API · chave principal \x1b[33m(100/dia)\x1b[0m";
+
   const pid = currentPid();
   console.log(`\n\x1b[1mGeração de áudio\x1b[0m`);
   console.log(
     `  serviço  ${pid !== null ? `\x1b[32mrodando\x1b[0m (pid ${pid})` : "\x1b[33mparado\x1b[0m"}`,
   );
+  console.log(`  via      ${transporte}`);
   console.log(`  catálogo ${jobs.length} áudios · ${onDisk.length} em disco`);
   console.log(
     `  motor    ` +
