@@ -131,31 +131,81 @@ export function VoiceTranslator() {
   const [erro, setErro] = React.useState<string | null>(null);
 
   const recognitionRef = React.useRef<SpeechRecognitionLike | null>(null);
-  /**
-   * A trilha do microfone fica ABERTA enquanto escuta.
-   *
-   * A versão anterior pedia `getUserMedia` só para provocar o pedido de
-   * permissão e encerrava a trilha na hora seguinte. Encerrar o dispositivo no
-   * instante em que o reconhecedor ia usá-lo é a outra explicação plausível
-   * para o microfone mudo no computador. Mantendo a trilha viva, o aparelho
-   * está comprovadamente aberto — e o indicador de gravação do navegador passa
-   * a dizer a verdade.
-   */
-  const streamRef = React.useRef<MediaStream | null>(null);
   const semAudioRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  /**
+   * Teste de microfone: nível de áudio ao vivo e o nome do dispositivo.
+   *
+   * `SpeechRecognition` NÃO deixa escolher o microfone — usa sempre o padrão
+   * do navegador. Então, quando ele não ouve nada, a pergunta que importa é
+   * "o padrão do navegador está captando?", e essa pergunta não se responde
+   * pela tela de tradução: ela responde igual para "microfone mudo" e para
+   * "reconhecedor sem rede".
+   *
+   * O medidor separa os dois casos em cinco segundos. Barra parada com você
+   * falando: o dispositivo padrão está errado ou mudo. Barra mexendo e o
+   * reconhecimento sem ouvir: o problema é do serviço de voz, não do aparelho.
+   *
+   * Fica num botão à parte, e nunca junto do reconhecimento, para não recriar
+   * a disputa pelo dispositivo que este commit está removendo.
+   */
+  const [testando, setTestando] = React.useState(false);
+  const [nivel, setNivel] = React.useState(0);
+  const [dispositivo, setDispositivo] = React.useState<string | null>(null);
+  const testeRef = React.useRef<{ stream: MediaStream; ctx: AudioContext; raf: number } | null>(null);
 
   React.useEffect(() => {
     setImpedimento(detectarImpedimento());
   }, []);
 
   const soltarMicrofone = React.useCallback(() => {
-    streamRef.current?.getTracks().forEach((t) => t.stop());
-    streamRef.current = null;
     if (semAudioRef.current) {
       clearTimeout(semAudioRef.current);
       semAudioRef.current = null;
     }
   }, []);
+
+  const pararTeste = React.useCallback(() => {
+    const t = testeRef.current;
+    if (!t) return;
+    cancelAnimationFrame(t.raf);
+    t.stream.getTracks().forEach((x) => x.stop());
+    void t.ctx.close();
+    testeRef.current = null;
+    setTestando(false);
+    setNivel(0);
+  }, []);
+
+  const testarMicrofone = React.useCallback(async () => {
+    if (testando) return pararTeste();
+    setErro(null);
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      setDispositivo(stream.getAudioTracks()[0]?.label || "(sem nome)");
+
+      const ctx = new AudioContext();
+      const analyser = ctx.createAnalyser();
+      analyser.fftSize = 512;
+      ctx.createMediaStreamSource(stream).connect(analyser);
+      const buf = new Uint8Array(analyser.frequencyBinCount);
+
+      const medir = () => {
+        analyser.getByteTimeDomainData(buf);
+        // Desvio médio em relação ao silêncio (128). Amplitude, não frequência:
+        // é o que responde "está entrando som?".
+        let soma = 0;
+        for (const v of buf) soma += Math.abs(v - 128);
+        setNivel(Math.min(100, Math.round((soma / buf.length / 40) * 100)));
+        if (testeRef.current) testeRef.current.raf = requestAnimationFrame(medir);
+      };
+
+      testeRef.current = { stream, ctx, raf: requestAnimationFrame(medir) };
+      setTestando(true);
+    } catch (e) {
+      const nome = e instanceof DOMException ? e.name : "";
+      setErro(`Não consegui abrir o microfone para o teste${nome ? ` (${nome})` : ""}.`);
+    }
+  }, [testando, pararTeste]);
 
   const traduzir = React.useCallback(async (texto: string, dir: Direction) => {
     setTranslating(true);
@@ -197,18 +247,44 @@ export function VoiceTranslator() {
     setInterim("");
     setErro(null);
 
+    /**
+     * NÃO segurar o microfone enquanto o reconhecedor trabalha.
+     *
+     * A versão anterior mantinha a trilha do `getUserMedia` aberta durante o
+     * reconhecimento, para garantir que o dispositivo estivesse ativo. No
+     * Chrome do computador isso vira disputa: o reconhecedor abre a própria
+     * captura do microfone padrão, e encontrar o dispositivo já tomado por
+     * esta página é a explicação de "o microfone abriu e nenhum áudio chegou".
+     * No celular passava porque o Chrome do Android compartilha a captura.
+     *
+     * A permissão também não precisa ser pedida toda vez: quando já está
+     * concedida, tocar no dispositivo só para provocar um pedido que não vai
+     * aparecer é justamente o que cria a disputa. Só pedimos quando falta.
+     */
+    let precisaPedir = true;
     try {
-      streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true });
-    } catch (e) {
-      const nome = e instanceof DOMException ? e.name : "";
-      setErro(
-        nome === "NotAllowedError"
-          ? "Permissão de microfone negada. Libere o microfone para este site nas configurações do navegador."
-          : nome === "NotFoundError"
-            ? "Nenhum microfone encontrado neste dispositivo."
-            : `Não consegui abrir o microfone${nome ? ` (${nome})` : ""}.`,
-      );
-      return;
+      const p = await navigator.permissions.query({ name: "microphone" as PermissionName });
+      precisaPedir = p.state !== "granted";
+    } catch {
+      // Safari não implementa a consulta de permissão de microfone. Lá pedimos
+      // sempre — e lá o reconhecimento é do sistema, sem a disputa do Chrome.
+    }
+
+    if (precisaPedir) {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        stream.getTracks().forEach((t) => t.stop());
+      } catch (e) {
+        const nome = e instanceof DOMException ? e.name : "";
+        setErro(
+          nome === "NotAllowedError"
+            ? "Permissão de microfone negada. Libere o microfone para este site nas configurações do navegador."
+            : nome === "NotFoundError"
+              ? "Nenhum microfone encontrado neste dispositivo."
+              : `Não consegui abrir o microfone${nome ? ` (${nome})` : ""}.`,
+        );
+        return;
+      }
     }
 
     const recognition = new Ctor();
@@ -294,7 +370,14 @@ export function VoiceTranslator() {
   React.useEffect(() => {
     return () => {
       recognitionRef.current?.abort();
-      streamRef.current?.getTracks().forEach((t) => t.stop());
+      // O teste é o único caminho que segura o microfone: sair da tela com ele
+      // aberto deixaria o indicador de gravação aceso para sempre.
+      const t = testeRef.current;
+      if (t) {
+        cancelAnimationFrame(t.raf);
+        t.stream.getTracks().forEach((x) => x.stop());
+        void t.ctx.close();
+      }
       if (semAudioRef.current) clearTimeout(semAudioRef.current);
     };
   }, []);
@@ -470,6 +553,45 @@ export function VoiceTranslator() {
         <p className="text-muted-foreground text-xs">
           {listening ? "Ouvindo — pare de falar e ele encerra" : `Falando em ${LANG[direction].de}`}
         </p>
+
+        {/*
+          O teste fica fora do fluxo normal — só aparece quando é preciso
+          descobrir POR QUE não ouviu. Junto do botão principal viraria ruído
+          para as pessoas em que já funciona.
+        */}
+        {!listening ? (
+          <button
+            type="button"
+            onClick={() => void testarMicrofone()}
+            className="text-muted-foreground hover:text-foreground mt-1 text-xs underline underline-offset-4 transition-colors"
+          >
+            {testando ? "Parar o teste" : "Não está ouvindo? Testar microfone"}
+          </button>
+        ) : null}
+
+        {testando ? (
+          <div className="border-border bg-muted/20 mt-2 w-full space-y-2 rounded-lg border p-3.5">
+            <p className="text-xs font-semibold">Fale agora — a barra tem que mexer</p>
+            <div className="bg-muted h-2.5 w-full overflow-hidden rounded-full">
+              <div
+                className={cn(
+                  "h-full rounded-full transition-[width] duration-75",
+                  nivel > 6 ? "bg-primary" : "bg-muted-foreground/40",
+                )}
+                style={{ width: `${Math.max(2, nivel)}%` }}
+              />
+            </div>
+            <p className="text-muted-foreground text-xs leading-relaxed">
+              Captando por: <strong className="text-foreground">{dispositivo}</strong>
+              <br />
+              Barra parada enquanto você fala? O microfone padrão do navegador é outro. Troque em{" "}
+              <code className="bg-muted rounded px-1 py-0.5 text-[0.7rem]">
+                chrome://settings/content/microphone
+              </code>{" "}
+              — o reconhecimento de voz usa sempre o padrão e não deixa escolher.
+            </p>
+          </div>
+        ) : null}
       </div>
     </div>
   );
