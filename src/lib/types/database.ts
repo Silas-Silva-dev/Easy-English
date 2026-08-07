@@ -116,7 +116,32 @@ export type LessonBlock =
   | { type: "drill"; title?: string; instruction: string; items: string[] }
   | { type: "practice"; title?: string; instruction: string; prompts: string[] };
 
+/**
+ * A abertura da lição: o que fazer hoje, antes de qualquer inglês.
+ *
+ * O aluno-alvo chega sem nenhuma familiaridade com as palavras, com a
+ * pronúncia ou com o método. Sem isto ele abre a lição e não sabe o que se
+ * espera dele — e uma aula que não se sabe executar não é executada.
+ */
+export interface LessonBriefing {
+  /** O que ele sai sabendo fazer hoje. Uma frase, em português. */
+  goal: string;
+  /** O passo a passo do dia, no imperativo. */
+  steps: string[];
+  /**
+   * As expressões que a aula usa, com tradução.
+   *
+   * Ausente no dia 1 de propósito: lá o texto em inglês só aparece depois das
+   * escutas, e uma lista aqui em cima furaria justamente o portão.
+   */
+  expressions?: { en: string; pt: string }[];
+  /** Recado sobre o formato do dia, quando ele esconde algo de propósito. */
+  note?: string;
+}
+
 export interface LessonContent {
+  /** A abertura: sempre a primeira coisa da tela. */
+  briefing?: LessonBriefing;
   warmup?: string;
   blocks?: LessonBlock[];
   /**

@@ -12,6 +12,7 @@ import {
   Mic,
   PartyPopper,
   Radio,
+  RotateCcw,
   Sparkles,
   Volume2,
 } from "lucide-react";
@@ -80,6 +81,24 @@ export function LessonPlayer({
   const [revealed, setRevealed] = React.useState(
     Object.keys(initialAnswers).length === lesson.quiz.length && lesson.quiz.length > 0,
   );
+  /**
+   * Segunda chance.
+   *
+   * Antes, conferir as respostas desabilitava os botões para sempre: quem
+   * errava ficava preso no erro, olhando a alternativa certa sem poder marcá-la.
+   * Isso contraria o próprio método, que trata errar como parte do trabalho.
+   *
+   * `settled` guarda as questões já acertadas: elas travam em verde e não são
+   * perguntadas de novo. As erradas voltam a aceitar clique. `firstScore`
+   * preserva o desempenho da primeira tentativa, que é a medida honesta do que
+   * o aluno sabia antes de ver a correção.
+   */
+  const [settled, setSettled] = React.useState<Set<number>>(() =>
+    lesson.quiz.length && Object.keys(initialAnswers).length === lesson.quiz.length
+      ? new Set(lesson.quiz.map((q, i) => (initialAnswers[i] === q.answerIndex ? i : -1)).filter((i) => i >= 0))
+      : new Set(),
+  );
+  const [firstScore, setFirstScore] = React.useState<number | null>(null);
   // A avaliação mora AQUI, e não dentro do PracticeStation: trocar de etapa
   // desmonta a estação e o resultado recém-recebido morria junto com ela.
   const [speakingResult, setSpeakingResult] = React.useState<SpeakingResult | null>(
@@ -102,6 +121,34 @@ export function LessonPlayer({
   }, [answers, hasQuiz, lesson.quiz]);
 
   const allAnswered = hasQuiz && Object.keys(answers).length === lesson.quiz.length;
+  /** Questões ainda erradas depois da conferência: são as que ganham nova chance. */
+  const wrongIndexes = React.useMemo(
+    () => lesson.quiz.map((q, i) => (answers[i] === q.answerIndex ? -1 : i)).filter((i) => i >= 0),
+    [answers, lesson.quiz],
+  );
+
+  /** Confere: trava o que está certo e guarda a nota da primeira tentativa. */
+  function checkAnswers() {
+    setSettled((prev) => {
+      const next = new Set(prev);
+      lesson.quiz.forEach((q, i) => {
+        if (answers[i] === q.answerIndex) next.add(i);
+      });
+      return next;
+    });
+    if (firstScore === null) setFirstScore(quizScore);
+    setRevealed(true);
+  }
+
+  /** Limpa só as erradas e devolve o quiz ao aluno. As certas seguem travadas. */
+  function retryWrong() {
+    setAnswers((prev) => {
+      const next = { ...prev };
+      for (const i of wrongIndexes) delete next[i];
+      return next;
+    });
+    setRevealed(false);
+  }
 
   function goNext() {
     const next = steps[currentIndex + 1];
@@ -131,7 +178,14 @@ export function LessonPlayer({
     const response = await completeLessonAction({
       lessonId: lesson.id,
       minutes,
-      score: quizScore,
+      // A nota gravada é a da PRIMEIRA tentativa.
+      //
+      // A segunda chance existe para o aluno aprender, não para maquiar o
+      // histórico: se a correção contasse, toda lição terminaria em 100% e o
+      // campo deixaria de dizer quais circuitos foram difíceis — que é a única
+      // coisa útil que ele informa. `firstScore` só é nulo se o aluno concluir
+      // sem conferir o quiz; aí a nota atual é a primeira mesmo.
+      score: firstScore ?? quizScore,
       quizAnswers: lesson.quiz.map((_, i) => answers[i] ?? -1),
     });
 
@@ -240,6 +294,56 @@ export function LessonPlayer({
       {/* ---------------------------------------------------------- Conteúdo */}
       {step === "content" ? (
         <article className="space-y-6">
+          {/* A abertura do dia.
+              Vem antes de tudo porque o aluno-alvo nunca estudou inglês: sem
+              saber o que se espera dele, ele abre a lição e não a executa.
+              As expressões trazem a pronúncia figurada — quem não sabe ler
+              inglês precisa de um sistema de leitura que já domina. */}
+          {lesson.content.briefing ? (
+            <section className="border-primary/30 bg-card rounded-xl border p-5 shadow-sm">
+              <p className="text-primary mb-2 text-xs font-semibold tracking-wide uppercase">
+                Como fazer a aula de hoje
+              </p>
+              <p className="text-[0.95rem] leading-relaxed font-medium">
+                {lesson.content.briefing.goal}
+              </p>
+
+              <ol className="mt-4 space-y-2">
+                {lesson.content.briefing.steps.map((step, i) => (
+                  <li key={i} className="flex gap-3 text-sm leading-relaxed">
+                    <span className="bg-primary/10 text-primary grid size-6 shrink-0 place-items-center rounded-full text-xs font-bold tabular-nums">
+                      {i + 1}
+                    </span>
+                    <span className="text-foreground/90">{step}</span>
+                  </li>
+                ))}
+              </ol>
+
+              {lesson.content.briefing.note ? (
+                <p className="border-l-primary/40 text-muted-foreground mt-4 border-l-2 pl-3 text-xs leading-relaxed italic">
+                  {lesson.content.briefing.note}
+                </p>
+              ) : null}
+
+              {lesson.content.briefing.expressions?.length ? (
+                <div className="mt-5">
+                  <p className="text-muted-foreground mb-2 text-xs font-semibold tracking-wide uppercase">
+                    As expressões de hoje
+                  </p>
+                  <div className="divide-border/70 divide-y rounded-lg border">
+                    {lesson.content.briefing.expressions.map((item, i) => (
+                      <div key={i} className="px-3.5 py-2.5">
+                        <p className="text-[0.95rem] font-medium">{item.en}</p>
+                        <PronunciationLine text={item.en} />
+                        <p className="text-muted-foreground mt-0.5 text-sm">{item.pt}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+            </section>
+          ) : null}
+
           {/* A situação vem antes de tudo: é ela que organiza a lição, não a regra */}
           {lesson.situation ? (
             <div className="border-primary/25 bg-primary/5 rounded-xl border p-5">
@@ -303,11 +407,23 @@ export function LessonPlayer({
             </Card>
           ) : null}
 
-          {(lesson.content.blocks ?? []).map((block, i) => (
-            <LessonBlockView key={i} block={block} />
-          ))}
+          {/* O audio vem ANTES do texto da licao, nao depois.
+              Estas licoes mandam ouvir primeiro - o dia 4 diz literalmente
+              "Ouca ANTES de ler a transcricao". Com o player embaixo do
+              dialogo ja escrito e traduzido, a instrucao era impossivel de
+              cumprir: o aluno lia antes de ouvir, que e exatamente o habito
+              que o metodo existe para desfazer.
 
+              Quando a licao marca blocos como `gated`, a transcricao fica
+              atras do mesmo portao de escutas usado no dia 1. */}
           {lesson.listening_script && !lesson.immersion_script ? (
+            lesson.content.gated?.length ? (
+              <ImmersionGate text={lesson.listening_script} requiredPlays={2}>
+                {lesson.content.gated.map((block, i) => (
+                  <LessonBlockView key={i} block={block} />
+                ))}
+              </ImmersionGate>
+            ) : (
             <Card>
               <CardHeader className="pb-2">
                 <CardTitle className="flex items-center gap-2 text-sm">
@@ -332,7 +448,12 @@ export function LessonPlayer({
                 </details>
               </CardContent>
             </Card>
+            )
           ) : null}
+
+          {(lesson.content.blocks ?? []).map((block, i) => (
+            <LessonBlockView key={i} block={block} />
+          ))}
 
           {/* Input autêntico: dia 8, só nas trilhas que o incluem */}
           {lesson.extensions?.authentic_input?.length ? (
@@ -524,6 +645,10 @@ export function LessonPlayer({
         <div className="space-y-5">
           {lesson.quiz.map((question, qi) => {
             const chosen = answers[qi];
+            // Acertou: fica verde e travada, mesmo fora da conferência — não faz
+            // sentido reabrir o que já está certo.
+            const locked = settled.has(qi);
+            const show = revealed || locked;
             return (
               <Card key={question.id || qi}>
                 <CardContent className="p-5">
@@ -536,13 +661,12 @@ export function LessonPlayer({
                     {question.options.map((option, oi) => {
                       const selected = chosen === oi;
                       const correct = oi === question.answerIndex;
-                      const show = revealed;
 
                       return (
                         <button
                           key={oi}
                           type="button"
-                          disabled={revealed}
+                          disabled={show}
                           onClick={() => setAnswers((prev) => ({ ...prev, [qi]: oi }))}
                           className={cn(
                             "flex w-full items-center gap-3 rounded-lg border px-4 py-3 text-left text-sm transition-colors",
@@ -568,7 +692,7 @@ export function LessonPlayer({
                     })}
                   </div>
 
-                  {revealed && question.explanation ? (
+                  {show && question.explanation ? (
                     <p className="bg-muted/60 mt-3 rounded-lg px-4 py-3 text-sm leading-relaxed">
                       <RichText text={question.explanation} />
                     </p>
@@ -583,22 +707,42 @@ export function LessonPlayer({
               size="lg"
               className="w-full"
               disabled={!allAnswered}
-              onClick={() => setRevealed(true)}
+              onClick={checkAnswers}
             >
               {allAnswered
                 ? "Conferir respostas"
                 : `Responda todas (${Object.keys(answers).length}/${lesson.quiz.length})`}
             </Button>
           ) : (
-            <div className="bg-muted/50 rounded-xl border p-5 text-center">
-              <p className="text-3xl font-semibold tabular-nums">{quizScore}%</p>
-              <p className="text-muted-foreground mt-1 text-sm">
-                {quizScore === 100
-                  ? "Gabaritou. Pode seguir tranquilo."
-                  : quizScore! >= 66
-                    ? "Bom resultado. Reveja as que errou antes de seguir."
-                    : "Vale reler a lição antes de avançar."}
-              </p>
+            <div className="space-y-4">
+              <div className="bg-muted/50 rounded-xl border p-5 text-center">
+                <p className="text-3xl font-semibold tabular-nums">{quizScore}%</p>
+                <p className="text-muted-foreground mt-1 text-sm">
+                  {quizScore === 100
+                    ? "Gabaritou. Pode seguir tranquilo."
+                    : quizScore! >= 66
+                      ? "Bom resultado. Corrija as que erraram antes de seguir."
+                      : "Vale reler a lição antes de avançar."}
+                </p>
+                {/* Corrigiu depois: as duas notas ficam à vista, para o acerto
+                    da segunda tentativa não apagar o que ele sabia na primeira. */}
+                {firstScore !== null && firstScore !== quizScore ? (
+                  <p className="text-muted-foreground/80 mt-2 text-xs">
+                    Agora: {quizScore}% · registrado: {firstScore}% (primeira tentativa)
+                  </p>
+                ) : null}
+              </div>
+
+              {/* A segunda chance: só as erradas voltam, as certas seguem travadas. */}
+              {wrongIndexes.length ? (
+                <Button size="lg" variant="outline" className="w-full" onClick={retryWrong}>
+                  <RotateCcw className="size-4" />
+                  Tentar de novo{" "}
+                  {wrongIndexes.length === 1
+                    ? "a que você errou"
+                    : `as ${wrongIndexes.length} que você errou`}
+                </Button>
+              ) : null}
             </div>
           )}
         </div>

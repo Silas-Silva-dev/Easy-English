@@ -42,6 +42,7 @@
 import type {
   Chunk,
   LessonBlock,
+  LessonBriefing,
   LessonContent,
   LessonExtensions,
   QuizQuestion,
@@ -276,7 +277,163 @@ export interface ComposeContext {
   reviewChunks: { circuit: number; title: string; chunks: Chunk[] }[];
 }
 
+// ===========================================================================
+// A abertura da lição
+//
+// O aluno-alvo nunca estudou inglês de verdade: não reconhece as palavras, não
+// sabe ler a pronúncia e não conhece o método. Aberta a lição, ele precisa
+// saber em segundos O QUE vai fazer e COMO — senão a aula boa não acontece,
+// porque ele não sabe executá-la.
+//
+// São 14 textos, não 728: o papel do dia se repete em todos os 52 circuitos.
+// Escritos uma vez, revisáveis, e valem para o curso inteiro.
+// ===========================================================================
+
+/** O papel de cada dia, em português, para quem nunca viu isto antes. */
+const DAY_BRIEFINGS: Record<number, { goal: string; steps: string[]; note?: string }> = {
+  1: {
+    goal: "Hoje você só ouve. O objetivo é seu ouvido pegar o formato da conversa antes de qualquer letra.",
+    steps: [
+      "Toque o áudio e ouça sem tentar entender palavra por palavra.",
+      "Ouça mais duas vezes. Só na terceira o texto aparece na tela.",
+      "Com o texto aberto, ouça de novo acompanhando com os olhos.",
+    ],
+    note:
+      "O texto fica escondido de propósito. Lendo antes, sua boca aprende o som das letras em português — e desfazer isso depois custa muito mais do que acertar agora.",
+  },
+  2: {
+    goal: "Hoje você põe as frases na boca. Não é decorar: é repetir até sair sem pensar.",
+    steps: [
+      "Ouça cada expressão e repita em voz alta, imitando o ritmo do áudio.",
+      "Repita cada uma umas cinco vezes, até não precisar mais olhar.",
+      "Se travar, ouça de novo. Travar é normal e faz parte.",
+    ],
+  },
+  3: {
+    goal: "Hoje você troca as peças da frase. É o que transforma uma frase decorada em molde reutilizável.",
+    steps: [
+      "Veja o molde da frase e o que dá para trocar dentro dele.",
+      "Monte suas próprias versões em voz alta, uma para cada peça.",
+      "Leia a explicação curta: ela vem depois do uso, nunca antes.",
+    ],
+  },
+  4: {
+    goal: "Hoje você testa se colou: mesma situação, conversa nova, gente diferente.",
+    steps: [
+      "Ouça a conversa duas vezes sem o texto.",
+      "Tente reconhecer as expressões que você treinou nos dias anteriores.",
+      "Só depois das duas escutas o texto se abre para conferir.",
+    ],
+    note:
+      "Não entender tudo é o esperado. Nativo não desacelera, e você não precisa de 100% para acompanhar.",
+  },
+  5: {
+    goal: "Hoje você fala. Sozinho, em voz alta, sem plateia e sem medo de errar.",
+    steps: [
+      "Leia a proposta de fala e responda em voz alta, em inglês.",
+      "Grave sua resposta quando o app pedir: é ela que gera sua correção.",
+      "Não busque a frase perfeita. Busque a frase dita.",
+    ],
+  },
+  6: {
+    goal: "Hoje você revisa o que já passou, na hora exata em que estava começando a esquecer.",
+    steps: [
+      "Responda de memória antes de olhar a resposta.",
+      "Errou? Ótimo: o erro é o que fixa. Repita em voz alta e siga.",
+      "Não pule os blocos antigos: é a repetição espaçada que instala.",
+    ],
+  },
+  7: {
+    goal: "Hoje você usa o inglês para valer, fora do app, numa tarefa de verdade.",
+    steps: [
+      "Leia a missão do dia e faça de verdade, não só de cabeça.",
+      "Use as expressões do circuito — é para isso que elas existem.",
+      "Volte e registre como foi.",
+    ],
+  },
+  8: {
+    goal: "Hoje você ouve inglês de verdade, do jeito que ele existe fora de curso nenhum.",
+    steps: [
+      "Ouça uma vez inteira sem parar, mesmo perdendo pedaços.",
+      "Ouça de novo prestando atenção só no que você reconhece.",
+      "Não traduza. Acompanhe.",
+    ],
+    note: "Aqui a meta não é entender tudo: é acostumar o ouvido à velocidade real.",
+  },
+  9: {
+    goal: "Hoje você fala JUNTO com o áudio. É o exercício que mais aproxima seu sotaque do nativo.",
+    steps: [
+      "Toque o áudio e fale ao mesmo tempo, colado, sem esperar terminar.",
+      "Não pare para corrigir. Atropelou? Siga e pegue a próxima frase.",
+      "Repita a faixa até conseguir acompanhar do começo ao fim.",
+    ],
+  },
+  10: {
+    goal: "Hoje as frases ficam mais longas: você junta o que aprendeu hoje com o que já sabia.",
+    steps: [
+      "Ouça cada frase longa e repita inteira, sem quebrar no meio.",
+      "Repare que elas são blocos velhos emendados — não é matéria nova.",
+      "Diga cada uma até sair numa tacada só.",
+    ],
+  },
+  11: {
+    goal: "Hoje você conversa ao vivo com a tutora de IA, falando e ouvindo em tempo real.",
+    steps: [
+      "Abra a conversa ao vivo e fale como falaria com uma pessoa.",
+      "Se travar, diga em inglês mesmo que saia torto. A tutora te acompanha.",
+      "Deixe o silêncio existir: pensar antes de responder é normal.",
+    ],
+  },
+  12: {
+    goal: "Hoje você ouve mais rápido do que está confortável. É assim que a velocidade real deixa de assustar.",
+    steps: [
+      "Ouça a conversa em velocidade normal primeiro.",
+      "Ouça de novo focando só em pegar o sentido geral.",
+      "Se perder o fio, siga em frente: não volte para trás.",
+    ],
+  },
+  13: {
+    goal: "Hoje a revisão vem embaralhada, misturando circuitos diferentes de propósito.",
+    steps: [
+      "Responda sem saber de qual circuito veio a pergunta.",
+      "É mais difícil que a revisão normal — e é por isso que funciona melhor.",
+      "Diga a resposta em voz alta antes de conferir.",
+    ],
+  },
+  14: {
+    goal: "Hoje não tem roteiro. Você conversa sobre a situação do circuito do seu jeito.",
+    steps: [
+      "Fale sobre a situação sem consultar as frases prontas.",
+      "Deixe a conversa derivar para onde ela quiser ir.",
+      "Se faltar palavra, contorne com o que você tem. É o que se faz na vida real.",
+    ],
+  },
+};
+
+/**
+ * Monta a abertura do dia.
+ *
+ * As expressões entram em todos os dias MENOS o 1: lá o inglês escrito só
+ * aparece depois das três escutas, e listá-las aqui em cima anularia o portão.
+ */
+function briefingFor(ctx: ComposeContext): LessonBriefing {
+  const base = DAY_BRIEFINGS[ctx.day.day] ?? DAY_BRIEFINGS[1];
+  const expressions =
+    ctx.day.day === 1
+      ? undefined
+      : ctx.circuit.chunks.map((chunk) => ({ en: chunk.en, pt: chunk.pt }));
+
+  return { ...base, ...(expressions?.length ? { expressions } : {}) };
+}
+
 export function composeLesson(ctx: ComposeContext): ComposedLesson {
+  // A abertura é anexada aqui, num lugar só, em vez de repetida nos 14 ramos
+  // do switch abaixo: um dia novo nunca sai sem ela por esquecimento.
+  const composed = composeLessonBody(ctx);
+  return { ...composed, content: { ...composed.content, briefing: briefingFor(ctx) } };
+}
+
+function composeLessonBody(ctx: ComposeContext): ComposedLesson {
   const { circuit, material, day, reviewOf, authenticInput, authentic, livePrompt, reviewChunks } =
     ctx;
   const seed = circuit.number * 17 + day.day;
@@ -500,6 +657,11 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
                 "Alguma frase apareceu num formato diferente do que você treinou?",
               ],
             },
+          ],
+          // A transcrição fica atrás do portão de escutas: o bloco acima manda
+          // ouvir duas vezes antes de ler, e antes isso era só um pedido — o
+          // diálogo escrito e traduzido vinha logo abaixo, na mesma tela.
+          gated: [
             dialogueBlock("A conversa de hoje", material.listening),
             {
               type: "callout",
