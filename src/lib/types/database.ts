@@ -123,6 +123,43 @@ export type LessonBlock =
  * pronúncia ou com o método. Sem isto ele abre a lição e não sabe o que se
  * espera dele — e uma aula que não se sabe executar não é executada.
  */
+/**
+ * Uma peça do sistema de conexão: o que gruda bloco em frase.
+ *
+ * O curso ensina blocos prontos («Nice to meet you») e idiomatismos (por que
+ * *I'm* e não *I am*). Isso leva o aluno até a porta da produção e o abandona
+ * ali: pedir que ele conte o que Mike e Ana fizeram exige juntar sujeito
+ * composto, concordância, tempo e forma verbal — nada disso é bloco, e nada
+ * disso era ensinado. Sem essa camada ele diz *Mike and Ana is speaking* e
+ * não tem como saber por que está errado.
+ *
+ * Uma peça por circuito, no máximo: o aluno já recebe sete blocos novos a
+ * cada catorze dias, e duas peças ao mesmo tempo afogam.
+ */
+export interface LessonConnection {
+  /** A peça, do jeito que se fala dela: "am / is / are". */
+  piece: string;
+  /** Título curto, no tom das notas do dia 3. */
+  title: string;
+  /** A explicação em markdown. Curta: 3 a 6 frases. */
+  body: string;
+  /** Exemplos de uso, só com vocabulário que o aluno já tem. */
+  examples: { en: string; pt: string }[];
+  /**
+   * SÓ a frase errada, crua. Nada de correção, explicação ou markdown.
+   *
+   * A tela mostra este campo **riscado**, sob o rótulo "Sem isso sai:". Se a
+   * forma certa entrar aqui junto («o certo é *They were talking*»), o aluno
+   * lê a forma certa tachada — que é o pior defeito possível numa nota de
+   * gramática. Asteriscos também saem literais: este campo não passa por
+   * markdown.
+   *
+   * A correção mora no `body`. Aqui mora só o erro. `npm run verify:content`
+   * recusa o resto.
+   */
+  avoids: string;
+}
+
 export interface LessonBriefing {
   /** O que ele sai sabendo fazer hoje. Uma frase, em português. */
   goal: string;
@@ -135,6 +172,13 @@ export interface LessonBriefing {
    * escutas, e uma lista aqui em cima furaria justamente o portão.
    */
   expressions?: { en: string; pt: string }[];
+  /**
+   * A peça de conexão que esta aula cobra.
+   *
+   * Só nos dias em que o aluno PRODUZ (5, 7, 11 e 14) e no dia em que ela é
+   * ensinada (3). Nos demais seria ruído: ele não vai montar frase nova hoje.
+   */
+  connection?: LessonConnection;
   /** Recado sobre o formato do dia, quando ele esconde algo de propósito. */
   note?: string;
 }

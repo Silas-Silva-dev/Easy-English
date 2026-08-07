@@ -43,6 +43,7 @@ import type {
   Chunk,
   LessonBlock,
   LessonBriefing,
+  LessonConnection,
   LessonContent,
   LessonExtensions,
   QuizQuestion,
@@ -79,6 +80,18 @@ export interface CircuitContent {
   listening: Line[];
   /** A nota curta do dia 3. Nunca titula a lição, nunca vem antes do uso. */
   why: { title: string; body: string };
+  /**
+   * A peça do sistema de conexão que este circuito ensina, quando ensina.
+   *
+   * Opcional de propósito: nem todo circuito introduz peça nova, e forçar uma
+   * a cada catorze dias só encheria linguiça. O respiro é parte do desenho —
+   * quem acabou de receber `am/is/are` precisa de circuitos usando aquilo,
+   * não de `was/were` na sequência.
+   *
+   * Separada de `why` porque são coisas diferentes: `why` explica idiomatismo
+   * («por que *could* e não *can*»), esta explica o encaixe.
+   */
+  connection?: LessonConnection;
   /** As peças que entram no molde do circuito. */
   swaps: string[];
   /** Frases longas do dia 10: o molde cruzado com o que já passou. */
@@ -275,6 +288,18 @@ export interface ComposeContext {
   livePrompt: string;
   /** Blocos vindos dos circuitos revisados: alimentam os dias 6, 10 e 13. */
   reviewChunks: { circuit: number; title: string; chunks: Chunk[] }[];
+  /**
+   * As peças de conexão já ensinadas, dos circuitos anteriores.
+   *
+   * Precisa vir de fora porque a peça é cumulativa e o circuito não conhece
+   * os anteriores: `was/were` é ensinado uma vez e continua valendo por 700
+   * lições. Sem isto, um circuito que cobra produção sem introduzir peça nova
+   * abriria sem nenhuma — exatamente o buraco que esta camada fecha.
+   *
+   * Opcional para os três chamadores continuarem compilando; vazio só
+   * significa "nenhuma peça anterior", que é a verdade no circuito 1.
+   */
+  carriedConnections?: { circuit: number; connection: LessonConnection }[];
 }
 
 // ===========================================================================
@@ -416,6 +441,40 @@ const DAY_BRIEFINGS: Record<number, { goal: string; steps: string[]; note?: stri
  * As expressões entram em todos os dias MENOS o 1: lá o inglês escrito só
  * aparece depois das três escutas, e listá-las aqui em cima anularia o portão.
  */
+/**
+ * Os dias em que o aluno monta frase nova — e só neles a peça aparece.
+ *
+ *   3  ensina a peça
+ *   5  produção livre gravada
+ *   7  missão real
+ *   11 conversa ao vivo com a tutora
+ *   14 conversa livre, sem roteiro
+ *
+ * Nos outros nove dias ele escuta, repete ou revisa: mostrar a regra de
+ * encaixe ali seria ruído, e ruído todo dia é o que faz o aluno parar de ler
+ * a abertura.
+ */
+const PRODUCTION_DAYS = new Set([3, 5, 7, 11, 14]);
+
+/**
+ * A peça de conexão em vigor nesta lição.
+ *
+ * A do próprio circuito quando existe; senão a última ensinada antes dele.
+ * O aluno não "termina" com `am/is/are` ao virar o circuito — ele passa a
+ * carregá-la, e é justamente nos circuitos sem peça nova que a anterior
+ * precisa continuar à mão.
+ */
+function connectionFor(ctx: ComposeContext): LessonConnection | undefined {
+  if (ctx.material.connection) return ctx.material.connection;
+
+  const anterior = (ctx.carriedConnections ?? [])
+    .filter((c) => c.circuit < ctx.circuit.number)
+    .sort((a, b) => a.circuit - b.circuit)
+    .at(-1);
+
+  return anterior?.connection;
+}
+
 function briefingFor(ctx: ComposeContext): LessonBriefing {
   const base = DAY_BRIEFINGS[ctx.day.day] ?? DAY_BRIEFINGS[1];
   const expressions =
@@ -423,7 +482,24 @@ function briefingFor(ctx: ComposeContext): LessonBriefing {
       ? undefined
       : ctx.circuit.chunks.map((chunk) => ({ en: chunk.en, pt: chunk.pt }));
 
-  return { ...base, ...(expressions?.length ? { expressions } : {}) };
+  /**
+   * No dia 3 a peça PRÓPRIA do circuito já vira bloco de ensino logo abaixo,
+   * com título, corpo, exemplos e o erro. Repeti-la aqui em cima mostraria
+   * tudo duas vezes na mesma tela, justamente no dia em que ela estreia.
+   *
+   * A peça HERDADA continua aparecendo: nesse caso não há bloco nenhum, e o
+   * dia 3 é o primeiro dia de produção do circuito.
+   */
+  const duplicaDoDia3 = ctx.day.day === 3 && Boolean(ctx.material.connection);
+
+  const connection =
+    PRODUCTION_DAYS.has(ctx.day.day) && !duplicaDoDia3 ? connectionFor(ctx) : undefined;
+
+  return {
+    ...base,
+    ...(expressions?.length ? { expressions } : {}),
+    ...(connection ? { connection } : {}),
+  };
 }
 
 export function composeLesson(ctx: ComposeContext): ComposedLesson {
@@ -601,6 +677,37 @@ function composeLessonBody(ctx: ComposeContext): ComposedLesson {
               title: "O molde do circuito",
               body: `**${circuit.pattern}**\n\n${circuit.patternNote}`,
             },
+            /**
+             * A peça de conexão, quando este circuito ensina uma.
+             *
+             * Aqui e não no dia 5: o dia 5 é o primeiro em que o aluno produz
+             * livre, e chegar nele sem saber encaixar é o que produz
+             * «Mike and Ana is speaking». A regra tem que vir dois dias antes
+             * da cobrança, não junto com ela.
+             */
+            ...(material.connection
+              ? ([
+                  {
+                    type: "text",
+                    title: `A conexão de hoje: ${material.connection.title}`,
+                    body: material.connection.body,
+                  },
+                  {
+                    type: "examples",
+                    title: "Como fica na frase",
+                    items: material.connection.examples.map((e) => ({
+                      en: e.en,
+                      pt: e.pt,
+                    })),
+                  },
+                  {
+                    type: "callout",
+                    variant: "warning",
+                    title: "O erro que isso evita",
+                    body: material.connection.avoids,
+                  },
+                ] satisfies LessonBlock[])
+              : []),
             {
               type: "drill",
               title: "Troque a peça, mantenha o molde",

@@ -23,6 +23,24 @@ export const CIRCUIT_CONTENT: CircuitContent[] = [
 export const CONTENT_BY_CIRCUIT = new Map(CIRCUIT_CONTENT.map((c) => [c.n, c]));
 
 /**
+ * As peças de conexão ensinadas ANTES deste circuito.
+ *
+ * Vive aqui, e não em `compose-lesson`, porque só este módulo conhece os 52
+ * circuitos — e `compose-lesson` não pode importá-lo de volta sem fechar um
+ * ciclo. Os chamadores de `composeLesson` passam o resultado adiante.
+ *
+ * Peça de conexão é cumulativa: ensinada uma vez, vale pelas 700 lições
+ * seguintes. Sem isto, um circuito que cobra produção mas não introduz peça
+ * nova abriria sem nenhuma à mão.
+ */
+export function connectionsBefore(circuitNumber: number) {
+  return CIRCUIT_CONTENT.filter((c) => c.n < circuitNumber && c.connection).map((c) => ({
+    circuit: c.n,
+    connection: c.connection!,
+  }));
+}
+
+/**
  * Garante que não falta nem sobra circuito. Roda no import porque um curso
  * com buraco no meio é pior do que um erro na hora do seed.
  */

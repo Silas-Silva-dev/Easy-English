@@ -341,6 +341,50 @@ export function LessonPlayer({
                   </div>
                 </div>
               ) : null}
+
+              {/*
+                A peça de conexão: o que gruda bloco em frase.
+
+                Fica DEPOIS das expressões de propósito. As expressões são o
+                que o aluno vai dizer; esta é a regra que decide como elas se
+                encaixam quando ele tiver que montar frase própria — e só
+                aparece nos dias em que isso é cobrado.
+              */}
+              {lesson.content.briefing.connection ? (
+                <div className="mt-5 rounded-lg border border-amber-500/40 bg-amber-500/5 p-4">
+                  <p className="mb-1.5 text-xs font-semibold tracking-wide text-amber-700 uppercase dark:text-amber-400">
+                    A conexão de hoje · {lesson.content.briefing.connection.piece}
+                  </p>
+                  <p className="text-[0.95rem] font-semibold">
+                    {lesson.content.briefing.connection.title}
+                  </p>
+                  <RichText
+                    text={lesson.content.briefing.connection.body}
+                    className="text-foreground/90 mt-1.5 text-sm"
+                  />
+
+                  {lesson.content.briefing.connection.examples.length ? (
+                    <div className="divide-border/70 bg-card mt-3 divide-y rounded-lg border">
+                      {lesson.content.briefing.connection.examples.map((ex, i) => (
+                        <div key={i} className="px-3.5 py-2.5">
+                          <p className="text-[0.95rem] font-medium">{ex.en}</p>
+                          <PronunciationLine text={ex.en} />
+                          <p className="text-muted-foreground mt-0.5 text-sm">{ex.pt}</p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  <p className="mt-3 text-xs leading-relaxed">
+                    <span className="font-semibold text-amber-700 dark:text-amber-400">
+                      Sem isso sai:
+                    </span>{" "}
+                    <span className="text-muted-foreground line-through">
+                      {lesson.content.briefing.connection.avoids}
+                    </span>
+                  </p>
+                </div>
+              ) : null}
             </section>
           ) : null}
 

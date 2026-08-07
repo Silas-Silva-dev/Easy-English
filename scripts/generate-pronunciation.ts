@@ -34,7 +34,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-import { assertContentComplete, CONTENT_BY_CIRCUIT } from "@content/circuits";
+import { assertContentComplete, connectionsBefore, CONTENT_BY_CIRCUIT } from "@content/circuits";
 import { authenticPieceFor } from "@content/circuits/authentic";
 import { composeLesson } from "@content/compose-lesson";
 import {
@@ -86,6 +86,7 @@ function collect(): string[] {
       authentic: authenticPieceFor(circuit.number),
       livePrompt: livePromptFor(circuit),
       reviewChunks,
+      carriedConnections: connectionsBefore(spec.circuitNumber),
     });
 
     for (const block of [...(lesson.content.blocks ?? []), ...(lesson.content.gated ?? [])]) {

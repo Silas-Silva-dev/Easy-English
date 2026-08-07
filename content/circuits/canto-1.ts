@@ -41,6 +41,18 @@ export const CANTO_1: CircuitContent[] = [
       body:
         "Você vai ouvir *I'm*, nunca *I am*, em conversa normal. **I am** existe, mas soa duro: americano usa quando quer enfatizar (*I AM going, I promise*).\n\nA regra prática: contraia sempre. Se você fala *I am Ana*, funciona, mas marca você como estrangeiro na primeira frase. E contrair é mais fácil, não mais difícil.",
     },
+    connection: {
+      piece: "am / is / are",
+      title: "O verbo escondido dentro de 'I'm'",
+      body:
+        "Em português o verbo muda junto com o dono da frase — quem ela é sobre — e você nem repara: eu **sou**, ela **é**. O inglês faz igual, escondido dentro da contração: dentro de *I'm* mora um **am**, e é ele que troca quando o dono muda.\n\nTrocar o **am** por **is** é o que deixa você falar de outra pessoa: *Sarah is here*, *Mike is here too*.\n\nA regra prática: antes de abrir a boca, veja quem é o dono da frase. **I** pede **am**, *you* pede **are** (você já diz isso em *How are you?*), e qualquer outro dono de uma pessoa só pede **is**.",
+      examples: [
+        { en: "I'm Ana. Nice to meet you.", pt: "Eu sou a Ana. Prazer." },
+        { en: "Sarah is here. Mike is here too.", pt: "A Sarah está aqui. O Mike está aqui também." },
+        { en: "How are you? I'm good, thanks.", pt: "Tudo bem? Tudo bem, obrigada." },
+      ],
+      avoids: "I is Ana.",
+    },
     swaps: ["Ana", "Pedro", "Carla", "your full name", "your nickname", "Ana, from Brazil", "Ana, Marina's friend", "Ana. I'm new here"],
     expansion: [
       ["Hi, I'm Ana. Nice to meet you. Is this your first time here too?", "Oi, eu sou a Ana. Prazer. É sua primeira vez aqui também?"],
@@ -93,6 +105,19 @@ export const CANTO_1: CircuitContent[] = [
       title: "Idade em inglês é ser, não ter",
       body:
         "Em português você **tem** 32 anos. Em inglês você **é** 32: *I'm 32*.\n\n*I have 32 years* é o erro mais reconhecível de brasileiro falando inglês: o americano entende, mas registra na hora. Não é regra para decorar: é um bloco para instalar. Diga *I'm 32* dez vezes hoje e o problema acabou para sempre.",
+    },
+    connection: {
+      piece: "pergunta com am / is / are",
+      title: "Para perguntar, o am / is / are pula para a frente",
+      body:
+        "Em português, perguntar é só levantar a voz no fim: nada sai do lugar. Em inglês isso não basta: o **am / is / are** pula para a frente — *You are new here* vira *Are you new here?*\n\nIsso só vale para esses três; com os outros verbos é diferente, e é o assunto do próximo circuito.\n\nA regra prática: troque o **am / is / are** de lugar com o **dono**, quem vem antes dele. Se a frase começa com *where* ou *how old*, elas ficam na frente de tudo e a troca acontece depois: *Where are you from?*",
+      examples: [
+        { en: "Are you new here?", pt: "Você é novo por aqui?" },
+        { en: "Where are you from, Ana?", pt: "De onde você é, Ana?" },
+        { en: "How old are you?", pt: "Quantos anos você tem?" },
+        { en: "Is Mike a teacher?", pt: "O Mike é professor?" },
+      ],
+      avoids: "Where you are from?",
     },
     swaps: ["Brazil", "São Paulo", "the south of Brazil", "a small town near Rio", "Portugal originally", "here, actually", "Recife", "a city you've never heard of"],
     expansion: [
@@ -147,6 +172,19 @@ export const CANTO_1: CircuitContent[] = [
       body:
         "*Can you repeat?* funciona. *Could you repeat?* soa melhor.\n\nEm inglês, o passado de um verbo modal serve para **suavizar o pedido**, não para falar do passado. Por isso *could*, *would* e *might* soam educados: eles criam distância, e distância soa gentil.\n\nÉ o mesmo mecanismo do nosso 'você **poderia**...' em vez de 'você pode'. Não precisa entender a teoria: só use *could* em pedido, sempre.",
     },
+    connection: {
+      piece: "do / does / don't",
+      title: "O 'do' que não significa nada",
+      body:
+        "Você já sabe inverter com **am / is / are**: *You are new here* vira *Are you new here?*. Tente o mesmo com um verbo comum — *understand* — e não dá: *Understand you?* não existe.\n\nCom verbo comum o inglês põe uma peça vazia na frente, só para carregar a pergunta: **do** — ou **does**, quando o dono pede **is**. É a mesma peça que nega, e você já usa as três: *Do you mean...?*, *What does that mean?*, *I don't understand*.\n\nA regra prática: para perguntar, **do / does** na frente do dono; para negar, **don't / doesn't** depois dele. *What* e *how* ficam na frente de tudo.",
+      examples: [
+        { en: "Do you live in São Paulo?", pt: "Você mora em São Paulo?" },
+        { en: "Does Mike work as a teacher?", pt: "O Mike trabalha como professor?" },
+        { en: "I'm sorry, I don't understand. What does that mean?", pt: "Desculpa, não entendi. O que isso significa?" },
+        { en: "Bruno doesn't live here.", pt: "O Bruno não mora aqui." },
+      ],
+      avoids: "Sorry, how you spell that?",
+    },
     swaps: ["say that again", "speak more slowly", "repeat the last part", "write it down", "spell that", "explain that again", "say it one more time", "show me"],
     expansion: [
       ["Sorry, could you say that again? My English is still basic.", "Desculpa, pode repetir? Meu inglês ainda é básico."],
@@ -199,6 +237,18 @@ export const CANTO_1: CircuitContent[] = [
       title: "O 'please' não é opcional",
       body:
         "Em português, 'me vê um café' sem 'por favor' passa. Em inglês, *Give me a coffee* soa **rude**: não brusco, rude mesmo.\n\nO **please** faz o trabalho que o nosso tom de voz faz. Sem ele, o pedido vira ordem. Cole o *please* no fim de todo pedido até virar reflexo e você elimina de uma vez a impressão de grosseria que muito brasileiro deixa sem querer.",
+    },
+    connection: {
+      piece: "a / an / the",
+      title: "Por que é 'an engineer' e não 'engineer'",
+      body:
+        "Em português você diz 'sou designer', 'sou engenheiro' — nada na frente. Em inglês o substantivo quase nunca anda pelado: vem com **a**, **an** ou **the** colado. *Ana is a designer*.\n\nQual deles? Se cabe 'um qualquer', é **a** (*a coffee*, *a bag*). Se é aquele que vocês dois já sabem, é **the** (*the check*, a sua conta). Antes de som de vogal, **a** vira **an**: *an engineer*.\n\nUma exceção: lugar em bloco fixo anda pelado — *go to work*, *go to bed* —, e esses você guarda inteiros. A regra prática: ao inventar peça nova para *Can I have ___, please?*, ponha o **a** ou o **the** junto.",
+      examples: [
+        { en: "Can I have a coffee and a water, please?", pt: "Pode me ver um café e uma água, por favor?" },
+        { en: "Ana is a designer, and Bruno is an engineer.", pt: "A Ana é designer, e o Bruno é engenheiro." },
+        { en: "Can I have the check, please?", pt: "Pode trazer a conta, por favor?" },
+      ],
+      avoids: "Ana is designer, and Bruno is engineer.",
     },
     swaps: ["a coffee", "a large water", "the check", "a bag", "one of those", "two of these", "a receipt", "a minute"],
     expansion: [
@@ -253,6 +303,19 @@ export const CANTO_1: CircuitContent[] = [
       body:
         "Existe a forma clássica (*half past three*, *quarter to five*) e a forma que a maioria usa hoje: **só os números**. *Three thirty*. *Four forty-five*.\n\nA forma numérica é mais fácil, mais comum e impossível de errar. Aprenda a **reconhecer** *half past* e *quarter to*: você vai ouvir. Mas para falar, use os números. Não é preguiça: é o que soa mais atual.",
     },
+    connection: {
+      piece: "o dono da frase (it)",
+      title: "Toda frase em inglês tem dono, nem que seja 'it'",
+      body:
+        "Em português o verbo se vira sozinho: 'São três e meia', 'É cinco dólares' — nenhuma diz **quem**. Em inglês toda frase tem **dono**, e a cadeira dele, na frente do verbo, nunca fica vazia. Sem dono, entra o **it**: *It's five dollars*, nunca *Is five dollars*.\n\nEsse *it* não significa nada, só ocupa a cadeira. E quem senta nela manda no verbo: **is**, não *are*, mesmo com *five dollars* atrás.\n\nA regra prática: se a frase em português não diz quem, o dono é *it*. Na afirmação ele abre (*It's half past three*); na pergunta, o verbo pula na frente dele (*How much is it?*).",
+      examples: [
+        { en: "What time is it? It's half past three.", pt: "Que horas são? São três e meia." },
+        { en: "How much is it? It's fifteen ninety.", pt: "Quanto é? São quinze e noventa." },
+        { en: "It's five dollars for one, so it's ten for two.", pt: "É cinco dólares por um, então dá dez por dois." },
+        { en: "Bruno is from Brazil, and Ana is from Brazil too. It's a small world!", pt: "O Bruno é do Brasil, e a Ana é do Brasil também. Mundo pequeno!" },
+      ],
+      avoids: "Is five dollars.",
+    },
     swaps: ["five dollars", "half past three", "around eight", "twenty bucks", "the third floor", "room 214", "about ten minutes", "almost noon"],
     expansion: [
       ["It's around eight, but I'm not sure. Can you write it down?", "É por volta das oito, mas não tenho certeza. Você pode escrever?"],
@@ -305,6 +368,19 @@ export const CANTO_1: CircuitContent[] = [
       title: "O S que aparece do nada em 'he works'",
       body:
         "*I work*, *you work*, *we work*: mas *he workS*, *she workS*, *it workS*.\n\nSó a terceira pessoa do singular ganha S no presente. É a regra mais chata do inglês e a que menos importa: se você esquecer, **ninguém deixa de te entender**.\n\nNão pare a frase para conferir. Fale, erre, e deixe o S se instalar sozinho de tanto ouvir. Ele cola por exposição, não por vigilância.",
+    },
+    connection: {
+      piece: "I work / he works",
+      title: "'I wake up', nunca 'I'm wake up'",
+      body:
+        "Em português o verbo muda com o dono: eu acordo, você acorda. Em inglês ele fica igual e **anda sozinho**, sem *am*, *is* ou *are* na frente, e daí sai *I'm wake up at seven* depois de cinco circuitos de *I'm*.\n\nEste circuito diz que o **-s** cola de tanto ouvir, e cola mesmo. O que não cola sozinho é o *I'm* grudado no verbo: esse vem do português e só sai se você olhar. Já o **does** leva o -s embora, porque *does* é o *do* com **-es**, como *goes*.\n\nA regra prática: rotina é verbo sozinho, então, se *am*, *is* ou *are* apareceu na frente dele, tire.",
+      examples: [
+        { en: "I'm from Brazil, and I work as a designer.", pt: "Eu sou do Brasil, e trabalho como designer." },
+        { en: "I wake up at seven, but Bruno wakes up at five thirty.", pt: "Eu acordo às sete, mas o Bruno acorda às cinco e meia." },
+        { en: "Bruno goes to the gym first, then he goes to work.", pt: "O Bruno vai para a academia primeiro, depois ele vai trabalhar." },
+        { en: "What time does Kate get home? She gets home around six.", pt: "Que horas a Kate chega em casa? Ela chega em casa por volta das seis." },
+      ],
+      avoids: "I'm wake up at seven.",
     },
     swaps: ["wake up at seven", "have coffee first", "go to work by bus", "work from home", "get home around six", "cook dinner", "go to the gym", "go to bed late"],
     expansion: [
@@ -359,6 +435,19 @@ export const CANTO_1: CircuitContent[] = [
       body:
         "As duas existem e as duas estão certas. Mas na fala do dia a dia, depois de *love*, *like*, *hate* e *enjoy*, americano usa muito mais o **-ing**: *I love cooking*, *I hate waiting*, *I enjoy reading*.\n\nA vantagem prática: o **-ing** nunca muda. *cooking*, *waiting*, *reading*: mesma forma sempre. Um molde, zero conjugação.",
     },
+    connection: {
+      piece: "am / is / are + -ing",
+      title: "O -ing do agora nunca anda sozinho",
+      body:
+        "Em português, \"cozinhando\" nunca vem sozinho: você diz **estou** cozinhando. Esse \"estou\" é o **am / is / are** que você já tem, e é ele que liga o -ing ao dono.\n\nO mesmo -ing faz dois trabalhos: depois de *love*, é a atividade de que você gosta; depois de **am / is / are**, é o que está acontecendo neste momento. Você ouviu que o -ing nunca muda, e é verdade: o que muda é o que vem antes dele.\n\nA regra prática: para falar do agora, nunca comece pelo verbo com -ing. Primeiro o dono, depois o **am / is / are** dele: *I'm cooking*, *they're listening*.",
+      examples: [
+        { en: "I love cooking, but I'm not cooking now.", pt: "Eu adoro cozinhar, mas não estou cozinhando agora." },
+        { en: "I'm working now, but I'm listening.", pt: "Estou trabalhando agora, mas estou ouvindo." },
+        { en: "Mike and Ana are here. They're listening to music.", pt: "O Mike e a Ana estão aqui. Eles estão ouvindo música." },
+        { en: "Kate is watching movies now.", pt: "A Kate está assistindo filmes agora." },
+      ],
+      avoids: "Kate watching movies now.",
+    },
     swaps: ["cooking", "traveling", "watching movies", "listening to podcasts", "running in the morning", "playing guitar", "reading before bed", "meeting new people"],
     expansion: [
       ["I love cooking, but I'm not a big fan of doing the dishes afterwards.", "Eu adoro cozinhar, mas não sou muito fã de lavar a louça depois."],
@@ -411,6 +500,19 @@ export const CANTO_1: CircuitContent[] = [
       title: "'This is' apresenta gente, não só coisa",
       body:
         "Em português a gente diz 'esse é meu irmão' apontando para a foto, e 'esse aqui é o João' apresentando alguém ao vivo. Em inglês é o **mesmo bloco** nos dois casos: *This is my brother*.\n\nInclusive ao telefone: *Hi, this is Ana*: não *I am Ana*. Um bloco, três usos. Guarde inteiro.",
+    },
+    connection: {
+      piece: "we / they",
+      title: "Dois donos puxam 'are' e derrubam o S",
+      body:
+        "Em português o verbo avisa: 'meu pai e minha mãe trabalham' sai certo sozinho. Em inglês nada avisa — o bloco que você decorou no singular (*He works*, *She lives in Canada*) sai igual quando o dono é mais de um.\n\nDois donos juntos viram **they** — ou **we**, se um deles for você —, e aí mudam duas coisas de uma vez: entra **are**, nunca *is*, e o verbo **perde o -s**, que é só de *he*, *she*, *it*.\n\nAntes de falar, olhe o dono: um, ou mais de um? Mais de um pede *are* e o verbo sem -s, igual ao que você diz com *I*.",
+      examples: [
+        { en: "Mike and Ana are really close. They live in Canada.", pt: "O Mike e a Ana são muito próximos. Eles moram no Canadá." },
+        { en: "My mom and my dad work a lot.", pt: "Minha mãe e meu pai trabalham muito." },
+        { en: "My two brothers live in Canada.", pt: "Meus dois irmãos moram no Canadá." },
+        { en: "My brother and I are the same age. We're really close.", pt: "Eu e meu irmão temos a mesma idade. Somos muito próximos." },
+      ],
+      avoids: "Mike and Ana is really close.",
     },
     swaps: ["brother", "sister", "mom", "dad", "wife", "best friend", "cousin", "coworker"],
     expansion: [
@@ -465,6 +567,19 @@ export const CANTO_1: CircuitContent[] = [
       body:
         "Brasileiro traduz 'tem um parque perto' como *Have a park near*. Não funciona: em inglês, existência usa **there is** e **there are**.\n\n*There's a park* (um). *There are two parks* (mais de um).\n\nNa fala, *there's* aparece até com plural (*there's two parks*): não é considerado bonito, mas é o que se ouve. Você use *there's* para singular e não se preocupe com o resto.",
     },
+    connection: {
+      piece: "there is / there are",
+      title: "Quem escolhe entre 'is' e 'are' está depois do verbo",
+      body:
+        "O **there** senta na cadeira do dono — a mesma do *it* de *It's about ten minutes away* —, mas não manda no verbo. Até aqui quem mandava vinha na frente: *Ana is*, *Mike and Ana are*. Com **there**, quem decide vem depois dele: *There's a park* leva **is** por causa do parque, *There are two parks* leva **are** por causa dos dois.\n\nA regra prática: conte primeiro, fale depois — um pede *there's*, dois ou mais pedem *there are*, e o **-s** entra também no que você contou (*two parks*, nunca *two park*).",
+      examples: [
+        { en: "There's a park near my place, and there are two coffee shops on my street.", pt: "Tem um parque perto de casa, e tem duas cafeterias na minha rua." },
+        { en: "Is there a gym near your place, Kate?", pt: "Tem uma academia perto da sua casa, Kate?" },
+        { en: "There are four people in my family: my mom, my dad, my brother and my sister.", pt: "São quatro pessoas na minha família: minha mãe, meu pai, meu irmão e minha irmã." },
+        { en: "There are two supermarkets near the university, but there's only one pharmacy.", pt: "Tem dois supermercados perto da universidade, mas só tem uma farmácia." },
+      ],
+      avoids: "There is two parks near my place.",
+    },
     swaps: ["park", "supermarket", "gym", "coffee shop", "subway station", "school", "pharmacy", "really good bakery"],
     expansion: [
       ["I live in a small apartment, and there's a park near my place.", "Eu moro num apartamento pequeno, e tem um parque perto de casa."],
@@ -518,6 +633,19 @@ export const CANTO_1: CircuitContent[] = [
       body:
         "*Get to* é o verbo de chegar em um lugar no inglês falado. *Arrive* existe, mas soa de aeroporto e horário de voo.\n\n*How do I get to the station?*: como eu chego na estação.\n*I get home around six*: eu chego em casa por volta das seis.\n\nRepare que *get* não tem tradução fixa. Não tente traduzir: guarde o bloco inteiro e use.",
     },
+    connection: {
+      piece: "was / were",
+      title: "'Was' e 'were': o passado inteiro em duas palavras",
+      body:
+        "Em português o passado de *ser* e *estar* vira um monte de formas: eu **era**, ele **estava**, eles **estavam**. Em inglês são duas: **was** e **were** — e você já disse uma no circuito 1, em *It was great meeting you*.\n\nQuem escolhe é o **dono** da frase, o mesmo de sempre: dono de *am* ou *is* pede **was**; dono de *are* pede **were**.\n\nE o **was/were** cola no *-ing* do circuito 7: *I was walking*, *Mike and Ana were talking*. É assim que você conta o que estava acontecendo. A regra prática: troque só o *am/is/are* pelo passado dele e deixe o resto da frase igual.",
+      examples: [
+        { en: "I was near the station.", pt: "Eu estava perto da estação." },
+        { en: "Mike and Ana were at the coffee shop. They were talking.", pt: "O Mike e a Ana estavam na cafeteria. Eles estavam conversando." },
+        { en: "Was it far from here?", pt: "Era longe daqui?" },
+        { en: "There was a park near my place.", pt: "Tinha um parque perto de casa." },
+      ],
+      avoids: "Mike and Ana was talking.",
+    },
     swaps: ["the station", "the airport", "downtown", "the nearest pharmacy", "this address", "the bus stop", "the beach", "your place"],
     expansion: [
       ["Excuse me, how do I get to the station? Is it far from here?", "Com licença, como eu chego na estação? É longe daqui?"],
@@ -570,6 +698,18 @@ export const CANTO_1: CircuitContent[] = [
       title: "'Try it on' é diferente de 'try it'",
       body:
         "*Try it* = experimentar, testar (uma comida, uma ideia).\n*Try it **on*** = provar uma roupa, vestir para ver se serve.\n\nEsse *on* muda tudo, e ele é grudado no verbo. Em inglês existem centenas desses: são os **phrasal verbs**, e o circuito 40 é inteiro dedicado a eles.\n\nPor ora, guarde os dois blocos separados e não tente deduzir: *try it on* não é dedutível de *try*.",
+    },
+    connection: {
+      piece: "it / them",
+      title: "O 'it' que o português engole, e onde ele entra",
+      body:
+        "Em português a coisa some: 'Posso provar?', 'Vou levar' — provar **o quê**? Em inglês esse buraco não existe: **it** para uma coisa, **them** para mais de uma.\n\nDo lado do **dono** você já viu isso: *It's five dollars*, nunca *Is five dollars*. Depois do verbo, a mesma lei — e quando o verbo tem um pedacinho colado (*on*, *down*), o **it** entra no meio: *try it on*, *write it down*.\n\nA regra prática: antes de falar, pergunte 'o quê?' — se a resposta não estiver na frase, ponha **it**, ou **them** se for mais de uma coisa. E se o verbo tiver pedacinho colado, essa palavra entra antes dele.",
+      examples: [
+        { en: "Do you have this in a medium? Can I try it on?", pt: "Você tem isso em médio? Posso experimentar?" },
+        { en: "I'll take it. Can I return it if it doesn't fit?", pt: "Vou levar. Posso devolver se não servir?" },
+        { en: "Ana and Bruno love the blue ones. Can they try them on?", pt: "A Ana e o Bruno adoram os azuis. Eles podem experimentar?" },
+      ],
+      avoids: "Can I try on?",
     },
     swaps: ["a medium", "a large", "blue", "black", "a smaller size", "another color", "the same one", "a different style"],
     expansion: [
@@ -676,6 +816,19 @@ export const CANTO_1: CircuitContent[] = [
       title: "Doze circuitos, um mesmo mecanismo",
       body:
         "Olhe para trás: *Can I have ___?*, *Could you ___?*, *There's a ___ near*, *How do I get to ___?*. Nenhum deles você montou palavra por palavra. Você **instalou o molde** e passou a trocar a peça.\n\nÉ isso que o curso inteiro faz. Não existe um momento futuro em que você vai 'aprender a gramática e aí falar': o molde já é a gramática, só que instalada pela boca em vez de pela tabela.",
+    },
+    connection: {
+      piece: "o encaixe da peça",
+      title: "Nem toda peça cabe em todo molde",
+      body:
+        "Em português você já troca a forma do verbo sem pensar: normalmente **acordo** cedo, mas adoro **acordar** cedo. Em inglês vale o mesmo, e quem escolhe o formato é o molde.\n\n*I usually ___* e *Sorry, could you ___?* pedem verbo **pelado**, sem *to* e sem *-ing*: *wake up*, *say that again*. *I love ___* pede o **-ing**: *cooking*. *Can I have ___, please?* pede coisa com **a** ou **the**. Já *There's a ___* traz o **a** dentro, então a peça entra pelada: *gym*.\n\nA regra prática: nunca guarde um molde com o buraco vazio. Guarde com uma peça dentro e dê à peça nova o mesmo formato dela.",
+      examples: [
+        { en: "I usually work downtown, and there's a coffee shop near my place.", pt: "Eu normalmente trabalho no centro, e tem um café perto de casa." },
+        { en: "Bruno loves watching movies.", pt: "O Bruno adora assistir filmes." },
+        { en: "Sarah, can I have a coffee, please?", pt: "Sarah, pode me ver um café, por favor?" },
+        { en: "Sorry, could you say that again?", pt: "Desculpa, pode repetir?" },
+      ],
+      avoids: "I usually working downtown.",
     },
     swaps: ["Can I have a coffee, please?", "Sorry, could you say that again?", "There's a park near my place.", "How do I get to the station?", "I usually wake up at seven.", "This is my brother.", "Could we get the check, please?", "Nice to meet you too."],
     expansion: [

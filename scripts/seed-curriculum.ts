@@ -12,7 +12,7 @@
  */
 
 import { composeLesson } from "@content/compose-lesson";
-import { assertContentComplete, CONTENT_BY_CIRCUIT } from "@content/circuits";
+import { assertContentComplete, connectionsBefore, CONTENT_BY_CIRCUIT } from "@content/circuits";
 import { authenticPieceFor } from "@content/circuits/authentic";
 import {
   authenticInputFor,
@@ -304,6 +304,7 @@ function composeFor(dayNumber: number) {
     authentic: authenticPieceFor(circuit.number),
     livePrompt: livePromptFor(circuit),
     reviewChunks,
+    carriedConnections: connectionsBefore(circuitNumber),
   });
 }
 

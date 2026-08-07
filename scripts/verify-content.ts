@@ -10,7 +10,7 @@
 
 import { audioJobs, isCast, spokenLines, voiceFor } from "@content/audio-manifest";
 import { composeLesson } from "@content/compose-lesson";
-import { assertContentComplete, CONTENT_BY_CIRCUIT } from "@content/circuits";
+import { assertContentComplete, connectionsBefore, CONTENT_BY_CIRCUIT } from "@content/circuits";
 import { AUTHENTIC_PIECES, authenticPieceFor } from "@content/circuits/authentic";
 import {
   authenticInputFor,
@@ -51,6 +51,45 @@ function main() {
       if (options.length !== 4) warn(`${where}: "${q.slice(0, 40)}" tem ${options.length} alternativas`);
       if (answer < 0 || answer >= options.length) warn(`${where}: "${q.slice(0, 40)}" aponta para alternativa inexistente`);
       if (new Set(options).size !== options.length) warn(`${where}: "${q.slice(0, 40)}" tem alternativa repetida`);
+    }
+
+    /**
+     * A peça de conexão, quando o circuito tem uma.
+     *
+     * O `avoids` é o campo perigoso: a tela o mostra RISCADO e sem markdown.
+     * Numa primeira redação, várias notas puseram a correção junto do erro
+     * («o certo é *They were talking*») — o que faria o aluno ler a forma
+     * certa tachada como errada, numa nota de gramática. Aqui isso vira erro
+     * de build em vez de defeito em produção.
+     */
+    if (m.connection) {
+      const c = m.connection;
+      const onde = `${where} · conexão`;
+
+      if (!c.piece.trim()) warn(`${onde}: sem o nome da peça`);
+      if (!c.title.trim()) warn(`${onde}: sem título`);
+
+      // 3 a 6 frases é a spec. As notas do projeto têm ~60 palavras; o dia 3
+      // já carrega a nota `why` na mesma tela, e as duas somadas é o que o
+      // aluno lê de uma vez.
+      const palavras = c.body.trim().split(/\s+/).length;
+      if (palavras > 110) warn(`${onde}: corpo com ${palavras} palavras (teto 110)`);
+
+      if (c.examples.length < 2) warn(`${onde}: só ${c.examples.length} exemplo(s), mínimo 2`);
+      for (const ex of c.examples) {
+        if (!ex.en.trim() || !ex.pt.trim()) warn(`${onde}: exemplo sem inglês ou sem tradução`);
+      }
+
+      if (!c.avoids.trim()) {
+        warn(`${onde}: sem a frase errada`);
+      } else {
+        if (/[*_«»]/.test(c.avoids))
+          warn(`${onde}: "avoids" tem markdown — sai literal na tela, é texto cru`);
+        if (/\bo certo é\b|\bcorreto\b|\bem vez de\b|→/i.test(c.avoids))
+          warn(`${onde}: "avoids" traz a correção — ela sairia RISCADA. Só o erro aqui`);
+        if (c.avoids.split(/\s+/).length > 14)
+          warn(`${onde}: "avoids" com ${c.avoids.split(/\s+/).length} palavras — é uma frase só`);
+      }
     }
   }
 
@@ -147,6 +186,7 @@ function main() {
       authentic: authenticPieceFor(circuit.number),
       livePrompt: livePromptFor(circuit),
       reviewChunks,
+      carriedConnections: connectionsBefore(spec.circuitNumber),
     });
 
     const where = `dia ${spec.dayNumber} (circuito ${spec.circuitNumber}, dia ${spec.circuitDay})`;
