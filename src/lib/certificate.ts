@@ -62,8 +62,12 @@ const DEFAULT_MIN_CERTIFICATE_SCORE = 7.0;
  * Verifica a elegibilidade do aluno para obtenção do certificado.
  * Requisitos estritos:
  * 1. Conclusão de 100% das lições publicadas do curso.
- * 2. Pelo menos uma avaliação de fala registrada — sem gravação não há média.
- * 3. Média das avaliações de fala >= a nota mínima cadastrada no curso.
+ * 2. Pelo menos uma aula com a fala avaliada — sem gravação não há média.
+ * 3. Média >= a nota mínima cadastrada no curso.
+ *
+ * A média é sobre a ÚLTIMA gravação de cada aula, e só das aulas deste curso.
+ * A prática livre de "Praticar Fala" não entra, e regravar substitui a nota
+ * anterior em vez de somar mais uma tentativa.
  */
 export const checkCertificateEligibility = cache(
   async (userId: string, courseId: string): Promise<CertificateEligibility> => {
@@ -147,17 +151,37 @@ export const checkCertificateEligibility = cache(
      */
     const { data: sessionRows } = await supabase
       .from("speaking_sessions")
-      .select("id, speaking_feedback(overall_score)")
+      .select("lesson_id, created_at, speaking_feedback(overall_score)")
       .eq("user_id", userId)
       .eq("course_id", courseId)
-      .eq("status", "completed");
+      .eq("status", "completed")
+      .not("lesson_id", "is", null)
+      .order("created_at", { ascending: false });
+
+    /**
+     * Uma nota por aula: a da ÚLTIMA gravação.
+     *
+     * A tela de fala oferece "Regravar fala", então regravar é o caminho
+     * esperado — o aluno ouve a correção e tenta de novo. Media-las todas
+     * punia exatamente esse comportamento: uma aula com 9.2 ← 8.5 ← 9.2 ←
+     * 9.2 ← 6 carregava para sempre o 6 da primeira tentativa, e quanto mais
+     * o aluno treinasse, mais tentativas ruins ele acumulava.
+     *
+     * A lista vem ordenada por data decrescente, então a primeira de cada
+     * lição é a mais recente. Sessões sem feedback não entram: uma gravação
+     * ainda em processamento não pode apagar a nota válida anterior.
+     */
+    const porLicao = new Map<string, { overall_score: number | string }>();
+    for (const row of sessionRows ?? []) {
+      if (!row.lesson_id || porLicao.has(row.lesson_id)) continue;
+      const fb = row.speaking_feedback;
+      const nota = Array.isArray(fb) ? fb[0] : fb;
+      if (nota) porLicao.set(row.lesson_id, nota);
+    }
 
     // Sem nenhuma gravação não existe média: antes o valor caía num 10.0 fixo e
     // liberava o certificado para quem nunca foi avaliado.
-    const evaluations = (sessionRows ?? []).flatMap((row) => {
-      const fb = row.speaking_feedback;
-      return Array.isArray(fb) ? fb : fb ? [fb] : [];
-    });
+    const evaluations = [...porLicao.values()];
     const speakingEvaluations = evaluations.length;
     let averageScore = 0;
     if (speakingEvaluations > 0) {

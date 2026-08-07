@@ -98,11 +98,16 @@ export function CertificateLocked({ eligibility, courseTitle }: CertificateLocke
               className="h-2"
             />
             <p className="text-xs text-muted-foreground">
+              {/*
+                Conta AULAS avaliadas, não gravações: vale a última gravação de
+                cada aula, então regravar melhora a nota em vez de somar mais
+                uma tentativa à média.
+              */}
               {!hasEvaluations
-                ? `Grave suas práticas de conversação para que a média seja calculada. É ela que precisa alcançar ${minScoreLabel}.`
+                ? `Grave a prática de fala das aulas para que a média seja calculada. É ela que precisa alcançar ${minScoreLabel}.`
                 : isScoreDone
                   ? "✓ Sua média atual atende ao critério de aprovação!"
-                  : `Nota média atual é ${eligibility.averageScore.toFixed(1)} em ${eligibility.speakingEvaluations} ${eligibility.speakingEvaluations === 1 ? "avaliação" : "avaliações"}. Continue praticando a fala para alcançar ${minScoreLabel}.`}
+                  : `Nota média atual é ${eligibility.averageScore.toFixed(1)} em ${eligibility.speakingEvaluations} ${eligibility.speakingEvaluations === 1 ? "aula avaliada" : "aulas avaliadas"}. Vale a última gravação de cada aula: regrave para melhorar e alcançar ${minScoreLabel}.`}
             </p>
           </div>
 

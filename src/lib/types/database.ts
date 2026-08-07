@@ -769,7 +769,12 @@ export interface CertificateEligibility {
   completedLessons: number;
   lessonsProgressPct: number;
   averageScore: number;
-  /** Quantas avaliacoes de fala o aluno ja tem. Sem nenhuma, nao ha media. */
+  /**
+   * Quantas AULAS ja tem a fala avaliada. Sem nenhuma, nao ha media.
+   *
+   * Conta aulas, nao gravacoes: vale so a ultima gravacao de cada aula, entao
+   * regravar nao aumenta este numero — melhora a nota dele.
+   */
   speakingEvaluations: number;
   minScoreRequired: number;
   calculatedWorkloadHours: number;
