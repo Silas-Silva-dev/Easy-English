@@ -106,7 +106,28 @@ function getRecognitionCtor(): SpeechRecognitionCtor | null {
   return w.SpeechRecognition ?? w.webkitSpeechRecognition ?? null;
 }
 
-type Impedimento = "sem-api" | "sem-https" | null;
+type Impedimento = "sem-api" | "sem-https" | "sem-servico-de-voz" | null;
+
+/**
+ * Chromium sem o serviço de voz — o caso do Opera.
+ *
+ * O reconhecimento do Chromium não acontece no aparelho: o áudio vai para um
+ * serviço do Google, acessado com a chave que o Google embute nas compilações
+ * do Chrome. O Opera compila o mesmo motor sem essa chave. Resultado: o objeto
+ * `webkitSpeechRecognition` existe, o `start()` não reclama, o navegador pede
+ * e acende o microfone — e resultado nenhum chega, para sempre.
+ *
+ * É por isso que a detecção por recurso não resolve, e que nada no nosso lado
+ * resolvia: o microfone sempre esteve certo. Verificado pelo dono do produto,
+ * mesma máquina e mesmo microfone: funciona no Edge, não funciona no Opera. O
+ * Edge funciona porque a Microsoft liga o serviço de fala dela.
+ *
+ * Só dá para saber pelo navegador, então é aqui que se decide.
+ */
+function semServicoDeVoz(): boolean {
+  const ua = navigator.userAgent;
+  return /OPR\/|OPT\/|\bOpera\b/.test(ua);
+}
 
 function detectarImpedimento(): Impedimento {
   if (typeof window === "undefined") return null;
@@ -114,6 +135,9 @@ function detectarImpedimento(): Impedimento {
   // conta como seguro; um IP da rede local em http, não.
   if (!window.isSecureContext) return "sem-https";
   if (!getRecognitionCtor()) return "sem-api";
+  // Depois da checagem de recurso, de propósito: aqui o recurso EXISTE e
+  // mesmo assim não funciona.
+  if (semServicoDeVoz()) return "sem-servico-de-voz";
   return null;
 }
 
@@ -128,6 +152,30 @@ const LANG: Record<Direction, { recog: string; speak: string; de: string }> = {
 
 /** Sem nenhum áudio chegando neste tempo, algo está errado e é preciso dizer. */
 const SEM_AUDIO_MS = 7000;
+
+/**
+ * O que dizer quando a voz não vai funcionar — antes de a pessoa tentar.
+ *
+ * Cada texto termina apontando para onde ir, e não só para o que falta: quem
+ * abriu o tradutor quer traduzir, e a aba Digitar entrega a mesma tradução.
+ */
+const AVISOS: Record<Exclude<Impedimento, null>, { titulo: string; corpo: string }> = {
+  "sem-https": {
+    titulo: "A tradução por voz precisa de uma conexão segura",
+    corpo:
+      "O navegador só libera o microfone em https (ou em localhost). Abra o site pelo endereço https e o painel funciona.",
+  },
+  "sem-api": {
+    titulo: "Seu navegador não reconhece voz",
+    corpo:
+      "A voz precisa do Chrome, Edge ou Safari — no computador ou no celular. No Firefox, use a aba Digitar: a tradução é a mesma, com pronúncia, IPA e exemplos.",
+  },
+  "sem-servico-de-voz": {
+    titulo: "O Opera não reconhece voz",
+    corpo:
+      "O microfone do seu computador está certo — o Opera é que não traz o serviço de reconhecimento de fala, e por isso o painel escuta sem nunca entender. Abra o site no Edge, no Chrome ou no celular, ou use a aba Digitar aqui mesmo: a tradução é a mesma, com pronúncia, IPA e exemplos.",
+  },
+};
 
 export function VoiceTranslator() {
   const [impedimento, setImpedimento] = React.useState<Impedimento | "carregando">("carregando");
@@ -324,7 +372,10 @@ export function VoiceTranslator() {
           : event.error === "not-allowed" || event.error === "service-not-allowed"
             ? "O navegador bloqueou o microfone para este site."
             : event.error === "network"
-              ? "O reconhecimento de voz precisa de internet e a conexão falhou."
+              ? // Também é o sintoma de um Chromium sem o serviço de voz que a
+                // detecção por navegador não pegou (Brave, Vivaldi, Chromium
+                // puro). Por isso a mensagem cita as duas causas.
+                "O serviço de reconhecimento de voz não respondeu. Confira a internet — e, se você não estiver no Chrome, Edge ou Safari, é provável que o seu navegador não traga esse serviço: nesse caso use a aba Digitar."
               : `O reconhecimento falhou (${event.error}).`,
       );
     };
@@ -424,21 +475,14 @@ export function VoiceTranslator() {
     window.speechSynthesis.speak(u);
   }
 
-  if (impedimento === "sem-api" || impedimento === "sem-https") {
+  if (impedimento && impedimento !== "carregando") {
+    const aviso = AVISOS[impedimento];
     return (
       <div className="border-border bg-muted/30 flex items-start gap-3 rounded-xl border p-5">
         <AlertCircle className="text-muted-foreground mt-0.5 size-5 shrink-0" />
         <div className="space-y-1">
-          <p className="text-sm font-semibold">
-            {impedimento === "sem-https"
-              ? "A tradução por voz precisa de uma conexão segura"
-              : "Seu navegador não reconhece voz"}
-          </p>
-          <p className="text-muted-foreground text-sm leading-relaxed">
-            {impedimento === "sem-https"
-              ? "O navegador só libera o microfone em https (ou em localhost). Abra o site pelo endereço https e o painel funciona."
-              : "A voz precisa do Chrome, Edge ou Safari — no computador ou no celular. No Firefox, use a aba Digitar: a tradução é a mesma, com IPA e exemplos."}
-          </p>
+          <p className="text-sm font-semibold">{aviso.titulo}</p>
+          <p className="text-muted-foreground text-sm leading-relaxed">{aviso.corpo}</p>
         </div>
       </div>
     );
