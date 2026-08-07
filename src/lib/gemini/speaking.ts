@@ -296,8 +296,19 @@ export async function analyzeSpeaking(params: {
 
           return parseJsonResponse<SpeakingAnalysis>(text);
         },
-        // Duas tentativas por modelo: evita estourar maxDuration se ambos falharem.
-        { attempts: 2, baseDelayMs: 500 },
+        /**
+         * Tres tentativas por modelo, nao duas.
+         *
+         * A queda de conexao com o Google e a falha real desta rota em
+         * producao — 15 das 16 analises perdidas — e ela nao chega a gastar
+         * cinco segundos antes de estourar. Uma tentativa a mais custa isso, e
+         * e o que separa "corrigido" de "grave de novo" para o aluno.
+         *
+         * O teto continua existindo por causa do `maxDuration` de 120s da
+         * rota: a analise que responde leva de 5 a 15 segundos, entao tres
+         * cabem com folga mesmo no pior caso.
+         */
+        { attempts: 3, baseDelayMs: 500 },
       );
 
       // Normaliza as notas: o modelo ocasionalmente devolve escala 0-100 ou nulos.
@@ -329,7 +340,13 @@ export async function analyzeSpeaking(params: {
         continue;
       }
 
-      // Se não for erro de cota ou modelo inexistente (ex: conteúdo bloqueado por segurança), aborta de imediato.
+      // Conexão caída não é defeito do modelo: trocar de modelo não conserta
+      // rede, só gasta mais tempo do aluno com a mesma falha. O `withRetry`
+      // acima já tentou com socket novo; se nem assim passou, quem precisa
+      // saber é a rota, para dizer que o áudio continua salvo.
+      //
+      // Fora isso: sem ser cota ou modelo inexistente (conteúdo bloqueado por
+      // segurança, por exemplo), aborta de imediato.
       throw error;
     }
   }

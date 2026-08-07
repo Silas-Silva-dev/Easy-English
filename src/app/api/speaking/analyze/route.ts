@@ -5,6 +5,7 @@ import {
   ACCESS_DENIAL_MESSAGE,
   getPaidSession,
 } from "@/lib/auth/guards";
+import { descreverErro, erroDeRede } from "@/lib/gemini/client";
 import { analyzeSpeaking, normalizeAudioMime } from "@/lib/gemini/speaking";
 import { createAdminSupabase } from "@/lib/supabase/admin";
 import { createServerSupabase } from "@/lib/supabase/server";
@@ -250,7 +251,10 @@ export async function POST(request: NextRequest) {
       nextSteps: analysis.next_steps,
     });
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Erro desconhecido";
+    // A cadeia inteira de causas, não só o topo: "fetch failed" sozinho não
+    // diz nada, e é este texto que fica em `error_message` para a próxima
+    // investigação. Foi o que permitiu achar esta falha.
+    const message = descreverErro(error) || "Erro desconhecido";
     console.error("[speaking] análise falhou:", message);
 
     await supabase
@@ -262,7 +266,11 @@ export async function POST(request: NextRequest) {
     return bad(
       quota
         ? "A tutora está sobrecarregada no momento. Tente novamente em alguns instantes."
-        : "Não foi possível analisar seu áudio. Tente gravar novamente.",
+        : erroDeRede(error)
+          ? // "Grave de novo" seria conselho errado: o áudio está íntegro, foi
+            // salvo e continua na tela. Quem caiu foi a conexão com o Google.
+            "A conexão com a tutora caiu no meio do envio. Seu áudio continua aqui: toque em Enviar para correção."
+          : "Não foi possível analisar seu áudio. Tente gravar novamente.",
       quota ? 429 : 502,
     );
   }
