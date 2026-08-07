@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
 import { getSessionContext } from "@/lib/auth/guards";
-import { createAdminSupabase } from "@/lib/supabase/admin";
+import { syncEnrollmentStudyStats } from "@/lib/learning";
 import { createServerSupabase } from "@/lib/supabase/server";
 import { TIMEZONE_VALUES } from "@/lib/timezones";
 
@@ -92,15 +92,43 @@ export async function completeLessonAction(input: {
     return { ok: false, error: "Não foi possível salvar seu progresso" };
   }
 
-  // Contabiliza minutos e recalcula a ofensiva no banco.
-  const admin = createAdminSupabase();
-  const { data: updated, error: rpcError } = await admin.rpc("register_study_activity", {
+  /**
+   * Contabiliza minutos e recalcula a ofensiva no banco.
+   *
+   * Com o cliente DO ALUNO, não com o de service role. A função é
+   * `security definer` e confere a posse da matrícula por `auth.uid()`
+   * (`where e.user_id = auth.uid() or is_admin()`) — service role não tem
+   * `auth.uid()`, então ela levantava "Matricula nao encontrada ou acesso
+   * negado" em TODA lição concluída.
+   *
+   * O efeito era invisível: a lição era marcada como concluída, o aluno via
+   * sucesso, e os minutos e a ofensiva simplesmente não entravam. Os números
+   * congelavam na última vez que o recálculo completo tinha rodado.
+   */
+  const { data: updated, error: rpcError } = await supabase.rpc("register_study_activity", {
     p_enrollment_id: enrollment.id,
     p_minutes: minutes,
     p_lessons_done: alreadyCompleted ? 0 : 1,
   });
 
-  if (rpcError) console.error("[lesson] falha ao registrar atividade:", rpcError.message);
+  /**
+   * Se a RPC falhar, refaz a conta pela fonte em vez de perder o dia.
+   *
+   * `syncEnrollmentStudyStats` recalcula tudo a partir de `lesson_progress`,
+   * `live_sessions` e `speaking_sessions`, então o resultado é o mesmo — só
+   * mais caro. Vale o custo: o modo de falha anterior era um `console.error`
+   * que ninguém lê, e minuto de estudo perdido não volta.
+   */
+  let streakAfter = updated?.streak_current;
+  if (rpcError) {
+    console.error("[lesson] falha ao registrar atividade:", rpcError.message);
+    try {
+      const synced = await syncEnrollmentStudyStats(session.userId, enrollment.id);
+      streakAfter = synced.streakCurrent;
+    } catch (e) {
+      console.error("[lesson] recálculo de emergência também falhou:", e);
+    }
+  }
 
   /**
    * Coloca os blocos deste circuito na agenda individual de revisão.
@@ -134,7 +162,7 @@ export async function completeLessonAction(input: {
 
   return {
     ok: true,
-    streak: updated?.streak_current ?? enrollment.streak_current,
+    streak: streakAfter ?? enrollment.streak_current,
     nextDay,
   };
 }
