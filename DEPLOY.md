@@ -80,7 +80,7 @@ o que é lido no *build* exige um novo deploy para corrigir; o que é lido em
 | 3 | `NEXT_PUBLIC_SITE_URL` | `https://seudominio.com.br` | **build** + execução | sim |
 | 4 | `SUPABASE_SERVICE_ROLE_KEY` | chave `service_role` | execução | **NUNCA** |
 | 5 | `GEMINI_API_KEY` | chave do Google AI Studio | execução | **NUNCA** |
-| 6 | `GEMINI_MODEL_TUTOR` | `gemini-3.6-flash` | execução | não |
+| 6 | `GEMINI_MODEL_TUTOR` | `gemini-3.1-flash-lite` | execução | não |
 | 7 | `GEMINI_MODEL_SPEAKING` | `gemini-3.6-flash` | execução | não |
 | 8 | `GEMINI_MODEL_EMBEDDING` | `gemini-embedding-001` | execução | não |
 | 9 | `GEMINI_MODEL_LIVE` | `gemini-3.1-flash-live-preview` | execução | não |
@@ -88,6 +88,13 @@ o que é lido no *build* exige um novo deploy para corrigir; o que é lido em
 | 11 | `MERCADOPAGO_WEBHOOK_SECRET` | assinatura secreta do webhook | execução | **NUNCA** |
 | 12 | `CHECKOUT_PRICE_CENTS` | `29700` (R$ 297,00) | **build** + execução | não |
 | 13 | `CHECKOUT_MAX_INSTALLMENTS` | `10` | **build** + execução | não |
+
+> **O tutor NÃO pode ser o mesmo modelo da fala.** A cota do Gemini é contada por
+> projeto **e por modelo**: com os dois em `gemini-3.6-flash`, cada mensagem de texto
+> consome uma das análises de áudio do dia. Além disso o `3.6-flash` recusa a chamada
+> do tradutor por voz com `400 INVALID_ARGUMENT` — esta tabela já mandou
+> `gemini-3.6-flash` aqui e derrubou a tradução por voz em produção enquanto
+> funcionava em desenvolvimento.
 
 **1 a 5, 10 e 11 são obrigatórias.** Sem 1 a 5 o build falha (`src/lib/env.ts`
 recusa valor ausente) ou o app sobe sem conseguir autenticar ninguém. Sem 10 e

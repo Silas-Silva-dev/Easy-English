@@ -204,6 +204,11 @@ export async function translateSpeechAction(
   const [de, para] =
     dir === "en→pt" ? ["English", "Brazilian Portuguese"] : ["Brazilian Portuguese", "English"];
 
+  const instrucao =
+    `Translate from ${de} to ${para}. Natural, spoken register. ` +
+    `The input comes from speech recognition, so it has no punctuation ` +
+    `or capitalization — your output must have both, written properly.`;
+
   try {
     /**
      * O parse mora DENTRO do `withRetry`, e não depois dele.
@@ -216,7 +221,23 @@ export async function translateSpeechAction(
      * primeira tentativa e virava erro na tela do aluno, sem nenhuma
      * retentativa. Dentro, a mesma falha vira mais uma tentativa.
      */
-    const translation = await withRetry(async () => {
+    /**
+     * `thinkingConfig` é uma OTIMIZAÇÃO, e por isso pode cair.
+     *
+     * Custou caro descobrir: `gemini-3.6-flash` RECUSA `thinkingBudget: 0` com
+     * HTTP 400 INVALID_ARGUMENT — reproduzido, 409ms até a recusa —, enquanto
+     * `gemini-3.1-flash-lite` aceita. E `DEPLOY.md` mandava cadastrar
+     * `GEMINI_MODEL_TUTOR = gemini-3.6-flash` no painel do servidor, então em
+     * produção esta chamada morria na primeira tentativa, sempre, enquanto na
+     * máquina de desenvolvimento passava 20/20.
+     *
+     * A configuração agora degrada em vez de quebrar: primeiro a rápida, e se
+     * o modelo recusar, a mesma sem o ajuste de raciocínio. Nenhum aluno pode
+     * ficar sem tradução porque uma variável de ambiente apontou para outro
+     * modelo — e o próximo modelo com outra restrição vai passar por aqui do
+     * mesmo jeito.
+     */
+    const chamar = async (comThinking: boolean) => {
       const response = await gemini().models.generateContent({
         model: geminiModels.tutor,
         contents: [{ role: "user", parts: [{ text: sourceText }] }],
@@ -224,17 +245,9 @@ export async function translateSpeechAction(
           // A instrução vive aqui, e não no `contents`, para o texto do aluno
           // chegar limpo: fala reconhecida já vem sem pontuação confiável, e
           // misturar instrução com transcrição fazia o modelo às vezes traduzir
-          // a própria instrução.
-          /**
-           * A ordem de pontuar não é firula. A fala reconhecida chega crua —
-           * "hi im ana nice to meet you" — e o modelo espelhava isso na
-           * resposta, devolvendo "oi, eu sou a ana" em caixa baixa. Frases
-           * longas ele pontuava, curtas não: a tela ficava com dois padrões.
-           */
-          systemInstruction:
-            `Translate from ${de} to ${para}. Natural, spoken register. ` +
-            `The input comes from speech recognition, so it has no punctuation ` +
-            `or capitalization — your output must have both, written properly.`,
+          // a própria instrução. A ordem de pontuar também não é firula: a fala
+          // chega crua ("hi im ana nice to meet you") e o modelo espelhava isso.
+          systemInstruction: instrucao,
           /**
            * Saída estruturada, e não texto puro com "responda só a tradução".
            *
@@ -247,21 +260,30 @@ export async function translateSpeechAction(
            */
           responseMimeType: "application/json",
           responseSchema: SPEECH_SCHEMA,
-          /**
-           * Sem raciocínio: traduzir uma frase falada não precisa, e ele
-           * custava ~110ms por chamada numa tela em que a pessoa espera olhando.
-           */
-          thinkingConfig: { thinkingBudget: 0 },
+          ...(comThinking ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
           temperature: 0,
         },
       });
 
       const texto = parseJsonResponse<{ translation?: string }>(response.text)?.translation?.trim();
       // Lançar, e não devolver vazio: é o que faz `withRetry` tentar de novo.
-      // Uma tradução vazia com resposta bem formada é raro, mas o remédio é o
-      // mesmo — pedir outra vez custa 890ms e resolve.
       if (!texto) throw new Error("Resposta vazia do Gemini");
       return texto;
+    };
+
+    const translation = await withRetry(async () => {
+      try {
+        return await chamar(true);
+      } catch (e) {
+        const m = e instanceof Error ? e.message : String(e);
+        // Só o argumento inválido justifica repetir sem a otimização. Cota,
+        // rede e formato têm tratamento próprio e não melhoram com isso.
+        if (!/\b400\b|INVALID_ARGUMENT/i.test(m)) throw e;
+        console.warn(
+          `[tradutor] ${geminiModels.tutor} recusou thinkingBudget; repetindo sem ele.`,
+        );
+        return await chamar(false);
+      }
     });
 
     return { ok: true, translation };
@@ -284,6 +306,34 @@ export async function translateSpeechAction(
     if (/\b429\b|quota|rate.?limit/i.test(detalhe)) {
       return { ok: false, error: "Limite de traduções atingido por agora. Tente em alguns instantes." };
     }
-    return { ok: false, error: "Erro ao traduzir. Verifique sua conexão e tente de novo." };
+    if (/\b(401|403)\b|api.?key|permission|unauthenticated/i.test(detalhe)) {
+      return { ok: false, error: "A chave da IA foi recusada pelo servidor. Confira GEMINI_API_KEY no ambiente de produção." };
+    }
+    if (/\b404\b|not found|is not supported|unsupported/i.test(detalhe)) {
+      return { ok: false, error: `O modelo de tradução não está disponível neste ambiente (${geminiModels.tutor}).` };
+    }
+    // Nomear o modelo é o que faltava: o 400 vinha de o modelo configurado no
+    // servidor recusar uma opção da chamada, e a tela mandava olhar o wi-fi.
+    if (/\b400\b|INVALID_ARGUMENT/i.test(detalhe)) {
+      return {
+        ok: false,
+        error: `O modelo ${geminiModels.tutor} recusou a requisição. Confira GEMINI_MODEL_TUTOR no ambiente.`,
+      };
+    }
+
+    /**
+     * O resto vai com o detalhe técnico anexado, de propósito.
+     *
+     * A versão anterior devolvia "Erro ao traduzir. Verifique sua conexão"
+     * para tudo que não fosse cota ou formato — e foi exatamente esse texto
+     * que apareceu em produção, mandando olhar o wi-fi enquanto o defeito real
+     * ficava só no log do servidor, onde ninguém consegue ler pelo celular.
+     * Uma linha de detalhe transforma "não funciona" em algo diagnosticável na
+     * primeira tentativa.
+     */
+    return {
+      ok: false,
+      error: `Erro ao traduzir: ${detalhe.slice(0, 180)}`,
+    };
   }
 }
