@@ -102,3 +102,6 @@ __pycache__/
 *-service-account*.json
 gcp-*.json
 service-account*.json
+
+# Log do servico de geracao de audio
+.audio-log/

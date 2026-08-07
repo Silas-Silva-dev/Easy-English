@@ -38,6 +38,27 @@ export function genai() {
   return new GoogleGenAI({ apiKey: env("GEMINI_API_KEY") });
 }
 
+/**
+ * Cliente da geração de áudio, com chave PRÓPRIA quando houver.
+ *
+ * Ativar cobrança num projeto do Google apaga o nível gratuito dele inteiro —
+ * e o app usa a mesma chave para a tutora ao vivo, o retorno de pronúncia e os
+ * embeddings. Pagar pelo TTS não pode custar o gratuito de tudo mais.
+ *
+ * Com `GEMINI_TTS_API_KEY` apontando para um SEGUNDO projeto (esse sim com
+ * cobrança), o lote de áudio roda no nível pago e o app continua no gratuito.
+ * Sem ela, cai na chave normal e nada muda.
+ */
+export function genaiTts() {
+  const dedicated = process.env.GEMINI_TTS_API_KEY?.trim();
+  return new GoogleGenAI({ apiKey: dedicated || env("GEMINI_API_KEY") });
+}
+
+/** True quando a geração de áudio está usando a chave dedicada. */
+export function usingDedicatedTtsKey(): boolean {
+  return Boolean(process.env.GEMINI_TTS_API_KEY?.trim());
+}
+
 export const MODELS = {
   // Só embedding: os scripts não geram conteúdo, apenas indexam o que já existe.
   embedding: () => env("GEMINI_MODEL_EMBEDDING", "gemini-embedding-001"),

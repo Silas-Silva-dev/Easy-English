@@ -64,7 +64,7 @@ import {
 } from "../content/audio-manifest";
 
 import { GOOGLE_SAMPLE_RATE, listVoices, synthesizeLine } from "./google-tts";
-import { env, genai, sleep } from "./_shared";
+import { env, genaiTts, sleep, usingDedicatedTtsKey } from "./_shared";
 
 const OUT_DIR = join(process.cwd(), "public", "audio");
 
@@ -72,10 +72,24 @@ const OUT_DIR = join(process.cwd(), "public", "audio");
 const CHUNK_VOICE = "Kore";
 
 /**
- * Modelos de TTS que a conta gratuita costuma alcançar, em ordem de preferência.
+ * Modelos de TTS em ordem de preferência.
+ *
+ * São TRÊS de propósito. A cota gratuita é contada por modelo — o próprio erro
+ * 429 diz isso no nome: `GenerateRequestsPerDayPerProjectPerModel-FreeTier`.
+ * Ou seja: quando um modelo fecha por hoje, os outros dois continuam abertos,
+ * e o teto diário do lote passa a ser a SOMA dos três em vez do teto de um.
+ *
+ * A ordem é por qualidade de fala percebida, não por cota: o rodízio só entra
+ * quando o preferido recusa, então o curso sai com a melhor voz disponível a
+ * cada momento.
+ *
  * Rode `npm run models` se algum dia um deles devolver 404.
  */
-const DEFAULT_MODEL = "gemini-3.1-flash-tts-preview";
+const DEFAULT_TTS_MODELS = [
+  "gemini-3.1-flash-tts-preview",
+  "gemini-2.5-flash-preview-tts",
+  "gemini-2.5-pro-preview-tts",
+];
 
 interface Options {
   limit: number;
@@ -86,7 +100,8 @@ interface Options {
   /** Regerar só o que foi feito pelo OUTRO motor. Ver o livro-razão abaixo. */
   upgrade: boolean;
   delayMs: number;
-  model: string;
+  /** Modelos de TTS a usar em rodízio, na ordem de preferência. */
+  models: string[];
   force: boolean;
   dryRun: boolean;
   watch: boolean;
@@ -103,18 +118,37 @@ interface Options {
  */
 const LEDGER_PATH = join(OUT_DIR, "engines.json");
 
-function readLedger(): Record<string, Engine> {
+/**
+ * Uma entrada do livro-razão.
+ *
+ * Era só o nome do motor. Passou a guardar também o MODELO porque, com a cota
+ * resolvida, o problema deixou de ser "de qual motor saiu" e virou "de qual
+ * modelo": misturar modelos dá timbres diferentes para o mesmo personagem ao
+ * longo do curso. Sem o modelo registrado, deixar tudo uniforme exigiria
+ * `--force` — refazer os 500 a cada reinício do serviço.
+ *
+ * As entradas antigas são strings soltas; `engineOf` aceita as duas formas.
+ */
+type LedgerEntry = Engine | { engine: Engine; model?: string };
+
+function engineOf(entry: LedgerEntry | undefined): Engine | undefined {
+  if (!entry) return undefined;
+  return typeof entry === "string" ? entry : entry.engine;
+}
+
+function modelOf(entry: LedgerEntry | undefined): string | undefined {
+  return entry && typeof entry !== "string" ? entry.model : undefined;
+}
+
+function readLedger(): Record<string, LedgerEntry> {
   try {
-    return JSON.parse(readFileSync(LEDGER_PATH, "utf8")) as Record<
-      string,
-      Engine
-    >;
+    return JSON.parse(readFileSync(LEDGER_PATH, "utf8")) as Record<string, LedgerEntry>;
   } catch {
     return {};
   }
 }
 
-function writeLedger(ledger: Record<string, Engine>) {
+function writeLedger(ledger: Record<string, LedgerEntry>) {
   const sorted = Object.fromEntries(
     Object.entries(ledger).sort(([a], [b]) => a.localeCompare(b)),
   );
@@ -160,7 +194,10 @@ function parseArgs(argv: string[]): Options {
      * levaria mais de um dia; sem espera, uns 20 minutos.
      */
     delayMs: Number(get("delay") ?? (engine === "google" ? 0 : 6000)),
-    model: get("model") ?? env("GEMINI_MODEL_TTS", DEFAULT_MODEL),
+    models: (get("model") ?? env("GEMINI_MODEL_TTS", DEFAULT_TTS_MODELS.join(",")))
+      .split(",")
+      .map((m) => m.trim())
+      .filter(Boolean),
     force: has("force"),
     dryRun: has("dry-run"),
     watch: has("watch"),
@@ -247,7 +284,7 @@ async function speak(
   speechConfig: object,
   model: string,
 ): Promise<{ pcm: Buffer; rate: number }> {
-  const response = await genai().models.generateContent({
+  const response = await genaiTts().models.generateContent({
     model,
     contents: [{ role: "user", parts: [{ text }] }],
     config: { responseModalities: ["AUDIO"], speechConfig },
@@ -409,6 +446,42 @@ async function assertGoogleVoices(): Promise<void> {
 }
 
 /** Distingue "acabou a cota" de "deu erro nesse item". */
+/**
+ * Sobrecarga passageira do modelo (503/UNAVAILABLE, 500) — nada a ver com cota.
+ *
+ * Os modelos de TTS em preview devolvem isso com frequência. Antes esse erro
+ * caía no ramo "erro do item": o job saía da fila e era contado como falha,
+ * quando bastava esperar alguns segundos. Num lote de 500 isso descartava
+ * dezenas de áudios por rodada sem motivo.
+ */
+function isTransientError(error: unknown): boolean {
+  const message = error instanceof Error ? error.message : String(error);
+  return /(500|502|503|504)|UNAVAILABLE|overloaded|internal error|deadline/i.test(message);
+}
+
+/**
+ * Quanto a API mandou esperar, em ms. O corpo do 429 traz `retryDelay`, e ele
+ * é bem mais preciso que qualquer escada que a gente invente.
+ */
+function retryDelayMs(error: unknown): number | null {
+  const message = error instanceof Error ? error.message : String(error);
+  const match = /"retryDelay":\s*"(\d+(?:\.\d+)?)s"/.exec(message);
+  return match ? Math.ceil(Number(match[1]) * 1000) : null;
+}
+
+/**
+ * Teto de minuto ou de dia?
+ *
+ * Não dá para saber pelo nome da cota: o corpo do 429 lista as violações de
+ * minuto E de dia juntas, sempre. Quem responde de verdade é o `retryDelay` —
+ * o teto por minuto volta em dezenas de segundos, o diário não. Rotular pelo
+ * ID daria "cota diária, volta em 59s", que é contraditório e engana quem lê
+ * o log para decidir se vale esperar.
+ */
+function quotaKindLabel(waitMs: number): string {
+  return waitMs <= 5 * 60_000 ? "por minuto" : "diária";
+}
+
 function isQuotaError(error: unknown): boolean {
   const message = error instanceof Error ? error.message : String(error);
   return /\b429\b|RESOURCE_EXHAUSTED|quota|rate.?limit/i.test(message);
@@ -442,7 +515,7 @@ function countOnDisk(): Set<string> {
 
 async function runPiper(
   pending: AudioJob[],
-  ledger: Record<string, Engine>,
+  ledger: Record<string, LedgerEntry>,
   wanted: AudioJob[],
 ): Promise<void> {
   if (!existsSync(VOICES_DIR)) {
@@ -579,7 +652,13 @@ async function main() {
   const missing = (job: AudioJob) => {
     if (options.force) return true;
     if (!onDisk.has(job.id)) return true;
-    return options.upgrade && ledger[job.id] !== options.engine;
+    if (!options.upgrade) return false;
+    if (engineOf(ledger[job.id]) !== options.engine) return true;
+    // Mesmo motor, modelo diferente: refaz, senão o curso fica com timbres
+    // misturados. Só vale quando um único modelo foi pedido.
+    return options.engine === "gemini" && options.models.length === 1
+      ? modelOf(ledger[job.id]) !== options.models[0]
+      : false;
   };
 
   const pending = wanted
@@ -588,12 +667,12 @@ async function main() {
 
   const done = wanted.filter((j) => onDisk.has(j.id)).length;
   const byThisEngine = wanted.filter(
-    (j) => ledger[j.id] === options.engine,
+    (j) => engineOf(ledger[j.id]) === options.engine,
   ).length;
 
   const engineLabel =
     options.engine === "gemini"
-      ? ` (${options.model})`
+      ? ` (${options.models.join(" → ")})${usingDedicatedTtsKey() ? " · chave dedicada" : ""}`
       : options.engine === "google"
         ? " (Cloud TTS · Neural2)"
         : " (local, sem cota)";
@@ -644,34 +723,91 @@ async function main() {
   const queue = [...pending];
 
   /**
-   * Recuo adaptativo para o limite POR MINUTO.
+   * Rodízio de modelos.
    *
-   * A conta gratuita corta por requisições/minuto, não só por dia: na prática
-   * o 429 chega depois de poucas chamadas seguidas e some sozinho em pouco
-   * tempo. Então bater na cota não é motivo para encerrar a rodada: é motivo
-   * para respirar e tentar o MESMO item de novo. Só depois de várias recusas
-   * seguidas no teto do recuo é que concluímos que o limite é diário.
+   * A cota gratuita é por modelo (o 429 diz: `...PerProjectPerModel-FreeTier`).
+   * Então "bateu a cota" não significa "acabou por hoje": significa que ESTE
+   * modelo fechou. Marcamos só ele como indisponível até o horário que a
+   * própria API mandou esperar e seguimos no próximo, com o MESMO job.
+   *
+   * A rodada só dorme de verdade quando os três estão bloqueados ao mesmo
+   * tempo — e aí dorme até o primeiro deles liberar, não um tempo fixo.
    */
-  const COOLDOWN_START_MS = 30_000;
-  const COOLDOWN_MAX_MS = 300_000;
-  const GIVE_UP_AFTER = 5;
+  const blockedUntil = new Map<string, number>(options.models.map((m) => [m, 0]));
+  const nextFree = () => Math.min(...options.models.map((m) => blockedUntil.get(m) ?? 0));
+  const availableModel = () => {
+    const now = Date.now();
+    return options.models.find((m) => (blockedUntil.get(m) ?? 0) <= now) ?? null;
+  };
 
-  let cooldown = COOLDOWN_START_MS;
-  let refusals = 0;
+  /** Espera padrão quando a API não diz por quanto tempo. */
+  const MINUTE_BLOCK_MS = 60_000;
+  /** Teto diário: o modelo só volta quando a janela vira. */
+  const DAY_BLOCK_MS = 60 * 60_000;
+  /**
+   * Teto para quanto tempo confiamos no `retryDelay`.
+   *
+   * Ele é uma estimativa pessimista, não um contrato: medindo contra a API, um
+   * `retryDelay` de 71 minutos liberou em bem menos. Dormir o valor cheio
+   * deixava o lote parado por mais de uma hora sem necessidade.
+   *
+   * Reconsultar é de graça — requisição recusada não consome cota —, então o
+   * bloqueio é limitado a alguns minutos e a espera vira uma sequência de
+   * tentativas curtas em vez de uma soneca longa no escuro.
+   */
+  const MAX_BLOCK_MS = 5 * 60_000;
+
+  // Sobrecarga transitória: recuo exponencial no MESMO job, sem descartar.
+  const TRANSIENT_BASE_MS = 4_000;
+  const TRANSIENT_MAX_TRIES = 6;
+  let transientTries = 0;
 
   while (queue.length) {
     const job = queue[0];
     const outPath = join(OUT_DIR, `${job.id}.mp3`);
 
+    // Todos bloqueados: dorme até o primeiro liberar (ou encerra sem --watch).
+    if (options.engine === "gemini" && !availableModel()) {
+      const waitMs = Math.max(1000, nextFree() - Date.now());
+
+      if (!options.watch) {
+        const left = wanted.length - done - generated;
+        console.log(
+          `
+  [33m▲ Os ${options.models.length} modelos de TTS estão na cota.[0m ` +
+            `${generated} gerados nesta rodada.
+
+` +
+            `  Faltam ${left} áudios. Rode de novo quando a cota renovar:
+` +
+            `  o script continua exatamente daqui, os ${done + generated} prontos não são refeitos.
+` +
+            `  Para ele mesmo esperar e retomar sozinho: npm run gen:audio -- --watch
+`,
+        );
+        return;
+      }
+
+      const mins = Math.ceil(waitMs / 60_000);
+      console.log(
+        `  [33m·[0m todos os modelos na cota — dormindo ${mins} min e retomando sozinho`,
+      );
+      await sleep(waitMs);
+      continue; // mesmo job
+    }
+
+    const model = options.engine === "gemini" ? availableModel()! : "";
+
     try {
       const { pcm, rate } =
         options.engine === "google"
           ? await synthesizeGoogle(job, options.delayMs)
-          : await synthesize(job, options.model, options.delayMs);
+          : await synthesize(job, model, options.delayMs);
       await pcmToMp3(pcm, rate, outPath);
 
       queue.shift();
       generated++;
+      transientTries = 0;
 
       /**
        * Registra o motor deste arquivo.
@@ -685,63 +821,56 @@ async function main() {
        * Gravado a cada arquivo, como no Piper: uma queda no meio do lote não
        * perde o registro do que já foi feito.
        */
-      ledger[job.id] = options.engine;
+      ledger[job.id] = model ? { engine: options.engine, model } : options.engine;
       writeLedger(ledger);
 
-      // Passou: o ritmo está bom, volta o recuo para o mínimo.
-      cooldown = COOLDOWN_START_MS;
-      refusals = 0;
-
       const secs = (pcm.length / (rate * 2)).toFixed(1);
+      const tag = model ? `  [2m${model.replace(/^gemini-|-preview$|-tts-preview$/g, "")}[0m` : "";
       console.log(
-        `  \x1b[32m✓\x1b[0m ${String(generated).padStart(3)}/${pending.length}  ${secs.padStart(5)}s  ${job.label}`,
+        `  [32m✓[0m ${String(generated).padStart(3)}/${pending.length}  ${secs.padStart(5)}s  ${job.label}${tag}`,
       );
     } catch (error) {
       if (isQuotaError(error)) {
-        refusals++;
+        // Fecha SÓ este modelo. O laço já escolhe outro na próxima volta.
+        // Sem `retryDelay` no corpo, assume o pior: o modelo fechou por hoje.
+        const sugerido = retryDelayMs(error) ?? DAY_BLOCK_MS;
+        const wait = Math.min(sugerido, MAX_BLOCK_MS);
+        blockedUntil.set(model, Date.now() + wait);
 
-        if (refusals < GIVE_UP_AFTER) {
-          console.log(
-            `  \x1b[33m·\x1b[0m cota por minuto: esperando ${Math.round(cooldown / 1000)}s (${refusals}/${GIVE_UP_AFTER})`,
-          );
-          await sleep(cooldown);
-          cooldown = Math.min(cooldown * 2, COOLDOWN_MAX_MS);
-          continue; // mesmo job
-        }
-
-        // Recusou em todas as esperas. Pode ser o teto diário ou uma janela
-        // mais longa que a nossa escada: a mensagem de erro não distingue os
-        // dois, então não afirmamos qual é.
+        const outros = options.models.filter((m) => (blockedUntil.get(m) ?? 0) <= Date.now());
         console.log(
-          `\n  \x1b[33m▲ A cota seguiu bloqueada depois de ${GIVE_UP_AFTER} esperas.\x1b[0m ` +
-            `${generated} gerados nesta rodada.`,
+          `  [33m·[0m ${model}: cota ${quotaKindLabel(sugerido)} ` +
+            `(a API pediu ${Math.ceil(sugerido / 1000)}s; reconsultando em ${Math.ceil(wait / 1000)}s)` +
+            (outros.length ? ` — seguindo em ${outros[0]}` : ""),
         );
-
-        if (!options.watch) {
-          const left = wanted.length - done - generated;
-          console.log(
-            `\n  Faltam ${left} áudios. Rode de novo quando a cota renovar : \n` +
-              `  o script continua exatamente daqui, os ${done + generated} prontos não são refeitos.\n` +
-              `  Para ele mesmo esperar e retomar sozinho: npm run gen:audio -- --watch\n`,
-          );
-          return;
-        }
-
-        console.log(
-          `  Esperando ${options.waitMinutes} min para retomar (--watch)...\n`,
-        );
-        await sleep(options.waitMinutes * 60_000);
-        refusals = 0;
-        cooldown = COOLDOWN_START_MS;
-        continue; // mesmo job
+        continue; // mesmo job, outro modelo
       }
 
-      // Erro do item, não da cota: registra, segue para o próximo.
+      if (isTransientError(error)) {
+        transientTries++;
+        if (transientTries <= TRANSIENT_MAX_TRIES) {
+          const wait = TRANSIENT_BASE_MS * 2 ** (transientTries - 1);
+          console.log(
+            `  [33m·[0m ${model || options.engine} sobrecarregado: ` +
+              `nova tentativa em ${Math.round(wait / 1000)}s (${transientTries}/${TRANSIENT_MAX_TRIES})`,
+          );
+          await sleep(wait);
+          continue; // mesmo job
+        }
+        // Insistiu demais: bloqueia o modelo por um tempo e tenta em outro.
+        blockedUntil.set(model, Date.now() + MINUTE_BLOCK_MS);
+        transientTries = 0;
+        continue;
+      }
+
+      // Erro do item, não da cota nem da API: registra, segue para o próximo.
       queue.shift();
       failed++;
+      transientTries = 0;
       const message = error instanceof Error ? error.message : String(error);
       console.log(
-        `  \x1b[31m✗\x1b[0m ${job.label}\n      ${message.slice(0, 160)}`,
+        `  [31m✗[0m ${job.label}
+      ${message.slice(0, 160)}`,
       );
     }
 

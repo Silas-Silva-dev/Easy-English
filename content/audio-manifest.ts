@@ -131,6 +131,21 @@ const CAST: Record<string, CastEntry> = {
   Maya: ["f", 2],
   Rachel: ["f", 0],
 
+  /**
+   * Os quatro que ainda faltavam, achados por `verify:content` já com o lote
+   * do Gemini rodando. Mesma história dos de cima: sem entrada aqui, caíam no
+   * sorteio por hash e dividiam a voz com o par de cena — nos circuitos 31,
+   * 34, 41 e 43 os DOIS personagens saíam com o mesmo timbre, na escuta
+   * estendida, que é justamente o exercício de acompanhar quem fala o quê.
+   *
+   * Todos os quatro contracenam com alguém do outro gênero, então declarar o
+   * gênero certo já desfaz a colisão: os pools são separados.
+   */
+  Chloe: ["f", 0],
+  David: ["m", 2],
+  Diego: ["m", 1],
+  Karen: ["f", 1],
+
   // --- papéis ---------------------------------------------------------------
   // Papel não tem gênero embutido: a escolha aqui é para o curso ter homens e
   // mulheres nos dois lados do balcão, e não médico-homem / recepcionista-mulher
@@ -176,8 +191,10 @@ export const CAST_PEOPLE: Record<Gender, string[]> = {
     "Priya",
     "Jo",
     "Lu",
+    "Chloe",
+    "Karen",
   ],
-  m: ["Bruno", "Mike", "Jake", "Rafa", "Tom", "Caio", "Vini", "Mark", "Liam"],
+  m: ["Bruno", "Mike", "Jake", "Rafa", "Tom", "Caio", "Vini", "Mark", "Liam", "David", "Diego"],
 };
 
 /**
