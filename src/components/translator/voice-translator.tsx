@@ -35,6 +35,16 @@
  * Com `continuous = false` o próprio Chrome detecta o fim da fala, entrega o
  * resultado e encerra. O botão desliga sozinho, não há laço para flapar, e o
  * ciclo fica igual ao do Google Tradutor: toca, fala, solta.
+ *
+ * ===========================================================================
+ * ABRIR O MICROFONE A CADA FALA — NÃO É OPCIONAL
+ * ===========================================================================
+ * Antes de cada `start()` este componente chama `getUserMedia` e mantém a
+ * trilha aberta enquanto escuta. Parece redundante quando a permissão já foi
+ * concedida, e não é: sem essa chamada, o Chrome do Android grava a PRIMEIRA
+ * fala e emudece em todas as seguintes — reconhecedor de pé, botão aceso,
+ * nenhum áudio. Já foi removido duas vezes, em nome de duas teorias
+ * diferentes, e reprovado em produção nas duas. Ver o `streamRef`.
  */
 
 import { AlertCircle, Copy, Loader2, Mic, RotateCw, Volume2 } from "lucide-react";
@@ -134,40 +144,22 @@ export function VoiceTranslator() {
   const semAudioRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   /**
-   * Estado da permissão do microfone, consultado NA MONTAGEM.
+   * A trilha do microfone é aberta A CADA fala e fica viva enquanto escuta.
    *
-   * Não no clique: a consulta é assíncrona, e esperar por ela entre o toque e
-   * `recognition.start()` consome o gesto do usuário — o defeito que deixou o
-   * botão do celular morto a partir da segunda gravação. Aqui a resposta já
-   * está pronta quando o dedo encosta na tela.
+   * ISTO NÃO É PRECAUÇÃO — É O QUE FAZ O CELULAR FUNCIONAR. Está verificado
+   * em produção, nas duas direções:
    *
-   * "desconhecida" é o Safari, que não implementa a consulta: lá seguimos
-   * direto para o `start()`, que provoca o pedido sozinho.
+   *   - com `getUserMedia` antes de cada `start()`: grava quantas vezes quiser;
+   *   - sem ele a partir da segunda fala: o reconhecedor sobe, o botão acende,
+   *     e nenhum áudio chega. Exatamente a primeira gravação funciona, porque
+   *     nela o pedido de permissão ainda abre o dispositivo.
+   *
+   * O segundo caso foi entregue duas vezes e reprovado duas vezes. Não trocar
+   * esta chamada por uma consulta de permissão: `permissions.query()` responde
+   * "granted" e não abre dispositivo nenhum — foi essa a substituição que
+   * quebrou a gravação repetida no Android.
    */
-  const permissaoRef = React.useRef<"granted" | "prompt" | "denied" | "desconhecida">(
-    "desconhecida",
-  );
-
-  React.useEffect(() => {
-    let vivo = true;
-    navigator.permissions
-      ?.query({ name: "microphone" as PermissionName })
-      .then((p) => {
-        if (!vivo) return;
-        permissaoRef.current = p.state;
-        // Revogar o microfone pelas configurações do navegador não recarrega a
-        // página; sem ouvir a mudança, o cache continuaria dizendo "concedida".
-        p.onchange = () => {
-          permissaoRef.current = p.state;
-        };
-      })
-      .catch(() => {
-        permissaoRef.current = "desconhecida";
-      });
-    return () => {
-      vivo = false;
-    };
-  }, []);
+  const streamRef = React.useRef<MediaStream | null>(null);
 
   /**
    * Teste de microfone: nível de áudio ao vivo e o nome do dispositivo.
@@ -195,6 +187,8 @@ export function VoiceTranslator() {
   }, []);
 
   const soltarMicrofone = React.useCallback(() => {
+    streamRef.current?.getTracks().forEach((t) => t.stop());
+    streamRef.current = null;
     if (semAudioRef.current) {
       clearTimeout(semAudioRef.current);
       semAudioRef.current = null;
@@ -268,22 +262,20 @@ export function VoiceTranslator() {
   }, [soltarMicrofone]);
 
   /**
-   * Cria e liga o reconhecedor. SÍNCRONA, de propósito.
+   * Cria e liga o reconhecedor. Sempre com a trilha do microfone JÁ ABERTA.
    *
-   * `SpeechRecognition.start()` precisa acontecer DENTRO do gesto do usuário.
-   * Qualquer `await` entre o toque e esta chamada consome a ativação, e aí o
-   * `start()` não faz nada: sem erro, sem `onstart`, sem `onend` — o botão
-   * simplesmente morre.
-   *
-   * Foi exatamente o que uma consulta de permissão colocada antes daqui
-   * provocou no celular: a PRIMEIRA gravação funcionava, porque o pedido de
-   * permissão renova a ativação, e da segunda em diante — com a permissão já
-   * concedida e portanto sem pedido nenhum — o `await` sobrava sozinho e
-   * matava o botão. Nada aqui dentro pode virar assíncrono.
+   * Só chame depois do `getUserMedia` da fala atual: é a abertura do
+   * dispositivo que faz o reconhecedor do Android receber áudio na segunda
+   * gravação e nas seguintes.
    */
   const iniciarReconhecimento = React.useCallback(() => {
     const Ctor = getRecognitionCtor();
-    if (!Ctor) return;
+    // A tela nem chega a mostrar o botão sem reconhecedor, mas sair daqui sem
+    // devolver o microfone deixaria o aparelho aberto sem nada escutando.
+    if (!Ctor) {
+      soltarMicrofone();
+      return;
+    }
 
     const recognition = new Ctor();
     recognition.lang = LANG[direction].recog;
@@ -324,11 +316,6 @@ export function VoiceTranslator() {
 
     recognition.onerror = (event) => {
       if (event.error === "aborted") return;
-      // Permissão negada aqui significa que o estado em cache envelheceu: o
-      // próximo toque volta a pedir em vez de tentar direto e morrer de novo.
-      if (event.error === "not-allowed" || event.error === "service-not-allowed") {
-        permissaoRef.current = "prompt";
-      }
       // `no-speech` acontece quando o silêncio estoura o tempo do Chrome. Não
       // é defeito, mas o aluno precisa saber por que o botão apagou.
       setErro(
@@ -350,9 +337,6 @@ export function VoiceTranslator() {
       setInterim("");
     };
 
-    // Instância anterior que não encerrou seguraria o dispositivo e faria a
-    // próxima nascer muda.
-    recognitionRef.current?.abort();
     recognitionRef.current = recognition;
 
     try {
@@ -386,23 +370,20 @@ export function VoiceTranslator() {
     setInterim("");
     setErro(null);
 
-    /**
-     * Caminho comum: a permissão já está concedida e NÃO se espera por nada.
-     *
-     * O estado vem do efeito de montagem, não de uma consulta feita agora —
-     * consultar agora custaria o gesto do usuário. "desconhecida" (navegador
-     * sem a API de permissões, como o Safari) também entra por aqui: lá o
-     * próprio `start()` provoca o pedido.
-     */
-    if (permissaoRef.current !== "prompt" && permissaoRef.current !== "denied") {
-      iniciarReconhecimento();
-      return;
-    }
+    // O teste de microfone segura o dispositivo: deixá-lo aberto aqui criaria
+    // duas capturas concorrentes na mesma página.
+    pararTeste();
 
+    /**
+     * Abre o microfone ANTES de ligar o reconhecedor — toda vez, mesmo com a
+     * permissão já concedida, e sem encerrar a trilha em seguida.
+     *
+     * A trilha aberta é o que sustenta a segunda gravação e as próximas no
+     * Android. Ver o comentário do `streamRef`: pular esta chamada quando a
+     * permissão já existe é o defeito, não a otimização.
+     */
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      stream.getTracks().forEach((t) => t.stop());
-      permissaoRef.current = "granted";
+      streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true });
     } catch (e) {
       const nome = e instanceof DOMException ? e.name : "";
       setErro(
@@ -415,16 +396,15 @@ export function VoiceTranslator() {
       return;
     }
 
-    // Só o primeiro uso passa por aqui, e o próprio pedido de permissão renova
-    // a ativação do usuário — então iniciar logo depois dele é seguro.
     iniciarReconhecimento();
-  }, [iniciarReconhecimento]);
+  }, [iniciarReconhecimento, pararTeste]);
 
   React.useEffect(() => {
     return () => {
       recognitionRef.current?.abort();
-      // O teste é o único caminho que segura o microfone: sair da tela com ele
-      // aberto deixaria o indicador de gravação aceso para sempre.
+      // Sair da tela com uma trilha aberta deixaria o indicador de gravação do
+      // navegador aceso para sempre. São duas: a da fala e a do teste.
+      streamRef.current?.getTracks().forEach((t) => t.stop());
       const t = testeRef.current;
       if (t) {
         cancelAnimationFrame(t.raf);
