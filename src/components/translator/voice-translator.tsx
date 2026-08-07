@@ -134,6 +134,42 @@ export function VoiceTranslator() {
   const semAudioRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   /**
+   * Estado da permissão do microfone, consultado NA MONTAGEM.
+   *
+   * Não no clique: a consulta é assíncrona, e esperar por ela entre o toque e
+   * `recognition.start()` consome o gesto do usuário — o defeito que deixou o
+   * botão do celular morto a partir da segunda gravação. Aqui a resposta já
+   * está pronta quando o dedo encosta na tela.
+   *
+   * "desconhecida" é o Safari, que não implementa a consulta: lá seguimos
+   * direto para o `start()`, que provoca o pedido sozinho.
+   */
+  const permissaoRef = React.useRef<"granted" | "prompt" | "denied" | "desconhecida">(
+    "desconhecida",
+  );
+
+  React.useEffect(() => {
+    let vivo = true;
+    navigator.permissions
+      ?.query({ name: "microphone" as PermissionName })
+      .then((p) => {
+        if (!vivo) return;
+        permissaoRef.current = p.state;
+        // Revogar o microfone pelas configurações do navegador não recarrega a
+        // página; sem ouvir a mudança, o cache continuaria dizendo "concedida".
+        p.onchange = () => {
+          permissaoRef.current = p.state;
+        };
+      })
+      .catch(() => {
+        permissaoRef.current = "desconhecida";
+      });
+    return () => {
+      vivo = false;
+    };
+  }, []);
+
+  /**
    * Teste de microfone: nível de áudio ao vivo e o nome do dispositivo.
    *
    * `SpeechRecognition` NÃO deixa escolher o microfone — usa sempre o padrão
@@ -231,61 +267,23 @@ export function VoiceTranslator() {
     setInterim("");
   }, [soltarMicrofone]);
 
-  const start = React.useCallback(async () => {
+  /**
+   * Cria e liga o reconhecedor. SÍNCRONA, de propósito.
+   *
+   * `SpeechRecognition.start()` precisa acontecer DENTRO do gesto do usuário.
+   * Qualquer `await` entre o toque e esta chamada consome a ativação, e aí o
+   * `start()` não faz nada: sem erro, sem `onstart`, sem `onend` — o botão
+   * simplesmente morre.
+   *
+   * Foi exatamente o que uma consulta de permissão colocada antes daqui
+   * provocou no celular: a PRIMEIRA gravação funcionava, porque o pedido de
+   * permissão renova a ativação, e da segunda em diante — com a permissão já
+   * concedida e portanto sem pedido nenhum — o `await` sobrava sozinho e
+   * matava o botão. Nada aqui dentro pode virar assíncrono.
+   */
+  const iniciarReconhecimento = React.useCallback(() => {
     const Ctor = getRecognitionCtor();
     if (!Ctor) return;
-
-    /**
-     * Limpa a tradução anterior ao começar uma nova fala.
-     *
-     * A tela mostra UMA fala por vez. Acumular vira rolagem infinita numa
-     * ferramenta que se usa em pé, no meio de uma conversa, e a pessoa perde
-     * de vista justamente a frase que acabou de dizer.
-     */
-    setSource("");
-    setTranslation("");
-    setInterim("");
-    setErro(null);
-
-    /**
-     * NÃO segurar o microfone enquanto o reconhecedor trabalha.
-     *
-     * A versão anterior mantinha a trilha do `getUserMedia` aberta durante o
-     * reconhecimento, para garantir que o dispositivo estivesse ativo. No
-     * Chrome do computador isso vira disputa: o reconhecedor abre a própria
-     * captura do microfone padrão, e encontrar o dispositivo já tomado por
-     * esta página é a explicação de "o microfone abriu e nenhum áudio chegou".
-     * No celular passava porque o Chrome do Android compartilha a captura.
-     *
-     * A permissão também não precisa ser pedida toda vez: quando já está
-     * concedida, tocar no dispositivo só para provocar um pedido que não vai
-     * aparecer é justamente o que cria a disputa. Só pedimos quando falta.
-     */
-    let precisaPedir = true;
-    try {
-      const p = await navigator.permissions.query({ name: "microphone" as PermissionName });
-      precisaPedir = p.state !== "granted";
-    } catch {
-      // Safari não implementa a consulta de permissão de microfone. Lá pedimos
-      // sempre — e lá o reconhecimento é do sistema, sem a disputa do Chrome.
-    }
-
-    if (precisaPedir) {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        stream.getTracks().forEach((t) => t.stop());
-      } catch (e) {
-        const nome = e instanceof DOMException ? e.name : "";
-        setErro(
-          nome === "NotAllowedError"
-            ? "Permissão de microfone negada. Libere o microfone para este site nas configurações do navegador."
-            : nome === "NotFoundError"
-              ? "Nenhum microfone encontrado neste dispositivo."
-              : `Não consegui abrir o microfone${nome ? ` (${nome})` : ""}.`,
-        );
-        return;
-      }
-    }
 
     const recognition = new Ctor();
     recognition.lang = LANG[direction].recog;
@@ -326,6 +324,11 @@ export function VoiceTranslator() {
 
     recognition.onerror = (event) => {
       if (event.error === "aborted") return;
+      // Permissão negada aqui significa que o estado em cache envelheceu: o
+      // próximo toque volta a pedir em vez de tentar direto e morrer de novo.
+      if (event.error === "not-allowed" || event.error === "service-not-allowed") {
+        permissaoRef.current = "prompt";
+      }
       // `no-speech` acontece quando o silêncio estoura o tempo do Chrome. Não
       // é defeito, mas o aluno precisa saber por que o botão apagou.
       setErro(
@@ -347,14 +350,17 @@ export function VoiceTranslator() {
       setInterim("");
     };
 
+    // Instância anterior que não encerrou seguraria o dispositivo e faria a
+    // próxima nascer muda.
+    recognitionRef.current?.abort();
     recognitionRef.current = recognition;
+
     try {
       recognition.start();
       setListening(true);
 
       // Rede de segurança: reconhecedor que sobe mas nunca recebe áudio falha
-      // calado. Sem isto o painel fica "Ouvindo" para sempre, que é
-      // exatamente o defeito que apareceu no computador.
+      // calado. Sem isto o painel fica "Ouvindo" para sempre.
       semAudioRef.current = setTimeout(() => {
         setErro(
           "O microfone abriu mas nenhum áudio chegou. Confira se o microfone certo está selecionado no navegador e se outro aplicativo não está usando ele.",
@@ -363,9 +369,56 @@ export function VoiceTranslator() {
       }, SEM_AUDIO_MS);
     } catch (e) {
       soltarMicrofone();
+      recognitionRef.current = null;
       setErro(`Não consegui iniciar o reconhecimento: ${e instanceof Error ? e.message : e}`);
     }
   }, [direction, traduzir, soltarMicrofone]);
+
+  const start = React.useCallback(async () => {
+    /**
+     * Limpa a tradução anterior ao começar uma nova fala.
+     *
+     * A tela mostra UMA fala por vez. Acumular vira rolagem infinita numa
+     * ferramenta que se usa em pé, no meio de uma conversa.
+     */
+    setSource("");
+    setTranslation("");
+    setInterim("");
+    setErro(null);
+
+    /**
+     * Caminho comum: a permissão já está concedida e NÃO se espera por nada.
+     *
+     * O estado vem do efeito de montagem, não de uma consulta feita agora —
+     * consultar agora custaria o gesto do usuário. "desconhecida" (navegador
+     * sem a API de permissões, como o Safari) também entra por aqui: lá o
+     * próprio `start()` provoca o pedido.
+     */
+    if (permissaoRef.current !== "prompt" && permissaoRef.current !== "denied") {
+      iniciarReconhecimento();
+      return;
+    }
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      stream.getTracks().forEach((t) => t.stop());
+      permissaoRef.current = "granted";
+    } catch (e) {
+      const nome = e instanceof DOMException ? e.name : "";
+      setErro(
+        nome === "NotAllowedError"
+          ? "Permissão de microfone negada. Libere o microfone para este site nas configurações do navegador."
+          : nome === "NotFoundError"
+            ? "Nenhum microfone encontrado neste dispositivo."
+            : `Não consegui abrir o microfone${nome ? ` (${nome})` : ""}.`,
+      );
+      return;
+    }
+
+    // Só o primeiro uso passa por aqui, e o próprio pedido de permissão renova
+    // a ativação do usuário — então iniciar logo depois dele é seguro.
+    iniciarReconhecimento();
+  }, [iniciarReconhecimento]);
 
   React.useEffect(() => {
     return () => {
