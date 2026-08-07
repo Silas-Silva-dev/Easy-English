@@ -80,7 +80,12 @@ export function CertificateLocked({ eligibility, courseTitle }: CertificateLocke
             <div className="flex items-center justify-between gap-3">
               <div className="flex items-center gap-2 text-sm font-medium">
                 <Mic className="size-4 text-primary" />
-                <span>2. Média mínima de {minScoreLabel} nas práticas de fala</span>
+                {/*
+                  "das aulas" não é enfeite: a prática livre de "Praticar Fala"
+                  não entra nesta média. Sem dizer isso, o aluno grava no lugar
+                  errado esperando que a nota conte.
+                */}
+                <span>2. Média mínima de {minScoreLabel} nas práticas de fala das aulas</span>
               </div>
               <Badge variant={isScoreDone ? "success" : "warning"}>
                 {hasEvaluations

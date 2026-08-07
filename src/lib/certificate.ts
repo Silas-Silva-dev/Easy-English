@@ -1,6 +1,6 @@
 import "server-only";
 
-import { createHash, createHmac } from "node:crypto";
+import { createHmac } from "node:crypto";
 import { cache } from "react";
 
 import { createAdminSupabase } from "@/lib/supabase/admin";
@@ -126,20 +126,59 @@ export const checkCertificateEligibility = cache(
     const completed = completedCount ?? 0;
     const progressPct = totalPublished > 0 ? Math.round((completed / totalPublished) * 100) : 0;
 
-    // 3. Média das avaliações de fala do aluno
-    const { data: feedbackRows } = await supabase
-      .from("speaking_feedback")
-      .select("overall_score")
-      .eq("user_id", userId);
+    /**
+     * 3. Média das avaliações de fala DAS AULAS DESTE CURSO.
+     *
+     * A consulta passa por `speaking_sessions` de propósito. Ler
+     * `speaking_feedback` direto por `user_id` — que era o que estava aqui —
+     * somava tudo que o aluno já gravou, inclusive a prática livre da tela
+     * "Praticar Fala": ela chama o mesmo `PracticeStation` sem `lessonId`
+     * (`src/app/app/conversacao/page.tsx`), e a nota daquele treino entrava na
+     * média que decide o certificado. Treino solto vira nota de prova.
+     *
+     * O filtro é `course_id`, e não `lesson_id is not null`, porque ele resolve
+     * dois problemas de uma vez: a rota de análise só preenche `course_id`
+     * quando veio de uma lição (deriva dele — `api/speaking/analyze`), então
+     * ele já exclui a prática livre, e ainda impede que a nota de outro curso
+     * conte para o certificado deste.
+     *
+     * `status = completed` fecha a última porta: sessão com áudio inaudível é
+     * marcada como `failed` e não pode pesar na média.
+     */
+    const { data: sessionRows } = await supabase
+      .from("speaking_sessions")
+      .select("id, speaking_feedback(overall_score)")
+      .eq("user_id", userId)
+      .eq("course_id", courseId)
+      .eq("status", "completed");
 
     // Sem nenhuma gravação não existe média: antes o valor caía num 10.0 fixo e
     // liberava o certificado para quem nunca foi avaliado.
-    const evaluations = feedbackRows ?? [];
+    const evaluations = (sessionRows ?? []).flatMap((row) => {
+      const fb = row.speaking_feedback;
+      return Array.isArray(fb) ? fb : fb ? [fb] : [];
+    });
     const speakingEvaluations = evaluations.length;
     let averageScore = 0;
     if (speakingEvaluations > 0) {
-      const sum = evaluations.reduce((acc, row) => acc + Number(row.overall_score || 0), 0);
-      averageScore = Number((sum / speakingEvaluations).toFixed(2));
+      /**
+       * Soma em décimos inteiros, não em ponto flutuante.
+       *
+       * `overall_score` é `numeric(4,1)`, então um décimo é a menor unidade
+       * que existe e cabe em inteiro sem perda. Somando em float, o resultado
+       * dependia da ORDEM das linhas: as notas 9.5, 7.6, 6.8 e 8.0 dão 7.975,
+       * e a mesma média saía 7.97 ou 7.98 conforme a ordem que o banco
+       * devolvia — porque soma de float não é associativa e 7.975 cai bem em
+       * cima da fronteira de arredondamento.
+       *
+       * Numa média que decide certificado, isso é passar ou não passar por
+       * causa da ordenação de uma consulta.
+       */
+      const totalTenths = evaluations.reduce(
+        (acc, row) => acc + Math.round(Number(row.overall_score || 0) * 10),
+        0,
+      );
+      averageScore = Math.round((totalTenths * 10) / speakingEvaluations) / 100;
     }
 
     const reasons: string[] = [];
@@ -150,13 +189,17 @@ export const checkCertificateEligibility = cache(
       );
     }
 
+    // As mensagens dizem "dentro das aulas" porque a prática livre da tela
+    // "Praticar Fala" não entra nesta conta. Mandar "gravar as práticas de
+    // conversação", como estava, empurrava o aluno justamente para a tela cuja
+    // nota é descartada.
     if (speakingEvaluations === 0) {
       reasons.push(
-        "Você ainda não tem nenhuma avaliação de fala registrada. Grave as práticas de conversação para que sua média seja calculada.",
+        "Você ainda não tem nenhuma avaliação de fala registrada. Grave as práticas de fala dentro das aulas para que sua média seja calculada.",
       );
     } else if (averageScore < minScoreRequired) {
       reasons.push(
-        `Sua média atual nas avaliações de fala é ${averageScore.toFixed(1)}. É necessário atingir média mínima de ${minScoreRequired.toFixed(1)}.`,
+        `Sua média atual nas práticas de fala das aulas é ${averageScore.toFixed(1)}. É necessário atingir média mínima de ${minScoreRequired.toFixed(1)}.`,
       );
     }
 
