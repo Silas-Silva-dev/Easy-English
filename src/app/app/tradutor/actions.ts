@@ -205,8 +205,19 @@ export async function translateSpeechAction(
     dir === "en→pt" ? ["English", "Brazilian Portuguese"] : ["Brazilian Portuguese", "English"];
 
   try {
-    const response = await withRetry(() =>
-      gemini().models.generateContent({
+    /**
+     * O parse mora DENTRO do `withRetry`, e não depois dele.
+     *
+     * `withRetry` retenta explicitamente "resposta vazia" e "interpretar o
+     * json" — as duas falhas de formato que os modelos com raciocínio
+     * produzem de vez em quando. Com o parse do lado de fora, essa regra nunca
+     * era exercida: um `finishReason: MALFORMED_RESPONSE` (que eu vi este
+     * modelo devolver) chegava aqui como texto indefinido, estourava na
+     * primeira tentativa e virava erro na tela do aluno, sem nenhuma
+     * retentativa. Dentro, a mesma falha vira mais uma tentativa.
+     */
+    const translation = await withRetry(async () => {
+      const response = await gemini().models.generateContent({
         model: geminiModels.tutor,
         contents: [{ role: "user", parts: [{ text: sourceText }] }],
         config: {
@@ -243,15 +254,36 @@ export async function translateSpeechAction(
           thinkingConfig: { thinkingBudget: 0 },
           temperature: 0,
         },
-      }),
-    );
+      });
 
-    const translation = parseJsonResponse<{ translation?: string }>(response.text)?.translation?.trim();
-    if (!translation) return { ok: false, error: "Não consegui traduzir esse trecho." };
+      const texto = parseJsonResponse<{ translation?: string }>(response.text)?.translation?.trim();
+      // Lançar, e não devolver vazio: é o que faz `withRetry` tentar de novo.
+      // Uma tradução vazia com resposta bem formada é raro, mas o remédio é o
+      // mesmo — pedir outra vez custa 890ms e resolve.
+      if (!texto) throw new Error("Resposta vazia do Gemini");
+      return texto;
+    });
 
     return { ok: true, translation };
   } catch (error) {
-    console.error("[tradutor] falha na fala:", error instanceof Error ? error.message : error);
-    return { ok: false, error: "Erro ao traduzir. Verifique sua conexão." };
+    const detalhe = error instanceof Error ? error.message : String(error);
+    console.error("[tradutor] falha na fala:", detalhe);
+
+    /**
+     * A mensagem tem que apontar para a causa certa.
+     *
+     * "Verifique sua conexão" era o texto para tudo, inclusive quando o
+     * problema era o modelo devolvendo formato inválido depois de três
+     * tentativas — e aí o aluno vai olhar o wi-fi enquanto o defeito está no
+     * servidor. Cada caso agora diz o que fazer, e "tentar de novo" só aparece
+     * onde tentar de novo adianta.
+     */
+    if (/resposta vazia|interpretar o json/i.test(detalhe)) {
+      return { ok: false, error: "O tradutor não respondeu direito. Toque em tentar de novo." };
+    }
+    if (/\b429\b|quota|rate.?limit/i.test(detalhe)) {
+      return { ok: false, error: "Limite de traduções atingido por agora. Tente em alguns instantes." };
+    }
+    return { ok: false, error: "Erro ao traduzir. Verifique sua conexão e tente de novo." };
   }
 }
