@@ -8,7 +8,7 @@ import {
   getPaidSession,
 } from "@/lib/auth/guards";
 import { geminiModels, serverEnv } from "@/lib/env";
-import { BRAZILIAN_INTERFERENCE_GUIDE } from "@/lib/gemini/prompts";
+import { liveSystemPrompt, MODO_LIVE_PADRAO } from "@/lib/gemini/live-prompt";
 import { createServerSupabase } from "@/lib/supabase/server";
 
 export const runtime = "nodejs";
@@ -23,15 +23,13 @@ const schema = z.object({
    * (verificado contra a API). Por isso ele sobe até aqui.
    */
   resumeHandle: z.string().trim().max(512).nullish(),
+  /**
+   * Modo da Emma. Sobe a cada pedido de token — inclusive nas reconexões —
+   * porque a instrução de sistema é montada aqui: sem isto, a troca de conexão
+   * dos 10 minutos devolveria a Emma ao modo padrão no meio da conversa.
+   */
+  mode: z.enum(["professora", "conversa"]).nullish(),
 });
-
-const LEVEL_PACE: Record<string, string> = {
-  A1: "Speak slowly and use very short sentences. Give the student time. Never use idioms.",
-  A2: "Speak at a relaxed pace with simple sentences. Occasional common idioms are fine.",
-  B1: "Speak at normal conversational pace. Use natural contractions and common idioms.",
-  B2: "Speak at full natural speed, with reductions (gonna, wanna), idioms and interruptions.",
-  C1: "Speak exactly as you would to another native. No accommodation whatsoever.",
-};
 
 /**
  * Emite um token efêmero para o browser abrir a sessão de voz direto com o
@@ -105,48 +103,15 @@ export async function POST(request: NextRequest) {
     console.warn("[live/token] Falha ao carregar RAG para conversa ao vivo:", e);
   }
 
-  const systemInstruction = `
-You are Emma, an American English conversation partner for a Brazilian learner.
-
-THIS IS A CONVERSATION, NOT A LESSON.
-Your default language is English — keep all turns in English unless the student explicitly
-asks you to switch (e.g. "explain in Portuguese", "fala em português", "can you say that in
-Portuguese?"). When such a request comes, switch to Portuguese for that single turn, then
-naturally return to English for the next one.
-
-If the student speaks Portuguese without requesting a switch, gently encourage them to try
-in English: say something like "Say that in English: you can do it, even if it comes out
-wrong" and wait. Never use this redirect when they explicitly asked for Portuguese.
-
-PACE FOR LEVEL ${level}
-${LEVEL_PACE[level] ?? LEVEL_PACE.B1}
-
-SCENARIO
-${scenario}
-
-${
-  chunks.length
-    ? `TARGET CHUNKS: weave these into your own speech so the student hears them in context.
-Do not announce them, do not drill them:
-${chunks.map((c) => `  - "${c.en}"`).join("\n")}`
-    : ""
-}
-
-${ragContext ? `COURSE KNOWLEDGE CONTEXT:\n${ragContext}` : ""}
-
-HOW TO BEHAVE
-- Keep your turns SHORT. Two or three sentences, then hand it back. The student
-  should be doing most of the talking: this is their practice time, not yours.
-- Ask follow-up questions. Real conversation is curiosity, not interrogation.
-- Let the topic drift naturally after a few exchanges. Conversations wander,
-  and learning to follow the wander is the whole point.
-- Correct ONLY what blocks understanding, and do it inside the flow:
-  recast what they said correctly and move on. Never stop to explain grammar.
-- If they go silent for a few seconds, offer a small prompt or rephrase.
-- Never say you are an AI, a tutor, or that this is an exercise.
-
-${BRAZILIAN_INTERFERENCE_GUIDE}
-`.trim();
+  const systemInstruction = liveSystemPrompt({
+    // Professora é o padrão: é a Emma que ensina, e foi o que o dono do
+    // produto pediu. "conversa" existe para quando o aluno quiser só rodagem.
+    modo: parsed.data.mode ?? MODO_LIVE_PADRAO,
+    level,
+    scenario,
+    chunks,
+    ragContext,
+  });
 
   try {
     const ai = new GoogleGenAI({

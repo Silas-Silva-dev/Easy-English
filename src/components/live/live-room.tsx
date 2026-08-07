@@ -75,6 +75,29 @@ registerProcessor('capture-processor', CaptureProcessor);
 
 type Phase = "idle" | "connecting" | "live" | "closing";
 
+/**
+ * Como a Emma se comporta: professora que corrige, ou parceira de conversa.
+ *
+ * O aluno troca de dois jeitos, e os dois precisam funcionar. Por voz, no meio
+ * da frase — que é o pedido natural ("vamos só conversar agora") e quem entende
+ * é a própria Emma. E por este botão, que existe porque um modo invisível é um
+ * modo que ninguém sabe que pode desligar.
+ */
+type Modo = "professora" | "conversa";
+
+const MODO_PADRAO: Modo = "professora";
+const CHAVE_MODO = "easy-english:live-modo";
+
+/** Preferência do aluno entre sessões. Storage bloqueado nunca derruba a sala. */
+function lerModoSalvo(): Modo {
+  try {
+    const salvo = localStorage.getItem(CHAVE_MODO);
+    return salvo === "conversa" || salvo === "professora" ? salvo : MODO_PADRAO;
+  } catch {
+    return MODO_PADRAO;
+  }
+}
+
 interface Turn {
   role: "user" | "model";
   text: string;
@@ -116,6 +139,21 @@ export function LiveRoom({
   const [seconds, setSeconds] = React.useState(0);
   const [level, setLevel] = React.useState(0);
   const [speaking, setSpeaking] = React.useState(false);
+  const [modo, setModo] = React.useState<Modo>(MODO_PADRAO);
+  /**
+   * O modo também numa ref porque `abrirSessao` é usada pela reconexão, que
+   * roda a partir de callbacks presos ao render em que a conexão abriu. Ler o
+   * estado ali devolveria o modo do começo da conversa.
+   */
+  const modoRef = React.useRef<Modo>(MODO_PADRAO);
+
+  // Na montagem, não no `useState`: o servidor renderiza esta tela antes de
+  // existir `localStorage`, e divergir do HTML entregue quebra a hidratação.
+  React.useEffect(() => {
+    const salvo = lerModoSalvo();
+    modoRef.current = salvo;
+    setModo(salvo);
+  }, []);
 
   const sessionRef = React.useRef<Session | null>(null);
   const streamRef = React.useRef<MediaStream | null>(null);
@@ -290,7 +328,10 @@ export function LiveRoom({
       const tokenResponse = await fetch("/api/live/token", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lessonId, scenario, resumeHandle: handle }),
+        // O modo vai em toda abertura, inclusive nas reconexões: a instrução de
+        // sistema é montada no servidor, e sem ele a troca de conexão dos 10
+        // minutos devolveria a Emma ao padrão no meio da conversa.
+        body: JSON.stringify({ lessonId, scenario, resumeHandle: handle, mode: modoRef.current }),
       });
       const tokenPayload = await tokenResponse.json();
       if (!tokenResponse.ok) throw new Error(tokenPayload?.error ?? "Falha ao obter acesso");
@@ -404,6 +445,46 @@ export function LiveRoom({
     reconectarRef.current = reconectar;
     quedaRef.current = queda;
   }, [reconectar, queda]);
+
+  /**
+   * Troca o modo da Emma.
+   *
+   * Com a sessão no ar a instrução de sistema já foi entregue e não muda mais —
+   * então o aviso vai pela conversa, exatamente como iria se o aluno tivesse
+   * pedido por voz. É o mesmo caminho que a Emma já sabe atender, e não custa
+   * uma reconexão no meio da frase.
+   *
+   * A ref é atualizada de qualquer jeito: é ela que a próxima abertura de
+   * sessão vai ler, inclusive a reconexão automática.
+   */
+  const trocarModo = React.useCallback((novo: Modo) => {
+    if (novo === modoRef.current) return;
+    modoRef.current = novo;
+    setModo(novo);
+
+    try {
+      localStorage.setItem(CHAVE_MODO, novo);
+    } catch {
+      // Navegação privada bloqueia a escrita: a preferência vale só a sessão.
+    }
+
+    const sessao = sessionRef.current;
+    if (!sessao) return;
+
+    try {
+      sessao.sendClientContent({
+        turns:
+          novo === "professora"
+            ? "Switch to TEACHER mode now: from here on, correct my English and explain the corrections in Portuguese. Confirm in one short sentence and carry on with the conversation."
+            : "Switch to CONVERSATION mode now: stop correcting me and just talk with me. Confirm in one short sentence and carry on with the conversation.",
+        turnComplete: true,
+      });
+    } catch (e) {
+      // O botão já mudou o que vale na próxima conexão; perder o aviso só
+      // atrasa o efeito, não pode derrubar a conversa.
+      console.warn("[live] não consegui avisar a troca de modo:", e);
+    }
+  }, []);
 
   async function start() {
     setError(null);
@@ -601,30 +682,64 @@ export function LiveRoom({
           </div>
         </div>
 
-        {/* Empilha no celular: os dois botões somam mais que 320px e o pai é
-            overflow-hidden: "Encerrar" saía decepado, sem rolagem que o
-            recuperasse. */}
-        <div className="flex flex-col items-stretch justify-center gap-3 border-t p-4 sm:flex-row sm:items-center sm:p-5">
-          {phase === "idle" ? (
-            <Button size="lg" variant="gradient" onClick={start}>
-              <Mic className="size-4" /> Iniciar conversa
-            </Button>
-          ) : (
-            <>
-              <Button
-                size="lg"
-                variant={muted ? "destructive" : "outline"}
-                onClick={() => setMuted((m) => !m)}
-                disabled={phase !== "live"}
-              >
-                {muted ? <MicOff className="size-4" /> : <Mic className="size-4" />}
-                {muted ? "Microfone mudo" : "Mudo"}
+        <div className="space-y-4 border-t p-4 sm:p-5">
+          {/* Fica visível durante a conversa, e não só antes dela: é no meio da
+              fala que o aluno descobre que quer desligar a correção. */}
+          <div className="flex flex-col items-center gap-2">
+            <div className="border-border flex overflow-hidden rounded-lg border text-xs font-medium">
+              {(["professora", "conversa"] as Modo[]).map((m) => (
+                <button
+                  key={m}
+                  type="button"
+                  onClick={() => trocarModo(m)}
+                  // Enquanto a sala abre, o token com o modo já foi pedido e a
+                  // sessão ainda não existe para receber o aviso: a troca cairia
+                  // no vazio até a próxima reconexão.
+                  disabled={phase === "connecting" || phase === "closing"}
+                  className={cn(
+                    "px-3.5 py-1.5 transition-colors disabled:opacity-50",
+                    modo === m
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:bg-muted",
+                  )}
+                  aria-pressed={modo === m}
+                >
+                  {m === "professora" ? "Professora" : "Só conversa"}
+                </button>
+              ))}
+            </div>
+            <p className="text-muted-foreground max-w-sm text-center text-xs leading-relaxed">
+              {modo === "professora"
+                ? "A Emma corrige o que você falar e explica em português. Diga “vamos só conversar” quando quiser que ela pare."
+                : "A Emma só conversa, sem corrigir. Diga “volta a corrigir” para ter as correções de volta."}
+            </p>
+          </div>
+
+          {/* Empilha no celular: os dois botões somam mais que 320px e o pai é
+              overflow-hidden: "Encerrar" saía decepado, sem rolagem que o
+              recuperasse. */}
+          <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+            {phase === "idle" ? (
+              <Button size="lg" variant="gradient" onClick={start}>
+                <Mic className="size-4" /> Iniciar conversa
               </Button>
-              <Button size="lg" variant="destructive" onClick={stop} loading={phase === "closing"}>
-                <PhoneOff className="size-4" /> Encerrar
-              </Button>
-            </>
-          )}
+            ) : (
+              <>
+                <Button
+                  size="lg"
+                  variant={muted ? "destructive" : "outline"}
+                  onClick={() => setMuted((m) => !m)}
+                  disabled={phase !== "live"}
+                >
+                  {muted ? <MicOff className="size-4" /> : <Mic className="size-4" />}
+                  {muted ? "Microfone mudo" : "Mudo"}
+                </Button>
+                <Button size="lg" variant="destructive" onClick={stop} loading={phase === "closing"}>
+                  <PhoneOff className="size-4" /> Encerrar
+                </Button>
+              </>
+            )}
+          </div>
         </div>
       </div>
 

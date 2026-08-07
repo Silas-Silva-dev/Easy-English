@@ -48,7 +48,7 @@ export default async function LivePage() {
       <PageHeader
         eyebrow="Tutora de IA"
         title="Conversa ao vivo"
-        description="Voz em tempo real com a Emma. Sem roteiro, sem legenda, sem pausa para pensar: é o exercício que mais se parece com falar com um americano de verdade."
+        description="Voz em tempo real com a Emma. Ela conversa, corrige na hora o que sair errado e explica em português — e para de corrigir na mesma hora, se você pedir."
       />
 
       {circuit ? (
@@ -88,10 +88,18 @@ export default async function LivePage() {
             continuar vale mais que entender 100% travando.
           </p>
           <p>
-            <strong className="text-foreground">Não avaliamos pronúncia aqui.</strong> Esta nota
-            olha fluência, gramática, vocabulário e interação: a partir da transcrição. Para
-            pronúncia, use a gravação em{" "}
-            <span className="text-foreground">Praticar fala</span>, onde a tutora ouve o áudio.
+            <strong className="text-foreground">Você manda no modo.</strong> Em{" "}
+            <span className="text-foreground">Professora</span> ela corrige o que sair errado e
+            explica em português, uma correção por vez. Diga{" "}
+            <em>“vamos só conversar agora”</em> no meio da fala e ela para; diga{" "}
+            <em>“volta a corrigir”</em> e ela retoma. O botão abaixo do cronômetro faz o mesmo.
+          </p>
+          <p>
+            <strong className="text-foreground">A correção de pronúncia é ao vivo; a nota, não.</strong>{" "}
+            Aqui a Emma ouve sua voz de verdade e corrige o som na hora. Já a nota do fim sai da
+            transcrição, então mede fluência, gramática, vocabulário e interação. Para pronúncia
+            com nota, use a gravação em{" "}
+            <span className="text-foreground">Praticar fala</span>.
           </p>
         </CardContent>
       </Card>
