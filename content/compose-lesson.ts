@@ -49,6 +49,8 @@ import type {
   QuizQuestion,
 } from "@/lib/types/database";
 
+import { chunkKey, chunksSpokenIn } from "@/lib/srs";
+
 import type { AuthenticPiece } from "./circuits/authentic";
 import type { AuthenticInput, CircuitSpec, DayRole } from "./curriculum";
 
@@ -1004,19 +1006,44 @@ function composeLessonBody(ctx: ComposeContext): ComposedLesson {
         };
       }
 
+      /**
+       * O que o aluno JÁ TEM dentro desta conversa.
+       *
+       * Sem isto, entender 60% parece fracasso. Com a lista na mão, cada bloco
+       * reconhecido vira ponto marcado, e o dia deixa de ser "não entendi" para
+       * virar "peguei estes cinco".
+       *
+       * `chunksSpokenIn` já resolve o casamento tolerando o `___` dos moldes: é
+       * a mesma função que decide, na correção de fala, se o aluno produziu o
+       * bloco. Aqui ela responde a pergunta espelhada — se o áudio contém.
+       */
+      const textoDaPeca = piece.lines.map(([, en]) => en).join(" ");
+      const ancoradas = new Set(chunksSpokenIn(textoDaPeca, chunks));
+      const ancoras = chunks.filter((c) => ancoradas.has(chunkKey(c.en)));
+
       return {
         content: {
           warmup:
             "Hoje entra fala que **não foi feita para estudante**. Os diálogos do circuito são limpos e pausados de " +
             "propósito; esta conversa é rápida, tem gíria, gente se interrompendo e assunto mudando no meio. " +
-            "É de propósito também: quem só treina no limpo trava no primeiro contato com o sujo.",
+            "É de propósito também: quem só treina no limpo trava no primeiro contato com o sujo.\n\n" +
+            `**${piece.title}.** ${piece.why} Cerca de ${piece.minutes} minutos.\n\n` +
+            "**O que conta como sucesso hoje:** reconhecer três ou quatro coisas na primeira escuta. Não é " +
+            "entender a conversa inteira — não vai ser hoje, e não precisa ser. É o seu ouvido pegar a velocidade real.",
           blocks: [
             howToListen,
-            {
-              type: "text",
-              title: piece.title,
-              body: `${piece.why}\n\nCerca de ${piece.minutes} minutos de escuta.`,
-            },
+            ...(ancoras.length
+              ? ([
+                  {
+                    type: "drill",
+                    title: "Você já conhece isto, e vai ouvir na conversa",
+                    instruction:
+                      "Leia antes de tocar o áudio. São os seus blocos, agora no meio de fala real: cada um que " +
+                      "você reconhecer no áudio é um ponto seu.",
+                    items: ancoras.map((c) => `${c.en} — ${c.pt}`),
+                  },
+                ] as LessonBlock[])
+              : []),
             {
               type: "callout",
               variant: "warning",
@@ -1026,6 +1053,20 @@ function composeLessonBody(ctx: ComposeContext): ComposedLesson {
                 "encontro repetido em contexto, não por lista. Se você entender uns 60%, está no ponto certo. " +
                 "As três perguntas no fim medem se você pegou o que importa, não cada palavra.",
             },
+            /**
+             * A tradução, por último e sempre disponível.
+             *
+             * Este era o ÚNICO dia de escuta sem português. `scriptOf` monta a
+             * transcrição só com o inglês, e os dias 1, 4 e 12 escapam disso
+             * porque passam por `dialogueBlock`. Ou seja: no dia mais difícil
+             * do circuito, e só nele, o aluno não tinha como conferir o que
+             * ouviu — com a tradução já escrita, revisada e versionada em
+             * `authentic.json`, descartada na hora de renderizar.
+             *
+             * Fica no fim, depois do player e do aviso, porque a ordem é o
+             * método: ouve primeiro, confere depois.
+             */
+            dialogueBlock("A conversa inteira, com tradução", piece.lines),
           ],
           summary:
             "Entender fala real, com ruído e velocidade, é o que separa entender o professor de entender um americano.",

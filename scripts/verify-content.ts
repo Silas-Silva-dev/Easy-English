@@ -20,6 +20,7 @@ import {
   DAY_RHYTHM,
   livePromptFor,
 } from "@content/curriculum";
+import { chunksSpokenIn } from "@/lib/srs";
 import type { Chunk } from "@/lib/types/database";
 
 const problems: string[] = [];
@@ -105,7 +106,39 @@ function main() {
     if (speakers.length !== 2) {
       warn(`${where}: ${speakers.length} locutores (${speakers.join(", ")}): o TTS exige 2`);
     }
-    if (piece.lines.length < 20) warn(`${where}: só ${piece.lines.length} falas`);
+
+    const circuito = CIRCUITS.find((c) => c.number === piece.n);
+    const nivel = circuito
+      ? (CANTOS.find((k) => piece.n >= k.weekStart && piece.n <= k.weekEnd)?.level ?? "B1")
+      : "B1";
+
+    // O mínimo acompanha o nível: 20 falas valem para um B1, e são peça longa
+    // demais para quem está no oitavo dia de inglês. Ver CALIBRAGEM em
+    // `scripts/generate-listening.ts`.
+    const minimoFalas = nivel === "A1" ? 12 : nivel === "A2" ? 18 : 20;
+    if (piece.lines.length < minimoFalas) {
+      warn(`${where}: só ${piece.lines.length} falas (mínimo ${minimoFalas} para ${nivel})`);
+    }
+
+    /**
+     * Âncoras: quantos dos blocos treinados aparecem de fato no áudio.
+     *
+     * É a checagem que teria pegado o defeito do circuito 1 — 25 falas, dois
+     * minutos, e nenhum dos 7 blocos dos dias 1 a 7. Sem âncora o dia 8 deixa
+     * de ser um degrau e vira um muro: o aluno não reconhece nada, e conclui
+     * que o curso pulou uma etapa.
+     */
+    if (circuito) {
+      const texto = piece.lines.map(([, en]) => en).join(" ");
+      const ancoras = chunksSpokenIn(texto, circuito.chunks).length;
+      const exigido = nivel === "A1" ? 4 : nivel === "A2" ? 3 : nivel === "B1" ? 2 : 1;
+      if (ancoras < exigido) {
+        warn(
+          `${where}: ${ancoras} dos ${circuito.chunks.length} blocos do circuito aparecem no áudio ` +
+            `(mínimo ${exigido} para ${nivel}) — o aluno não tem onde se segurar`,
+        );
+      }
+    }
 
     for (const [who, en, pt] of piece.lines) {
       if (en.includes("/")) warn(`${where}: fala de ${who} contém "/": quebra o roteiro`);

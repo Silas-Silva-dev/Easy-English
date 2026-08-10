@@ -31,6 +31,8 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { chunksSpokenIn } from "../src/lib/srs";
+
 import { CAST_PEOPLE, isCast } from "../content/audio-manifest";
 import { CANTOS, CIRCUITS } from "../content/curriculum";
 
@@ -41,6 +43,61 @@ function levelOf(circuitNumber: number): string {
   return (
     CANTOS.find((c) => circuitNumber >= c.weekStart && circuitNumber <= c.weekEnd)?.level ?? "A2"
   );
+}
+
+/**
+ * O tamanho do salto, por nível.
+ *
+ * O briefing era um só para os 52 circuitos: 24 a 40 falas, "vá além do
+ * vocabulário do circuito", para o aluno de A1 do oitavo dia e para o de C1 do
+ * ducentésimo. O resultado no circuito 1 foi uma conversa de escritório de 25
+ * falas com "Welcome aboard", "kinda like a maze" e "Tell me about it" — e
+ * NENHUM dos 7 blocos que o aluno tinha acabado de treinar.
+ *
+ * O salto é a razão de existir do dia 8 e continua aqui. O que muda é o chão
+ * embaixo dele: quanto mais cedo no curso, mais curta a peça e mais âncoras
+ * dentro dela.
+ */
+const CALIBRAGEM: Record<string, { min: number; max: number; ancoras: number; giria: string }> = {
+  A1: {
+    min: 12,
+    max: 18,
+    ancoras: 4,
+    giria:
+      "Contractions yes. Reductions (\"gonna\", \"kinda\") sparingly, two or three in the whole " +
+      "piece. Idioms ONLY when the very next line makes the meaning obvious — an A1 learner reads " +
+      "\"Tell me about it\" as a request for information, which is the opposite of what it means.",
+  },
+  A2: {
+    min: 18,
+    max: 26,
+    ancoras: 3,
+    giria:
+      "Contractions always, reductions where natural. A couple of common idioms are fine if the " +
+      "scene supports them.",
+  },
+  B1: {
+    min: 24,
+    max: 36,
+    ancoras: 2,
+    giria: "Contractions and reductions throughout. Idioms and phrasal verbs freely.",
+  },
+  B2: {
+    min: 26,
+    max: 40,
+    ancoras: 2,
+    giria: "Full natural speed on the page: idioms, slang, sarcasm, people talking over each other.",
+  },
+  C1: {
+    min: 26,
+    max: 40,
+    ancoras: 1,
+    giria: "No accommodation whatsoever. Write it as two natives actually talk.",
+  },
+};
+
+function calibragemDe(circuitNumber: number) {
+  return CALIBRAGEM[levelOf(circuitNumber)] ?? CALIBRAGEM.B1;
 }
 
 const JSON_PATH = join(process.cwd(), "content", "circuits", "authentic.json");
@@ -61,7 +118,9 @@ interface Piece {
  * Esquema exigido do modelo. Sem isto o retorno varia de forma a cada chamada
  * e o JSON do curso vira um campo minado de casos especiais.
  */
-const RESPONSE_SCHEMA = {
+function schemaFor(circuitNumber: number) {
+  const cal = calibragemDe(circuitNumber);
+  return {
   type: "object",
   required: ["kind", "title", "why", "minutes", "lines", "questions"],
   properties: {
@@ -71,8 +130,12 @@ const RESPONSE_SCHEMA = {
     minutes: { type: "integer" },
     lines: {
       type: "array",
-      minItems: 24,
-      maxItems: 40,
+      // Do nível, e não fixo em 24: com `minItems: 24` gravado aqui, pedir 12 a
+      // 18 falas no texto do briefing era pedir o impossível — o esquema ganha
+      // do prompt, sempre. Foi assim que a peça de A1 saiu com 24 falas e a
+      // culpa pareceu ser do modelo.
+      minItems: cal.min,
+      maxItems: cal.max,
       items: {
         type: "array",
         minItems: 3,
@@ -96,10 +159,15 @@ const RESPONSE_SCHEMA = {
       },
     },
   },
-} as const;
+  } as const;
+}
 
-function promptFor(circuit: (typeof CIRCUITS)[number]): string {
-  return `
+function promptFor(circuit: (typeof CIRCUITS)[number], correcao?: string): string {
+  return `${
+    correcao
+      ? `A TENTATIVA ANTERIOR FOI REJEITADA: ${correcao}\nCorrija isso nesta versão. Tudo o mais abaixo continua valendo.\n`
+      : ""
+  }
 You are writing extended listening material for a Brazilian learner of American English.
 
 CIRCUIT ${circuit.number}: "${circuit.title}" (CEFR ${levelOf(circuit.number)})
@@ -107,13 +175,19 @@ Situation the student already trained: ${circuit.situation}
 Chunks they already own:
 ${circuit.chunks.map((c) => `  - "${c.en}"`).join("\n")}
 
-WRITE ONE LONGER LISTENING PIECE (24 to 40 lines).
+WRITE ONE LONGER LISTENING PIECE (${calibragemDe(circuit.number).min} to ${calibragemDe(circuit.number).max} lines).
 
 This piece must be HARDER than what they trained, on purpose. It is the day
-that bridges classroom English and real English. So:
+that bridges classroom English and real English. But harder than what they
+trained is not the same as unrelated to it, and that distinction is the whole
+brief:
 
-  - Real conversational American English. Contractions always. Reductions in
-    the spelling where natural ("gonna", "wanna", "kinda", "lemme").
+  - AT LEAST ${calibragemDe(circuit.number).ancoras} of the chunks listed above must appear in the piece, word for
+    word, spread across it — not all in the first three lines. They are the
+    student's footholds: without them the day stops being a stretch and becomes
+    a wall, and a learner who recognises nothing concludes the course skipped a
+    step. Everything else around them can and should be new.
+  - Real conversational American English. ${calibragemDe(circuit.number).giria}
   - EXACTLY TWO speakers, and their names MUST be one from each list below.
     Pick the pair that fits the scene; do not invent a name.
       women: ${CAST_PEOPLE.f.join(", ")}
@@ -126,9 +200,11 @@ that bridges classroom English and real English. So:
     Within that limit, make it messy like real talk: they interrupt each
     other, change subject, backtrack, use filler ("uh", "I mean", "you know",
     "like"), and mention other people by name without those people speaking.
-  - It must go BEYOND the circuit's vocabulary. Introduce natural words the
-    student has not seen: that is the point of this day. Do not restrict
-    yourself to the chunk list; just stay plausible for ${levelOf(circuit.number)}.
+  - Around those footholds it must go BEYOND the circuit's vocabulary. Introduce
+    natural words the student has not seen: that is the point of this day. Stay
+    plausible for ${levelOf(circuit.number)} — a learner eight days into English does not need
+    "Welcome aboard" to hear real speech, they need real speech about something
+    they can follow.
   - Topic must ORBIT the circuit situation without repeating its dialogue.
     Same world, different scene, more going on.
   - No line may contain the "/" character: it is the script separator.
@@ -217,13 +293,19 @@ function sanitize(piece: Piece): Piece {
   };
 }
 
-async function generate(circuit: (typeof CIRCUITS)[number], model: string): Promise<Piece> {
+async function generate(
+  circuit: (typeof CIRCUITS)[number],
+  model: string,
+  correcao?: string,
+): Promise<Piece> {
+  const cal = calibragemDe(circuit.number);
+
   const response = await genai().models.generateContent({
     model,
-    contents: [{ role: "user", parts: [{ text: promptFor(circuit) }] }],
+    contents: [{ role: "user", parts: [{ text: promptFor(circuit, correcao) }] }],
     config: {
       responseMimeType: "application/json",
-      responseSchema: RESPONSE_SCHEMA as never,
+      responseSchema: schemaFor(circuit.number) as never,
       temperature: 0.9,
     },
   });
@@ -234,8 +316,52 @@ async function generate(circuit: (typeof CIRCUITS)[number], model: string): Prom
   const parsed = JSON.parse(text) as Omit<Piece, "n">;
   const piece = sanitize({ ...parsed, n: circuit.number });
 
-  if (piece.lines.length < 20) throw new Error(`só ${piece.lines.length} falas`);
+  if (piece.lines.length < cal.min || piece.lines.length > cal.max) {
+    throw new Error(
+      `${piece.lines.length} falas, fora da faixa de ${levelOf(circuit.number)} (${cal.min} a ${cal.max})`,
+    );
+  }
   if (piece.questions.length !== 3) throw new Error(`${piece.questions.length} perguntas`);
+
+  /**
+   * Âncoras: os blocos do circuito precisam estar DENTRO do áudio.
+   *
+   * É a checagem que faltava, e a ausência dela é o defeito que gerou a
+   * reclamação: o briefing antigo mandava ir além do vocabulário do circuito e
+   * nunca pediu que algum bloco aparecesse. Vinte e quatro das quarenta e seis
+   * peças saíram sem uma única âncora — o circuito 1 com zero de sete.
+   *
+   * A mesma função que a correção de fala usa para decidir se o aluno produziu
+   * o bloco responde aqui a pergunta espelhada: o áudio contém.
+   */
+  const ancoras = chunksSpokenIn(
+    piece.lines.map(([, en]) => en).join(" "),
+    circuit.chunks,
+  ).length;
+  if (ancoras < cal.ancoras) {
+    throw new Error(
+      `${ancoras} blocos do circuito no áudio, mínimo ${cal.ancoras} para ${levelOf(circuit.number)}`,
+    );
+  }
+
+  /**
+   * O nome que a personagem diz precisa ser o nome no rótulo.
+   *
+   * Saiu `Kate: "Hi, I'm Ana."` com o outro locutor perguntando "are you Ana?".
+   * O rótulo é o que escolhe a voz no `audio-manifest.ts`, então a peça fica
+   * coerente no áudio e incoerente no texto — e um iniciante lê isso como
+   * "não entendi", não como "o gerador errou".
+   *
+   * Só acusa quando o nome apresentado é do elenco: "I'm Brazilian" e "I'm
+   * good" não disparam.
+   */
+  for (const [quem, en] of piece.lines) {
+    const apresentacao = en.match(/\b(?:I'?m|I am|my name'?s|my name is)\s+([A-Z][a-z]{2,})/);
+    const nome = apresentacao?.[1];
+    if (nome && isCast(nome) && nome !== quem) {
+      throw new Error(`${quem} se apresenta como "${nome}": rótulo e fala discordam`);
+    }
+  }
 
   // O TTS multi-locutor do Gemini exige DOIS locutores, nem mais nem menos: // três devolve 400 e a peça ficaria sem áudio. Barramos aqui para o problema
   // aparecer na redação, e não lá na frente no lote de áudio.
@@ -293,6 +419,20 @@ async function main() {
   const COOLDOWN_MAX_MS = 300_000;
   const GIVE_UP_AFTER = 5;
 
+  /**
+   * Peça reprovada é refeita, não descartada.
+   *
+   * Antes, qualquer erro que não fosse de cota fazia `queue.shift()` e o
+   * circuito ficava sem peça — ou, pior, com a peça velha. Agora o motivo da
+   * reprovação volta para dentro do prompt e o modelo tenta de novo sabendo o
+   * que errou. Peça ruim no repositório é pior que peça faltando: o `case 8`
+   * do compositor sabe cair na prescrição antiga quando falta, e não sabe
+   * adivinhar quando o conteúdo está errado.
+   */
+  const TENTATIVAS_EXTRAS = 2;
+  const tentativas = new Map<number, number>();
+  const correcoes = new Map<number, string>();
+
   let cooldown = COOLDOWN_START_MS;
   let refusals = 0;
   let written = 0;
@@ -302,7 +442,7 @@ async function main() {
     const circuit = queue[0];
 
     try {
-      const piece = await generate(circuit, options.model);
+      const piece = await generate(circuit, options.model, correcoes.get(circuit.number));
 
       const index = pieces.findIndex((p) => p.n === circuit.number);
       if (index === -1) pieces.push(piece);
@@ -355,9 +495,23 @@ async function main() {
         continue;
       }
 
-      queue.shift();
       const message = error instanceof Error ? error.message : String(error);
-      console.log(`  \x1b[31m✗\x1b[0m c${circuit.number}: ${message.slice(0, 140)}`);
+      const feitas = (tentativas.get(circuit.number) ?? 0) + 1;
+      tentativas.set(circuit.number, feitas);
+
+      if (feitas <= TENTATIVAS_EXTRAS) {
+        correcoes.set(circuit.number, message);
+        console.log(
+          `  \x1b[33m↻\x1b[0m c${circuit.number}: ${message.slice(0, 110)} — refazendo (${feitas}/${TENTATIVAS_EXTRAS})`,
+        );
+        await sleep(options.delayMs);
+        continue;
+      }
+
+      queue.shift();
+      console.log(
+        `  \x1b[31m✗\x1b[0m c${circuit.number}: ${message.slice(0, 120)} — desisti após ${feitas} tentativas`,
+      );
     }
 
     if (queue.length) await sleep(options.delayMs);
