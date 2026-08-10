@@ -381,11 +381,17 @@ const DAY_BRIEFINGS: Record<number, { goal: string; steps: string[]; note?: stri
   8: {
     goal: "Hoje você ouve inglês de verdade, do jeito que ele existe fora de curso nenhum.",
     steps: [
+      "Veja primeiro a lista do que você já conhece: é o que vai reconhecer no meio da fala.",
       "Ouça uma vez inteira sem parar, mesmo perdendo pedaços.",
-      "Ouça de novo prestando atenção só no que você reconhece.",
-      "Não traduza. Acompanhe.",
+      "Ouça de novo e conte quantos daqueles blocos você pegou.",
+      "Só então abra a tradução, no fim da página, para conferir o resto.",
     ],
-    note: "Aqui a meta não é entender tudo: é acostumar o ouvido à velocidade real.",
+    // "Não traduza" saiu daqui: era instrução de uma versão em que a tradução
+    // não existia nesta tela. Agora existe, e a diferença que importa não é
+    // traduzir ou não — é traduzir DEPOIS de ouvir, e não em vez de ouvir.
+    note:
+      "Reconhecer três ou quatro coisas na primeira escuta já é o resultado esperado. " +
+      "Entender a conversa inteira não é a meta de hoje: acostumar o ouvido à velocidade real é.",
   },
   9: {
     goal: "Hoje você fala JUNTO com o áudio. É o exercício que mais aproxima seu sotaque do nativo.",
@@ -1038,8 +1044,8 @@ function composeLessonBody(ctx: ComposeContext): ComposedLesson {
                     type: "drill",
                     title: "Você já conhece isto, e vai ouvir na conversa",
                     instruction:
-                      "Leia antes de tocar o áudio. São os seus blocos, agora no meio de fala real: cada um que " +
-                      "você reconhecer no áudio é um ponto seu.",
+                      "São os seus blocos, agora no meio de fala real. Cada um que você reconhecer no áudio é " +
+                      "um ponto seu — e é assim que se mede o dia de hoje.",
                     items: ancoras.map((c) => `${c.en} — ${c.pt}`),
                   },
                 ] as LessonBlock[])
