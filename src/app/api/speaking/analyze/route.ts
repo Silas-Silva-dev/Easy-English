@@ -7,6 +7,7 @@ import {
 } from "@/lib/auth/guards";
 import { descreverErro, erroDeRede } from "@/lib/gemini/client";
 import { analyzeSpeaking, normalizeAudioMime } from "@/lib/gemini/speaking";
+import { syncEnrollmentStudyStats } from "@/lib/learning";
 import { createAdminSupabase } from "@/lib/supabase/admin";
 import { createServerSupabase } from "@/lib/supabase/server";
 import { chunksSpokenIn } from "@/lib/srs";
@@ -209,9 +210,22 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Registra o tempo de estudo praticado na sessão de fala
+    /**
+     * Registra o tempo praticado nesta gravação.
+     *
+     * Com o cliente DO ALUNO, não com o de service role. `register_study_activity`
+     * é `security definer` e confere a posse da matrícula por `auth.uid()`
+     * (`where e.user_id = auth.uid() or is_admin()`) — service role não tem
+     * `auth.uid()`, então ela levantava "Matricula nao encontrada ou acesso
+     * negado" em TODA fala enviada, e o `catch` abaixo engolia.
+     *
+     * O mesmo defeito já tinha sido corrigido na conclusão de lição; aqui ele
+     * tinha sobrado. O efeito era invisível do mesmo jeito: a correção
+     * aparecia na tela, e os minutos da prática de fala não entravam no dia
+     * nem na ofensiva.
+     */
     try {
-      const { data: enrollment } = await admin
+      const { data: enrollment } = await supabase
         .from("enrollments")
         .select("id")
         .eq("user_id", session.userId)
@@ -219,11 +233,18 @@ export async function POST(request: NextRequest) {
 
       if (enrollment) {
         const mins = Math.max(1, Math.round((duration ?? 60) / 60));
-        await admin.rpc("register_study_activity", {
+        const { error: activityError } = await supabase.rpc("register_study_activity", {
           p_enrollment_id: enrollment.id,
           p_minutes: mins,
           p_lessons_done: 0,
         });
+
+        // Falhar aqui não pode custar o dia de estudo: o recálculo refaz a
+        // conta a partir das sessões já gravadas.
+        if (activityError) {
+          console.error("[speaking] falha ao registrar atividade:", activityError.message);
+          await syncEnrollmentStudyStats(session.userId, enrollment.id);
+        }
       }
     } catch (e) {
       console.warn("[speaking] falha ao registrar minutos praticados:", e);
