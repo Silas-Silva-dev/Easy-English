@@ -59,7 +59,7 @@ export default async function ProfilePage() {
             <ShieldCheck className="size-4" /> Situação da conta
           </CardTitle>
         </CardHeader>
-        <CardContent className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <CardContent className="grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <p className="text-muted-foreground text-xs tracking-wide uppercase">E-mail</p>
             <p className="mt-1 flex items-center gap-1.5 text-sm break-all">

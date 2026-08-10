@@ -131,8 +131,8 @@ export default async function ConversationPage({
                 // min-h-10: A1 e A2 ficam adjacentes; com 28px o dedo troca o
                 // cenário inteiro por engano.
                 item.prompt === selected.prompt
-                  ? "bg-primary text-primary-foreground inline-flex min-h-10 items-center rounded-full px-4 text-xs font-medium"
-                  : "bg-muted text-muted-foreground hover:bg-accent inline-flex min-h-10 items-center rounded-full px-4 text-xs font-medium transition-colors"
+                  ? "bg-primary text-primary-foreground inline-flex min-h-10 max-sm:min-h-11 items-center rounded-full px-4 max-sm:px-5 text-xs max-sm:text-sm font-medium"
+                  : "bg-muted text-muted-foreground hover:bg-accent inline-flex min-h-10 max-sm:min-h-11 items-center rounded-full px-4 max-sm:px-5 text-xs max-sm:text-sm font-medium transition-colors"
               }
             >
               {item.level}

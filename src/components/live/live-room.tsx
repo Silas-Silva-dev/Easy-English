@@ -1,6 +1,6 @@
 "use client";
 
-import { GoogleGenAI, Modality, type LiveServerMessage, type Session } from "@google/genai";
+import type { LiveServerMessage, Session } from "@google/genai";
 import { AlertCircle, Loader2, Mic, MicOff, PhoneOff, Radio } from "lucide-react";
 import * as React from "react";
 import { toast } from "sonner";
@@ -335,6 +335,20 @@ export function LiveRoom({
       });
       const tokenPayload = await tokenResponse.json();
       if (!tokenResponse.ok) throw new Error(tokenPayload?.error ?? "Falha ao obter acesso");
+
+      /**
+       * O SDK entra aqui, e nao no topo do arquivo.
+       *
+       * Importado estaticamente ele viajava no pacote inicial da tela: ~320 KB
+       * de JavaScript baixados e interpretados por quem só abriu a página para
+       * ler o cenário do circuito. Num celular em rede móvel isso é tempo de
+       * tela parada antes de qualquer coisa aparecer.
+       *
+       * Aqui dentro ele só é buscado quando o aluno toca em "Iniciar conversa".
+       * Não há risco de gesto perdido: `start()` já pediu o microfone antes de
+       * chegar nesta função, e conexão de WebSocket não exige ativação.
+       */
+      const { GoogleGenAI, Modality } = await import("@google/genai");
 
       const ai = new GoogleGenAI({
         apiKey: tokenPayload.token,
@@ -697,7 +711,7 @@ export function LiveRoom({
                   // no vazio até a próxima reconexão.
                   disabled={phase === "connecting" || phase === "closing"}
                   className={cn(
-                    "px-3.5 py-1.5 transition-colors disabled:opacity-50",
+                    "px-3.5 py-1.5 max-sm:min-h-11 max-sm:flex-1 transition-colors disabled:opacity-50",
                     modo === m
                       ? "bg-primary text-primary-foreground"
                       : "text-muted-foreground hover:bg-muted",

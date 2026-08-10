@@ -252,7 +252,7 @@ export default async function StudentDashboard() {
       </div>
 
       {/* ------------------------------------------------- Atalhos Rápidos */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Link
           href={`/app/canto/${currentCantoSpec.code.toLowerCase()}`}
           className="group bg-card card-hover flex flex-col justify-between rounded-xl border p-4"
@@ -329,7 +329,7 @@ export default async function StudentDashboard() {
       </div>
 
       {/* ---------------------------------------------------------- Métricas de Desempenho */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
           label="Ofensiva atual"
           value={`${enrollment.streak_current} dias`}

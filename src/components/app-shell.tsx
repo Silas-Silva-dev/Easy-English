@@ -70,6 +70,26 @@ const ICONS = {
   translate: Languages,
 } as const;
 
+/**
+ * Barra inferior do celular.
+ *
+ * A navegação inteira estava atrás do menu sanduíche, no canto SUPERIOR
+ * ESQUERDO — o ponto mais distante do polegar de quem segura o aparelho com
+ * uma mão só —, e chegar a qualquer tela custava dois toques.
+ *
+ * Estes quatro são o uso diário: começar o dia, revisar o que vence, gravar
+ * uma fala, conversar com a Emma. O quinto abre o mesmo painel de sempre, com
+ * o resto (tradutor, progresso, certificado, cantos, perfil).
+ *
+ * Não aparece no `lg`, onde a barra lateral já resolve isso melhor.
+ */
+const ATALHOS: { href: string; label: string; icon: keyof typeof ICONS; exact?: boolean }[] = [
+  { href: "/app", label: "Painel", icon: "dashboard", exact: true },
+  { href: "/app/revisao", label: "Revisão", icon: "brain" },
+  { href: "/app/conversacao", label: "Fala", icon: "mic" },
+  { href: "/app/ao-vivo", label: "Ao vivo", icon: "radio" },
+];
+
 const ROLE_LABEL: Record<Profile["role"], string> = {
   student: "Aluno",
   instructor: "Instrutor",
@@ -384,7 +404,7 @@ export function AppShell({
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button className="hover:bg-accent flex items-center gap-2 rounded-lg py-1 pr-2 pl-1 transition-colors">
+              <button className="hover:bg-accent flex max-sm:min-h-11 items-center gap-2 rounded-lg py-1 pr-2 pl-1 transition-colors">
                 <Avatar className="size-8">
                   {profile.avatar_url ? <AvatarImage src={profile.avatar_url} alt="" /> : null}
                   <AvatarFallback>{initials(profile.full_name ?? profile.email)}</AvatarFallback>
@@ -431,9 +451,45 @@ export function AppShell({
 
         {/* O recuo de baixo soma o indicador de home: sem ele o ultimo card
             fica atras da barrinha e o polegar nao alcanca. */}
-        <main className="min-w-0 flex-1 px-4 pt-8 pb-[calc(2rem+var(--safe-bottom))] sm:px-6 lg:px-8">
+        <main className="min-w-0 flex-1 px-4 pt-8 pb-[calc(2rem+var(--safe-bottom))] max-lg:pb-[calc(5.75rem+var(--safe-bottom))] sm:px-6 lg:px-8">
           {children}
         </main>
+
+        {/* ------------------------------------------- Barra inferior (celular) */}
+        <nav
+          className="glass fixed inset-x-0 bottom-0 z-40 grid grid-cols-5 border-t pb-[var(--safe-bottom)] lg:hidden"
+          aria-label="Navegação principal"
+        >
+          {ATALHOS.map((atalho) => {
+            const Icon = ICONS[atalho.icon];
+            const active = isActive(atalho as NavItem);
+            return (
+              <Link
+                key={atalho.href}
+                href={atalho.href}
+                onClick={() => handleNavClick(atalho.href)}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "flex min-h-14 flex-col items-center justify-center gap-1 text-xs font-medium transition-colors",
+                  active ? "text-primary" : "text-muted-foreground",
+                )}
+              >
+                <Icon className={cn("size-5", active && "scale-110")} />
+                {atalho.label}
+              </Link>
+            );
+          })}
+
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label="Abrir menu"
+            className="text-muted-foreground flex min-h-14 flex-col items-center justify-center gap-1 text-xs font-medium transition-colors"
+          >
+            <Menu className="size-5" />
+            Menu
+          </button>
+        </nav>
       </div>
     </div>
   );

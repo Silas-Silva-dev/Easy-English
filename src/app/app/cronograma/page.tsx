@@ -153,7 +153,7 @@ export default async function SchedulePage({
 
             {activeModule.can_do.length ? (
               <div className="pt-2 space-y-2.5">
-                <p className="text-muted-foreground text-[11px] font-semibold tracking-wider uppercase">
+                <p className="text-muted-foreground max-sm:text-xs text-[11px] font-semibold tracking-wider uppercase">
                   Ao final deste canto você consegue
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -227,7 +227,7 @@ export default async function SchedulePage({
 
                       return (
                         <div key={phase}>
-                          <p className="text-muted-foreground mb-2 text-[10px] font-bold tracking-wider uppercase">
+                          <p className="text-muted-foreground mb-2 max-sm:text-xs text-[10px] font-bold tracking-wider uppercase">
                             {phase === "A"
                               ? `Aquisição · dias ${firstDay} a ${firstDay + 6}`
                               : `Consolidação · dias ${firstDay + 7} a ${lastDay}`}
@@ -285,7 +285,7 @@ function DayCard({
       )}
     >
       <div className="flex items-center justify-between gap-2">
-        <span className="text-[11px] font-semibold tabular-nums">Dia {lesson.day_number}</span>
+        <span className="max-sm:text-xs text-[11px] font-semibold tabular-nums">Dia {lesson.day_number}</span>
         <Icon
           className={cn(
             "size-3.5 shrink-0",
@@ -296,7 +296,7 @@ function DayCard({
         />
       </div>
       <p className="mt-1.5 line-clamp-2 text-xs leading-snug font-medium">{lesson.title}</p>
-      <p className="text-muted-foreground mt-1.5 text-[10px]">
+      <p className="text-muted-foreground mt-1.5 max-sm:text-xs text-[10px]">
         {LESSON_KIND_LABEL[lesson.kind as keyof typeof LESSON_KIND_LABEL]}
       </p>
     </div>

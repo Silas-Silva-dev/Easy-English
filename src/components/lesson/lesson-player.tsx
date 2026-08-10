@@ -266,7 +266,7 @@ export function LessonPlayer({
                   key={s.id}
                   onClick={() => setStep(s.id)}
                   className={cn(
-                    "flex min-h-10 items-center gap-1.5 rounded-full px-3 py-2.5 text-xs font-medium transition-colors",
+                    "flex min-h-10 max-sm:min-h-11 items-center gap-1.5 rounded-full px-3 py-2.5 text-xs max-sm:text-sm font-medium transition-colors",
                     alreadyCompleted
                       ? active
                         ? "bg-success/20 text-success ring-2 ring-success/50 font-bold"

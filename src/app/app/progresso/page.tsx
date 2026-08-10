@@ -78,7 +78,7 @@ export default async function ProgressPage() {
         description="Onde você estava, onde está e o que os números dizem sobre a sua fala."
       />
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <StatCard
           label="Ofensiva"
           value={`${enrollment.streak_current} dias`}

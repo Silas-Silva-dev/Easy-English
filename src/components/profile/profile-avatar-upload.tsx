@@ -105,7 +105,7 @@ export function ProfileAvatarUpload({ profile }: { profile: Profile }) {
         <button
           type="button"
           onClick={() => fileInputRef.current?.click()}
-          className="bg-primary text-primary-foreground absolute bottom-0 right-0 grid size-8 place-items-center rounded-full shadow-lg transition-transform hover:scale-110"
+          className="bg-primary text-primary-foreground absolute bottom-0 right-0 grid size-8 max-sm:size-11 place-items-center rounded-full shadow-lg transition-transform hover:scale-110"
           aria-label="Alterar foto"
           title="Alterar foto de perfil"
         >

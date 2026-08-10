@@ -27,18 +27,18 @@ export function StatCard({
   className?: string;
 }) {
   return (
-    <div className={cn("bg-card card-hover rounded-xl border p-5 shadow-xs", className)}>
+    <div className={cn("bg-card card-hover rounded-xl border p-5 max-sm:p-4 shadow-xs", className)}>
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="text-muted-foreground truncate text-xs font-medium tracking-wide uppercase">
+          <p className="text-muted-foreground truncate max-sm:overflow-visible max-sm:whitespace-normal text-xs font-medium tracking-wide uppercase">
             {label}
           </p>
-          <p className="mt-2 text-2xl font-semibold tabular-nums">{value}</p>
+          <p className="mt-2 text-2xl max-sm:text-xl font-semibold tabular-nums">{value}</p>
         </div>
         {icon ? (
           <div
             className={cn(
-              "grid size-10 shrink-0 place-items-center rounded-lg [&_svg]:size-5",
+              "grid size-10 max-sm:size-8 shrink-0 place-items-center rounded-lg [&_svg]:size-5 max-sm:[&_svg]:size-4",
               TONE_STYLES[tone],
             )}
           >

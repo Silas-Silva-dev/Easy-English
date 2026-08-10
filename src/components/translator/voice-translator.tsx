@@ -506,7 +506,7 @@ export function VoiceTranslator() {
                 if (listening) stop();
               }}
               className={cn(
-                "px-3 py-1.5 transition-colors",
+                "px-3 py-1.5 max-sm:min-h-11 transition-colors",
                 direction === d
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground hover:bg-muted",

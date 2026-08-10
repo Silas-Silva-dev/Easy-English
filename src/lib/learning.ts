@@ -94,7 +94,36 @@ export async function getOrCreateEnrollment(
     .single();
 
   if (error) {
-    console.error("[learning] falha ao criar matrícula:", error.message);
+    /**
+     * 23505 = violação do índice único (user_id, course_id).
+     *
+     * É a corrida do primeiro acesso: o aluno entra e o navegador dispara
+     * várias requisições ao mesmo tempo (a página, o prefetch do link, o
+     * layout). Todas leem "não tem matrícula" antes de qualquer uma inserir,
+     * e a segunda em diante esbarra no índice.
+     *
+     * Antes disto a perdedora devolvia `null` e o painel dizia "Não foi
+     * possível abrir sua matrícula" — no primeiro login, que é justamente
+     * quando o aluno acabou de pagar. A matrícula existia: quem falhou foi só
+     * esta requisição. Então busca a que a vencedora criou.
+     */
+    if (error.code === "23505") {
+      // Duas leituras, e não uma: o conflito estoura no instante em que a
+      // vencedora ainda está confirmando a transação, e a primeira busca pode
+      // chegar antes do commit dela. 150ms resolvem o que sobra.
+      for (const espera of [0, 150]) {
+        if (espera) await new Promise((r) => setTimeout(r, espera));
+        const { data: concorrente } = await supabase
+          .from("enrollments")
+          .select("*")
+          .eq("user_id", userId)
+          .eq("course_id", course.id)
+          .maybeSingle();
+        if (concorrente) return concorrente;
+      }
+    }
+
+    console.error("[learning] falha ao criar matrícula:", error.code, error.message);
     return null;
   }
 
