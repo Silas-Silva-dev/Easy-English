@@ -38,7 +38,7 @@ import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { audioJobs, chunkVoice, isCast, narratorVoice } from "@content/audio-manifest";
+import { audioJobs, chunkVoice, isCast, spokenLines } from "@content/audio-manifest";
 
 const DIR = join(process.cwd(), "public", "audio");
 const LEDGER = join(DIR, "engines.json");
@@ -47,7 +47,7 @@ const MODELO_ALVO = "gemini-3.1-flash-tts-preview";
 /** Hz que cada motor produz. Ver o cabeçalho. */
 const HZ_GEMINI = 24000;
 
-type Entry = string | { engine: string; model?: string };
+type Entry = string | { engine: string; model?: string; voice?: string };
 
 function lerLedger(): Record<string, Entry> {
   try {
@@ -56,6 +56,9 @@ function lerLedger(): Record<string, Entry> {
     return {};
   }
 }
+
+const registradoVoz = (e: Entry | undefined) =>
+  e && typeof e !== "string" ? e.voice : undefined;
 
 function taxa(id: string): number | null {
   const p = join(DIR, `${id}.mp3`);
@@ -81,9 +84,25 @@ function taxa(id: string): number | null {
  * ganhou quatro nomes que antes caíam no sorteio por hash. Arquivo com voz
  * errada não é reaproveitável mesmo tendo o texto certo.
  */
-function vozAindaVale(job: ReturnType<typeof audioJobs>[number]): boolean {
-  if (job.kind === "dialogue") return job.speakers.every((s) => isCast(s));
-  return chunkVoice(job.text, "gemini") === narratorVoice("gemini");
+function vozAindaVale(
+  job: ReturnType<typeof audioJobs>[number],
+  gravada: string | undefined,
+): boolean {
+  // Um locutor fora do elenco cai no sorteio por hash, sempre.
+  if (job.kind === "dialogue" && !job.speakers.every((s) => isCast(s))) return false;
+
+  const esperada =
+    job.kind === "dialogue"
+      ? spokenLines(job, "gemini").map((l) => l.voice).join("+")
+      : chunkVoice(job.text, "gemini");
+
+  // Sem voz gravada nao da para afirmar nada: entradas antigas do livro-razao
+  // nao guardavam esse campo. Acusar aqui produziria o falso positivo que esta
+  // funcao existe para evitar — quatro arquivos corretos apontados como
+  // desatualizados so porque a voz deles nao e a da narradora.
+  if (!gravada) return true;
+
+  return gravada === esperada;
 }
 
 function main() {
@@ -113,7 +132,8 @@ function main() {
     if (motorReal === "gemini") gemini++;
     else piper++;
 
-    if (motorReal === "gemini" && !vozAindaVale(job)) vozVelha++;
+    const gravada = registradoVoz(ledger[job.id]);
+    if (motorReal === "gemini" && !vozAindaVale(job, gravada)) vozVelha++;
 
     const registrado = ledger[job.id];
     const motorRegistrado = registrado
@@ -124,8 +144,14 @@ function main() {
 
     if (motorRegistrado !== motorReal) {
       corrigidos++;
-      ledger[job.id] =
-        motorReal === "gemini" ? { engine: "gemini", model: MODELO_ALVO } : { engine: "piper" };
+      // A voz gravada é preservada: ela é a única prova de COM QUAL timbre o
+      // arquivo saiu, e reescrever a entrada sem ela apagaria justamente o
+      // dado que torna a próxima auditoria exata em vez de suposta.
+      ledger[job.id] = {
+        engine: motorReal,
+        ...(motorReal === "gemini" ? { model: MODELO_ALVO } : {}),
+        ...(gravada ? { voice: gravada } : {}),
+      };
     }
 
     if (i % 500 === 0) process.stdout.write(`\r  ${i}/${jobs.length}   `);

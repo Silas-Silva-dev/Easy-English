@@ -137,7 +137,7 @@ const LEDGER_PATH = join(OUT_DIR, "engines.json");
  *
  * As entradas antigas são strings soltas; `engineOf` aceita as duas formas.
  */
-type LedgerEntry = Engine | { engine: Engine; model?: string };
+type LedgerEntry = Engine | { engine: Engine; model?: string; voice?: string };
 
 function engineOf(entry: LedgerEntry | undefined): Engine | undefined {
   if (!entry) return undefined;
@@ -692,7 +692,15 @@ async function runPiper(
           console.log(`  ${id} vozes carregadas, sintetizando…\n`);
         } else if (tag === "OK") {
           generated++;
-          ledger[id] = "piper";
+          const alvo = wanted.find((j) => j.id === id);
+          ledger[id] = {
+            engine: "piper",
+            voice: alvo
+              ? alvo.kind === "dialogue"
+                ? spokenLines(alvo, "piper").map((l) => l.voice).join("+")
+                : chunkVoice(alvo.text, "piper")
+              : undefined,
+          };
           // Grava a cada arquivo: uma queda no meio não perde o registro do
           // que já foi feito, e o --upgrade continua sabendo a origem de cada um.
           writeLedger(ledger);
@@ -985,7 +993,18 @@ async function main() {
          * Gravado a cada arquivo, como no Piper: uma queda no meio do lote não
          * perde o registro do que já foi feito.
          */
-        ledger[job.id] = model ? { engine: options.engine, model } : options.engine;
+        // A VOZ vai junto, e nao so o motor e o modelo.
+        //
+        // Sem ela nao da para saber se um arquivo foi gravado antes ou depois
+        // de uma mudanca na regra de voz — e a auditoria acusava quatro
+        // arquivos corretos de estarem desatualizados, porque so conseguia
+        // comparar "que voz este texto teria hoje" com "a narradora padrao".
+        // Guardando a voz usada, a comparacao passa a ser exata.
+        const vozUsada =
+          job.kind === "dialogue"
+            ? spokenLines(job, options.engine).map((l) => l.voice).join("+")
+            : chunkVoice(job.text, options.engine);
+        ledger[job.id] = { engine: options.engine, ...(model ? { model } : {}), voice: vozUsada };
         writeLedger(ledger);
 
         const secs = (pcm.length / (rate * 2)).toFixed(1);
