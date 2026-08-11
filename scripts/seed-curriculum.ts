@@ -11,8 +11,7 @@
  * Idempotente: rodar de novo atualiza o que existe em vez de duplicar.
  */
 
-import blocosJson from "@content/metodo/blocos.json";
-import dialogosJson from "@content/metodo/dialogos.json";
+import { materialDoCircuito } from "@content/material";
 import {
   composeLesson,
   type Bloco,
@@ -57,31 +56,6 @@ const COURSE = {
   accent_color: "#FF4A17",
   is_published: true,
 };
-
-/**
- * O material de um circuito, juntando as duas fontes que o alimentam.
- *
- * `blocos.json` e `dialogos.json` são escritos por geradores diferentes e em
- * momentos diferentes, então um circuito pode ter blocos e ainda não ter
- * diálogo. Devolver `null` deixa o chamador decidir — o semeador pula, o
- * verificador reclama — em vez de derrubar tudo por um circuito incompleto.
- */
-function materialDoCircuito(n: number): MaterialDoCircuito | null {
-  const b = (blocosJson as unknown as { n: number; blocos: Bloco[] }[]).find((c) => c.n === n);
-  if (!b?.blocos?.length) return null;
-
-  const d = (
-    dialogosJson as unknown as { n: number; imersao: Fala[]; escuta: Fala[]; deriva: string[] }[]
-  ).find((c) => c.n === n);
-
-  return {
-    n,
-    blocos: b.blocos,
-    imersao: d?.imersao ?? [],
-    escuta: d?.escuta ?? [],
-    deriva: d?.deriva ?? [],
-  };
-}
 
 async function main() {
   // Antes de tocar no banco: o curso tem que estar inteiro.

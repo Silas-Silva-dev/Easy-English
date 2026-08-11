@@ -34,8 +34,7 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-import blocosJson from "@content/metodo/blocos.json";
-import dialogosJson from "@content/metodo/dialogos.json";
+import { materialDoCircuito } from "@content/material";
 import {
   composeLesson,
   type Bloco,
@@ -57,31 +56,6 @@ const OUT_PATH = join(process.cwd(), "content", "pronunciation.json");
 const CHECK = process.argv.includes("--check");
 
 /** Todo inglês que aparece na tela ao lado de uma tradução. */
-/**
- * O material de um circuito, juntando as duas fontes que o alimentam.
- *
- * `blocos.json` e `dialogos.json` são escritos por geradores diferentes e em
- * momentos diferentes, então um circuito pode ter blocos e ainda não ter
- * diálogo. Devolver `null` deixa o chamador decidir — o semeador pula, o
- * verificador reclama — em vez de derrubar tudo por um circuito incompleto.
- */
-function materialDoCircuito(n: number): MaterialDoCircuito | null {
-  const b = (blocosJson as unknown as { n: number; blocos: Bloco[] }[]).find((c) => c.n === n);
-  if (!b?.blocos?.length) return null;
-
-  const d = (
-    dialogosJson as unknown as { n: number; imersao: Fala[]; escuta: Fala[]; deriva: string[] }[]
-  ).find((c) => c.n === n);
-
-  return {
-    n,
-    blocos: b.blocos,
-    imersao: d?.imersao ?? [],
-    escuta: d?.escuta ?? [],
-    deriva: d?.deriva ?? [],
-  };
-}
-
 function englishIn(block: LessonBlock): string[] {
   if (block.type === "dialogue") return block.lines.map((l) => l.en);
   if (block.type === "examples") return block.items.map((i) => i.en);

@@ -32966,6 +32966,1939 @@
     ]
   },
   {
+    "n": 37,
+    "blocos": [
+      {
+        "en": "If I were you, I'd take a break for a few days.",
+        "pt": "Se eu fosse você, eu tiraria uma folga por uns dias.",
+        "quando": "Ao sugerir que um amigo descanse após um momento difícil.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't take a break yet.",
+            "pt": "Se eu fosse você, eu não tiraria uma folga ainda."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you take a break if you were me?",
+            "pt": "Você tiraria uma folga se estivesse no meu lugar?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If he were you, he'd take a break for a few days.",
+            "pt": "Se ele fosse você, ele tiraria uma folga por uns dias."
+          },
+          {
+            "tipo": "passado",
+            "en": "If I had been you, I would've taken a break.",
+            "pt": "Se eu tivesse sido você, eu teria tirado uma folga."
+          },
+          {
+            "tipo": "educada",
+            "en": "I think you should take a break for a few days.",
+            "pt": "Eu acho que você deveria tirar uma folga por uns dias."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Honestly, if I were you, I'd take a break for a few days, you look exhausted.",
+            "pt": "Sinceramente, se eu fosse você, eu tiraria uma folga por uns dias, você parece exausto."
+          },
+          {
+            "en": "You seem stressed, so if I were you, I'd take a break for a few days.",
+            "pt": "Você parece estressado, então se eu fosse você, eu tiraria uma folga por uns dias."
+          },
+          {
+            "en": "If I were you, I'd take a break for a few days before you burn out.",
+            "pt": "Se eu fosse você, eu tiraria uma folga por uns dias antes de você surtar."
+          },
+          {
+            "en": "Listen, if I were you, I'd take a break for a few days to clear your head.",
+            "pt": "Escuta, se eu fosse você, eu tiraria uma folga por uns dias para clarear a mente."
+          },
+          {
+            "en": "Maybe if I were you, I'd take a break for a few days, you need it.",
+            "pt": "Talvez se eu fosse você, eu tiraria uma folga por uns dias, você precisa disso."
+          }
+        ]
+      },
+      {
+        "en": "You should've told me how you were feeling earlier.",
+        "pt": "Você deveria ter me contado como estava se sentindo antes.",
+        "quando": "Ao expressar que o amigo poderia ter compartilhado o problema mais cedo.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "You shouldn't have told me how you were feeling earlier.",
+            "pt": "Você não deveria ter me contado como estava se sentindo antes."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should you have told me how you were feeling earlier?",
+            "pt": "Você deveria ter me contado como estava se sentindo antes?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He should've told me how he was feeling earlier.",
+            "pt": "Ele deveria ter me contado como ele estava se sentindo antes."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I should've.",
+            "pt": "Sim, eu deveria."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Look, you should've told me how you were feeling earlier, I could've helped.",
+            "pt": "Olha, você deveria ter me contado como estava se sentindo antes, eu poderia ter ajudado."
+          },
+          {
+            "en": "I'm upset because you should've told me how you were feeling earlier.",
+            "pt": "Eu estou chateado porque você deveria ter me contado como estava se sentindo antes."
+          },
+          {
+            "en": "Next time, you should've told me how you were feeling earlier so we could talk.",
+            "pt": "Na próxima, você deveria ter me contado como estava se sentindo antes para podermos conversar."
+          },
+          {
+            "en": "I wish you should've told me how you were feeling earlier instead of waiting.",
+            "pt": "Eu queria que você tivesse me contado como estava se sentindo antes em vez de esperar."
+          },
+          {
+            "en": "If you needed support, you should've told me how you were feeling earlier.",
+            "pt": "Se você precisava de apoio, você deveria ter me contado como estava se sentindo antes."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd let him know exactly what happened.",
+        "pt": "Se eu fosse você, eu avisaria ele exatamente o que aconteceu.",
+        "quando": "Ao aconselhar o amigo a ser honesto com alguém.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't let him know exactly what happened.",
+            "pt": "Se eu fosse você, eu não contaria para ele exatamente o que aconteceu."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you let him know exactly what happened?",
+            "pt": "Você contaria para ele exatamente o que aconteceu?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If she were you, she'd let him know exactly what happened.",
+            "pt": "Se ela fosse você, ela contaria para ele exatamente o que aconteceu."
+          },
+          {
+            "tipo": "passado",
+            "en": "If I were you, I would've let him know what happened.",
+            "pt": "Se eu fosse você, eu teria contado para ele o que aconteceu."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Trust me, if I were you, I'd let him know exactly what happened right now.",
+            "pt": "Confia em mim, se eu fosse você, eu contaria para ele exatamente o que aconteceu agora."
+          },
+          {
+            "en": "Honestly, if I were you, I'd let him know exactly what happened before he hears rumors.",
+            "pt": "Honestamente, se eu fosse você, eu contaria para ele exatamente o que aconteceu antes que ele ouça boatos."
+          },
+          {
+            "en": "If I were you, I'd let him know exactly what happened to clear the air.",
+            "pt": "Se eu fosse você, eu contaria para ele exatamente o que aconteceu para limpar a barra."
+          },
+          {
+            "en": "I think if I were you, I'd let him know exactly what happened immediately.",
+            "pt": "Eu acho que se eu fosse você, eu contaria para ele exatamente o que aconteceu imediatamente."
+          },
+          {
+            "en": "To be safe, if I were you, I'd let him know exactly what happened today.",
+            "pt": "Para garantir, se eu fosse você, eu contaria para ele exatamente o que aconteceu hoje."
+          }
+        ]
+      },
+      {
+        "en": "I could've handled the situation better, honestly.",
+        "pt": "Eu poderia ter lidado com a situação melhor, honestamente.",
+        "quando": "Ao admitir um arrependimento pessoal sobre uma atitude passada.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I couldn't have handled the situation better.",
+            "pt": "Eu não poderia ter lidado com a situação melhor."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Could you have handled the situation better?",
+            "pt": "Você poderia ter lidado com a situação melhor?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He could've handled the situation better, honestly.",
+            "pt": "Ele poderia ter lidado com a situação melhor, honestamente."
+          },
+          {
+            "tipo": "educada",
+            "en": "I think I could've handled the situation better.",
+            "pt": "Eu acho que eu poderia ter lidado com a situação melhor."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Looking back, I could've handled the situation better, honestly.",
+            "pt": "Olhando para trás, eu poderia ter lidado com a situação melhor, honestamente."
+          },
+          {
+            "en": "I know I could've handled the situation better, honestly, but I was stressed.",
+            "pt": "Eu sei que eu poderia ter lidado com a situação melhor, honestamente, mas eu estava estressado."
+          },
+          {
+            "en": "Maybe I could've handled the situation better, honestly, I'm sorry.",
+            "pt": "Talvez eu pudesse ter lidado com a situação melhor, honestamente, sinto muito."
+          },
+          {
+            "en": "I admit I could've handled the situation better, honestly, my bad.",
+            "pt": "Eu admito que eu poderia ter lidado com a situação melhor, honestamente, foi mal."
+          },
+          {
+            "en": "In hindsight, I could've handled the situation better, honestly, I made mistakes.",
+            "pt": "Em retrospecto, eu poderia ter lidado com a situação melhor, honestamente, eu cometi erros."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd apologize before things get worse.",
+        "pt": "Se eu fosse você, eu pediria desculpas antes que as coisas piorem.",
+        "quando": "Ao sugerir que o amigo se retrate para evitar conflito maior.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't apologize before things get worse.",
+            "pt": "Se eu fosse você, eu não pediria desculpas antes que as coisas piorem."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you apologize before things get worse?",
+            "pt": "Você pediria desculpas antes que as coisas piorem?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If she were you, she'd apologize before things get worse.",
+            "pt": "Se ela fosse você, ela pediria desculpas antes que as coisas piorem."
+          },
+          {
+            "tipo": "futuro",
+            "en": "I will apologize before things get worse.",
+            "pt": "Eu vou pedir desculpas antes que as coisas piorem."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "If I were you, I'd apologize before things get worse, he's really angry.",
+            "pt": "Se eu fosse você, eu pediria desculpas antes que as coisas piorem, ele está muito bravo."
+          },
+          {
+            "en": "Seriously, if I were you, I'd apologize before things get worse today.",
+            "pt": "Sério, se eu fosse você, eu pediria desculpas antes que as coisas piorem hoje."
+          },
+          {
+            "en": "Just a tip, if I were you, I'd apologize before things get worse.",
+            "pt": "Só uma dica, se eu fosse você, eu pediria desculpas antes que as coisas piorem."
+          },
+          {
+            "en": "If I were you, I'd apologize before things get worse for everyone involved.",
+            "pt": "Se eu fosse você, eu pediria desculpas antes que as coisas piorem para todos os envolvidos."
+          },
+          {
+            "en": "I think if I were you, I'd apologize before things get worse right now.",
+            "pt": "Eu acho que se eu fosse você, eu pediria desculpas antes que as coisas piorem agora."
+          }
+        ]
+      },
+      {
+        "en": "You shouldn't have let them treat you like that.",
+        "pt": "Você não deveria ter deixado eles te tratarem assim.",
+        "quando": "Ao demonstrar apoio contra alguém que abusou da confiança do amigo.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "You should have let them treat you like that.",
+            "pt": "Você deveria ter deixado eles te tratarem assim."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should you have let them treat you like that?",
+            "pt": "Você deveria ter deixado eles te tratarem assim?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He shouldn't have let them treat him like that.",
+            "pt": "Ele não deveria ter deixado eles tratarem ele assim."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I shouldn't have.",
+            "pt": "Não, eu não deveria."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm saying you shouldn't have let them treat you like that, have some respect.",
+            "pt": "Eu estou dizendo que você não deveria ter deixado eles te tratarem assim, tenha respeito."
+          },
+          {
+            "en": "Honestly, you shouldn't have let them treat you like that, you deserve better.",
+            "pt": "Honestamente, você não deveria ter deixado eles te tratarem assim, você merece melhor."
+          },
+          {
+            "en": "You shouldn't have let them treat you like that, it's just not okay.",
+            "pt": "Você não deveria ter deixado eles te tratarem assim, simplesmente não está certo."
+          },
+          {
+            "en": "Whatever happened, you shouldn't have let them treat you like that at work.",
+            "pt": "O que quer que tenha acontecido, você não deveria ter deixado eles te tratarem assim no trabalho."
+          },
+          {
+            "en": "If you ask me, you shouldn't have let them treat you like that before.",
+            "pt": "Se você quer saber, você não deveria ter deixado eles te tratarem assim antes."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd start looking for a new job.",
+        "pt": "Se eu fosse você, eu começaria a procurar um emprego novo.",
+        "quando": "Ao dar um conselho sobre uma carreira insustentável.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't start looking for a new job yet.",
+            "pt": "Se eu fosse você, eu não começaria a procurar um emprego novo ainda."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "What would you do if you were me and wanted to start looking for a new job?",
+            "pt": "O que você faria se estivesse no meu lugar e quisesse procurar um emprego novo?"
+          },
+          {
+            "tipo": "educada",
+            "en": "If I were you, I'd consider starting to look for a new job soon.",
+            "pt": "Se eu fosse você, eu consideraria começar a procurar um emprego novo logo."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Honestly, if I were you, I'd start looking for a new job before things get worse.",
+            "pt": "Sinceramente, se eu fosse você, eu começaria a procurar um emprego novo antes que as coisas piorem."
+          },
+          {
+            "en": "If I were you, I'd start looking for a new job because this environment is toxic.",
+            "pt": "Se eu fosse você, eu começaria a procurar um emprego novo porque esse ambiente é tóxico."
+          },
+          {
+            "en": "I know it's hard, but if I were you, I'd start looking for a new job.",
+            "pt": "Eu sei que é difícil, mas se eu fosse você, eu começaria a procurar um emprego novo."
+          },
+          {
+            "en": "If I were you, I'd start looking for a new job while you still have this one.",
+            "pt": "Se eu fosse você, eu começaria a procurar um emprego novo enquanto você ainda tem este."
+          },
+          {
+            "en": "You seem unhappy, so if I were you, I'd start looking for a new job.",
+            "pt": "Você parece infeliz, então se eu fosse você, eu começaria a procurar um emprego novo."
+          }
+        ]
+      },
+      {
+        "en": "I should've trusted my gut instinct from the start.",
+        "pt": "Eu deveria ter confiado na minha intuição desde o começo.",
+        "quando": "Ao confessar um arrependimento por não ter seguido o próprio instinto.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I shouldn't have trusted my gut instinct from the start.",
+            "pt": "Eu não deveria ter confiado na minha intuição desde o começo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Why do you think I should've trusted my gut instinct from the start?",
+            "pt": "Por que você acha que eu deveria ter confiado na minha intuição desde o começo?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He should've trusted his gut instinct from the start.",
+            "pt": "Ele deveria ter confiado na intuição dele desde o começo."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Looking back, I should've trusted my gut instinct from the start.",
+            "pt": "Olhando para trás, eu deveria ter confiado na minha intuição desde o começo."
+          },
+          {
+            "en": "I realize now that I should've trusted my gut instinct from the start.",
+            "pt": "Eu percebo agora que eu deveria ter confiado na minha intuição desde o começo."
+          },
+          {
+            "en": "I feel like I should've trusted my gut instinct from the start of the project.",
+            "pt": "Sinto que eu deveria ter confiado na minha intuição desde o começo do projeto."
+          },
+          {
+            "en": "Honestly, I should've trusted my gut instinct from the start of our relationship.",
+            "pt": "Sinceramente, eu deveria ter confiado na minha intuição desde o começo do nosso relacionamento."
+          },
+          {
+            "en": "You were right, I should've trusted my gut instinct from the start.",
+            "pt": "Você estava certo, eu deveria ter confiado na minha intuição desde o começo."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd walk away and not look back.",
+        "pt": "Se eu fosse você, eu iria embora e não olharia para trás.",
+        "quando": "Ao aconselhar alguém a se afastar de uma situação tóxica.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't walk away and not look back.",
+            "pt": "Se eu fosse você, eu não iria embora sem olhar para trás."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you walk away and not look back if you were me?",
+            "pt": "Você iria embora e não olharia para trás se estivesse no meu lugar?"
+          },
+          {
+            "tipo": "educada",
+            "en": "If I were you, I'd consider walking away and not looking back.",
+            "pt": "Se eu fosse você, eu consideraria ir embora e não olhar para trás."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "If I were you, I'd walk away and not look back right now.",
+            "pt": "Se eu fosse você, eu iria embora e não olharia para trás agora mesmo."
+          },
+          {
+            "en": "Seriously, if I were you, I'd walk away and not look back.",
+            "pt": "Sério, se eu fosse você, eu iria embora e não olharia para trás."
+          },
+          {
+            "en": "If I were you, I'd walk away and not look back, trust me.",
+            "pt": "Se eu fosse você, eu iria embora e não olharia para trás, acredite em mim."
+          },
+          {
+            "en": "You deserve better, so if I were you, I'd walk away and not look back.",
+            "pt": "Você merece algo melhor, então se eu fosse você, eu iria embora e não olharia para trás."
+          },
+          {
+            "en": "If I were you, I'd walk away and not look back because it's over.",
+            "pt": "Se eu fosse você, eu iria embora e não olharia para trás porque acabou."
+          }
+        ]
+      },
+      {
+        "en": "You could've been more careful with what you said.",
+        "pt": "Você poderia ter sido mais cuidadoso com o que disse.",
+        "quando": "Ao apontar um erro de comunicação do amigo num momento delicado.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "You couldn't have been more careful with what you said.",
+            "pt": "Você não poderia ter sido mais cuidadoso com o que disse."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Could I have been more careful with what I said?",
+            "pt": "Eu poderia ter sido mais cuidadoso com o que disse?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She could've been more careful with what she said.",
+            "pt": "Ela poderia ter sido mais cuidadosa com o que disse."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I think you could've been more careful with what you said to him.",
+            "pt": "Eu acho que você poderia ter sido mais cuidadoso com o que disse a ele."
+          },
+          {
+            "en": "Honestly, you could've been more careful with what you said during the meeting.",
+            "pt": "Sinceramente, você poderia ter sido mais cuidadoso com o que disse durante a reunião."
+          },
+          {
+            "en": "I'm sorry, but you could've been more careful with what you said.",
+            "pt": "Desculpe, mas você poderia ter sido mais cuidadoso com o que disse."
+          },
+          {
+            "en": "Next time, you could've been more careful with what you said.",
+            "pt": "Na próxima, você poderia ter sido mais cuidadoso com o que disse."
+          },
+          {
+            "en": "You could've been more careful with what you said before the boss arrived.",
+            "pt": "Você poderia ter sido mais cuidadoso com o que disse antes do chefe chegar."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd take some time to think it over.",
+        "pt": "Se eu fosse você, eu tiraria um tempo para pensar melhor.",
+        "quando": "Ao sugerir cautela antes de tomar uma decisão impulsiva.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't take some time to think it over.",
+            "pt": "Se eu fosse você, eu não tiraria um tempo para pensar melhor."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you take some time to think it over if you were me?",
+            "pt": "Você tiraria um tempo para pensar melhor se estivesse no meu lugar?"
+          },
+          {
+            "tipo": "educada",
+            "en": "If I were you, I'd really take some time to think it over.",
+            "pt": "Se eu fosse você, eu realmente tiraria um tempo para pensar melhor."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "If I were you, I'd take some time to think it over before you decide.",
+            "pt": "Se eu fosse você, eu tiraria um tempo para pensar melhor antes de decidir."
+          },
+          {
+            "en": "Don't rush, if I were you, I'd take some time to think it over.",
+            "pt": "Não tenha pressa, se eu fosse você, eu tiraria um tempo para pensar melhor."
+          },
+          {
+            "en": "If I were you, I'd take some time to think it over tonight.",
+            "pt": "Se eu fosse você, eu tiraria um tempo para pensar melhor hoje à noite."
+          },
+          {
+            "en": "It's a big choice, so if I were you, I'd take some time to think it over.",
+            "pt": "É uma escolha grande, então se eu fosse você, eu tiraria um tempo para pensar melhor."
+          },
+          {
+            "en": "If I were you, I'd take some time to think it over carefully.",
+            "pt": "Se eu fosse você, eu tiraria um tempo para pensar melhor cuidadosamente."
+          }
+        ]
+      },
+      {
+        "en": "I should've stayed home instead of going out last night.",
+        "pt": "Eu deveria ter ficado em casa em vez de sair ontem à noite.",
+        "quando": "Ao lamentar uma decisão que trouxe consequências ruins.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I shouldn't have stayed home instead of going out last night.",
+            "pt": "Eu não deveria ter ficado em casa em vez de sair ontem à noite."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Why should I have stayed home instead of going out last night?",
+            "pt": "Por que eu deveria ter ficado em casa em vez de sair ontem à noite?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He should've stayed home instead of going out last night.",
+            "pt": "Ele deveria ter ficado em casa em vez de sair ontem à noite."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I feel like I should've stayed home instead of going out last night.",
+            "pt": "Eu sinto que eu deveria ter ficado em casa em vez de sair ontem à noite."
+          },
+          {
+            "en": "Honestly, I should've stayed home instead of going out last night.",
+            "pt": "Sinceramente, eu deveria ter ficado em casa em vez de sair ontem à noite."
+          },
+          {
+            "en": "I'm so tired, I should've stayed home instead of going out last night.",
+            "pt": "Estou tão cansado, eu deveria ter ficado em casa em vez de sair ontem à noite."
+          },
+          {
+            "en": "Thinking about it, I should've stayed home instead of going out last night.",
+            "pt": "Pensando bem, eu deveria ter ficado em casa em vez de sair ontem à noite."
+          },
+          {
+            "en": "I regret that I should've stayed home instead of going out last night.",
+            "pt": "Eu me arrependo, eu deveria ter ficado em casa em vez de sair ontem à noite."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd be honest about your mistakes.",
+        "pt": "Se eu fosse você, eu seria honesto sobre meus erros.",
+        "quando": "Ao incentivar a transparência para resolver um problema.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't be honest about my mistakes.",
+            "pt": "Se eu fosse você, eu não seria honesto sobre meus erros."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you be honest about your mistakes if you were me?",
+            "pt": "Você seria honesto sobre seus erros se fosse eu?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I'd be honest about my mistakes if I were in your shoes.",
+            "pt": "Eu seria honesto sobre meus erros se estivesse no seu lugar."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "If I were you, I'd be honest about your mistakes, or things might get worse.",
+            "pt": "Se eu fosse você, eu seria honesto sobre seus erros, ou as coisas podem piorar."
+          },
+          {
+            "en": "Look, if I were you, I'd be honest about your mistakes right now.",
+            "pt": "Olha, se eu fosse você, eu seria honesto sobre seus erros agora mesmo."
+          },
+          {
+            "en": "Believe me, if I were you, I'd be honest about your mistakes to your boss.",
+            "pt": "Acredite em mim, se eu fosse você, eu seria honesto sobre seus erros com seu chefe."
+          },
+          {
+            "en": "It's a tough call, but if I were you, I'd be honest about your mistakes.",
+            "pt": "É uma decisão difícil, mas se eu fosse você, eu seria honesto sobre seus erros."
+          },
+          {
+            "en": "Honestly, if I were you, I'd be honest about your mistakes before he finds out.",
+            "pt": "Sinceramente, se eu fosse você, eu seria honesto sobre seus erros antes que ele descubra."
+          }
+        ]
+      },
+      {
+        "en": "You could've called me if you were feeling lonely.",
+        "pt": "Você poderia ter me ligado se estivesse se sentindo solitário.",
+        "quando": "Ao mostrar disponibilidade para ouvir o amigo em momentos difíceis.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "You couldn't have called me if you weren't feeling lonely.",
+            "pt": "Você não poderia ter me ligado se não estivesse se sentindo solitário."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Could you have called me if you were feeling lonely?",
+            "pt": "Você poderia ter me ligado se estivesse se sentindo solitário?"
+          },
+          {
+            "tipo": "passado",
+            "en": "I could've called you when I was feeling lonely.",
+            "pt": "Eu poderia ter te ligado quando eu estava me sentindo solitário."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "You could've called me if you were feeling lonely, you know?",
+            "pt": "Você poderia ter me ligado se estivesse se sentindo solitário, sabe?"
+          },
+          {
+            "en": "I was at home all night, so you could've called me if you were feeling lonely.",
+            "pt": "Eu estava em casa a noite toda, então você poderia ter me ligado se estivesse se sentindo solitário."
+          },
+          {
+            "en": "Please remember that you could've called me if you were feeling lonely.",
+            "pt": "Por favor, lembre-se que você poderia ter me ligado se estivesse se sentindo solitário."
+          },
+          {
+            "en": "I'm sorry you struggled, but you could've called me if you were feeling lonely.",
+            "pt": "Sinto muito que você tenha sofrido, mas você poderia ter me ligado se estivesse se sentindo solitário."
+          },
+          {
+            "en": "Anyway, you could've called me if you were feeling lonely last week.",
+            "pt": "De qualquer forma, você poderia ter me ligado se estivesse se sentindo solitário na semana passada."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd prioritize your own mental health.",
+        "pt": "Se eu fosse você, eu priorizaria sua própria saúde mental.",
+        "quando": "Ao sugerir que o amigo coloque o bem-estar acima de tudo.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't prioritize my own mental health.",
+            "pt": "Se eu fosse você, eu não priorizaria minha própria saúde mental."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you prioritize your own mental health if you were me?",
+            "pt": "Você priorizaria sua própria saúde mental se fosse eu?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If he were me, he'd prioritize his own mental health.",
+            "pt": "Se ele fosse eu, ele priorizaria a própria saúde mental dele."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Listen, if I were you, I'd prioritize your own mental health above everything else.",
+            "pt": "Escute, se eu fosse você, eu priorizaria sua própria saúde mental acima de tudo."
+          },
+          {
+            "en": "I think if I were you, I'd prioritize your own mental health this semester.",
+            "pt": "Eu acho que se eu fosse você, eu priorizaria sua própria saúde mental neste semestre."
+          },
+          {
+            "en": "Take some time off, if I were you, I'd prioritize your own mental health.",
+            "pt": "Tire um tempo de folga, se eu fosse você, eu priorizaria sua própria saúde mental."
+          },
+          {
+            "en": "Seriously, if I were you, I'd prioritize your own mental health right now.",
+            "pt": "Sério, se eu fosse você, eu priorizaria sua própria saúde mental agora."
+          },
+          {
+            "en": "Trust me, if I were you, I'd prioritize your own mental health today.",
+            "pt": "Confie em mim, se eu fosse você, eu priorizaria sua própria saúde mental hoje."
+          }
+        ]
+      },
+      {
+        "en": "I should've warned you about his personality sooner.",
+        "pt": "Eu deveria ter te avisado sobre a personalidade dele antes.",
+        "quando": "Ao lamentar não ter alertado o amigo sobre alguém perigoso.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I shouldn't have warned you about his personality sooner.",
+            "pt": "Eu não deveria ter te avisado sobre a personalidade dele antes."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should I have warned you about his personality sooner?",
+            "pt": "Eu deveria ter te avisado sobre a personalidade dele antes?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He should've warned me about her personality sooner.",
+            "pt": "Ele deveria ter me avisado sobre a personalidade dela antes."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm sorry, I should've warned you about his personality sooner.",
+            "pt": "Sinto muito, eu deveria ter te avisado sobre a personalidade dele antes."
+          },
+          {
+            "en": "Looking back, I should've warned you about his personality sooner, I guess.",
+            "pt": "Olhando para trás, eu deveria ter te avisado sobre a personalidade dele antes, eu acho."
+          },
+          {
+            "en": "I feel bad, I should've warned you about his personality sooner than I did.",
+            "pt": "Eu me sinto mal, eu deveria ter te avisado sobre a personalidade dele antes do que fiz."
+          },
+          {
+            "en": "My mistake, I should've warned you about his personality sooner.",
+            "pt": "Erro meu, eu deveria ter te avisado sobre a personalidade dele antes."
+          },
+          {
+            "en": "Honestly, I should've warned you about his personality sooner, but I was scared.",
+            "pt": "Sinceramente, eu deveria ter te avisado sobre a personalidade dele antes, mas eu estava com medo."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd stop trying to please everyone.",
+        "pt": "Se eu fosse você, eu pararia de tentar agradar todo mundo.",
+        "quando": "Ao aconselhar o amigo a parar de viver em função dos outros.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't stop trying to please everyone.",
+            "pt": "Se eu fosse você, eu não pararia de tentar agradar todo mundo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you stop trying to please everyone if you were me?",
+            "pt": "Você pararia de tentar agradar todo mundo se fosse eu?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "I'll stop trying to please everyone when I'm older.",
+            "pt": "Eu vou parar de tentar agradar todo mundo quando eu for mais velho."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Trust me, if I were you, I'd stop trying to please everyone.",
+            "pt": "Confie em mim, se eu fosse você, eu pararia de tentar agradar todo mundo."
+          },
+          {
+            "en": "You're stressed, so if I were you, I'd stop trying to please everyone.",
+            "pt": "Você está estressado, então se eu fosse você, eu pararia de tentar agradar todo mundo."
+          },
+          {
+            "en": "It's not worth it, if I were you, I'd stop trying to please everyone.",
+            "pt": "Não vale a pena, se eu fosse você, eu pararia de tentar agradar todo mundo."
+          },
+          {
+            "en": "Just take my advice, if I were you, I'd stop trying to please everyone.",
+            "pt": "Só aceite meu conselho, se eu fosse você, eu pararia de tentar agradar todo mundo."
+          },
+          {
+            "en": "Honestly, if I were you, I'd stop trying to please everyone right now.",
+            "pt": "Sinceramente, se eu fosse você, eu pararia de tentar agradar todo mundo agora mesmo."
+          }
+        ]
+      },
+      {
+        "en": "You should've asked for help when you had the chance.",
+        "pt": "Você deveria ter pedido ajuda quando teve a chance.",
+        "quando": "Ao observar que o amigo sofreu desnecessariamente por orgulho.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "You shouldn't have asked for help when you had the chance.",
+            "pt": "Você não deveria ter pedido ajuda quando teve a chance."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should you have asked for help when you had the chance?",
+            "pt": "Você deveria ter pedido ajuda quando teve a chance?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I should've.",
+            "pt": "Sim, eu deveria."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "It's too late now, but you should've asked for help when you had the chance.",
+            "pt": "É tarde demais agora, mas você deveria ter pedido ajuda quando teve a chance."
+          },
+          {
+            "en": "I told you, you should've asked for help when you had the chance.",
+            "pt": "Eu te disse, você deveria ter pedido ajuda quando teve a chance."
+          },
+          {
+            "en": "Honestly, you should've asked for help when you had the chance yesterday.",
+            "pt": "Sinceramente, você deveria ter pedido ajuda quando teve a chance ontem."
+          },
+          {
+            "en": "Don't be sad, but you should've asked for help when you had the chance.",
+            "pt": "Não fique triste, mas você deveria ter pedido ajuda quando teve a chance."
+          },
+          {
+            "en": "Look, you should've asked for help when you had the chance at work.",
+            "pt": "Olha, você deveria ter pedido ajuda quando teve a chance no trabalho."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd forgive yourself and move on.",
+        "pt": "Se eu fosse você, eu me perdoaria e seguiria em frente.",
+        "quando": "Ao consolar o amigo que se culpa por um erro cometido.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't forgive yourself and move on.",
+            "pt": "Se eu fosse você, eu não me perdoaria e não seguiria em frente."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If she were me, she'd forgive herself and move on.",
+            "pt": "Se ela fosse eu, ela se perdoaria e seguiria em frente."
+          },
+          {
+            "tipo": "educada",
+            "en": "If you were in my shoes, would you forgive yourself and move on?",
+            "pt": "Se você estivesse no meu lugar, você se perdoaria e seguiria em frente?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Listen, if I were you, I'd forgive yourself and move on, because life is too short.",
+            "pt": "Escuta, se eu fosse você, eu me perdoaria e seguiria em frente, porque a vida é curta demais."
+          },
+          {
+            "en": "Honestly, if I were you, I'd forgive yourself and move on before this bitterness eats you up.",
+            "pt": "Sinceramente, se eu fosse você, eu me perdoaria e seguiria em frente antes que esse amargor te consuma."
+          },
+          {
+            "en": "I know it's hard, but if I were you, I'd forgive yourself and move on for your own peace.",
+            "pt": "Eu sei que é difícil, mas se eu fosse você, eu me perdoaria e seguiria em frente pela sua própria paz."
+          },
+          {
+            "en": "You've been suffering enough, so if I were you, I'd forgive yourself and move on already.",
+            "pt": "Você tem sofrido o suficiente, então se eu fosse você, eu me perdoaria e seguiria em frente logo."
+          },
+          {
+            "en": "Take some time to reflect, but eventually, if I were you, I'd forgive yourself and move on.",
+            "pt": "Tire um tempo para refletir, mas eventualmente, se eu fosse você, eu me perdoaria e seguiria em frente."
+          }
+        ]
+      },
+      {
+        "en": "I could've been more supportive during that crisis.",
+        "pt": "Eu poderia ter sido mais solidário durante aquela crise.",
+        "quando": "Ao expressar arrependimento por não ter agido melhor com alguém.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I couldn't have been more supportive during that crisis.",
+            "pt": "Eu não poderia ter sido mais solidário durante aquela crise."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Could you have been more supportive during that crisis?",
+            "pt": "Você poderia ter sido mais solidário durante aquela crise?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He could've been more supportive during that crisis.",
+            "pt": "Ele poderia ter sido mais solidário durante aquela crise."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Looking back, I feel I could've been more supportive during that crisis.",
+            "pt": "Olhando para trás, sinto que eu poderia ter sido mais solidário durante aquela crise."
+          },
+          {
+            "en": "I know I let you down, and I could've been more supportive during that crisis.",
+            "pt": "Eu sei que te decepcionei, e eu poderia ter sido mais solidário durante aquela crise."
+          },
+          {
+            "en": "Maybe I could've been more supportive during that crisis if I had known the details.",
+            "pt": "Talvez eu pudesse ter sido mais solidário durante aquela crise se eu soubesse os detalhes."
+          },
+          {
+            "en": "Do you think I could've been more supportive during that crisis?",
+            "pt": "Você acha que eu poderia ter sido mais solidário durante aquela crise?"
+          },
+          {
+            "en": "I regret that I could've been more supportive during that crisis instead of staying away.",
+            "pt": "Eu me arrependo de que eu poderia ter sido mais solidário durante aquela crise em vez de me afastar."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd focus on what you can control.",
+        "pt": "Se eu fosse você, eu focaria no que você pode controlar.",
+        "quando": "Ao tentar acalmar o amigo que se preocupa com coisas externas.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't focus on what you can't control.",
+            "pt": "Se eu fosse você, eu não focaria no que você não pode controlar."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If he were me, he'd focus on what he can control.",
+            "pt": "Se ele fosse eu, ele focaria no que ele pode controlar."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "If you were me, would you focus on what I can control?",
+            "pt": "Se você fosse eu, você focaria no que eu posso controlar?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Stop worrying about others; if I were you, I'd focus on what you can control.",
+            "pt": "Pare de se preocupar com os outros; se eu fosse você, eu focaria no que você pode controlar."
+          },
+          {
+            "en": "Life is unpredictable, so if I were you, I'd focus on what you can control.",
+            "pt": "A vida é imprevisível, então se eu fosse você, eu focaria no que você pode controlar."
+          },
+          {
+            "en": "Instead of stressing, if I were you, I'd focus on what you can control right now.",
+            "pt": "Em vez de se estressar, se eu fosse você, eu focaria no que você pode controlar agora."
+          },
+          {
+            "en": "Just take a deep breath and, if I were you, I'd focus on what you can control.",
+            "pt": "Apenas respire fundo e, se eu fosse você, eu focaria no que você pode controlar."
+          },
+          {
+            "en": "Don't waste your energy, if I were you, I'd focus on what you can control.",
+            "pt": "Não desperdice sua energia, se eu fosse você, eu focaria no que você pode controlar."
+          }
+        ]
+      },
+      {
+        "en": "You shouldn't have let him disappoint you like that.",
+        "pt": "Você não deveria ter deixado ele te decepcionar desse jeito.",
+        "quando": "Ao validar o sentimento de frustração do amigo.",
+        "formas": [
+          {
+            "tipo": "pergunta",
+            "en": "Should you have let him disappoint you like that?",
+            "pt": "Você deveria ter deixado ele te decepcionar desse jeito?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She shouldn't have let him disappoint her like that.",
+            "pt": "Ela não deveria ter deixado ele a decepcionar desse jeito."
+          },
+          {
+            "tipo": "passado",
+            "en": "You should've let him apologize for disappointing you like that.",
+            "pt": "Você deveria ter deixado ele se desculpar por te decepcionar desse jeito."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Honestly, you shouldn't have let him disappoint you like that.",
+            "pt": "Sinceramente, você não deveria ter deixado ele te decepcionar desse jeito."
+          },
+          {
+            "en": "I think you shouldn't have let him disappoint you like that twice.",
+            "pt": "Eu acho que você não deveria ter deixado ele te decepcionar desse jeito duas vezes."
+          },
+          {
+            "en": "You're too kind, and you shouldn't have let him disappoint you like that.",
+            "pt": "Você é bom demais, e você não deveria ter deixado ele te decepcionar desse jeito."
+          },
+          {
+            "en": "It's a shame, but you shouldn't have let him disappoint you like that.",
+            "pt": "É uma pena, mas você não deveria ter deixado ele te decepcionar desse jeito."
+          },
+          {
+            "en": "Listen to me, you shouldn't have let him disappoint you like that again.",
+            "pt": "Me escuta, você não deveria ter deixado ele te decepcionar desse jeito de novo."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd talk to her before Friday.",
+        "pt": "Se eu fosse você, eu falaria com ela antes de sexta-feira.",
+        "quando": "Ao dar um conselho específico sobre um prazo urgente.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't talk to her before Friday.",
+            "pt": "Se eu fosse você, eu não falaria com ela antes de sexta-feira."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If he were me, he'd talk to her before Friday.",
+            "pt": "Se ele fosse eu, ele falaria com ela antes de sexta-feira."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "If you were me, would you talk to her before Friday?",
+            "pt": "Se você fosse eu, você falaria com ela antes de sexta-feira?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Don't wait any longer; if I were you, I'd talk to her before Friday.",
+            "pt": "Não espere mais; se eu fosse você, eu falaria com ela antes de sexta-feira."
+          },
+          {
+            "en": "Things are tense, so if I were you, I'd talk to her before Friday.",
+            "pt": "As coisas estão tensas, então se eu fosse você, eu falaria com ela antes de sexta-feira."
+          },
+          {
+            "en": "To clear things up, if I were you, I'd talk to her before Friday.",
+            "pt": "Para esclarecer as coisas, se eu fosse você, eu falaria com ela antes de sexta-feira."
+          },
+          {
+            "en": "You need an answer, so if I were you, I'd talk to her before Friday.",
+            "pt": "Você precisa de uma resposta, então se eu fosse você, eu falaria com ela antes de sexta-feira."
+          },
+          {
+            "en": "Before you leave, if I were you, I'd talk to her before Friday.",
+            "pt": "Antes de você ir embora, se eu fosse você, eu falaria com ela antes de sexta-feira."
+          }
+        ]
+      },
+      {
+        "en": "I should've listened to my parents' advice back then.",
+        "pt": "Eu deveria ter ouvido o conselho dos meus pais naquela época.",
+        "quando": "Ao compartilhar um arrependimento antigo de vida.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I shouldn't have listened to my parents' advice back then.",
+            "pt": "Eu não deveria ter ouvido o conselho dos meus pais naquela época."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should you have listened to your parents' advice back then?",
+            "pt": "Você deveria ter ouvido o conselho dos seus pais naquela época?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He should've listened to his parents' advice back then.",
+            "pt": "Ele deveria ter ouvido o conselho dos pais dele naquela época."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Looking back, I realized I should've listened to my parents' advice back then.",
+            "pt": "Olhando para trás, percebi que eu deveria ter ouvido o conselho dos meus pais naquela época."
+          },
+          {
+            "en": "I was so stubborn, I should've listened to my parents' advice back then.",
+            "pt": "Eu era tão teimoso, eu deveria ter ouvido o conselho dos meus pais naquela época."
+          },
+          {
+            "en": "Maybe things would be different if I should've listened to my parents' advice back then.",
+            "pt": "Talvez as coisas fossem diferentes se eu tivesse ouvido o conselho dos meus pais naquela época."
+          },
+          {
+            "en": "Now I regret that I should've listened to my parents' advice back then.",
+            "pt": "Agora eu me arrependo de que eu deveria ter ouvido o conselho dos meus pais naquela época."
+          },
+          {
+            "en": "I made a mistake, I should've listened to my parents' advice back then.",
+            "pt": "Eu cometi um erro, eu deveria ter ouvido o conselho dos meus pais naquela época."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd keep your plans to yourself for now.",
+        "pt": "Se eu fosse você, eu guardaria seus planos para você por enquanto.",
+        "quando": "Ao sugerir discrição ao amigo sobre seus objetivos.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't keep your plans to yourself for now.",
+            "pt": "Se eu fosse você, eu não guardaria seus planos para você por enquanto."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "If you were me, would you keep your plans to yourself for now?",
+            "pt": "Se você fosse eu, você guardaria seus planos para você por enquanto?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If he were in your shoes, he'd keep his plans to himself for now.",
+            "pt": "Se ele estivesse no seu lugar, ele guardaria os planos dele para ele por enquanto."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Honestly, if I were you, I'd keep your plans to yourself for now.",
+            "pt": "Sinceramente, se eu fosse você, eu guardaria seus planos para você por enquanto."
+          },
+          {
+            "en": "I think if I were you, I'd keep your plans to yourself for now.",
+            "pt": "Eu acho que se eu fosse você, eu guardaria seus planos para você por enquanto."
+          },
+          {
+            "en": "Just a tip: if I were you, I'd keep your plans to yourself for now.",
+            "pt": "Uma dica: se eu fosse você, eu guardaria seus planos para você por enquanto."
+          },
+          {
+            "en": "If I were you, I'd keep your plans to yourself for now, just to be safe.",
+            "pt": "Se eu fosse você, eu guardaria seus planos para você por enquanto, só por segurança."
+          },
+          {
+            "en": "Listen, if I were you, I'd keep your plans to yourself for now.",
+            "pt": "Escuta, se eu fosse você, eu guardaria seus planos para você por enquanto."
+          }
+        ]
+      },
+      {
+        "en": "You could've tried to explain your point of view better.",
+        "pt": "Você poderia ter tentado explicar seu ponto de vista melhor.",
+        "quando": "Ao analisar uma discussão que o amigo teve com alguém.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "You couldn't have tried to explain your point of view better.",
+            "pt": "Você não poderia ter tentado explicar seu ponto de vista melhor."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Could you have tried to explain your point of view better?",
+            "pt": "Você poderia ter tentado explicar seu ponto de vista melhor?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He could've tried to explain his point of view better.",
+            "pt": "Ele poderia ter tentado explicar o ponto de vista dele melhor."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Maybe you could've tried to explain your point of view better.",
+            "pt": "Talvez você pudesse ter tentado explicar seu ponto de vista melhor."
+          },
+          {
+            "en": "I really think you could've tried to explain your point of view better.",
+            "pt": "Eu realmente acho que você poderia ter tentado explicar seu ponto de vista melhor."
+          },
+          {
+            "en": "Honestly, you could've tried to explain your point of view better.",
+            "pt": "Honestamente, você poderia ter tentado explicar seu ponto de vista melhor."
+          },
+          {
+            "en": "Looking back, you could've tried to explain your point of view better.",
+            "pt": "Olhando para trás, você poderia ter tentado explicar seu ponto de vista melhor."
+          },
+          {
+            "en": "You could've tried to explain your point of view better, you know.",
+            "pt": "Você poderia ter tentado explicar seu ponto de vista melhor, sabe."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd look at the bigger picture here.",
+        "pt": "Se eu fosse você, eu olharia para o contexto geral aqui.",
+        "quando": "Ao ajudar o amigo a ver que o problema é menor do que parece.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't look at the bigger picture here.",
+            "pt": "Se eu fosse você, eu não olharia para o contexto geral aqui."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you look at the bigger picture here if you were me?",
+            "pt": "Você olharia para o contexto geral aqui se você fosse eu?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If she were you, she'd look at the bigger picture here.",
+            "pt": "Se ela fosse você, ela olharia para o contexto geral aqui."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "If I were you, I'd look at the bigger picture here before deciding.",
+            "pt": "Se eu fosse você, eu olharia para o contexto geral aqui antes de decidir."
+          },
+          {
+            "en": "I'd say if I were you, I'd look at the bigger picture here.",
+            "pt": "Eu diria que, se eu fosse você, eu olharia para o contexto geral aqui."
+          },
+          {
+            "en": "Seriously, if I were you, I'd look at the bigger picture here.",
+            "pt": "Sério, se eu fosse você, eu olharia para o contexto geral aqui."
+          },
+          {
+            "en": "I think if I were you, I'd look at the bigger picture here.",
+            "pt": "Eu acho que se eu fosse você, eu olharia para o contexto geral aqui."
+          },
+          {
+            "en": "Sometimes, if I were you, I'd look at the bigger picture here.",
+            "pt": "Às vezes, se eu fosse você, eu olharia para o contexto geral aqui."
+          }
+        ]
+      },
+      {
+        "en": "I should've finished that project before the deadline.",
+        "pt": "Eu deveria ter terminado aquele projeto antes do prazo.",
+        "quando": "Ao lamentar um arrependimento profissional.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I shouldn't have finished that project before the deadline.",
+            "pt": "Eu não deveria ter terminado aquele projeto antes do prazo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should I have finished that project before the deadline?",
+            "pt": "Eu deveria ter terminado aquele projeto antes do prazo?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He should've finished that project before the deadline.",
+            "pt": "Ele deveria ter terminado aquele projeto antes do prazo."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I admit I should've finished that project before the deadline.",
+            "pt": "Eu admito que deveria ter terminado aquele projeto antes do prazo."
+          },
+          {
+            "en": "I know I should've finished that project before the deadline.",
+            "pt": "Eu sei que deveria ter terminado aquele projeto antes do prazo."
+          },
+          {
+            "en": "I feel like I should've finished that project before the deadline.",
+            "pt": "Eu sinto que deveria ter terminado aquele projeto antes do prazo."
+          },
+          {
+            "en": "Honestly, I should've finished that project before the deadline.",
+            "pt": "Honestamente, eu deveria ter terminado aquele projeto antes do prazo."
+          },
+          {
+            "en": "I think I should've finished that project before the deadline.",
+            "pt": "Eu acho que deveria ter terminado aquele projeto antes do prazo."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd stop comparing yourself to others.",
+        "pt": "Se eu fosse você, eu pararia de me comparar com os outros.",
+        "quando": "Ao combater a baixa autoestima do amigo.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't stop comparing yourself to others.",
+            "pt": "Se eu fosse você, eu não pararia de me comparar com os outros."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "If you were me, would you stop comparing yourself to others?",
+            "pt": "Se você fosse eu, você pararia de se comparar com os outros?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If he were you, he'd stop comparing himself to others.",
+            "pt": "Se ele fosse você, ele pararia de se comparar com os outros."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Look, if I were you, I'd stop comparing yourself to others.",
+            "pt": "Olha, se eu fosse você, eu pararia de me comparar com os outros."
+          },
+          {
+            "en": "I'm telling you, if I were you, I'd stop comparing yourself to others.",
+            "pt": "Estou te falando, se eu fosse você, eu pararia de me comparar com os outros."
+          },
+          {
+            "en": "Honestly, if I were you, I'd stop comparing yourself to others.",
+            "pt": "Honestamente, se eu fosse você, eu pararia de me comparar com os outros."
+          },
+          {
+            "en": "You know, if I were you, I'd stop comparing yourself to others.",
+            "pt": "Sabe, se eu fosse você, eu pararia de me comparar com os outros."
+          },
+          {
+            "en": "Just a thought: if I were you, I'd stop comparing yourself to others.",
+            "pt": "Só um pensamento: se eu fosse você, eu pararia de me comparar com os outros."
+          }
+        ]
+      },
+      {
+        "en": "You should've let me know you were struggling.",
+        "pt": "Você deveria ter me avisado que estava com dificuldades.",
+        "quando": "Ao oferecer apoio após o amigo desabafar sobre um problema.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "You shouldn't have let me know you were struggling.",
+            "pt": "Você não deveria ter me avisado que estava com dificuldades."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should you have let me know you were struggling?",
+            "pt": "Você deveria ter me avisado que estava com dificuldades?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She should've let me know she was struggling.",
+            "pt": "Ela deveria ter me avisado que ela estava com dificuldades."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Seriously, you should've let me know you were struggling.",
+            "pt": "Sério, você deveria ter me avisado que estava com dificuldades."
+          },
+          {
+            "en": "I think you should've let me know you were struggling.",
+            "pt": "Eu acho que você deveria ter me avisado que estava com dificuldades."
+          },
+          {
+            "en": "Next time, you should've let me know you were struggling.",
+            "pt": "Na próxima vez, você deveria ter me avisado que estava com dificuldades."
+          },
+          {
+            "en": "I wish you should've let me know you were struggling.",
+            "pt": "Eu gostaria que você tivesse me avisado que estava com dificuldades."
+          },
+          {
+            "en": "You know, you should've let me know you were struggling.",
+            "pt": "Sabe, você deveria ter me avisado que estava com dificuldades."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd be very careful with that decision.",
+        "pt": "Se eu fosse você, eu seria muito cuidadoso com essa decisão.",
+        "quando": "Ao alertar sobre uma escolha arriscada que o amigo vai fazer.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't be so careful with that decision.",
+            "pt": "Se eu fosse você, eu não seria tão cuidadoso com essa decisão."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you be very careful with that decision if you were me?",
+            "pt": "Você seria muito cuidadoso com essa decisão se fosse eu?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If he were you, he'd be very careful with that decision.",
+            "pt": "Se ele fosse você, ele seria muito cuidadoso com essa decisão."
+          },
+          {
+            "tipo": "passado",
+            "en": "If I had been you, I would've been very careful with that decision.",
+            "pt": "Se eu tivesse sido você, eu teria sido muito cuidadoso com essa decisão."
+          },
+          {
+            "tipo": "educada",
+            "en": "I'd suggest that, if I were you, I'd be very careful with that decision.",
+            "pt": "Eu sugiro que, se eu fosse você, eu seria muito cuidadoso com essa decisão."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Honestly, if I were you, I'd be very careful with that decision.",
+            "pt": "Honestamente, se eu fosse você, eu seria muito cuidadoso com essa decisão."
+          },
+          {
+            "en": "Think twice, because if I were you, I'd be very careful with that decision.",
+            "pt": "Pense duas vezes, porque se eu fosse você, eu seria muito cuidadoso com essa decisão."
+          },
+          {
+            "en": "You don't have to listen, but if I were you, I'd be very careful with that decision.",
+            "pt": "Você não precisa escutar, mas se eu fosse você, eu seria muito cuidadoso com essa decisão."
+          },
+          {
+            "en": "It's a big step, so if I were you, I'd be very careful with that decision.",
+            "pt": "É um passo grande, então se eu fosse você, eu seria muito cuidadoso com essa decisão."
+          },
+          {
+            "en": "Whatever you do, if I were you, I'd be very careful with that decision.",
+            "pt": "Faça o que fizer, se eu fosse você, eu seria muito cuidadoso com essa decisão."
+          }
+        ]
+      },
+      {
+        "en": "I could've saved so much money if I hadn't been reckless.",
+        "pt": "Eu poderia ter economizado tanto dinheiro se eu não tivesse sido imprudente.",
+        "quando": "Ao falar de um arrependimento financeiro do passado.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I couldn't have saved so much money if I had been reckless.",
+            "pt": "Eu não poderia ter economizado tanto dinheiro se eu tivesse sido imprudente."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Could you have saved so much money if you hadn't been reckless?",
+            "pt": "Você poderia ter economizado tanto dinheiro se não tivesse sido imprudente?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He could've saved so much money if he hadn't been reckless.",
+            "pt": "Ele poderia ter economizado tanto dinheiro se não tivesse sido imprudente."
+          },
+          {
+            "tipo": "educada",
+            "en": "I guess I could've saved so much money if I hadn't been reckless.",
+            "pt": "Eu acho que poderia ter economizado tanto dinheiro se eu não tivesse sido imprudente."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Looking back, I could've saved so much money if I hadn't been reckless.",
+            "pt": "Olhando para trás, eu poderia ter economizado tanto dinheiro se eu não tivesse sido imprudente."
+          },
+          {
+            "en": "I realize now I could've saved so much money if I hadn't been reckless.",
+            "pt": "Percebo agora que poderia ter economizado tanto dinheiro se eu não tivesse sido imprudente."
+          },
+          {
+            "en": "It's obvious I could've saved so much money if I hadn't been reckless.",
+            "pt": "É óbvio que eu poderia ter economizado tanto dinheiro se eu não tivesse sido imprudente."
+          },
+          {
+            "en": "If I had planned better, I could've saved so much money if I hadn't been reckless.",
+            "pt": "Se eu tivesse planejado melhor, eu poderia ter economizado tanto dinheiro se eu não tivesse sido imprudente."
+          },
+          {
+            "en": "I'm sad that I could've saved so much money if I hadn't been reckless.",
+            "pt": "Estou triste por poder ter economizado tanto dinheiro se eu não tivesse sido imprudente."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd call him and clear the air.",
+        "pt": "Se eu fosse você, eu ligaria para ele e resolveria o mal-entendido.",
+        "quando": "Ao sugerir uma conversa para limpar o ar entre amigos.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't call him to clear the air.",
+            "pt": "Se eu fosse você, eu não ligaria para ele para resolver o mal-entendido."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Why would you not, if I were you, call him and clear the air?",
+            "pt": "Por que você não ligaria para ele e resolveria o mal-entendido se fosse eu?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If she were you, she'd call him and clear the air.",
+            "pt": "Se ela fosse você, ela ligaria para ele e resolveria o mal-entendido."
+          },
+          {
+            "tipo": "passado",
+            "en": "If I had been you, I would've called him and cleared the air.",
+            "pt": "Se eu tivesse sido você, eu teria ligado para ele e resolvido o mal-entendido."
+          },
+          {
+            "tipo": "educada",
+            "en": "Maybe, if I were you, I'd call him and clear the air.",
+            "pt": "Talvez, se eu fosse você, eu ligaria para ele e resolveria o mal-entendido."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "You're still fighting, so if I were you, I'd call him and clear the air.",
+            "pt": "Vocês ainda estão brigando, então se eu fosse você, eu ligaria para ele e resolveria o mal-entendido."
+          },
+          {
+            "en": "To stop the tension, if I were you, I'd call him and clear the air.",
+            "pt": "Para parar com a tensão, se eu fosse você, eu ligaria para ele e resolveria o mal-entendido."
+          },
+          {
+            "en": "Trust me, if I were you, I'd call him and clear the air.",
+            "pt": "Confie em mim, se eu fosse você, eu ligaria para ele e resolveria o mal-entendido."
+          },
+          {
+            "en": "Before it gets worse, if I were you, I'd call him and clear the air.",
+            "pt": "Antes que piore, se eu fosse você, eu ligaria para ele e resolveria o mal-entendido."
+          },
+          {
+            "en": "Don't let it sit, if I were you, I'd call him and clear the air.",
+            "pt": "Não deixe isso parado, se eu fosse você, eu ligaria para ele e resolveria o mal-entendido."
+          }
+        ]
+      },
+      {
+        "en": "You shouldn't have waited so long to speak up.",
+        "pt": "Você não deveria ter esperado tanto tempo para falar.",
+        "quando": "Ao mostrar ao amigo que ele deveria ter se posicionado antes.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "You should have waited so long to speak up.",
+            "pt": "Você deveria ter esperado tanto tempo para falar."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Why shouldn't I have waited so long to speak up?",
+            "pt": "Por que eu não deveria ter esperado tanto tempo para falar?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He shouldn't have waited so long to speak up.",
+            "pt": "Ele não deveria ter esperado tanto tempo para falar."
+          },
+          {
+            "tipo": "educada",
+            "en": "Honestly, you shouldn't have waited so long to speak up.",
+            "pt": "Honestamente, você não deveria ter esperado tanto tempo para falar."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "The situation is bad because you shouldn't have waited so long to speak up.",
+            "pt": "A situação está ruim porque você não deveria ter esperado tanto tempo para falar."
+          },
+          {
+            "en": "I'm telling you, you shouldn't have waited so long to speak up.",
+            "pt": "Estou te dizendo, você não deveria ter esperado tanto tempo para falar."
+          },
+          {
+            "en": "It's too late now, you shouldn't have waited so long to speak up.",
+            "pt": "É tarde demais agora, você não deveria ter esperado tanto tempo para falar."
+          },
+          {
+            "en": "I think you shouldn't have waited so long to speak up.",
+            "pt": "Eu acho que você não deveria ter esperado tanto tempo para falar."
+          },
+          {
+            "en": "Everyone is upset that you shouldn't have waited so long to speak up.",
+            "pt": "Todo mundo está chateado que você não deveria ter esperado tanto tempo para falar."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd take the opportunity while it lasts.",
+        "pt": "Se eu fosse você, eu aproveitaria a oportunidade enquanto ela dura.",
+        "quando": "Ao encorajar o amigo a agir rapidamente.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't take the opportunity while it lasts.",
+            "pt": "Se eu fosse você, eu não aproveitaria a oportunidade enquanto ela dura."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you take the opportunity while it lasts if you were me?",
+            "pt": "Você aproveitaria a oportunidade enquanto ela dura se você fosse eu?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If she were you, she'd take the opportunity while it lasts.",
+            "pt": "Se ela fosse você, ela aproveitaria a oportunidade enquanto ela dura."
+          },
+          {
+            "tipo": "passado",
+            "en": "If I had been you, I would've taken the opportunity while it lasted.",
+            "pt": "Se eu tivesse sido você, eu teria aproveitado a oportunidade enquanto ela durava."
+          },
+          {
+            "tipo": "educada",
+            "en": "I think, if I were you, I'd take the opportunity while it lasts.",
+            "pt": "Eu acho que, se eu fosse você, eu aproveitaria a oportunidade enquanto ela dura."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Don't hesitate, if I were you, I'd take the opportunity while it lasts.",
+            "pt": "Não hesite, se eu fosse você, eu aproveitaria a oportunidade enquanto ela dura."
+          },
+          {
+            "en": "It's a rare chance, so if I were you, I'd take the opportunity while it lasts.",
+            "pt": "É uma chance rara, então se eu fosse você, eu aproveitaria a oportunidade enquanto ela dura."
+          },
+          {
+            "en": "Time is running out, if I were you, I'd take the opportunity while it lasts.",
+            "pt": "O tempo está acabando, se eu fosse você, eu aproveitaria a oportunidade enquanto ela dura."
+          },
+          {
+            "en": "Grab it now, if I were you, I'd take the opportunity while it lasts.",
+            "pt": "Pegue agora, se eu fosse você, eu aproveitaria a oportunidade enquanto ela dura."
+          },
+          {
+            "en": "Life is short, if I were you, I'd take the opportunity while it lasts.",
+            "pt": "A vida é curta, se eu fosse você, eu aproveitaria a oportunidade enquanto ela dura."
+          }
+        ]
+      },
+      {
+        "en": "I should've treated her with more respect that day.",
+        "pt": "Eu deveria ter tratado ela com mais respeito naquele dia.",
+        "quando": "Ao admitir uma falha pessoal em um relacionamento.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I shouldn't have treated her with more respect that day.",
+            "pt": "Eu não deveria ter tratado ela com mais respeito naquele dia."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should I have treated her with more respect that day?",
+            "pt": "Eu deveria ter tratado ela com mais respeito naquele dia?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He should've treated her with more respect that day.",
+            "pt": "Ele deveria ter tratado ela com mais respeito naquele dia."
+          },
+          {
+            "tipo": "educada",
+            "en": "I regret that I should've treated her with more respect that day.",
+            "pt": "Eu me arrependo, eu deveria ter tratado ela com mais respeito naquele dia."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I feel bad because I should've treated her with more respect that day.",
+            "pt": "Eu me sinto mal porque eu deveria ter tratado ela com mais respeito naquele dia."
+          },
+          {
+            "en": "Looking back, I should've treated her with more respect that day.",
+            "pt": "Olhando para trás, eu deveria ter tratado ela com mais respeito naquele dia."
+          },
+          {
+            "en": "I know I should've treated her with more respect that day.",
+            "pt": "Eu sei que eu deveria ter tratado ela com mais respeito naquele dia."
+          },
+          {
+            "en": "Honestly, I should've treated her with more respect that day.",
+            "pt": "Honestamente, eu deveria ter tratado ela com mais respeito naquele dia."
+          },
+          {
+            "en": "It was wrong, I should've treated her with more respect that day.",
+            "pt": "Foi errado, eu deveria ter tratado ela com mais respeito naquele dia."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd reconsider your current approach.",
+        "pt": "Se eu fosse você, eu repensaria sua abordagem atual.",
+        "quando": "Ao sugerir uma mudança de estratégia com delicadeza.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't reconsider your current approach.",
+            "pt": "Se eu fosse você, eu não repensaria sua abordagem atual."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you reconsider your current approach if you were me?",
+            "pt": "Você repensaria sua abordagem atual se estivesse no meu lugar?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If he were me, he'd reconsider his current approach.",
+            "pt": "Se ele estivesse no meu lugar, ele repensaria a abordagem dele."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "If I were you, I'd reconsider your current approach before signing that contract.",
+            "pt": "Se eu fosse você, eu repensaria sua abordagem atual antes de assinar esse contrato."
+          },
+          {
+            "en": "Honestly, if I were you, I'd reconsider your current approach because it's not working.",
+            "pt": "Sinceramente, se eu fosse você, eu repensaria sua abordagem atual porque não está funcionando."
+          },
+          {
+            "en": "Think about it, if I were you, I'd reconsider your current approach right away.",
+            "pt": "Pense bem, se eu fosse você, eu repensaria sua abordagem atual imediatamente."
+          },
+          {
+            "en": "If I were you, I'd reconsider your current approach to avoid any more problems.",
+            "pt": "Se eu fosse você, eu repensaria sua abordagem atual para evitar mais problemas."
+          },
+          {
+            "en": "Even if it's hard, if I were you, I'd reconsider your current approach.",
+            "pt": "Mesmo que seja difícil, se eu fosse você, eu repensaria sua abordagem atual."
+          }
+        ]
+      },
+      {
+        "en": "You could've warned me about the weather forecast.",
+        "pt": "Você poderia ter me avisado sobre a previsão do tempo.",
+        "quando": "Ao reclamar levemente de uma falta de aviso de um amigo.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "You couldn't have warned me about the weather forecast.",
+            "pt": "Você não teria como ter me avisado sobre a previsão do tempo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Could you have warned me about the weather forecast?",
+            "pt": "Você poderia ter me avisado sobre a previsão do tempo?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He could've warned me about the weather forecast.",
+            "pt": "Ele poderia ter me avisado sobre a previsão do tempo."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I got soaked, you could've warned me about the weather forecast.",
+            "pt": "Eu fiquei ensopado, você poderia ter me avisado sobre a previsão do tempo."
+          },
+          {
+            "en": "Since you saw the news, you could've warned me about the weather forecast.",
+            "pt": "Já que você viu o jornal, você poderia ter me avisado sobre a previsão do tempo."
+          },
+          {
+            "en": "It's freezing outside and you could've warned me about the weather forecast.",
+            "pt": "Está congelando lá fora e você poderia ter me avisado sobre a previsão do tempo."
+          },
+          {
+            "en": "Seriously, you could've warned me about the weather forecast before I left.",
+            "pt": "Sério, você poderia ter me avisado sobre a previsão do tempo antes de eu sair."
+          },
+          {
+            "en": "Next time, you could've warned me about the weather forecast so I'd be prepared.",
+            "pt": "Na próxima, você poderia ter me avisado sobre a previsão do tempo para eu me preparar."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd start fresh and leave the past behind.",
+        "pt": "Se eu fosse você, eu recomeçaria e deixaria o passado para trás.",
+        "quando": "Ao motivar o amigo a virar a página de vez.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't start fresh and leave the past behind.",
+            "pt": "Se eu fosse você, eu não recomeçaria nem deixaria o passado para trás."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you start fresh and leave the past behind if you were me?",
+            "pt": "Você recomeçaria e deixaria o passado para trás se estivesse no meu lugar?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If she were me, she'd start fresh and leave the past behind.",
+            "pt": "Se ela estivesse no meu lugar, ela recomeçaria e deixaria o passado para trás."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Don't look back, if I were you, I'd start fresh and leave the past behind.",
+            "pt": "Não olhe para trás, se eu fosse você, eu recomeçaria e deixaria o passado para trás."
+          },
+          {
+            "en": "I know it's hard, but if I were you, I'd start fresh and leave the past behind.",
+            "pt": "Eu sei que é difícil, mas se eu fosse você, eu recomeçaria e deixaria o passado para trás."
+          },
+          {
+            "en": "Trust me, if I were you, I'd start fresh and leave the past behind today.",
+            "pt": "Acredite em mim, se eu fosse você, eu recomeçaria e deixaria o passado para trás hoje."
+          },
+          {
+            "en": "If I were you, I'd start fresh and leave the past behind to feel better.",
+            "pt": "Se eu fosse você, eu recomeçaria e deixaria o passado para trás para me sentir melhor."
+          },
+          {
+            "en": "Stop worrying, if I were you, I'd start fresh and leave the past behind.",
+            "pt": "Pare de se preocupar, se eu fosse você, eu recomeçaria e deixaria o passado para trás."
+          }
+        ]
+      },
+      {
+        "en": "I should've realized sooner that he was deceiving me.",
+        "pt": "Eu deveria ter percebido antes que ele estava me enganando.",
+        "quando": "Ao desabafar sobre ter sido enganado por alguém.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I shouldn't have realized sooner that he was deceiving me.",
+            "pt": "Eu não deveria ter percebido antes que ele estava me enganando."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should I have realized sooner that he was deceiving me?",
+            "pt": "Eu deveria ter percebido antes que ele estava me enganando?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He should've realized sooner that she was deceiving him.",
+            "pt": "Ele deveria ter percebido antes que ela estava o enganando."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Looking back, I should've realized sooner that he was deceiving me.",
+            "pt": "Olhando para trás, eu deveria ter percebido antes que ele estava me enganando."
+          },
+          {
+            "en": "I feel so foolish, I should've realized sooner that he was deceiving me.",
+            "pt": "Eu me sinto tão bobo, eu deveria ter percebido antes que ele estava me enganando."
+          },
+          {
+            "en": "Honestly, I should've realized sooner that he was deceiving me last month.",
+            "pt": "Sinceramente, eu deveria ter percebido antes que ele estava me enganando mês passado."
+          },
+          {
+            "en": "I should've realized sooner that he was deceiving me about his job.",
+            "pt": "Eu deveria ter percebido antes que ele estava me enganando sobre o emprego dele."
+          },
+          {
+            "en": "In hindsight, I should've realized sooner that he was deceiving me.",
+            "pt": "Pensando bem, eu deveria ter percebido antes que ele estava me enganando."
+          }
+        ]
+      },
+      {
+        "en": "If I were you, I'd trust your instincts on this one.",
+        "pt": "Se eu fosse você, eu confiaria nos seus instintos nessa.",
+        "quando": "Ao reforçar a confiança do amigo na própria intuição.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't trust your instincts on this one.",
+            "pt": "Se eu fosse você, eu não confiaria nos seus instintos nessa."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you trust your instincts on this one if you were me?",
+            "pt": "Você confiaria nos seus instintos nessa se estivesse no meu lugar?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If she were me, she'd trust her instincts on this one.",
+            "pt": "Se ela estivesse no meu lugar, ela confiaria nos instintos dela nessa."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Just go for it, if I were you, I'd trust your instincts on this one.",
+            "pt": "Vai fundo, se eu fosse você, eu confiaria nos seus instintos nessa."
+          },
+          {
+            "en": "You have experience, so if I were you, I'd trust your instincts on this one.",
+            "pt": "Você tem experiência, então se eu fosse você, eu confiaria nos seus instintos nessa."
+          },
+          {
+            "en": "If I were you, I'd trust your instincts on this one and ignore them.",
+            "pt": "Se eu fosse você, eu confiaria nos seus instintos nessa e os ignoraria."
+          },
+          {
+            "en": "Don't ask others, if I were you, I'd trust your instincts on this one.",
+            "pt": "Não pergunte para os outros, se eu fosse você, eu confiaria nos seus instintos nessa."
+          },
+          {
+            "en": "Seriously, if I were you, I'd trust your instincts on this one right now.",
+            "pt": "Sério, se eu fosse você, eu confiaria nos seus instintos nessa agora mesmo."
+          }
+        ]
+      },
+      {
+        "en": "I could've said yes, but I didn't feel like it.",
+        "pt": "Eu poderia ter dito sim, mas eu não estava a fim.",
+        "quando": "Ao justificar uma decisão passada sobre um convite.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I couldn't have said yes, but I didn't feel like it.",
+            "pt": "Eu não poderia ter dito sim, mas eu não estava a fim."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Could I have said yes, but not felt like it?",
+            "pt": "Eu poderia ter dito sim, mas não estar a fim?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He could've said yes, but he didn't feel like it.",
+            "pt": "Ele poderia ter dito sim, mas ele não estava a fim."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I could've said yes, but I didn't feel like it at the time.",
+            "pt": "Eu poderia ter dito sim, mas eu não estava a fim na época."
+          },
+          {
+            "en": "Maybe I could've said yes, but I didn't feel like it today.",
+            "pt": "Talvez eu pudesse ter dito sim, mas eu não estava a fim hoje."
+          },
+          {
+            "en": "I could've said yes, but I didn't feel like it because I'm tired.",
+            "pt": "Eu poderia ter dito sim, mas eu não estava a fim porque estou cansado."
+          },
+          {
+            "en": "Technically I could've said yes, but I didn't feel like it.",
+            "pt": "Tecnicamente eu poderia ter dito sim, mas eu não estava a fim."
+          },
+          {
+            "en": "I could've said yes, but I didn't feel like it, to be honest.",
+            "pt": "Eu poderia ter dito sim, mas eu não estava a fim, para ser sincero."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "n": 38,
     "blocos": [
       {
@@ -42681,6 +44614,805 @@
           {
             "en": "Just to be clear, let's touch base again after you've made those changes.",
             "pt": "Só para deixar claro, vamos nos falar de novo depois que você fizer essas mudanças."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "n": 48,
+    "blocos": [
+      {
+        "en": "He told me he'd send the updated file by tomorrow.",
+        "pt": "Ele me disse que enviaria o arquivo atualizado até amanhã.",
+        "quando": "Ao repassar um prazo prometido por alguém.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "He told me he wouldn't send the updated file by tomorrow.",
+            "pt": "Ele me disse que não enviaria o arquivo atualizado até amanhã."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did he tell you he'd send the updated file by tomorrow?",
+            "pt": "Ele te disse que enviaria o arquivo atualizado até amanhã?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She told me she'd send the updated file by tomorrow.",
+            "pt": "Ela me disse que enviaria o arquivo atualizado até amanhã."
+          },
+          {
+            "tipo": "informal",
+            "en": "He said he'd send the updated file by tomorrow.",
+            "pt": "Ele disse que enviaria o arquivo atualizado até amanhã."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "He told me he'd send the updated file by tomorrow, so I don't need to worry about it.",
+            "pt": "Ele me disse que enviaria o arquivo atualizado até amanhã, então não preciso me preocupar com isso."
+          },
+          {
+            "en": "Just so you know, he told me he'd send the updated file by tomorrow.",
+            "pt": "Só para você saber, ele me disse que enviaria o arquivo atualizado até amanhã."
+          },
+          {
+            "en": "I'm sure he told me he'd send the updated file by tomorrow, but I'll double check.",
+            "pt": "Tenho certeza de que ele me disse que enviaria o arquivo atualizado até amanhã, mas vou conferir."
+          },
+          {
+            "en": "If he told me he'd send the updated file by tomorrow, why isn't it here yet?",
+            "pt": "Se ele me disse que enviaria o arquivo atualizado até amanhã, por que ainda não está aqui?"
+          },
+          {
+            "en": "Actually, he told me he'd send the updated file by tomorrow morning at the latest.",
+            "pt": "Na verdade, ele me disse que enviaria o arquivo atualizado até amanhã de manhã, no máximo."
+          }
+        ]
+      },
+      {
+        "en": "She said she was gonna look into the budget issue.",
+        "pt": "Ela disse que ia dar uma olhada na questão do orçamento.",
+        "quando": "Ao relatar uma intenção de investigação mencionada por um colega.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "She said she wasn't gonna look into the budget issue.",
+            "pt": "Ela disse que não ia dar uma olhada na questão do orçamento."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did she say she was gonna look into the budget issue?",
+            "pt": "Ela disse que ia dar uma olhada na questão do orçamento?"
+          },
+          {
+            "tipo": "passado",
+            "en": "She said she looked into the budget issue.",
+            "pt": "Ela disse que deu uma olhada na questão do orçamento."
+          },
+          {
+            "tipo": "informal",
+            "en": "She mentioned she was gonna look into the budget issue.",
+            "pt": "Ela mencionou que ia dar uma olhada na questão do orçamento."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Regarding the meeting, she said she was gonna look into the budget issue.",
+            "pt": "Sobre a reunião, ela disse que ia dar uma olhada na questão do orçamento."
+          },
+          {
+            "en": "I'll ask her again because she said she was gonna look into the budget issue yesterday.",
+            "pt": "Vou perguntar a ela de novo porque ela disse que ia dar uma olhada na questão do orçamento ontem."
+          },
+          {
+            "en": "She said she was gonna look into the budget issue, so let's wait for her update.",
+            "pt": "Ela disse que ia dar uma olhada na questão do orçamento, então vamos esperar a atualização dela."
+          },
+          {
+            "en": "I trust her since she said she was gonna look into the budget issue.",
+            "pt": "Eu confio nela já que ela disse que ia dar uma olhada na questão do orçamento."
+          },
+          {
+            "en": "Even though she said she was gonna look into the budget issue, nothing has changed.",
+            "pt": "Embora ela tenha dito que ia dar uma olhada na questão do orçamento, nada mudou."
+          }
+        ]
+      },
+      {
+        "en": "They were supposed to have the report ready by now, he claimed.",
+        "pt": "Eles deveriam ter deixado o relatório pronto até agora, segundo ele.",
+        "quando": "Ao pontuar uma expectativa que não foi cumprida.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "They weren't supposed to have the report ready by now, he claimed.",
+            "pt": "Eles não deveriam ter deixado o relatório pronto até agora, segundo ele."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Were they supposed to have the report ready by now, as he claimed?",
+            "pt": "Eles deveriam ter deixado o relatório pronto até agora, como ele afirmou?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He was supposed to have the report ready by now, he claimed.",
+            "pt": "Ele deveria ter deixado o relatório pronto até agora, segundo ele."
+          },
+          {
+            "tipo": "informal",
+            "en": "They were supposed to have the report ready, he said.",
+            "pt": "Eles deveriam ter deixado o relatório pronto, ele disse."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "They were supposed to have the report ready by now, he claimed, but it's still empty.",
+            "pt": "Eles deveriam ter deixado o relatório pronto até agora, segundo ele, mas ainda está vazio."
+          },
+          {
+            "en": "Honestly, they were supposed to have the report ready by now, he claimed, and I'm annoyed.",
+            "pt": "Honestamente, eles deveriam ter deixado o relatório pronto até agora, segundo ele, e estou irritado."
+          },
+          {
+            "en": "I'm confused because they were supposed to have the report ready by now, he claimed.",
+            "pt": "Estou confuso porque eles deveriam ter deixado o relatório pronto até agora, segundo ele."
+          },
+          {
+            "en": "They were supposed to have the report ready by now, he claimed, so where is it?",
+            "pt": "Eles deveriam ter deixado o relatório pronto até agora, segundo ele, então cadê?"
+          },
+          {
+            "en": "Check the email, they were supposed to have the report ready by now, he claimed.",
+            "pt": "Dá uma olhada no e-mail, eles deveriam ter deixado o relatório pronto até agora, segundo ele."
+          }
+        ]
+      },
+      {
+        "en": "He told me he'd be sure to include the main recipient.",
+        "pt": "Ele me disse que teria certeza de incluir o destinatário principal.",
+        "quando": "Ao garantir que alguém incluíu a pessoa certa no envio.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "He told me he wouldn't be sure to include the main recipient.",
+            "pt": "Ele me disse que não teria certeza de incluir o destinatário principal."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did he tell you he'd be sure to include the main recipient?",
+            "pt": "Ele te disse que teria certeza de incluir o destinatário principal?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She told me she'd be sure to include the main recipient.",
+            "pt": "Ela me disse que teria certeza de incluir o destinatário principal."
+          },
+          {
+            "tipo": "informal",
+            "en": "He said he'd be sure to include the main recipient.",
+            "pt": "Ele disse que teria certeza de incluir o destinatário principal."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "He told me he'd be sure to include the main recipient in the next email.",
+            "pt": "Ele me disse que teria certeza de incluir o destinatário principal no próximo e-mail."
+          },
+          {
+            "en": "I'm relieved because he told me he'd be sure to include the main recipient.",
+            "pt": "Estou aliviado porque ele me disse que teria certeza de incluir o destinatário principal."
+          },
+          {
+            "en": "Did he mention why he told me he'd be sure to include the main recipient?",
+            "pt": "Ele mencionou por que ele me disse que teria certeza de incluir o destinatário principal?"
+          },
+          {
+            "en": "I'll double check, but he told me he'd be sure to include the main recipient.",
+            "pt": "Vou conferir, mas ele me disse que teria certeza de incluir o destinatário principal."
+          },
+          {
+            "en": "Just in case, he told me he'd be sure to include the main recipient.",
+            "pt": "Só por precaução, ele me disse que teria certeza de incluir o destinatário principal."
+          }
+        ]
+      },
+      {
+        "en": "She said she'd be convinced once she saw the final numbers.",
+        "pt": "Ela disse que ficaria convencida assim que visse os números finais.",
+        "quando": "Ao relatar a condição dada por alguém para aceitar um resultado.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "She said she wouldn't be convinced once she saw the final numbers.",
+            "pt": "Ela disse que não ficaria convencida assim que visse os números finais."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did she say she'd be convinced once she saw the final numbers?",
+            "pt": "Ela disse que ficaria convencida assim que visse os números finais?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He said he'd be convinced once he saw the final numbers.",
+            "pt": "Ele disse que ficaria convencido assim que visse os números finais."
+          },
+          {
+            "tipo": "futuro",
+            "en": "She says she'll be convinced once she sees the final numbers.",
+            "pt": "Ela diz que ficará convencida assim que vir os números finais."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "She said she'd be convinced once she saw the final numbers, so let's prepare them.",
+            "pt": "Ela disse que ficaria convencida assim que visse os números finais, então vamos prepará-los."
+          },
+          {
+            "en": "I know she said she'd be convinced once she saw the final numbers, but she's still doubtful.",
+            "pt": "Eu sei que ela disse que ficaria convencida assim que visse os números finais, mas ela ainda está em dúvida."
+          },
+          {
+            "en": "She said she'd be convinced once she saw the final numbers, and now she is.",
+            "pt": "Ela disse que ficaria convencida assim que visse os números finais, e agora ela está."
+          },
+          {
+            "en": "If she said she'd be convinced once she saw the final numbers, why is she still hesitating?",
+            "pt": "Se ela disse que ficaria convencida assim que visse os números finais, por que ela ainda está hesitando?"
+          },
+          {
+            "en": "She said she'd be convinced once she saw the final numbers, let's send them.",
+            "pt": "Ela disse que ficaria convencida assim que visse os números finais, vamos enviá-los."
+          }
+        ]
+      },
+      {
+        "en": "He said he'd like to wait before making a final decision.",
+        "pt": "Ele disse que gostaria de esperar antes de tomar uma decisão final.",
+        "quando": "Ao marcar uma incerteza sobre a decisão de um superior.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "He said he wouldn't like to wait before making a final decision.",
+            "pt": "Ele disse que não gostaria de esperar antes de tomar uma decisão final."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did he say he'd like to wait before making a final decision?",
+            "pt": "Ele disse que gostaria de esperar antes de tomar uma decisão final?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She said she'd like to wait before making a final decision.",
+            "pt": "Ela disse que gostaria de esperar antes de tomar uma decisão final."
+          },
+          {
+            "tipo": "informal",
+            "en": "He mentioned he'd like to wait before making a final decision.",
+            "pt": "Ele mencionou que gostaria de esperar antes de tomar uma decisão final."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "He said he'd like to wait before making a final decision, which is fine by me.",
+            "pt": "Ele disse que gostaria de esperar antes de tomar uma decisão final, o que está ótimo para mim."
+          },
+          {
+            "en": "I understand he said he'd like to wait before making a final decision.",
+            "pt": "Eu entendo que ele disse que gostaria de esperar antes de tomar uma decisão final."
+          },
+          {
+            "en": "He said he'd like to wait before making a final decision, so stop rushing him.",
+            "pt": "Ele disse que gostaria de esperar antes de tomar uma decisão final, então pare de pressioná-lo."
+          },
+          {
+            "en": "Since he said he'd like to wait before making a final decision, we have some time.",
+            "pt": "Já que ele disse que gostaria de esperar antes de tomar uma decisão final, temos algum tempo."
+          },
+          {
+            "en": "If he said he'd like to wait before making a final decision, we should respect that.",
+            "pt": "Se ele disse que gostaria de esperar antes de tomar uma decisão final, deveríamos respeitar isso."
+          }
+        ]
+      },
+      {
+        "en": "They were supposed to provide us with more details later today.",
+        "pt": "Eles deveriam ter nos dado mais detalhes hoje mais tarde.",
+        "quando": "Ao cobrar uma informação que deveria ter sido passada.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "They weren't supposed to provide us with more details later today.",
+            "pt": "Eles não deveriam ter nos dado mais detalhes hoje mais tarde."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Were they supposed to provide us with more details later today?",
+            "pt": "Eles deveriam ter nos dado mais detalhes hoje mais tarde?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He was supposed to provide us with more details later today.",
+            "pt": "Ele deveria ter nos dado mais detalhes hoje mais tarde."
+          },
+          {
+            "tipo": "passado",
+            "en": "They were supposed to have provided us with more details yesterday.",
+            "pt": "Eles deveriam ter nos dado mais detalhes ontem."
+          },
+          {
+            "tipo": "informal",
+            "en": "They were meant to give us more info later today.",
+            "pt": "Eles tinham que passar mais informações pra gente hoje mais tarde."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I checked the schedule and they were supposed to provide us with more details later today.",
+            "pt": "Eu chequei a agenda e eles deveriam ter nos dado mais detalhes hoje mais tarde."
+          },
+          {
+            "en": "The manager said they were supposed to provide us with more details later today, so let's wait.",
+            "pt": "O gerente disse que eles deveriam ter nos dado mais detalhes hoje mais tarde, então vamos esperar."
+          },
+          {
+            "en": "Actually, they were supposed to provide us with more details later today, but I haven't heard anything.",
+            "pt": "Na verdade, eles deveriam ter nos dado mais detalhes hoje mais tarde, mas não recebi nada."
+          },
+          {
+            "en": "Are you sure they were supposed to provide us with more details later today?",
+            "pt": "Você tem certeza de que eles deveriam ter nos dado mais detalhes hoje mais tarde?"
+          },
+          {
+            "en": "I'm still waiting because they were supposed to provide us with more details later today.",
+            "pt": "Ainda estou esperando porque eles deveriam ter nos dado mais detalhes hoje mais tarde."
+          }
+        ]
+      },
+      {
+        "en": "She said she was gonna talk to the team about the new policy.",
+        "pt": "Ela disse que ia falar com a equipe sobre a nova política.",
+        "quando": "Ao repassar um plano de ação que alguém se comprometeu a fazer.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "She said she wasn't gonna talk to the team about the new policy.",
+            "pt": "Ela disse que não ia falar com a equipe sobre a nova política."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did she say she was gonna talk to the team about the new policy?",
+            "pt": "Ela disse que ia falar com a equipe sobre a nova política?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He said he was gonna talk to the team about the new policy.",
+            "pt": "Ele disse que ia falar com a equipe sobre a nova política."
+          },
+          {
+            "tipo": "passado",
+            "en": "She said she had talked to the team about the new policy.",
+            "pt": "Ela disse que tinha falado com a equipe sobre a nova política."
+          },
+          {
+            "tipo": "informal",
+            "en": "She mentioned she's gonna chat with the team about the new policy.",
+            "pt": "Ela mencionou que vai conversar com a equipe sobre a nova política."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I just talked to her and she said she was gonna talk to the team about the new policy.",
+            "pt": "Eu acabei de falar com ela e ela disse que ia falar com a equipe sobre a nova política."
+          },
+          {
+            "en": "Wait, she said she was gonna talk to the team about the new policy before we sign anything.",
+            "pt": "Espera, ela disse que ia falar com a equipe sobre a nova política antes da gente assinar algo."
+          },
+          {
+            "en": "Regarding the changes, she said she was gonna talk to the team about the new policy.",
+            "pt": "Sobre as mudanças, ela disse que ia falar com a equipe sobre a nova política."
+          },
+          {
+            "en": "I'm not worried because she said she was gonna talk to the team about the new policy.",
+            "pt": "Não estou preocupado porque ela disse que ia falar com a equipe sobre a nova política."
+          },
+          {
+            "en": "If you have questions, she said she was gonna talk to the team about the new policy today.",
+            "pt": "Se você tiver dúvidas, ela disse que ia falar com a equipe sobre a nova política hoje."
+          }
+        ]
+      },
+      {
+        "en": "He said he'd be interested if the price was lower.",
+        "pt": "Ele disse que estaria interessado se o preço fosse mais baixo.",
+        "quando": "Ao relatar uma negociação em aberto com um cliente.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "He said he wouldn't be interested if the price was lower.",
+            "pt": "Ele disse que não estaria interessado se o preço fosse mais baixo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did he say he'd be interested if the price was lower?",
+            "pt": "Ele disse que estaria interessado se o preço fosse mais baixo?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She said she'd be interested if the price was lower.",
+            "pt": "Ela disse que estaria interessada se o preço fosse mais baixo."
+          },
+          {
+            "tipo": "passado",
+            "en": "He said he'd have been interested if the price had been lower.",
+            "pt": "Ele disse que teria ficado interessado se o preço tivesse sido mais baixo."
+          },
+          {
+            "tipo": "informal",
+            "en": "He mentioned he might be in if the price drops.",
+            "pt": "Ele mencionou que talvez entre se o preço baixar."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I spoke to him, and he said he'd be interested if the price was lower.",
+            "pt": "Falei com ele e ele disse que estaria interessado se o preço fosse mais baixo."
+          },
+          {
+            "en": "Don't sell it yet, he said he'd be interested if the price was lower.",
+            "pt": "Não venda ainda, ele disse que estaria interessado se o preço fosse mais baixo."
+          },
+          {
+            "en": "My client is cautious, he said he'd be interested if the price was lower.",
+            "pt": "Meu cliente é cauteloso, ele disse que estaria interessado se o preço fosse mais baixo."
+          },
+          {
+            "en": "If we offer a discount, he said he'd be interested if the price was lower.",
+            "pt": "Se oferecermos um desconto, ele disse que estaria interessado se o preço fosse mais baixo."
+          },
+          {
+            "en": "Actually, he said he'd be interested if the price was lower, so let's negotiate.",
+            "pt": "Na verdade, ele disse que estaria interessado se o preço fosse mais baixo, então vamos negociar."
+          }
+        ]
+      },
+      {
+        "en": "She told me she'd already contacted the recipient.",
+        "pt": "Ela me disse que já tinha contatado o destinatário.",
+        "quando": "Ao confirmar que uma tarefa de comunicação foi feita.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "She told me she hadn't contacted the recipient yet.",
+            "pt": "Ela me disse que ainda não tinha contatado o destinatário."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did she tell you she'd already contacted the recipient?",
+            "pt": "Ela te disse que já tinha contatado o destinatário?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He told me he'd already contacted the recipient.",
+            "pt": "Ele me disse que já tinha contatado o destinatário."
+          },
+          {
+            "tipo": "passado",
+            "en": "She told me she contacted the recipient earlier.",
+            "pt": "Ela me disse que contatou o destinatário mais cedo."
+          },
+          {
+            "tipo": "informal",
+            "en": "She said she already reached out to the recipient.",
+            "pt": "Ela disse que já falou com o destinatário."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Good news, she told me she'd already contacted the recipient.",
+            "pt": "Boas notícias, ela me disse que já tinha contatado o destinatário."
+          },
+          {
+            "en": "Check your email, she told me she'd already contacted the recipient.",
+            "pt": "Verifique seu e-mail, ela me disse que já tinha contatado o destinatário."
+          },
+          {
+            "en": "Don't worry about the package, she told me she'd already contacted the recipient.",
+            "pt": "Não se preocupe com o pacote, ela me disse que já tinha contatado o destinatário."
+          },
+          {
+            "en": "Is the shipping ready? She told me she'd already contacted the recipient.",
+            "pt": "O envio está pronto? Ela me disse que já tinha contatado o destinatário."
+          },
+          {
+            "en": "We can move on because she told me she'd already contacted the recipient.",
+            "pt": "Podemos seguir em frente porque ela me disse que já tinha contatado o destinatário."
+          }
+        ]
+      },
+      {
+        "en": "They were supposed to be here, but he said they were stuck in traffic.",
+        "pt": "Eles deveriam estar aqui, mas ele disse que eles ficaram presos no trânsito.",
+        "quando": "Ao justificar o atraso de terceiros com base no que te disseram.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "They weren't supposed to be here, and he said they weren't stuck in traffic.",
+            "pt": "Eles não deveriam estar aqui, e ele disse que eles não ficaram presos no trânsito."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Were they supposed to be here, or did he say they were stuck in traffic?",
+            "pt": "Eles deveriam estar aqui, ou ele disse que eles ficaram presos no trânsito?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He was supposed to be here, but she said he was stuck in traffic.",
+            "pt": "Ele deveria estar aqui, mas ela disse que ele ficou preso no trânsito."
+          },
+          {
+            "tipo": "passado",
+            "en": "They were supposed to be here, but he said they got stuck in traffic.",
+            "pt": "Eles deveriam estar aqui, mas ele disse que eles ficaram presos no trânsito."
+          },
+          {
+            "tipo": "informal",
+            "en": "They were meant to arrive, but he said they're caught in traffic.",
+            "pt": "Eles deviam chegar, mas ele disse que eles estão pegando trânsito."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm confused, they were supposed to be here, but he said they were stuck in traffic.",
+            "pt": "Estou confuso, eles deveriam estar aqui, mas ele disse que eles ficaram presos no trânsito."
+          },
+          {
+            "en": "It's late, they were supposed to be here, but he said they were stuck in traffic.",
+            "pt": "Está tarde, eles deveriam estar aqui, mas ele disse que eles ficaram presos no trânsito."
+          },
+          {
+            "en": "The meeting is delayed, they were supposed to be here, but he said they were stuck in traffic.",
+            "pt": "A reunião está atrasada, eles deveriam estar aqui, mas ele disse que eles ficaram presos no trânsito."
+          },
+          {
+            "en": "Don't be mad, they were supposed to be here, but he said they were stuck in traffic.",
+            "pt": "Não fique bravo, eles deveriam estar aqui, mas ele disse que eles ficaram presos no trânsito."
+          },
+          {
+            "en": "Are they coming? They were supposed to be here, but he said they were stuck in traffic.",
+            "pt": "Eles estão vindo? Eles deveriam estar aqui, mas ele disse que eles ficaram presos no trânsito."
+          }
+        ]
+      },
+      {
+        "en": "He said he'd prefer if we kept this confidential for now.",
+        "pt": "Ele disse que preferiria que mantivéssemos isso em sigilo por enquanto.",
+        "quando": "Ao passar uma instrução de sigilo recebida de um gestor.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "He said he wouldn't prefer if we kept this confidential for now.",
+            "pt": "Ele disse que não preferiria se mantivéssemos isso em sigilo por agora."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did he say he'd prefer if we kept this confidential for now?",
+            "pt": "Ele disse que preferiria que mantivéssemos isso em sigilo por agora?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She said she'd prefer if we kept this confidential for now.",
+            "pt": "Ela disse que preferiria que mantivéssemos isso em sigilo por agora."
+          },
+          {
+            "tipo": "passado",
+            "en": "He said he'd preferred if we kept it confidential back then.",
+            "pt": "Ele disse que teria preferido se tivéssemos mantido em sigilo naquela época."
+          },
+          {
+            "tipo": "informal",
+            "en": "He mentioned he'd rather we keep this on the down-low for now.",
+            "pt": "Ele mencionou que preferiria que mantivéssemos isso em segredo por agora."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Please don't share this, he said he'd prefer if we kept this confidential for now.",
+            "pt": "Por favor não compartilhe isso, ele disse que preferiria que mantivéssemos isso em sigilo por agora."
+          },
+          {
+            "en": "I can't talk about it, he said he'd prefer if we kept this confidential for now.",
+            "pt": "Não posso falar sobre isso, ele disse que preferiria que mantivéssemos isso em sigilo por agora."
+          },
+          {
+            "en": "It's a secret, he said he'd prefer if we kept this confidential for now.",
+            "pt": "É um segredo, ele disse que preferiria que mantivéssemos isso em sigilo por agora."
+          },
+          {
+            "en": "Just keep it quiet, he said he'd prefer if we kept this confidential for now.",
+            "pt": "Apenas mantenha quieto, ele disse que preferiria que mantivéssemos isso em sigilo por agora."
+          },
+          {
+            "en": "Regarding the project, he said he'd prefer if we kept this confidential for now.",
+            "pt": "Sobre o projeto, ele disse que preferiria que mantivéssemos isso em sigilo por agora."
+          }
+        ]
+      },
+      {
+        "en": "She said she was gonna review the contract before signing it.",
+        "pt": "Ela disse que ia revisar o contrato antes de assiná-lo.",
+        "quando": "Ao explicar por que um processo ainda não foi concluído.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "She said she wasn't gonna review the contract before signing it.",
+            "pt": "Ela disse que não ia revisar o contrato antes de assiná-lo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did she say she was gonna review the contract before signing it?",
+            "pt": "Ela disse que ia revisar o contrato antes de assiná-lo?"
+          },
+          {
+            "tipo": "informal",
+            "en": "She told me she's gonna review the contract before signing it.",
+            "pt": "Ela me falou que vai revisar o contrato antes de assiná-lo."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm not sure if she said she was gonna review the contract before signing it.",
+            "pt": "Não tenho certeza se ela disse que ia revisar o contrato antes de assiná-lo."
+          },
+          {
+            "en": "She said she was gonna review the contract before signing it, so wait a bit.",
+            "pt": "Ela disse que ia revisar o contrato antes de assiná-lo, então espere um pouco."
+          },
+          {
+            "en": "Don't worry, she said she was gonna review the contract before signing it.",
+            "pt": "Não se preocupe, ela disse que ia revisar o contrato antes de assiná-lo."
+          },
+          {
+            "en": "Actually, she said she was gonna review the contract before signing it earlier today.",
+            "pt": "Na verdade, ela disse que ia revisar o contrato antes de assiná-lo hoje mais cedo."
+          },
+          {
+            "en": "Since she said she was gonna review the contract before signing it, we should wait.",
+            "pt": "Já que ela disse que ia revisar o contrato antes de assiná-lo, a gente deve esperar."
+          }
+        ]
+      },
+      {
+        "en": "They were supposed to send the invitation to the right recipient.",
+        "pt": "Eles deveriam ter enviado o convite para o destinatário correto.",
+        "quando": "Ao corrigir um erro de envio relatando o que foi combinado.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "They weren't supposed to send the invitation to the right recipient.",
+            "pt": "Eles não deveriam ter enviado o convite para o destinatário correto."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Were they supposed to send the invitation to the right recipient?",
+            "pt": "Eles deveriam ter enviado o convite para o destinatário correto?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He was supposed to send the invitation to the right recipient.",
+            "pt": "Ele deveria ter enviado o convite para o destinatário correto."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "They were supposed to send the invitation to the right recipient, but they didn't.",
+            "pt": "Eles deveriam ter enviado o convite para o destinatário correto, mas não enviaram."
+          },
+          {
+            "en": "I thought they were supposed to send the invitation to the right recipient.",
+            "pt": "Eu achei que eles deveriam ter enviado o convite para o destinatário correto."
+          },
+          {
+            "en": "Whatever happened, they were supposed to send the invitation to the right recipient.",
+            "pt": "Seja lá o que tenha acontecido, eles deveriam ter enviado o convite para o destinatário correto."
+          },
+          {
+            "en": "They were supposed to send the invitation to the right recipient by this morning.",
+            "pt": "Eles deveriam ter enviado o convite para o destinatário correto até hoje de manhã."
+          },
+          {
+            "en": "Remind them they were supposed to send the invitation to the right recipient.",
+            "pt": "Lembre eles de que eles deveriam ter enviado o convite para o destinatário correto."
+          }
+        ]
+      },
+      {
+        "en": "He told me he'd be open to suggestions if we're not sure.",
+        "pt": "Ele me disse que estaria aberto a sugestões se não tivermos certeza.",
+        "quando": "Ao sugerir uma abertura para novas ideias baseada no que ouviu.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "He told me he wouldn't be open to suggestions if we're not sure.",
+            "pt": "Ele me disse que não estaria aberto a sugestões se não tivermos certeza."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did he tell you he'd be open to suggestions if we're not sure?",
+            "pt": "Ele te disse que estaria aberto a sugestões se não tivermos certeza?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She told me she'd be open to suggestions if we're not sure.",
+            "pt": "Ela me disse que estaria aberta a sugestões se não tivermos certeza."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "He told me he'd be open to suggestions if we're not sure, so let's ask him.",
+            "pt": "Ele me disse que estaria aberto a sugestões se não tivermos certeza, então vamos perguntar a ele."
+          },
+          {
+            "en": "Honestly, he told me he'd be open to suggestions if we're not sure about the plan.",
+            "pt": "Honestamente, ele me disse que estaria aberto a sugestões se não tivermos certeza sobre o plano."
+          },
+          {
+            "en": "Since he told me he'd be open to suggestions if we're not sure, let's talk.",
+            "pt": "Já que ele me disse que estaria aberto a sugestões se não tivermos certeza, vamos conversar."
+          },
+          {
+            "en": "I'm glad he told me he'd be open to suggestions if we're not sure.",
+            "pt": "Fico feliz que ele me disse que estaria aberto a sugestões se não tivermos certeza."
+          },
+          {
+            "en": "Wait, he told me he'd be open to suggestions if we're not sure about it.",
+            "pt": "Espera, ele me disse que estaria aberto a sugestões se não tivermos certeza sobre isso."
+          }
+        ]
+      },
+      {
+        "en": "She said she'd call us back once she had more information.",
+        "pt": "Ela disse que nos ligaria de volta assim que tivesse mais informações.",
+        "quando": "Ao dar um posicionamento de espera baseado no que foi dito.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "She said she wouldn't call us back until she had more information.",
+            "pt": "Ela disse que não ligaria pra gente de volta até ter mais informações."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did she say she'd call us back once she had more information?",
+            "pt": "Ela disse que ligaria pra gente de volta assim que tivesse mais informações?"
+          },
+          {
+            "tipo": "passado",
+            "en": "She said she'd called us back once she had more information.",
+            "pt": "Ela disse que tinha ligado pra gente de volta assim que teve mais informações."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "She said she'd call us back once she had more information, so let's just wait.",
+            "pt": "Ela disse que ligaria de volta assim que tivesse mais informações, então vamos só esperar."
+          },
+          {
+            "en": "We're waiting because she said she'd call us back once she had more information.",
+            "pt": "A gente está esperando porque ela disse que ligaria de volta assim que tivesse mais informações."
+          },
+          {
+            "en": "I remember she said she'd call us back once she had more information later.",
+            "pt": "Eu lembro que ela disse que ligaria de volta assim que tivesse mais informações depois."
+          },
+          {
+            "en": "Just hang on, she said she'd call us back once she had more information.",
+            "pt": "Aguenta aí, ela disse que ligaria de volta assim que tivesse mais informações."
+          },
+          {
+            "en": "Since she said she'd call us back once she had more information, keep calm.",
+            "pt": "Já que ela disse que ligaria de volta assim que tivesse mais informações, mantenha a calma."
           }
         ]
       }

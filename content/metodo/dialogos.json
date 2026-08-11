@@ -3183,6 +3183,145 @@
     ]
   },
   {
+    "n": 34,
+    "elenco": [
+      "Ana",
+      "Bruno",
+      "Kate",
+      "Mike"
+    ],
+    "imersao": [
+      [
+        "Ana",
+        "I'm sorry, I've just missed my connecting flight.",
+        "Desculpe, acabei de perder meu voo de conexão."
+      ],
+      [
+        "Bruno",
+        "Let me see. What's your destination?",
+        "Deixa eu ver. Qual é o seu destino?"
+      ],
+      [
+        "Ana",
+        "Boston. I'm in a rush because I have a meeting tomorrow.",
+        "Boston. Estou com pressa porque tenho uma reunião amanhã."
+      ],
+      [
+        "Bruno",
+        "This terminal is huge, but I'll check the system.",
+        "Este terminal é enorme, mas vou checar o sistema."
+      ],
+      [
+        "Ana",
+        "Is there any other flight to my destination today?",
+        "Tem algum outro voo para o meu destino hoje?"
+      ],
+      [
+        "Bruno",
+        "There's one in the twelfth hour, but it's full.",
+        "Tem um na décima segunda hora, mas está lotado."
+      ],
+      [
+        "Ana",
+        "This is a world of trouble for me right now.",
+        "Isso é um mundo de problemas para mim agora."
+      ],
+      [
+        "Bruno",
+        "I'm sorry, I can't force a seat if there's none.",
+        "Sinto muito, não posso forçar um assento se não tem."
+      ],
+      [
+        "Ana",
+        "Can you help me get on the standby list?",
+        "Você pode me ajudar a entrar na lista de espera?"
+      ],
+      [
+        "Bruno",
+        "I can try. What's your name?",
+        "Posso tentar. Qual é seu nome?"
+      ],
+      [
+        "Ana",
+        "Ana Silva. I'd appreciate it if you could help me now.",
+        "Ana Silva. Eu agradeceria se você pudesse me ajudar agora."
+      ],
+      [
+        "Bruno",
+        "I'm doing my best. Just wait here.",
+        "Estou fazendo o meu melhor. Só espere aqui."
+      ]
+    ],
+    "escuta": [
+      [
+        "Kate",
+        "My flight was delayed and I've lost the connection.",
+        "Meu voo atrasou e perdi a conexão."
+      ],
+      [
+        "Mike",
+        "I need to see your ticket. Where are you heading?",
+        "Preciso ver sua passagem. Para onde você está indo?"
+      ],
+      [
+        "Kate",
+        "I'm trying to reach my destination by tomorrow. I've been told to come to this terminal for help.",
+        "Estou tentando chegar ao meu destino até amanhã. Me disseram para vir a este terminal para pedir ajuda."
+      ],
+      [
+        "Mike",
+        "This delay is costing me a world of money too, but I have no seats.",
+        "Esse atraso está me custando muito dinheiro também, mas não tenho assentos."
+      ],
+      [
+        "Kate",
+        "I don't need an apology, I need a flight. Could you please help me find a hotel for tonight?",
+        "Não preciso de desculpas, preciso de um voo. Você poderia me ajudar a encontrar um hotel para hoje à noite?"
+      ],
+      [
+        "Mike",
+        "I can book one. Do you need a voucher?",
+        "Posso reservar um. Você precisa de um voucher?"
+      ],
+      [
+        "Kate",
+        "Yes, please. And can you confirm my new booking details?",
+        "Sim, por favor. E você pode confirmar os detalhes da minha nova reserva?"
+      ],
+      [
+        "Mike",
+        "Sure. It's for tomorrow morning. Is that okay?",
+        "Claro. É para amanhã de manhã. Tudo bem?"
+      ],
+      [
+        "Kate",
+        "I'm sure you're doing your best to help me.",
+        "Tenho certeza de que você está fazendo o seu melhor para me ajudar."
+      ],
+      [
+        "Mike",
+        "Here's your hotel info. Anything else?",
+        "Aqui estão as informações do seu hotel. Mais alguma coisa?"
+      ],
+      [
+        "Kate",
+        "Where can I reclaim my checked baggage?",
+        "Onde posso retirar minha bagagem despachada?"
+      ],
+      [
+        "Mike",
+        "It's in the main hall. Follow the signs.",
+        "Fica no saguão principal. Siga as placas."
+      ]
+    ],
+    "deriva": [
+      "Reclamação de danos na bagagem",
+      "Busca por transporte para o hotel",
+      "Solicitação de reembolso por cancelamento",
+      "Dúvidas sobre o funcionamento do saguão noturno"
+    ]
+  },
+  {
     "n": 35,
     "elenco": [
       "Ana",
@@ -4087,6 +4226,170 @@
     ]
   },
   {
+    "n": 43,
+    "elenco": [
+      "Sarah",
+      "Tom",
+      "Julia",
+      "Dave"
+    ],
+    "imersao": [
+      [
+        "Sarah",
+        "Hi Mr. Henderson, I'm a bit concerned about the current timeline.",
+        "Olá, Sr. Henderson, estou um pouco preocupada com o cronograma atual."
+      ],
+      [
+        "Tom",
+        "I see. And what is your suggestion for the team?",
+        "Entendo. E qual é a sua sugestão para a equipe?"
+      ],
+      [
+        "Sarah",
+        "I'd say we're a bit behind, but we'll catch up soon.",
+        "Eu diria que estamos um pouco atrasados, mas vamos recuperar logo."
+      ],
+      [
+        "Tom",
+        "The client is very demanding, you know.",
+        "O cliente é muito exigente, você sabe."
+      ],
+      [
+        "Sarah",
+        "I understand. I'd appreciate it if you could be a bit more understanding.",
+        "Eu entendo. Eu agradeceria se você pudesse ser um pouco mais compreensivo."
+      ],
+      [
+        "Tom",
+        "I can try, but the results need to be solid.",
+        "Eu posso tentar, mas os resultados precisam ser sólidos."
+      ],
+      [
+        "Sarah",
+        "It's a comprehensive report, so I'd appreciate your thoughts.",
+        "É um relatório completo, então eu gostaria de saber o que você acha."
+      ],
+      [
+        "Tom",
+        "Send it over by tonight. I need to review it.",
+        "Envie até hoje à noite. Preciso revisar."
+      ],
+      [
+        "Sarah",
+        "Actually, I'd prefer to discuss this in our next meeting.",
+        "Na verdade, eu preferiria discutir isso na nossa próxima reunião."
+      ],
+      [
+        "Tom",
+        "Fine. Make sure everything is clear by then.",
+        "Tudo bem. Certifique-se de que tudo esteja claro até lá."
+      ],
+      [
+        "Sarah",
+        "I'm sort of waiting for more information from the lab.",
+        "Estou meio que aguardando mais informações do laboratório."
+      ],
+      [
+        "Tom",
+        "Keep me in the loop, Sarah.",
+        "Me mantenha informado, Sarah."
+      ],
+      [
+        "Sarah",
+        "I will, thank you for your time.",
+        "Vou sim, obrigada pelo seu tempo."
+      ],
+      [
+        "Tom",
+        "See you tomorrow.",
+        "Vejo você amanhã."
+      ]
+    ],
+    "escuta": [
+      [
+        "Julia",
+        "Hey Dave, I'm kind of worried about the deadline.",
+        "Ei Dave, estou meio preocupada com o prazo final."
+      ],
+      [
+        "Dave",
+        "Don't stress, we have time, right?",
+        "Não esquenta, a gente tem tempo, né?"
+      ],
+      [
+        "Julia",
+        "We're a bit behind, but we'll manage.",
+        "Estamos um pouco atrasados, mas a gente se vira."
+      ],
+      [
+        "Dave",
+        "Exactly. Just don't work all weekend.",
+        "Exatamente. Só não trabalha o fim de semana todo."
+      ],
+      [
+        "Julia",
+        "Can you try to be a bit more understanding with me?",
+        "Você pode tentar ser um pouco mais compreensivo comigo?"
+      ],
+      [
+        "Dave",
+        "Why? Did something happen?",
+        "Por quê? Aconteceu alguma coisa?"
+      ],
+      [
+        "Julia",
+        "It's basically a full report, check it out when you can.",
+        "É basicamente um relatório completo, dá uma olhada quando puder."
+      ],
+      [
+        "Dave",
+        "I'm busy with the accounts, but I'll try.",
+        "Tô ocupado com as contas, mas vou tentar."
+      ],
+      [
+        "Julia",
+        "Can you take a look at these numbers for me?",
+        "Você pode dar uma olhada nesses números para mim?"
+      ],
+      [
+        "Dave",
+        "Sure, send the link.",
+        "Claro, manda o link."
+      ],
+      [
+        "Julia",
+        "It's sort of a tricky situation, I'd say.",
+        "É uma situação meio complicada, eu diria."
+      ],
+      [
+        "Dave",
+        "We'll figure it out, we always do.",
+        "A gente dá um jeito, a gente sempre dá."
+      ],
+      [
+        "Julia",
+        "I'm sure we'll figure out something that works for us.",
+        "Tenho certeza de que vamos dar um jeito que funcione para nós."
+      ],
+      [
+        "Dave",
+        "Totally. Let's talk about this later, okay?",
+        "Com certeza. Vamos falar sobre isso mais tarde, beleza?"
+      ],
+      [
+        "Julia",
+        "Sounds good, see you at the pub.",
+        "Fechado, te vejo no bar."
+      ]
+    ],
+    "deriva": [
+      "Diferenças entre prazos reais e expectativas dos chefes",
+      "Como pedir ajuda sem parecer incompetente",
+      "A linha tênue entre ser colega e ser amigo no trabalho",
+      "Lidar com feedbacks negativos de forma profissional"
+    ]
+  },
+  {
     "n": 44,
     "elenco": [
       "Ana",
@@ -4567,6 +4870,644 @@
       "A diferença entre apresentações formais e informais",
       "O uso de recursos visuais em reuniões",
       "Como gerenciar o tempo durante uma fala"
+    ]
+  },
+  {
+    "n": 47,
+    "elenco": [
+      "Ana",
+      "Bruno",
+      "Kate",
+      "Mike"
+    ],
+    "imersao": [
+      [
+        "Ana",
+        "Hey Bruno, did you get a chance to look at the proposal?",
+        "Oi Bruno, você teve chance de dar uma olhada na proposta?"
+      ],
+      [
+        "Bruno",
+        "I did. Honestly, I don't think this draft is ready for the client yet.",
+        "Dei sim. Sinceramente, eu não acho que esse rascunho esteja pronto para o cliente ainda."
+      ],
+      [
+        "Ana",
+        "Oh, that's not what I wanted to hear. What's wrong?",
+        "Poxa, não era o que eu queria ouvir. O que tem de errado?"
+      ],
+      [
+        "Bruno",
+        "It didn't really hit the mark we were aiming for.",
+        "Não atingiu exatamente o objetivo que a gente queria."
+      ],
+      [
+        "Ana",
+        "Is it the tone?",
+        "É o tom?"
+      ],
+      [
+        "Bruno",
+        "Yeah, and it doesn't seem like the editor followed the instructions.",
+        "É, e não parece que o editor seguiu as instruções."
+      ],
+      [
+        "Ana",
+        "I see. Should I start over?",
+        "Entendi. Devo começar do zero?"
+      ],
+      [
+        "Bruno",
+        "No, just edit it. I'd cut this part out to make it more professional.",
+        "Não, só edita. Eu cortaria essa parte para deixar mais profissional."
+      ],
+      [
+        "Ana",
+        "Got it. Anything else?",
+        "Entendi. Mais alguma coisa?"
+      ],
+      [
+        "Bruno",
+        "I'd bring this forward to grab more attention.",
+        "Eu traria isso para o começo para chamar mais atenção."
+      ],
+      [
+        "Ana",
+        "Okay, that's a good point.",
+        "Ok, bom ponto."
+      ],
+      [
+        "Bruno",
+        "Can you bring it back to me once you've fixed it?",
+        "Você pode me trazer de volta depois que corrigir?"
+      ],
+      [
+        "Ana",
+        "Sure, I'll work on it today.",
+        "Claro, vou trabalhar nisso hoje."
+      ],
+      [
+        "Bruno",
+        "Great. Let's touch base again after you've made those changes.",
+        "Ótimo. Vamos nos falar de novo depois que você fizer essas mudanças."
+      ]
+    ],
+    "escuta": [
+      [
+        "Kate",
+        "Mike, I just finished reading your report.",
+        "Mike, acabei de ler seu relatório."
+      ],
+      [
+        "Mike",
+        "And?",
+        "E?"
+      ],
+      [
+        "Kate",
+        "Look, I wouldn't send this out in its current state.",
+        "Olha, eu não enviaria isso no estado em que se encontra."
+      ],
+      [
+        "Mike",
+        "Is it that bad?",
+        "Está tão ruim assim?"
+      ],
+      [
+        "Kate",
+        "It doesn't meet the standards we discussed, unfortunately.",
+        "Infelizmente, isso não atende aos padrões que discutimos."
+      ],
+      [
+        "Mike",
+        "I thought the data was solid.",
+        "Eu achei que os dados estavam sólidos."
+      ],
+      [
+        "Kate",
+        "The data is fine, but this doesn't feel quite right for the brand image.",
+        "Os dados estão ótimos, mas isso não parece muito certo para a imagem da marca."
+      ],
+      [
+        "Mike",
+        "What would you suggest?",
+        "O que você sugere?"
+      ],
+      [
+        "Kate",
+        "I'd break it down into smaller points for clarity.",
+        "Eu dividiria isso em pontos menores para ficar mais claro."
+      ],
+      [
+        "Mike",
+        "Okay, that makes sense.",
+        "Ok, isso faz sentido."
+      ],
+      [
+        "Kate",
+        "Also, I'd switch this around to highlight the main benefit.",
+        "Também, eu trocaria isso de lugar para destacar o benefício principal."
+      ],
+      [
+        "Mike",
+        "You want it at the top?",
+        "Você quer no topo?"
+      ],
+      [
+        "Kate",
+        "Exactly. Can you look it over and polish it a little more?",
+        "Exato. Você pode dar uma olhada e polir um pouco mais?"
+      ],
+      [
+        "Mike",
+        "Yeah, I'll get it done by tomorrow.",
+        "Sim, termino até amanhã."
+      ]
+    ],
+    "deriva": [
+      "Como lidar com críticas no ambiente de trabalho sem levar para o pessoal",
+      "A importância de alinhar expectativas antes de começar um projeto",
+      "Diferença entre feedback construtivo e opinião pessoal",
+      "Como pedir ajuda quando você não sabe como corrigir um erro"
+    ]
+  },
+  {
+    "n": 49,
+    "elenco": [
+      "Ana",
+      "Bruno",
+      "Kate",
+      "Mike"
+    ],
+    "imersao": [
+      [
+        "Ana",
+        "I've carefully reviewed your points, and I still feel that we're missing the mark.",
+        "Eu analisei seus pontos com cuidado e ainda sinto que não estamos atingindo o objetivo."
+      ],
+      [
+        "Bruno",
+        "I hear you, but the quarterly report shows a clear upward trend.",
+        "Eu te ouço, mas o relatório trimestral mostra uma tendência de alta clara."
+      ],
+      [
+        "Ana",
+        "He's a brilliant scholar, so I'm certain his data is solid.",
+        "Ele é um acadêmico brilhante, então tenho certeza de que os dados dele são sólidos."
+      ],
+      [
+        "Bruno",
+        "Maybe, but that study is from last year, Ana.",
+        "Talvez, mas aquele estudo é do ano passado, Ana."
+      ],
+      [
+        "Ana",
+        "I'm not trying to be difficult, but I still see a significant loss here.",
+        "Não estou tentando ser difícil, mas ainda vejo um prejuízo significativo aqui."
+      ],
+      [
+        "Bruno",
+        "It's a temporary dip. We have to look at the big picture.",
+        "É uma queda temporária. Temos que olhar para o panorama geral."
+      ],
+      [
+        "Ana",
+        "I'm definitely concerned about the potential damage to our brand reputation.",
+        "Estou definitivamente preocupado com o dano potencial à reputação da nossa marca."
+      ],
+      [
+        "Bruno",
+        "Look, I get it, but we've invested too much to turn back now.",
+        "Olha, eu entendo, mas investimos demais para voltar atrás agora."
+      ],
+      [
+        "Ana",
+        "I'm honestly trying to see it your way, but I'd still stick to my original position.",
+        "Estou honestamente tentando ver do seu jeito, mas ainda manteria minha posição original."
+      ],
+      [
+        "Bruno",
+        "That just doesn't make sense given the current growth.",
+        "Isso simplesmente não faz sentido dado o crescimento atual."
+      ],
+      [
+        "Ana",
+        "Growth is fine, but not at the expense of our core values.",
+        "O crescimento é bom, mas não às custas dos nossos valores centrais."
+      ],
+      [
+        "Bruno",
+        "We're going in circles here.",
+        "Estamos andando em círculos aqui."
+      ],
+      [
+        "Ana",
+        "Perhaps, but I'm not backing down.",
+        "Talvez, mas não vou recuar."
+      ],
+      [
+        "Bruno",
+        "Fine. Let's take a break and resume later.",
+        "Certo. Vamos fazer uma pausa e retomar mais tarde."
+      ]
+    ],
+    "escuta": [
+      [
+        "Kate",
+        "I've considered your view, and I'd still maintain that we need a different approach.",
+        "Considerei seu ponto de vista e ainda sustento que precisamos de uma abordagem diferente."
+      ],
+      [
+        "Mike",
+        "Kate, the numbers speak for themselves. Why change now?",
+        "Kate, os números falam por si. Por que mudar agora?"
+      ],
+      [
+        "Kate",
+        "I'm sure you have your reasons, but I'd still prefer to focus on the objective data.",
+        "Tenho certeza de que você tem seus motivos, mas eu ainda preferiria focar nos dados objetivos."
+      ],
+      [
+        "Mike",
+        "These are objective! They come from the sales department.",
+        "Estes são objetivos! Eles vêm do departamento de vendas."
+      ],
+      [
+        "Kate",
+        "While that's a fair point, I'd still suggest we reconsider the original plan.",
+        "Embora esse seja um ponto justo, eu ainda sugeriria que repensássemos o plano original."
+      ],
+      [
+        "Mike",
+        "That plan is obsolete. We need speed.",
+        "Aquele plano está obsoleto. Precisamos de velocidade."
+      ],
+      [
+        "Kate",
+        "That's an interesting perspective, but I'd still have to disagree with the overall conclusion.",
+        "Essa é uma perspectiva interessante, mas eu ainda teria que discordar da conclusão geral."
+      ],
+      [
+        "Mike",
+        "Why are you being so stubborn about this?",
+        "Por que você está sendo tão teimosa com isso?"
+      ],
+      [
+        "Kate",
+        "It's not stubbornness, it's caution.",
+        "Não é teimosia, é cautela."
+      ],
+      [
+        "Mike",
+        "Let's be clear, I'd still advocate for a more cautious path forward.",
+        "Vamos ser claros, eu ainda defenderia um caminho mais cauteloso daqui para frente."
+      ],
+      [
+        "Kate",
+        "Wait, you just said you wanted speed.",
+        "Espere, você acabou de dizer que queria velocidade."
+      ],
+      [
+        "Mike",
+        "I'm confused. Let's look at the charts again.",
+        "Estou confuso. Vamos olhar os gráficos de novo."
+      ],
+      [
+        "Kate",
+        "I'm well aware of the facts, yet I'm still not convinced by your interpretation.",
+        "Estou bem ciente dos fatos, mas ainda não estou convencido pela sua interpretação."
+      ],
+      [
+        "Mike",
+        "Okay, let's start over.",
+        "Ok, vamos começar do zero."
+      ]
+    ],
+    "deriva": [
+      "Ética versus lucro em grandes empresas",
+      "A confiabilidade de dados estatísticos antigos",
+      "Como manter a calma em reuniões tensas",
+      "A importância da reputação da marca a longo prazo"
+    ]
+  },
+  {
+    "n": 50,
+    "elenco": [
+      "Ana",
+      "Bruno",
+      "Kate",
+      "Mike"
+    ],
+    "imersao": [
+      [
+        "Ana",
+        "I keep meaning to ask you something, don't I?",
+        "Eu vivo querendo te perguntar uma coisa, né?"
+      ],
+      [
+        "Bruno",
+        "Sure, go ahead. What is it?",
+        "Claro, pode falar. O que é?"
+      ],
+      [
+        "Ana",
+        "I'm thinking of trying that restaurant, aren't I?",
+        "Eu estou pensando em experimentar aquele restaurante, né?"
+      ],
+      [
+        "Bruno",
+        "Oh, the one downtown? It's okay, I guess.",
+        "Ah, aquele no centro? É razoável, eu acho."
+      ],
+      [
+        "Ana",
+        "Wait, did you hear that noise?",
+        "Espera, você ouviu esse barulho?"
+      ],
+      [
+        "Bruno",
+        "He's just going outside to have a smoke, isn't he?",
+        "Ele só está indo lá fora fumar um cigarro, né?"
+      ],
+      [
+        "Ana",
+        "Right. Anyway, back to the food.",
+        "Certo. Enfim, voltando à comida."
+      ],
+      [
+        "Bruno",
+        "Actually, I think I got food poisoning from the salad, didn't I?",
+        "Na verdade, acho que tive uma intoxicação alimentar por causa da salada, né?"
+      ],
+      [
+        "Ana",
+        "Oh no! We'd really enjoy talking about something else, wouldn't I?",
+        "Ah não! A gente gostaria muito de falar sobre outra coisa, né?"
+      ],
+      [
+        "Bruno",
+        "Agreed. How about the weather?",
+        "Concordo. Que tal o tempo?"
+      ],
+      [
+        "Ana",
+        "It's freezing. We're going to keep talking for a while, aren't we?",
+        "Está congelante. A gente vai continuar conversando por mais um tempo, né?"
+      ],
+      [
+        "Bruno",
+        "I hope so. It's been a long night.",
+        "Espero que sim. Está sendo uma noite longa."
+      ],
+      [
+        "Ana",
+        "I'd better start wrapping this up, wouldn't I?",
+        "É melhor eu começar a encerrar isso aqui, né?"
+      ],
+      [
+        "Bruno",
+        "Yeah, let's get the check.",
+        "É, vamos pedir a conta."
+      ]
+    ],
+    "escuta": [
+      [
+        "Kate",
+        "I'm planning on taking a break, aren't I?",
+        "Estou planejando dar uma pausa, né?"
+      ],
+      [
+        "Mike",
+        "From work? Sounds like a good plan.",
+        "Do trabalho? Parece um bom plano."
+      ],
+      [
+        "Kate",
+        "I'm expecting to finish this later, aren't I?",
+        "Estou esperando terminar isso mais tarde, né?"
+      ],
+      [
+        "Mike",
+        "You seem stressed. Did you see the news today?",
+        "Você parece estressada. Viu as notícias hoje?"
+      ],
+      [
+        "Kate",
+        "I don't watch the news. We ended up staying until midnight, didn't we?",
+        "Eu não vejo notícias. A gente acabou ficando até meia-noite, né?"
+      ],
+      [
+        "Mike",
+        "Wait, who stayed?",
+        "Espera, quem ficou?"
+      ],
+      [
+        "Kate",
+        "Sorry, I'm hoping to get back to our topic, aren't I?",
+        "Desculpa, estou torcendo para voltar ao nosso assunto, né?"
+      ],
+      [
+        "Mike",
+        "Right. You were saying you needed a break.",
+        "Certo. Você estava dizendo que precisava de uma pausa."
+      ],
+      [
+        "Kate",
+        "I'd love to hear more about that, wouldn't I?",
+        "Eu adoraria ouvir mais sobre isso, né?"
+      ],
+      [
+        "Mike",
+        "About my break? I'm going to the beach.",
+        "Sobre a minha pausa? Vou para a praia."
+      ],
+      [
+        "Kate",
+        "That sounds lovely.",
+        "Isso parece adorável."
+      ],
+      [
+        "Mike",
+        "It is. Anyway, I think it's time to go.",
+        "É mesmo. Enfim, acho que é hora de ir."
+      ],
+      [
+        "Kate",
+        "Yes, we've talked enough.",
+        "Sim, já conversamos bastante."
+      ],
+      [
+        "Mike",
+        "See you around then.",
+        "A gente se vê por aí então."
+      ]
+    ],
+    "deriva": [
+      "Viagens planejadas para o próximo feriado",
+      "Opiniões sobre o serviço do restaurante",
+      "Mudanças de emprego ou carreira",
+      "Filmes ou séries que todo mundo assistiu"
+    ]
+  },
+  {
+    "n": 51,
+    "elenco": [
+      "Ana",
+      "Bruno",
+      "Kate",
+      "Mike",
+      "Sarah",
+      "Tom"
+    ],
+    "imersao": [
+      [
+        "Ana",
+        "I'm just writing this down in my personal journal to keep track of my thoughts.",
+        "Eu só estou escrevendo isso no meu diário pessoal para acompanhar meus pensamentos."
+      ],
+      [
+        "Bruno",
+        "Still at it? It's already three o'clock and I'm still not finished with this work.",
+        "Ainda nisso? Já são três horas e eu ainda não terminei esse trabalho."
+      ],
+      [
+        "Ana",
+        "I know. It's strange, but I've been reading this scientific journal for three hours straight.",
+        "Eu sei. É estranho, mas eu estou lendo essa revista científica há três horas seguidas."
+      ],
+      [
+        "Bruno",
+        "You need a break. Did you hear about the accident on the news this morning?",
+        "Você precisa de uma pausa. Você ouviu sobre o acidente no jornal de TV hoje de manhã?"
+      ],
+      [
+        "Ana",
+        "Yeah, it's really tragic.",
+        "Sim, é realmente trágico."
+      ],
+      [
+        "Bruno",
+        "Wait, are you still struggling with those terms?",
+        "Espera, você ainda está lutando com aqueles termos?"
+      ],
+      [
+        "Ana",
+        "I'm not sure if I'm pronouncing this word correctly, can you check it?",
+        "Eu não tenho certeza se estou pronunciando essa palavra corretamente, você pode verificar?"
+      ],
+      [
+        "Bruno",
+        "Sure. Say it again.",
+        "Claro. Fala de novo."
+      ],
+      [
+        "Ana",
+        "Is it... 'environment'?",
+        "É... 'environment'?"
+      ],
+      [
+        "Bruno",
+        "Almost. 'En-vi-ron-ment'.",
+        "Quase. 'En-vi-ron-ment'."
+      ],
+      [
+        "Ana",
+        "I'm working on my pronunciation because I want to sound more like a local.",
+        "Eu estou trabalhando na minha pronúncia porque quero soar mais como um nativo."
+      ],
+      [
+        "Bruno",
+        "You're getting there.",
+        "Você está chegando lá."
+      ],
+      [
+        "Ana",
+        "Thanks. I just need to focus.",
+        "Obrigada. Eu só preciso focar."
+      ],
+      [
+        "Bruno",
+        "Don't overthink it, just speak.",
+        "Não pense demais, apenas fale."
+      ]
+    ],
+    "escuta": [
+      [
+        "Kate",
+        "I'm trying to work through these three difficult files before the day ends.",
+        "Eu estou tentando trabalhar nesses três arquivos difíceis antes que o dia acabe."
+      ],
+      [
+        "Mike",
+        "Need some help with that?",
+        "Precisa de ajuda com isso?"
+      ],
+      [
+        "Kate",
+        "Maybe. I'd better look for the newspaper since I need to find that article.",
+        "Talvez. É melhor eu procurar o jornal porque preciso achar aquele artigo."
+      ],
+      [
+        "Mike",
+        "The one about the local economy?",
+        "Aquele sobre a economia local?"
+      ],
+      [
+        "Kate",
+        "Exactly.",
+        "Exatamente."
+      ],
+      [
+        "Mike",
+        "I think I saw it on the table earlier.",
+        "Acho que vi na mesa mais cedo."
+      ],
+      [
+        "Kate",
+        "Thanks. By the way, I heard about the accident on the news this morning, it's really tragic.",
+        "Obrigada. Aliás, eu ouvi sobre o acidente no jornal de TV hoje de manhã, é realmente trágico."
+      ],
+      [
+        "Mike",
+        "Yeah, it's everywhere today.",
+        "Sim, está em todo lugar hoje."
+      ],
+      [
+        "Kate",
+        "I'm working on my pronunciation because I want to sound more like a local when I talk about these things.",
+        "Eu estou trabalhando na minha pronúncia porque quero soar mais como um nativo quando falo dessas coisas."
+      ],
+      [
+        "Mike",
+        "That's a good goal. Just don't get stuck on the details.",
+        "Essa é uma boa meta. Só não trave nos detalhes."
+      ],
+      [
+        "Kate",
+        "It's hard. Sometimes I translate in my head.",
+        "É difícil. Às vezes eu traduzo na minha cabeça."
+      ],
+      [
+        "Mike",
+        "That happens to everyone. Stop measuring your perfection, just talk.",
+        "Isso acontece com todo mundo. Pare de medir sua perfeição, apenas fale."
+      ],
+      [
+        "Kate",
+        "I'm trying, Mike. I really am.",
+        "Eu estou tentando, Mike. De verdade."
+      ],
+      [
+        "Mike",
+        "Keep at it.",
+        "Continue assim."
+      ]
+    ],
+    "deriva": [
+      "A sensação de que o pensamento é mais rápido que a língua",
+      "Como lidar com a frustração de não achar a palavra na hora",
+      "A diferença entre estudar gramática e treinar o músculo da fala",
+      "Dicas de como parar de traduzir mentalmente"
     ]
   }
 ]

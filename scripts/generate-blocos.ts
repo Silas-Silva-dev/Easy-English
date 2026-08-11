@@ -50,6 +50,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { contrair, faltaContracao } from "@content/contracao";
 import {
   cantoDe,
   cargaDe,
@@ -187,9 +188,6 @@ export interface BlocosDoCircuito {
  * Por isso o lookahead: só reprova quando o auxiliar tem continuação. Antes de
  * ponto, vírgula, interrogação, exclamação ou fim de texto, ele fica.
  */
-const SEM_CONTRACAO =
-  /\b(I am|it is|that is|there is|he is|she is|we are|they are|you are|do not|does not|did not|is not|are not|was not|were not|cannot|will not|would not|should not|have not|has not)\b(?!\s*[.,!?]|$)/i;
-
 const palavras = (s: string) => s.trim().split(/\s+/).filter(Boolean).length;
 
 class Reprovado extends Error {}
@@ -217,8 +215,8 @@ function validarBase(
     exigir(!!b.pt?.trim(), `o bloco "${b.en}" veio sem tradução`);
     exigir(!!b.quando?.trim(), `o bloco "${b.en}" veio sem o gatilho "quando"`);
 
-    const semContracao = b.en.match(SEM_CONTRACAO);
-    exigir(!semContracao, `"${b.en}" usa "${semContracao?.[0]}" — o curso exige contração na fala`);
+    const cheia = faltaContracao(b.en);
+    exigir(!cheia, `"${b.en}" usa "${cheia}" - o curso exige contracao na fala`);
 
     exigir(!b.en.includes("/"), `"${b.en}" tem barra, que é o separador de roteiro do player`);
 
@@ -248,8 +246,8 @@ function validarFamilias(n: number, blocos: Bloco[]) {
     for (const f of b.formas) {
       exigir(!!f.en?.trim() && !!f.pt?.trim(), `"${b.en}": forma sem ingles ou sem traducao`);
 
-      const semContracao = f.en.match(SEM_CONTRACAO);
-      exigir(!semContracao, `"${f.en}" usa "${semContracao?.[0]}" — o curso exige contracao`);
+      const cheiaF = faltaContracao(f.en);
+      exigir(!cheiaF, `"${f.en}" usa "${cheiaF}" - o curso exige contracao`);
 
       const chave = chunkKey(f.en);
       exigir(chave !== base, `"${f.en}" e igual ao bloco base: nao e outra cara, e a mesma`);
@@ -265,8 +263,8 @@ function validarFamilias(n: number, blocos: Bloco[]) {
 
       // A contracao vale aqui tambem. Faltava, e um "That's great, I am so
       // happy for you" passou batido na primeira rodada.
-      const semContracao = r.en.match(SEM_CONTRACAO);
-      exigir(!semContracao, `"${r.en}" usa "${semContracao?.[0]}" — o curso exige contracao`);
+      const cheiaR = faltaContracao(r.en);
+      exigir(!cheiaR, `"${r.en}" usa "${cheiaR}" - o curso exige contracao`);
 
       // A regra que faz esta camada valer alguma coisa: a recombinacao tem que
       // conter o bloco DENTRO dela. Sem isto o modelo entrega uma frase
@@ -698,7 +696,9 @@ async function main() {
     for (let t = 1; t <= TENTATIVAS && !base; t++) {
       try {
         const r = await pedir(promptBase(n, textos), ESQUEMA_BASE, op.model, correcao);
-        const candidatos = r.blocos as unknown as { en: string; pt: string; quando: string }[];
+        const candidatos = (
+          r.blocos as unknown as { en: string; pt: string; quando: string }[]
+        ).map((b) => ({ ...b, en: contrair(b.en ?? "") }));
         validarBase(n, candidatos, chaves);
         base = candidatos;
       } catch (error) {
@@ -728,14 +728,25 @@ async function main() {
     if (!base) continue;
 
     // -------------------------------------------------- fase 2: as famílias
-    const comFamilia: Bloco[] = [];
+    //
+    // O lote de seis existe por economia: uma chamada rende seis famílias. O
+    // preço só apareceu quando UMA frase reprovou — uma recombinação com 13
+    // palavras onde o nível permite 12 — e as outras cinco famílias, corretas,
+    // foram para o lixo junto com ela. Foi assim que o circuito 4 fechou com
+    // 0 de 11 blocos e o 33 com 6 de 43: um erro em cada seis, e nada gravado.
+    //
+    // Agora o lote que esgota as tentativas se desfaz, e cada bloco tenta
+    // sozinho. Um pedido de uma família só é um pedido pequeno, que o modelo
+    // acerta com mais frequência, e a perda máxima cai de seis blocos para um.
+    const CORTOU = Symbol("cota");
 
-    for (let i = 0; i < base.length; i += LOTE_FAMILIA) {
-      const lote = base.slice(i, i + LOTE_FAMILIA);
-      let feito = false;
+    const tentarFamilia = async (
+      lote: { en: string; pt: string; quando: string }[],
+      rotulo: string,
+    ): Promise<Bloco[] | null | typeof CORTOU> => {
       let corr: string | undefined;
 
-      for (let t = 1; t <= TENTATIVAS && !feito; t++) {
+      for (let t = 1; t <= TENTATIVAS; t++) {
         try {
           const r = await pedir(promptFamilia(n, lote), ESQUEMA_FAMILIA, op.model, corr);
           const vindos = r.blocos as unknown as {
@@ -751,21 +762,26 @@ async function main() {
               en: b.en,
               pt: b.pt,
               quando: b.quando,
-              formas: achado.formas ?? [],
-              recombinacoes: achado.recombinacoes ?? [],
+              // Contrair antes de validar. Fora do fim da oração a forma
+              // contraída é a certa sempre, sem depender de contexto — é
+              // ortografia, não redação, e não custa outra chamada.
+              formas: (achado.formas ?? []).map((f) => ({ ...f, en: contrair(f.en ?? "") })),
+              recombinacoes: (achado.recombinacoes ?? []).map((rec) => ({
+                ...rec,
+                en: contrair(rec.en ?? ""),
+              })),
             };
           });
 
           validarFamilias(n, montados);
-          comFamilia.push(...montados);
-          feito = true;
+          return montados;
         } catch (error) {
           if (isSpendCap(error)) abortarPorTeto();
-        if (isQuotaError(error)) {
+          if (isQuotaError(error)) {
             if (!op.watch) {
               console.log(`\n  \x1b[33m▲ Cota bloqueada no meio do c${n}.\x1b[0m`);
               console.log(`  O circuito não foi gravado: rode de novo e ele recomeça inteiro.\n`);
-              return;
+              return CORTOU;
             }
             console.log(`  \x1b[33m·\x1b[0m cota: esperando ${op.esperaMin} min...`);
             await sleep(op.esperaMin * 60_000);
@@ -774,18 +790,41 @@ async function main() {
           }
           const msg = error instanceof Error ? error.message : String(error);
           if (t === TENTATIVAS) {
-            console.log(
-              `  \x1b[31m✗\x1b[0m c${n} família ${Math.floor(i / LOTE_FAMILIA) + 1}: ${msg.slice(0, 120)}`,
-            );
-            break;
+            console.log(`  \x1b[31m✗\x1b[0m c${n} ${rotulo}: ${msg.slice(0, 120)}`);
+            return null;
           }
           corr = msg;
           await sleep(2000);
         }
       }
+      return null;
+    };
 
-      if (!feito) break;
+    const comFamilia: Bloco[] = [];
+    const reprovados: { en: string; pt: string; quando: string }[] = [];
+
+    for (let i = 0; i < base.length; i += LOTE_FAMILIA) {
+      const lote = base.slice(i, i + LOTE_FAMILIA);
+      const feitos = await tentarFamilia(lote, `família ${Math.floor(i / LOTE_FAMILIA) + 1}`);
+      if (feitos === CORTOU) return;
+      if (feitos) comFamilia.push(...feitos);
+      else reprovados.push(...lote);
       await sleep(700);
+    }
+
+    // Segunda passada: o que caiu junto tenta separado.
+    if (reprovados.length) {
+      console.log(`  \x1b[33m·\x1b[0m c${n}: ${reprovados.length} bloco(s) em lote reprovado, tentando um a um`);
+      for (const b of reprovados) {
+        const feitos = await tentarFamilia([b], `bloco "${b.en.slice(0, 40)}"`);
+        if (feitos === CORTOU) return;
+        if (feitos) comFamilia.push(...feitos);
+        await sleep(700);
+      }
+      // A ordem do circuito é a ordem em que os blocos foram pensados; os
+      // avulsos voltam para o lugar deles em vez de irem para o fim.
+      const posicao = new Map(base.map((b, i) => [b.en, i]));
+      comFamilia.sort((a, b) => (posicao.get(a.en) ?? 0) - (posicao.get(b.en) ?? 0));
     }
 
     if (comFamilia.length === base.length) {
