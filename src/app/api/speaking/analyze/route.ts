@@ -11,6 +11,7 @@ import { syncEnrollmentStudyStats } from "@/lib/learning";
 import { createAdminSupabase } from "@/lib/supabase/admin";
 import { createServerSupabase } from "@/lib/supabase/server";
 import { chunksSpokenIn, gradeFromSpokenChunk } from "@/lib/srs";
+import { pisoDeFala } from "@content/metodo/portoes";
 import type { CefrLevel, Chunk } from "@/lib/types/database";
 
 export const runtime = "nodejs";
@@ -60,12 +61,21 @@ export async function POST(request: NextRequest) {
   let targetVocabulary: string[] = [];
   let courseId: string | null = null;
   let lessonChunks: Chunk[] = [];
+  /**
+   * O circuito desta lição, para a nota ser medida contra o que ELE espera.
+   *
+   * `gradeFromScore` deixou de ser escala absoluta: o piso do circuito é o
+   * ponto onde a nota vale 4, o degrau neutro do SM-2. Sem passar o circuito,
+   * toda gravação do curso era medida contra o piso 6,0 do C27 — inclusive a
+   * do aluno no circuito 3, de quem a espinha não cobra nota nenhuma.
+   */
+  let circuito = 1;
 
   if (lessonId) {
     const { data: lesson } = await supabase
       .from("lessons")
       .select(
-        "id, course_id, title, level, grammar_focus, speaking_prompt, vocabulary, chunks, is_published",
+        "id, course_id, title, level, grammar_focus, speaking_prompt, vocabulary, chunks, is_published, week_number",
       )
       .eq("id", lessonId)
       .maybeSingle();
@@ -78,6 +88,7 @@ export async function POST(request: NextRequest) {
     grammarFocus = lesson.grammar_focus;
     targetVocabulary = (lesson.vocabulary ?? []).map((v) => v.term).filter(Boolean);
     lessonChunks = lesson.chunks ?? [];
+    circuito = lesson.week_number ?? 1;
     prompt = prompt || lesson.speaking_prompt || "";
   }
 
@@ -223,7 +234,7 @@ export async function POST(request: NextRequest) {
         console.error("[speaking] falha ao marcar blocos falados:", spokenError.message);
       }
 
-      const grade = gradeFromSpokenChunk(analysis.scores.overall);
+      const grade = gradeFromSpokenChunk(analysis.scores.overall, pisoDeFala(circuito));
       for (const key of spoken) {
         const { error: reviewError } = await supabase.rpc("review_chunk", {
           p_chunk_key: key,

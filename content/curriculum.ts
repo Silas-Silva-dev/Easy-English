@@ -63,9 +63,11 @@
  * usa cada circuito como briefing para o Gemini redigir os 14 dias.
  */
 
+import { reviewBatchSize } from "@/lib/srs";
+
 import blocosJson from "./metodo/blocos.json";
 import moldeJson from "./metodo/molde.json";
-import { orcamentoDa, PROGRESSAO } from "./metodo";
+import { cantoDe, orcamentoDa, PROGRESSAO } from "./metodo";
 
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1";
 
@@ -164,6 +166,52 @@ export function movimentosDaTrilha(id: StudyTrack) {
     { id: "som", label: "Som", minutes: orc.som,
       brief: "Um degrau da espinha de fonologia, com par mínimo e checagem." },
   ] as const;
+}
+
+/**
+ * O desenho da rampa: quantos cartões cada canto aguenta, por trilha.
+ *
+ * Os quatro números do Completo (20/28/36/36) sobem porque o acervo sobe: no
+ * Canto 1 há pouco o que revisar, no Canto 3 a simulação bate 55 vencidos por
+ * dia. O Intensivo é plano em 45 porque é o único orçamento que já cobre esse
+ * pico. A Essencial fica em 9 a 11 porque o baralho dela é o NÚCLEO — 359 dos
+ * 1.193 blocos —, e não o curso inteiro.
+ */
+const TETO_POR_CANTO: Record<StudyTrack, readonly [number, number, number, number]> = {
+  essential: [9, 10, 10, 11],
+  complete: [20, 28, 36, 36],
+  intensive: [45, 45, 45, 45],
+};
+
+/**
+ * Quantos cartões cabem no dia deste aluno: o MENOR entre o teto do canto e o
+ * lote que os minutos de Memória pagam.
+ *
+ * São duas grandezas diferentes e as duas mandam. O teto é o desenho da rampa —
+ * o quanto de revisão o canto comporta sem sufocar o material novo. O lote é o
+ * que o orçamento da trilha REALMENTE paga: `reviewBatchSize` dos minutos do
+ * movimento Memória, a 20 s por cartão em voz alta. Prometer mais do que a
+ * sessão comporta é exatamente como a fila virou dívida: simulada com um aluno
+ * ruim (40/38/22), ela chegava a 550 itens atrasados e nunca drenava, e uma
+ * fila que só cresce faz o aluno abandonar antes de qualquer portão.
+ *
+ * Na prática o menor alterna de lado, e é por isso que os dois existem: no
+ * Completo o teto manda no Canto 1 (20 contra 27) e o orçamento manda do Canto
+ * 2 em diante (27 contra 28 e 36); na Essencial o orçamento manda sempre (9); no
+ * Intensivo os dois dão 45 e a trilha usa tudo o que compra.
+ *
+ * O canto sai do circuito por `cantoDe`, a mesma conta da espinha: 1-13, 14-26,
+ * 27-39, 40-52.
+ */
+export function tetoDiarioDaFila(trilha: StudyTrack, circuito: number): number {
+  // Aluno recém-matriculado chega com circuito 0 em algumas telas, e
+  // `cantoDe(0)` devolve 0: índice −1 no array, teto `undefined`, NaN na fila.
+  const canto = cantoDe(Math.max(1, circuito));
+  const desenho = TETO_POR_CANTO[trilha][canto - 1];
+
+  const memoria = movimentosDaTrilha(trilha).find((m) => m.id === "memoria")?.minutes ?? 0;
+
+  return Math.min(desenho, reviewBatchSize(memoria));
 }
 
 export const DAY_BLOCKS: Record<DayBlockId, { label: string; minutes: number; brief: string }> = {

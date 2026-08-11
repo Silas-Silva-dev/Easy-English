@@ -19,6 +19,7 @@ import {
   STAGE_TONE,
   type ChunkMastery,
 } from "@/lib/srs";
+import type { StudyTrack } from "@content/curriculum";
 import { cn } from "@/lib/utils";
 
 import { markSpokenAction, reviewChunkAction } from "./actions";
@@ -56,7 +57,23 @@ const ANSWERS: { id: Answer; label: string; hint: string; icon: typeof Zap; tone
  * voz alta. O caminho inverso (ver o inglês e reconhecer) é fácil demais e
  * gera a ilusão de saber: reconhecer não é produzir.
  */
-export function ReviewDeck({ chunks }: { chunks: ChunkMastery[] }) {
+export function ReviewDeck({
+  chunks,
+  track,
+}: {
+  chunks: ChunkMastery[];
+  /**
+   * A trilha do aluno, porque "dominado" depende dela.
+   *
+   * A Essencial não grava, então `spoken_count` fica em zero para sempre nessa
+   * trilha e `is_mastered` a dispensa da produção falada. Sem este prop o
+   * selo caía no default 'complete' e exigia duas falas: o StatCard lá em cima
+   * contava o bloco como dominado (a view usa a trilha real) e o selo dois
+   * centímetros abaixo dizia "Consolidando" — o mesmo bloco, dois veredictos,
+   * na mesma tela. Na Essencial nenhum bloco jamais chegaria a "Dominado".
+   */
+  track: StudyTrack;
+}) {
   const [index, setIndex] = React.useState(0);
   const [revealed, setRevealed] = React.useState(false);
   const [pending, startTransition] = React.useTransition();
@@ -155,7 +172,7 @@ export function ReviewDeck({ chunks }: { chunks: ChunkMastery[] }) {
     );
   }
 
-  const stage = masteryStage(current);
+  const stage = masteryStage(current, track);
   const isLate = current.due_date < new Date().toISOString().slice(0, 10);
 
   return (

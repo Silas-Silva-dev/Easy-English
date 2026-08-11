@@ -9,6 +9,7 @@ import { geminiModels } from "@/lib/env";
 import { gemini, parseJsonResponse, withRetry } from "@/lib/gemini/client";
 import { createServerSupabase } from "@/lib/supabase/server";
 import { chunkKey, gradeFromSpokenChunk } from "@/lib/srs";
+import { pisoDeFala } from "@content/metodo/portoes";
 
 const turnSchema = z.object({
   role: z.enum(["user", "model"]),
@@ -240,7 +241,9 @@ Comece pelo que funcionou antes de apontar o que falta.
     });
     if (spokenError) console.error("[live] mark_chunks_spoken:", spokenError.message);
 
-    const grade = gradeFromSpokenChunk(scores.overall);
+    // O piso do circuito da conversa, e não o 6,0 do C27 para todo mundo: a
+    // nota vale 4 quando o aluno entrega o que ESTE circuito espera dele.
+    const grade = gradeFromSpokenChunk(scores.overall, pisoDeFala(circuitNumber ?? 1));
     for (const key of usedKeys) {
       const { error } = await supabase.rpc("review_chunk", { p_chunk_key: key, p_grade: grade });
       // O bloco pode não estar na agenda ainda: não é motivo para falhar.
