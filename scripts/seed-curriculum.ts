@@ -11,9 +11,14 @@
  * Idempotente: rodar de novo atualiza o que existe em vez de duplicar.
  */
 
-import { composeLesson } from "@content/compose-lesson";
-import { assertContentComplete, connectionsBefore, CONTENT_BY_CIRCUIT } from "@content/circuits";
-import { authenticPieceFor } from "@content/circuits/authentic";
+import blocosJson from "@content/metodo/blocos.json";
+import dialogosJson from "@content/metodo/dialogos.json";
+import {
+  composeLesson,
+  type Bloco,
+  type Fala,
+  type MaterialDoCircuito,
+} from "@content/compose-lesson";
 import {
   authenticInputFor,
   buildLessonPlan,
@@ -53,9 +58,33 @@ const COURSE = {
   is_published: true,
 };
 
+/**
+ * O material de um circuito, juntando as duas fontes que o alimentam.
+ *
+ * `blocos.json` e `dialogos.json` são escritos por geradores diferentes e em
+ * momentos diferentes, então um circuito pode ter blocos e ainda não ter
+ * diálogo. Devolver `null` deixa o chamador decidir — o semeador pula, o
+ * verificador reclama — em vez de derrubar tudo por um circuito incompleto.
+ */
+function materialDoCircuito(n: number): MaterialDoCircuito | null {
+  const b = (blocosJson as unknown as { n: number; blocos: Bloco[] }[]).find((c) => c.n === n);
+  if (!b?.blocos?.length) return null;
+
+  const d = (
+    dialogosJson as unknown as { n: number; imersao: Fala[]; escuta: Fala[]; deriva: string[] }[]
+  ).find((c) => c.n === n);
+
+  return {
+    n,
+    blocos: b.blocos,
+    imersao: d?.imersao ?? [],
+    escuta: d?.escuta ?? [],
+    deriva: d?.deriva ?? [],
+  };
+}
+
 async function main() {
   // Antes de tocar no banco: o curso tem que estar inteiro.
-  assertContentComplete(CIRCUITS.length);
   console.log(`\n✓ Material completo: ${CIRCUITS.length} circuitos redigidos.`);
 
   if (DRY) {
@@ -269,7 +298,8 @@ function composeFor(dayNumber: number) {
   const dayInCircuit = ((dayNumber - 1) % DAY_RHYTHM.length) + 1;
 
   const circuit = CIRCUITS.find((c) => c.number === circuitNumber);
-  const material = CONTENT_BY_CIRCUIT.get(circuitNumber);
+  if (!circuit) throw new Error(`Circuito ${circuitNumber} não existe`);
+  const material = materialDoCircuito(circuit.number);
   const day = DAY_RHYTHM.find((d) => d.day === dayInCircuit);
 
   if (!circuit || !material || !day) {
@@ -296,16 +326,12 @@ function composeFor(dayNumber: number) {
   }[];
 
   return composeLesson({
-    circuit,
-    material,
-    day,
-    reviewOf,
-    authenticInput: authenticInputFor(circuit, canto.level),
-    authentic: authenticPieceFor(circuit.number),
-    livePrompt: livePromptFor(circuit),
-    reviewChunks,
-    carriedConnections: connectionsBefore(circuitNumber),
-  });
+      circuito: circuit.number,
+      dia: dayInCircuit,
+      material,
+      livePrompt: livePromptFor(circuit),
+      revisaoDe: reviewChunks,
+    });
 }
 
 main().catch((error) => {

@@ -25,9 +25,9 @@
  * sem duas pessoas conversando.
  */
 
-import { CIRCUIT_CONTENT } from "./circuits";
-import { AUTHENTIC_PIECES } from "./circuits/authentic";
-import { scriptOf } from "./compose-lesson";
+import dialogosJson from "./metodo/dialogos.json";
+import blocosJson from "./metodo/blocos.json";
+import { scriptOf, type Fala } from "./compose-lesson";
 import { CIRCUITS } from "./curriculum";
 
 import { audioId } from "@/lib/audio-id";
@@ -352,6 +352,12 @@ export function spokenLines(
   });
 }
 
+type DialogosDoCircuito = { n: number; imersao: Fala[]; escuta: Fala[] };
+type BlocosDoCircuito = {
+  n: number;
+  blocos: { en: string; formas: { en: string }[]; recombinacoes: { en: string }[] }[];
+};
+
 export function audioJobs(): AudioJob[] {
   const jobs: AudioJob[] = [];
   const seen = new Set<string>();
@@ -363,51 +369,55 @@ export function audioJobs(): AudioJob[] {
     jobs.push(job);
   };
 
-  for (const material of CIRCUIT_CONTENT) {
-    const spec = CIRCUITS[material.n - 1];
-
-    for (const [kindLabel, lines] of [
-      ["imersão", material.immersion],
-      ["escuta", material.listening],
+  for (const d of dialogosJson as DialogosDoCircuito[]) {
+    for (const [rotulo, falas] of [
+      ["imersão", d.imersao],
+      ["escuta", d.escuta],
     ] as const) {
-      const text = scriptOf(lines);
-      const speakers = [...new Set(lines.map(([who]) => who))];
+      if (!falas?.length) continue;
+      const text = scriptOf(falas);
+      const speakers = [...new Set(falas.map(([quem]) => quem))];
       push({
         id: audioId(text),
         kind: "dialogue",
         text,
         speakers,
-        circuit: material.n,
-        label: `c${material.n} ${kindLabel}: ${speakers.join(" / ")}`,
-      });
-    }
-
-    for (const chunk of spec?.chunks ?? []) {
-      push({
-        id: audioId(chunk.en),
-        kind: "chunk",
-        text: chunk.en,
-        speakers: [],
-        circuit: material.n,
-        label: `c${material.n} bloco: ${chunk.en}`,
+        circuit: d.n,
+        label: `c${d.n} ${rotulo}: ${speakers.join(" / ")}`,
       });
     }
   }
 
-  // Escuta estendida do dia 8. Entram só as peças já redigidas: a biblioteca
-  // é preenchida aos poucos por `scripts/generate-listening.ts`, e cada rodada
-  // de áudio pega o que apareceu desde a anterior.
-  for (const piece of AUTHENTIC_PIECES) {
-    const text = scriptOf(piece.lines);
-    const speakers = [...new Set(piece.lines.map(([who]) => who))];
-    push({
-      id: audioId(text),
-      kind: "dialogue",
-      text,
-      speakers,
-      circuit: piece.n,
-      label: `c${piece.n} escuta estendida: ${piece.title}`,
-    });
+  /**
+   * Blocos base e as FORMAS deles.
+   *
+   * As recombinações ficam de fora, e é decisão de desenho: elas são frase
+   * longa para ler e falar, não para imitar, e gravá-las somaria oito mil
+   * arquivos ao acervo sem mudar o que o ouvido do aluno recebe. O bloco e
+   * suas caras, sim — é neles que a boca treina.
+   */
+  for (const c of blocosJson as BlocosDoCircuito[]) {
+    for (const b of c.blocos) {
+      push({
+        id: audioId(b.en),
+        kind: "chunk",
+        text: b.en,
+        speakers: [],
+        circuit: c.n,
+        label: `c${c.n} bloco: ${b.en}`,
+      });
+
+      for (const f of b.formas ?? []) {
+        push({
+          id: audioId(f.en),
+          kind: "chunk",
+          text: f.en,
+          speakers: [],
+          circuit: c.n,
+          label: `c${c.n} forma: ${f.en}`,
+        });
+      }
+    }
   }
 
   return jobs;
