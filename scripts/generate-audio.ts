@@ -47,6 +47,7 @@ import {
   mkdirSync,
   readdirSync,
   readFileSync,
+  renameSync,
   rmSync,
   writeFileSync,
 } from "node:fs";
@@ -157,11 +158,28 @@ function readLedger(): Record<string, LedgerEntry> {
   }
 }
 
+/**
+ * Grava o livro-razão relendo o disco antes, e escrevendo de uma vez só.
+ *
+ * A versão anterior lia o arquivo uma vez no início e depois escrevia o mapa
+ * inteiro da memória. Com um processo só isso bastava. Com dois — o Piper
+ * enchendo os 7.344 blocos enquanto o Gemini grava os 104 diálogos, que é
+ * exatamente o jeito rápido de fazer isto — o segundo a salvar apagava o
+ * registro do primeiro. Os .mp3 sobreviveriam, porque o nome vem do texto; o
+ * que se perderia é a informação de QUEM gravou cada um, que é justamente o
+ * que faz `--upgrade` saber o que regravar.
+ *
+ * Reler e mesclar faz duas execuções se ajudarem. Escrever ao lado e renomear
+ * fecha a janela em que um leitor veria o arquivo pela metade.
+ */
 function writeLedger(ledger: Record<string, LedgerEntry>) {
+  const juntos = { ...readLedger(), ...ledger };
   const sorted = Object.fromEntries(
-    Object.entries(ledger).sort(([a], [b]) => a.localeCompare(b)),
+    Object.entries(juntos).sort(([a], [b]) => a.localeCompare(b)),
   );
-  writeFileSync(LEDGER_PATH, JSON.stringify(sorted, null, 2) + "\n", "utf8");
+  const temp = `${LEDGER_PATH}.${process.pid}.tmp`;
+  writeFileSync(temp, JSON.stringify(sorted, null, 2) + "\n", "utf8");
+  renameSync(temp, LEDGER_PATH);
 }
 
 function parseArgs(argv: string[]): Options {
