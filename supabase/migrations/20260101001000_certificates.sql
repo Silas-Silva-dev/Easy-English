@@ -36,11 +36,20 @@ create trigger certificates_set_updated_at
 -- ---------------------------------------------------------------------------
 alter table public.certificates enable row level security;
 
+-- `drop ... if exists` antes de cada uma: `create policy` não aceita
+-- "se não existir", e sem o drop este arquivo falha na segunda vez que for
+-- aplicado — que é como ele é usado, porque `supabase/schema.sql` junta todas
+-- as migrations e a instrução do projeto é colar o arquivo inteiro no SQL
+-- Editor. As outras 65 policies do schema já seguiam este padrão; estas três
+-- eram a exceção, e derrubavam a aplicação inteira antes de chegar ao fim.
+
 -- Aluno pode visualizar seus próprios certificados
+drop policy if exists certificates_select_own on public.certificates;
 create policy certificates_select_own on public.certificates
   for select using (auth.uid() = user_id);
 
 -- Admins têm acesso total
+drop policy if exists certificates_admin_all on public.certificates;
 create policy certificates_admin_all on public.certificates
   for all using (
     exists (
@@ -51,5 +60,6 @@ create policy certificates_admin_all on public.certificates
   );
 
 -- Leitura pública (para qualquer visitante verificar por código)
+drop policy if exists certificates_select_public_code on public.certificates;
 create policy certificates_select_public_code on public.certificates
   for select using (true);

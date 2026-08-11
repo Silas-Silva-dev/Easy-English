@@ -47,12 +47,17 @@ alter table public.profiles
  * Se um dia entrar login social, confira o formato que o provedor devolve antes
  * de ligar, senão o cadastro quebra aqui.
  */
-alter table public.profiles
-  add constraint profiles_avatar_url_check
-  check (
-    avatar_url is null
-    or (avatar_url ~ '^https://' and length(avatar_url) <= 512)
-  );
+-- `add constraint` não tem "if not exists" em Postgres, e sem a guarda este
+-- arquivo falha na segunda aplicação. O `do $$ ... exception` é o mesmo padrão
+-- que a migration 000500 já usa para o check de `circuit_day`.
+do $$ begin
+  alter table public.profiles
+    add constraint profiles_avatar_url_check
+    check (
+      avatar_url is null
+      or (avatar_url ~ '^https://' and length(avatar_url) <= 512)
+    );
+exception when duplicate_object then null; end $$;
 
 -- ---------------------------------------------------------------------------
 -- 2. Fuso horário inválido não pode mais parar a ofensiva
