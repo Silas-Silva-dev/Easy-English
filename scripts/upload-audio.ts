@@ -30,6 +30,8 @@
  */
 
 import { readdirSync, readFileSync, statSync } from "node:fs";
+
+import { audioJobs } from "@content/audio-manifest";
 import { join } from "node:path";
 
 import { mapLimit, progress, supabaseAdmin, withRetry } from "./_shared";
@@ -87,12 +89,39 @@ async function noBucket(): Promise<Map<string, number>> {
 async function main() {
   console.log(`\n\x1b[1m▸ Enviando áudio para o bucket ${BUCKET}\x1b[0m\n`);
 
-  let locais: string[];
+  let emDisco: string[];
   try {
-    locais = readdirSync(DIR).filter((f) => f.endsWith(".mp3"));
+    emDisco = readdirSync(DIR).filter((f) => f.endsWith(".mp3"));
   } catch {
     console.log(`  Nada em public/audio/. Rode 'npm run gen:audio' primeiro.\n`);
     return;
+  }
+
+  /**
+   * Envia o que o CURSO usa, e não o que a pasta tem.
+   *
+   * As duas coisas divergem, e divergem para mais: o nome do arquivo vem do
+   * hash do texto, então toda frase corrigida ou removida deixa o mp3 antigo
+   * para trás. Depois da revisão que tirou 1.840 frases do curso, sobraram 641
+   * arquivos de textos que ninguém mais estuda — 59 MB que iriam para o bucket
+   * sem nunca serem pedidos, porque o player só busca hash que existe na lição.
+   *
+   * Espelhar a pasta era o comportamento antigo e ele erra devagar: cada
+   * rodada de correção acrescenta peso morto que nada remove. `--tudo` mantém
+   * o comportamento antigo para quando ele for mesmo o desejado.
+   */
+  const locais = process.argv.includes("--tudo")
+    ? emDisco
+    : (() => {
+        const precisa = new Set(audioJobs().map((j) => `${j.id}.mp3`));
+        return emDisco.filter((f) => precisa.has(f));
+      })();
+
+  const orfaos = emDisco.length - locais.length;
+  if (orfaos) {
+    console.log(
+      `  ${orfaos} arquivo(s) em disco não pertencem mais ao curso e ficam de fora (--tudo envia).`,
+    );
   }
 
   if (!locais.length) {
