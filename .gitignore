@@ -85,7 +85,7 @@ __pycache__/
 #
 # ~360 MB de modelos .onnx baixados por `npm run gen:audio:setup`. NÃO vão para
 # o repositório: são reproduzíveis por download e só servem para GERAR o áudio.
-# O que precisa ser versionado é o resultado, em public/audio/.
+# O resultado também não: os mp3 vivem no bucket `course-audio` do Supabase.
 # ---------------------------------------------------------------------------
 .piper-voices/
 
@@ -111,3 +111,14 @@ service-account*.json
 gen-lang-client-*.json
 *-compute@developer*.json
 *.iam.gserviceaccount.com.json
+
+# Áudio do curso. Gerado por `npm run gen:audio`, enviado por `npm run upload:audio`
+# e servido do bucket `course-audio` do Supabase.
+#
+# Eram 500 arquivos e 56 MB versionados, o que funcionou enquanto o curso tinha
+# 364 blocos. A reconstrução do método pede cerca de 13 mil arquivos e 314 MB, e
+# cada regeração somaria outra cópia ao histórico, para sempre.
+#
+# `engines.json` continua versionado de propósito: é o livro-razão de qual motor
+# gerou cada faixa, e é o que permite subir de voz local para voz neural depois.
+public/audio/*.mp3

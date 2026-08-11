@@ -55,8 +55,32 @@ export function audioId(text: string): string {
   return (4294967296 * (2097151 & h2) + (h1 >>> 0)).toString(36);
 }
 
-/** Caminho público do áudio de um texto. Vazio quando não há texto. */
+/**
+ * Onde o áudio do curso mora.
+ *
+ * Morava em `public/audio/<id>.mp3`, versionado no git. Funcionou enquanto o
+ * curso tinha 364 blocos e 500 arquivos. A reconstrução do método pede cerca de
+ * 13 mil arquivos e 314 MB, e repositório não é servidor de mídia: clonar o
+ * projeto passaria a baixar um terço de gigabyte de mp3, e cada regeração de
+ * conteúdo somaria outra cópia ao histórico, para sempre.
+ *
+ * Agora sai do bucket `course-audio` do Supabase (ver a migração
+ * `20260101001300`). A propriedade que fazia esta função existir continua
+ * intacta: ela é SÍNCRONA e deriva o endereço do próprio texto, sem consultar
+ * banco e sem await, que é o que mantém o play funcionando dentro do gesto do
+ * usuário no Safari.
+ *
+ * O caminho local continua como reserva para quando a variável não existir —
+ * desenvolvimento sem Supabase configurado, e os testes. E quando o arquivo não
+ * existir em lugar nenhum, o player cai na voz do navegador, exatamente como
+ * fazia no primeiro dia de geração.
+ */
+const BASE_REMOTA = process.env.NEXT_PUBLIC_SUPABASE_URL
+  ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/course-audio`
+  : null;
+
 export function audioSrc(text: string): string | null {
   const id = audioId(text);
-  return id ? `/audio/${id}.mp3` : null;
+  if (!id) return null;
+  return BASE_REMOTA ? `${BASE_REMOTA}/${id}.mp3` : `/audio/${id}.mp3`;
 }
