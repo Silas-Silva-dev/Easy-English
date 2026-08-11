@@ -185,6 +185,36 @@ const OBJETIVOS: Record<number, string> = {
   14: "Hoje não tem roteiro. Você conversa sobre a situação do circuito do seu jeito.",
 };
 
+/**
+ * O que o aluno leva do dia, e por que o dia seguinte vem em seguida.
+ *
+ * Só o dia 14 tinha fechamento; os outros treze terminavam no vazio — 676 das
+ * 728 lições. Isso não é detalhe de interface: num método de repetição
+ * espaçada, o aluno passa a maior parte do tempo fazendo coisas cujo efeito
+ * ele NÃO sente no dia (ouvir sem entender, repetir o que já sabe, revisar o
+ * que parecia dominado). Se o dia acaba sem dizer para que serviu, a sensação
+ * de estar perdendo tempo é a leitura honesta do que ele viu.
+ *
+ * Então cada dia fecha dizendo duas coisas: o que aconteceu de fato, e o que
+ * vem amanhã por causa disso.
+ */
+const FECHAMENTOS: Record<number, string> = {
+  1: "Você ouviu sem entender tudo, e era para ser assim. Amanhã essas mesmas falas vão para a sua boca.",
+  2: "Os blocos saíram da tela e foram para a boca. Amanhã eles ganham outras caras, e você para de depender da frase exata.",
+  3: "O bloco virou molde: mesma ideia, formas diferentes. Amanhã a prova — outra conversa, na mesma situação.",
+  4: "Se você acompanhou uma conversa nova na mesma situação, colou. O que escapou volta nos próximos dias, sem susto.",
+  5: "Falar sozinho em voz alta é o que constrói a via da boca. Ninguém ouviu, e é justamente por isso que dá para errar à vontade.",
+  6: "A revisão chegou na hora em que você ia começar a esquecer. É esse timing, e não a quantidade, que faz o bloco ficar.",
+  7: "Você usou o inglês fora do app, que é o único lugar onde ele conta. Amanhã volta o inglês que não foi feito para estudante.",
+  8: "Entender metade de um inglês real é o resultado esperado hoje, não fracasso. A outra metade chega por repetição, não por esforço.",
+  9: "Falar junto força seu ritmo a acompanhar o do nativo. É o exercício que mais mexe no sotaque, e o mais desconfortável.",
+  10: "As frases ficaram longas sem matéria nova: você emendou o que já tinha. É assim que a fala deixa de ser telegráfica.",
+  11: "Conversa ao vivo cobra em tempo real, sem pausa para montar a frase. O que travou hoje é a lista do que treinar.",
+  12: "Ouvir acima do confortável reajusta o que o seu ouvido chama de rápido. Na próxima vez, a velocidade normal soa devagar.",
+  13: "A revisão embaralhada mistura circuitos de propósito: reconhecer fora de ordem é o que prova que você tem o bloco, e não a sequência.",
+  14: "Circuito fechado. Amanhã começa outro, e o que você treinou aqui volta espaçado, sem você precisar lembrar de revisar.",
+};
+
 function montarBriefing(n: number, dia: number, blocos: Bloco[]): LessonBriefing {
   const briefing: LessonBriefing = {
     goal: OBJETIVOS[dia],
@@ -359,8 +389,8 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
       gated: ouvido.travados.length ? ouvido.travados : undefined,
       summary:
         dia === 14
-          ? `Circuito ${n} fechado: ${prog.titulo}.`
-          : undefined,
+          ? `Circuito ${n} fechado: ${prog.titulo}. ${FECHAMENTOS[14]}`
+          : FECHAMENTOS[dia],
       homework: dia === 7 ? prog.missao : undefined,
     },
     chunks: material.blocos.map((b) => ({ en: b.en, pt: b.pt, when: b.quando })),

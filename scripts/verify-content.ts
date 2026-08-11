@@ -10,7 +10,7 @@
 
 import { audioJobs, isCast, spokenLines, voiceFor } from "@content/audio-manifest";
 import { composeLesson } from "@content/compose-lesson";
-import { ehConsolidacao, materialDoCircuito } from "@content/material";
+import { ancorasExigidas, ehConsolidacao, materialDoCircuito } from "@content/material";
 import {
   cargaDe,
   cognatosDe,
@@ -83,7 +83,11 @@ function main() {
     if (material.imersao.length && material.blocos.length) {
       const texto = [...material.imersao, ...material.escuta].map(([, en]) => en).join(" ");
       const ancoras = chunksSpokenIn(texto, material.blocos).length;
-      const exigido = Math.max(2, Math.round(material.blocos.length * 0.25));
+      const exigido = ancorasExigidas(
+        circuit.number,
+        material.blocos.length,
+        material.imersao.length + material.escuta.length,
+      );
       if (ancoras < exigido) {
         warn(
           `${onde}: só ${ancoras} dos ${material.blocos.length} blocos aparecem nos diálogos ` +
@@ -198,8 +202,11 @@ function main() {
     if (spec.circuitDay === 1 && !lesson.content.gated?.length) {
       warn(`${where}: dia 1 sem blocos atrás do portão de imersão`);
     }
-    // O portão só vale se a transcrição NÃO estiver nos blocos abertos.
-    if (lesson.immersionScript) {
+    // O portão só vale se a transcrição NÃO estiver nos blocos abertos — e ele
+    // só existe no dia 1. O dia 9 é shadowing: ali o aluno fala JUNTO com o
+    // áudio, então o texto tem que estar na tela, e a checagem acusava os 52
+    // circuitos de vazamento por fazer exatamente o que o exercício pede.
+    if (lesson.immersionScript && spec.circuitDay === 1) {
       const openText = JSON.stringify(lesson.content.blocks ?? []);
       const firstLine = material.imersao[0]?.[1] ?? "";
       if (firstLine && openText.includes(firstLine)) {
@@ -240,10 +247,31 @@ function main() {
 `);
 
   if (problems.length) {
-    console.error(`✗ ${problems.length} problema(s):\n`);
-    for (const p of problems.slice(0, 40)) console.error(`  · ${p}`);
-    if (problems.length > 40) console.error(`  … e mais ${problems.length - 40}`);
-    console.error("");
+    // Agrupar antes de listar. A versão anterior imprimia os 40 primeiros
+    // problemas e escondia o resto — com 747, isso mostrava vinte "sem resumo"
+    // do circuito 1 e escondia as outras seis classes inteiras. Contar por
+    // classe diz quantos defeitos DIFERENTES existem, que é o número que
+    // decide o que consertar primeiro.
+    const classes = new Map<string, string[]>();
+    for (const p of problems) {
+      const chave = p
+        .replace(/^.*?: /, "")
+        .replace(/"[^"]*"/g, '"…"')
+        .replace(/\d+/g, "N");
+      const lista = classes.get(chave) ?? [];
+      lista.push(p);
+      classes.set(chave, lista);
+    }
+
+    const ordenadas = [...classes.entries()].sort((a, b) => b[1].length - a[1].length);
+    console.error(`✗ ${problems.length} problema(s) em ${ordenadas.length} classe(s):\n`);
+
+    for (const [chave, exemplos] of ordenadas) {
+      console.error(`  \x1b[1m${String(exemplos.length).padStart(4)}×\x1b[0m ${chave}`);
+      for (const e of exemplos.slice(0, 3)) console.error(`         ${e}`);
+      if (exemplos.length > 3) console.error(`         … e mais ${exemplos.length - 3}`);
+      console.error("");
+    }
     process.exit(1);
   }
 

@@ -39,8 +39,9 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { ELENCO_DO_CURSO } from "@content/audio-manifest";
 import { contrair, faltaContracao } from "@content/contracao";
-import { amostraDoCanto, ehConsolidacao } from "@content/material";
+import { amostraDoCanto, ancorasExigidas, ehConsolidacao } from "@content/material";
 import type { Bloco } from "@content/movimentos";
 import { cantoDe, cargaDe, progressaoDe, RAMPA, somDe } from "@content/metodo";
 import { chunkKey } from "@/lib/srs";
@@ -74,43 +75,19 @@ const FALAS: Record<number, { min: number; max: number }> = {
 };
 
 /**
- * O elenco fixo do curso. Os mesmos nomes atravessam os 52 circuitos porque a
- * voz é escolhida pelo nome em `content/audio-manifest.ts` — trocar o elenco a
- * cada circuito trocaria a voz do personagem no meio do curso.
+ * O elenco fixo do curso, importado de onde as VOZES moram.
+ *
+ * Era uma cópia aqui, e a cópia venceu: Chris, Emma, Julia e Nina entraram
+ * nesta lista e nunca entraram na tabela de vozes, então caíam no sorteio por
+ * hash — que é exatamente o defeito que a tabela de vozes existe para não ter.
+ * Uma lista só, no arquivo que decide o timbre.
  */
-const ELENCO = [
-  "Ana", "Bruno", "Kate", "Mike", "Sarah", "Tom",
-  "Lucas", "Emma", "Chris", "Julia", "Dave", "Nina",
-];
+const ELENCO: string[] = [...ELENCO_DO_CURSO];
 
 class Reprovado extends Error {}
 
 function exigir(condicao: boolean, motivo: string): asserts condicao {
   if (!condicao) throw new Reprovado(motivo);
-}
-
-/**
- * Quantos blocos o diálogo tem que devolver, palavra por palavra.
- *
- * Um quarto dos blocos era a régua, e ela foi calibrada quando um circuito
- * tinha sete blocos. Com 43, um quarto são onze âncoras em 24 falas — quase
- * metade das falas carregando frase decorada, que é exatamente o "desfile de
- * blocos" que o mesmo prompt proíbe duas linhas abaixo. A regra brigava
- * consigo mesma, e os circuitos 33 e 37 morreram nessa briga.
- *
- * O teto de uma âncora a cada três falas é o que faz as duas regras caberem
- * juntas: denso o bastante para o aluno reencontrar o que treinou, esparso o
- * bastante para continuar parecendo conversa.
- *
- * No circuito de consolidação a conta é outra: ali os blocos são uma amostra
- * de um canto inteiro, e o que importa é o piso — seis blocos reencontrados
- * provam que o canto ficou.
- */
-function ancorasExigidas(n: number, quantosBlocos: number, quantasFalas: number): number {
-  if (ehConsolidacao(n)) return Math.min(6, quantosBlocos);
-  const porBlocos = Math.round(quantosBlocos * 0.25);
-  const porFalas = Math.round(quantasFalas / 3);
-  return Math.max(2, Math.min(porBlocos, porFalas));
 }
 
 /**

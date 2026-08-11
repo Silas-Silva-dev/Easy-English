@@ -146,6 +146,27 @@ const CAST: Record<string, CastEntry> = {
   Diego: ["m", 1],
   Karen: ["f", 1],
 
+  /**
+   * O elenco fixo do curso novo — os doze nomes que atravessam os 52 circuitos.
+   *
+   * Quatro deles (Chris, Emma, Julia, Nina) não existiam aqui, e é a TERCEIRA
+   * vez que esta tabela fica para trás de quem escreve os diálogos. As duas
+   * primeiras estão contadas nos comentários acima; a causa é sempre a mesma,
+   * duas listas que precisam concordar e são mantidas à mão.
+   *
+   * Por isso a lista agora mora aqui e o gerador de diálogos IMPORTA daqui, e
+   * há uma asserção no fim deste arquivo que quebra o build se um nome do
+   * elenco não tiver voz. A quarta vez não vai acontecer em silêncio.
+   *
+   * Os índices espalham as vozes: com três timbres por gênero e seis mulheres,
+   * duas dividem timbre em algum lugar — o que não pode é dividirem NA MESMA
+   * CENA, e disso `verify:content` cuida cena a cena.
+   */
+  Chris: ["m", 1],
+  Emma: ["f", 0],
+  Julia: ["f", 2],
+  Nina: ["f", 1],
+
   // --- papéis ---------------------------------------------------------------
   // Papel não tem gênero embutido: a escolha aqui é para o curso ter homens e
   // mulheres nos dois lados do balcão, e não médico-homem / recepcionista-mulher
@@ -274,6 +295,38 @@ export function isCast(speaker: string): boolean {
 }
 
 /**
+ * Os doze nomes que atravessam os 52 circuitos, e a única lista deles.
+ *
+ * `scripts/generate-dialogos.ts` importa daqui em vez de manter a sua cópia.
+ * Enquanto eram duas listas, a daqui ficou para trás três vezes — e o efeito
+ * nunca foi um erro, foi voz sorteada por hash: a Sarah saindo com voz de
+ * homem, dois personagens dividindo timbre na mesma cena.
+ *
+ * A voz é escolhida PELO NOME, então o nome é infraestrutura, não decoração.
+ */
+export const ELENCO_DO_CURSO = [
+  "Ana", "Bruno", "Kate", "Mike", "Sarah", "Tom",
+  "Lucas", "Emma", "Chris", "Julia", "Dave", "Nina",
+] as const;
+
+/**
+ * Quebra na importação se alguém do elenco não tiver voz declarada.
+ *
+ * Roda no topo do módulo, então qualquer script que toque em áudio — o
+ * gerador, o verificador, o semeador — falha na hora e com o nome do culpado,
+ * em vez de gravar centenas de arquivos com timbre sorteado.
+ */
+{
+  const semVoz = ELENCO_DO_CURSO.filter((nome) => !(nome in CAST));
+  if (semVoz.length) {
+    throw new Error(
+      `content/audio-manifest.ts: ${semVoz.join(", ")} está no elenco do curso e não tem voz. ` +
+        `Sem entrada em CAST o timbre sai do hash do nome.`,
+    );
+  }
+}
+
+/**
  * A voz de um personagem. Depende SÓ do nome e do motor: nunca de com quem
  * ele está conversando. É isso que faz a Ana soar igual no circuito 1 e no 40.
  */
@@ -369,7 +422,7 @@ export function audioJobs(): AudioJob[] {
     jobs.push(job);
   };
 
-  for (const d of dialogosJson as DialogosDoCircuito[]) {
+  for (const d of dialogosJson as unknown as DialogosDoCircuito[]) {
     for (const [rotulo, falas] of [
       ["imersão", d.imersao],
       ["escuta", d.escuta],

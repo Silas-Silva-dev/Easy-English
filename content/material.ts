@@ -140,6 +140,29 @@ export function materialDoCircuito(n: number): MaterialDoCircuito | null {
   };
 }
 
+/**
+ * Quantos blocos o diálogo tem que devolver, palavra por palavra.
+ *
+ * Mora aqui porque DOIS lados precisam do mesmo número: o gerador, que pede ao
+ * modelo, e o verificador, que reprova o resultado. Enquanto eram duas contas
+ * separadas elas discordaram — o circuito 33 passou no gerador com 10 âncoras
+ * e foi reprovado pelo verificador, que ainda usava um quarto dos blocos.
+ *
+ * Um quarto era a régua, calibrada quando um circuito tinha sete blocos. Com
+ * 43, um quarto são onze âncoras em 24 falas: quase metade das falas
+ * carregando frase decorada, que é o "desfile de blocos" que o próprio prompt
+ * proíbe. O teto de uma âncora a cada três falas faz as duas regras caberem
+ * juntas.
+ *
+ * No circuito de portão a conta é outra: ali os blocos são uma amostra de um
+ * canto inteiro, e o que importa é o piso — seis reencontrados provam que o
+ * canto ficou.
+ */
+export function ancorasExigidas(n: number, quantosBlocos: number, quantasFalas: number): number {
+  if (ehConsolidacao(n)) return Math.min(6, quantosBlocos);
+  return Math.max(2, Math.min(Math.round(quantosBlocos * 0.25), Math.round(quantasFalas / 3)));
+}
+
 /** Verdadeiro nos circuitos que fecham um canto e não ensinam matéria nova. */
 export function ehConsolidacao(n: number): boolean {
   return cargaDe(n)?.blocosNovos === 0;
