@@ -34,7 +34,8 @@
     "index:knowledge": "tsx scripts/index-knowledge.ts",
     "bootstrap:admin": "tsx scripts/bootstrap-admin.ts",
     "gen:pronuncia": "tsx scripts/generate-pronunciation.ts",
-    "upload:audio": "tsx scripts/upload-audio.ts"
+    "upload:audio": "tsx scripts/upload-audio.ts",
+    "gen:blocos": "tsx scripts/generate-blocos.ts"
   },
   "engines": {
     "node": ">=20.9.0"

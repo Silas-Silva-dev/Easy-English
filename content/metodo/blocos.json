@@ -1,0 +1,240 @@
+[
+  {
+    "n": 1,
+    "blocos": [
+      {
+        "en": "Hi, I'm Alex.",
+        "pt": "Oi, eu sou o Alex.",
+        "quando": "Ao se apresentar pela primeira vez.",
+        "formas": [
+          {
+            "tipo": "pergunta",
+            "en": "Hi, are you Alex?",
+            "pt": "Oi, você é o Alex?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Hi, I'm Alex. Nice to meet you.",
+            "pt": "Oi, eu sou o Alex. Prazer em te conhecer."
+          },
+          {
+            "en": "By the way, Hi, I'm Alex.",
+            "pt": "A propósito, oi, eu sou o Alex."
+          },
+          {
+            "en": "Hi, I'm Alex. Welcome to the office.",
+            "pt": "Oi, eu sou o Alex. Bem-vindo ao escritório."
+          }
+        ]
+      },
+      {
+        "en": "It's nice to meet you.",
+        "pt": "Prazer em te conhecer.",
+        "quando": "Ao ser apresentado a alguém.",
+        "formas": [
+          {
+            "tipo": "pergunta",
+            "en": "Is it nice to meet him?",
+            "pt": "É bom conhecer ele?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "It's nice to meet you. Thanks for coming.",
+            "pt": "Prazer em te conhecer. Obrigado por vir."
+          },
+          {
+            "en": "Honestly, it's nice to meet you.",
+            "pt": "Sinceramente, é um prazer te conhecer."
+          },
+          {
+            "en": "It's nice to meet you. I'm Sarah.",
+            "pt": "Prazer em te conhecer. Eu sou a Sarah."
+          }
+        ]
+      },
+      {
+        "en": "I'm doing great, thanks.",
+        "pt": "Tudo ótimo, obrigado.",
+        "quando": "Ao responder a pergunta How are you.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I'm not doing great, honestly.",
+            "pt": "Eu não estou muito bem, para ser sincero."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Are you doing great, thanks?",
+            "pt": "Você está muito bem?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm doing great, thanks, and you?",
+            "pt": "Tudo ótimo, obrigado, e você?"
+          },
+          {
+            "en": "I'm doing great, thanks for asking.",
+            "pt": "Tudo ótimo, obrigado por perguntar."
+          },
+          {
+            "en": "Actually, I'm doing great, thanks.",
+            "pt": "Na verdade, estou muito bem, obrigado."
+          }
+        ]
+      },
+      {
+        "en": "How's it going?",
+        "pt": "Tudo bem?",
+        "quando": "Ao cumprimentar alguém logo após o oi.",
+        "formas": [
+          {
+            "tipo": "resposta-curta",
+            "en": "It's going well.",
+            "pt": "Está indo tudo bem."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Hey, how's it going? Everything good?",
+            "pt": "Ei, tudo bem? Tudo certo?"
+          },
+          {
+            "en": "Tell me, how's it going today?",
+            "pt": "Me conta, como estão as coisas hoje?"
+          },
+          {
+            "en": "So, how's it going with your project?",
+            "pt": "Então, como estão as coisas com o seu projeto?"
+          }
+        ]
+      },
+      {
+        "en": "I'm from Brazil.",
+        "pt": "Eu sou do Brasil.",
+        "quando": "Quando perguntam de onde você é.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I'm not from Brazil.",
+            "pt": "Eu não sou do Brasil."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Are you from Brazil?",
+            "pt": "Você é do Brasil?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Actually, I'm from Brazil.",
+            "pt": "Na verdade, eu sou do Brasil."
+          },
+          {
+            "en": "I'm from Brazil. Where are you from?",
+            "pt": "Eu sou do Brasil. De onde você é?"
+          },
+          {
+            "en": "Yes, I'm from Brazil. It's a beautiful country.",
+            "pt": "Sim, eu sou do Brasil. É um país lindo."
+          }
+        ]
+      },
+      {
+        "en": "It's a great event.",
+        "pt": "O evento está ótimo.",
+        "quando": "Para puxar assunto no início de uma conversa.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "It's not a great event.",
+            "pt": "Não é um evento muito bom."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is it a great event?",
+            "pt": "É um ótimo evento?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I think it's a great event.",
+            "pt": "Eu acho que é um ótimo evento."
+          },
+          {
+            "en": "It's a great event. Everyone is here.",
+            "pt": "O evento está ótimo. Todo mundo está aqui."
+          },
+          {
+            "en": "Honestly, it's a great event for networking.",
+            "pt": "Sinceramente, é um ótimo evento para fazer contatos."
+          }
+        ]
+      },
+      {
+        "en": "That's good to hear.",
+        "pt": "Que bom saber disso.",
+        "quando": "Ao ouvir uma notícia positiva de alguém.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "That's not good to hear.",
+            "pt": "Que notícia ruim."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is that good to hear?",
+            "pt": "Isso é uma boa notícia?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "That's good to hear, thanks for sharing.",
+            "pt": "Que bom saber disso, obrigado por compartilhar."
+          },
+          {
+            "en": "I'm glad you're safe, that's good to hear.",
+            "pt": "Fico feliz que você esteja bem, que bom saber disso."
+          },
+          {
+            "en": "She got the job? That's good to hear.",
+            "pt": "Ela conseguiu o emprego? Que bom saber disso."
+          }
+        ]
+      },
+      {
+        "en": "It's time to go, bye.",
+        "pt": "Tá na hora de ir, tchau.",
+        "quando": "Ao finalizar uma conversa para se despedir.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "It's not time to go yet.",
+            "pt": "Ainda não está na hora de ir."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is it time to go?",
+            "pt": "Está na hora de ir?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "It's time to go, bye, see you tomorrow.",
+            "pt": "Tá na hora de ir, tchau, te vejo amanhã."
+          },
+          {
+            "en": "Look, it's time to go, bye, take care.",
+            "pt": "Olha, tá na hora de ir, tchau, se cuida."
+          },
+          {
+            "en": "I'm sorry, it's time to go, bye.",
+            "pt": "Desculpe, tá na hora de ir, tchau."
+          }
+        ]
+      }
+    ]
+  }
+]

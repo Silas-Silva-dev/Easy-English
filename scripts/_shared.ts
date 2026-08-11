@@ -77,7 +77,19 @@ export function usingDedicatedTtsKey(): boolean {
  * credenciais padrão do ambiente. Sem nenhuma das duas devolve null e o lote
  * segue pela chave de API, como antes.
  */
-export function vertexTts(): GoogleGenAI | null {
+/**
+ * Cliente do Vertex AI, quando houver credencial de conta de servico.
+ *
+ * Serve tanto para TTS quanto para geracao de texto: e o mesmo cliente. O nome
+ * historico `vertexTts` ficou porque o audio foi o primeiro a precisar dele.
+ *
+ * A diferenca que importa nao e tecnica, e de cobranca: a chave de API do AI
+ * Studio tem teto de gasto MENSAL por projeto, e quando ele estoura nenhuma
+ * espera resolve — a mensagem diz "exceeded its monthly spending cap" e o erro
+ * chega como 429, igualzinho a um limite por minuto. O Vertex passa pela conta
+ * do GCP e nao esbarra nesse teto.
+ */
+export function vertex(): GoogleGenAI | null {
   const configured = process.env.VERTEX_CREDENTIALS?.trim();
   const keyFile = configured || process.env.GOOGLE_APPLICATION_CREDENTIALS?.trim();
   if (!keyFile) return null;
@@ -117,6 +129,24 @@ export function vertexTts(): GoogleGenAI | null {
     // recusar nenhuma das 20 chamadas.
     location: process.env.VERTEX_LOCATION?.trim() || "global",
   });
+}
+
+/** Nome histórico de `vertex()`. O áudio foi o primeiro a precisar dele. */
+export function vertexTts(): GoogleGenAI | null {
+  return vertex();
+}
+
+/**
+ * Cliente para geração de TEXTO em lote, com a rota do Vertex na frente.
+ *
+ * Devolve junto por onde está indo, porque degradar em silêncio foi um defeito
+ * que este arquivo já documenta: quem apontou uma credencial do Vertex quer o
+ * Vertex, e cair de volta na chave de API sem avisar devolve o lote ao teto de
+ * gasto sem nenhum sinal de que foi isso que aconteceu.
+ */
+export function genaiBatch(): { client: GoogleGenAI; via: "vertex" | "chave de API" } {
+  const v = vertex();
+  return v ? { client: v, via: "vertex" } : { client: genai(), via: "chave de API" };
 }
 
 /** True quando o lote de áudio está indo pelo Vertex. */
