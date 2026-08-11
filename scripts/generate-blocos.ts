@@ -50,6 +50,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { calibragemDe } from "@content/calibragem";
 import { contrair, faltaContracao } from "@content/contracao";
 import {
   cantoDe,
@@ -63,83 +64,6 @@ import {
 import { chunkKey, chunksSpokenIn } from "@/lib/srs";
 
 import { env, genaiBatch, sleep } from "./_shared";
-
-// ----------------------------------------------------------------------=====
-// A encomenda por canto
-//
-// Os números não são escolha deste arquivo: vêm da rampa aprovada, onde
-// 162x6 + 331x9 + 487x12 + 213x11 = 12.138 frases sobre 1.193 blocos base.
-// Mexer aqui sem mexer lá quebra a aritmética do curso.
-// ----------------------------------------------------------------------=====
-
-interface Calibragem {
-  /**
-   * Faixa de formas por bloco, e nao numero fixo.
-   *
-   * A primeira versao exigia um numero exato e o resultado foi previsivel: o
-   * modelo, obrigado a entregar tres formas de "Nice to meet you", inventou
-   * "It's not nice to meet you" e "Is it nice to meet you?". Frases validas
-   * que ser humano nenhum diz. Bloco de cumprimento nao tem negativa, bloco de
-   * despedida nao tem pergunta, e forcar uma ensina o aluno a falar errado com
-   * confianca — que e pior do que nao ensinar.
-   *
-   * A media do circuito e que sustenta a aritmetica da rampa; o bloco
-   * individual entrega o que couber nele.
-   */
-  formasMin: number;
-  formasMax: number;
-  formasMedia: number;
-  recombinacoes: number;
-  /** Teto de palavras numa recombinacao. Iniciante nao sustenta frase longa. */
-  maxPalavras: number;
-  /** Que caras fazem sentido neste nivel. */
-  tipos: string[];
-}
-
-const CALIBRAGEM: Record<number, Calibragem> = {
-  1: {
-    formasMin: 1,
-    formasMax: 4,
-    formasMedia: 3,
-    recombinacoes: 3,
-    maxPalavras: 12,
-    tipos: ["negativa", "pergunta", "resposta-curta"],
-  },
-  2: {
-    formasMin: 2,
-    formasMax: 6,
-    formasMedia: 5,
-    recombinacoes: 4,
-    maxPalavras: 16,
-    tipos: ["negativa", "pergunta", "terceira-pessoa", "passado", "resposta-curta"],
-  },
-  3: {
-    formasMin: 3,
-    formasMax: 8,
-    formasMedia: 7,
-    recombinacoes: 5,
-    maxPalavras: 20,
-    tipos: [
-      "negativa",
-      "pergunta",
-      "terceira-pessoa",
-      "passado",
-      "futuro",
-      "resposta-curta",
-      "educada",
-    ],
-  },
-  4: {
-    formasMin: 3,
-    formasMax: 8,
-    formasMedia: 6,
-    recombinacoes: 5,
-    maxPalavras: 24,
-    tipos: ["negativa", "pergunta", "terceira-pessoa", "passado", "futuro", "informal"],
-  },
-};
-
-const calibragemDe = (n: number) => CALIBRAGEM[cantoDe(n)];
 
 /** Quantos blocos por chamada na fase 2. Acima disso a resposta corta no meio. */
 const LOTE_FAMILIA = 6;
@@ -174,20 +98,6 @@ export interface BlocosDoCircuito {
 // Regras que o texto tem que obedecer
 // ----------------------------------------------------------------------=====
 
-/**
- * Inglês de livro, que o curso proíbe. A regra está escrita em `canto-1.ts`
- * desde o primeiro dia: "inglês americano falado, contrações sempre". Um
- * "I am fine" ensina o aluno a soar como legenda de filme antigo.
- *
- * A EXCEÇÃO, que custou três circuitos reprovados antes de eu perceber: no fim
- * da oração o auxiliar NÃO CONTRAI. "Yes, I am." está certo e "Yes, I'm." é
- * agramatical — o inglês não aceita forma fraca em posição tônica final. Vale
- * para toda resposta curta afirmativa: "Yes, he is.", "Yes, they are.",
- * "I think it is.".
- *
- * Por isso o lookahead: só reprova quando o auxiliar tem continuação. Antes de
- * ponto, vírgula, interrogação, exclamação ou fim de texto, ele fica.
- */
 const palavras = (s: string) => s.trim().split(/\s+/).filter(Boolean).length;
 
 class Reprovado extends Error {}
@@ -229,6 +139,29 @@ function validarBase(
 
 function validarFamilias(n: number, blocos: Bloco[]) {
   const cal = calibragemDe(n);
+
+  // A checagem que faltava, e que custou 24% do volume do curso.
+  //
+  // A faixa por bloco (`>= formasMin`) existe para não forçar negativa em
+  // cumprimento — e está certa. Mas faixa sem contrapeso é lida como
+  // permissão: o modelo entregou o mínimo em 46 de 46 circuitos, e a média,
+  // que era só um aviso impresso no fim, nunca reprovou nada.
+  //
+  // Aqui o LOTE precisa fechar a média. Cada bloco continua livre para dar o
+  // que couber nele — bloco rico dá seis formas, bloco pobre dá uma — e a
+  // conta fecha na soma, que é como a rampa foi desenhada.
+  //
+  // Só vale para lote de verdade. Quando um bloco tenta sozinho, depois do
+  // lote dele ter reprovado, exigir a média DELE seria exigir exatamente a
+  // invenção que a faixa existe para evitar.
+  if (blocos.length >= 3) {
+    const media = blocos.reduce((a, b) => a + b.formas.length, 0) / blocos.length;
+    exigir(
+      media >= cal.formasMedia - 0.5,
+      `o lote fechou com media de ${media.toFixed(1)} formas por bloco e o nivel pede ${cal.formasMedia} — ` +
+        `carregue nos blocos que aguentam mais formas em vez de dar o minimo em todos`,
+    );
+  }
 
   for (const b of blocos) {
     exigir(

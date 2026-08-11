@@ -36,6 +36,7 @@
     "gen:pronuncia": "tsx scripts/generate-pronunciation.ts",
     "upload:audio": "tsx scripts/upload-audio.ts",
     "gen:blocos": "tsx scripts/generate-blocos.ts",
+    "gen:formas": "tsx scripts/generate-formas.ts",
     "gen:dialogos": "tsx scripts/generate-dialogos.ts"
   },
   "engines": {
