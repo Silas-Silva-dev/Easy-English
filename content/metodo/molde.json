@@ -1,0 +1,314 @@
+[
+  {
+    "n": 1,
+    "molde": "I'm ___. Nice to meet you.",
+    "notaDoMolde": "Este molde fixa a estrutura do verbo ser e garante que você não tente traduzir 'eu sou' como duas palavras separadas. Ele automatiza a sua apresentação pessoal.",
+    "mentalidade": "A vergonha de ser um estrangeiro iniciante trava mais do que a falta de vocabulário. Aceite que o seu 'I'm' vai soar diferente, mas foque apenas em não separar o verbo do sujeito."
+  },
+  {
+    "n": 2,
+    "molde": "Sorry, I don't ___. What does ___ mean?",
+    "notaDoMolde": "Este molde serve para comprar tempo quando você não entende algo. Ele impede que você finja que entendeu e deixe a conversa morrer.",
+    "mentalidade": "O medo de parecer ignorante faz a gente sorrir e concordar com o que não entendeu. Admitir que não pegou a frase é o primeiro passo para assumir o controle da conversa."
+  },
+  {
+    "n": 3,
+    "molde": "I'm an ___ and I work at a ___.",
+    "notaDoMolde": "Resolve a falta do artigo 'an' antes de profissões e conecta sua ocupação ao seu local de trabalho de forma natural.",
+    "mentalidade": "Você não precisa de um vocabulário vasto para se apresentar. A simplicidade de dizer o que faz e onde trabalha já te coloca dentro do jogo."
+  },
+  {
+    "n": 4,
+    "molde": "Where are you from? Are you here for ___?",
+    "notaDoMolde": "Este molde força a troca da ordem das palavras para fazer perguntas, evitando que você apenas afirme com entonação de pergunta.",
+    "mentalidade": "O silêncio após a sua resposta é a hora que a maioria desiste. Devolver a pergunta não é apenas gramática, é o que mantém o outro interessado em continuar falando com você."
+  },
+  {
+    "n": 5,
+    "molde": "Can I get a ___? Could I have it ___?",
+    "notaDoMolde": "Transforma pedidos simples em solicitações polidas, eliminando a sonoridade de ordem direta que soa rude no dia a dia.",
+    "mentalidade": "Não tente ser perfeito no balcão, tente ser funcional. O atendente só quer saber o que você quer, não se a sua pronúncia está impecável."
+  },
+  {
+    "n": 6,
+    "molde": "It's ___ dollars and ___ cents.",
+    "notaDoMolde": "Este molde foca na ênfase da sílaba tônica para diferenciar números terminados em 'teen' de 'ty'.",
+    "mentalidade": "Você vai errar números no início e isso é um custo pequeno. O importante é ouvir a diferença de ritmo, que é onde o nativo realmente coloca a informação."
+  },
+  {
+    "n": 7,
+    "molde": "Are you ___? Yes, I am. I'm ___.",
+    "notaDoMolde": "Ensina a responder perguntas fechadas de forma curta, sem repetir a pergunta inteira como fazemos em português.",
+    "mentalidade": "O brasileiro tem mania de repetir o verbo da pergunta na resposta. Seguir o padrão 'Yes, I am' evita que você soe como um tradutor automático."
+  },
+  {
+    "n": 8,
+    "molde": "I ___ every day and my ___ works ___.",
+    "notaDoMolde": "Resolve a confusão do 's' na terceira pessoa e ajuda a descrever rotinas sem misturar os sujeitos da frase.",
+    "mentalidade": "A rotina é repetitiva, e é justamente nessa repetição que o seu cérebro vai automatizar o 's' final. Não tenha pressa em acelerar o processo."
+  },
+  {
+    "n": 9,
+    "molde": "I like ___ a lot. I don't like ___.",
+    "notaDoMolde": "Corrige o erro comum de colocar o 'very much' no lugar errado e elimina a preposição indevida após o verbo 'like'.",
+    "mentalidade": "Falar do que você gosta é o que tira o peso da conversa de trabalho. Se sentir confortável falando de preferências pessoais é o que te torna uma pessoa real na conversa."
+  },
+  {
+    "n": 10,
+    "molde": "My ___ is ___, and a friend of mine is ___.",
+    "notaDoMolde": "Organiza a estrutura de posse e parentesco, evitando a montagem de frases que seguem a lógica do português.",
+    "mentalidade": "Falar da família ou de amigos próximos é o que cria conexão. Não se preocupe com o 's possessivo perfeito, foque em passar a informação de quem é quem."
+  },
+  {
+    "n": 11,
+    "molde": "There's a ___ and there are two ___ near my place.",
+    "notaDoMolde": "Diferencia o singular do plural na descrição de lugares, substituindo o 'tem' genérico que usamos no Brasil.",
+    "mentalidade": "Você pode estar cansado depois do trabalho, mas descrever o seu bairro é um exercício rápido de observação. Não tente descrever tudo, foque no que é comum."
+  },
+  {
+    "n": 12,
+    "molde": "Turn ___ and go ___ blocks. Don't ___.",
+    "notaDoMolde": "Utiliza o imperativo para dar e entender direções, focando na clareza do comando.",
+    "mentalidade": "Entender direções é estressante porque a resposta vem rápido. Peça para repetirem devagar, isso é um direito seu como estrangeiro, não uma falha."
+  },
+  {
+    "n": 13,
+    "molde": "Consolidação de todas as estruturas e funções do Primeiro Canto.",
+    "notaDoMolde": "Este circuito serve para integrar tudo o que foi aprendido, garantindo que você consiga transitar entre as funções sem travar.",
+    "mentalidade": "Você não precisa saber tudo para falar. O objetivo aqui é mostrar que você consegue manter uma conversa básica usando o que já construiu, sem precisar traduzir cada palavra."
+  },
+  {
+    "n": 14,
+    "molde": "I was at ___ and the ___ was pretty ___.",
+    "notaDoMolde": "Resolve a falta de estrutura para contar fatos curtos do passado. Substitui o excesso de 'good' ou 'bad' por adjetivos mais precisos.",
+    "mentalidade": "O medo de errar a pronúncia do -ed trava a sua fala. Aceite que o som final vai soar estranho no início e foque em não travar o fluxo da frase."
+  },
+  {
+    "n": 15,
+    "molde": "I got there, ___ happened, so I ___.",
+    "notaDoMolde": "Organiza o relato de problemas ou perrengues em uma sequência lógica. Evita o vício de usar apenas 'then' para tudo.",
+    "mentalidade": "Você não precisa de um vocabulário vasto para contar uma história impactante. O segredo está em conectar os fatos de forma simples sem tentar traduzir cada detalhe do português."
+  },
+  {
+    "n": 16,
+    "molde": "I used to ___ when I was a kid, but now I ___.",
+    "notaDoMolde": "Cria um contraste claro entre o passado e o presente. Resolve a dificuldade de falar de hábitos antigos sem precisar de uma cronologia complexa.",
+    "mentalidade": "Falar de si mesmo é a melhor forma de se conectar com alguém. Não se preocupe com a gramática perfeita, o objetivo é que o outro entenda quem você era."
+  },
+  {
+    "n": 17,
+    "molde": "You did? That's ___. Did you ___?",
+    "notaDoMolde": "Mantém a conversa viva e demonstra interesse genuíno. Garante que você não pareça desinteressado ou apático durante o relato do outro.",
+    "mentalidade": "O silêncio é o maior inimigo da fluidez. Reagir com frases curtas é o seu mecanismo de defesa para ganhar tempo enquanto processa o que foi dito."
+  },
+  {
+    "n": 18,
+    "molde": "It's the thing that you use to ___.",
+    "notaDoMolde": "Elimina a necessidade de parar a conversa para buscar traduções. Permite que você defina qualquer objeto ou pessoa usando verbos simples.",
+    "mentalidade": "O erro de parar para traduzir é o que mata a sua confiança. Aceite que você vai esquecer palavras e use o seu conhecimento atual para contornar a situação."
+  },
+  {
+    "n": 19,
+    "molde": "I'm going to ___ this weekend. Do you have any ___?",
+    "notaDoMolde": "Estrutura planos de forma natural e convida o outro para a conversa. Corrige o erro comum de usar 'will' para tudo que é planejado.",
+    "mentalidade": "Você não precisa ter planos grandiosos para conversar. A rotina é o terreno mais seguro para praticar sem a pressão de ser interessante."
+  },
+  {
+    "n": 20,
+    "molde": "Does ___ work for you? I'd prefer to ___.",
+    "notaDoMolde": "Permite negociar horários de forma direta e educada. Resolve a insegurança de não saber como remarcar compromissos sem parecer rude.",
+    "mentalidade": "Dizer não ou pedir uma alteração em inglês parece agressivo por causa da nossa cultura, mas é apenas logística. Foque na clareza e não no tom de voz."
+  },
+  {
+    "n": 21,
+    "molde": "I can't make it, but how about ___?",
+    "notaDoMolde": "Ensina a negar um convite mantendo a porta aberta para futuras interações. Evita que você suma do chat por não saber como recusar.",
+    "mentalidade": "A sua necessidade de ser gentil pode fazer você prometer o que não pode cumprir. Aprender a dizer não é um exercício de respeito ao seu tempo e ao do outro."
+  },
+  {
+    "n": 22,
+    "molde": "Can I get some ___? Do you have any ___?",
+    "notaDoMolde": "Resolve o medo de pedir comida em ambientes formais ou informais. Ajuda a evitar erros básicos de vocabulário como 'account' em vez de 'check'.",
+    "mentalidade": "Garçons e atendentes estão acostumados com estrangeiros. A sua hesitação é muito mais notável do que qualquer erro gramatical que você possa cometer."
+  },
+  {
+    "n": 23,
+    "molde": "I've been to ___, but I've never ___.",
+    "notaDoMolde": "Permite compartilhar experiências de vida sem se prender a datas específicas. Cria ganchos naturais para o interlocutor fazer perguntas.",
+    "mentalidade": "O medo de usar o tempo verbal errado faz você evitar falar de experiências. Foque na estrutura 'I have been' e aceite que a fluidez vem do uso, não da regra."
+  },
+  {
+    "n": 24,
+    "molde": "The ___ one is ___, but the ___ is the most ___.",
+    "notaDoMolde": "Fornece o modelo para comparar opções e justificar escolhas. Corrige o erro de tentar comparar palavras longas como se fossem curtas.",
+    "mentalidade": "Comparar coisas é uma excelente forma de exercitar o raciocínio em inglês. Não tente ser rebuscado, use o que você já sabe para justificar sua preferência."
+  },
+  {
+    "n": 25,
+    "molde": "It's really ___ today, isn't it?",
+    "notaDoMolde": "Quebra o gelo em situações breves. Resolve a falta de assunto em elevadores ou filas de forma rápida e segura.",
+    "mentalidade": "Conversa fiada não serve para trocar informações profundas, serve para humanizar o ambiente. O objetivo aqui é apenas fazer o tempo passar com leveza."
+  },
+  {
+    "n": 26,
+    "molde": "Consolidação dos tempos verbais e reações em contextos mistos.",
+    "notaDoMolde": "Este circuito consolida a capacidade de alternar entre passado, presente e futuro sem perder a linha do raciocínio.",
+    "mentalidade": "Ninguém espera que você fale como um nativo. O objetivo é que você consiga contar uma história completa misturando os tempos que aprendeu nestas semanas."
+  },
+  {
+    "n": 27,
+    "molde": "I'm responsible for ___ and my job is mostly about ___ .",
+    "notaDoMolde": "Resolve a dificuldade de explicar processos complexos usando verbos simples. Evita o uso de jargões técnicos que travam a comunicação.",
+    "mentalidade": "Sua profissão é a coisa que você melhor domina no mundo, então não deixe o inglês ser um filtro para a sua competência. Focar na ação prática tira o peso de ter que traduzir o nome do seu cargo ao pé da letra."
+  },
+  {
+    "n": 28,
+    "molde": "I agree with you on that, but I don't think ___ .",
+    "notaDoMolde": "Permite discordar mantendo o tom profissional e sem criar atritos desnecessários. Elimina o erro comum de traduzir a negação do português.",
+    "mentalidade": "Discordar não é ser mal-educado, é ser profissional. Treinar essa estrutura ajuda a separar a sua opinião pessoal do conflito interpessoal, diminuindo a ansiedade antes de falar."
+  },
+  {
+    "n": 29,
+    "molde": "Sorry, can I jump in? Just to add to that, ___ .",
+    "notaDoMolde": "Fornece a frase de entrada necessária para interromper uma conversa sem pedir desculpas excessivas. Garante que você tome o turno da fala de forma assertiva.",
+    "mentalidade": "O medo de interromper geralmente vem da sensação de que você está roubando a palavra. Lembre-se que, em reuniões, o silêncio é visto como falta de contribuição, não como educação."
+  },
+  {
+    "n": 30,
+    "molde": "Could you tell me ___? I need to confirm if ___ .",
+    "notaDoMolde": "Estrutura perguntas de forma polida e indireta, ideal para situações onde não há suporte visual. Ajuda a ganhar tempo e clareza em ligações telefônicas.",
+    "mentalidade": "A falta de contato visual no telefone é o teste final da segurança no idioma. Aceite que você não vai entender cada sílaba e foque na informação que realmente importa para a tarefa."
+  },
+  {
+    "n": 31,
+    "molde": "It's been doing this since ___ and it's been ___ for a while.",
+    "notaDoMolde": "Resolve a descrição de problemas técnicos ao combinar o histórico com a duração do defeito. Impede que o atendente sugira algo que você já tentou.",
+    "mentalidade": "Você não precisa ser um expert técnico para descrever um defeito, precisa apenas saber o histórico. O seu cansaço ao tentar explicar algo básico diminui quando você tem um roteiro lógico para seguir."
+  },
+  {
+    "n": 32,
+    "molde": "I was charged for ___ and I'd like to know why ___ .",
+    "notaDoMolde": "Utiliza a voz passiva para focar no erro cometido, não na pessoa que cometeu. Ideal para cobranças indevidas sem soar agressivo.",
+    "mentalidade": "Sua vergonha em reclamar muitas vezes vem de achar que o inglês te deixa em desvantagem. Quando você foca nos dados e no fato, o inglês vira apenas uma ferramenta de negociação, não um impedimento."
+  },
+  {
+    "n": 33,
+    "molde": "Would it be possible to ___? I just need ___ .",
+    "notaDoMolde": "Substitui cobranças diretas por pedidos de exceção polidos. Abre portas para negociações que antes pareciam impossíveis.",
+    "mentalidade": "Pedir uma exceção é um exercício de humildade e estratégia. Não tente soar como um nativo fluente, foque em ser claro sobre a sua necessidade e o motivo dela."
+  },
+  {
+    "n": 34,
+    "molde": "Consolidação dos mecanismos de resolução de conflitos e pressão sob tempo limitado.",
+    "notaDoMolde": "Este circuito consolida a capacidade de priorizar informações sob pressão extrema, focando no que é essencial para resolver o problema de imediato.",
+    "mentalidade": "Sob pressão, seu cérebro vai querer traduzir tudo. Respire, foque no pedido principal e aceite que o inglês vai ser funcional, não perfeito. O objetivo é o resultado, não a gramática impecável."
+  },
+  {
+    "n": 35,
+    "molde": "You have to take it every ___ and you can't ___ .",
+    "notaDoMolde": "Estrutura as orientações médicas ou de saúde de forma clara. Evita erros de dose e confusões graves em farmácias ou triagens.",
+    "mentalidade": "Em momentos de dor ou estresse, a comunicação precisa ser redundante e simples. Não tenha vergonha de perguntar de novo ou pedir para confirmar a informação; sua saúde depende disso."
+  },
+  {
+    "n": 36,
+    "molde": "If you move the ___ to ___, I can absorb the extra scope.",
+    "notaDoMolde": "Ensina a técnica de negociação por condição, evitando o uso de um 'não' seco. Equilibra concessão e defesa dos seus limites.",
+    "mentalidade": "Negociar em inglês pode fazer você se sentir acuado, mas a negociação é sobre fatos e prazos, não sobre o seu vocabulário. Condicionar o 'sim' é a estratégia mais inteligente para não ceder tudo."
+  },
+  {
+    "n": 37,
+    "molde": "If I were you, I'd ___ .",
+    "notaDoMolde": "Oferece uma forma suave e empática de aconselhar alguém. Evita o uso do imperativo, que soa como ordem em inglês.",
+    "mentalidade": "Aconselhar é uma forma de conexão pessoal. Usar a estrutura certa mostra que você se importa com o outro e quer ser um ouvinte ativo, independente do seu nível de inglês."
+  },
+  {
+    "n": 38,
+    "molde": "Looking back, I should have ___, and that's what I took from it.",
+    "notaDoMolde": "Resolve a pergunta de entrevista sobre erros e aprendizados. Transforma uma falha em uma narrativa de crescimento profissional.",
+    "mentalidade": "A entrevista em inglês causa um frio na barriga pela expectativa de perfeição. O recrutador não busca um dicionário vivo, ele busca alguém que saiba articular pensamentos e aprender com os erros."
+  },
+  {
+    "n": 39,
+    "molde": "Consolidação da autonomia para resolver problemas complexos e atritos em tempo real.",
+    "notaDoMolde": "Finaliza a habilidade de transitar entre diferentes tempos verbais e estruturas sob pressão. Prepara para qualquer situação imprevista no Canto 3.",
+    "mentalidade": "Você não precisa de um script para cada situação agora, você tem as peças para montar o que precisar. A confiança vem de saber que, mesmo com erro, você consegue resolver o que se propõe."
+  },
+  {
+    "n": 40,
+    "molde": "I'll ___ the report and ___ the meeting later.",
+    "notaDoMolde": "Substitui verbos formais de origem latina por verbos compostos de ação imediata. Resolve a artificialidade de quem soa como um documento escrito.",
+    "mentalidade": "A vergonha de usar um termo simples vem da falsa ideia de que vocabulário complexo demonstra inteligência. Nativos usam o caminho mais curto e eficiente, e você deveria fazer o mesmo para não parecer um robô."
+  },
+  {
+    "n": 41,
+    "molde": "I'm gonna ___ it when I ___ to it.",
+    "notaDoMolde": "Treina a redução de 'going to' para 'gonna' e a conexão entre palavras. Resolve a perda de informação causada pela expectativa de ouvir palavras isoladas.",
+    "mentalidade": "O seu ouvido tenta organizar o som como se fosse português, onde cada sílaba é clara. Aceitar que o inglês apaga sons é o primeiro passo para parar de se sentir inadequado por não entender tudo de primeira."
+  },
+  {
+    "n": 42,
+    "molde": "It depends on ___ and I'm good at ___.",
+    "notaDoMolde": "Fixa a regência verbal correta, eliminando o erro de tradução literal. Resolve o desconforto de soar como um tradutor automático.",
+    "mentalidade": "Errar uma preposição é o que marca o estrangeiro, mas não é um crime. Foque em memorizar o bloco completo ao invés de tentar entender a lógica gramatical por trás de cada conexão."
+  },
+  {
+    "n": 43,
+    "molde": "I'd say it's a bit ___, but I'm sure we can ___.",
+    "notaDoMolde": "Utiliza o 'hedging' para ajustar o tom e a assertividade. Resolve o problema de soar ríspido ou formal demais em situações casuais.",
+    "mentalidade": "O medo de parecer incerto faz você usar frases secas que soam grossas. Aprender a amaciar o discurso é um sinal de maturidade na língua, não de falta de domínio."
+  },
+  {
+    "n": 44,
+    "molde": "That's just ___, isn't it?",
+    "notaDoMolde": "Introduz o uso de tom irônico com 'tag questions'. Resolve a frustração de não captar nuances sociais em conversas informais.",
+    "mentalidade": "A ironia é uma barreira cultural alta. Não se sinta mal por não identificar o sarcasmo de imediato; isso é uma habilidade que se desenvolve observando o comportamento, não estudando gramática."
+  },
+  {
+    "n": 45,
+    "molde": "Sorry, could you ___? I didn't quite catch that.",
+    "notaDoMolde": "Fornece frases polidas para pedir esclarecimento em contextos multiculturais. Resolve a tensão de fingir que entendeu quando não entendeu.",
+    "mentalidade": "Você não precisa ter um sotaque neutro para ser levado a sério. O seu objetivo é ser compreendido e ter a coragem de perguntar novamente quando a comunicação falhar."
+  },
+  {
+    "n": 46,
+    "molde": "The thing is, ___. Moving on, let's ___.",
+    "notaDoMolde": "Estrutura apresentações com conectores lógicos e transições claras. Resolve a desorganização mental durante a fala pública.",
+    "mentalidade": "O erro comum é tentar traduzir o slide inteiro. Organize seu pensamento em blocos curtos e use esses conectores para garantir que sua plateia não se perca enquanto você respira."
+  },
+  {
+    "n": 47,
+    "molde": "I'd tone down ___ and take out ___.",
+    "notaDoMolde": "Usa verbos compostos para dar feedback de forma direta e profissional. Resolve o excesso de polidez que dilui a mensagem crítica.",
+    "mentalidade": "Feedback é uma ferramenta de trabalho. Quando você tenta ser gentil demais, você retarda o progresso de quem ouve; ser claro é a forma mais alta de respeito."
+  },
+  {
+    "n": 48,
+    "molde": "He told me he ___ and said he'd ___.",
+    "notaDoMolde": "Aplica o recuo do discurso indireto para relatar fatos. Resolve a confusão entre o que você pensa e o que o outro disse.",
+    "mentalidade": "Repassar informações é uma tarefa de alta responsabilidade. Não se cobre perfeição total no tempo verbal, foque apenas em deixar claro quem disse o quê."
+  },
+  {
+    "n": 49,
+    "molde": "I do agree with ___ on this, but I still think ___.",
+    "notaDoMolde": "Combina concordância parcial com a exposição de um ponto de vista. Resolve a inabilidade de sustentar um debate sem ser agressivo.",
+    "mentalidade": "Você pode manter sua posição sem precisar 'vencer' a conversa. O inglês permite que você seja firme sem perder a elegância, algo que muitas vezes esquecemos na pressa de nos defender."
+  },
+  {
+    "n": 50,
+    "molde": "I keep meaning to ___ and I'd love to ___.",
+    "notaDoMolde": "Domina a transição entre formas verbais (-ing e 'to'). Resolve o travamento mental em conversas longas e informais.",
+    "mentalidade": "A fluência não é falar sem parar, é saber retomar o assunto quando ele escapa. Se você esquecer uma palavra, use essas estruturas para ganhar tempo e seguir adiante."
+  },
+  {
+    "n": 51,
+    "molde": "I'm ___ because I ___.",
+    "notaDoMolde": "Foca na redução do tempo de resposta entre a intenção e a fala. Resolve a dependência mental da tradução simultânea.",
+    "mentalidade": "O dia em que a frase sai antes do português, você deixou de estudar inglês e começou a viver o idioma. Não busque a perfeição, busque a velocidade da sua própria intenção."
+  },
+  {
+    "n": 52,
+    "molde": "Consolidação de todas as competências de comunicação e gestão de conversas em inglês.",
+    "notaDoMolde": "Integra os circuitos anteriores em uma conversa natural. Resolve a necessidade de preparo prévio para falar em situações cotidianas.",
+    "mentalidade": "Você chegou aqui sem atalhos. O seu inglês é a ferramenta que você construiu, e ele é suficiente para qualquer conversa, desde que você não deixe o perfeccionismo impedir o seu fluxo."
+  }
+]
