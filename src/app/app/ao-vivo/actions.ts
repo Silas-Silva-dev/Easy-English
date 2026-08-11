@@ -8,7 +8,7 @@ import { ACCESS_DENIAL_MESSAGE, getPaidSession } from "@/lib/auth/guards";
 import { geminiModels } from "@/lib/env";
 import { gemini, parseJsonResponse, withRetry } from "@/lib/gemini/client";
 import { createServerSupabase } from "@/lib/supabase/server";
-import { chunkKey, gradeFromScore } from "@/lib/srs";
+import { chunkKey, gradeFromSpokenChunk } from "@/lib/srs";
 
 const turnSchema = z.object({
   role: z.enum(["user", "model"]),
@@ -240,7 +240,7 @@ Comece pelo que funcionou antes de apontar o que falta.
     });
     if (spokenError) console.error("[live] mark_chunks_spoken:", spokenError.message);
 
-    const grade = gradeFromScore(scores.overall);
+    const grade = gradeFromSpokenChunk(scores.overall);
     for (const key of usedKeys) {
       const { error } = await supabase.rpc("review_chunk", { p_chunk_key: key, p_grade: grade });
       // O bloco pode não estar na agenda ainda: não é motivo para falhar.

@@ -10,7 +10,7 @@ import { analyzeSpeaking, normalizeAudioMime } from "@/lib/gemini/speaking";
 import { syncEnrollmentStudyStats } from "@/lib/learning";
 import { createAdminSupabase } from "@/lib/supabase/admin";
 import { createServerSupabase } from "@/lib/supabase/server";
-import { chunksSpokenIn, gradeFromScore } from "@/lib/srs";
+import { chunksSpokenIn, gradeFromSpokenChunk } from "@/lib/srs";
 import type { CefrLevel, Chunk } from "@/lib/types/database";
 
 export const runtime = "nodejs";
@@ -223,7 +223,7 @@ export async function POST(request: NextRequest) {
         console.error("[speaking] falha ao marcar blocos falados:", spokenError.message);
       }
 
-      const grade = gradeFromScore(analysis.scores.overall);
+      const grade = gradeFromSpokenChunk(analysis.scores.overall);
       for (const key of spoken) {
         const { error: reviewError } = await supabase.rpc("review_chunk", {
           p_chunk_key: key,

@@ -102,6 +102,36 @@ export function gradeFromScore(score0to10: number): number {
   return 0;
 }
 
+/**
+ * Nota do SM-2 para um bloco que o aluno FALOU numa gravação.
+ *
+ * Não é `gradeFromScore` crua, e a diferença decide se o curso funciona para
+ * iniciante. Duas razões:
+ *
+ * A nota da tutora é do TURNO INTEIRO — pronúncia, fluência, gramática,
+ * vocabulário e tarefa somados. O bloco é um pedaço daquele turno. Usar a nota
+ * do turno para agendar o bloco pune um bloco dito perfeitamente porque o resto
+ * da resposta saiu torto.
+ *
+ * E `chunksSpokenIn` só casa um bloco quando ele aparece na transcrição: o
+ * aluno puxou o bloco da memória e produziu de forma reconhecível. Em SM-2 isso
+ * é recuperação bem-sucedida, e recuperação bem-sucedida é nota 3 no mínimo.
+ * Se a pronúncia tivesse saído irreconhecível, o bloco simplesmente não casaria
+ * — o casamento já É o teste, e falhar nele não gera revisão nenhuma.
+ *
+ * Sem o piso, o iniciante é punido por ser iniciante. Numa escala absoluta ele
+ * passa meses abaixo de 6,0, e abaixo de 6,0 o motor zera `repetitions`, soma
+ * `lapses` e derruba o `ease_factor` em 0,32 — três gravações assim e o bloco
+ * fica vermelho como "Travado" para quem estava indo bem. Medido nas gravações
+ * reais do banco: 26% delas virariam lapso.
+ *
+ * A nota do turno continua modulando a qualidade (3, 4 ou 5), que é o que
+ * alimenta o `ease_factor`. Ela só não fabrica mais lapso.
+ */
+export function gradeFromSpokenChunk(score0to10: number): number {
+  return Math.max(3, gradeFromScore(score0to10));
+}
+
 /** Nota a partir de uma recuperação ativa (acertou / hesitou / não lembrou). */
 export function gradeFromRecall(result: "instant" | "hesitant" | "failed"): number {
   return result === "instant" ? 5 : result === "hesitant" ? 3 : 1;
