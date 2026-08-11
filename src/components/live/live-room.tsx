@@ -30,6 +30,41 @@ const OUTPUT_RATE = 24000;
  */
 const MAX_RECONEXOES = 4;
 const BACKOFF_RECONEXAO_MS = 800;
+/**
+ * Quanto tempo uma conexão nova precisa ficar de pé para valer como boa.
+ *
+ * Sem isto o contador de tentativas zerava assim que o `connect` resolvia — e
+ * `connect` resolve quando o WebSocket ABRE, não quando a sessão se prova viva.
+ * Quando o servidor derruba a sessão logo após abrir (cota estourada, teto de
+ * gastos, credencial recusada), cada tentativa "abria" com sucesso, zerava a
+ * conta e caía de novo: o laço nunca alcançava MAX_RECONEXOES e o aluno ficava
+ * preso no "Reconectando…" para sempre, sem mensagem nenhuma.
+ */
+const MS_CONEXAO_ESTAVEL = 8000;
+
+/**
+ * Traduz o motivo da queda quando reconectar não adianta: a próxima tentativa
+ * devolveria exatamente o mesmo erro. O texto chega em inglês, cru, no `reason`
+ * do CloseEvent — e é a única pista que o servidor dá de que o problema está na
+ * conta do serviço, e não na rede do aluno.
+ *
+ * Devolve `null` para queda comum (rede, GoAway, inatividade), que reconecta.
+ */
+function falhaDefinitiva(motivo: string): string | null {
+  const t = motivo.toLowerCase();
+
+  // Ancorado no texto exato do servidor: "exceeded" sozinho também aparece em
+  // "deadline exceeded", que é queda passageira e PRECISA reconectar.
+  if (/spend(ing)? cap|billing|quota|resource has been exhausted|rate.?limit|\b429\b/.test(t)) {
+    return "A sala de voz está indisponível: a conta do serviço atingiu o limite de uso contratado. Não é problema do seu computador nem da sua internet — avise o suporte.";
+  }
+
+  if (/api key|api_key|unauthenticated|unauthorized|permission|forbidden|\b401\b|\b403\b/.test(t)) {
+    return "A sala de voz recusou a credencial de acesso. Não há nada para você ajustar aqui — avise o suporte.";
+  }
+
+  return null;
+}
 
 /**
  * Worklet de captura: converte Float32 do microfone em PCM 16-bit e envia
@@ -178,6 +213,8 @@ export function LiveRoom({
   const idCounterRef = React.useRef(0);
   const reconectandoRef = React.useRef(false);
   const tentativasRef = React.useRef(0);
+  /** Zera `tentativasRef` só depois que a conexão nova se sustenta de pé. */
+  const estabilidadeRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   /** O aluno pediu para encerrar: uma queda aqui não deve reconectar. */
   const encerrandoRef = React.useRef(false);
   /**
@@ -199,6 +236,8 @@ export function LiveRoom({
   const cleanup = React.useCallback(() => {
     if (timerRef.current) clearInterval(timerRef.current);
     timerRef.current = null;
+    if (estabilidadeRef.current) clearTimeout(estabilidadeRef.current);
+    estabilidadeRef.current = null;
     streamRef.current?.getTracks().forEach((t) => t.stop());
     streamRef.current = null;
     void inCtxRef.current?.close().catch(() => {});
@@ -380,9 +419,12 @@ export function LiveRoom({
             if (id !== activeIdRef.current) return;
             void quedaRef.current?.(event.message || "erro na conexão de voz");
           },
-          onclose: () => {
+          // O `reason` é o único lugar onde o servidor conta POR QUE derrubou
+          // (cota, teto de gastos, credencial). Descartar isso, como antes,
+          // transformava qualquer falha permanente em reconexão muda e eterna.
+          onclose: (event: CloseEvent) => {
             if (id !== activeIdRef.current) return;
-            void quedaRef.current?.("conexão encerrada pelo servidor");
+            void quedaRef.current?.(event.reason || "conexão encerrada pelo servidor");
           },
         },
       });
@@ -399,6 +441,23 @@ export function LiveRoom({
     async (motivo: string): Promise<void> => {
       if (reconectandoRef.current || encerrandoRef.current) return;
       if (tentativasRef.current >= MAX_RECONEXOES) return;
+
+      // Uma conexão que morre por motivo permanente não volta por insistência:
+      // reconectar aqui só trocaria a mensagem de erro por um giro infinito.
+      const definitiva = falhaDefinitiva(motivo);
+      if (definitiva) {
+        console.error(`[live] queda definitiva: ${motivo}`);
+        setError(definitiva);
+        await stopRef.current?.();
+        return;
+      }
+
+      // A conexão anterior caiu: se ela ainda tinha um prazo de estabilidade
+      // correndo, ele não vale mais — não foi de pé que ela saiu.
+      if (estabilidadeRef.current) {
+        clearTimeout(estabilidadeRef.current);
+        estabilidadeRef.current = null;
+      }
 
       reconectandoRef.current = true;
       tentativasRef.current += 1;
@@ -419,7 +478,13 @@ export function LiveRoom({
           // já fechada pelo servidor
         }
 
-        tentativasRef.current = 0;
+        // Aberta não é o mesmo que boa: o contador só volta a zero se esta
+        // conexão passar de MS_CONEXAO_ESTAVEL viva. Zerar aqui, na hora,
+        // fazia toda queda imediata parecer uma reconexão bem-sucedida.
+        estabilidadeRef.current = setTimeout(() => {
+          tentativasRef.current = 0;
+          estabilidadeRef.current = null;
+        }, MS_CONEXAO_ESTAVEL);
       } catch (error) {
         console.error(`[live] reconexão falhou (${motivo}):`, error);
 
