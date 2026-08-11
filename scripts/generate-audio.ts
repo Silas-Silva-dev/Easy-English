@@ -177,9 +177,36 @@ function writeLedger(ledger: Record<string, LedgerEntry>) {
   const sorted = Object.fromEntries(
     Object.entries(juntos).sort(([a], [b]) => a.localeCompare(b)),
   );
+  const texto = JSON.stringify(sorted, null, 2) + "\n";
   const temp = `${LEDGER_PATH}.${process.pid}.tmp`;
-  writeFileSync(temp, JSON.stringify(sorted, null, 2) + "\n", "utf8");
-  renameSync(temp, LEDGER_PATH);
+
+  // O rename é atômico no POSIX e NÃO é garantido no Windows: se outro
+  // processo tem o destino aberto naquele instante, vem EPERM. Como este
+  // arquivo existe justamente para dois processos gravarem juntos, a colisão
+  // é o caso normal, não o excepcional. Três tentativas resolvem na prática.
+  for (let tentativa = 1; tentativa <= 3; tentativa++) {
+    try {
+      writeFileSync(temp, texto, "utf8");
+      renameSync(temp, LEDGER_PATH);
+      return;
+    } catch {
+      try {
+        rmSync(temp, { force: true });
+      } catch {
+        /* o temp some na próxima tentativa */
+      }
+    }
+  }
+
+  // Desistiu: o livro-razão perde ESTA anotação e o áudio continua gravado.
+  //
+  // A ordem importa e ela estava errada: uma falha aqui derrubava o job
+  // inteiro, e o circuito 17 perdeu a imersão porque a CONTABILIDADE falhou.
+  // O .mp3 é o produto; saber qual motor o fez é conveniência para o
+  // `--upgrade`. Conveniência não cancela produto.
+  console.warn(
+    `  \x1b[33m!\x1b[0m não consegui atualizar engines.json agora — o áudio está gravado`,
+  );
 }
 
 function parseArgs(argv: string[]): Options {
