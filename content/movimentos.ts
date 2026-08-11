@@ -216,7 +216,15 @@ export function movimentoOuvido(
     case "segunda-escuta":
       return {
         abertos: [
-          comoOuvir(Math.max(2, escutas - 1)),
+          // O mesmo número que o portão cobra, e não um a menos.
+          //
+          // Havia `escutas - 1` aqui, com a ideia de que a segunda escuta pede
+          // menos que a primeira. Só que quem decide quando o texto abre é
+          // `public.required_plays`, que devolve o mesmo número para os dois
+          // dias: a tela dizia "toque 3 vezes, o texto abre sozinho depois
+          // disso" e o portão ao lado dizia "o texto aparece depois de 4
+          // escutas". O aluno cumpria o que leu e nada acontecia.
+          comoOuvir(escutas),
           {
             type: "callout",
             variant: "tip",

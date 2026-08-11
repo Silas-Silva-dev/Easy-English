@@ -17,10 +17,15 @@ import {
   Volume2,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import * as React from "react";
 import { toast } from "sonner";
 
-import { AudioPlayer, ImmersionGate } from "@/components/audio/audio-player";
+import {
+  AudioPlayer,
+  EscutaMedida,
+  ImmersionGate,
+} from "@/components/audio/audio-player";
 import { PronunciationLine } from "@/components/lesson/pronunciation-line";
 import { LessonBlockView, RichText } from "@/components/lesson/lesson-blocks";
 import type { SpeakingResult } from "@/components/speaking/feedback-panel";
@@ -30,7 +35,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { cn } from "@/lib/utils";
-import type { Lesson } from "@/lib/types/database";
+import type { Lesson, LessonBlock } from "@/lib/types/database";
 
 import { completeLessonAction } from "@/app/app/actions";
 
@@ -43,14 +48,88 @@ const STEP_META: { id: Step; label: string; icon: typeof BookOpen }[] = [
   { id: "practice", label: "Fala", icon: Mic },
 ];
 
+/**
+ * A peça travada do dia, montada no servidor.
+ *
+ * Existe porque `lesson` não basta mais para decidir o portão: enquanto a
+ * exposição está fechada, a página manda a lição SEM `content.gated`, e olhar
+ * para `lesson.content.gated?.length` para saber se há portão passou a dar
+ * sempre "não há" — que é justamente onde a transcrição escaparia. Quem manda
+ * é esta linha, que vem de `listening_exposures`.
+ *
+ * `blocks` é o texto travado quando ele já pode ser lido, e `[]` quando não:
+ * nesse caso ele não existe no navegador, e é a server action que o entrega
+ * na última escuta.
+ */
+export interface ExposicaoDaLicao {
+  /** Qual peça do dia está travada. Decide ONDE o portão é montado. */
+  papel: "imersao" | "escuta";
+  /** `chaveDaPeca(circuito, diaDeOrigem, papel)`. */
+  key: string;
+  requiredPlays: number;
+  initialPlays: number;
+  unlocked: boolean;
+  blocks: LessonBlock[];
+  /** `profiles.audio_exempt`: quem não pode ouvir abre a peça sem escuta. */
+  audioExempt: boolean;
+  /**
+   * O endereço do áudio, quando o roteiro não veio.
+   *
+   * Travada, a peça chega sem `immersion_script`/`listening_script`: o roteiro
+   * É a transcrição, e mandá-lo para o player derivar o nome do arquivo
+   * devolveria ao payload exatamente o texto que o portão esconde.
+   */
+  audioUrl: string | null;
+}
+
+/**
+ * O áudio sem portão, para a lição que não tem peça travada.
+ *
+ * A transcrição fica dentro de um `<details>` fechado: aqui não há nada a
+ * proteger — o roteiro é o mesmo texto que o player fala —, mas ler antes de
+ * ouvir continua sendo escolha do aluno, não o padrão da tela.
+ */
+function CartaoDeAudio({ script }: { script: string }) {
+  return (
+    <Card>
+      <CardHeader className="pb-2">
+        <CardTitle className="flex items-center gap-2 text-sm">
+          <Volume2 className="size-4" /> Áudio da lição
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <AudioPlayer text={script} mode="dialogue" label="Diálogo completo" />
+        <details className="group">
+          {/* py-3 em vez de min-h/inline-flex: mudar o `display` do
+              <summary> apaga o triângulo de "abrir" do navegador. */}
+          <summary className="text-muted-foreground hover:text-foreground -my-1 cursor-pointer py-3 text-xs">
+            Ver a transcrição
+          </summary>
+          <p className="bg-muted/55 mt-2 rounded-lg p-4 text-sm leading-relaxed whitespace-pre-line">
+            {script.replace(/\s*\/\s*/g, "\n")}
+          </p>
+        </details>
+      </CardContent>
+    </Card>
+  );
+}
+
+/** Os blocos travados, do jeito que o portão os pede: uma função de render. */
+function blocosTravados(blocks: LessonBlock[]) {
+  return blocks.map((block, i) => <LessonBlockView key={i} block={block} />);
+}
+
 export function LessonPlayer({
   lesson,
+  exposure,
   alreadyCompleted,
   nextPublishedDay,
   initialSpeakingResult = null,
   initialAnswers = {},
 }: {
   lesson: Lesson;
+  /** A peça travada deste dia, ou null quando a lição não tem portão. */
+  exposure: ExposicaoDaLicao | null;
   alreadyCompleted: boolean;
   nextPublishedDay: number | null;
   /** Avaliação de fala já salva desta lição, reidratada do banco. */
@@ -58,7 +137,8 @@ export function LessonPlayer({
   /** Respostas do quiz salvas no banco para lições já concluídas. */
   initialAnswers?: Record<number, number>;
 }) {
-  const hasVocabulary = lesson.chunks?.length > 0 || lesson.vocabulary.length > 0;
+  const hasVocabulary =
+    lesson.chunks?.length > 0 || lesson.vocabulary.length > 0;
   const hasQuiz = lesson.quiz.length > 0;
   const hasPractice = Boolean(lesson.speaking_prompt);
 
@@ -77,9 +157,11 @@ export function LessonPlayer({
   const [step, setStep] = React.useState<Step>("content");
   // Reidrata as respostas salvas: se a lição já foi concluída e havia respostas
   // no banco, o aluno vê suas escolhas com as correções exibidas de imediato.
-  const [answers, setAnswers] = React.useState<Record<number, number>>(initialAnswers);
+  const [answers, setAnswers] =
+    React.useState<Record<number, number>>(initialAnswers);
   const [revealed, setRevealed] = React.useState(
-    Object.keys(initialAnswers).length === lesson.quiz.length && lesson.quiz.length > 0,
+    Object.keys(initialAnswers).length === lesson.quiz.length &&
+      lesson.quiz.length > 0,
   );
   /**
    * Segunda chance.
@@ -94,36 +176,91 @@ export function LessonPlayer({
    * o aluno sabia antes de ver a correção.
    */
   const [settled, setSettled] = React.useState<Set<number>>(() =>
-    lesson.quiz.length && Object.keys(initialAnswers).length === lesson.quiz.length
-      ? new Set(lesson.quiz.map((q, i) => (initialAnswers[i] === q.answerIndex ? i : -1)).filter((i) => i >= 0))
+    lesson.quiz.length &&
+    Object.keys(initialAnswers).length === lesson.quiz.length
+      ? new Set(
+          lesson.quiz
+            .map((q, i) => (initialAnswers[i] === q.answerIndex ? i : -1))
+            .filter((i) => i >= 0),
+        )
       : new Set(),
   );
   const [firstScore, setFirstScore] = React.useState<number | null>(null);
   // A avaliação mora AQUI, e não dentro do PracticeStation: trocar de etapa
   // desmonta a estação e o resultado recém-recebido morria junto com ela.
-  const [speakingResult, setSpeakingResult] = React.useState<SpeakingResult | null>(
-    initialSpeakingResult,
-  );
+  const [speakingResult, setSpeakingResult] =
+    React.useState<SpeakingResult | null>(initialSpeakingResult);
   // Quem já gravou nesta lição não é cobrado de novo ao reabrir. `spoke` é
   // monotônico: pedir para regravar não faz o aviso voltar.
   const [spoke, setSpoke] = React.useState(Boolean(initialSpeakingResult));
   const [saving, setSaving] = React.useState(false);
-  const [result, setResult] = React.useState<{ streak: number; nextDay: number | null } | null>(null);
+  const [result, setResult] = React.useState<{
+    streak: number;
+    nextDay: number | null;
+  } | null>(null);
   const startedAt = React.useRef(Date.now());
+  /**
+   * Segundos de escuta medidos por todos os players desta lição.
+   *
+   * Cada `AudioPlayer` soma aqui, por contexto, quando uma passada chega ao fim
+   * tendo sido ouvida — em primeiro plano e até 1x. É este número, e não o
+   * relógio da sessão, que vira `study_days.input_minutes` e alimenta o
+   * componente de input dos 52 portões do Completo.
+   */
+  const router = useRouter();
+  /**
+   * A peça deste dia já abriu?
+   *
+   * Mora AQUI e não dentro do `ImmersionGate` porque o passo "Conteúdo" é
+   * desmontado ao trocar de aba, e o portão remontaria com as props do
+   * carregamento da página: quatro escutas cumpridas, um clique em "Blocos", e
+   * o texto sumia de novo — sem botão de saída, porque ele foi removido.
+   *
+   * `router.refresh()` no destravamento traz de volta o que o servidor tinha
+   * podado do payload: o roteiro, os blocos do circuito e o quiz. Até a
+   * resposta chegar, `blocosAbertos` é o que a server action devolveu, para a
+   * tela não ficar vazia no intervalo.
+   */
+  const [destravado, setDestravado] = React.useState(
+    exposure?.unlocked ?? false,
+  );
+  const [blocosAbertos, setBlocosAbertos] = React.useState<LessonBlock[]>(
+    exposure?.blocks ?? [],
+  );
+  const aoDestravar = React.useCallback(
+    (blocos: LessonBlock[]) => {
+      setDestravado(true);
+      setBlocosAbertos(blocos);
+      router.refresh();
+    },
+    [router],
+  );
+
+  const segundosOuvidos = React.useRef(0);
+  const somarEscuta = React.useCallback((segundos: number) => {
+    segundosOuvidos.current += segundos;
+  }, []);
 
   const currentIndex = steps.findIndex((s) => s.id === step);
-  const progressPct = step === "done" ? 100 : Math.round((currentIndex / steps.length) * 100);
+  const progressPct =
+    step === "done" ? 100 : Math.round((currentIndex / steps.length) * 100);
 
   const quizScore = React.useMemo(() => {
     if (!hasQuiz) return null;
-    const correct = lesson.quiz.filter((q, i) => answers[i] === q.answerIndex).length;
+    const correct = lesson.quiz.filter(
+      (q, i) => answers[i] === q.answerIndex,
+    ).length;
     return Math.round((correct / lesson.quiz.length) * 100);
   }, [answers, hasQuiz, lesson.quiz]);
 
-  const allAnswered = hasQuiz && Object.keys(answers).length === lesson.quiz.length;
+  const allAnswered =
+    hasQuiz && Object.keys(answers).length === lesson.quiz.length;
   /** Questões ainda erradas depois da conferência: são as que ganham nova chance. */
   const wrongIndexes = React.useMemo(
-    () => lesson.quiz.map((q, i) => (answers[i] === q.answerIndex ? -1 : i)).filter((i) => i >= 0),
+    () =>
+      lesson.quiz
+        .map((q, i) => (answers[i] === q.answerIndex ? -1 : i))
+        .filter((i) => i >= 0),
     [answers, lesson.quiz],
   );
 
@@ -178,6 +315,16 @@ export function LessonPlayer({
     const response = await completeLessonAction({
       lessonId: lesson.id,
       minutes,
+      /**
+       * Escuta MEDIDA, e não relógio de sessão.
+       *
+       * `minutes` conta desde que a página abriu — vale para a ofensiva, não
+       * serve para o portão: quarenta minutos com a aba aberta e o fone na mesa
+       * marcariam quarenta. `inputSeconds` só soma passada de áudio que chegou
+       * ao fim, em primeiro plano, até 1x. Sem nenhuma passada assim, vai zero,
+       * e o dia entra no portão como dia sem input — que é a resposta certa.
+       */
+      inputSeconds: Math.min(14400, Math.round(segundosOuvidos.current)),
       // A nota gravada é a da PRIMEIRA tentativa.
       //
       // A segunda chance existe para o aluno aprender, não para maquiar o
@@ -196,7 +343,10 @@ export function LessonPlayer({
       return;
     }
 
-    setResult({ streak: response.streak ?? 0, nextDay: response.nextDay ?? null });
+    setResult({
+      streak: response.streak ?? 0,
+      nextDay: response.nextDay ?? null,
+    });
     setStep("done");
     window.scrollTo({ top: 0, behavior: "smooth" });
     toast.success("Lição concluída!");
@@ -213,7 +363,8 @@ export function LessonPlayer({
             </div>
             <h2 className="mt-5 text-2xl font-semibold">Lição concluída!</h2>
             <p className="text-muted-foreground mt-2 text-sm">
-              Dia {lesson.day_number} fechado. Consistência é o que constrói fluência.
+              Dia {lesson.day_number} fechado. Consistência é o que constrói
+              fluência.
             </p>
           </div>
 
@@ -221,8 +372,12 @@ export function LessonPlayer({
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-streak/10 rounded-xl p-4">
                 <Flame className="text-streak mx-auto size-5" />
-                <p className="mt-2 text-2xl font-semibold tabular-nums">{result?.streak ?? 0}</p>
-                <p className="text-muted-foreground text-xs">dias de ofensiva</p>
+                <p className="mt-2 text-2xl font-semibold tabular-nums">
+                  {result?.streak ?? 0}
+                </p>
+                <p className="text-muted-foreground text-xs">
+                  dias de ofensiva
+                </p>
               </div>
               <div className="bg-success/10 rounded-xl p-4">
                 <CheckCircle2 className="text-success mx-auto size-5" />
@@ -252,97 +407,109 @@ export function LessonPlayer({
   }
 
   return (
-    <div className="mx-auto max-w-3xl space-y-6">
-      {/* -------------------------------------------------------- Progresso */}
-      <div className="space-y-3">
-        <div className="flex items-center justify-between gap-3">
-          <div className="flex flex-wrap gap-1.5">
-            {steps.map((s, i) => {
-              const Icon = s.icon;
-              const isDoneStep = alreadyCompleted || i < currentIndex;
-              const active = i === currentIndex;
-              return (
-                <button
-                  key={s.id}
-                  onClick={() => setStep(s.id)}
-                  className={cn(
-                    "flex min-h-10 max-sm:min-h-11 items-center gap-1.5 rounded-full px-3 py-2.5 text-xs max-sm:text-sm font-medium transition-colors",
-                    alreadyCompleted
-                      ? active
-                        ? "bg-success/20 text-success ring-2 ring-success/50 font-bold"
-                        : "bg-success/12 text-success hover:bg-success/20"
-                      : active
-                        ? "bg-primary text-primary-foreground"
-                        : isDoneStep
-                          ? "bg-success/12 text-success"
-                          : "bg-muted text-muted-foreground hover:bg-accent",
-                  )}
-                >
-                  {isDoneStep ? <CheckCircle2 className="size-3.5" /> : <Icon className="size-3.5" />}
-                  {s.label}
-                </button>
-              );
-            })}
+    // Todo player montado daqui para baixo soma a escuta dele no mesmo balde.
+    // Sem o provedor o contexto é nulo e cada player continua funcionando
+    // sozinho — é assim que o baralho de revisão e a landing não somam nada.
+    <EscutaMedida.Provider value={somarEscuta}>
+      <div className="mx-auto max-w-3xl space-y-6">
+        {/* -------------------------------------------------------- Progresso */}
+        <div className="space-y-3">
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex flex-wrap gap-1.5">
+              {steps.map((s, i) => {
+                const Icon = s.icon;
+                const isDoneStep = alreadyCompleted || i < currentIndex;
+                const active = i === currentIndex;
+                return (
+                  <button
+                    key={s.id}
+                    onClick={() => setStep(s.id)}
+                    className={cn(
+                      "flex min-h-10 max-sm:min-h-11 items-center gap-1.5 rounded-full px-3 py-2.5 text-xs max-sm:text-sm font-medium transition-colors",
+                      alreadyCompleted
+                        ? active
+                          ? "bg-success/20 text-success ring-2 ring-success/50 font-bold"
+                          : "bg-success/12 text-success hover:bg-success/20"
+                        : active
+                          ? "bg-primary text-primary-foreground"
+                          : isDoneStep
+                            ? "bg-success/12 text-success"
+                            : "bg-muted text-muted-foreground hover:bg-accent",
+                    )}
+                  >
+                    {isDoneStep ? (
+                      <CheckCircle2 className="size-3.5" />
+                    ) : (
+                      <Icon className="size-3.5" />
+                    )}
+                    {s.label}
+                  </button>
+                );
+              })}
+            </div>
+            <span className="text-muted-foreground shrink-0 text-xs tabular-nums">
+              {currentIndex + 1}/{steps.length}
+            </span>
           </div>
-          <span className="text-muted-foreground shrink-0 text-xs tabular-nums">
-            {currentIndex + 1}/{steps.length}
-          </span>
+          <Progress value={progressPct} className="h-1.5" />
         </div>
-        <Progress value={progressPct} className="h-1.5" />
-      </div>
 
-      {/* ---------------------------------------------------------- Conteúdo */}
-      {step === "content" ? (
-        <article className="space-y-6">
-          {/* A abertura do dia.
+        {/* ---------------------------------------------------------- Conteúdo */}
+        {step === "content" ? (
+          <article className="space-y-6">
+            {/* A abertura do dia.
               Vem antes de tudo porque o aluno-alvo nunca estudou inglês: sem
               saber o que se espera dele, ele abre a lição e não a executa.
               As expressões trazem a pronúncia figurada — quem não sabe ler
               inglês precisa de um sistema de leitura que já domina. */}
-          {lesson.content.briefing ? (
-            <section className="border-primary/30 bg-card rounded-xl border p-5 shadow-sm">
-              <p className="text-primary mb-2 text-xs font-semibold tracking-wide uppercase">
-                Como fazer a aula de hoje
-              </p>
-              <p className="text-[0.95rem] leading-relaxed font-medium">
-                {lesson.content.briefing.goal}
-              </p>
-
-              <ol className="mt-4 space-y-2">
-                {lesson.content.briefing.steps.map((step, i) => (
-                  <li key={i} className="flex gap-3 text-sm leading-relaxed">
-                    <span className="bg-primary/10 text-primary grid size-6 shrink-0 place-items-center rounded-full text-xs font-bold tabular-nums">
-                      {i + 1}
-                    </span>
-                    <span className="text-foreground/90">{step}</span>
-                  </li>
-                ))}
-              </ol>
-
-              {lesson.content.briefing.note ? (
-                <p className="border-l-primary/40 text-muted-foreground mt-4 border-l-2 pl-3 text-xs leading-relaxed italic">
-                  {lesson.content.briefing.note}
+            {lesson.content.briefing ? (
+              <section className="border-primary/30 bg-card rounded-xl border p-5 shadow-sm">
+                <p className="text-primary mb-2 text-xs font-semibold tracking-wide uppercase">
+                  Como fazer a aula de hoje
                 </p>
-              ) : null}
+                <p className="text-[0.95rem] leading-relaxed font-medium">
+                  {lesson.content.briefing.goal}
+                </p>
 
-              {lesson.content.briefing.expressions?.length ? (
-                <div className="mt-5">
-                  <p className="text-muted-foreground mb-2 text-xs font-semibold tracking-wide uppercase">
-                    As expressões de hoje
+                <ol className="mt-4 space-y-2">
+                  {lesson.content.briefing.steps.map((step, i) => (
+                    <li key={i} className="flex gap-3 text-sm leading-relaxed">
+                      <span className="bg-primary/10 text-primary grid size-6 shrink-0 place-items-center rounded-full text-xs font-bold tabular-nums">
+                        {i + 1}
+                      </span>
+                      <span className="text-foreground/90">{step}</span>
+                    </li>
+                  ))}
+                </ol>
+
+                {lesson.content.briefing.note ? (
+                  <p className="border-l-primary/40 text-muted-foreground mt-4 border-l-2 pl-3 text-xs leading-relaxed italic">
+                    {lesson.content.briefing.note}
                   </p>
-                  <div className="divide-border/70 divide-y rounded-lg border">
-                    {lesson.content.briefing.expressions.map((item, i) => (
-                      <div key={i} className="px-3.5 py-2.5">
-                        <p className="text-[0.95rem] font-medium">{item.en}</p>
-                        <PronunciationLine text={item.en} />
-                        <p className="text-muted-foreground mt-0.5 text-sm">{item.pt}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : null}
+                ) : null}
 
-              {/*
+                {lesson.content.briefing.expressions?.length ? (
+                  <div className="mt-5">
+                    <p className="text-muted-foreground mb-2 text-xs font-semibold tracking-wide uppercase">
+                      As expressões de hoje
+                    </p>
+                    <div className="divide-border/70 divide-y rounded-lg border">
+                      {lesson.content.briefing.expressions.map((item, i) => (
+                        <div key={i} className="px-3.5 py-2.5">
+                          <p className="text-[0.95rem] font-medium">
+                            {item.en}
+                          </p>
+                          <PronunciationLine text={item.en} />
+                          <p className="text-muted-foreground mt-0.5 text-sm">
+                            {item.pt}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ) : null}
+
+                {/*
                 A peça de conexão: o que gruda bloco em frase.
 
                 Fica DEPOIS das expressões de propósito. As expressões são o
@@ -350,494 +517,565 @@ export function LessonPlayer({
                 encaixam quando ele tiver que montar frase própria — e só
                 aparece nos dias em que isso é cobrado.
               */}
-              {lesson.content.briefing.connection ? (
-                <div className="mt-5 rounded-lg border border-amber-500/40 bg-amber-500/5 p-4">
-                  <p className="mb-1.5 text-xs font-semibold tracking-wide text-amber-700 uppercase dark:text-amber-400">
-                    A conexão de hoje · {lesson.content.briefing.connection.piece}
-                  </p>
-                  <p className="text-[0.95rem] font-semibold">
-                    {lesson.content.briefing.connection.title}
-                  </p>
-                  <RichText
-                    text={lesson.content.briefing.connection.body}
-                    className="text-foreground/90 mt-1.5 text-sm"
-                  />
+                {lesson.content.briefing.connection ? (
+                  <div className="mt-5 rounded-lg border border-amber-500/40 bg-amber-500/5 p-4">
+                    <p className="mb-1.5 text-xs font-semibold tracking-wide text-amber-700 uppercase dark:text-amber-400">
+                      A conexão de hoje ·{" "}
+                      {lesson.content.briefing.connection.piece}
+                    </p>
+                    <p className="text-[0.95rem] font-semibold">
+                      {lesson.content.briefing.connection.title}
+                    </p>
+                    <RichText
+                      text={lesson.content.briefing.connection.body}
+                      className="text-foreground/90 mt-1.5 text-sm"
+                    />
 
-                  {lesson.content.briefing.connection.examples.length ? (
-                    <div className="divide-border/70 bg-card mt-3 divide-y rounded-lg border">
-                      {lesson.content.briefing.connection.examples.map((ex, i) => (
-                        <div key={i} className="px-3.5 py-2.5">
-                          <p className="text-[0.95rem] font-medium">{ex.en}</p>
-                          <PronunciationLine text={ex.en} />
-                          <p className="text-muted-foreground mt-0.5 text-sm">{ex.pt}</p>
-                        </div>
-                      ))}
-                    </div>
-                  ) : null}
+                    {lesson.content.briefing.connection.examples.length ? (
+                      <div className="divide-border/70 bg-card mt-3 divide-y rounded-lg border">
+                        {lesson.content.briefing.connection.examples.map(
+                          (ex, i) => (
+                            <div key={i} className="px-3.5 py-2.5">
+                              <p className="text-[0.95rem] font-medium">
+                                {ex.en}
+                              </p>
+                              <PronunciationLine text={ex.en} />
+                              <p className="text-muted-foreground mt-0.5 text-sm">
+                                {ex.pt}
+                              </p>
+                            </div>
+                          ),
+                        )}
+                      </div>
+                    ) : null}
 
-                  <p className="mt-3 text-xs leading-relaxed">
-                    <span className="font-semibold text-amber-700 dark:text-amber-400">
-                      Sem isso sai:
-                    </span>{" "}
-                    <span className="text-muted-foreground line-through">
-                      {lesson.content.briefing.connection.avoids}
-                    </span>
-                  </p>
-                </div>
-              ) : null}
-            </section>
-          ) : null}
+                    <p className="mt-3 text-xs leading-relaxed">
+                      <span className="font-semibold text-amber-700 dark:text-amber-400">
+                        Sem isso sai:
+                      </span>{" "}
+                      <span className="text-muted-foreground line-through">
+                        {lesson.content.briefing.connection.avoids}
+                      </span>
+                    </p>
+                  </div>
+                ) : null}
+              </section>
+            ) : null}
 
-          {/* A situação vem antes de tudo: é ela que organiza a lição, não a regra */}
-          {lesson.situation ? (
-            <div className="border-primary/25 bg-primary/5 rounded-xl border p-5">
-              <p className="text-primary mb-1.5 text-xs font-semibold tracking-wide uppercase">
-                A situação
-              </p>
-              <p className="text-[0.95rem] leading-relaxed">{lesson.situation}</p>
-              {lesson.pattern ? (
-                <p className="bg-card mt-3 rounded-lg px-3.5 py-2 font-mono text-sm">
-                  {lesson.pattern}
+            {/* A situação vem antes de tudo: é ela que organiza a lição, não a regra */}
+            {lesson.situation ? (
+              <div className="border-primary/25 bg-primary/5 rounded-xl border p-5">
+                <p className="text-primary mb-1.5 text-xs font-semibold tracking-wide uppercase">
+                  A situação
                 </p>
-              ) : null}
-            </div>
-          ) : null}
-
-          {/* Dia 1 do circuito: o texto só destrava depois de 3 escutas.
-              Os blocos de dentro do portão vêm em `content.gated`, nunca em
-              `content.blocks`: senão a transcrição apareceria antes da escuta. */}
-          {lesson.immersion_script ? (
-            <ImmersionGate text={lesson.immersion_script}>
-              {(lesson.content.gated ?? []).map((block, i) => (
-                <LessonBlockView key={i} block={block} />
-              ))}
-              {!lesson.content.gated?.length ? (
-                <div className="bg-muted/50 rounded-xl p-5">
-                  <p className="text-muted-foreground mb-2 text-xs font-medium tracking-wide uppercase">
-                    Transcrição
+                <p className="text-[0.95rem] leading-relaxed">
+                  {lesson.situation}
+                </p>
+                {lesson.pattern ? (
+                  <p className="bg-card mt-3 rounded-lg px-3.5 py-2 font-mono text-sm">
+                    {lesson.pattern}
                   </p>
-                  <p className="text-sm leading-relaxed whitespace-pre-line">
-                    {lesson.immersion_script.replace(/\s*\/\s*/g, "\n")}
-                  </p>
-                </div>
-              ) : null}
-            </ImmersionGate>
-          ) : null}
+                ) : null}
+              </div>
+            ) : null}
 
-          {lesson.content.warmup ? (
-            <div className="bg-muted/50 rounded-xl border-l-3 border-l-primary p-5">
-              <p className="text-primary mb-1.5 text-xs font-semibold tracking-wide uppercase">
-                Aquecimento · 2 min
-              </p>
-              <RichText text={lesson.content.warmup} />
-            </div>
-          ) : null}
+            {/* Dia 1 do circuito: o texto só destrava depois das escutas.
+              Nem os blocos nem o roteiro estão em `lesson` enquanto a exposição
+              está fechada — o servidor tira os dois do payload, e quem entrega
+              o texto é a server action, na última escuta. Por isso o portão é
+              montado por `exposure.papel` e não por "existe roteiro": com a
+              peça travada não existe roteiro nenhum para perguntar.
 
-          {lesson.grammar_explanation ? (
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="flex items-center gap-2 text-sm">
-                  <Sparkles className="text-primary size-4" /> Gramática
-                  {lesson.grammar_focus ? (
-                    <Badge variant="neutral" className="ml-1">
-                      {lesson.grammar_focus}
-                    </Badge>
-                  ) : null}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <RichText text={lesson.grammar_explanation} />
-              </CardContent>
-            </Card>
-          ) : null}
+              O dia 9 (shadowing) tem `immersion_script` e NÃO tem portão: ele
+              reapresenta a peça que o dia 1 já destravou. Cai no cartão. */}
+            {exposure?.papel === "imersao" && !destravado ? (
+              <ImmersionGate
+                text={lesson.immersion_script ?? ""}
+                audioUrl={exposure.audioUrl}
+                day={lesson.day_number}
+                exposureKey={exposure.key}
+                requiredPlays={exposure.requiredPlays}
+                initialPlays={exposure.initialPlays}
+                unlocked={exposure.unlocked}
+                initialBlocks={exposure.blocks}
+                audioExempt={exposure.audioExempt}
+                renderBlocks={blocosTravados}
+                onUnlocked={aoDestravar}
+              />
+            ) : lesson.immersion_script || blocosAbertos.length ? (
+              <div className="space-y-4">
+                {lesson.immersion_script ? (
+                  <CartaoDeAudio script={lesson.immersion_script} />
+                ) : null}
+                {blocosTravados(blocosAbertos)}
+              </div>
+            ) : null}
 
-          {/* O audio vem ANTES do texto da licao, nao depois.
+            {lesson.content.warmup ? (
+              <div className="bg-muted/50 rounded-xl border-l-3 border-l-primary p-5">
+                <p className="text-primary mb-1.5 text-xs font-semibold tracking-wide uppercase">
+                  Aquecimento · 2 min
+                </p>
+                <RichText text={lesson.content.warmup} />
+              </div>
+            ) : null}
+
+            {lesson.grammar_explanation ? (
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="flex items-center gap-2 text-sm">
+                    <Sparkles className="text-primary size-4" /> Gramática
+                    {lesson.grammar_focus ? (
+                      <Badge variant="neutral" className="ml-1">
+                        {lesson.grammar_focus}
+                      </Badge>
+                    ) : null}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <RichText text={lesson.grammar_explanation} />
+                </CardContent>
+              </Card>
+            ) : null}
+
+            {/* O audio vem ANTES do texto da licao, nao depois.
               Estas licoes mandam ouvir primeiro - o dia 4 diz literalmente
               "Ouca ANTES de ler a transcricao". Com o player embaixo do
               dialogo ja escrito e traduzido, a instrucao era impossivel de
               cumprir: o aluno lia antes de ouvir, que e exatamente o habito
               que o metodo existe para desfazer.
 
-              Quando a licao marca blocos como `gated`, a transcricao fica
-              atras do mesmo portao de escutas usado no dia 1. */}
-          {lesson.listening_script && !lesson.immersion_script ? (
-            lesson.content.gated?.length ? (
-              <ImmersionGate text={lesson.listening_script} requiredPlays={2}>
-                {lesson.content.gated.map((block, i) => (
-                  <LessonBlockView key={i} block={block} />
-                ))}
-              </ImmersionGate>
-            ) : (
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="flex items-center gap-2 text-sm">
-                  <Volume2 className="size-4" /> Áudio da lição
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <AudioPlayer
-                  text={lesson.listening_script}
-                  mode="dialogue"
-                  label="Diálogo completo"
-                />
-                <details className="group">
-                  {/* py-3 em vez de min-h/inline-flex: mudar o `display` do
-                      <summary> apaga o triângulo de "abrir" do navegador. */}
-                  <summary className="text-muted-foreground hover:text-foreground -my-1 cursor-pointer py-3 text-xs">
-                    Ver a transcrição
-                  </summary>
-                  <p className="bg-muted/55 mt-2 rounded-lg p-4 text-sm leading-relaxed whitespace-pre-line">
-                    {lesson.listening_script.replace(/\s*\/\s*/g, "\n")}
-                  </p>
-                </details>
-              </CardContent>
-            </Card>
-            )
-          ) : null}
+              A transcricao fica atras do mesmo portao de escutas do dia 1, e
+              quantas escutas o dia exige vem da linha de exposicao — o 2 que
+              ficava escrito aqui na mao discordava do `required_plays` que o
+              banco aplica.
 
-          {(lesson.content.blocks ?? []).map((block, i) => (
-            <LessonBlockView key={i} block={block} />
-          ))}
-
-          {/* Input autêntico: dia 8, só nas trilhas que o incluem */}
-          {lesson.extensions?.authentic_input?.length ? (
-            <Card className="border-chart-2/30 bg-chart-2/5">
-              <CardHeader className="pb-2">
-                <CardTitle className="flex items-center gap-2 text-sm">
-                  <Globe className="size-4" /> Inglês de verdade, não de curso
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {lesson.extensions.authentic_input.map((item, i) => (
-                  <div key={i} className="bg-card rounded-lg border p-4">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <Badge variant="neutral" className="text-[10px]">
-                        {item.kind}
-                      </Badge>
-                      <span className="text-sm font-medium">{item.title}</span>
-                      <span className="text-muted-foreground text-xs">~{item.minutes} min</span>
-                    </div>
-                    <p className="text-muted-foreground mt-2 text-sm leading-relaxed">{item.why}</p>
-                    <p className="bg-muted mt-2 rounded px-2.5 py-1.5 font-mono text-xs">
-                      Busque: {item.search}
-                    </p>
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-          ) : null}
-
-          {/* Conversa ao vivo: dia 11 */}
-          {lesson.extensions?.live_prompt ? (
-            <Card className="border-primary/25 bg-primary/5">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-primary flex items-center gap-2 text-sm">
-                  <Radio className="size-4" /> Hoje é conversa ao vivo
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Voz em tempo real com a Emma, no cenário deste circuito. Sem roteiro e sem pausa
-                  para pensar.
-                </p>
-                <Button asChild className="mt-4" variant="gradient">
-                  <Link href="/app/ao-vivo">
-                    Abrir a sala <ArrowRight className="size-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-          ) : null}
-
-          {/* Mentalidade: a trilha que sustenta o hábito */}
-          {lesson.mindset_note ? (
-            <div className="bg-muted/40 rounded-xl border-l-3 border-l-streak p-5">
-              <p className="text-streak mb-1.5 text-xs font-semibold tracking-wide uppercase">
-                Mentalidade
-              </p>
-              <p className="text-sm leading-relaxed">{lesson.mindset_note}</p>
-            </div>
-          ) : null}
-
-          {lesson.content.summary ? (
-            <div className="bg-success/8 border-success/20 rounded-xl border p-5">
-              <p className="text-success mb-1.5 text-xs font-semibold tracking-wide uppercase">
-                Resumo
-              </p>
-              <RichText text={lesson.content.summary} />
-            </div>
-          ) : null}
-
-          {lesson.content.homework ? (
-            <div className="rounded-xl border border-dashed p-5">
-              <p className="text-muted-foreground mb-1.5 text-xs font-semibold tracking-wide uppercase">
-                Tarefa de 1 minuto
-              </p>
-              <RichText text={lesson.content.homework} />
-            </div>
-          ) : null}
-
-          {!lesson.content.blocks?.length && !lesson.grammar_explanation ? (
-            <Card>
-              <CardContent className="text-muted-foreground py-10 text-center text-sm">
-                O conteúdo desta lição ainda está em preparação.
-              </CardContent>
-            </Card>
-          ) : null}
-        </article>
-      ) : null}
-
-      {/* ---------------------------------------------------------- Blocos */}
-      {step === "vocabulary" ? (
-        <div className="space-y-5">
-          {lesson.chunks?.length ? (
-            <>
-              <div className="border-border/70 rounded-xl border border-dashed p-4 text-center">
-                <p className="text-sm font-medium">Repita cada bloco 3x em voz alta</p>
-                <p className="text-muted-foreground mx-auto mt-1 max-w-md text-xs leading-relaxed">
-                  Bloco inteiro, nunca palavra solta. Ouça o modelo, pause, repita. Fala é memória
-                  motora: se a boca não faz, não fixa.
-                </p>
+              O dia 12 (velocidade) tem `listening_script` e NAO tem portao: o
+              dialogo dele ja vai aberto e traduzido em `content.blocks`, e o
+              exercicio manda ouvir em 1,25x e 1,5x — que e justamente o que o
+              medidor de escuta recusa. Portao ali seria uma parede que o
+              proprio dia manda atravessar. */}
+            {exposure?.papel === "escuta" && !destravado ? (
+              <ImmersionGate
+                text={lesson.listening_script ?? ""}
+                audioUrl={exposure.audioUrl}
+                day={lesson.day_number}
+                exposureKey={exposure.key}
+                requiredPlays={exposure.requiredPlays}
+                initialPlays={exposure.initialPlays}
+                unlocked={exposure.unlocked}
+                initialBlocks={exposure.blocks}
+                audioExempt={exposure.audioExempt}
+                renderBlocks={blocosTravados}
+                onUnlocked={aoDestravar}
+              />
+            ) : exposure?.papel === "escuta" ||
+              (lesson.listening_script && !lesson.immersion_script) ? (
+              <div className="space-y-4">
+                {lesson.listening_script ? (
+                  <CartaoDeAudio script={lesson.listening_script} />
+                ) : null}
+                {exposure?.papel === "escuta"
+                  ? blocosTravados(blocosAbertos)
+                  : null}
               </div>
+            ) : null}
 
-              <div className="space-y-3">
-                {lesson.chunks.map((chunk, i) => (
-                  <Card key={i} className="card-hover">
-                    <CardContent className="p-5">
-                      <div className="flex flex-wrap items-baseline gap-2">
-                        <span className="text-lg font-semibold">{chunk.en}</span>
-                        {chunk.ipa ? (
-                          <code className="text-primary bg-primary/8 rounded px-1.5 py-0.5 font-mono text-xs">
-                            {chunk.ipa}
-                          </code>
+            {(lesson.content.blocks ?? []).map((block, i) => (
+              <LessonBlockView key={i} block={block} />
+            ))}
+
+            {/* Input autêntico: dia 8, só nas trilhas que o incluem */}
+            {lesson.extensions?.authentic_input?.length ? (
+              <Card className="border-chart-2/30 bg-chart-2/5">
+                <CardHeader className="pb-2">
+                  <CardTitle className="flex items-center gap-2 text-sm">
+                    <Globe className="size-4" /> Inglês de verdade, não de curso
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                  {lesson.extensions.authentic_input.map((item, i) => (
+                    <div key={i} className="bg-card rounded-lg border p-4">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <Badge variant="neutral" className="text-[10px]">
+                          {item.kind}
+                        </Badge>
+                        <span className="text-sm font-medium">
+                          {item.title}
+                        </span>
+                        <span className="text-muted-foreground text-xs">
+                          ~{item.minutes} min
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground mt-2 text-sm leading-relaxed">
+                        {item.why}
+                      </p>
+                      <p className="bg-muted mt-2 rounded px-2.5 py-1.5 font-mono text-xs">
+                        Busque: {item.search}
+                      </p>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
+            ) : null}
+
+            {/* Conversa ao vivo: dia 11 */}
+            {lesson.extensions?.live_prompt ? (
+              <Card className="border-primary/25 bg-primary/5">
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-primary flex items-center gap-2 text-sm">
+                    <Radio className="size-4" /> Hoje é conversa ao vivo
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    Voz em tempo real com a Emma, no cenário deste circuito. Sem
+                    roteiro e sem pausa para pensar.
+                  </p>
+                  <Button asChild className="mt-4" variant="gradient">
+                    <Link href="/app/ao-vivo">
+                      Abrir a sala <ArrowRight className="size-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ) : null}
+
+            {/* Mentalidade: a trilha que sustenta o hábito */}
+            {lesson.mindset_note ? (
+              <div className="bg-muted/40 rounded-xl border-l-3 border-l-streak p-5">
+                <p className="text-streak mb-1.5 text-xs font-semibold tracking-wide uppercase">
+                  Mentalidade
+                </p>
+                <p className="text-sm leading-relaxed">{lesson.mindset_note}</p>
+              </div>
+            ) : null}
+
+            {lesson.content.summary ? (
+              <div className="bg-success/8 border-success/20 rounded-xl border p-5">
+                <p className="text-success mb-1.5 text-xs font-semibold tracking-wide uppercase">
+                  Resumo
+                </p>
+                <RichText text={lesson.content.summary} />
+              </div>
+            ) : null}
+
+            {lesson.content.homework ? (
+              <div className="rounded-xl border border-dashed p-5">
+                <p className="text-muted-foreground mb-1.5 text-xs font-semibold tracking-wide uppercase">
+                  Tarefa de 1 minuto
+                </p>
+                <RichText text={lesson.content.homework} />
+              </div>
+            ) : null}
+
+            {!lesson.content.blocks?.length && !lesson.grammar_explanation ? (
+              <Card>
+                <CardContent className="text-muted-foreground py-10 text-center text-sm">
+                  O conteúdo desta lição ainda está em preparação.
+                </CardContent>
+              </Card>
+            ) : null}
+          </article>
+        ) : null}
+
+        {/* ---------------------------------------------------------- Blocos */}
+        {step === "vocabulary" ? (
+          <div className="space-y-5">
+            {lesson.chunks?.length ? (
+              <>
+                <div className="border-border/70 rounded-xl border border-dashed p-4 text-center">
+                  <p className="text-sm font-medium">
+                    Repita cada bloco 3x em voz alta
+                  </p>
+                  <p className="text-muted-foreground mx-auto mt-1 max-w-md text-xs leading-relaxed">
+                    Bloco inteiro, nunca palavra solta. Ouça o modelo, pause,
+                    repita. Fala é memória motora: se a boca não faz, não fixa.
+                  </p>
+                </div>
+
+                <div className="space-y-3">
+                  {lesson.chunks.map((chunk, i) => (
+                    <Card key={i} className="card-hover">
+                      <CardContent className="p-5">
+                        <div className="flex flex-wrap items-baseline gap-2">
+                          <span className="text-lg font-semibold">
+                            {chunk.en}
+                          </span>
+                          {chunk.ipa ? (
+                            <code className="text-primary bg-primary/8 rounded px-1.5 py-0.5 font-mono text-xs">
+                              {chunk.ipa}
+                            </code>
+                          ) : null}
+                        </div>
+                        <PronunciationLine
+                          text={chunk.en}
+                          className="mt-1 text-[0.85rem]"
+                        />
+                        <p className="text-muted-foreground mt-1 text-sm">
+                          {chunk.pt}
+                        </p>
+                        {chunk.when ? (
+                          <p className="text-muted-foreground/80 mt-1 text-xs italic">
+                            Quando usar: {chunk.when}
+                          </p>
+                        ) : null}
+                        <AudioPlayer
+                          text={chunk.en}
+                          mode="single"
+                          label="Ouvir e repetir"
+                          compact
+                          className="mt-3"
+                        />
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </>
+            ) : null}
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {lesson.vocabulary.map((item, i) => (
+                <Card key={i} className="card-hover">
+                  <CardContent className="p-5">
+                    <div className="flex flex-wrap items-baseline gap-2">
+                      <span className="text-lg font-semibold">{item.term}</span>
+                      {item.ipa ? (
+                        <code className="text-primary bg-primary/8 rounded px-1.5 py-0.5 font-mono text-xs">
+                          {item.ipa}
+                        </code>
+                      ) : null}
+                    </div>
+                    <p className="text-muted-foreground mt-1 text-sm">
+                      {item.translation}
+                    </p>
+                    {item.example ? (
+                      <div className="mt-3 border-t pt-3">
+                        <p className="text-sm font-medium">{item.example}</p>
+                        {item.exampleTranslation ? (
+                          <p className="text-muted-foreground mt-0.5 text-xs">
+                            {item.exampleTranslation}
+                          </p>
                         ) : null}
                       </div>
-                      <PronunciationLine text={chunk.en} className="mt-1 text-[0.85rem]" />
-                      <p className="text-muted-foreground mt-1 text-sm">{chunk.pt}</p>
-                      {chunk.when ? (
-                        <p className="text-muted-foreground/80 mt-1 text-xs italic">
-                          Quando usar: {chunk.when}
-                        </p>
-                      ) : null}
-                      <AudioPlayer
-                        text={chunk.en}
-                        mode="single"
-                        label="Ouvir e repetir"
-                        compact
-                        className="mt-3"
-                      />
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </>
-          ) : null}
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            {lesson.vocabulary.map((item, i) => (
-              <Card key={i} className="card-hover">
-                <CardContent className="p-5">
-                  <div className="flex flex-wrap items-baseline gap-2">
-                    <span className="text-lg font-semibold">{item.term}</span>
-                    {item.ipa ? (
-                      <code className="text-primary bg-primary/8 rounded px-1.5 py-0.5 font-mono text-xs">
-                        {item.ipa}
-                      </code>
                     ) : null}
-                  </div>
-                  <p className="text-muted-foreground mt-1 text-sm">{item.translation}</p>
-                  {item.example ? (
-                    <div className="mt-3 border-t pt-3">
-                      <p className="text-sm font-medium">{item.example}</p>
-                      {item.exampleTranslation ? (
-                        <p className="text-muted-foreground mt-0.5 text-xs">
-                          {item.exampleTranslation}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            {lesson.phrases.length ? (
+              <Card>
+                <CardHeader className="pb-2">
+                  <CardTitle className="text-sm">
+                    Frases prontas para usar hoje
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                  {lesson.phrases.map((phrase, i) => (
+                    <div key={i} className="bg-muted/50 rounded-lg px-4 py-3">
+                      <p className="text-sm font-medium">{phrase.en}</p>
+                      <p className="text-muted-foreground mt-0.5 text-xs">
+                        {phrase.pt}
+                      </p>
+                      {phrase.context ? (
+                        <p className="text-muted-foreground/80 mt-1 text-[11px] italic">
+                          {phrase.context}
                         </p>
                       ) : null}
                     </div>
-                  ) : null}
+                  ))}
                 </CardContent>
               </Card>
-            ))}
+            ) : null}
           </div>
+        ) : null}
 
-          {lesson.phrases.length ? (
-            <Card>
-              <CardHeader className="pb-2">
-                <CardTitle className="text-sm">Frases prontas para usar hoje</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-2">
-                {lesson.phrases.map((phrase, i) => (
-                  <div key={i} className="bg-muted/50 rounded-lg px-4 py-3">
-                    <p className="text-sm font-medium">{phrase.en}</p>
-                    <p className="text-muted-foreground mt-0.5 text-xs">{phrase.pt}</p>
-                    {phrase.context ? (
-                      <p className="text-muted-foreground/80 mt-1 text-[11px] italic">
-                        {phrase.context}
-                      </p>
-                    ) : null}
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-          ) : null}
-        </div>
-      ) : null}
+        {/* -------------------------------------------------------------- Quiz */}
+        {step === "quiz" ? (
+          <div className="space-y-5">
+            {lesson.quiz.map((question, qi) => {
+              const chosen = answers[qi];
+              // Acertou: fica verde e travada, mesmo fora da conferência — não faz
+              // sentido reabrir o que já está certo.
+              const locked = settled.has(qi);
+              const show = revealed || locked;
+              return (
+                <Card key={question.id || qi}>
+                  <CardContent className="p-5">
+                    <p className="font-medium">
+                      <span className="text-muted-foreground mr-2 text-sm">
+                        {qi + 1}.
+                      </span>
+                      {question.question}
+                    </p>
 
-      {/* -------------------------------------------------------------- Quiz */}
-      {step === "quiz" ? (
-        <div className="space-y-5">
-          {lesson.quiz.map((question, qi) => {
-            const chosen = answers[qi];
-            // Acertou: fica verde e travada, mesmo fora da conferência — não faz
-            // sentido reabrir o que já está certo.
-            const locked = settled.has(qi);
-            const show = revealed || locked;
-            return (
-              <Card key={question.id || qi}>
-                <CardContent className="p-5">
-                  <p className="font-medium">
-                    <span className="text-muted-foreground mr-2 text-sm">{qi + 1}.</span>
-                    {question.question}
-                  </p>
+                    <div className="mt-4 space-y-2">
+                      {question.options.map((option, oi) => {
+                        const selected = chosen === oi;
+                        const correct = oi === question.answerIndex;
 
-                  <div className="mt-4 space-y-2">
-                    {question.options.map((option, oi) => {
-                      const selected = chosen === oi;
-                      const correct = oi === question.answerIndex;
-
-                      return (
-                        <button
-                          key={oi}
-                          type="button"
-                          disabled={show}
-                          onClick={() => setAnswers((prev) => ({ ...prev, [qi]: oi }))}
-                          className={cn(
-                            "flex w-full items-center gap-3 rounded-lg border px-4 py-3 text-left text-sm transition-colors",
-                            show && correct && "border-success bg-success/10",
-                            show && selected && !correct && "border-destructive bg-destructive/10",
-                            !show && selected && "border-primary bg-primary/8",
-                            !show && !selected && "hover:bg-accent",
-                          )}
-                        >
-                          <span
+                        return (
+                          <button
+                            key={oi}
+                            type="button"
+                            disabled={show}
+                            onClick={() =>
+                              setAnswers((prev) => ({ ...prev, [qi]: oi }))
+                            }
                             className={cn(
-                              "grid size-6 shrink-0 place-items-center rounded-full border text-xs font-semibold",
-                              show && correct && "border-success text-success",
-                              show && selected && !correct && "border-destructive text-destructive",
-                              !show && selected && "border-primary text-primary",
+                              "flex w-full items-center gap-3 rounded-lg border px-4 py-3 text-left text-sm transition-colors",
+                              show && correct && "border-success bg-success/10",
+                              show &&
+                                selected &&
+                                !correct &&
+                                "border-destructive bg-destructive/10",
+                              !show &&
+                                selected &&
+                                "border-primary bg-primary/8",
+                              !show && !selected && "hover:bg-accent",
                             )}
                           >
-                            {String.fromCharCode(65 + oi)}
-                          </span>
-                          <span className="leading-relaxed">{option}</span>
-                        </button>
-                      );
-                    })}
-                  </div>
+                            <span
+                              className={cn(
+                                "grid size-6 shrink-0 place-items-center rounded-full border text-xs font-semibold",
+                                show &&
+                                  correct &&
+                                  "border-success text-success",
+                                show &&
+                                  selected &&
+                                  !correct &&
+                                  "border-destructive text-destructive",
+                                !show &&
+                                  selected &&
+                                  "border-primary text-primary",
+                              )}
+                            >
+                              {String.fromCharCode(65 + oi)}
+                            </span>
+                            <span className="leading-relaxed">{option}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
 
-                  {show && question.explanation ? (
-                    <p className="bg-muted/60 mt-3 rounded-lg px-4 py-3 text-sm leading-relaxed">
-                      <RichText text={question.explanation} />
+                    {show && question.explanation ? (
+                      <p className="bg-muted/60 mt-3 rounded-lg px-4 py-3 text-sm leading-relaxed">
+                        <RichText text={question.explanation} />
+                      </p>
+                    ) : null}
+                  </CardContent>
+                </Card>
+              );
+            })}
+
+            {!revealed ? (
+              <Button
+                size="lg"
+                className="w-full"
+                disabled={!allAnswered}
+                onClick={checkAnswers}
+              >
+                {allAnswered
+                  ? "Conferir respostas"
+                  : `Responda todas (${Object.keys(answers).length}/${lesson.quiz.length})`}
+              </Button>
+            ) : (
+              <div className="space-y-4">
+                <div className="bg-muted/50 rounded-xl border p-5 text-center">
+                  <p className="text-3xl font-semibold tabular-nums">
+                    {quizScore}%
+                  </p>
+                  <p className="text-muted-foreground mt-1 text-sm">
+                    {quizScore === 100
+                      ? "Gabaritou. Pode seguir tranquilo."
+                      : quizScore! >= 66
+                        ? "Bom resultado. Corrija as que erraram antes de seguir."
+                        : "Vale reler a lição antes de avançar."}
+                  </p>
+                  {/* Corrigiu depois: as duas notas ficam à vista, para o acerto
+                    da segunda tentativa não apagar o que ele sabia na primeira. */}
+                  {firstScore !== null && firstScore !== quizScore ? (
+                    <p className="text-muted-foreground/80 mt-2 text-xs">
+                      Agora: {quizScore}% · registrado: {firstScore}% (primeira
+                      tentativa)
                     </p>
                   ) : null}
-                </CardContent>
-              </Card>
-            );
-          })}
+                </div>
 
-          {!revealed ? (
-            <Button
-              size="lg"
-              className="w-full"
-              disabled={!allAnswered}
-              onClick={checkAnswers}
-            >
-              {allAnswered
-                ? "Conferir respostas"
-                : `Responda todas (${Object.keys(answers).length}/${lesson.quiz.length})`}
-            </Button>
-          ) : (
-            <div className="space-y-4">
-              <div className="bg-muted/50 rounded-xl border p-5 text-center">
-                <p className="text-3xl font-semibold tabular-nums">{quizScore}%</p>
-                <p className="text-muted-foreground mt-1 text-sm">
-                  {quizScore === 100
-                    ? "Gabaritou. Pode seguir tranquilo."
-                    : quizScore! >= 66
-                      ? "Bom resultado. Corrija as que erraram antes de seguir."
-                      : "Vale reler a lição antes de avançar."}
-                </p>
-                {/* Corrigiu depois: as duas notas ficam à vista, para o acerto
-                    da segunda tentativa não apagar o que ele sabia na primeira. */}
-                {firstScore !== null && firstScore !== quizScore ? (
-                  <p className="text-muted-foreground/80 mt-2 text-xs">
-                    Agora: {quizScore}% · registrado: {firstScore}% (primeira tentativa)
-                  </p>
+                {/* A segunda chance: só as erradas voltam, as certas seguem travadas. */}
+                {wrongIndexes.length ? (
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="w-full"
+                    onClick={retryWrong}
+                  >
+                    <RotateCcw className="size-4" />
+                    Tentar de novo{" "}
+                    {wrongIndexes.length === 1
+                      ? "a que você errou"
+                      : `as ${wrongIndexes.length} que você errou`}
+                  </Button>
                 ) : null}
               </div>
-
-              {/* A segunda chance: só as erradas voltam, as certas seguem travadas. */}
-              {wrongIndexes.length ? (
-                <Button size="lg" variant="outline" className="w-full" onClick={retryWrong}>
-                  <RotateCcw className="size-4" />
-                  Tentar de novo{" "}
-                  {wrongIndexes.length === 1
-                    ? "a que você errou"
-                    : `as ${wrongIndexes.length} que você errou`}
-                </Button>
-              ) : null}
-            </div>
-          )}
-        </div>
-      ) : null}
-
-      {/* ----------------------------------------------------------- Prática */}
-      {step === "practice" && lesson.speaking_prompt ? (
-        <div id="pratica" className="scroll-mt-24">
-          <PracticeStation
-            prompt={lesson.speaking_prompt}
-            lessonId={lesson.id}
-            rubric={lesson.speaking_rubric}
-            initialResult={speakingResult}
-            onResultChange={(next) => {
-              setSpeakingResult(next);
-              if (next) setSpoke(true);
-            }}
-          />
-        </div>
-      ) : null}
-
-      {/* -------------------------------------------------------- Navegação */}
-      <div className="flex items-center justify-between gap-3 border-t pt-6">
-        <Button variant="ghost" onClick={goPrev} disabled={currentIndex === 0}>
-          <ArrowLeft className="size-4" /> Anterior
-        </Button>
-
-        <div className="flex items-center gap-3">
-          {step === "practice" && !spoke ? (
-            <span className="text-muted-foreground hidden text-xs sm:inline">
-              Grave sua fala antes de concluir
-            </span>
-          ) : null}
-          <Button
-            onClick={goNext}
-            loading={saving}
-            variant={currentIndex === steps.length - 1 ? "success" : "default"}
-          >
-            {currentIndex === steps.length - 1 ? (
-              <>
-                {alreadyCompleted ? "Refazer e salvar" : "Concluir lição"}{" "}
-                <CheckCircle2 className="size-4" />
-              </>
-            ) : (
-              <>
-                Continuar <ArrowRight className="size-4" />
-              </>
             )}
+          </div>
+        ) : null}
+
+        {/* ----------------------------------------------------------- Prática */}
+        {step === "practice" && lesson.speaking_prompt ? (
+          <div id="pratica" className="scroll-mt-24">
+            <PracticeStation
+              prompt={lesson.speaking_prompt}
+              lessonId={lesson.id}
+              rubric={lesson.speaking_rubric}
+              initialResult={speakingResult}
+              onResultChange={(next) => {
+                setSpeakingResult(next);
+                if (next) setSpoke(true);
+              }}
+            />
+          </div>
+        ) : null}
+
+        {/* -------------------------------------------------------- Navegação */}
+        <div className="flex items-center justify-between gap-3 border-t pt-6">
+          <Button
+            variant="ghost"
+            onClick={goPrev}
+            disabled={currentIndex === 0}
+          >
+            <ArrowLeft className="size-4" /> Anterior
           </Button>
+
+          <div className="flex items-center gap-3">
+            {step === "practice" && !spoke ? (
+              <span className="text-muted-foreground hidden text-xs sm:inline">
+                Grave sua fala antes de concluir
+              </span>
+            ) : null}
+            <Button
+              onClick={goNext}
+              loading={saving}
+              variant={
+                currentIndex === steps.length - 1 ? "success" : "default"
+              }
+            >
+              {currentIndex === steps.length - 1 ? (
+                <>
+                  {alreadyCompleted ? "Refazer e salvar" : "Concluir lição"}{" "}
+                  <CheckCircle2 className="size-4" />
+                </>
+              ) : (
+                <>
+                  Continuar <ArrowRight className="size-4" />
+                </>
+              )}
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </EscutaMedida.Provider>
   );
 }
