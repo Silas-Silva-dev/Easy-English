@@ -319,13 +319,34 @@ export function movimentoMemoria(
   n: number,
   dia: number,
   blocosDoCircuito: Bloco[],
+  /** As frases dos circuitos anteriores, base e família. Ver material.ts. */
+  historico: { pt: string; en: string; circuito: number }[] = [],
 ): LessonBlock[] {
   const enfase = ENFASE_DO_DIA[dia];
   const carga = cargaDe(n)!;
 
   if (enfase === "revisao" || enfase === "intercalada") {
     const semente = n * 17 + dia;
-    const alvos = pegar(blocosDoCircuito, semente, Math.min(10, blocosDoCircuito.length));
+
+    /**
+     * A revisão puxa do PASSADO, que é o que o nome dela diz.
+     *
+     * Puxava do circuito atual — o aluno relia o que tinha acabado de ver e o
+     * dia 6 chamava isso de "revisa o que já passou". No primeiro circuito não
+     * há passado, e aí o circuito atual é a resposta certa.
+     *
+     * A "revisao" olha os quatro circuitos mais recentes, que é a janela em
+     * que o esquecimento está começando. A "intercalada" olha o curso inteiro
+     * de propósito: reconhecer fora de ordem é o que prova que o aluno tem o
+     * bloco, e não a sequência.
+     */
+    const recentes = historico.filter((f) => f.circuito >= n - 4);
+    const poco = enfase === "intercalada" ? historico : recentes.length ? recentes : historico;
+
+    const alvos = poco.length
+      ? pegar(poco, semente, Math.min(20, poco.length)).map((f) => f.pt)
+      : pegar(blocosDoCircuito, semente, Math.min(10, blocosDoCircuito.length)).map((b) => b.pt);
+
     return [
       {
         type: "practice",
@@ -334,7 +355,7 @@ export function movimentoMemoria(
           enfase === "revisao"
             ? "Diga em inglês antes de conferir. Errar aqui é o que fixa: erre em voz alta e siga."
             : "Vem misturado, sem dizer de qual circuito é. É mais difícil que a revisão normal, e é por isso que rende mais.",
-        prompts: alvos.map((b) => b.pt),
+        prompts: alvos,
       },
       {
         type: "callout",
@@ -391,7 +412,7 @@ export function movimentoMemoria(
         dia >= 4
           ? "Diga em inglês, sem olhar. São variações do que você já treinou."
           : "Diga em inglês, sem olhar. Três é suficiente.",
-      prompts: pegar(poco, n * 31 + dia, Math.min(dia >= 4 ? 5 : 3, poco.length)),
+      prompts: pegar(poco, n * 31 + dia, Math.min(dia >= 4 ? 8 : 3, poco.length)),
     });
   }
 

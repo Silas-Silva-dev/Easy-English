@@ -293,18 +293,12 @@ function composeFor(dayNumber: number) {
         : [];
 
   // Blocos dos circuitos anteriores, para os dias de revisão e de expansão.
-  const reviewChunks = reviewChunksFor(circuit.number) as {
-    circuit: number;
-    title: string;
-    chunks: Chunk[];
-  }[];
 
   return composeLesson({
       circuito: circuit.number,
       dia: dayInCircuit,
       material,
       livePrompt: livePromptFor(circuit),
-      revisaoDe: reviewChunks,
     });
 }
 

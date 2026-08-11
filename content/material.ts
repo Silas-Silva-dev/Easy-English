@@ -167,3 +167,54 @@ export function ancorasExigidas(n: number, quantosBlocos: number, quantasFalas: 
 export function ehConsolidacao(n: number): boolean {
   return cargaDe(n)?.blocosNovos === 0;
 }
+
+/**
+ * Os circuitos anteriores, com a família inteira, para os dias de revisão.
+ *
+ * ===========================================================================
+ * O QUE ISTO CONSERTA
+ * ===========================================================================
+ * `ComposeContext` tinha um campo `revisaoDe` que o semeador preenchia para
+ * cada uma das 728 lições — e que o compositor NUNCA leu. O parâmetro era
+ * calculado, passado e descartado.
+ *
+ * O efeito não era desempenho, era pedagógico. O dia 6 anuncia "hoje você
+ * revisa o que já passou" e o dia 13 anuncia "vem misturado, sem dizer de qual
+ * circuito é". Os dois puxavam do circuito ATUAL, porque era o único material
+ * que o movimento de memória recebia. O aluno relia o que tinha acabado de ver
+ * e chamava isso de revisão espaçada.
+ *
+ * E há a segunda consequência, medida: das 11.672 frases escritas, só 46%
+ * chegavam ao aluno. As famílias dos circuitos passados não tinham nenhum dia
+ * onde reaparecer — cada circuito consumia a sua e nunca mais voltava a ela.
+ * Revisar o histórico resolve os dois de uma vez, porque espalha o acervo
+ * inteiro pelos 728 dias em vez de espremê-lo em catorze.
+ */
+export function historicoAte(n: number): { circuito: number; blocos: Bloco[] }[] {
+  const saida: { circuito: number; blocos: Bloco[] }[] = [];
+  for (let c = 1; c < n; c++) {
+    const blocos = BLOCOS_POR_N.get(c);
+    if (blocos?.length) saida.push({ circuito: c, blocos });
+  }
+  return saida;
+}
+
+/**
+ * Cada frase de um histórico, achatada: base, formas e recombinações.
+ *
+ * É daqui que os dias de revisão sorteiam. Devolve o par (pt, en) porque a
+ * revisão é sempre do português para o inglês: o aluno PRODUZ, não reconhece.
+ */
+export function frasesDoHistorico(
+  historico: { circuito: number; blocos: Bloco[] }[],
+): { pt: string; en: string; circuito: number }[] {
+  const saida: { pt: string; en: string; circuito: number }[] = [];
+  for (const { circuito, blocos } of historico) {
+    for (const b of blocos) {
+      saida.push({ pt: b.pt, en: b.en, circuito });
+      for (const f of b.formas ?? []) saida.push({ pt: f.pt, en: f.en, circuito });
+      for (const r of b.recombinacoes ?? []) saida.push({ pt: r.pt, en: r.en, circuito });
+    }
+  }
+  return saida;
+}

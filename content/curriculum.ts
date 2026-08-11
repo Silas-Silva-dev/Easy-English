@@ -65,7 +65,7 @@
 
 import blocosJson from "./metodo/blocos.json";
 import moldeJson from "./metodo/molde.json";
-import { PROGRESSAO } from "./metodo";
+import { orcamentoDa, PROGRESSAO } from "./metodo";
 
 export type CefrLevel = "A1" | "A2" | "B1" | "B2" | "C1";
 
@@ -135,6 +135,36 @@ export interface TrackSpec {
 }
 
 export type DayBlockId = "core" | "listening" | "speaking" | "srs" | "authentic";
+
+/**
+ * Os quatro movimentos de uma trilha, com os minutos que ela promete.
+ *
+ * Mora aqui, e nao em `src/lib/learning.ts`, porque a pagina inicial precisa
+ * disto e `learning.ts` e `server-only` com o Supabase junto: importar aquilo
+ * na landing arrastaria o cliente de banco para uma pagina estatica.
+ *
+ * A fonte e `content/metodo/orcamento.json`, onde os quatro movimentos somam
+ * exatamente a promessa da trilha — 11+3+4+2=20, 33+9+12+6=60,
+ * 55+15+20+10=100. A tabela `DAY_BLOCKS` abaixo tinha blocos fixos de 15
+ * minutos e a Essencial somava 30 onde vendia 20: quem comprava vinte via
+ * trinta em qualquer tela que somasse aquela lista.
+ */
+export function movimentosDaTrilha(id: StudyTrack) {
+  const trilha = TRACKS.find((t) => t.id === id);
+  const orc = trilha ? orcamentoDa(trilha.label) : null;
+  if (!orc) return [];
+
+  return [
+    { id: "ouvido", label: "Ouvido", minutes: orc.ouvido,
+      brief: "Input: diálogo, escuta e o áudio do circuito. A maior fatia, todo dia." },
+    { id: "memoria", label: "Memória", minutes: orc.memoria,
+      brief: "A sua fila de revisão, em voz alta, do português para o inglês." },
+    { id: "boca", label: "Boca", minutes: orc.boca,
+      brief: "Repetir colado ao áudio e gravar uma resposta sua." },
+    { id: "som", label: "Som", minutes: orc.som,
+      brief: "Um degrau da espinha de fonologia, com par mínimo e checagem." },
+  ] as const;
+}
 
 export const DAY_BLOCKS: Record<DayBlockId, { label: string; minutes: number; brief: string }> = {
   core: {

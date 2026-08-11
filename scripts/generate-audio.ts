@@ -56,6 +56,7 @@ import { join } from "node:path";
 
 import {
   audioJobs,
+  chunkVoice,
   googleVoiceNames,
   spokenLines,
   voiceFor,
@@ -75,9 +76,6 @@ import {
 } from "./_shared";
 
 const OUT_DIR = join(process.cwd(), "public", "audio");
-
-/** Voz única para os blocos soltos: o "professor" do curso é sempre o mesmo. */
-const CHUNK_VOICE = "Kore";
 
 /**
  * Modelos de TTS em ordem de preferência.
@@ -460,7 +458,10 @@ async function synthesize(
   delayMs: number,
 ): Promise<{ pcm: Buffer; rate: number }> {
   if (job.kind !== "dialogue") {
-    return speak(`${CHUNK_STYLE}\n\n${job.text}`, oneVoice(CHUNK_VOICE), model);
+    // A voz vem de `chunkVoice`, e não de uma constante. O bloco que diz
+    // "Hi, I'm Alex." precisa de voz masculina: com a narradora fixa, o áudio
+    // contradizia o texto que está na tela ao lado dele.
+    return speak(`${CHUNK_STYLE}\n\n${job.text}`, oneVoice(chunkVoice(job.text, "gemini")), model);
   }
 
   // O roteiro é guardado como "A: fala / B: fala"; o TTS quer uma fala por linha.

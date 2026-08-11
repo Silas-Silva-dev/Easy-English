@@ -33,7 +33,7 @@ import { getInstallmentTable } from "@/lib/mercadopago/installments";
 import { cn } from "@/lib/utils";
 // CANTOS/CIRCUITS saíram: eram importados e nunca usados — a seção dos cantos
 // é montada a partir da constante CANTOS_DESCRIPTIONS, logo abaixo.
-import { DAY_BLOCKS, TRACKS, type TrackSpec } from "@content/curriculum";
+import { DAY_BLOCKS, movimentosDaTrilha, TRACKS, type TrackSpec } from "@content/curriculum";
 
 export const metadata: Metadata = {
   title: "Easy English: Plataforma Completa de Inglês em 4 Cantos com IA",
@@ -652,16 +652,15 @@ export default async function LandingPage() {
 
                       <div className="mt-auto border-t pt-4">
                         <p className="text-muted-foreground text-[11px] font-semibold uppercase tracking-wide">
-                          Blocos do dia
+                          Os quatro movimentos
                         </p>
                         <div className="mt-2 flex flex-wrap justify-center gap-1.5 sm:justify-start">
-                          {track.blocks.map((block) => (
+                          {movimentosDaTrilha(track.id).map((mov) => (
                             <span
-                              key={block}
+                              key={mov.id}
                               className="bg-muted text-muted-foreground rounded-full px-2.5 py-1 text-[11px] font-medium"
                             >
-                              {DAY_BLOCKS[block].label} ·{" "}
-                              {DAY_BLOCKS[block].minutes} min
+                              {mov.label} · {mov.minutes} min
                             </span>
                           ))}
                         </div>

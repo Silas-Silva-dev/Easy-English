@@ -350,6 +350,50 @@ export function narratorVoice(engine: Engine): string {
 }
 
 /**
+ * Nomes próprios que os blocos usam para o aluno se apresentar, com o gênero.
+ *
+ * O bloco não é fala de personagem: é a frase que o ALUNO vai dizer, e o nome
+ * dentro dela é o lugar onde ele põe o próprio. Mas o áudio precisa dizer
+ * alguma coisa, e a narradora fixa dizia "Hi, I'm Alex." com voz de mulher —
+ * um homem se apresentando com voz feminina, logo no primeiro bloco do curso.
+ *
+ * Não dá para herdar a voz do personagem do diálogo, porque bloco repetido
+ * entre circuitos vira UM arquivo só: seria voz diferente para o mesmo arquivo.
+ * Mas dá para olhar o nome DENTRO do texto, que é fixo e faz parte dele.
+ */
+const GENERO_DO_NOME: Record<string, Gender> = {
+  alex: "m",
+  bruno: "m",
+  chris: "m",
+  dave: "m",
+  lucas: "m",
+  mike: "m",
+  tom: "m",
+  ana: "f",
+  emma: "f",
+  julia: "f",
+  kate: "f",
+  nina: "f",
+  sarah: "f",
+};
+
+/** "Hi, I'm Alex." / "I'm Sarah." / "My name is Kate." → o nome, ou null. */
+const QUEM_SE_APRESENTA = /\b(?:I'm|I am|my name is|this is)\s+([A-Z][a-z]+)/;
+
+/**
+ * A voz de um bloco solto.
+ *
+ * Quase sempre é a narradora. A exceção é o bloco onde alguém diz o próprio
+ * nome: aí o timbre tem que combinar com o nome, senão o áudio contradiz o
+ * texto que está na tela ao lado dele.
+ */
+export function chunkVoice(text: string, engine: Engine): string {
+  const nome = QUEM_SE_APRESENTA.exec(text)?.[1]?.toLowerCase();
+  const genero = nome ? GENERO_DO_NOME[nome] : undefined;
+  return genero ? poolFor(engine, genero)[0] : narratorVoice(engine);
+}
+
+/**
  * As duas vozes de um diálogo, garantidamente DIFERENTES.
  *
  * Com a tabela explícita as colisões já não deveriam existir: `verify:content`
@@ -384,7 +428,7 @@ export function spokenLines(
   engine: Engine,
 ): { voice: string; text: string }[] {
   if (job.kind !== "dialogue") {
-    return [{ voice: narratorVoice(engine), text: job.text }];
+    return [{ voice: chunkVoice(job.text, engine), text: job.text }];
   }
 
   // Com exatamente dois, respeita o par desempatado: assim o áudio do Piper e

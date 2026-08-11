@@ -42,6 +42,7 @@ import {
   progressaoDe,
   TOTAL_CIRCUITOS,
 } from "./metodo";
+import { frasesDoHistorico, historicoAte } from "./material";
 import {
   DIAS_DE_PRODUCAO,
   ENFASE_DO_DIA,
@@ -88,8 +89,6 @@ export interface ComposeContext {
   material: MaterialDoCircuito;
   /** Prompt da tutora para os dias de conversa ao vivo. */
   livePrompt?: string;
-  /** Blocos de circuitos anteriores, para os dias de revisão. */
-  revisaoDe?: { circuit: number; title: string; chunks: Chunk[] }[];
 }
 
 // ===========================================================================
@@ -346,7 +345,11 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
   const enfase = ENFASE_DO_DIA[dia];
 
   const ouvido = movimentoOuvido(n, dia, material);
-  const memoria = movimentoMemoria(n, dia, material.blocos);
+  // O histórico vem daqui, e não do chamador. Ele vinha por `ctx.revisaoDe`,
+  // era calculado pelo semeador para as 728 lições, e o compositor nunca lia:
+  // parâmetro morto não avisa que morreu. Pedir o que se precisa é mais curto
+  // e não tem como ficar para trás.
+  const memoria = movimentoMemoria(n, dia, material.blocos, frasesDoHistorico(historicoAte(n)));
   const boca = movimentoBoca(n, dia, material);
   const som = movimentoSom(n, dia);
   const gramatica = pecaDeGramatica(n, dia);

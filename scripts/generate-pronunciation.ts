@@ -79,18 +79,11 @@ function collect(): string[] {
     const day = DAY_RHYTHM.find((d) => d.day === spec.circuitDay)!;
     const canto = CANTOS.find((c) => circuit.number >= c.weekStart && circuit.number <= c.weekEnd)!;
 
-    const reviewChunks = reviewChunksFor(circuit.number) as {
-      circuit: number;
-      title: string;
-      chunks: Chunk[];
-    }[];
-
     const lesson = composeLesson({
       circuito: circuit.number,
       dia: spec.circuitDay,
       material,
       livePrompt: livePromptFor(circuit),
-      revisaoDe: reviewChunks,
     });
 
     for (const block of [...(lesson.content.blocks ?? []), ...(lesson.content.gated ?? [])]) {

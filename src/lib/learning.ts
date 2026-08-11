@@ -13,7 +13,13 @@ import type {
   StudyDay,
   StudyTrack,
 } from "@/lib/types/database";
-import { DAY_BLOCKS, TRACK_BY_ID, TRACKS, type TrackSpec } from "@content/curriculum";
+import {
+  DAY_BLOCKS,
+  movimentosDaTrilha,
+  TRACK_BY_ID,
+  TRACKS,
+  type TrackSpec,
+} from "@content/curriculum";
 
 export const DEFAULT_COURSE_SLUG = "ingles-para-conversacao";
 
@@ -270,9 +276,9 @@ export function getTrack(id: StudyTrack): TrackSpec {
   return TRACK_BY_ID.get(id) ?? TRACKS[1];
 }
 
-/** Blocos do dia liberados pela trilha, com os minutos de cada um. */
+/** Os quatro movimentos do dia, com os minutos da trilha. Ver curriculum.ts. */
 export function dayBlocksFor(track: StudyTrack) {
-  return getTrack(track).blocks.map((id) => ({ id, ...DAY_BLOCKS[id] }));
+  return movimentosDaTrilha(track);
 }
 
 export interface CompletionForecast {
