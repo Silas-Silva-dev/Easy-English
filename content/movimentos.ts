@@ -362,13 +362,36 @@ export function movimentoMemoria(
   // O aquecimento só existe quando há bloco novo: num circuito de fechamento
   // não há o que aquecer, e um exercício vazio ensina o aluno a pular a seção.
   if (carga.blocosNovos > 0 && blocosDoCircuito.length) {
+    /**
+     * A puxada diária sorteia dentro da FAMÍLIA, não só entre os blocos base.
+     *
+     * A família existia e não era usada. Medido no curso inteiro: 12.273 frases
+     * escritas e 2.994 chegando à tela — 24%. A causa é que só dois dos catorze
+     * dias renderizam família (formas no dia 3, recombinações no dia 10), então
+     * um circuito com 308 formas mostrava oito e as outras trezentas ficavam no
+     * JSON.
+     *
+     * Aqui o aluno PRODUZ, que é o uso certo para uma forma: ele lê o português
+     * e diz o inglês. Num dia sai "I didn't catch that", no outro "Did you catch
+     * that?" — a variação pela qual o bloco vira molde em vez de foto.
+     *
+     * A partir do dia 4, e não antes: o dia 3 é onde as formas são apresentadas,
+     * e pedir de memória o que ainda não foi visto não é recuperação, é
+     * adivinhação.
+     */
+    const poco =
+      dia >= 4
+        ? blocosDoCircuito.flatMap((b) => [b.pt, ...(b.formas ?? []).map((f) => f.pt)])
+        : blocosDoCircuito.map((b) => b.pt);
+
     blocos.push({
       type: "practice",
       title: "Antes de abrir a fila",
-      instruction: "Diga em inglês, sem olhar. Três é suficiente.",
-      prompts: pegar(blocosDoCircuito, n * 31 + dia, Math.min(3, blocosDoCircuito.length)).map(
-        (b) => b.pt,
-      ),
+      instruction:
+        dia >= 4
+          ? "Diga em inglês, sem olhar. São variações do que você já treinou."
+          : "Diga em inglês, sem olhar. Três é suficiente.",
+      prompts: pegar(poco, n * 31 + dia, Math.min(dia >= 4 ? 5 : 3, poco.length)),
     });
   }
 
