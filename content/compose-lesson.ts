@@ -1162,7 +1162,10 @@ function composeLessonBody(ctx: ComposeContext): ComposedLesson {
 
     // ==================================================== DIA 10: Expansão
     case 10: {
-      const crossed = reviewChunks.slice(0, 3);
+      // N−6, N−5 e N−4. O recorte é explícito porque `reviewChunks` passou a
+      // trazer o histórico inteiro: com `slice(0, 3)` este dia cruzaria sempre
+      // com os circuitos 1, 2 e 3, do primeiro ao último dia do curso.
+      const crossed = reviewChunks.slice(-6, -3);
       return {
         content: {
           warmup:

@@ -1823,15 +1823,69 @@ function spacedReview(circuit: number): number[] {
   return [circuit - 1, circuit - 2, circuit - 4].filter((n) => n >= 1);
 }
 
-/** Revisão intercalada: circuitos aleatórios porém determinísticos. */
-function interleavedReview(circuit: number): number[] {
-  const pool = Array.from({ length: circuit }, (_, i) => i + 1);
-  // Passo primo sobre o histórico: espalha sem depender de aleatoriedade.
+/**
+ * Revisão intercalada: cinco circuitos anteriores, misturando distâncias.
+ *
+ * A versão anterior era constante e ninguém percebeu. Ela fazia
+ * `pool[(i * 7 + circuit * 3) % pool.length]` com `pool.length === circuit` — e
+ * `circuit * 3 % circuit` é sempre ZERO, então o termo que deveria variar por
+ * circuito era código morto. Sobrava `(i * 7) % circuit`, e todo circuito a
+ * partir do 30 devolvia exatamente {1, 8, 15, 22, 29}. Combinado com a janela
+ * de seis circuitos que alimentava o dia 13, a interseção era vazia em 20 dos
+ * 52 circuitos — inclusive em TODOS de 36 a 52 — e a lição caía silenciosamente
+ * nos blocos do próprio circuito, enquanto `lessons.review_of` anunciava cinco
+ * outros.
+ *
+ * O que a intercalação pede não é sorteio: é MISTURAR DISTÂNCIAS. Duas
+ * lembranças recentes, duas do meio, uma antiga. É isso que faz a revisão
+ * parecer mais difícil e render mais.
+ */
+export function interleavedReview(circuit: number): number[] {
+  const anteriores = circuit - 1;
+  if (anteriores <= 0) return [];
+  // Com pouca história, revisar tudo é mais honesto do que fingir seleção.
+  if (anteriores <= 5) return Array.from({ length: anteriores }, (_, i) => i + 1);
+
+  // Frações da história do aluno, do mais recente ao mais antigo.
+  const faixas = [1.0, 0.82, 0.6, 0.38, 0.12];
   const picks = new Set<number>();
-  for (let i = 0; i < Math.min(5, pool.length); i++) {
-    picks.add(pool[(i * 7 + circuit * 3) % pool.length]);
-  }
+
+  faixas.forEach((fracao, i) => {
+    // O desvio por circuito impede que todos os circuitos sorteiem as mesmas
+    // posições relativas — sem ele a seleção volta a ser previsível.
+    const alvo = Math.round(anteriores * fracao) - ((circuit + i * 2) % 3);
+    const base = Math.max(1, Math.min(anteriores, alvo));
+
+    // Colidiu com uma faixa vizinha: anda para trás e, se não couber, para frente.
+    let n = base;
+    while (n >= 1 && picks.has(n)) n--;
+    if (n < 1) {
+      n = base;
+      while (n <= anteriores && picks.has(n)) n++;
+    }
+    if (n >= 1 && n <= anteriores) picks.add(n);
+  });
+
   return [...picks].sort((a, b) => a - b);
+}
+
+/**
+ * Os blocos de TODOS os circuitos anteriores, para os dias de revisão.
+ *
+ * Antes era `.slice(-6)`, replicado literalmente em três scripts. Com a janela
+ * de seis, nada mais antigo que N−6 podia aparecer numa lição: o circuito 1
+ * sumia para sempre depois do circuito 7. Repetição espaçada sem memória longa
+ * não é repetição espaçada — é repetição.
+ *
+ * Quem precisa de recorte curto que recorte no ponto de uso: o dia 10 usa
+ * `slice(-6, -3)` justamente para continuar cruzando com N−6, N−5 e N−4.
+ */
+export function reviewChunksFor(circuitNumber: number) {
+  return CIRCUITS.filter((c) => c.number < circuitNumber).map((c) => ({
+    circuit: c.number,
+    title: c.title,
+    chunks: c.chunks,
+  }));
 }
 
 function dayTitle(circuit: CircuitSpec, day: DayRole): { title: string; objective: string } {

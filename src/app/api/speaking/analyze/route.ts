@@ -10,7 +10,7 @@ import { analyzeSpeaking, normalizeAudioMime } from "@/lib/gemini/speaking";
 import { syncEnrollmentStudyStats } from "@/lib/learning";
 import { createAdminSupabase } from "@/lib/supabase/admin";
 import { createServerSupabase } from "@/lib/supabase/server";
-import { chunksSpokenIn } from "@/lib/srs";
+import { chunksSpokenIn, gradeFromScore } from "@/lib/srs";
 import type { CefrLevel, Chunk } from "@/lib/types/database";
 
 export const runtime = "nodejs";
@@ -198,8 +198,22 @@ export async function POST(request: NextRequest) {
       console.error("[speaking] falha ao salvar feedback:", feedbackError.message);
     }
 
-    // Blocos efetivamente pronunciados avançam o contador de produção do SRS.
-    // Usa o cliente do aluno porque a RPC resolve a agenda por `auth.uid()`.
+    /**
+     * Blocos efetivamente pronunciados alimentam DUAS coisas: o contador de
+     * produção e a agenda de repetição espaçada.
+     *
+     * Só o contador estava aqui. Faltava `review_chunk`, e a falta era invisível
+     * porque nada quebrava: a correção aparecia na tela normalmente. O efeito
+     * era que tirar 9 e tirar 3 tinham exatamente a mesma consequência na
+     * agenda — nenhuma. `gradeFromScore` existia em `src/lib/srs.ts` sem
+     * nenhum chamador fora da conversa ao vivo.
+     *
+     * Falar é a evidência mais forte que o curso coleta sobre um bloco. Se ela
+     * não reagenda, a repetição espaçada está adivinhando.
+     *
+     * As duas RPCs resolvem a agenda por `auth.uid()`, então precisam do cliente
+     * do aluno: com service_role o `auth.uid()` seria nulo e a função abortaria.
+     */
     const spoken = chunksSpokenIn(analysis.transcript ?? "", lessonChunks);
     if (spoken.length) {
       const { error: spokenError } = await supabase.rpc("mark_chunks_spoken", {
@@ -207,6 +221,18 @@ export async function POST(request: NextRequest) {
       });
       if (spokenError) {
         console.error("[speaking] falha ao marcar blocos falados:", spokenError.message);
+      }
+
+      const grade = gradeFromScore(analysis.scores.overall);
+      for (const key of spoken) {
+        const { error: reviewError } = await supabase.rpc("review_chunk", {
+          p_chunk_key: key,
+          p_grade: grade,
+        });
+        // O bloco pode ainda não estar na agenda do aluno: não é motivo para falhar.
+        if (reviewError && !/não está na sua agenda/i.test(reviewError.message)) {
+          console.error("[speaking] review_chunk:", reviewError.message);
+        }
       }
     }
 

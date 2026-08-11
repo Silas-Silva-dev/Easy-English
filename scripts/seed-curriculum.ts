@@ -20,7 +20,9 @@ import {
   CANTOS,
   CIRCUITS,
   DAY_RHYTHM,
+  interleavedReview,
   livePromptFor,
+  reviewChunksFor,
   TOTAL_DAYS,
 } from "@content/curriculum";
 import type { Chunk } from "@/lib/types/database";
@@ -283,17 +285,15 @@ function composeFor(dayNumber: number) {
     dayInCircuit === 6
       ? [circuit.number - 1, circuit.number - 2, circuit.number - 4].filter((n) => n >= 1)
       : dayInCircuit === 13
-        ? interleaved(circuit.number)
+        ? interleavedReview(circuit.number)
         : [];
 
   // Blocos dos circuitos anteriores, para os dias de revisão e de expansão.
-  const reviewChunks = CIRCUITS.filter((c) => c.number < circuit.number)
-    .slice(-6)
-    .map((c) => ({
-      circuit: c.number,
-      title: c.title,
-      chunks: c.chunks as Chunk[],
-    }));
+  const reviewChunks = reviewChunksFor(circuit.number) as {
+    circuit: number;
+    title: string;
+    chunks: Chunk[];
+  }[];
 
   return composeLesson({
     circuit,
@@ -306,16 +306,6 @@ function composeFor(dayNumber: number) {
     reviewChunks,
     carriedConnections: connectionsBefore(circuitNumber),
   });
-}
-
-/** Mesma lógica determinística do currículo, para a revisão intercalada. */
-function interleaved(circuit: number): number[] {
-  const pool = Array.from({ length: circuit }, (_, i) => i + 1);
-  const picks = new Set<number>();
-  for (let i = 0; i < Math.min(5, pool.length); i++) {
-    picks.add(pool[(i * 7 + circuit * 3) % pool.length]);
-  }
-  return [...picks].sort((a, b) => a - b);
 }
 
 main().catch((error) => {

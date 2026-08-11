@@ -44,6 +44,7 @@ import {
   CIRCUITS,
   DAY_RHYTHM,
   livePromptFor,
+  reviewChunksFor,
 } from "@content/curriculum";
 import type { Chunk, LessonBlock } from "@/lib/types/database";
 
@@ -73,9 +74,11 @@ function collect(): string[] {
     const day = DAY_RHYTHM.find((d) => d.day === spec.circuitDay)!;
     const canto = CANTOS.find((c) => circuit.number >= c.weekStart && circuit.number <= c.weekEnd)!;
 
-    const reviewChunks = CIRCUITS.filter((c) => c.number < circuit.number)
-      .slice(-6)
-      .map((c) => ({ circuit: c.number, title: c.title, chunks: c.chunks as Chunk[] }));
+    const reviewChunks = reviewChunksFor(circuit.number) as {
+      circuit: number;
+      title: string;
+      chunks: Chunk[];
+    }[];
 
     const lesson = composeLesson({
       circuit,
