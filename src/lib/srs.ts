@@ -132,9 +132,26 @@ export function gradeFromSpokenChunk(score0to10: number): number {
   return Math.max(3, gradeFromScore(score0to10));
 }
 
-/** Nota a partir de uma recuperação ativa (acertou / hesitou / não lembrou). */
+/**
+ * Nota a partir de uma recuperação ativa (saiu na hora / hesitei / não lembrei).
+ *
+ * "Hesitei" vale 4, e o 4 não é arbitrário: é o degrau NEUTRO do SM-2. O motor
+ * move o `ease_factor` por `0,10 - (5-nota) * (0,08 + (5-nota) * 0,02)`, e essa
+ * conta dá exatamente zero na nota 4. Nota 5 sobe 0,10; nota 3 DERRUBA 0,14.
+ *
+ * A fila oferece três botões, e "hesitei" é a resposta honesta mais comum de
+ * quem está aprendendo. Mapeada em 3, ela cobrava 0,14 de ease a cada revisão
+ * acertada. Com uma distribuição realista de 55/33/12 a esperança era de
+ * −0,056 por revisão: o ease só descia, virava catraca de mão única, e em
+ * cerca de 40 revisões batia no piso de 1,30. Como `masteryStage` exige
+ * `ease_factor >= 2,3`, "dominado" era inalcançável — o aluno que revisava
+ * todo dia empurrava os próprios blocos para "Travado".
+ *
+ * É a semântica clássica de três botões: fácil sobe, acertei segura, errei
+ * reinicia. Quem acerta não pode ser punido por ter demorado um segundo.
+ */
 export function gradeFromRecall(result: "instant" | "hesitant" | "failed"): number {
-  return result === "instant" ? 5 : result === "hesitant" ? 3 : 1;
+  return result === "instant" ? 5 : result === "hesitant" ? 4 : 1;
 }
 
 export type MasteryStage = "novo" | "aprendendo" | "consolidando" | "dominado" | "travado";
