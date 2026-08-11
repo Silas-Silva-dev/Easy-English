@@ -89,6 +89,46 @@ function exigir(condicao: boolean, motivo: string): asserts condicao {
   if (!condicao) throw new Reprovado(motivo);
 }
 
+/**
+ * Quantos blocos o diálogo tem que devolver, palavra por palavra.
+ *
+ * Um quarto dos blocos era a régua, e ela foi calibrada quando um circuito
+ * tinha sete blocos. Com 43, um quarto são onze âncoras em 24 falas — quase
+ * metade das falas carregando frase decorada, que é exatamente o "desfile de
+ * blocos" que o mesmo prompt proíbe duas linhas abaixo. A regra brigava
+ * consigo mesma, e os circuitos 33 e 37 morreram nessa briga.
+ *
+ * O teto de uma âncora a cada três falas é o que faz as duas regras caberem
+ * juntas: denso o bastante para o aluno reencontrar o que treinou, esparso o
+ * bastante para continuar parecendo conversa.
+ *
+ * No circuito de consolidação a conta é outra: ali os blocos são uma amostra
+ * de um canto inteiro, e o que importa é o piso — seis blocos reencontrados
+ * provam que o canto ficou.
+ */
+function ancorasExigidas(n: number, quantosBlocos: number, quantasFalas: number): number {
+  if (ehConsolidacao(n)) return Math.min(6, quantosBlocos);
+  const porBlocos = Math.round(quantosBlocos * 0.25);
+  const porFalas = Math.round(quantasFalas / 3);
+  return Math.max(2, Math.min(porBlocos, porFalas));
+}
+
+/**
+ * Os blocos que o prompt vai marcar como obrigatórios.
+ *
+ * Listar 43 blocos e pedir "use um quarto deles" transforma a tarefa numa
+ * busca: o modelo tem que escolher, contar e conferir. Marcar quais devolve a
+ * tarefa ao que ele faz bem — construir a conversa em volta de frases dadas.
+ *
+ * Espaçados por igual, e não os primeiros: os primeiros blocos de um circuito
+ * costumam ser os mais parecidos entre si.
+ */
+function ancorasSugeridas(blocos: { en: string; pt: string }[], quantas: number) {
+  if (quantas >= blocos.length) return blocos;
+  const passo = blocos.length / quantas;
+  return Array.from({ length: quantas }, (_, i) => blocos[Math.floor(i * passo)]);
+}
+
 function validar(n: number, d: DialogosDoCircuito, blocos: string[]) {
   const faixa = FALAS[cantoDe(n)];
 
@@ -135,12 +175,7 @@ function validar(n: number, d: DialogosDoCircuito, blocos: string[]) {
     const nucleo = b.toLowerCase().replace(/[^a-z0-9' ]+/g, " ").replace(/\s+/g, " ").trim();
     return nucleo.length >= 6 && texto.replace(/[^a-z0-9' ]+/g, " ").replace(/\s+/g, " ").includes(nucleo);
   });
-  // Um quarto dos blocos é a régua do circuito comum, onde os blocos são a
-  // matéria nova. No circuito de consolidação eles são uma AMOSTRA de um canto
-  // inteiro, e exigir um quarto de uma amostra de vinte e quatro seria exigir
-  // que a conversa fosse uma lista. Ali o que importa é o piso: seis blocos
-  // reencontrados provam que o canto ficou.
-  const minimo = ehConsolidacao(n) ? Math.min(6, blocos.length) : Math.max(2, Math.round(blocos.length * 0.25));
+  const minimo = ancorasExigidas(n, blocos.length, d.imersao.length + d.escuta.length);
   exigir(
     achados.length >= minimo,
     `só ${achados.length} dos ${blocos.length} blocos do circuito aparecem nos diálogos, e o mínimo é ${minimo} — ` +
@@ -181,6 +216,12 @@ function prompt(n: number, blocos: { en: string; pt: string }[]): string {
   const som = somDe(n)!;
   const faixa = FALAS[cantoDe(n)];
 
+  // O número que a validação vai cobrar, calculado pela MESMA função. O prompt
+  // pedia "um quarto" enquanto o script contava outra coisa, e a diferença só
+  // aparecia na reprovação.
+  const quantasAncoras = ancorasExigidas(n, blocos.length, faixa.max * 2);
+  const obrigatorios = new Set(ancorasSugeridas(blocos, quantasAncoras).map((b) => b.en));
+
   // O circuito de portão não ensina nada: ele cobra. O modelo precisa saber
   // disso, senão escreve mais uma aula onde o lugar pede uma prova.
   const portao = ehConsolidacao(n)
@@ -203,8 +244,9 @@ A FUNÇÃO: ${prog.funcao}
 
 A ARMADILHA do brasileiro aqui: ${prog.armadilha}
 
-OS BLOCOS que o aluno está treinando neste circuito:
-${blocos.map((b) => `  "${b.en}"  (${b.pt})`).join("\n")}
+OS BLOCOS que o aluno está treinando neste circuito.
+Os marcados com ► são os que PRECISAM aparecer palavra por palavra nas falas:
+${blocos.map((b) => `  ${obrigatorios.has(b.en) ? "►" : " "} "${b.en}"  (${b.pt})`).join("\n")}
 
 O SOM deste circuito: ${som.traco}
   Se der, ponha nas falas palavras onde esse traço apareça.
@@ -222,10 +264,15 @@ ESCUTA — a MESMA situação, outras pessoas, outras palavras. Serve para prova
 que o aluno pegou a situação e não decorou o primeiro diálogo. Pode ser um
 pouco mais rápida e trazer o que a imersão não trouxe. De ${faixa.min} a ${faixa.max} falas.
 
-REGRA QUE REPROVA: pelo menos um quarto dos blocos do circuito tem que aparecer
-LITERALMENTE nas falas, com as mesmas palavras. Sem isso o aluno ouve uma
-conversa boa e não reconhece nada do que treinou — que é o defeito exato que
-esta versão do curso veio consertar.
+REGRA QUE REPROVA: pelo menos ${quantasAncoras} dos blocos acima têm que aparecer
+LITERALMENTE nas falas, com as mesmas palavras na mesma ordem. Os marcados com
+► são a sugestão — se algum não couber na conversa, troque por outro da lista,
+mas o total tem que fechar. Sem isso o aluno ouve uma conversa boa e não
+reconhece nada do que treinou, que é o defeito exato que esta versão do curso
+veio consertar.
+
+Espalhe as âncoras: mais ou menos uma a cada três falas. Duas coladas viram
+lista, e lista é o que a regra de baixo proíbe.
 
 E o contrário também reprova: os diálogos NÃO podem ser um desfile de blocos
 emendados. É gente conversando: tem hesitação, tem interrupção, tem assunto que
@@ -355,13 +402,24 @@ async function main() {
       console.log(`  [31m✗[0m c${n}: sem blocos para ancorar o dialogo`);
       continue;
     }
-    let correcao: string | undefined;
+    /**
+     * Tudo que já reprovou este circuito, e não só a última reprovação.
+     *
+     * Guardar só a última produzia oscilação: o circuito 18 acertava as
+     * âncoras e perdia falas, acertava as falas e perdia âncoras, nove
+     * tentativas seguidas raspando os dois limites. Cada correção apagava a
+     * anterior da memória do modelo, então ele resolvia um problema de cada
+     * vez e reabria o outro.
+     */
+    const reprovacoes = new Set<string>();
     let feito = false;
 
     for (let t = 1; t <= TENTATIVAS && !feito; t++) {
       try {
-        const texto = correcao
-          ? `${prompt(n, blocos)}\n\nA TENTATIVA ANTERIOR FOI REPROVADA POR ISTO:\n  ${correcao}\nCorrija exatamente esse ponto.`
+        const texto = reprovacoes.size
+          ? `${prompt(n, blocos)}\n\nAS TENTATIVAS ANTERIORES FORAM REPROVADAS POR ISTO:\n` +
+            `${[...reprovacoes].map((m) => `  - ${m}`).join("\n")}\n` +
+            `Corrija TODOS esses pontos de uma vez. Consertar um e reabrir o outro reprova igual.`
           : prompt(n, blocos);
 
         const r = await genaiBatch().client.models.generateContent({
@@ -436,7 +494,7 @@ async function main() {
           console.log(`  \x1b[31m✗\x1b[0m c${n}: ${msg.slice(0, 130)} — desisti`);
           break;
         }
-        correcao = msg;
+        reprovacoes.add(msg);
         console.log(`  \x1b[33m↻\x1b[0m c${n}: ${msg.slice(0, 100)} (${t}/${TENTATIVAS})`);
         await sleep(1500);
       }

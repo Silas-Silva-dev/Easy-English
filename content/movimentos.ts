@@ -123,18 +123,40 @@ export const ENFASE_DO_DIA: Record<number, Enfase> = {
 // e é isso que permite revisar o curso inteiro antes de ele chegar ao aluno.
 // ===========================================================================
 
-/** Passo primo sobre a lista: espalha sem repetir e sem depender de sorteio. */
+/** Máximo divisor comum, para escolher um passo que percorra a lista inteira. */
+function mdc(a: number, b: number): number {
+  return b === 0 ? a : mdc(b, a % b);
+}
+
+/**
+ * Passo coprimo sobre a lista: espalha sem repetir e sem depender de sorteio.
+ *
+ * O comentário aqui dizia "passo primo" e o código não garantia isso. O passo
+ * saía de `semente % (n-1) + 1` e podia dividir o tamanho da lista — e aí a
+ * caminhada só alcança n/mdc índices. Quando isso acontecia com `quantos`
+ * maior que os índices alcançáveis, `saida` parava de crescer, `vistos` parava
+ * de crescer, e as DUAS condições do `while` continuavam verdadeiras: laço
+ * infinito.
+ *
+ * Não era teórico. O circuito 1 no dia 4 travava exatamente assim — 8 blocos,
+ * passo 4, dois índices alcançáveis, três pedidos — e levava junto o semeador,
+ * que compõe os 728 dias antes de tocar no banco. O sintoma era o processo
+ * parado sem erro nenhum, que é o pior jeito de um defeito se apresentar.
+ *
+ * Passo coprimo com o tamanho percorre a lista inteira antes de repetir, então
+ * `quantos` índices distintos sempre existem quando `quantos <= itens.length`.
+ */
 function pegar<T>(itens: T[], semente: number, quantos: number): T[] {
   if (itens.length <= quantos) return [...itens];
-  const passo = 1 + (semente % Math.max(1, itens.length - 1));
+
+  let passo = 1 + (semente % Math.max(1, itens.length - 1));
+  while (mdc(passo, itens.length) !== 1) passo = (passo % itens.length) + 1;
+
   const saida: T[] = [];
-  const vistos = new Set<number>();
   let i = semente % itens.length;
-  while (saida.length < quantos && vistos.size < itens.length) {
-    if (!vistos.has(i)) {
-      vistos.add(i);
-      saida.push(itens[i]);
-    }
+  // O teto de voltas é a garantia dura: mesmo que o passo falhasse, isto para.
+  for (let volta = 0; volta < itens.length && saida.length < quantos; volta++) {
+    saida.push(itens[i]);
     i = (i + passo) % itens.length;
   }
   return saida;
