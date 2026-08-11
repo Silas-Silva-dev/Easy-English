@@ -20,11 +20,13 @@
   "1048nhwn58g": "piper",
   "104px12pyvb": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "104tjn0di73": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "105jzyc29go": {
     "engine": "gemini",
@@ -181,7 +183,8 @@
   },
   "10twwt0bueu": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "10un2y8jhdo": "piper",
   "10utecrzvmy": "piper",
@@ -218,12 +221,14 @@
   },
   "10zxceacvbh": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1107scy26fr": "piper",
   "110f9p63k14": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "110rqgf4sz": "piper",
   "110v50xw267": "piper",
@@ -307,7 +312,8 @@
   },
   "11eu9zm7dpp": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "11f6rw6djqx": {
     "engine": "gemini",
@@ -391,7 +397,8 @@
   },
   "11rzkg42f1a": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Puck"
   },
   "11s1evlcpq3": "piper",
   "11sbmqs38o5": {
@@ -400,7 +407,8 @@
   },
   "11srm35pzk9": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "11t1c8jln1m": "piper",
   "11tkmvy5473": {
@@ -464,7 +472,8 @@
   },
   "1273jwwkjxi": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1273s00dow8": "piper",
   "1275i9pu1g": "piper",
@@ -498,7 +507,8 @@
   "12bgv0zy0bu": "piper",
   "12bwyzl8y2u": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "12c4zqi6892": {
     "engine": "gemini",
@@ -567,7 +577,8 @@
   "12kpjiga3p4": "piper",
   "12l5jbzb34e": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "12lnrf9q9qm": "piper",
   "12ltjldnyo5": "piper",
@@ -601,7 +612,8 @@
   "12thbgcexd": "piper",
   "12tyyhfl8cj": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "12ugaralpwo": "piper",
   "12vf7nxxwrg": "piper",
@@ -654,7 +666,8 @@
   "137h2rlwn0o": "piper",
   "138i8ubxgca": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "138o36aiqv1": "piper",
   "138yu0hr9hi": "piper",
@@ -693,7 +706,8 @@
   },
   "13hfbi59n3p": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "13hqwfzyvsl": "piper",
   "13i2c1328p6": "piper",
@@ -727,11 +741,13 @@
   "13mph8btwjc": "piper",
   "13mtuh1vf4o": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "13myhax2ipd": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "13nhn4dyb91": "piper",
   "13nl0qi0e9t": "piper",
@@ -760,7 +776,8 @@
   "13tzjywhson": "piper",
   "13uovvr10uv": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "13urk8fglrx": "piper",
   "13vc9jg6khm": "piper",
@@ -778,11 +795,13 @@
   "13ysqxeh94r": "piper",
   "13ytyfg7gii": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "13z9zx6006f": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "13zjfrjy0k6": {
     "engine": "gemini",
@@ -808,7 +827,8 @@
   "142o6in7qoh": "piper",
   "142pqjypxw8": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "143wvqhkg8m": {
     "engine": "gemini",
@@ -830,7 +850,8 @@
   "147p2fh2ej4": "piper",
   "1481h5dkml8": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "148f23ztbe1": "piper",
   "148k86vsz4j": "piper",
@@ -962,7 +983,8 @@
   "151q580vndc": "piper",
   "151qipjjut8": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "15289dgohvc": "piper",
   "15382m235xa": "piper",
@@ -1024,11 +1046,13 @@
   },
   "15auv2wiu27": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "15aw9yxjl66": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "15bbfmjjuen": {
     "engine": "gemini",
@@ -1088,7 +1112,8 @@
   "15l44ea5tro": "piper",
   "15l9ndajrhn": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "15leapla9wp": "piper",
   "15lhaxucqts": "piper",
@@ -1155,7 +1180,8 @@
   },
   "15uqw0m4h6i": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "15uw56vt2yb": "piper",
   "15vff9x533h": {
@@ -1366,7 +1392,8 @@
   "1703xrfgnhm": "piper",
   "170hccjvh5s": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "170sogaxvkz": {
     "engine": "gemini",
@@ -1520,7 +1547,8 @@
   "17wb7lq3i68": "piper",
   "17wqwy052oy": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "17xltlhoehu": "piper",
   "17xpvnxap1u": {
@@ -1559,7 +1587,8 @@
   },
   "182hl9psi1a": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "182olg0hxuv": "piper",
   "182qmdnje6": "piper",
@@ -1588,7 +1617,8 @@
   "185b60v4knh": "piper",
   "185iykjz7vm": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "186tdgq6p15": "piper",
   "186te1mmrux": "piper",
@@ -1673,7 +1703,8 @@
   },
   "18qnyqrt3qq": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "18rfkvk6nzm": "piper",
   "18rwf733igh": {
@@ -1772,7 +1803,8 @@
   "195f6yuuurk": "piper",
   "196hy7q4kap": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "196skci6d97": {
     "engine": "gemini",
@@ -1839,7 +1871,8 @@
   "19jjhf4puaa": "piper",
   "19jmrqbim2v": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "19jrfip5ks2": "piper",
   "19k9ltm2g72": "piper",
@@ -1980,7 +2013,8 @@
   },
   "1a9r4931aza": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1a9uzxg5n50": {
     "engine": "gemini",
@@ -2015,7 +2049,8 @@
   "1aeaflhg9vi": "piper",
   "1aebkk4wqiu": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1aeltp6nfjp": "piper",
   "1af7ebmb19h": "piper",
@@ -2031,7 +2066,8 @@
   },
   "1ah8s292qpj": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1ahcbb6na2j": "piper",
   "1ai3p12xxla": {
@@ -2139,7 +2175,8 @@
   "1ayyv9aiute": "piper",
   "1azjl3j5cqi": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1azpvkcbiw": "piper",
   "1azsqstplj": "piper",
@@ -2170,7 +2207,8 @@
   },
   "1b4qli7yuvu": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1b5yjimwcz9": "piper",
   "1b64nhfpegl": "piper",
@@ -2225,7 +2263,8 @@
   },
   "1bgs7mmebt3": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore+Puck+Kore+Puck+Kore+Puck+Kore+Puck"
   },
   "1bgt84pjih6": "piper",
   "1bh40fums5w": {
@@ -2307,7 +2346,8 @@
   },
   "1bypitkbrg6": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1bz4ryre2sk": "piper",
   "1bzrmxq5f5f": {
@@ -2353,7 +2393,8 @@
   "1c7jjk9na24": "piper",
   "1c7qvk0pngx": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1c8148xffyf": "piper",
   "1c834m62oc2": "piper",
@@ -2373,7 +2414,8 @@
   "1cf6bal0d8g": "piper",
   "1cf8hbny41y": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1cfbym5l6c6": "piper",
   "1cfikg5d99t": {
@@ -2382,7 +2424,8 @@
   },
   "1cft4xnwgcd": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1cg25zwssw0": {
     "engine": "gemini",
@@ -2391,7 +2434,8 @@
   "1cgi4iekkxa": "piper",
   "1chb2zfo17c": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1chf304juej": "piper",
   "1chhxske93n": {
@@ -2411,7 +2455,8 @@
   "1ciuid4moj2": "piper",
   "1cj0eam7rie": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1cjhm5gen17": "piper",
   "1cjpbg3sl41": "piper",
@@ -2455,7 +2500,8 @@
   },
   "1cs5vr7009h": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1csamaxuxfp": {
     "engine": "gemini",
@@ -2463,7 +2509,8 @@
   },
   "1cskceczmd2": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1csn6do8bwq": {
     "engine": "gemini",
@@ -2509,7 +2556,8 @@
   "1d1kn7dc3qv": "piper",
   "1d1oxkoz18f": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1d2dhajrt7y": "piper",
   "1d2k2y7mt4i": {
@@ -2574,7 +2622,8 @@
   "1diq2ur54dk": "piper",
   "1diqimcmhv4": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1diwt38igk8": "piper",
   "1diye3m5xj3": {
@@ -2622,7 +2671,8 @@
   "1dq197bhfxj": "piper",
   "1dq7ke55da2": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1dqae1npmms": "piper",
   "1dqauik6uqw": "piper",
@@ -2648,7 +2698,8 @@
   "1du296sd0wx": "piper",
   "1du62er7nq2": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1dugov1awka": "piper",
   "1dwbayfm7ks": "piper",
@@ -2708,11 +2759,13 @@
   "1e9qid6a4wf": "piper",
   "1e9z8oyqkim": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1ea4tu3b707": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1eanzw67ghl": {
     "engine": "gemini",
@@ -2792,7 +2845,8 @@
   "1ersw7mi3tj": "piper",
   "1es7ixhsog9": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1esgs3f0ls6": "piper",
   "1eslrhh3wge": {
@@ -2808,7 +2862,8 @@
   "1etfer9v8zp": "piper",
   "1eto3o556bo": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1ets0k8m89a": "piper",
   "1eubcrlfazh": "piper",
@@ -2827,7 +2882,8 @@
   "1eylu2fqd55": "piper",
   "1eyp205xam9": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1ez0irjlhmk": "piper",
   "1ez17cyimbk": "piper",
@@ -2954,12 +3010,14 @@
   "1frfepjoj69": "piper",
   "1frfkrrrouz": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1frwlnk71gu": "piper",
   "1frywowtjpb": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1fsd5hjxmad": "piper",
   "1fsjslcpswl": "piper",
@@ -2972,7 +3030,8 @@
   "1ftkhwbfv24": "piper",
   "1fua3ga8q59": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Aoede+Charon+Aoede+Charon+Aoede+Charon+Aoede+Charon+Aoede"
   },
   "1fulpku9sl7": {
     "engine": "gemini",
@@ -3000,7 +3059,8 @@
   "1fxx1bojtzk": "piper",
   "1fxy0yzr757": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1fyc6fufdvx": "piper",
   "1fyhi1d0gp0": {
@@ -3062,7 +3122,8 @@
   "1g87ce9mpru": "piper",
   "1g8j340cmxi": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1g9bby7prm": {
     "engine": "gemini",
@@ -3074,13 +3135,15 @@
   },
   "1g9w39amlih": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1g9w81uv84z": "piper",
   "1ga0eaa8xpy": "piper",
   "1ga1ysi8yn7": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1ga8x9ti2g6": "piper",
   "1gabiaq74ob": {
@@ -3142,7 +3205,8 @@
   },
   "1gjhw23bfz5": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1gjizh3ku9y": "piper",
   "1gk00p6s7p1": {
@@ -3185,7 +3249,8 @@
   },
   "1gsojp4rvjj": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1gssog0t0d2": {
     "engine": "gemini",
@@ -3242,7 +3307,8 @@
   },
   "1h055ko5ws6": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1h0mc4x90n4": {
     "engine": "gemini",
@@ -3275,14 +3341,16 @@
   "1h3cqcf7rfo": "piper",
   "1h3cwvc2bfw": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1h3dj3nfu0w": "piper",
   "1h3dvmtwqji": "piper",
   "1h589wx065q": "piper",
   "1h71p7f9azt": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1h7hjpwv2yy": "piper",
   "1h7ivya703c": {
@@ -3437,12 +3505,14 @@
   },
   "1hvtnrwbzf7": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1hvwipy5ofc": "piper",
   "1hw4ti5vug8": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1hw5c7g8uhu": "piper",
   "1hwj27patgc": "piper",
@@ -3461,7 +3531,8 @@
   "1hyfvj4gy0c": "piper",
   "1hz9zn5cuox": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1hzixr1uib2": {
     "engine": "gemini",
@@ -3500,7 +3571,8 @@
   },
   "1i7srzhnm98": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Charon+Leda+Charon+Leda+Charon+Leda+Charon+Leda+Charon"
   },
   "1i7ymcrbu9d": "piper",
   "1i8pk8n91ue": {
@@ -3555,7 +3627,8 @@
   "1ikcc3yudhf": "piper",
   "1ikgihhrrdl": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1ikkabrmjss": "piper",
   "1ikr9uj7bvc": {
@@ -3570,7 +3643,8 @@
   "1ilq29k73fs": "piper",
   "1ilzwos0k02": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1im3wobkk0h": {
     "engine": "gemini",
@@ -3618,13 +3692,15 @@
   },
   "1ith16vxxz7": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1itpvxb2o6p": "piper",
   "1itz7v0obrz": "piper",
   "1iu5clbog8g": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1iug4vd877j": "piper",
   "1ivhuvv46kq": {
@@ -3726,7 +3802,8 @@
   "1jf7vsbva7v": "piper",
   "1jfaxd12v35": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Aoede+Fenrir+Aoede+Fenrir+Aoede+Fenrir+Aoede+Fenrir"
   },
   "1jgcapvlui6": "piper",
   "1jhdayo3oct": "piper",
@@ -3742,7 +3819,8 @@
   "1jjctv7p1rr": "piper",
   "1jk3qc3cy79": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1jkdqfuk25e": {
     "engine": "gemini",
@@ -3799,7 +3877,8 @@
   "1k306y31gz4": "piper",
   "1k34rxy2rkk": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1k3c0h3tpaw": "piper",
   "1k3cutilm5l": "piper",
@@ -3838,7 +3917,8 @@
   },
   "1kaeuktkkf2": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1kaxr5ivd82": "piper",
   "1kb6a87pya0": "piper",
@@ -3855,7 +3935,8 @@
   "1kd93br8lf6": "piper",
   "1kdiyugr0y5": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1kdox0digii": "piper",
   "1kdp5uefjd9": "piper",
@@ -3864,7 +3945,8 @@
   "1kfoctteqjw": "piper",
   "1kfwkc5y7p6": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1kg248v9ahx": "piper",
   "1kgccz72kya": "piper",
@@ -3876,7 +3958,8 @@
   "1kgvc3apg2n": "piper",
   "1kh82zx77pl": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1khurytrjpi": "piper",
   "1kia7cjo7p0": {
@@ -4021,7 +4104,8 @@
   "1lc4cbc4l1u": "piper",
   "1lcubosfw59": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1le788rlzes": "piper",
   "1lelazrqp51": {
@@ -4085,7 +4169,8 @@
   "1lo5mu26ipd": "piper",
   "1lof0006enm": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1lowe8zer6h": "piper",
   "1lpe3djtxaa": {
@@ -4214,7 +4299,8 @@
   },
   "1me6o4cv83t": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore+Puck+Kore+Puck+Kore+Puck+Kore+Puck"
   },
   "1mell67sgz2": "piper",
   "1mervhqmr5a": "piper",
@@ -4262,7 +4348,8 @@
   "1moifuykdip": "piper",
   "1moqrhppmwk": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1mox4bv8epw": "piper",
   "1mp3qsohagy": "piper",
@@ -4288,7 +4375,8 @@
   },
   "1mtf01n1ycs": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1mugx947m9m": {
     "engine": "gemini",
@@ -4362,7 +4450,8 @@
   "1n36c3uqedx": "piper",
   "1n3fts2aej6": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1n3x0pf8mx0": "piper",
   "1n4yw65437q": "piper",
@@ -4408,7 +4497,8 @@
   "1nbojgq6mqj": "piper",
   "1nce6abibmy": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1ncnupcj7lr": "piper",
   "1ncrnziaxc2": {
@@ -4447,7 +4537,8 @@
   },
   "1nhin09vb3c": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1nhoi4ptjmc": "piper",
   "1niybmr3y5e": "piper",
@@ -4519,7 +4610,8 @@
   "1nprxvzo2yk": "piper",
   "1nq1ak6qbn7": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1nrlfdatc03": "piper",
   "1nrlxyh0oz4": {
@@ -4528,7 +4620,8 @@
   },
   "1ns1koeyfrg": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1nsclg5l49l": "piper",
   "1ntcxogsg03": "piper",
@@ -4596,7 +4689,8 @@
   "1o6fgg3jw5q": "piper",
   "1o6lrxcnuyj": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1o6md8pxucb": {
     "engine": "gemini",
@@ -4639,7 +4733,8 @@
   "1ofw6lyakr7": "piper",
   "1og2pys1chx": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore+Fenrir+Kore+Fenrir+Kore+Fenrir+Kore+Fenrir"
   },
   "1og6ioxef5w": {
     "engine": "gemini",
@@ -4654,7 +4749,8 @@
   "1oglu47pm8q": "piper",
   "1ogpco0u454": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore+Puck+Kore+Puck+Kore+Puck+Kore+Puck"
   },
   "1oh2hi0e7i3": {
     "engine": "gemini",
@@ -4842,13 +4938,15 @@
   "1p6zatqyowh": "piper",
   "1p7b83ehl8l": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1p7kcg5seo0": "piper",
   "1p7mtmxqsba": "piper",
   "1p7nezkq0j4": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1p7sut6ckae": {
     "engine": "gemini",
@@ -4902,7 +5000,8 @@
   "1pi4ta5gnnh": "piper",
   "1pinjadtp3v": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1pj3gvjrqmq": "piper",
   "1pj8c0r0pgg": {
@@ -4954,7 +5053,8 @@
   "1pr7ugk67bh": "piper",
   "1prfdt4yw5d": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1prgy81z2rp": "piper",
   "1prhp9nvd04": "piper",
@@ -4966,7 +5066,8 @@
   "1ps01iwgsp9": "piper",
   "1pshdjw4cx1": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1psxftatlsy": "piper",
   "1pt0g01qayf": "piper",
@@ -4978,7 +5079,8 @@
   },
   "1pukcuowx29": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1puu8lmgkom": {
     "engine": "gemini",
@@ -4986,7 +5088,8 @@
   },
   "1pvgasdjvc8": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1pvnvarxzve": "piper",
   "1pvxw9eb01z": "piper",
@@ -5125,7 +5228,8 @@
   "1qedgnqxlef": "piper",
   "1qelg3s6vrb": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1qf8cmk3pww": "piper",
   "1qfix160evb": "piper",
@@ -5155,7 +5259,8 @@
   "1qi4fr8gbxa": "piper",
   "1qiyw0fc1my": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1qj80n7umey": "piper",
   "1qjaz2kvpqh": {
@@ -5195,7 +5300,8 @@
   },
   "1qptghi250h": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1qr348g9kl0": {
     "engine": "gemini",
@@ -5268,7 +5374,8 @@
   },
   "1qyblt0f8l5": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1qyucsx9kof": "piper",
   "1qz0iw3oeyc": {
@@ -5322,7 +5429,8 @@
   "1r6d4zzbj2w": "piper",
   "1r6f21vua0j": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1r6m6ooies8": {
     "engine": "gemini",
@@ -5429,7 +5537,8 @@
   "1rmiy1u0i7h": "piper",
   "1rmsyjdbrfh": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1rmz710wkcv": {
     "engine": "gemini",
@@ -5494,7 +5603,8 @@
   "1ruh5y89tof": "piper",
   "1ruvev829dr": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Aoede+Charon+Aoede+Charon+Aoede+Charon+Aoede+Charon"
   },
   "1rv00pld0la": "piper",
   "1rv6xrzdrha": "piper",
@@ -5568,7 +5678,8 @@
   "1s73r1zm1t2": "piper",
   "1s78zv1gwlh": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1s7oeanmsuv": {
     "engine": "gemini",
@@ -5621,7 +5732,8 @@
   },
   "1sghgwi8xlv": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1sglc9u6s5b": {
     "engine": "gemini",
@@ -5663,7 +5775,8 @@
   },
   "1smqmmq1nnk": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1sn5dsg30x5": "piper",
   "1sn7bywijes": {
@@ -5697,11 +5810,13 @@
   "1sut6xg7xaz": "piper",
   "1svaegxaza6": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1svan4ksh3g": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1svgkgmf7wq": {
     "engine": "gemini",
@@ -5781,7 +5896,8 @@
   "1thfw9li677": "piper",
   "1ththhkc9zv": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1thuq00ucel": {
     "engine": "gemini",
@@ -5866,7 +5982,8 @@
   "1tzdhryy9hd": "piper",
   "1u04nieahzi": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Aoede+Puck+Aoede+Puck+Aoede+Puck+Aoede+Puck"
   },
   "1u09eetnqvw": "piper",
   "1u0u8ilrmtf": "piper",
@@ -5958,7 +6075,8 @@
   "1um206c4chv": "piper",
   "1umdbfytuks": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1umox6kpwe1": {
     "engine": "gemini",
@@ -6014,7 +6132,8 @@
   "1utbbrfzl15": "piper",
   "1utfh6add9m": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1utxqnnzucw": "piper",
   "1uty0gdow9j": {
@@ -6028,7 +6147,8 @@
   "1uwr4lm1kwo": "piper",
   "1uwy672dnkn": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1uyteen729x": "piper",
   "1uyy79ewz7": "piper",
@@ -6105,7 +6225,8 @@
   "1vdod0mt5zp": "piper",
   "1ve22ffsdg8": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1ve79d861if": "piper",
   "1ve7bzz3yvp": "piper",
@@ -6122,7 +6243,8 @@
   },
   "1vh6e2ew1js": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1vj1kpr1iht": "piper",
   "1vjqb1wtwwl": {
@@ -6154,7 +6276,8 @@
   "1vnbdampyu9": "piper",
   "1vnoad435na": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1vnv0mmml8n": {
     "engine": "gemini",
@@ -6182,7 +6305,8 @@
   },
   "1vt5mzxucwm": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1vtmao8a3im": {
     "engine": "gemini",
@@ -6252,7 +6376,8 @@
   "1w7ic8xt1tv": "piper",
   "1w7to3ndt8v": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1w7xdmtz3gn": "piper",
   "1w82tvc7upo": "piper",
@@ -6323,7 +6448,8 @@
   },
   "1wm8kgnmdew": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1wmcduhl4qb": {
     "engine": "gemini",
@@ -6367,7 +6493,8 @@
   },
   "1wt61r9mx2h": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Aoede+Charon+Aoede+Charon+Aoede+Charon+Aoede+Charon"
   },
   "1wtty1bmb91": {
     "engine": "gemini",
@@ -6408,7 +6535,8 @@
   "1x1uqmtwqqv": "piper",
   "1x2fb0oxpuu": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1x38ztryqy9": "piper",
   "1x3fv9ozep9": "piper",
@@ -6435,7 +6563,8 @@
   },
   "1x6y76p1yyk": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1x7avh5crwk": {
     "engine": "gemini",
@@ -6500,7 +6629,8 @@
   },
   "1xiw1axr0m6": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1xj48d0kcrq": "piper",
   "1xjfdul235n": "piper",
@@ -6513,7 +6643,8 @@
   "1xkzetbxlhm": "piper",
   "1xl0egme0oi": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1xl6sc7abrg": {
     "engine": "gemini",
@@ -6522,7 +6653,8 @@
   "1xldw3sxyak": "piper",
   "1xlk3x3jz9e": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1xlu760cu3d": "piper",
   "1xm8tqkudlr": "piper",
@@ -6536,7 +6668,8 @@
   },
   "1xq1kkl477j": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1xqnu71t5re": "piper",
   "1xrmaqtsqo9": "piper",
@@ -6588,11 +6721,13 @@
   "1y03rro9q39": "piper",
   "1y0436npgpq": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore+Puck+Kore+Puck+Kore+Puck+Kore+Puck+Kore+Puck"
   },
   "1y0krukra7a": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1y0wrs8alno": "piper",
   "1y0zunv2otm": "piper",
@@ -6748,7 +6883,8 @@
   "1yu0xr8frsp": "piper",
   "1yuaxycy6jh": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1yvs2paa38d": {
     "engine": "gemini",
@@ -6777,7 +6913,8 @@
   "1z0n496qz6w": "piper",
   "1z0o9yodprf": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore+Puck+Kore+Puck+Kore+Puck+Kore+Puck"
   },
   "1z15l80ekeb": "piper",
   "1z17xcj3z1u": "piper",
@@ -6825,7 +6962,8 @@
   },
   "1zbskcaqlsk": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1zbzvsfhpp7": "piper",
   "1zc18vg0mjb": "piper",
@@ -6904,7 +7042,8 @@
   "1zssz84tpmz": "piper",
   "1zsuuns6e1b": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1zsx4r0ofms": "piper",
   "1ztv50604q5": "piper",
@@ -6929,7 +7068,8 @@
   "1zwebueyrxt": "piper",
   "1zwnli8o9yn": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "1zx47hslyfc": "piper",
   "1zxoncfh3al": "piper",
@@ -6996,7 +7136,8 @@
   },
   "209bqtq4yr9": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "209lpxlyj0z": "piper",
   "209qmetl7ug": "piper",
@@ -7014,7 +7155,8 @@
   },
   "20g02d2pedn": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "20gd05hrj12": {
     "engine": "gemini",
@@ -7077,7 +7219,8 @@
   },
   "20tpjh8yaxc": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "20u02inwbst": "piper",
   "20u56vhjnkp": "piper",
@@ -7118,7 +7261,8 @@
   "213m3k6gza8": "piper",
   "214mob9rlj6": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "215e1607dp7": {
     "engine": "gemini",
@@ -7150,7 +7294,8 @@
   "21atmput05l": "piper",
   "21bjciz0hap": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "21bs7o44oq3": {
     "engine": "gemini",
@@ -7305,7 +7450,8 @@
   },
   "21za98pp94": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "21zuin9tag9": "piper",
   "22034u8u6kf": "piper",
@@ -7434,7 +7580,8 @@
   "22rhwiq40br": "piper",
   "22sbdkyf3ke": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "22se2n3mcgg": "piper",
   "22sfkg9krv0": "piper",
@@ -7451,7 +7598,8 @@
   "22wb6pkrjvo": "piper",
   "22x05qxc3ib": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "22xsqibeyho": "piper",
   "22xx9cyomq1": "piper",
@@ -7494,11 +7642,13 @@
   "2370hvgu79b": "piper",
   "23755uih99a": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "237cwyw9noc": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2381b9ni9it": "piper",
   "238iy0pvza9": "piper",
@@ -7591,7 +7741,8 @@
   "23nwogswp8v": "piper",
   "23nyuhoc05w": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "23o0dk19ml": "piper",
   "23oh5zmm1ms": "piper",
@@ -7615,7 +7766,8 @@
   },
   "23qe4oxkak8": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "23qhqhsd4ks": "piper",
   "23qtadih33l": "piper",
@@ -7623,16 +7775,19 @@
   "23raxpne58q": "piper",
   "23seuun8t7o": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "23sfuv2dv6e": "piper",
   "23so0szoae": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Puck+Leda+Puck+Leda+Puck+Leda+Puck+Leda+Puck+Leda"
   },
   "23sokjxoman": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "23sxpa8od83": "piper",
   "23tuc0kff56": "piper",
@@ -7673,7 +7828,8 @@
   "243vimuojbg": "piper",
   "2444oy7x57w": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "244c7stqh9v": {
     "engine": "gemini",
@@ -7738,7 +7894,8 @@
   "24cfra117sm": "piper",
   "24da1bxmw30": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Aoede+Charon+Aoede+Charon+Aoede+Charon+Aoede+Charon"
   },
   "24dvdhj6y6r": {
     "engine": "gemini",
@@ -7782,7 +7939,8 @@
   "24jpzdvi59v": "piper",
   "24ki7c6d2qe": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "24ki83x3zrs": "piper",
   "24l7r5e0weq": {
@@ -7884,7 +8042,8 @@
   "253cjgkn5m5": "piper",
   "25400gl967a": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "254to2d18ge": "piper",
   "255kpmrbcq1": {
@@ -7951,7 +8110,8 @@
   },
   "25hoss0y5hu": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "25ht09acepi": {
     "engine": "gemini",
@@ -8048,7 +8208,8 @@
   "25ymzjjtrtk": "piper",
   "25yzyi5mu2t": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "25z0mw86d2o": {
     "engine": "gemini",
@@ -8110,7 +8271,8 @@
   },
   "26ccv35vuy6": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "26cfawjqq5g": "piper",
   "26cqr27biwn": "piper",
@@ -8204,7 +8366,8 @@
   "26o89xqkgku": "piper",
   "26pot8rj5nu": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "26rbn9ne38w": "piper",
   "26roqz9v7gq": {
@@ -8249,7 +8412,8 @@
   },
   "26yga76nrj3": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "26ywj5f7wgp": "piper",
   "26yyycjjtn3": "piper",
@@ -8263,7 +8427,8 @@
   "272ssyh4a5r": "piper",
   "272uq1mx1h0": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "272ys8m5y8m": {
     "engine": "gemini",
@@ -8292,7 +8457,8 @@
   "275qgzgc389": "piper",
   "276kbf3wtj9": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "276m7iwbq5x": {
     "engine": "gemini",
@@ -8376,7 +8542,8 @@
   "27mh3e9o9t5": "piper",
   "27mogg1kwuq": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "27mrrkwdr9t": "piper",
   "27mzcvf93lj": "piper",
@@ -8395,7 +8562,8 @@
   "27ozwgbkqoz": "piper",
   "27p0y17cwvw": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "27pgz56wuwt": "piper",
   "27pv8tmajs7": "piper",
@@ -8407,7 +8575,8 @@
   },
   "27q6ed21ykj": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "27q912pvjzg": "piper",
   "27r9g28bevx": "piper",
@@ -8509,7 +8678,8 @@
   "28cajor7wsw": "piper",
   "28ceplsf8ky": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "28cxaimftav": "piper",
   "28doyt6xmls": {
@@ -8554,7 +8724,8 @@
   "28m9dqh34zz": "piper",
   "28mj8qc4qg8": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "28mwmdwuldg": "piper",
   "28ng9kxtdrg": {
@@ -8648,7 +8819,8 @@
   "28zm935p1s": "piper",
   "28zv6jifdd7": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2904b4oocsw": {
     "engine": "gemini",
@@ -8671,7 +8843,8 @@
   "293hs44d3yq": "piper",
   "293htm7tx2f": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "293id7zt2g7": {
     "engine": "gemini",
@@ -8728,12 +8901,14 @@
   "29amtp8utnp": "piper",
   "29b92xke28e": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "29bbpi6ki9g": "piper",
   "29bbtdlr460": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "29c4pijlps": "piper",
   "29ckwxebwdl": {
@@ -8764,7 +8939,8 @@
   },
   "29i1m5grs6d": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "29i98yswfmu": {
     "engine": "gemini",
@@ -8796,7 +8972,8 @@
   "29l3w4wyy4x": "piper",
   "29l9t2lcede": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "29lkng67thr": {
     "engine": "gemini",
@@ -8826,7 +9003,8 @@
   "29o4dcfjn50": "piper",
   "29p14xkhysi": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "29p4vgtyqlv": "piper",
   "29pggt0kuz6": "piper",
@@ -8872,7 +9050,8 @@
   "29ycmawn7q1": "piper",
   "29ye1ri20kx": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "29ye4l2hqu": "piper",
   "29ypncg6mk7": {
@@ -8973,7 +9152,8 @@
   "2afqte63b94": "piper",
   "2afr4lg6fm": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2afybrf41gf": {
     "engine": "gemini",
@@ -8983,7 +9163,8 @@
   "2ahe1lnrk0j": "piper",
   "2aib7gkcrfm": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2aiqtvf3otz": {
     "engine": "gemini",
@@ -9021,7 +9202,8 @@
   },
   "2aonsgq9o6l": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2ap51oql0vr": "piper",
   "2ap9nk91bwj": {
@@ -9056,7 +9238,8 @@
   "2auuksy9qg7": "piper",
   "2auvbelvmur": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Aoede+Charon+Aoede+Charon+Aoede+Charon+Aoede+Charon+Aoede+Charon"
   },
   "2av4cnhiklp": {
     "engine": "gemini",
@@ -9216,7 +9399,8 @@
   },
   "2bn5f9ah85q": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2bn9bn0cuno": "piper",
   "2bnb6qp44mq": "piper",
@@ -9332,7 +9516,8 @@
   "2ce3yaw8zt5": "piper",
   "2cej8lyx6q6": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2cf231pgtth": {
     "engine": "gemini",
@@ -9448,7 +9633,8 @@
   },
   "2d1pz8rqgn7": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2d1zp962ycl": "piper",
   "2d2970tpxbl": "piper",
@@ -9547,7 +9733,8 @@
   },
   "2dcqlnj0fxd": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2ddbmid23c2": "piper",
   "2ddfv74cwvh": "piper",
@@ -9573,7 +9760,8 @@
   "2dgr72j637v": "piper",
   "2dh80jhozag": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2dhb01d0b6g": "piper",
   "2digdtkakqx": "piper",
@@ -9581,11 +9769,13 @@
   "2dj5g1p04sf": "piper",
   "2dk083s4pe": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2dkjo47wfaw": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2dklid1ekhh": {
     "engine": "gemini",
@@ -9607,7 +9797,8 @@
   "2dplcy2p1vl": "piper",
   "2dpo3we47ch": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2dpu1wzzjj7": "piper",
   "2dq084kq1m6": {
@@ -9624,7 +9815,8 @@
   "2du4xaw0o4x": "piper",
   "2duqa8ai8el": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2duuqpsrp4k": "piper",
   "2dv3ymgiupr": "piper",
@@ -9684,7 +9876,8 @@
   "2e56qm27m1m": "piper",
   "2e5vmh4h4s": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2e5z9mvwnqy": "piper",
   "2e5zcfdktj7": {
@@ -9694,7 +9887,8 @@
   "2e6fb5rsi73": "piper",
   "2e70zobukz0": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2e74p0y59v2": "piper",
   "2e7f3hx2c77": {
@@ -9779,7 +9973,8 @@
   "2eke6bwv0r8": "piper",
   "2ekhzq2fjs3": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore+Puck+Kore+Puck+Kore+Puck+Kore+Puck"
   },
   "2el0nbjagiw": "piper",
   "2elr9fbarle": "piper",
@@ -9789,7 +9984,8 @@
   },
   "2em5demt2ew": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2emen9i7zz8": "piper",
   "2enl5tb6npu": "piper",
@@ -9804,7 +10000,8 @@
   },
   "2eo3kwiz4s2": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2eozi4ow4i3": "piper",
   "2ep7oe0unh1": {
@@ -9838,7 +10035,8 @@
   "2et9y7q3agy": "piper",
   "2etc8jaox7j": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2etldobxm76": "piper",
   "2euda5waret": "piper",
@@ -9856,7 +10054,8 @@
   "2ewzf3pe8yy": "piper",
   "2ex2c2nadgz": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2exkcnf47u5": "piper",
   "2exq6w3oaot": "piper",
@@ -9875,12 +10074,14 @@
   "2f0i042nx7d": "piper",
   "2f14856xpla": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2f1miknxqz3": "piper",
   "2f1xlhj0z9d": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2f2bewm02x": "piper",
   "2f3bv78dkdx": "piper",
@@ -9912,7 +10113,8 @@
   },
   "2f82zxi9khi": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2f89v98d8dq": "piper",
   "2f8jrqgleb5": "piper",
@@ -10001,7 +10203,8 @@
   "2frepc2clwa": "piper",
   "2friynngl18": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2frnfobz51o": "piper",
   "2frutanxsge": "piper",
@@ -10054,7 +10257,8 @@
   },
   "2fywhp2mnxp": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2fz5ki1v9ir": "piper",
   "2fz8lpvlj7x": "piper",
@@ -10170,7 +10374,8 @@
   "2gjl1lloqfu": "piper",
   "2gjw1d1tmll": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2gjxe1l0yg2": "piper",
   "2gk9leq8tm8": "piper",
@@ -10180,7 +10385,8 @@
   "2gl9vuip2r7": "piper",
   "2glflralgj1": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2gljpiztcd5": {
     "engine": "gemini",
@@ -10226,7 +10432,8 @@
   "2j8qzie3b3": "piper",
   "2k1yz3wk6q": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2k5nt2ayyl": "piper",
   "2kmtg3ounz": "piper",
@@ -10236,22 +10443,26 @@
   },
   "2mtwbu6gfy": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2mwxljvxn4": "piper",
   "2n0b9dm4w4": "piper",
   "2nojs37qvk": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2o050pnhba": "piper",
   "2o33r1sfyf": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2o91s637em": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "2oekbef1mm": {
     "engine": "gemini",
@@ -10319,7 +10530,8 @@
   "2zay0vniqe": "piper",
   "2zelnqa2e0": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "302835p2b5": "piper",
   "313ncyw220": "piper",
@@ -10341,7 +10553,8 @@
   },
   "35rx23pq3l": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "35s66obfpd": {
     "engine": "gemini",
@@ -10422,7 +10635,8 @@
   },
   "3j5v3k76a9": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "3k58m7v3ol": "piper",
   "3kplek9zty": {
@@ -10435,7 +10649,8 @@
   "3lpjx53pfe": "piper",
   "3m33jg4z8f": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "3mdqb6wy4m": "piper",
   "3mm7qabrcb": {
@@ -10445,7 +10660,8 @@
   "3n1nx9p062": "piper",
   "3n4yiydaxs": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "3p4ul0nzij": "piper",
   "3pkudmswau": {
@@ -10500,7 +10716,8 @@
   "3wpg36cj7c": "piper",
   "3wzm3m54hh": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "3xrgy2k46j": "piper",
   "3xuheukyw4": "piper",
@@ -10524,7 +10741,8 @@
   "3zwvqi9ij3": "piper",
   "40fugqu86a": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "40oawexh7p": {
     "engine": "gemini",
@@ -10553,7 +10771,8 @@
   "454t9cexjv": "piper",
   "45fgj6i8xf": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "46d9kntaio": {
     "engine": "gemini",
@@ -10578,13 +10797,15 @@
   },
   "49p740rt1b": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "49prbao4xw": "piper",
   "49ptj9oddk": "piper",
   "4a0xoj6t55": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "4b09moqn7q": "piper",
   "4bbtjl0km9": "piper",
@@ -10641,7 +10862,8 @@
   "4rz6fxruul": "piper",
   "4s0bmu5cyu": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "4sv9axatuk": "piper",
   "4t50uwuf1r": {
@@ -10697,7 +10919,8 @@
   "52cma1mgbi": "piper",
   "52kekq9pe2": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore+Puck+Kore+Puck+Kore+Puck+Kore+Puck"
   },
   "52n8kksz5q": {
     "engine": "gemini",
@@ -10766,7 +10989,8 @@
   "5flaa7erhk": "piper",
   "5gblobrgzz": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "5gpidf7lec": "piper",
   "5gs4hleuy4": "piper",
@@ -10818,7 +11042,8 @@
   "5p4uwswqmn": "piper",
   "5pkobkjdmi": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "5pt98usz02": "piper",
   "5pzkxza7mj": "piper",
@@ -10843,7 +11068,8 @@
   },
   "5tvtow489k": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "5twmr2t1pm": "piper",
   "5u4hxsrysj": "piper",
@@ -10860,7 +11086,8 @@
   "5utgkdx03s": "piper",
   "5vhoqpoiw5": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "5vslivtphr": "piper",
   "5vtznjwbip": {
@@ -10891,7 +11118,8 @@
   },
   "5yly5bughy": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "5ypez8vbok": {
     "engine": "gemini",
@@ -10899,7 +11127,8 @@
   },
   "5ysiw1tb9e": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "5ysz7as5f6": {
     "engine": "gemini",
@@ -10934,7 +11163,8 @@
   "66jwvpc2t5": "piper",
   "675vughe2i": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "67j7wodv3f": "piper",
   "681ja8kojs": "piper",
@@ -10962,7 +11192,8 @@
   "6bjgugc7ij": "piper",
   "6bm2lbwbfx": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "6bxj4etk5l": "piper",
   "6d9tvnpuks": "piper",
@@ -11009,7 +11240,8 @@
   "6odrlfje48": "piper",
   "6oktbdms5x": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "6oqyd4sozd": {
     "engine": "gemini",
@@ -11041,7 +11273,8 @@
   "6thxpt05o9": "piper",
   "6tr1n5l6yx": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "6tup6q61w": {
     "engine": "gemini",
@@ -11053,7 +11286,8 @@
   },
   "6uyhyivttt": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "6vccqlmd5x": "piper",
   "6vemafoihi": "piper",
@@ -11100,14 +11334,16 @@
   },
   "71hwv0nv60": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "71kk3k2fir": "piper",
   "72bi1iohvy": "piper",
   "72i29uxb3v": "piper",
   "72qocskv8l": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "72wb86kqy2": "piper",
   "736ztmqmgw": "piper",
@@ -11147,12 +11383,14 @@
   },
   "78vr8mm91o": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "7a7smf3gf4": "piper",
   "7ak9jmyoxn": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "7an6ugl1bw": {
     "engine": "gemini",
@@ -11294,7 +11532,8 @@
   },
   "82muzitltt": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "832ka8wy3z": {
     "engine": "gemini",
@@ -11382,7 +11621,8 @@
   "8feu5zjtit": "piper",
   "8fnx5mt63k": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "8fx34ydbmz": {
     "engine": "gemini",
@@ -11421,11 +11661,13 @@
   "8mmrpunn6l": "piper",
   "8n4fjl0iqq": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "8nfpledqyo": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "8nhurfmn7j": {
     "engine": "gemini",
@@ -11468,7 +11710,8 @@
   "8viouc8ttl": "piper",
   "8w9jibruyc": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "8wbaq6sdxl": "piper",
   "8whhmhbqna": "piper",
@@ -11504,7 +11747,8 @@
   "9296mjihuq": "piper",
   "92fqmbvavd": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "92hetjdnuz": "piper",
   "92tlpyavj7": "piper",
@@ -11515,7 +11759,8 @@
   "94pu1v9ho8": "piper",
   "94sh2emar7": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "95ktyezi7": "piper",
   "95tu3hljbr": {
@@ -11543,7 +11788,8 @@
   },
   "98ul425lbg": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "992d31rfgg": {
     "engine": "gemini",
@@ -11573,7 +11819,8 @@
   "9ai2yd4k8n": "piper",
   "9b377nlitf": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Aoede+Charon+Aoede+Charon+Aoede+Charon+Aoede+Charon"
   },
   "9bgrp1w6xr": "piper",
   "9blggxcvls": "piper",
@@ -11621,7 +11868,8 @@
   },
   "9k6o3l13zz": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "9kipadfrjk": "piper",
   "9kkzd6091h": "piper",
@@ -11637,7 +11885,8 @@
   },
   "9mt02ohjqb": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "9my2dhkq0h": "piper",
   "9n8xrxc3h7": "piper",
@@ -11696,7 +11945,8 @@
   },
   "9ua8rmj2vr": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "9uo9h5562h": "piper",
   "9uobp18xxp": "piper",
@@ -11715,7 +11965,8 @@
   },
   "9ycfpvkc9j": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "9yx62lswn9": "piper",
   "9zd5b7rqvu": "piper",
@@ -11724,7 +11975,8 @@
   "a0apkgpgqe": "piper",
   "a0dcs5v529": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "a0ha1oqicr": "piper",
   "a0uamskmti": "piper",
@@ -11857,7 +12109,8 @@
   "an3te43yy": "piper",
   "anke4s4z62": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "ansmbdldwx": "piper",
   "anvdmn6rcp": {
@@ -11903,7 +12156,8 @@
   "axkw9fw4gj": "piper",
   "ay2kw9idi7": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "aybw9h3e2r": "piper",
   "ayetroaqud": "piper",
@@ -12037,7 +12291,8 @@
   "boztwjh88f": "piper",
   "bqcvz3be6g": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "bqejvbgtb9": "piper",
   "bqnlr2bo9y": "piper",
@@ -12082,7 +12337,8 @@
   },
   "c1wi1f05vc": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "c1z4zkz27w": {
     "engine": "gemini",
@@ -12199,7 +12455,8 @@
   "cms6yrcdu5": "piper",
   "cmw1yh923y": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "cmx2f4jsqn": "piper",
   "cn13fwdcnw": {
@@ -12275,12 +12532,14 @@
   "cyu555l7vy": "piper",
   "cyx88ocbpp": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "czfxffb1i9": "piper",
   "d0cf75y3ep": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "d0k2mjfkgz": "piper",
   "d0qe25dv9x": {
@@ -12331,7 +12590,8 @@
   },
   "d9jh92krx2": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "d9lfj43jk6": "piper",
   "da7yjynkbp": {
@@ -12423,7 +12683,8 @@
   },
   "dplov1mpcv": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "dqlnu91d3e": {
     "engine": "gemini",
@@ -12454,7 +12715,8 @@
   "duhisv488v": "piper",
   "dvh1i7w61q": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Puck"
   },
   "dvk78z71hn": {
     "engine": "gemini",
@@ -12492,7 +12754,8 @@
   },
   "e4nevgujgr": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "e4obg47l8i": {
     "engine": "gemini",
@@ -12501,7 +12764,8 @@
   "e4va3655j0": "piper",
   "e4w26foel3": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "e50gnhd60": {
     "engine": "gemini",
@@ -12513,7 +12777,8 @@
   },
   "e53maa2yjt": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "e55zk1y0fr": "piper",
   "e5j0a7ogej": "piper",
@@ -12694,7 +12959,8 @@
   },
   "ezrut2ufan": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "ezs15ljjno": {
     "engine": "gemini",
@@ -12725,7 +12991,8 @@
   },
   "f5tm0pjb5z": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "f6ts0rgbzn": "piper",
   "f6wm99la21": {
@@ -12779,7 +13046,8 @@
   "fhmer844xn": "piper",
   "fi66zrim08": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "fi7wxd71kt": "piper",
   "fir4ktypp8": "piper",
@@ -12844,7 +13112,8 @@
   "fuddsueon3": "piper",
   "fuhgn2j2j7": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "fv01gh8pwy": {
     "engine": "gemini",
@@ -12853,7 +13122,8 @@
   "fv1sj160b5": "piper",
   "fv3kspvyuj": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "fwhs5xydwq": "piper",
   "fwxo9qdc4b": "piper",
@@ -12897,7 +13167,8 @@
   "g47yx3ggt4": "piper",
   "g48hrlj8mi": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "g4qf6j85e6": {
     "engine": "gemini",
@@ -12914,7 +13185,8 @@
   "g7eo1sjrj8": "piper",
   "g7ueqswcrk": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "g814mdez4m": "piper",
   "g86n5w616j": "piper",
@@ -12928,7 +13200,8 @@
   "gbrm67t8pj": "piper",
   "gbu3m0acav": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "gcgo4gpoal": "piper",
   "gco54rpa4z": "piper",
@@ -12951,7 +13224,8 @@
   "ghr9aa3xf": "piper",
   "gisuo9rx5s": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "giv10blwh1": "piper",
   "giv427nijw": "piper",
@@ -12996,7 +13270,8 @@
   "gr609alzlp": "piper",
   "gs5gvwc6re": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Aoede+Charon+Aoede+Charon+Aoede+Charon+Aoede+Charon"
   },
   "gs5uwcrydh": {
     "engine": "gemini",
@@ -13057,7 +13332,8 @@
   "h1jeomoln6": "piper",
   "h225j5wkb1": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "h22gysxr9q": {
     "engine": "gemini",
@@ -13097,11 +13373,13 @@
   "h5zkaze97j": "piper",
   "h6naqf8f0c": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Puck"
   },
   "h8ouvmdbxd": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "h8skuc1n8o": {
     "engine": "gemini",
@@ -13186,7 +13464,8 @@
   "hpkdxxghls": "piper",
   "hqasf75kz": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "hqf2ml2lpj": {
     "engine": "gemini",
@@ -13297,11 +13576,13 @@
   },
   "ici628805k": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "ickgrowraw": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "icqylxli5k": {
     "engine": "gemini",
@@ -13324,7 +13605,8 @@
   "idbxo7kvbu": "piper",
   "idp0y718qa": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "iebhj8e7ce": "piper",
   "iehka1bz5f": {
@@ -13336,7 +13618,8 @@
   "ielrs1vt6e": "piper",
   "ifour8gbq6": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "igjxctnvbv": {
     "engine": "gemini",
@@ -13345,7 +13628,8 @@
   "igodt7eucr": "piper",
   "igpsuoii27": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "igu4v7wpbh": "piper",
   "igxqqdmp9j": "piper",
@@ -13372,7 +13656,8 @@
   "iiz4qgycz5": "piper",
   "ij5mvlm29a": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "ijcghl2kv7": {
     "engine": "gemini",
@@ -13399,7 +13684,8 @@
   },
   "ipq0kpcbty": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "iqyr5u4r00": "piper",
   "ir02btm748": "piper",
@@ -13489,7 +13775,8 @@
   "j7qfgb04gk": "piper",
   "j817xy5wke": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "j84cr94xfm": "piper",
   "j8em9idffn": {
@@ -13538,7 +13825,8 @@
   "jel02651lz": "piper",
   "jemyllpxkh": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "jen48cm3wo": "piper",
   "jes5lqvtnw": "piper",
@@ -13554,7 +13842,8 @@
   "jgcndct6u7": "piper",
   "jh4po8tg89": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "jh5zmnd1xu": "piper",
   "jh9wstqaro": "piper",
@@ -13834,7 +14123,8 @@
   "l18x7wxmzt": "piper",
   "l1annt8sr2": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "l1lkas0npc": "piper",
   "l1u8dweu9q": {
@@ -13976,7 +14266,8 @@
   "lnzehaykvt": "piper",
   "lo5ndw1l5q": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "lonsmgq7ps": {
     "engine": "gemini",
@@ -14002,7 +14293,8 @@
   "lry4s1vsi3": "piper",
   "ls2xvh9brp": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "ls7jh8pmjb": "piper",
   "lsjtoxnxbi": "piper",
@@ -14084,7 +14376,8 @@
   "m85z54ge5u": "piper",
   "m8jvbyh9xu": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "m8tguigrsr": {
     "engine": "gemini",
@@ -14096,7 +14389,8 @@
   },
   "m90r66vlza": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "m9844z9c9b": "piper",
   "m9argx857e": "piper",
@@ -14141,7 +14435,8 @@
   "mfrvhg18g2": "piper",
   "mfuld9u3bs": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "mg2ppiahbu": {
     "engine": "gemini",
@@ -14159,7 +14454,8 @@
   "mixidjz39": "piper",
   "mj41hdu2qz": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "mkxt68g98p": {
     "engine": "gemini",
@@ -14232,7 +14528,8 @@
   "mwur6rualu": "piper",
   "mxlxvr3r8m": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "mxms357b46": "piper",
   "my27t4ztgf": {
@@ -14251,7 +14548,8 @@
   "n0ft483tsp": "piper",
   "n0k72aod0e": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "n0nl762o77": {
     "engine": "gemini",
@@ -14295,7 +14593,8 @@
   "nf0a61oos1": "piper",
   "nf120hgy35": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "nf3trjmedt": "piper",
   "nfextos1o2": "piper",
@@ -14337,7 +14636,8 @@
   "nl8d0p4xek": "piper",
   "nlx21nff99": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "nm52821gru": {
     "engine": "gemini",
@@ -14355,7 +14655,8 @@
   "nocci07730": "piper",
   "novuxqeqay": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "np26cwt86i": "piper",
   "np5bvy6iny": "piper",
@@ -14387,7 +14688,8 @@
   },
   "nsvlic8buf": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "nticd8txzn": "piper",
   "ntp2dhkdvp": {
@@ -14405,7 +14707,8 @@
   "nvkr6gwuf2": "piper",
   "nvqd9yuiae": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "nw7zipbzjf": "piper",
   "nwbhm1i0lk": "piper",
@@ -14433,7 +14736,8 @@
   "o1wz6o1cqb": "piper",
   "o2dvzhedag": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "o2ncoc02gg": "piper",
   "o2y3o21v0x": "piper",
@@ -14453,7 +14757,8 @@
   "oa1qmbt8kq": "piper",
   "oam20f4ebf": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "ob55mtcpt7": "piper",
   "obcydlzyr": "piper",
@@ -14509,7 +14814,8 @@
   "ojils09jn6": "piper",
   "ojmlfzkzqh": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "ojpetxsafp": "piper",
   "ojw9vr2pyz": "piper",
@@ -14518,7 +14824,8 @@
   "ok7to2k2sg": "piper",
   "okcxj09two": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Puck+Aoede+Puck+Aoede+Puck+Aoede+Puck+Aoede"
   },
   "okn2iqf7f7": "piper",
   "oktq0tlqhu": "piper",
@@ -14551,7 +14858,8 @@
   "opmau9qhnw": "piper",
   "oq0mtf4jwl": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "oqgxs9lzgw": "piper",
   "oqq25pldp6": "piper",
@@ -14574,7 +14882,8 @@
   "ot7pmghzl0": "piper",
   "ounrizquah": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "ovd0r5jf8y": {
     "engine": "gemini",
@@ -14597,7 +14906,8 @@
   },
   "ox1fl6szss": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "oxga1yh9pn": {
     "engine": "gemini",
@@ -14614,7 +14924,8 @@
   },
   "oz2j9toa9i": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "oz9fut48rr": "piper",
   "oz9o6bgizw": "piper",
@@ -14659,7 +14970,8 @@
   },
   "p6h5uhhdhj": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "p6ibad5tuf": {
     "engine": "gemini",
@@ -14740,7 +15052,8 @@
   "pjfwlz51fy": "piper",
   "pjfzp3q608": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "pjleijrdzk": {
     "engine": "gemini",
@@ -14861,7 +15174,8 @@
   "q3ptogt0dt": "piper",
   "q3wz0ra23h": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "q44vzcqoom": "piper",
   "q46x5y9oo3": "piper",
@@ -14963,7 +15277,8 @@
   "qr3fuikevg": "piper",
   "qr4zl45kxw": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "qrfck28fvc": {
     "engine": "gemini",
@@ -15010,7 +15325,8 @@
   "qwqc01z9tb": "piper",
   "qx6gjoq1se": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "qxcwrsyv48": {
     "engine": "gemini",
@@ -15062,14 +15378,16 @@
   },
   "r4otwezxea": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "r50cn66993": "piper",
   "r5c6094od4": "piper",
   "r5pefkifpt": "piper",
   "r65n81sfpi": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "r69im6l47p": "piper",
   "r6nb8wp6sg": "piper",
@@ -15079,11 +15397,13 @@
   },
   "r70kcect65": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "r74dqvly4a": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "r7imudgnez": {
     "engine": "gemini",
@@ -15285,7 +15605,8 @@
   },
   "s9ltow0n5o": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "s9r2q087fi": {
     "engine": "gemini",
@@ -15304,7 +15625,8 @@
   },
   "scb2ls90wq": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "scbya6r5em": "piper",
   "sd2xde35j1": "piper",
@@ -15407,7 +15729,8 @@
   },
   "sqpfwu6u7k": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "srq0wid3oe": "piper",
   "sso8rsm7a0": {
@@ -15439,7 +15762,8 @@
   "sya2n82v48": "piper",
   "syisltsdrs": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "t14h2w9s8e": "piper",
   "t17u1tz29h": "piper",
@@ -15464,7 +15788,8 @@
   },
   "t4x83vrauy": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "t5qc4johz2": {
     "engine": "gemini",
@@ -15472,7 +15797,8 @@
   },
   "t6bl27114": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "t6fozhbl88": "piper",
   "t71s5pd4rl": {
@@ -15502,7 +15828,8 @@
   },
   "ta4v0wqlpx": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "ta7kr8ugf6": {
     "engine": "gemini",
@@ -15578,7 +15905,8 @@
   },
   "ti60tae7k8": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "tibr1bd5ul": "piper",
   "tii46rmry5": "piper",
@@ -15604,7 +15932,8 @@
   "tlyahqasix": "piper",
   "tm1tjh14qg": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "tmabe6k5y5": "piper",
   "tmnq5agn5d": "piper",
@@ -15616,7 +15945,8 @@
   "tn943fozt8": "piper",
   "tncan0053i": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "tnhjbiwzmo": "piper",
   "tnqr1y4tok": "piper",
@@ -15628,7 +15958,8 @@
   "trbd9dn9q": "piper",
   "trjds0g68z": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "trzackzobl": "piper",
   "tsffnk73yn": "piper",
@@ -15647,7 +15978,8 @@
   "tv1xupf0t1": "piper",
   "tvim50rwlr": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "tw48xixe5z": "piper",
   "twsad754sq": "piper",
@@ -15828,7 +16160,8 @@
   },
   "v0wdgjwg13": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "v1264il47r": {
     "engine": "gemini",
@@ -15858,7 +16191,8 @@
   },
   "v7e2sut6pb": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "v7f8lmwd9k": {
     "engine": "gemini",
@@ -15895,7 +16229,8 @@
   "vcyfzrnnev": "piper",
   "vd7cnqidhk": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "vdomzjbyew": "piper",
   "vdxw2jkdga": {
@@ -15915,7 +16250,8 @@
   },
   "vesllul1r": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "veu966uwcr": "piper",
   "veug0628m": {
@@ -15976,7 +16312,8 @@
   "vpytmhti3f": "piper",
   "vqvo5afgsa": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "vr9l5dis1f": "piper",
   "vrbbpx54w9": "piper",
@@ -16029,7 +16366,8 @@
   },
   "vys1bm65d3": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "vysfdq09cd": "piper",
   "vz1vyr681g": "piper",
@@ -16043,7 +16381,8 @@
   },
   "w0zued7013": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "w10520j4fq": "piper",
   "w1bouzjsf8": "piper",
@@ -16072,7 +16411,8 @@
   "w68fwi1bq3": "piper",
   "w68ops7n5p": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "w6s303pu1d": "piper",
   "w6usuhbcza": "piper",
@@ -16090,7 +16430,8 @@
   },
   "w9oduixlqe": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Leda+Charon+Leda+Charon+Leda+Charon+Leda+Charon"
   },
   "w9sadsyhwu": "piper",
   "wa98moo06v": "piper",
@@ -16108,7 +16449,8 @@
   "wd82x8hj0w": "piper",
   "wdd2lb37o3": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "wdnv8ojgeo": {
     "engine": "gemini",
@@ -16352,7 +16694,8 @@
   "xtgf392o01": "piper",
   "xth1etrnr4": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "xtkcxakw2n": "piper",
   "xu0rfsw3d": "piper",
@@ -16511,7 +16854,8 @@
   },
   "yojeoy6dei": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "yon3eusl09": "piper",
   "ypc0q566lh": "piper",
@@ -16535,7 +16879,8 @@
   },
   "ytwp9l51x3": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "yv2jvirwob": "piper",
   "yv6rw3scgz": {
@@ -16548,12 +16893,14 @@
   },
   "yvuqlaj2tr": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "yvwnz1wrgp": "piper",
   "yw5ufe750r": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "yw9rdo99me": {
     "engine": "gemini",
@@ -16607,12 +16954,14 @@
   },
   "z6gv06qwh8": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "z6lus1ti1o": "piper",
   "z6n4wp5txw": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Charon+Kore+Charon+Kore+Charon+Kore+Charon+Kore+Charon+Kore"
   },
   "z72il6vz59": {
     "engine": "gemini",
@@ -16679,7 +17028,8 @@
   },
   "zipx5e1stm": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Puck"
   },
   "zj4ipzcrix": "piper",
   "zjgy6xi9yw": {
@@ -16714,7 +17064,8 @@
   "zlszgm17c0": "piper",
   "zm217x99n5": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "zm2gn75a09": "piper",
   "zm2znb6rr": "piper",
@@ -16726,7 +17077,8 @@
   "zn3difwzn6": "piper",
   "zn5tmbsqan": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "znab7ymedq": "piper",
   "znldijv42n": {
@@ -16751,7 +17103,8 @@
   },
   "zqkkfedd2x": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "zqlk9feo57": {
     "engine": "gemini",
@@ -16783,7 +17136,8 @@
   "zy8hak39e0": "piper",
   "zyc9egt5lw": {
     "engine": "gemini",
-    "model": "gemini-3.1-flash-tts-preview"
+    "model": "gemini-3.1-flash-tts-preview",
+    "voice": "Kore"
   },
   "zyfloo73tx": "piper",
   "zzzwjlh8l4": {
