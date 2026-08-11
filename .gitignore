@@ -125,3 +125,4 @@ public/audio/*.mp3
 
 # Sondas descartáveis: scripts de investigação de um dia só.
 scripts/_*.ts
+.blocos-log.txt

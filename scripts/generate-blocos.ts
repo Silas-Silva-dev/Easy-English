@@ -177,9 +177,18 @@ export interface BlocosDoCircuito {
  * Inglês de livro, que o curso proíbe. A regra está escrita em `canto-1.ts`
  * desde o primeiro dia: "inglês americano falado, contrações sempre". Um
  * "I am fine" ensina o aluno a soar como legenda de filme antigo.
+ *
+ * A EXCEÇÃO, que custou três circuitos reprovados antes de eu perceber: no fim
+ * da oração o auxiliar NÃO CONTRAI. "Yes, I am." está certo e "Yes, I'm." é
+ * agramatical — o inglês não aceita forma fraca em posição tônica final. Vale
+ * para toda resposta curta afirmativa: "Yes, he is.", "Yes, they are.",
+ * "I think it is.".
+ *
+ * Por isso o lookahead: só reprova quando o auxiliar tem continuação. Antes de
+ * ponto, vírgula, interrogação, exclamação ou fim de texto, ele fica.
  */
 const SEM_CONTRACAO =
-  /\b(I am|it is|that is|there is|he is|she is|we are|they are|you are|do not|does not|did not|is not|are not|was not|were not|cannot|will not|would not|should not|have not|has not)\b/;
+  /\b(I am|it is|that is|there is|he is|she is|we are|they are|you are|do not|does not|did not|is not|are not|was not|were not|cannot|will not|would not|should not|have not|has not)\b(?!\s*[.,!?]|$)/i;
 
 const palavras = (s: string) => s.trim().split(/\s+/).filter(Boolean).length;
 
@@ -299,6 +308,8 @@ const REGRAS = `
 REGRAS DE ESCRITA, e elas reprovam a entrega quando quebradas:
   - Inglês americano FALADO, não inglês de livro. CONTRAÇÃO SEMPRE: "I'm",
     "it's", "don't", "he's", "that's". Escrever "I am fine" reprova a entrega.
+    A ÚNICA exceção é o fim da oração, onde o inglês não contrai: "Yes, I am."
+    e "Yes, he is." estão certos, e "Yes, I'm." é agramatical.
   - Frase que uma pessoa real diria em voz alta, naquela situação, hoje.
     Nada de frase de exercício ("The book is on the table").
   - Tradução em português do Brasil, natural, do jeito que um brasileiro diria
