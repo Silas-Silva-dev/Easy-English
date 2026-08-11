@@ -37,6 +37,7 @@
     "upload:audio": "tsx scripts/upload-audio.ts",
     "gen:blocos": "tsx scripts/generate-blocos.ts",
     "gen:formas": "tsx scripts/generate-formas.ts",
+    "revisar": "tsx scripts/revisar-frases.ts",
     "gen:dialogos": "tsx scripts/generate-dialogos.ts"
   },
   "engines": {
