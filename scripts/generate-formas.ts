@@ -168,6 +168,13 @@ Estes erros sao reais, saiam de uma tentativa anterior, e reprovam a entrega:
 Se um bloco nao aguenta mais nenhuma forma honesta, NAO INVENTE: ponha as
 formas em outro bloco do lote. O total e que precisa fechar, nao a divisao.
 
+E se o LOTE INTEIRO nao aguentar o total, entregue menos. Isto nao e formalidade:
+a rodada anterior deste script fechou o numero inventando, e um revisor nativo
+depois reprovou 1.555 frases do curso. Sairam coisas como "It's how interesting."
+(de "How interesting!" virando terceira pessoa) e "I will have a rash on my arm"
+(futuro para sintoma de agora). Numero fechado com frase falsa e pior do que
+numero aberto: a frase falsa vai para a boca do aluno.
+
 INGLES AMERICANO FALADO, com contracao: "I'm", "don't", "it's", "isn't".
 A excecao e o fim da oracao, onde nao se contrai: "Yes, I am." fica assim.
 

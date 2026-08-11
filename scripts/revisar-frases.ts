@@ -66,7 +66,7 @@ interface BlocosDoCircuito {
 interface Frase {
   circuito: number;
   bloco: string;
-  onde: "forma" | "recombinacao";
+  onde: "forma" | "recombinacao" | "base";
   indice: number;
   en: string;
   pt: string;
@@ -170,10 +170,28 @@ function salvar(todos: BlocosDoCircuito[]) {
 }
 
 /** Todas as frases derivadas do curso, na ordem em que moram no arquivo. */
-function todasAsFrases(todos: BlocosDoCircuito[], soCircuito: number | null): Frase[] {
+function todasAsFrases(
+  todos: BlocosDoCircuito[],
+  soCircuito: number | null,
+  soBase = false,
+): Frase[] {
   const saida: Frase[] = [];
   for (const c of todos) {
     if (soCircuito && c.n !== soCircuito) continue;
+    for (const b of (c.blocos ?? []).entries()) {
+      const [iBloco, bloco] = b;
+      if (soBase) {
+        saida.push({
+          circuito: c.n,
+          bloco: bloco.en,
+          onde: "base",
+          indice: iBloco,
+          en: bloco.en,
+          pt: bloco.pt,
+        });
+      }
+    }
+    if (soBase) continue;
     for (const b of c.blocos ?? []) {
       (b.formas ?? []).forEach((f, i) =>
         saida.push({
@@ -201,6 +219,79 @@ function todasAsFrases(todos: BlocosDoCircuito[], soCircuito: number | null): Fr
   return saida;
 }
 
+/**
+ * Aplica os consertos nos blocos base, levando as recombinacoes junto.
+ *
+ * O bloco base nao e uma frase qualquer: ele e a ANCORA do dialogo (o aluno
+ * tem que reencontra-lo la dentro, palavra por palavra) e e o miolo de cada
+ * recombinacao (que e o bloco DENTRO de uma frase maior). Trocar o texto do
+ * bloco sem mexer em mais nada quebraria os dois contratos de uma vez.
+ *
+ * A recombinacao tem conserto mecanico e exato: ela CONTEM o texto antigo,
+ * entao trocar essa parte pelo texto novo preserva a frase e devolve a
+ * contencao. "Do you intend to travel this weekend, or are you staying home?"
+ * vira "Are you planning on traveling this weekend, or are you staying home?"
+ * — mesma frase, miolo consertado.
+ *
+ * Quando o texto antigo nao aparece literalmente, a recombinacao SAI. Preferir
+ * remover a remendar e a mesma regra do resto deste arquivo.
+ *
+ * O dialogo e outra historia e nao se conserta por substituicao: ele e prosa.
+ * Aqui so se aponta quais circuitos foram mexidos, e a regeracao e um comando
+ * separado, depois do verificador dizer quais perderam ancora.
+ */
+function aplicarNosBlocos(
+  todos: BlocosDoCircuito[],
+  reprovadas: { frase: Frase; motivo: string; conserto?: string; consertoPt?: string }[],
+) {
+  let trocados = 0;
+  let ajustadas = 0;
+  let removidas = 0;
+  const mexidos = new Set<number>();
+
+  for (const r of reprovadas) {
+    const circuito = todos.find((c) => c.n === r.frase.circuito);
+    const bloco = circuito?.blocos[r.frase.indice];
+    if (!circuito || !bloco || bloco.en !== r.frase.en) continue;
+
+    const novo = r.conserto ? contrair(r.conserto) : null;
+    if (!novo || !r.consertoPt?.trim()) continue;
+    if (faltaContracao(novo) || novo.includes("/")) continue;
+
+    const chave = chunkKey(novo);
+    if (circuito.blocos.some((b, i) => i !== r.frase.indice && chunkKey(b.en) === chave)) continue;
+
+    const antigo = bloco.en;
+    bloco.en = novo;
+    bloco.pt = r.consertoPt.trim();
+    trocados++;
+    mexidos.add(circuito.n);
+
+    bloco.recombinacoes = bloco.recombinacoes.flatMap((rec) => {
+      if (!rec.en.includes(antigo)) {
+        removidas++;
+        return [];
+      }
+      ajustadas++;
+      return [{ ...rec, en: rec.en.replace(antigo, novo) }];
+    });
+
+    // A forma que virou igual ao bloco novo deixa de ser "outra cara".
+    bloco.formas = bloco.formas.filter((f) => chunkKey(f.en) !== chave);
+  }
+
+  salvar(todos);
+
+  console.log(`
+  ${trocados} blocos trocados.`);
+  console.log(`  ${ajustadas} recombinacoes acompanharam, ${removidas} sairam.`);
+  console.log(`  circuitos mexidos: ${[...mexidos].sort((a, b) => a - b).join(", ")}`);
+  console.log(`
+  Agora rode: npm run verify:content`);
+  console.log(`  Os circuitos que perderem ancora precisam de gen:dialogos --force.
+`);
+}
+
 async function main() {
   const argv = process.argv.slice(2);
   const get = (nome: string) => {
@@ -211,8 +302,33 @@ async function main() {
   const soCircuito = get("circuito") ? Number(get("circuito")) : null;
   const model = get("model") ?? env("GEMINI_MODEL_TUTOR", "gemini-3.1-flash-lite");
 
+  const soBase = argv.includes("--blocos");
+  const aplicar = argv.includes("--aplicar");
+  const desde = get("novas");
   const todos = load();
-  let frases = todasAsFrases(todos, soCircuito);
+  let frases = todasAsFrases(todos, soCircuito, soBase);
+
+  // `--novas <snapshot>`: revisa so o que nao existia no snapshot.
+  //
+  // Depois da primeira varredura, reler as 11.851 frases ja aprovadas custa
+  // meia hora para confirmar o que ja se sabe. O que precisa de revisao e o
+  // que a reposicao de formas acrescentou desde entao — e e justamente ali que
+  // mora o risco, porque foi pedindo volume que o modelo inventou da primeira
+  // vez.
+  if (desde) {
+    const antes = JSON.parse(readFileSync(desde, "utf8")) as BlocosDoCircuito[];
+    const conhecidas = new Set<string>();
+    for (const c of antes) {
+      for (const b of c.blocos ?? []) {
+        conhecidas.add(chunkKey(b.en));
+        for (const f of b.formas ?? []) conhecidas.add(chunkKey(f.en));
+        for (const r of b.recombinacoes ?? []) conhecidas.add(chunkKey(r.en));
+      }
+    }
+    const antesDeFiltrar = frases.length;
+    frases = frases.filter((f) => !conhecidas.has(chunkKey(f.en)));
+    console.log(`  (--novas: ${antesDeFiltrar - frases.length} ja revisadas ficaram de fora)`);
+  }
 
   if (amostra) {
     // Amostra espalhada, e não as primeiras: os primeiros circuitos são os mais
@@ -294,8 +410,18 @@ async function main() {
   }
   if (reprovadas.length > 25) console.log(`  … e mais ${reprovadas.length - 25}`);
 
-  if (amostra) {
-    console.log(`\n  (--amostra: nada foi escrito)\n`);
+  if (amostra || (soBase && !aplicar)) {
+    // `--blocos` sozinho só relata. Trocar o bloco base cascateia — ele é a
+    // âncora do diálogo e o miolo da recombinação — então a troca precisa ser
+    // uma decisão, e não efeito colateral de rodar um relatório.
+    console.log(
+      `\n  (${soBase ? "--blocos: relatório. Use --aplicar para escrever" : "--amostra: nada foi escrito"})\n`,
+    );
+    return;
+  }
+
+  if (soBase) {
+    aplicarNosBlocos(todos, reprovadas);
     return;
   }
 
