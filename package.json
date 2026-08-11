@@ -15,6 +15,7 @@
     "check": "tsx scripts/check-setup.ts",
     "check:email": "tsx scripts/check-email.ts",
     "check:audio": "tsx scripts/check-audio.ts",
+    "audit:audio": "tsx scripts/auditar-audio.ts",
     "compare:fala": "tsx --conditions=react-server scripts/compare-speaking-models.ts",
     "check:pagamento": "tsx scripts/check-payments.ts",
     "check:seguranca": "tsx scripts/check-security.ts",

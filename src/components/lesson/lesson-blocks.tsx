@@ -1,6 +1,7 @@
 import { Globe, Info, Lightbulb, TriangleAlert } from "lucide-react";
 import * as React from "react";
 
+import { AudioPlayer } from "@/components/audio/audio-player";
 import { PronunciationLine } from "@/components/lesson/pronunciation-line";
 import { cn } from "@/lib/utils";
 import type { LessonBlock } from "@/lib/types/database";
@@ -201,6 +202,17 @@ export function LessonBlockView({ block }: { block: LessonBlock }) {
                 {item.note ? (
                   <p className="text-muted-foreground/85 mt-1 text-xs italic">{item.note}</p>
                 ) : null}
+                {/*
+                  Sem este player a forma era um exercicio de LEITURA, e o curso
+                  inteiro se apoia em ouvir antes de ler. O aluno lia "Did you
+                  catch that?" e pronunciava com fonema portugues sobre grafia
+                  inglesa — que e o defeito que a espinha de fonologia existe
+                  para desfazer, criado aqui pela ausencia de um botao.
+
+                  O arquivo ja existia: eram 5.816 audios gerados que nenhuma
+                  tela pedia.
+                */}
+                <AudioPlayer text={item.en} mode="single" label="Ouvir" compact className="mt-2" />
               </div>
             ))}
           </div>

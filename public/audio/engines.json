@@ -53,6 +53,10 @@
   "10iram5vou8": "piper",
   "10iswdcqexe": "piper",
   "10ix73ih8dt": "piper",
+  "10izxrg4d7m": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "10jy2t13446": "piper",
   "10k2rbcrs2s": "piper",
   "10k31xltzpn": {
@@ -72,7 +76,10 @@
   "10mu32ikgef": "piper",
   "10mz81xtbul": "piper",
   "10n32cf7577": "piper",
-  "10ngbpoas52": "piper",
+  "10ngbpoas52": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "10nohpxk09c": "piper",
   "10oddmar3ss": "piper",
   "10oj6eqg28b": "piper",
@@ -87,7 +94,10 @@
   "10sjw6gdplh": "piper",
   "10sk4ldxkzt": "piper",
   "10th12jmpfk": "piper",
-  "10twwt0bueu": "piper",
+  "10twwt0bueu": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "10un2y8jhdo": "piper",
   "10utecrzvmy": "piper",
   "10vqcl63l4v": "piper",
@@ -95,15 +105,29 @@
   "10wkvnk9h5l": "piper",
   "10wlfqk3vjq": "piper",
   "10wlzddhb24": "piper",
+  "10xsweq7eoa": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "10y33atuzng": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "10y3zsplxhg": "piper",
   "10yw4zmskss": "piper",
   "10ywno5guwv": "piper",
   "10yze4w7kdk": "piper",
   "10z3as29l2a": "piper",
   "10zvgk0spex": "piper",
-  "10zxceacvbh": "piper",
+  "10zxceacvbh": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1107scy26fr": "piper",
-  "110f9p63k14": "piper",
+  "110f9p63k14": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "110rqgf4sz": "piper",
   "110v50xw267": "piper",
   "111cwedni4b": "piper",
@@ -195,10 +219,21 @@
   },
   "11qkwz961yo": "piper",
   "11rdi0zha0p": "piper",
-  "11ry6pxs6r2": "piper",
+  "11ry6pxs6r2": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "11rzkg42f1a": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "11s1evlcpq3": "piper",
   "11sbmqs38o5": "piper",
   "11t1c8jln1m": "piper",
+  "11tkmvy5473": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "11tzh87hi0q": "piper",
   "11u05rrcscm": "piper",
   "11uck4kcc7k": {
@@ -257,7 +292,10 @@
   "129v04x6cq1": "piper",
   "12apnrehjpb": "piper",
   "12bgv0zy0bu": "piper",
-  "12bwyzl8y2u": "piper",
+  "12bwyzl8y2u": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "12c4zqi6892": "piper",
   "12cs54ykqbr": "piper",
   "12cxqk0ilfh": "piper",
@@ -296,7 +334,10 @@
   "12jqug6zjmy": "piper",
   "12jtobk79s8": "piper",
   "12jymhabdis": "piper",
-  "12k9jno9czr": "piper",
+  "12k9jno9czr": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "12kcd1isqsw": "piper",
   "12klv1xj0zm": "piper",
   "12kol0qru3d": "piper",
@@ -343,7 +384,10 @@
   "133d5fodbf7": "piper",
   "134efvtlkgo": "piper",
   "134q1cc8lhw": "piper",
-  "135ctl9p02g": "piper",
+  "135ctl9p02g": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "135o0e50yy6": "piper",
   "1363niz8344": "piper",
   "136g9lnw5lc": "piper",
@@ -352,7 +396,10 @@
   "1379choqrm5": "piper",
   "137b0m8v5gg": "piper",
   "137h2rlwn0o": "piper",
-  "138i8ubxgca": "piper",
+  "138i8ubxgca": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "138o36aiqv1": "piper",
   "138yu0hr9hi": "piper",
   "139wmovl3dm": "piper",
@@ -368,7 +415,10 @@
   "13gkg14kg8b": "piper",
   "13h4si4cgmi": "piper",
   "13h9vhvnhg8": "piper",
-  "13hfbi59n3p": "piper",
+  "13hfbi59n3p": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "13hqwfzyvsl": "piper",
   "13i2c1328p6": "piper",
   "13i6gwggrpz": "piper",
@@ -391,7 +441,10 @@
   "13ls7778gwz": "piper",
   "13lxfn9gi46": "piper",
   "13mgw2558x6": "piper",
-  "13mip6fpsqv": "piper",
+  "13mip6fpsqv": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "13mph8btwjc": "piper",
   "13myhax2ipd": "piper",
   "13nhn4dyb91": "piper",
@@ -401,8 +454,14 @@
   "13p9x35k2g1": "piper",
   "13poohb4t2a": "piper",
   "13qqazqup0p": "piper",
-  "13qv0famfeb": "piper",
-  "13ro5tfbuu7": "piper",
+  "13qv0famfeb": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "13ro5tfbuu7": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "13sdg7minbv": "piper",
   "13tyj36mxo": "piper",
   "13tzh5ir6ok": "piper",
@@ -419,8 +478,14 @@
   "13y1qsouqih": "piper",
   "13y8ax4zh7j": "piper",
   "13ysqxeh94r": "piper",
-  "13z9zx6006f": "piper",
-  "13zjfrjy0k6": "piper",
+  "13z9zx6006f": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "13zjfrjy0k6": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "13zm7y73ee9": "piper",
   "140s1fxxh6l": "piper",
   "1413ouchkir": "piper",
@@ -436,11 +501,17 @@
   "143zx3l6wzr": "piper",
   "144ej53c93d": "piper",
   "145bulfz2m4": "piper",
-  "145kt5oyn18": "piper",
+  "145kt5oyn18": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "146q51rhfhe": "piper",
   "1475qc61u7h": "piper",
   "147p2fh2ej4": "piper",
-  "1481h5dkml8": "piper",
+  "1481h5dkml8": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "148f23ztbe1": "piper",
   "148k86vsz4j": "piper",
   "148qxjwa4gz": "piper",
@@ -525,7 +596,10 @@
   "150y83rgu00": "piper",
   "1512r3sf720": "piper",
   "151q580vndc": "piper",
-  "151qipjjut8": "piper",
+  "151qipjjut8": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "15289dgohvc": "piper",
   "15382m235xa": "piper",
   "15383rc8pap": "piper",
@@ -555,7 +629,10 @@
   "159eflmyqzg": "piper",
   "15afbhq4brk": "piper",
   "15auv2wiu27": "piper",
-  "15aw9yxjl66": "piper",
+  "15aw9yxjl66": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "15bjnl7byyc": "piper",
   "15bm93ft7pz": "piper",
   "15bthfortva": "piper",
@@ -593,7 +670,10 @@
   "15johxvamc6": "piper",
   "15kbfr3txku": "piper",
   "15l44ea5tro": "piper",
-  "15l9ndajrhn": "piper",
+  "15l9ndajrhn": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "15leapla9wp": "piper",
   "15lhaxucqts": "piper",
   "15ly0irmhqu": "piper",
@@ -603,11 +683,17 @@
   "15nr6w3phuu": "piper",
   "15oxdh8edjd": "piper",
   "15ph0731q4o": "piper",
-  "15phvg9s3t7": "piper",
+  "15phvg9s3t7": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "15pl9pjw0km": "piper",
   "15puipztx1l": "piper",
   "15pyalgiunw": "piper",
-  "15qauo28a12": "piper",
+  "15qauo28a12": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "15qbv6kvny1": "piper",
   "15qe6wpnk2q": "piper",
   "15qzfztsn60": {
@@ -617,9 +703,15 @@
   "15r5w9t6c36": "piper",
   "15rbx5jovv4": "piper",
   "15rc9mx252e": "piper",
-  "15rco8av1jv": "piper",
+  "15rco8av1jv": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "15rvu0v5bti": "piper",
-  "15s982re804": "piper",
+  "15s982re804": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "15so27rkyxg": "piper",
   "15spifcb5iy": "piper",
   "15spkf6v5wa": "piper",
@@ -629,13 +721,23 @@
   "15tnrmupirc": "piper",
   "15tqjb9ed1u": "piper",
   "15udtuup3sc": "piper",
-  "15uk7quw51x": "piper",
-  "15uqw0m4h6i": "piper",
+  "15uk7quw51x": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "15uqw0m4h6i": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "15uw56vt2yb": "piper",
   "15vff9x533h": "piper",
   "15vipy151d1": "piper",
   "15vlns8j7dv": "piper",
   "15vsm1nk8zk": "piper",
+  "15wgha039uf": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "15wm0d1vsq1": "piper",
   "15x8k8u5t6t": "piper",
   "15xfojra5gb": {
@@ -647,7 +749,10 @@
   "15ylnoqv6z9": "piper",
   "15yunrsp4bk": "piper",
   "15z1013zltm": "piper",
-  "15z9c6u65ya": "piper",
+  "15z9c6u65ya": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "15z9ct26je6": "piper",
   "15zintdzfgj": "piper",
   "160evj7cn7n": "piper",
@@ -695,7 +800,10 @@
   },
   "169nkvck668": "piper",
   "16a9u114v7y": "piper",
-  "16agokakdla": "piper",
+  "16agokakdla": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "16atqzuw9qa": "piper",
   "16axb244axb": "piper",
   "16b1xyddo0u": "piper",
@@ -723,7 +831,10 @@
   "16k7vq8o5ky": "piper",
   "16kcw5d8s9b": "piper",
   "16kvfy783qy": "piper",
-  "16m52dtbpff": "piper",
+  "16m52dtbpff": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "16mdcxvsusj": "piper",
   "16mpmotjpef": "piper",
   "16n84qtsq30": "piper",
@@ -738,7 +849,10 @@
   "16qnumy9r4l": "piper",
   "16qs6vp12af": "piper",
   "16retkoxiis": "piper",
-  "16rng6scm3r": "piper",
+  "16rng6scm3r": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "16rucsx7q5s": "piper",
   "16rvkr0wbjj": "piper",
   "16sixox8ayk": "piper",
@@ -785,7 +899,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "177xitu7wjt": "piper",
-  "1784les7jku": "piper",
+  "1784les7jku": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "17895wvqg79": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -852,7 +969,10 @@
   "17w184jqfj3": "piper",
   "17w6am6ttmk": "piper",
   "17wb7lq3i68": "piper",
-  "17wqwy052oy": "piper",
+  "17wqwy052oy": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "17xltlhoehu": "piper",
   "17xpvnxap1u": "piper",
   "17y7o9jjkng": {
@@ -882,7 +1002,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "182hl9psi1a": "piper",
+  "182hl9psi1a": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "182olg0hxuv": "piper",
   "182qmdnje6": "piper",
   "182xpga3pnl": "piper",
@@ -893,12 +1016,19 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
+  "183s8xhnk9o": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "184nuei3h88": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
   "185b60v4knh": "piper",
-  "185iykjz7vm": "piper",
+  "185iykjz7vm": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "186tdgq6p15": "piper",
   "186te1mmrux": "piper",
   "186te2t58pw": "piper",
@@ -910,6 +1040,10 @@
   "18bop76twk9": "piper",
   "18bqwfeg64p": "piper",
   "18c4eflq7r7": "piper",
+  "18coai6yyh1": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "18dd91vl2d6": "piper",
   "18e4p8bcf3j": "piper",
   "18e5ncxecgy": "piper",
@@ -970,7 +1104,10 @@
   "18yw3qi4oue": "piper",
   "18yyrlyvz47": "piper",
   "18z3ktbf60v": "piper",
-  "18zsqzo4jpb": "piper",
+  "18zsqzo4jpb": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "18zuste33vs": "piper",
   "18zzqlmkk66": "piper",
   "1901cfetpzt": "piper",
@@ -982,7 +1119,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "192fxchqn4q": "piper",
+  "192fxchqn4q": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "192qqdd4zfo": "piper",
   "192t05vgx58": "piper",
   "192t5v4lcvp": "piper",
@@ -1124,7 +1264,10 @@
   "1a7idto46kd": "piper",
   "1a8ds8obx5f": "piper",
   "1a8e1ehcw0": "piper",
-  "1a9r4931aza": "piper",
+  "1a9r4931aza": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1a9uzxg5n50": "piper",
   "1aaok4rf4iq": "piper",
   "1aaspezw99s": "piper",
@@ -1132,10 +1275,18 @@
   "1ab12xvdp9t": "piper",
   "1abgv89p0ur": "piper",
   "1acmof96jb4": "piper",
+  "1acyaq74tqc": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1ad0mjpwlm1": "piper",
   "1adp7kw543u": "piper",
   "1ae240zkrkq": "piper",
   "1aeaflhg9vi": "piper",
+  "1aebkk4wqiu": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1aeltp6nfjp": "piper",
   "1af7ebmb19h": "piper",
   "1affcb6odnf": "piper",
@@ -1145,7 +1296,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "1agxua91444": "piper",
-  "1ah8s292qpj": "piper",
+  "1ah8s292qpj": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1ahcbb6na2j": "piper",
   "1ai3p12xxla": "piper",
   "1ai4t7oyrq3": "piper",
@@ -1208,6 +1362,10 @@
   "1awtzenaseg": "piper",
   "1awwnytz4kp": "piper",
   "1ayyv9aiute": "piper",
+  "1azjl3j5cqi": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1azpvkcbiw": "piper",
   "1azsqstplj": "piper",
   "1azus3mtj4c": "piper",
@@ -1218,9 +1376,16 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
+  "1b1raf6yfad": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1b1ujg5f4v0": "piper",
   "1b4d8vne7rl": "piper",
-  "1b4qli7yuvu": "piper",
+  "1b4qli7yuvu": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1b5yjimwcz9": "piper",
   "1b64nhfpegl": "piper",
   "1b6fkg9xwf8": "piper",
@@ -1255,6 +1420,14 @@
   "1bf7yhqc8fs": "piper",
   "1bfn3xcqprq": "piper",
   "1bftjvl6x0n": "piper",
+  "1bg6ihojzd5": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "1bgs7mmebt3": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1bgt84pjih6": "piper",
   "1bh40fums5w": "piper",
   "1bhbvn8g666": "piper",
@@ -1266,6 +1439,10 @@
   "1bl6n7oeady": "piper",
   "1blh30q7e66": "piper",
   "1blw6ppc3tp": "piper",
+  "1bmxt4m8oas": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1bn7rg9hmfw": "piper",
   "1bnnrcndswg": "piper",
   "1bnrlpw1hex": "piper",
@@ -1274,12 +1451,19 @@
   "1bof48nhs02": "piper",
   "1boqnjtaeu7": "piper",
   "1bpn7mr6dbj": "piper",
+  "1bq2lic9ng1": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1brqltej34o": "piper",
   "1brua712w60": "piper",
   "1bs6e3nkwbz": "piper",
   "1bskrqz9lbz": "piper",
   "1bsn3cudwlz": "piper",
-  "1btjwdek1ry": "piper",
+  "1btjwdek1ry": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1btkylugv85": "piper",
   "1btr4clriiy": "piper",
   "1btw2t5sv3s": "piper",
@@ -1294,7 +1478,10 @@
   "1bwyhbaf1zl": "piper",
   "1bwzutiz5rz": "piper",
   "1bxhmflk96v": "piper",
-  "1bypitkbrg6": "piper",
+  "1bypitkbrg6": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1bz4ryre2sk": "piper",
   "1bzrmxq5f5f": {
     "engine": "gemini",
@@ -1307,9 +1494,15 @@
   "1c0k416poip": "piper",
   "1c1ukom0sxz": "piper",
   "1c1y4isplu4": "piper",
-  "1c2au0nct1c": "piper",
+  "1c2au0nct1c": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1c2d6vkczdf": "piper",
-  "1c2io05erl0": "piper",
+  "1c2io05erl0": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1c35o0fo6z9": "piper",
   "1c483i2khwo": "piper",
   "1c4mddxuwvk": "piper",
@@ -1319,6 +1512,10 @@
   "1c7e7i4u9iu": "piper",
   "1c7fv51ds3d": "piper",
   "1c7jjk9na24": "piper",
+  "1c7qvk0pngx": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1c8148xffyf": "piper",
   "1c834m62oc2": "piper",
   "1c908pjtus0": "piper",
@@ -1335,23 +1532,36 @@
   "1cebhb079mk": "piper",
   "1ceyiv2ucis": "piper",
   "1cf6bal0d8g": "piper",
-  "1cf8hbny41y": "piper",
+  "1cf8hbny41y": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1cfbym5l6c6": "piper",
   "1cfikg5d99t": "piper",
   "1cft4xnwgcd": "piper",
   "1cg25zwssw0": "piper",
   "1cgi4iekkxa": "piper",
+  "1chb2zfo17c": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1chf304juej": "piper",
   "1chhxske93n": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "1chnunv8s63": "piper",
+  "1chnunv8s63": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1cii8fxb062": "piper",
   "1ciiqwhgoh3": "piper",
   "1cilcy82xii": "piper",
   "1ciuid4moj2": "piper",
-  "1cj0eam7rie": "piper",
+  "1cj0eam7rie": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1cjhm5gen17": "piper",
   "1cjpbg3sl41": "piper",
   "1cjstdni8ms": "piper",
@@ -1365,6 +1575,10 @@
   "1cmd7xgm2an": "piper",
   "1cnbznzdblv": "piper",
   "1cngncp8fop": "piper",
+  "1cnmhjkzzph": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1cos7ebssf9": "piper",
   "1cp1iaano3v": "piper",
   "1cqd1gfyzhr": "piper",
@@ -1379,7 +1593,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "1cskceczmd2": "piper",
+  "1cskceczmd2": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1csn6do8bwq": "piper",
   "1csujb50rcm": "piper",
   "1csxc29gpnz": "piper",
@@ -1442,7 +1659,10 @@
   },
   "1diol3xh12i": "piper",
   "1diq2ur54dk": "piper",
-  "1diqimcmhv4": "piper",
+  "1diqimcmhv4": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1diwt38igk8": "piper",
   "1diye3m5xj3": "piper",
   "1djacn1ce5l": "piper",
@@ -1464,7 +1684,10 @@
   "1dl8mxcslxm": "piper",
   "1dm8wsbtrsk": "piper",
   "1dmlpeqnj7o": "piper",
-  "1dmnecotogb": "piper",
+  "1dmnecotogb": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1dnlsl2e043": "piper",
   "1do6wvdkmds": {
     "engine": "gemini",
@@ -1475,7 +1698,10 @@
   "1dpfcij8d9e": "piper",
   "1dptbyrhlwr": "piper",
   "1dq197bhfxj": "piper",
-  "1dq7ke55da2": "piper",
+  "1dq7ke55da2": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1dqae1npmms": "piper",
   "1dqauik6uqw": "piper",
   "1dqiji6i3jb": "piper",
@@ -1488,6 +1714,10 @@
   "1dtvh7e1cum": "piper",
   "1dty5zcmt41": "piper",
   "1du296sd0wx": "piper",
+  "1du62er7nq2": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1dugov1awka": "piper",
   "1dwbayfm7ks": "piper",
   "1dwpy1ftdbk": "piper",
@@ -1497,7 +1727,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "1e09lgu1gdp": "piper",
-  "1e0miwg9lxb": "piper",
+  "1e0miwg9lxb": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1e0www6zjfx": "piper",
   "1e1jmr6mt0f": "piper",
   "1e1sawpmo0q": "piper",
@@ -1507,7 +1740,10 @@
   "1e2d8b0m7yg": "piper",
   "1e2j9givtyj": "piper",
   "1e2m655uwt": "piper",
-  "1e3cwhxu7d7": "piper",
+  "1e3cwhxu7d7": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1e5aav4gx3n": "piper",
   "1e5j8vz2hdq": "piper",
   "1e6gegxepay": "piper",
@@ -1519,7 +1755,10 @@
   "1e9l361jx8c": "piper",
   "1e9qid6a4wf": "piper",
   "1e9z8oyqkim": "piper",
-  "1eanzw67ghl": "piper",
+  "1eanzw67ghl": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1eaqqoqunjs": "piper",
   "1eavbdy4ltg": "piper",
   "1ebvuz7etgr": "piper",
@@ -1573,7 +1812,10 @@
   "1etcqo47u9w": "piper",
   "1etcw0hrhb0": "piper",
   "1etfer9v8zp": "piper",
-  "1eto3o556bo": "piper",
+  "1eto3o556bo": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1ets0k8m89a": "piper",
   "1eubcrlfazh": "piper",
   "1evfnc3s0o2": "piper",
@@ -1589,13 +1831,19 @@
   "1exeaqe0lqu": "piper",
   "1exm1sfebn4": "piper",
   "1eylu2fqd55": "piper",
-  "1eyp205xam9": "piper",
+  "1eyp205xam9": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1ez0irjlhmk": "piper",
   "1ez17cyimbk": "piper",
   "1ezhdhza352": "piper",
   "1f06ja4g3q6": "piper",
   "1f1ejf8nujd": "piper",
-  "1f1i9ypn5od": "piper",
+  "1f1i9ypn5od": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1f1vcj18ymi": "piper",
   "1f28qyy4lpd": "piper",
   "1f2bs3lqtrq": "piper",
@@ -1634,6 +1882,10 @@
   "1ffso4f7ojv": "piper",
   "1fh645g5kw7": "piper",
   "1fh7mfe6wj2": "piper",
+  "1fhha01hft1": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1fi8ddj1pkb": "piper",
   "1fia6dw4cjg": "piper",
   "1fik8qpasc2": "piper",
@@ -1642,7 +1894,14 @@
   "1fiqdaqmks8": "piper",
   "1fj7kztm4xm": "piper",
   "1fjviaig45w": "piper",
-  "1fjze99trh5": "piper",
+  "1fjze99trh5": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "1fm6vdgy50y": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1fm7ea2sqxs": "piper",
   "1fm8xq4mkba": "piper",
   "1fmlunujra6": "piper",
@@ -1663,13 +1922,24 @@
   "1frfepjoj69": "piper",
   "1frfkrrrouz": "piper",
   "1frwlnk71gu": "piper",
-  "1frywowtjpb": "piper",
+  "1frywowtjpb": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1fsd5hjxmad": "piper",
   "1fsjslcpswl": "piper",
   "1fsqfpdhgca": "piper",
   "1fstig552h2": "piper",
   "1fsw8i9f89o": "piper",
   "1ftkhwbfv24": "piper",
+  "1fua3ga8q59": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "1fv4bj3vscr": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1fwjtakuwbn": "piper",
   "1fwoe8sfg72": "piper",
   "1fx49srmwbh": "piper",
@@ -1677,6 +1947,10 @@
   "1fxruf2fzt0": "piper",
   "1fxx1bojtzk": "piper",
   "1fyc6fufdvx": "piper",
+  "1fyhi1d0gp0": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1fynap02e5u": "piper",
   "1fz5bjoa1jy": "piper",
   "1fzf8hylk2f": "piper",
@@ -1706,12 +1980,21 @@
   "1g7cadvje1g": "piper",
   "1g7rr1ldgx0": "piper",
   "1g87ce9mpru": "piper",
-  "1g8j340cmxi": "piper",
+  "1g8j340cmxi": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1g9qocjr6wu": "piper",
-  "1g9w39amlih": "piper",
+  "1g9w39amlih": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1g9w81uv84z": "piper",
   "1ga0eaa8xpy": "piper",
-  "1ga1ysi8yn7": "piper",
+  "1ga1ysi8yn7": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1ga8x9ti2g6": "piper",
   "1gabiaq74ob": "piper",
   "1gakzvhmdso": "piper",
@@ -1729,7 +2012,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "1ggrbodkf7a": "piper",
-  "1gh0llamlnu": "piper",
+  "1gh0llamlnu": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1ghihk5fpm1": "piper",
   "1ghn8ycpycm": "piper",
   "1gi3j9tlga8": "piper",
@@ -1738,12 +2024,19 @@
   "1giv20a7min": "piper",
   "1gj3qburspn": "piper",
   "1gjbcmnq7gn": "piper",
-  "1gjhw23bfz5": "piper",
+  "1gjhw23bfz5": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1gjizh3ku9y": "piper",
   "1gk1r0pjzeq": "piper",
   "1gk1re3v5zf": "piper",
   "1glaos4bu9x": "piper",
   "1glutj0j59d": "piper",
+  "1gm71u3bgid": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1gn7sgniv5k": "piper",
   "1gne5ubshtw": "piper",
   "1go19zeiyxj": "piper",
@@ -1754,9 +2047,16 @@
   "1gqdkmf4kij": "piper",
   "1gqkx14cdgr": "piper",
   "1gqx1fq73uz": "piper",
-  "1gr0s0dx6q5": "piper",
+  "1gr0s0dx6q5": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1grugnsrj70": "piper",
   "1gs83cbxqif": "piper",
+  "1gsojp4rvjj": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1gssog0t0d2": "piper",
   "1gsyucqhhrw": "piper",
   "1gt3t5l8qye": "piper",
@@ -1769,6 +2069,10 @@
   "1gw0p1mhwwj": "piper",
   "1gw2s1yx39n": "piper",
   "1gwojy0g5au": "piper",
+  "1gx11bbatpa": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1gx78mbazdl": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -1781,6 +2085,10 @@
   "1gy12i53d0v": "piper",
   "1gz997o3tos": "piper",
   "1gzf2kjnc8f": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "1h055ko5ws6": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
@@ -1801,7 +2109,10 @@
   "1h2mm02jl3i": "piper",
   "1h3b0evpy5e": "piper",
   "1h3cqcf7rfo": "piper",
-  "1h3cwvc2bfw": "piper",
+  "1h3cwvc2bfw": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1h3dj3nfu0w": "piper",
   "1h3dvmtwqji": "piper",
   "1h589wx065q": "piper",
@@ -1811,7 +2122,10 @@
   "1h8i994nnpp": "piper",
   "1h8iones7pb": "piper",
   "1h8kog5f2mb": "piper",
-  "1h93ugl88pg": "piper",
+  "1h93ugl88pg": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1h99jm1azph": "piper",
   "1h9d48ioqov": "piper",
   "1h9zm8u0xbm": {
@@ -1856,7 +2170,10 @@
   "1hlr8l6gsja": "piper",
   "1hltty0tfy8": "piper",
   "1hm16bo3rlg": "piper",
-  "1hmggrmkcxp": "piper",
+  "1hmggrmkcxp": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1hmmnrtxru7": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -1864,7 +2181,10 @@
   "1hn6qfm8ou2": "piper",
   "1hnjgvwjdvm": "piper",
   "1hnwm0yu0p6": "piper",
-  "1ho5adk6sys": "piper",
+  "1ho5adk6sys": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1hogwoaw8og": "piper",
   "1hoht3unc4h": "piper",
   "1hoi1xrn7xv": "piper",
@@ -1892,7 +2212,10 @@
   "1hvdrvfu1fg": "piper",
   "1hvh2y8g1h4": "piper",
   "1hvwipy5ofc": "piper",
-  "1hw4ti5vug8": "piper",
+  "1hw4ti5vug8": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1hw5c7g8uhu": "piper",
   "1hwj27patgc": "piper",
   "1hx5c95gwcb": {
@@ -1904,7 +2227,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "1hyfvj4gy0c": "piper",
-  "1hz9zn5cuox": "piper",
+  "1hz9zn5cuox": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1hzixr1uib2": "piper",
   "1hzvymsdojw": "piper",
   "1i20a5vl27b": "piper",
@@ -1925,10 +2251,17 @@
   "1i5obq2x2fq": "piper",
   "1i5v2yia1ll": "piper",
   "1i6jgydisde": "piper",
+  "1i7srzhnm98": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1i7ymcrbu9d": "piper",
   "1i8xcf0at6n": "piper",
   "1i913ebkgmd": "piper",
-  "1i96a8qv6p8": "piper",
+  "1i96a8qv6p8": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1i9mu6agfvo": "piper",
   "1i9phf1imzn": "piper",
   "1iacxu91beu": "piper",
@@ -1967,9 +2300,18 @@
   "1ikkabrmjss": "piper",
   "1il4ighdadb": "piper",
   "1ilq29k73fs": "piper",
-  "1ilzwos0k02": "piper",
-  "1im3wobkk0h": "piper",
-  "1imez7esn8j": "piper",
+  "1ilzwos0k02": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "1im3wobkk0h": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "1imez7esn8j": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1iml16xsxix": "piper",
   "1imo0ptvva6": "piper",
   "1indzljczoj": "piper",
@@ -1991,10 +2333,16 @@
   "1isun6moedz": "piper",
   "1it2qx07094": "piper",
   "1it88rkj66o": "piper",
-  "1ith16vxxz7": "piper",
+  "1ith16vxxz7": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1itpvxb2o6p": "piper",
   "1itz7v0obrz": "piper",
-  "1iu5clbog8g": "piper",
+  "1iu5clbog8g": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1iug4vd877j": "piper",
   "1ivhuvv46kq": {
     "engine": "gemini",
@@ -2005,7 +2353,10 @@
   "1iwab3ewisr": "piper",
   "1iwzpg187de": "piper",
   "1ixc7cm5dlo": "piper",
-  "1ixe635gaei": "piper",
+  "1ixe635gaei": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1ixsrh645mp": "piper",
   "1ixtme60kg3": "piper",
   "1iy0v4csvag": "piper",
@@ -2045,7 +2396,15 @@
   "1jch88hysiu": "piper",
   "1jd88j4ztij": "piper",
   "1jevoibaie7": "piper",
+  "1jf7pnu0rik": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1jf7vsbva7v": "piper",
+  "1jfaxd12v35": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1jgcapvlui6": "piper",
   "1jhdayo3oct": "piper",
   "1jhe4b1z7t": "piper",
@@ -2055,7 +2414,10 @@
   "1jimiclnh4b": "piper",
   "1jirtoanacf": "piper",
   "1jjctv7p1rr": "piper",
-  "1jk3qc3cy79": "piper",
+  "1jk3qc3cy79": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1jkw1xwxuxn": "piper",
   "1jlu6adtem3": "piper",
   "1jnt9cbq1wf": "piper",
@@ -2100,6 +2462,10 @@
   "1k5n3ihosgv": "piper",
   "1k5o4tplpt2": "piper",
   "1k6d87r5a4q": "piper",
+  "1k7eyuvy0qo": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1k7n8cnnv1a": "piper",
   "1k7qf0jkise": "piper",
   "1k7skpwotv9": "piper",
@@ -2107,7 +2473,10 @@
   "1k974uy2sl7": "piper",
   "1k9oby3dzov": "piper",
   "1ka9zc8qpfb": "piper",
-  "1kaeuktkkf2": "piper",
+  "1kaeuktkkf2": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1kaxr5ivd82": "piper",
   "1kb6a87pya0": "piper",
   "1kbfthoxwev": {
@@ -2117,20 +2486,34 @@
   "1kbq31qnkdv": "piper",
   "1kcl8rapzua": "piper",
   "1kd93br8lf6": "piper",
+  "1kdiyugr0y5": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1kdox0digii": "piper",
   "1kdp5uefjd9": "piper",
   "1kdpcinp429": "piper",
   "1ke279z8ih6": "piper",
   "1kfoctteqjw": "piper",
+  "1kfwkc5y7p6": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1kg248v9ahx": "piper",
   "1kgccz72kya": "piper",
   "1kgljuw1cbd": "piper",
   "1kgqlet4kp1": "piper",
   "1kgvc3apg2n": "piper",
-  "1kh82zx77pl": "piper",
+  "1kh82zx77pl": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1khurytrjpi": "piper",
   "1kia7cjo7p0": "piper",
-  "1kiabbmj6qa": "piper",
+  "1kiabbmj6qa": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1kid6b8pfpt": "piper",
   "1kj4ube2z2k": "piper",
   "1kj84tamzjm": "piper",
@@ -2170,7 +2553,10 @@
   "1kpqlmlo2eq": "piper",
   "1kpyiu32srj": "piper",
   "1kq0o18vcmq": "piper",
-  "1kq5wvonkdo": "piper",
+  "1kq5wvonkdo": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1kqz8mmt3cj": "piper",
   "1krdpc2wq1q": "piper",
   "1kssuup2493": "piper",
@@ -2190,7 +2576,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "1kykq4d6apg": "piper",
-  "1kzb3nrhttl": "piper",
+  "1kzb3nrhttl": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1kztakt4wh9": "piper",
   "1l11sde4zif": "piper",
   "1l1xcuhfkrg": "piper",
@@ -2219,10 +2608,17 @@
   "1l9ib8t8q6g": "piper",
   "1lavgkvs2wv": "piper",
   "1law0u39p9u": "piper",
+  "1lb0lq5g8hh": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1lb7ew3yu8o": "piper",
   "1lbg7j1l6n1": "piper",
   "1lc4cbc4l1u": "piper",
-  "1lcubosfw59": "piper",
+  "1lcubosfw59": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1le788rlzes": "piper",
   "1lelazrqp51": "piper",
   "1lf0h8wo1mx": "piper",
@@ -2241,7 +2637,10 @@
   "1li828rpxm3": "piper",
   "1li8qte7x3m": "piper",
   "1libj6hiof4": "piper",
-  "1lirxkxce6v": "piper",
+  "1lirxkxce6v": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1ljxclhkq3y": "piper",
   "1lkfayurdzu": "piper",
   "1lks82q2rew": "piper",
@@ -2252,14 +2651,20 @@
   "1lmwm8ay2is": "piper",
   "1ln1ja4evac": "piper",
   "1lo5mu26ipd": "piper",
-  "1lof0006enm": "piper",
+  "1lof0006enm": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1lowe8zer6h": "piper",
   "1lpe3djtxaa": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
   "1lpn9eppdo1": "piper",
-  "1lq6sr0h1im": "piper",
+  "1lq6sr0h1im": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1lqtq9fzebh": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -2318,10 +2723,22 @@
   "1m93okxnpun": "piper",
   "1m9die6rg3x": "piper",
   "1mas528fjm6": "piper",
+  "1mato65ur29": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1mbgdg6u8g": "piper",
   "1mbzqfnmn0d": "piper",
   "1mc1x63qlhy": "piper",
   "1md3sp4vprq": "piper",
+  "1mdwagz6ivu": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "1me6o4cv83t": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1mell67sgz2": "piper",
   "1mervhqmr5a": "piper",
   "1mf3uf5l930": "piper",
@@ -2346,10 +2763,16 @@
   "1mmxn3bhnry": "piper",
   "1mo6i7fy7iu": "piper",
   "1moifuykdip": "piper",
-  "1moqrhppmwk": "piper",
+  "1moqrhppmwk": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1mox4bv8epw": "piper",
   "1mp3qsohagy": "piper",
-  "1mp5ba4wygz": "piper",
+  "1mp5ba4wygz": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1mpavnqj5fl": "piper",
   "1mpfuxa7sl9": "piper",
   "1mpn26663di": "piper",
@@ -2359,7 +2782,14 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "1mrjhw5scdd": "piper",
-  "1ms9q0ckwgr": "piper",
+  "1ms9q0ckwgr": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "1mtf01n1ycs": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1mugx947m9m": "piper",
   "1mupe4e6z00": "piper",
   "1mv9d9vyku2": "piper",
@@ -2411,6 +2841,10 @@
   "1nb2hnwj516": "piper",
   "1nb3trj62vn": "piper",
   "1nb5o395viy": "piper",
+  "1nb9jry2gub": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1nbbupd56fz": "piper",
   "1nbdjjcpgk0": "piper",
   "1nbigf5ey0z": {
@@ -2421,8 +2855,15 @@
   "1nce6abibmy": "piper",
   "1ncnupcj7lr": "piper",
   "1ncrnziaxc2": "piper",
+  "1nd37mjcfdi": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1nd8g4u7ok6": "piper",
-  "1ndgw4px0uf": "piper",
+  "1ndgw4px0uf": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1ndlaq24qoh": "piper",
   "1nealq4ihq7": "piper",
   "1nekvxe92o5": "piper",
@@ -2442,6 +2883,10 @@
   "1niybmr3y5e": "piper",
   "1njisp1qg8t": "piper",
   "1njqli8g7dr": "piper",
+  "1njsszf7h2p": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1njt7s6b1o2": "piper",
   "1njto8cme85": {
     "engine": "gemini",
@@ -2474,9 +2919,16 @@
   "1nphxt16kx9": "piper",
   "1npkhjzxxdp": "piper",
   "1nprxvzo2yk": "piper",
-  "1nq1ak6qbn7": "piper",
+  "1nq1ak6qbn7": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1nrlfdatc03": "piper",
   "1nrlxyh0oz4": "piper",
+  "1ns1koeyfrg": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1nsclg5l49l": "piper",
   "1ntcxogsg03": "piper",
   "1nutnnrak6g": "piper",
@@ -2504,7 +2956,10 @@
   "1o1t0tcxx5b": "piper",
   "1o2404hh547": "piper",
   "1o39u2oepxq": "piper",
-  "1o3hlzbbwld": "piper",
+  "1o3hlzbbwld": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1o3lvfkvu5i": "piper",
   "1o47q8bgspp": "piper",
   "1o4lor1kyyu": "piper",
@@ -2524,7 +2979,10 @@
   "1o8a57bzgup": "piper",
   "1o8ba399orz": "piper",
   "1o92vvihbbv": "piper",
-  "1o9xrcpudux": "piper",
+  "1o9xrcpudux": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1oa0ph2sth3": "piper",
   "1oa9yubhsi0": "piper",
   "1oacnqif41a": "piper",
@@ -2544,9 +3002,21 @@
   "1oevvfca5vf": "piper",
   "1ofj2mxxu3c": "piper",
   "1ofw6lyakr7": "piper",
+  "1og2pys1chx": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "1ogd32biiho": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1ogdle454w0": "piper",
   "1ogk40q4hmw": "piper",
   "1oglu47pm8q": "piper",
+  "1ogpco0u454": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1ohv9qdrv7a": "piper",
   "1oi4yi9ln8p": "piper",
   "1oie8fjco25": "piper",
@@ -2569,12 +3039,18 @@
   "1onu5b7nidi": "piper",
   "1onv8i7eaye": "piper",
   "1ooh3agjhat": "piper",
-  "1oohezevj0s": "piper",
+  "1oohezevj0s": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1opml4txcgy": "piper",
   "1opoknxy0jv": "piper",
   "1oq8zzms4db": "piper",
   "1oqfk8ftvly": "piper",
-  "1oqzqtvqo46": "piper",
+  "1oqzqtvqo46": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1or8pd6omcb": "piper",
   "1ormlifqgao": {
     "engine": "gemini",
@@ -2610,7 +3086,10 @@
   "1oxjnj09nd5": "piper",
   "1oxojdc54jf": "piper",
   "1oy1ztykqrz": "piper",
-  "1oy9sg2pivx": "piper",
+  "1oy9sg2pivx": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1oya1l8nzi2": "piper",
   "1oybnllq7ox": "piper",
   "1oz1tvg1phz": "piper",
@@ -2680,11 +3159,17 @@
   },
   "1pfxbguxzfo": "piper",
   "1pg8w54kog0": "piper",
-  "1pge220dq77": "piper",
+  "1pge220dq77": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1pgw0dk1t07": "piper",
   "1phxsjlmw7t": "piper",
   "1pi4ta5gnnh": "piper",
-  "1pinjadtp3v": "piper",
+  "1pinjadtp3v": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1pj3gvjrqmq": "piper",
   "1pj8c0r0pgg": "piper",
   "1pjq5kzvulh": "piper",
@@ -2710,12 +3195,22 @@
   "1ppncjbot2b": "piper",
   "1pqetfdcw7l": "piper",
   "1pr7ugk67bh": "piper",
-  "1prfdt4yw5d": "piper",
+  "1prfdt4yw5d": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1prgy81z2rp": "piper",
   "1prhp9nvd04": "piper",
+  "1prkdbc3n9j": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1prq0ihccbk": "piper",
   "1ps01iwgsp9": "piper",
-  "1pshdjw4cx1": "piper",
+  "1pshdjw4cx1": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1psxftatlsy": "piper",
   "1pt0g01qayf": "piper",
   "1ptmslu6vu6": "piper",
@@ -2729,7 +3224,10 @@
   "1pxbnooz6th": "piper",
   "1pxqyajr0m3": "piper",
   "1pxzgkyompa": "piper",
-  "1py51dat4zz": "piper",
+  "1py51dat4zz": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1pyw9pj3ue9": "piper",
   "1pyyxe9vy5o": "piper",
   "1pzfl670n7b": "piper",
@@ -2810,7 +3308,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "1qedgnqxlef": "piper",
-  "1qelg3s6vrb": "piper",
+  "1qelg3s6vrb": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1qf8cmk3pww": "piper",
   "1qfix160evb": "piper",
   "1qfos3yk27a": "piper",
@@ -2820,12 +3321,19 @@
   "1qg7fyrrs3g": "piper",
   "1qgeusaw6ei": "piper",
   "1qgo0hkyp3q": "piper",
+  "1qh8fe5zp5j": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1qhkwv6d8y": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
   "1qi4fr8gbxa": "piper",
-  "1qiyw0fc1my": "piper",
+  "1qiyw0fc1my": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1qj80n7umey": "piper",
   "1qjl8uyp7h1": "piper",
   "1qjlcuuwzqf": "piper",
@@ -2839,12 +3347,18 @@
   "1qktv7x7aqd": "piper",
   "1qlbd50yfcy": "piper",
   "1qlbmg28dr6": "piper",
-  "1qll2tkdp5s": "piper",
+  "1qll2tkdp5s": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1qmbcylohc6": "piper",
   "1qmbfcim70x": "piper",
   "1qmdu70dt86": "piper",
   "1qpdkpjr7n5": "piper",
-  "1qptghi250h": "piper",
+  "1qptghi250h": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1qr348g9kl0": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -2864,7 +3378,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "1qugt8w2a1j": "piper",
-  "1qvii9tve4p": "piper",
+  "1qvii9tve4p": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1qvoarpcawn": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -2882,15 +3399,29 @@
   "1qxtapf8net": "piper",
   "1qxwegqr3t3": "piper",
   "1qy0q8c6q4u": "piper",
+  "1qy43hb11oz": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1qy7d565was": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
+  "1qyblt0f8l5": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1qyucsx9kof": "piper",
-  "1qz0iw3oeyc": "piper",
+  "1qz0iw3oeyc": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1qzczdg97ne": "piper",
   "1r07c28lixx": "piper",
-  "1r0gx8jk3gq": "piper",
+  "1r0gx8jk3gq": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1r0t12vrxdy": "piper",
   "1r22jbawz78": "piper",
   "1r27aqlc2kz": "piper",
@@ -2913,10 +3444,17 @@
   "1r674yeuzg6": "piper",
   "1r6be3i6lis": "piper",
   "1r6d4zzbj2w": "piper",
-  "1r6f21vua0j": "piper",
+  "1r6f21vua0j": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1r6m6ooies8": "piper",
   "1r72ltaf4fa": "piper",
   "1r7lpm8hivg": "piper",
+  "1r7zww7l66f": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1r867xl33d9": "piper",
   "1r9aywvtcyw": "piper",
   "1r9u76a6yhr": "piper",
@@ -2961,6 +3499,10 @@
   "1rghr3qs8y2": "piper",
   "1rgp8s9j4tj": "piper",
   "1rgxq5pwjh8": "piper",
+  "1rh2npwzfpw": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1rhjyqwujg2": "piper",
   "1rhok0vnln9": "piper",
   "1rhtgntdjj4": "piper",
@@ -2982,7 +3524,10 @@
   "1rl4pwsyvne": "piper",
   "1rmd47o54mw": "piper",
   "1rmiy1u0i7h": "piper",
-  "1rmsyjdbrfh": "piper",
+  "1rmsyjdbrfh": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1rnbg8smiis": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -3004,13 +3549,20 @@
   "1rrwiojtt5r": "piper",
   "1rrxdkank0c": "piper",
   "1rsayliklri": "piper",
-  "1rscq32q9m0": "piper",
+  "1rscq32q9m0": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1rt3nanxh8v": "piper",
   "1rtc7m1060u": "piper",
   "1rtrfs8bw1y": "piper",
   "1rtrq3vb5nc": "piper",
   "1ru6vvdpn93": "piper",
   "1ruh5y89tof": "piper",
+  "1ruvev829dr": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1rv00pld0la": "piper",
   "1rv6xrzdrha": "piper",
   "1rv7326o5hn": "piper",
@@ -3023,7 +3575,10 @@
   "1rxif3ai0ot": "piper",
   "1rxuzj74fh7": "piper",
   "1rxyz7vmpbe": "piper",
-  "1ry1icwvy1t": "piper",
+  "1ry1icwvy1t": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1rylctaq24v": "piper",
   "1ryzdam1eo0": "piper",
   "1rzci3ocog0": "piper",
@@ -3040,13 +3595,19 @@
   "1s49qz22dly": "piper",
   "1s4lj11wvyn": "piper",
   "1s4y1ys95w1": "piper",
-  "1s555dgn7h0": "piper",
+  "1s555dgn7h0": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1s5fk9wwy35": "piper",
   "1s5nodsbs3h": "piper",
   "1s6b6yv02gd": "piper",
   "1s72b7jb4qw": "piper",
   "1s73r1zm1t2": "piper",
-  "1s78zv1gwlh": "piper",
+  "1s78zv1gwlh": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1s7oeanmsuv": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -3073,11 +3634,18 @@
   "1sd6s4jewr8": "piper",
   "1sdmn5fy86t": "piper",
   "1sekrzagf2t": "piper",
+  "1sem0cx20vs": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1sgdvcptkdl": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "1sghgwi8xlv": "piper",
+  "1sghgwi8xlv": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1sglc9u6s5b": "piper",
   "1sh1231fg8e": {
     "engine": "gemini",
@@ -3086,9 +3654,16 @@
   "1shcsq8wxsg": "piper",
   "1she5hhah1w": "piper",
   "1shfepjqwal": "piper",
-  "1shkcavgzoi": "piper",
+  "1shkcavgzoi": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1shwrv3gcm2": "piper",
   "1shxpc2pozk": "piper",
+  "1sivzicged1": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1sjynrwy4w7": "piper",
   "1sjyoarokcd": "piper",
   "1slppxiv2yw": "piper",
@@ -3096,8 +3671,14 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "1smbzhr7c3c": "piper",
-  "1smqmmq1nnk": "piper",
+  "1smbzhr7c3c": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "1smqmmq1nnk": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1sn5dsg30x5": "piper",
   "1sn7bywijes": "piper",
   "1snb8jwuime": "piper",
@@ -3117,7 +3698,10 @@
   "1sstiv4y9rd": "piper",
   "1sut6xg7xaz": "piper",
   "1svaegxaza6": "piper",
-  "1svan4ksh3g": "piper",
+  "1svan4ksh3g": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1svgkgmf7wq": "piper",
   "1svn0682g34": {
     "engine": "gemini",
@@ -3141,7 +3725,10 @@
   "1t4l4q2fwx3": "piper",
   "1t4ybfgdakj": "piper",
   "1t5hw2zi6y4": "piper",
-  "1t5xku78awa": "piper",
+  "1t5xku78awa": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1t64sngs0ab": "piper",
   "1t6jidu00hd": "piper",
   "1t6vlih105w": "piper",
@@ -3170,7 +3757,10 @@
   "1tginwmbgd3": "piper",
   "1tgwf8i563p": "piper",
   "1thfw9li677": "piper",
-  "1ththhkc9zv": "piper",
+  "1ththhkc9zv": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1thuq00ucel": "piper",
   "1thwa7xy91c": "piper",
   "1tijcou7w3l": "piper",
@@ -3220,6 +3810,10 @@
   "1ty85hlzye5": "piper",
   "1tydmpw2qmj": "piper",
   "1tzdhryy9hd": "piper",
+  "1u04nieahzi": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1u09eetnqvw": "piper",
   "1u0u8ilrmtf": "piper",
   "1u134cxupw8": "piper",
@@ -3276,6 +3870,10 @@
   "1ukz0ii04wh": "piper",
   "1ul3alr9jiv": "piper",
   "1um206c4chv": "piper",
+  "1umdbfytuks": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1un3f5kn54j": "piper",
   "1un9brm6g3o": "piper",
   "1unvc0e5eo2": "piper",
@@ -3303,7 +3901,10 @@
   "1ushdngfky9": "piper",
   "1ut38hq0esb": "piper",
   "1utbbrfzl15": "piper",
-  "1utfh6add9m": "piper",
+  "1utfh6add9m": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1utxqnnzucw": "piper",
   "1uty0gdow9j": "piper",
   "1uuk8am0aiu": "piper",
@@ -3311,14 +3912,20 @@
   "1uw0y500qtp": "piper",
   "1uwb9esj8fr": "piper",
   "1uwr4lm1kwo": "piper",
-  "1uwy672dnkn": "piper",
+  "1uwy672dnkn": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1uyteen729x": "piper",
   "1uyy79ewz7": "piper",
   "1uz8dmaylrf": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "1v0djd1ttcp": "piper",
+  "1v0djd1ttcp": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1v0fe5eehgj": "piper",
   "1v0mcrtx492": "piper",
   "1v0x651tk6i": "piper",
@@ -3367,7 +3974,10 @@
   },
   "1vd6ho9qiol": "piper",
   "1vdod0mt5zp": "piper",
-  "1ve22ffsdg8": "piper",
+  "1ve22ffsdg8": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1ve79d861if": "piper",
   "1ve7bzz3yvp": "piper",
   "1vejdcsddn5": "piper",
@@ -3389,7 +3999,10 @@
   "1vmo3jfsn4o": "piper",
   "1vn9ez1aowh": "piper",
   "1vnbdampyu9": "piper",
-  "1vnoad435na": "piper",
+  "1vnoad435na": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1vooizzlhmk": "piper",
   "1vpil5l5jae": "piper",
   "1vq6qfhnqm9": "piper",
@@ -3402,7 +4015,10 @@
   "1vsriwxke1s": "piper",
   "1vsw5w3944x": "piper",
   "1vt5mzxucwm": "piper",
-  "1vtmao8a3im": "piper",
+  "1vtmao8a3im": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1vvo833ixev": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -3412,7 +4028,10 @@
   "1vx1z6u3gk": "piper",
   "1vxiorsm71z": "piper",
   "1vy4hwx96c": "piper",
-  "1vyanw17shw": "piper",
+  "1vyanw17shw": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1vyn8cecneo": "piper",
   "1vz2vd4exl4": "piper",
   "1vzcml52ofp": "piper",
@@ -3457,7 +4076,10 @@
   "1wcmyp3hb0l": "piper",
   "1wd4p7whlxt": "piper",
   "1wdc3q4cppw": "piper",
-  "1wdk8osxms4": "piper",
+  "1wdk8osxms4": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1wdyxyjo646": "piper",
   "1weqqyjlgi4": "piper",
   "1weuwcwhzft": "piper",
@@ -3481,7 +4103,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "1wnzktw99v9": "piper",
+  "1wnzktw99v9": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1woqnhfoin5": "piper",
   "1wpop49zm6s": "piper",
   "1wqatr3xe4o": "piper",
@@ -3495,10 +4120,21 @@
   "1wsnleqejhe": "piper",
   "1wt1ae0smmr": "piper",
   "1wt3ha70lhz": "piper",
+  "1wt61r9mx2h": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "1wtty1bmb91": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1wugj0jwwt0": "piper",
   "1wuzfl9hknt": "piper",
   "1wx4hl02gks": "piper",
-  "1wxf0ov3s4c": "piper",
+  "1wxf0ov3s4c": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1wxz5x2yzk5": "piper",
   "1wzepyhzbfi": "piper",
   "1wzh1oi1yr8": "piper",
@@ -3524,16 +4160,27 @@
   "1x49n1a7w5n": "piper",
   "1x4ms5qtmkv": "piper",
   "1x4r2yjpaih": "piper",
+  "1x4wo6zbk9t": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1x5rpxea5fa": "piper",
   "1x5ui89yhta": "piper",
   "1x606qdmrmw": "piper",
   "1x64xwg2vk6": "piper",
+  "1x6y76p1yyk": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1x7avh5crwk": "piper",
   "1x7hj73zw4h": "piper",
   "1x8jd6zcpsi": "piper",
   "1x8okkjptjh": "piper",
   "1xaufeq7ll8": "piper",
-  "1xbluawx3zv": "piper",
+  "1xbluawx3zv": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1xbmokzv00b": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -3564,7 +4211,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "1xiw1axr0m6": "piper",
+  "1xiw1axr0m6": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1xj48d0kcrq": "piper",
   "1xjfdul235n": "piper",
   "1xjfx9aerhg": "piper",
@@ -3574,6 +4224,10 @@
   "1xkeo2ku3zf": "piper",
   "1xkw8rqmtff": "piper",
   "1xkzetbxlhm": "piper",
+  "1xl0egme0oi": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1xl6sc7abrg": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -3592,7 +4246,10 @@
   "1xrmaqtsqo9": "piper",
   "1xsbb3l6tni": "piper",
   "1xt7zzxga3n": "piper",
-  "1xt9tbjasm1": "piper",
+  "1xt9tbjasm1": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1xtcpid2cpk": "piper",
   "1xtdt9u1v0i": "piper",
   "1xttgl21k3i": "piper",
@@ -3620,7 +4277,14 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "1y03rro9q39": "piper",
-  "1y0krukra7a": "piper",
+  "1y0436npgpq": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "1y0krukra7a": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1y0wrs8alno": "piper",
   "1y0zunv2otm": "piper",
   "1y1dyblmmln": "piper",
@@ -3634,8 +4298,15 @@
   "1y34wt89zgu": "piper",
   "1y35ufqwutt": "piper",
   "1y3qfiam29l": "piper",
+  "1y3ueu37099": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1y49ro2k3pm": "piper",
-  "1y4ad05hij6": "piper",
+  "1y4ad05hij6": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1y54meetmyc": "piper",
   "1y5c9wr5cbr": "piper",
   "1y5cnos1h9i": "piper",
@@ -3712,6 +4383,10 @@
   "1yt4gxjkco4": "piper",
   "1ytnthpt4zk": "piper",
   "1yu0xr8frsp": "piper",
+  "1yuaxycy6jh": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1yvs2paa38d": "piper",
   "1yvse4of47g": "piper",
   "1yw8ckmww7v": "piper",
@@ -3720,11 +4395,21 @@
   "1yxftpswb9y": "piper",
   "1yxr071de78": "piper",
   "1yz4dg5wc9r": "piper",
-  "1yznpcx6bia": "piper",
+  "1yznpcx6bia": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1yztrk28s9y": "piper",
   "1z01hu7cx72": "piper",
-  "1z0lz5ntiwj": "piper",
+  "1z0lz5ntiwj": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1z0n496qz6w": "piper",
+  "1z0o9yodprf": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1z15l80ekeb": "piper",
   "1z17xcj3z1u": "piper",
   "1z1kb7kfe7g": "piper",
@@ -3822,7 +4507,10 @@
   "1zvxc6awzx6": "piper",
   "1zw5sq00dfw": "piper",
   "1zwebueyrxt": "piper",
-  "1zwnli8o9yn": "piper",
+  "1zwnli8o9yn": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "1zx47hslyfc": "piper",
   "1zxoncfh3al": "piper",
   "1zy67pqay02": "piper",
@@ -3872,6 +4560,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "20f3zu179kl": "piper",
+  "20g02d2pedn": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "20gd05hrj12": "piper",
   "20gkam79gqa": "piper",
   "20grbvbfgg4": {
@@ -3905,6 +4597,10 @@
   "20ps19wsfkf": "piper",
   "20q71owxp5s": "piper",
   "20t4whxk3t9": "piper",
+  "20tpjh8yaxc": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "20u02inwbst": "piper",
   "20u56vhjnkp": "piper",
   "20ucwk0kbxu": "piper",
@@ -3963,13 +4659,20 @@
   },
   "21et12c15kt": "piper",
   "21fwb0wzesr": "piper",
-  "21fy8nkx51y": "piper",
+  "21fy8nkx51y": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "21g3jyivdc9": "piper",
   "21g4v2jkcrg": "piper",
   "21gf6g27c8r": "piper",
   "21gxtcv2408": "piper",
   "21h7qz4xo6w": "piper",
   "21hirpwsv2j": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "21hwv9bjyl": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
@@ -3999,7 +4702,10 @@
   "21pmy37llm7": "piper",
   "21pyv3ln41w": "piper",
   "21qnxvxom5d": "piper",
-  "21qs2r2c3dm": "piper",
+  "21qs2r2c3dm": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "21r68pmobfc": "piper",
   "21r7m7dic2k": "piper",
   "21r9b7mh2s8": "piper",
@@ -4038,6 +4744,10 @@
   "21xcvxqrpe1": "piper",
   "21xh9e8ffww": "piper",
   "21z925q53kd": "piper",
+  "21za98pp94": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "21zuin9tag9": "piper",
   "22034u8u6kf": "piper",
   "220xf30ekay": "piper",
@@ -4056,7 +4766,10 @@
   },
   "226l813q9ro": "piper",
   "226q35cpp5x": "piper",
-  "226ucpn1v8o": "piper",
+  "226ucpn1v8o": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "227frqdgohp": "piper",
   "227gxndai15": "piper",
   "227j6ryiylz": "piper",
@@ -4111,6 +4824,10 @@
   "22ljoo623wl": "piper",
   "22lve4ymust": "piper",
   "22m0mc7xxeb": "piper",
+  "22mfrhxz2hp": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "22modc0721m": "piper",
   "22nbdl3cr2b": "piper",
   "22nmy2pvkvm": "piper",
@@ -4142,7 +4859,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "22wb6pkrjvo": "piper",
-  "22x05qxc3ib": "piper",
+  "22x05qxc3ib": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "22xsqibeyho": "piper",
   "22xx9cyomq1": "piper",
   "22y09fh74lx": "piper",
@@ -4170,7 +4890,10 @@
   "236sgvow40k": "piper",
   "2370hvgu79b": "piper",
   "23755uih99a": "piper",
-  "237cwyw9noc": "piper",
+  "237cwyw9noc": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2381b9ni9it": "piper",
   "238iy0pvza9": "piper",
   "239i1wf5c4j": "piper",
@@ -4205,7 +4928,10 @@
   "23jcf6fhwl8": "piper",
   "23jcsap1nq2": "piper",
   "23jcvmn2ksj": "piper",
-  "23jjixri5gs": "piper",
+  "23jjixri5gs": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "23jkbmqbcpf": "piper",
   "23k8yhrvvlb": "piper",
   "23lak2skvfv": "piper",
@@ -4230,13 +4956,20 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "23q1njweul7": "piper",
-  "23qe4oxkak8": "piper",
+  "23qe4oxkak8": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "23qhqhsd4ks": "piper",
   "23qtadih33l": "piper",
   "23r0h9nsyy": "piper",
   "23raxpne58q": "piper",
   "23seuun8t7o": "piper",
   "23sfuv2dv6e": "piper",
+  "23so0szoae": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "23sokjxoman": "piper",
   "23sxpa8od83": "piper",
   "23tuc0kff56": "piper",
@@ -4269,7 +5002,10 @@
   "242wutl0fj8": "piper",
   "242z507gugh": "piper",
   "243vimuojbg": "piper",
-  "2444oy7x57w": "piper",
+  "2444oy7x57w": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "244c7stqh9v": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -4294,8 +5030,15 @@
   },
   "247h08h7diw": "piper",
   "247rns19jeo": "piper",
+  "247xfteszt9": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2484ezwtsp9": "piper",
-  "248672elvle": "piper",
+  "248672elvle": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2489elj7vwn": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -4311,6 +5054,10 @@
   "24b6cgudly": "piper",
   "24bkvdj3iy8": "piper",
   "24cfra117sm": "piper",
+  "24da1bxmw30": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "24dvdhj6y6r": "piper",
   "24dx93o3qzv": "piper",
   "24e4102mlbx": "piper",
@@ -4318,7 +5065,10 @@
   "24fmg691zf6": "piper",
   "24fprp3xwa6": "piper",
   "24fuv7v3y8w": "piper",
-  "24fwbwqa0pf": "piper",
+  "24fwbwqa0pf": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "24g6tyf02f2": "piper",
   "24gp5jwiyj9": "piper",
   "24htosdprws": "piper",
@@ -4332,7 +5082,10 @@
   "24iuahipe5a": "piper",
   "24iyu0lq96f": "piper",
   "24jpzdvi59v": "piper",
-  "24ki7c6d2qe": "piper",
+  "24ki7c6d2qe": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "24ki83x3zrs": "piper",
   "24l7r5e0weq": "piper",
   "24ldlhyxlew": "piper",
@@ -4401,7 +5154,10 @@
   "255kpmrbcq1": "piper",
   "25679f2x1f4": "piper",
   "2567uac0v0z": "piper",
-  "256f50yylr5": "piper",
+  "256f50yylr5": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "256pmpb04lg": "piper",
   "257cbf2avr2": "piper",
   "257h9b5gape": "piper",
@@ -4540,12 +5296,18 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "26h7ehaj1qm": "piper",
-  "26hfj6wwyjl": "piper",
+  "26hfj6wwyjl": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "26htv5wyba0": "piper",
   "26iz3x53ghs": "piper",
   "26j2vjo2drw": "piper",
   "26jd9te2h94": "piper",
-  "26jqzz4lvqr": "piper",
+  "26jqzz4lvqr": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "26l6ff5nhz": "piper",
   "26la29x002r": "piper",
   "26lbr4jg8r8": "piper",
@@ -4558,7 +5320,10 @@
   "26o62foeng": "piper",
   "26o89xqkgku": "piper",
   "26rbn9ne38w": "piper",
-  "26roqz9v7gq": "piper",
+  "26roqz9v7gq": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "26s41c6v5s4": "piper",
   "26sc0jx9ss4": "piper",
   "26t72dcadw3": "piper",
@@ -4581,7 +5346,10 @@
   "272ssyh4a5r": "piper",
   "272uq1mx1h0": "piper",
   "273i31ytoy9": "piper",
-  "273ip6grtme": "piper",
+  "273ip6grtme": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2744umzuj2o": "piper",
   "274igyrp5a4": "piper",
   "274pj7m0cyp": "piper",
@@ -4592,8 +5360,16 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "275qgzgc389": "piper",
+  "276kbf3wtj9": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "276m7iwbq5x": "piper",
   "276pwi27d80": "piper",
+  "276rn70wp1t": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "277gnfeyec": "piper",
   "277zsljtta6": "piper",
   "2781ow0b3sn": "piper",
@@ -4629,12 +5405,19 @@
   "27hzddcf3ae": "piper",
   "27iawz90g5": "piper",
   "27iihpmm6j": "piper",
+  "27it24o4p92": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "27kqtlk098i": "piper",
   "27krh95k68b": "piper",
   "27l0civejed": "piper",
   "27l5ei467vv": "piper",
   "27mh3e9o9t5": "piper",
-  "27mogg1kwuq": "piper",
+  "27mogg1kwuq": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "27mrrkwdr9t": "piper",
   "27mzcvf93lj": "piper",
   "27n1zl7imcf": {
@@ -4655,7 +5438,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "27q6ed21ykj": "piper",
+  "27q6ed21ykj": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "27q912pvjzg": "piper",
   "27r9g28bevx": "piper",
   "27rcwynd9oj": "piper",
@@ -4676,7 +5462,10 @@
   "27y5q7u39uy": "piper",
   "27ybznks78r": "piper",
   "27yollqajyf": "piper",
-  "27yotswu7p7": "piper",
+  "27yotswu7p7": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "27z08jkz894": "piper",
   "27z21egvbzq": "piper",
   "27zgp2q8asz": "piper",
@@ -4718,7 +5507,10 @@
   "28c2b9kx5rj": "piper",
   "28c4ftq04zc": "piper",
   "28cajor7wsw": "piper",
-  "28ceplsf8ky": "piper",
+  "28ceplsf8ky": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "28cxaimftav": "piper",
   "28doyt6xmls": {
     "engine": "gemini",
@@ -4747,7 +5539,10 @@
   "28l7oo7f7qs": "piper",
   "28lg857j55g": "piper",
   "28m9dqh34zz": "piper",
-  "28mj8qc4qg8": "piper",
+  "28mj8qc4qg8": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "28mwmdwuldg": "piper",
   "28ng9kxtdrg": "piper",
   "28o9a5f74dv": {
@@ -4767,7 +5562,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "28ssfi02s9r": "piper",
+  "28ssfi02s9r": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "28t48opj6dt": "piper",
   "28tics56usj": "piper",
   "28u2wtbgq10": {
@@ -4782,7 +5580,10 @@
   "28u936rmr12": "piper",
   "28ubzwyyx14": "piper",
   "28uhuxicelg": "piper",
-  "28ujxleozao": "piper",
+  "28ujxleozao": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "28uxn9hjsid": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -4805,7 +5606,10 @@
   "28yv9xtdcw5": "piper",
   "28z4zxas3x3": "piper",
   "28zm935p1s": "piper",
-  "28zv6jifdd7": "piper",
+  "28zv6jifdd7": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2904b4oocsw": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -4814,7 +5618,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "291yau785zj": "piper",
+  "291yau785zj": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "291zf0m457k": "piper",
   "2923rg8swsw": "piper",
   "2932p8j8b0b": "piper",
@@ -4831,7 +5638,10 @@
   "295oo8iu0t0": "piper",
   "295za4q4szt": "piper",
   "2969v97pdx": "piper",
-  "296ehvfizb": "piper",
+  "296ehvfizb": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "29737chx3y7": "piper",
   "2974qx2x7k9": "piper",
   "29761lt7qjj": "piper",
@@ -4859,7 +5669,10 @@
   "29gozitig35": "piper",
   "29hn7u2etqp": "piper",
   "29hqh4j9u3w": "piper",
-  "29i1m5grs6d": "piper",
+  "29i1m5grs6d": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "29i98yswfmu": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -4871,7 +5684,14 @@
   },
   "29j3jovpc8c": "piper",
   "29j85mbcb92": "piper",
-  "29kh1p9p6uc": "piper",
+  "29jvmhkkjpc": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "29kh1p9p6uc": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "29ko0yt7miy": "piper",
   "29kv3v6sh2f": "piper",
   "29l3w4wyy4x": "piper",
@@ -4879,7 +5699,10 @@
   "29lkng67thr": "piper",
   "29mhayvdnsg": "piper",
   "29mlgjamicy": "piper",
-  "29mvcc1crfg": "piper",
+  "29mvcc1crfg": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "29ng9suu1a6": "piper",
   "29njggp6a7": "piper",
   "29nkiy2usca": "piper",
@@ -4888,7 +5711,10 @@
   "29p4vgtyqlv": "piper",
   "29pggt0kuz6": "piper",
   "29q4eck0dyo": "piper",
-  "29qi6n3ahgt": "piper",
+  "29qi6n3ahgt": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "29qtvw1wiw6": "piper",
   "29qyljjqwwd": "piper",
   "29r13vfj0a7": "piper",
@@ -4903,12 +5729,19 @@
   "29vkbz7hyi9": "piper",
   "29w40gkr6g0": "piper",
   "29w8ts2oekc": "piper",
-  "29wo41yw4er": "piper",
+  "29wo41yw4er": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "29wqdcuclaz": "piper",
   "29wxhbvha6o": "piper",
   "29wxna9r1iv": "piper",
   "29y3yw7fhwg": "piper",
   "29ycmawn7q1": "piper",
+  "29ye1ri20kx": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "29ye4l2hqu": "piper",
   "29ypncg6mk7": {
     "engine": "gemini",
@@ -4947,7 +5780,10 @@
   },
   "2a7136ombbo": "piper",
   "2a71swekikf": "piper",
-  "2a74p3xagqe": "piper",
+  "2a74p3xagqe": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2a788rmz0af": "piper",
   "2a82zfsf0jb": "piper",
   "2a8ls9tm9gz": "piper",
@@ -4962,16 +5798,25 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "2acuacwb5of": "piper",
+  "2acuacwb5of": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2adj6h7xxdg": "piper",
   "2adz0jkb9gc": "piper",
   "2aed0hugtu4": "piper",
   "2aej7h06wpf": "piper",
   "2aejw08kgjg": "piper",
   "2aevm77rp95": "piper",
-  "2afcst9q67w": "piper",
+  "2afcst9q67w": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2afqte63b94": "piper",
-  "2afr4lg6fm": "piper",
+  "2afr4lg6fm": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2afybrf41gf": "piper",
   "2age7ka8tsr": "piper",
   "2ahe1lnrk0j": "piper",
@@ -4985,6 +5830,10 @@
   "2aler6k4ta1": "piper",
   "2alubogcb0i": "piper",
   "2am350l0kll": "piper",
+  "2am46i0bokz": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2amdzeczx0e": "piper",
   "2amz5masfvo": "piper",
   "2an2f4atyba": "piper",
@@ -5004,6 +5853,10 @@
   "2au43xqniil": "piper",
   "2auc7wcrc49": "piper",
   "2auuksy9qg7": "piper",
+  "2auvbelvmur": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2av4cnhiklp": "piper",
   "2av6utcxv7k": {
     "engine": "gemini",
@@ -5057,7 +5910,10 @@
   "2b9n0a68g8x": "piper",
   "2b9rk7wiydg": "piper",
   "2ba1miw6dgc": "piper",
-  "2bailwiw38e": "piper",
+  "2bailwiw38e": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2bazdevn0y3": "piper",
   "2bbdjpph37w": {
     "engine": "gemini",
@@ -5070,7 +5926,10 @@
   "2bd55dv6exl": "piper",
   "2bd78cilakv": "piper",
   "2bd8ozprpvb": "piper",
-  "2bdfsbd5pdp": "piper",
+  "2bdfsbd5pdp": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2bdivgb2nq9": "piper",
   "2bf2u1ahzcn": "piper",
   "2bfcz972fqv": "piper",
@@ -5079,9 +5938,16 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "2bgq7ao5m51": "piper",
+  "2bgq7ao5m51": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2bhnvywd56j": "piper",
   "2bhpoecd3wb": "piper",
+  "2bhqass5etc": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2bj08tyerl4": "piper",
   "2bj2k922l89": "piper",
   "2bjn7lt3lb8": "piper",
@@ -5102,7 +5968,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "2bmmxazhn6j": "piper",
-  "2bn5f9ah85q": "piper",
+  "2bn5f9ah85q": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2bn9bn0cuno": "piper",
   "2bnb6qp44mq": "piper",
   "2bnq4q7n14a": "piper",
@@ -5137,7 +6006,10 @@
   "2bvh0dga2x0": "piper",
   "2bvm6i2dtcm": "piper",
   "2bwfkojidbw": "piper",
-  "2bwku2bvrjz": "piper",
+  "2bwku2bvrjz": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2bx0aa4fdiv": "piper",
   "2bx4wdahasv": "piper",
   "2bx66rqsaq1": "piper",
@@ -5183,9 +6055,16 @@
   "2cds50fmu1u": "piper",
   "2ce0h1apinm": "piper",
   "2ce3yaw8zt5": "piper",
-  "2cej8lyx6q6": "piper",
+  "2cej8lyx6q6": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2cf231pgtth": "piper",
   "2cfhgc62nn": "piper",
+  "2cft9ztu2zb": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2cgn9hd4l6": "piper",
   "2cgqem7f5id": "piper",
   "2ch0p0gu8h2": "piper",
@@ -5197,7 +6076,10 @@
   "2cj622wv6zy": "piper",
   "2cjdecg0rpd": "piper",
   "2cjp9dmelkp": "piper",
-  "2ckh7m29mox": "piper",
+  "2ckh7m29mox": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2ckrjb4dvna": "piper",
   "2clpkfxved": "piper",
   "2cm9x25w8rl": "piper",
@@ -5247,7 +6129,10 @@
   "2d0pp36lkxy": "piper",
   "2d130fpp5nr": "piper",
   "2d14fpapmek": "piper",
-  "2d1pz8rqgn7": "piper",
+  "2d1pz8rqgn7": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2d1zp962ycl": "piper",
   "2d2970tpxbl": "piper",
   "2d2ef744632": "piper",
@@ -5291,7 +6176,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "2dcqlnj0fxd": "piper",
+  "2dcqlnj0fxd": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2ddbmid23c2": "piper",
   "2ddfv74cwvh": "piper",
   "2ddlrwhk338": "piper",
@@ -5307,14 +6195,26 @@
   "2dgj5kzx81u": "piper",
   "2dgqge6k0jc": "piper",
   "2dgr72j637v": "piper",
-  "2dh80jhozag": "piper",
+  "2dh80jhozag": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2dhb01d0b6g": "piper",
   "2digdtkakqx": "piper",
   "2dihhw8ygwf": "piper",
   "2dj5g1p04sf": "piper",
-  "2dk083s4pe": "piper",
-  "2dkjo47wfaw": "piper",
-  "2dklid1ekhh": "piper",
+  "2dk083s4pe": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "2dkjo47wfaw": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "2dklid1ekhh": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2dlje5wge8p": "piper",
   "2dlrrtcxgx9": "piper",
   "2dlrwsosqno": "piper",
@@ -5356,7 +6256,10 @@
   "2dxccl1invm": "piper",
   "2dxq0ckuv24": "piper",
   "2dym39qsw": "piper",
-  "2dyqocldi8o": "piper",
+  "2dyqocldi8o": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2dyxg56nnie": "piper",
   "2dzxr5nbg84": "piper",
   "2e0gvfvoh1q": "piper",
@@ -5405,11 +6308,17 @@
   "2ec53ryn8nf": "piper",
   "2edfb17k6ox": "piper",
   "2ee1z9bqoo5": "piper",
-  "2eezvl5oa9w": "piper",
+  "2eezvl5oa9w": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2ef9b897o3x": "piper",
   "2ef9cfqz2rl": "piper",
   "2eg4w823ty5": "piper",
-  "2eg7nxsrp2i": "piper",
+  "2eg7nxsrp2i": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2eggncspr82": "piper",
   "2egp7o9p989": {
     "engine": "gemini",
@@ -5429,16 +6338,26 @@
   "2ejkn709aq3": "piper",
   "2ek7ysxq9cq": "piper",
   "2eke6bwv0r8": "piper",
+  "2ekhzq2fjs3": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2el0nbjagiw": "piper",
   "2elr9fbarle": "piper",
   "2elsfo7hv9c": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "2em5demt2ew": "piper",
+  "2em5demt2ew": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2emen9i7zz8": "piper",
   "2enl5tb6npu": "piper",
-  "2enpzar8uid": "piper",
+  "2enpzar8uid": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2enqyglubn0": "piper",
   "2ens7g4uu99": {
     "engine": "gemini",
@@ -5470,10 +6389,16 @@
   "2euuwpwph3i": "piper",
   "2ev0t5jgei": "piper",
   "2evkdc7x2ok": "piper",
-  "2evnrt810ap": "piper",
+  "2evnrt810ap": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2ewddiy3q9c": "piper",
   "2ewzf3pe8yy": "piper",
-  "2ex2c2nadgz": "piper",
+  "2ex2c2nadgz": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2exkcnf47u5": "piper",
   "2exq6w3oaot": "piper",
   "2eygplr0lp4": "piper",
@@ -5485,7 +6410,10 @@
   "2f0i042nx7d": "piper",
   "2f14856xpla": "piper",
   "2f1miknxqz3": "piper",
-  "2f1xlhj0z9d": "piper",
+  "2f1xlhj0z9d": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2f2bewm02x": "piper",
   "2f3bv78dkdx": "piper",
   "2f3mel4rlma": "piper",
@@ -5511,7 +6439,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "2f82zxi9khi": "piper",
+  "2f82zxi9khi": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2f89v98d8dq": "piper",
   "2f8jrqgleb5": "piper",
   "2f8r8i87t7r": "piper",
@@ -5541,6 +6472,10 @@
   "2ffdcwi14gt": "piper",
   "2ffmasgiosd": "piper",
   "2fg3ws896vo": "piper",
+  "2fgf2zk0rq1": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2fgqjd5arwv": "piper",
   "2fh6pajdglw": "piper",
   "2fijl97oz5h": "piper",
@@ -5570,12 +6505,18 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "2fogn8s0fc8": "piper",
-  "2fohtncg257": "piper",
+  "2fohtncg257": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2fowdf8ri9t": "piper",
   "2fpwnftlkps": "piper",
   "2fqb4wcihz0": "piper",
   "2frepc2clwa": "piper",
-  "2friynngl18": "piper",
+  "2friynngl18": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2frnfobz51o": "piper",
   "2frutanxsge": "piper",
   "2frvka77g2r": "piper",
@@ -5647,7 +6588,10 @@
   "2g6xehxjmdl": "piper",
   "2g7dwgdco0t": "piper",
   "2g7fs8g4bpx": "piper",
-  "2g7suy5q59n": "piper",
+  "2g7suy5q59n": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2g7zcxaktst": "piper",
   "2g8is87yj6h": "piper",
   "2g9kpon9r5v": "piper",
@@ -5682,13 +6626,20 @@
   "2gje1glsgjx": "piper",
   "2gjesl76jgo": "piper",
   "2gjl1lloqfu": "piper",
-  "2gjw1d1tmll": "piper",
+  "2gjw1d1tmll": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2gjxe1l0yg2": "piper",
   "2gk9leq8tm8": "piper",
   "2gkdaktmmqt": "piper",
   "2gkmgf7lvid": "piper",
   "2gksnndu0sm": "piper",
   "2gl9vuip2r7": "piper",
+  "2glflralgj1": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2gljpiztcd5": "piper",
   "2glrmklcgxl": "piper",
   "2gm92yfn263": {
@@ -5716,11 +6667,21 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "2mtwbu6gfy": "piper",
+  "2mtwbu6gfy": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2mwxljvxn4": "piper",
   "2n0b9dm4w4": "piper",
-  "2nojs37qvk": "piper",
+  "2nojs37qvk": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2o050pnhba": "piper",
+  "2o33r1sfyf": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "2oekbef1mm": "piper",
   "2of7mxdqkq": "piper",
   "2og3th9ts2": "piper",
@@ -5760,13 +6721,20 @@
   "31c5rr3a0u": "piper",
   "32rjoaud42": "piper",
   "33bs4jdv45": "piper",
+  "33dyhphmc5": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "33pwr4fscj": "piper",
   "33qks75kt0": "piper",
   "33v9zvpwkf": "piper",
   "353y6gk2lt": "piper",
   "35f8wjsj9": "piper",
   "35mx8kz8om": "piper",
-  "35rx23pq3l": "piper",
+  "35rx23pq3l": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "35s66obfpd": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -5789,7 +6757,10 @@
   "3acesln931": "piper",
   "3al59jex5x": "piper",
   "3bhhpnzi36": "piper",
-  "3c46g71jmp": "piper",
+  "3c46g71jmp": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "3ca0q943y4": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -5819,19 +6790,28 @@
   "3ilsgt3n9v": "piper",
   "3j5v3k76a9": "piper",
   "3k58m7v3ol": "piper",
-  "3kplek9zty": "piper",
+  "3kplek9zty": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "3ktlo4q8vx": "piper",
   "3ku9ydy0la": "piper",
   "3lltdoxtmq": "piper",
   "3lpjx53pfe": "piper",
-  "3m33jg4z8f": "piper",
+  "3m33jg4z8f": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "3mdqb6wy4m": "piper",
   "3mm7qabrcb": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
   "3n1nx9p062": "piper",
-  "3n4yiydaxs": "piper",
+  "3n4yiydaxs": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "3p4ul0nzij": "piper",
   "3q3d54yixx": "piper",
   "3qtnkzp1g3": "piper",
@@ -5864,7 +6844,10 @@
   "3yz1dfvp0t": "piper",
   "3yzezvzs0o": "piper",
   "3z6to4wxjt": "piper",
-  "3zeyemcky7": "piper",
+  "3zeyemcky7": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "3zfuph12j4": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -5872,7 +6855,14 @@
   "3zg847d7y7": "piper",
   "3zn4b4n57f": "piper",
   "3zwvqi9ij3": "piper",
-  "40oawexh7p": "piper",
+  "40fugqu86a": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "40oawexh7p": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "40t3h8syhj": "piper",
   "41763flsc8": "piper",
   "41xbhhxc25": "piper",
@@ -5885,7 +6875,10 @@
   "44k5v2nt1j": "piper",
   "44o49wofi9": "piper",
   "454t9cexjv": "piper",
-  "45fgj6i8xf": "piper",
+  "45fgj6i8xf": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "46d9kntaio": "piper",
   "46ditextp2": "piper",
   "47ube8ghgs": "piper",
@@ -5893,10 +6886,16 @@
   "48v23wnzvw": "piper",
   "491wwcglhf": "piper",
   "495y1fby9r": "piper",
-  "49p740rt1b": "piper",
+  "49p740rt1b": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "49prbao4xw": "piper",
   "49ptj9oddk": "piper",
-  "4a0xoj6t55": "piper",
+  "4a0xoj6t55": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "4b09moqn7q": "piper",
   "4bbtjl0km9": "piper",
   "4bnp57i7o7": "piper",
@@ -5904,8 +6903,15 @@
   "4cl1u23yu8": "piper",
   "4djg19onwv": "piper",
   "4egxm1kut2": "piper",
-  "4fj5q5x3xu": "piper",
+  "4fj5q5x3xu": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "4g2zzo8raq": "piper",
+  "4g4ajnb46f": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "4gjx1qwl6k": "piper",
   "4gsrbdb851": "piper",
   "4i9gm3jxam": "piper",
@@ -5916,6 +6922,10 @@
   "4l5z6k8x9a": "piper",
   "4l7wsr99o6": "piper",
   "4lqqpt2tzu": "piper",
+  "4luhbupiqa": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "4lvvw100xx": "piper",
   "4oxg6ou2h5": "piper",
   "4pmhsvh1em": "piper",
@@ -5944,9 +6954,15 @@
   "4xhklqhn73": "piper",
   "4y1j2gq14j": "piper",
   "4y9iop0eau": "piper",
-  "4yrzmu3hhi": "piper",
+  "4yrzmu3hhi": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "4yugs3gwfg": "piper",
-  "4zi84gfo3x": "piper",
+  "4zi84gfo3x": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "4zpx87avtb": "piper",
   "4zya8pcfdu": "piper",
   "5091spqdm2": "piper",
@@ -5954,6 +6970,10 @@
   "510o1al8p9": "piper",
   "51tkhbvr1t": "piper",
   "52cma1mgbi": "piper",
+  "52kekq9pe2": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "52n8kksz5q": "piper",
   "557ht85y56": "piper",
   "55ejohhxb1": "piper",
@@ -5981,10 +7001,18 @@
   "5d2luw6a9r": "piper",
   "5dmmkd6k7r": "piper",
   "5dok4fpeuj": "piper",
+  "5egvu5wl2v": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "5exc2wfmgq": "piper",
   "5ey5t81wza": "piper",
   "5fipittca6": "piper",
   "5flaa7erhk": "piper",
+  "5gblobrgzz": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "5gpidf7lec": "piper",
   "5gs4hleuy4": "piper",
   "5hay63gu47": "piper",
@@ -6008,12 +7036,19 @@
   },
   "5lefnp9m36": "piper",
   "5lyt6v9iww": "piper",
+  "5m4rxkcgey": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "5mr30yviks": "piper",
   "5mtpz6a2hp": "piper",
   "5n47lxnhwe": "piper",
   "5nl88a6fgc": "piper",
   "5p4uwswqmn": "piper",
-  "5pkobkjdmi": "piper",
+  "5pkobkjdmi": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "5pt98usz02": "piper",
   "5pzkxza7mj": "piper",
   "5qrn2amni": "piper",
@@ -6033,7 +7068,10 @@
   "5twmr2t1pm": "piper",
   "5u4hxsrysj": "piper",
   "5uaow5ftc2": "piper",
-  "5uavtsel2j": "piper",
+  "5uavtsel2j": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "5uoyb62chv": "piper",
   "5uruaopp67": "piper",
   "5utgkdx03s": "piper",
@@ -6047,7 +7085,10 @@
   "5xnq2rtxzv": "piper",
   "5xr1g043fn": "piper",
   "5y7gjnnoe0": "piper",
-  "5yly5bughy": "piper",
+  "5yly5bughy": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "5ypez8vbok": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -6063,13 +7104,19 @@
   "60ubuq6y71": "piper",
   "61g9ql0tm": "piper",
   "62k4tz1j67": "piper",
-  "632m4jia6f": "piper",
+  "632m4jia6f": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "63juw1lkxm": "piper",
   "63oh4bkpfx": "piper",
   "6458dt3cfe": "piper",
   "65u7v0xuyq": "piper",
   "66jwvpc2t5": "piper",
-  "675vughe2i": "piper",
+  "675vughe2i": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "67j7wodv3f": "piper",
   "681ja8kojs": "piper",
   "6870iys9s5": "piper",
@@ -6122,13 +7169,19 @@
   "6sravajsg9": "piper",
   "6tdwxq62n3": "piper",
   "6thxpt05o9": "piper",
-  "6tr1n5l6yx": "piper",
+  "6tr1n5l6yx": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "6tup6q61w": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
   "6uq43w4ezw": "piper",
-  "6uyhyivttt": "piper",
+  "6uyhyivttt": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "6vccqlmd5x": "piper",
   "6vemafoihi": "piper",
   "6vgpr7k6yz": "piper",
@@ -6149,7 +7202,10 @@
   "70d28ew4cx": "piper",
   "70iiuyte6s": "piper",
   "7114xg3zo3": "piper",
-  "71hwv0nv60": "piper",
+  "71hwv0nv60": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "71kk3k2fir": "piper",
   "72bi1iohvy": "piper",
   "72i29uxb3v": "piper",
@@ -6171,9 +7227,15 @@
   "77rl3h8yj3": "piper",
   "78hy1k2hs": "piper",
   "78mzyeop3p": "piper",
-  "78vr8mm91o": "piper",
+  "78vr8mm91o": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "7a7smf3gf4": "piper",
-  "7ak9jmyoxn": "piper",
+  "7ak9jmyoxn": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "7an6ugl1bw": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -6304,15 +7366,28 @@
   "8bf52agqpz": "piper",
   "8bt332b3ec": "piper",
   "8cm2l6mw1g": "piper",
+  "8cmed1kzw4": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "8d7y4pue0p": "piper",
   "8d96ynoq5p": "piper",
   "8eiycmb5po": "piper",
   "8epvqgvo2b": "piper",
-  "8evqcqxhxn": "piper",
+  "8evqcqxhxn": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "8fee4u0irk": "piper",
   "8feu5zjtit": "piper",
-  "8fnx5mt63k": "piper",
-  "8fx34ydbmz": "piper",
+  "8fnx5mt63k": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "8fx34ydbmz": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "8g092fd0l5": "piper",
   "8gpf5fcikx": "piper",
   "8h3egzgu5g": "piper",
@@ -6323,7 +7398,10 @@
   "8i0mt00cr6": "piper",
   "8i0nc2j00q": "piper",
   "8jgov01rkz": "piper",
-  "8jotmyldph": "piper",
+  "8jotmyldph": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "8k70tuxv34": "piper",
   "8kaje5j5fm": "piper",
   "8kgld129o5": "piper",
@@ -6331,8 +7409,14 @@
   "8lnlcpqtm6": "piper",
   "8me5ofr0ok": "piper",
   "8mmrpunn6l": "piper",
-  "8n4fjl0iqq": "piper",
-  "8nfpledqyo": "piper",
+  "8n4fjl0iqq": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "8nfpledqyo": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "8nhurfmn7j": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -6350,11 +7434,19 @@
   "8rb9k2nenq": "piper",
   "8rupfhgwo0": "piper",
   "8s8eqacpnm": "piper",
+  "8t3yxkbonu": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "8tf38jv2le": "piper",
   "8thv48huq3": "piper",
   "8u7yi7rufl": "piper",
   "8ula0vgd68": "piper",
   "8viouc8ttl": "piper",
+  "8w9jibruyc": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "8wbaq6sdxl": "piper",
   "8whhmhbqna": "piper",
   "8wpm6pc3j8": "piper",
@@ -6368,7 +7460,10 @@
   "8xwqapgz6l": "piper",
   "8y054zxclu": "piper",
   "8yqktza2bd": "piper",
-  "8z4td5uhky": "piper",
+  "8z4td5uhky": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "8zhpsoi9jb": "piper",
   "8zkfl109by": "piper",
   "8zyaf7cpwf": "piper",
@@ -6378,11 +7473,17 @@
   "91ecu6xkp": "piper",
   "91wb5mgl83": "piper",
   "9296mjihuq": "piper",
-  "92fqmbvavd": "piper",
+  "92fqmbvavd": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "92hetjdnuz": "piper",
   "92tlpyavj7": "piper",
   "94pu1v9ho8": "piper",
-  "94sh2emar7": "piper",
+  "94sh2emar7": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "95ktyezi7": "piper",
   "95tu3hljbr": "piper",
   "96pm4z0ceo": "piper",
@@ -6408,6 +7509,10 @@
   "9a7jwcrqwb": "piper",
   "9ad6nuxxu8": "piper",
   "9ai2yd4k8n": "piper",
+  "9b377nlitf": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "9bgrp1w6xr": "piper",
   "9blggxcvls": "piper",
   "9bq0u0i4q6": "piper",
@@ -6430,16 +7535,25 @@
   },
   "9ilkj2nc57": "piper",
   "9j4i42aylt": "piper",
-  "9j63d97sku": "piper",
+  "9j63d97sku": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "9j6yn74sfi": "piper",
   "9jgk19kisp": "piper",
-  "9k6o3l13zz": "piper",
+  "9k6o3l13zz": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "9kipadfrjk": "piper",
   "9kkzd6091h": "piper",
   "9koy9og2hx": "piper",
   "9ldk8emox3": "piper",
   "9mcbz71kea": "piper",
-  "9mt02ohjqb": "piper",
+  "9mt02ohjqb": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "9my2dhkq0h": "piper",
   "9n8xrxc3h7": "piper",
   "9nmdzc5dp5": "piper",
@@ -6471,12 +7585,19 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "9s4vzu9nc8": "piper",
+  "9s4vzu9nc8": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "9s7r4vh61g": "piper",
   "9siiog3yod": "piper",
   "9t3dcm0goq": "piper",
   "9tqttqim3x": "piper",
   "9ttknbj43d": "piper",
+  "9ua8rmj2vr": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "9uo9h5562h": "piper",
   "9uobp18xxp": "piper",
   "9vo1r5afoh": "piper",
@@ -6486,7 +7607,10 @@
   "9xl7cfybvs": "piper",
   "9xzn30bany": "piper",
   "9yakyxmael": "piper",
-  "9ycfpvkc9j": "piper",
+  "9ycfpvkc9j": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "9yx62lswn9": "piper",
   "9zd5b7rqvu": "piper",
   "9znibdce68": "piper",
@@ -6524,13 +7648,19 @@
   "a7o2s31br3": "piper",
   "a8xv5xp7b3": "piper",
   "a9abh5vbp9": "piper",
-  "a9bs7vrvke": "piper",
+  "a9bs7vrvke": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "aaasasgh7j": "piper",
   "aapecflzil": "piper",
   "abnmhn9hwz": "piper",
   "abz6lh9uh9": "piper",
   "ac55tkrw1d": "piper",
-  "acfv4w0w4d": "piper",
+  "acfv4w0w4d": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "ackmudna5d": "piper",
   "ade9gyqmh2": "piper",
   "adl1esl6lw": "piper",
@@ -6557,6 +7687,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "akxnbcrx1y": "piper",
+  "aldacly155": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "alumumsres": "piper",
   "am1i3lml9j": "piper",
   "am27t7uauc": "piper",
@@ -6564,6 +7698,10 @@
   "amlj5ont8h": "piper",
   "ampc498vhz": "piper",
   "an3te43yy": "piper",
+  "anke4s4z62": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "ansmbdldwx": "piper",
   "anvdmn6rcp": "piper",
   "ao5j0r8zoy": "piper",
@@ -6597,7 +7735,10 @@
   "awhf79yqtq": "piper",
   "ax79hn1dgu": "piper",
   "axkw9fw4gj": "piper",
-  "ay2kw9idi7": "piper",
+  "ay2kw9idi7": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "aybw9h3e2r": "piper",
   "ayetroaqud": "piper",
   "aymbxrc9j9": "piper",
@@ -6640,7 +7781,10 @@
   "bbe1bmrjwo": "piper",
   "bbk4mwau5l": "piper",
   "bbxende503": "piper",
-  "bbyo954jyk": "piper",
+  "bbyo954jyk": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "bcef770oiq": "piper",
   "bcpbq5qcfl": "piper",
   "bcpsiu1no8": "piper",
@@ -6708,8 +7852,14 @@
   "bzayc8lspn": "piper",
   "c05i9s6qia": "piper",
   "c1rpytmb7g": "piper",
-  "c1wi1f05vc": "piper",
-  "c1z4zkz27w": "piper",
+  "c1wi1f05vc": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "c1z4zkz27w": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "c2piyhl694": "piper",
   "c2zxof5o8p": "piper",
   "c3y2gijyol": "piper",
@@ -6820,7 +7970,10 @@
   "cyo3ppd1r9": "piper",
   "cypinool9q": "piper",
   "cyu555l7vy": "piper",
-  "cyx88ocbpp": "piper",
+  "cyx88ocbpp": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "czfxffb1i9": "piper",
   "d0cf75y3ep": "piper",
   "d0k2mjfkgz": "piper",
@@ -6844,12 +7997,21 @@
   },
   "d5slumgfv7": "piper",
   "d70b967sw3": "piper",
-  "d96mjnpv2e": "piper",
-  "d9jh92krx2": "piper",
+  "d96mjnpv2e": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "d9jh92krx2": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "d9lfj43jk6": "piper",
   "dbdo546yra": "piper",
   "dc41haq3gi": "piper",
-  "dcgauhztk3": "piper",
+  "dcgauhztk3": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "dddctsy9o6": "piper",
   "ddnvvek9q": "piper",
   "ddpjvu8i8a": "piper",
@@ -6905,7 +8067,10 @@
   "dqsqui7u57": "piper",
   "dr43wz30yr": "piper",
   "drfg57o3bw": "piper",
-  "drg7nhxekx": "piper",
+  "drg7nhxekx": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "ds7hlrguvv": "piper",
   "dtgof1zh7q": "piper",
   "dth09kwc9r": "piper",
@@ -6915,6 +8080,10 @@
   "ducy9zwxuu": "piper",
   "duh81u4gue": "piper",
   "duhisv488v": "piper",
+  "dvh1i7w61q": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "dvk78z71hn": "piper",
   "dvv14k8aw4": "piper",
   "dwbophrtlm": "piper",
@@ -6940,11 +8109,20 @@
   "e3t6a60ptn": "piper",
   "e3y8vvqugh": "piper",
   "e4inzhmja6": "piper",
-  "e4nevgujgr": "piper",
+  "e4nevgujgr": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "e4obg47l8i": "piper",
   "e4va3655j0": "piper",
-  "e4w26foel3": "piper",
-  "e50gnhd60": "piper",
+  "e4w26foel3": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "e50gnhd60": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "e51q0koiy": "piper",
   "e55zk1y0fr": "piper",
   "e5j0a7ogej": "piper",
@@ -7013,11 +8191,18 @@
   "eo1c6jy8tu": "piper",
   "epxvg8lkka": "piper",
   "eq06e7ruac": "piper",
+  "eq0g22istb": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "eqb4hqeasv": "piper",
   "eqi3ufvvec": "piper",
   "ercc0blogo": "piper",
   "erean9q83w": "piper",
-  "ergbcqib4v": "piper",
+  "ergbcqib4v": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "erm7vbi4bx": "piper",
   "errddk9f9t": "piper",
   "es0m69xf9o": "piper",
@@ -7027,7 +8212,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "etabau9lvq": "piper",
-  "eu3p2z4i11": "piper",
+  "eu3p2z4i11": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "eufcwmtdhq": "piper",
   "eunstfgitv": "piper",
   "ev4ym9sa71": "piper",
@@ -7052,7 +8240,10 @@
   "eywubn8sa5": "piper",
   "ezad87lxoz": "piper",
   "ezkxqkwel2": "piper",
-  "ezrut2ufan": "piper",
+  "ezrut2ufan": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "f0il32e608": "piper",
   "f0rc93x2at": "piper",
   "f12bo2lsk1": "piper",
@@ -7067,7 +8258,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "f5tm0pjb5z": "piper",
+  "f5tm0pjb5z": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "f6ts0rgbzn": "piper",
   "f6wm99la21": {
     "engine": "gemini",
@@ -7082,8 +8276,14 @@
   "f90wvuaqj9": "piper",
   "f9wynto93a": "piper",
   "faehe1ep9q": "piper",
-  "faicyxaez2": "piper",
-  "fakln4tm0l": "piper",
+  "faicyxaez2": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "fakln4tm0l": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "favir1td51": "piper",
   "faxmc0igq9": "piper",
   "fbi4xqweg3": "piper",
@@ -7099,7 +8299,10 @@
   "fh7l855ip7": "piper",
   "fh9ksrtsw3": "piper",
   "fhmer844xn": "piper",
-  "fi66zrim08": "piper",
+  "fi66zrim08": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "fi7wxd71kt": "piper",
   "fir4ktypp8": "piper",
   "fkj2oufgsg": "piper",
@@ -7115,6 +8318,10 @@
   "foru5nqyqc": "piper",
   "fox993ekcq": "piper",
   "fp981r2z4z": "piper",
+  "fpawobcs5z": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "fpcroalucv": "piper",
   "fprpqg5m4s": "piper",
   "fqe644mx9g": "piper",
@@ -7130,7 +8337,10 @@
   "fuhgn2j2j7": "piper",
   "fv01gh8pwy": "piper",
   "fv1sj160b5": "piper",
-  "fv3kspvyuj": "piper",
+  "fv3kspvyuj": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "fwhs5xydwq": "piper",
   "fwxo9qdc4b": "piper",
   "fxz09pngxd": "piper",
@@ -7141,6 +8351,10 @@
   "fznxpsgsxj": "piper",
   "g0cudpeqdo": "piper",
   "g0davmhj5q": "piper",
+  "g0moojpe9i": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "g11rcpcwg7": "piper",
   "g17mx9pqf": "piper",
   "g192jt1prr": "piper",
@@ -7171,7 +8385,10 @@
   "g643e2jm1u": "piper",
   "g71xdj73o0": "piper",
   "g7eo1sjrj8": "piper",
-  "g7ueqswcrk": "piper",
+  "g7ueqswcrk": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "g814mdez4m": "piper",
   "g86n5w616j": "piper",
   "g88csymm4i": "piper",
@@ -7182,7 +8399,10 @@
   "gafxx6g5hd": "piper",
   "gbq3zv6eh3": "piper",
   "gbrm67t8pj": "piper",
-  "gbu3m0acav": "piper",
+  "gbu3m0acav": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "gcgo4gpoal": "piper",
   "gco54rpa4z": "piper",
   "gcy9mqybhd": "piper",
@@ -7222,16 +8442,26 @@
   "gqcsm42svi": "piper",
   "gr2ykrvow0": "piper",
   "gr609alzlp": "piper",
+  "gs5gvwc6re": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "gs5uwcrydh": "piper",
   "gt8f0t6o2m": "piper",
   "gtkhynhu4e": "piper",
   "gtmn5acu54": "piper",
   "gtp1yxczrt": "piper",
   "gtrtoqybem": "piper",
-  "gu4u0ndwp": "piper",
+  "gu4u0ndwp": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "gu6plbgdio": "piper",
   "gutb76l9ov": "piper",
-  "gvcql2mh3p": "piper",
+  "gvcql2mh3p": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "gwby13jygw": "piper",
   "gxaceyzgm1": {
     "engine": "gemini",
@@ -7251,24 +8481,41 @@
   "h0vns8ukj3": "piper",
   "h1ct3v9s83": "piper",
   "h1jeomoln6": "piper",
-  "h225j5wkb1": "piper",
+  "h225j5wkb1": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "h26ggd1k6z": "piper",
   "h3264t56p6": "piper",
   "h338vsn797": "piper",
   "h46a6skaug": "piper",
   "h4obyj8cs5": "piper",
   "h4vhtvp8t9": "piper",
-  "h4zacu9qom": "piper",
+  "h4zacu9qom": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "h50q9xshpa": "piper",
   "h542xuwjdd": "piper",
   "h5isp2jro8": "piper",
   "h5pgkxjs9g": "piper",
   "h5qscvmiwq": "piper",
   "h5zkaze97j": "piper",
+  "h6naqf8f0c": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "h8ouvmdbxd": "piper",
-  "h8skuc1n8o": "piper",
+  "h8skuc1n8o": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "h9juz3tk3e": "piper",
   "ha6v1i1zuj": "piper",
+  "haqela94rb": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "havoojds9i": "piper",
   "hb1fm0vu81": "piper",
   "hb6njjb0u3": "piper",
@@ -7287,7 +8534,10 @@
   "hf7pdwx1eq": "piper",
   "hfhln0lqgo": "piper",
   "hfkyn41yk0": "piper",
-  "hflrvpropg": "piper",
+  "hflrvpropg": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "hfq0gj5qhx": "piper",
   "hg92r80nuz": "piper",
   "hgz5959v3k": "piper",
@@ -7314,6 +8564,10 @@
   "hpbl7937y": "piper",
   "hpc24pqgm3": "piper",
   "hpkdxxghls": "piper",
+  "hqasf75kz": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "hqf2ml2lpj": "piper",
   "hre018gm4k": "piper",
   "hrjuznnppj": "piper",
@@ -7333,7 +8587,10 @@
   "hxwg710pdm": "piper",
   "hyb6w7athp": "piper",
   "hz95w2q57": "piper",
-  "hzpxnlcp6g": "piper",
+  "hzpxnlcp6g": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "i0iknierm8": "piper",
   "i32c67mbs2": "piper",
   "i3fom2ieca": "piper",
@@ -7375,14 +8632,23 @@
   "id3qll9d9a": "piper",
   "id4mk7y6t0": "piper",
   "idbxo7kvbu": "piper",
-  "idp0y718qa": "piper",
+  "idp0y718qa": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "iebhj8e7ce": "piper",
-  "iehka1bz5f": "piper",
+  "iehka1bz5f": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "iehlvl72r": "piper",
   "ieis8lznn9": "piper",
   "ielrs1vt6e": "piper",
   "igodt7eucr": "piper",
-  "igpsuoii27": "piper",
+  "igpsuoii27": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "igu4v7wpbh": "piper",
   "igxqqdmp9j": "piper",
   "ih9j2a7ubw": "piper",
@@ -7394,7 +8660,10 @@
   "ihjevf4tdp": "piper",
   "ii2r2p6fzn": "piper",
   "iiz4qgycz5": "piper",
-  "ij5mvlm29a": "piper",
+  "ij5mvlm29a": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "ijcghl2kv7": "piper",
   "ijxzhxdap6": "piper",
   "ikio02kvuy": "piper",
@@ -7408,7 +8677,10 @@
   "inbml7iqhn": "piper",
   "ip8u0qg9m2": "piper",
   "ip9tuiyb8s": "piper",
-  "ipplvmc5a3": "piper",
+  "ipplvmc5a3": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "ipq0kpcbty": "piper",
   "iqyr5u4r00": "piper",
   "ir02btm748": "piper",
@@ -7421,18 +8693,28 @@
   "it30eejua": "piper",
   "itfyohvtzj": "piper",
   "iu12wewo8y": "piper",
+  "iu4kq7ycs4": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "iuj4wpx0wz": "piper",
   "iunzw2v0ho": "piper",
   "iuo0jhfp31": "piper",
   "ivdzpe52a7": "piper",
   "iw08zphk2m": "piper",
-  "iwgyvwwm4s": "piper",
+  "iwgyvwwm4s": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "iwnlxl6i5f": "piper",
   "ix7lgtwhpi": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "ixqz4u4sjc": "piper",
+  "ixqz4u4sjc": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "iy4vjjk6r6": "piper",
   "iyfoe63i5d": "piper",
   "iz0ybdb3dr": "piper",
@@ -7440,7 +8722,10 @@
   "izrpy9dcgc": "piper",
   "j00kcsw4st": "piper",
   "j01jyakmmu": "piper",
-  "j0yfccx81": "piper",
+  "j0yfccx81": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "j1j09ysvja": "piper",
   "j1ytxrmf63": "piper",
   "j3gvz3vkqw": "piper",
@@ -7456,7 +8741,10 @@
   "j5zp8pfwbq": "piper",
   "j63b6l8t2g": "piper",
   "j6ffex02m0": "piper",
-  "j6p7tv56zi": "piper",
+  "j6p7tv56zi": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "j709gsgqbm": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -7464,6 +8752,10 @@
   "j78o68tydp": "piper",
   "j7c7my71pl": "piper",
   "j7qfgb04gk": "piper",
+  "j817xy5wke": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "j84cr94xfm": "piper",
   "j8em9idffn": {
     "engine": "gemini",
@@ -7490,14 +8782,20 @@
   "je0pn80v9g": "piper",
   "jeiqnd5cjl": "piper",
   "jel02651lz": "piper",
-  "jemyllpxkh": "piper",
+  "jemyllpxkh": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "jen48cm3wo": "piper",
   "jes5lqvtnw": "piper",
   "jf317zs1ao": "piper",
   "jfmn5zmh3x": "piper",
   "jfy9uqv2xo": "piper",
   "jgcndct6u7": "piper",
-  "jh4po8tg89": "piper",
+  "jh4po8tg89": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "jh5zmnd1xu": "piper",
   "jh9wstqaro": "piper",
   "jhskt5ak46": "piper",
@@ -7525,11 +8823,18 @@
   "jr3p85ubb6": "piper",
   "jre38foqlx": "piper",
   "jrhqjxlhhv": "piper",
-  "jrwz6awxkm": "piper",
+  "jrwz6awxkm": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "js76s6zx7l": "piper",
   "jsm9kkyafd": "piper",
   "jsvb8j7izu": "piper",
   "jt4anv7z93": "piper",
+  "jte24m20tj": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "jtg0fnvy3c": "piper",
   "jtzbw0yl9a": "piper",
   "jufmtv7w97": "piper",
@@ -7552,12 +8857,19 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
+  "k1zje4e651": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "k2vmxs3mq2": "piper",
   "k2yfw9j1ez": "piper",
   "k3634hkt2d": "piper",
   "k3b7cecbsu": "piper",
   "k3ihffkd7q": "piper",
-  "k3zfbe0bds": "piper",
+  "k3zfbe0bds": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "k4o8pqdwrf": "piper",
   "k5k4ogpt2e": "piper",
   "k6boa03p0t": "piper",
@@ -7581,12 +8893,22 @@
   "kccho13wm6": "piper",
   "kcviulwef1": "piper",
   "kdduyoh5ay": "piper",
+  "kdtegaofww": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "kdvt60h8jh": "piper",
   "kefdoahyu6": "piper",
   "keuj8kajlr": "piper",
-  "kf2la6v7fq": "piper",
+  "kf2la6v7fq": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "kfytnmiwh5": "piper",
-  "kgkzd6so8n": "piper",
+  "kgkzd6so8n": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "kgtc6a1t1y": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -7714,7 +9036,10 @@
   "lgp2rtk2y4": "piper",
   "lgyymtc74s": "piper",
   "lhjdy2pz9o": "piper",
-  "lhoitldkfw": "piper",
+  "lhoitldkfw": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "lj6f83mqo5": "piper",
   "lk217mh91r": "piper",
   "lkmt9t25et": "piper",
@@ -7750,7 +9075,10 @@
   "ltxfgps86n": "piper",
   "luax6m8s74": "piper",
   "lv70bayqz6": "piper",
-  "lva9sbkc3v": "piper",
+  "lva9sbkc3v": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "lvzqpdvc4k": "piper",
   "lwbxqey3v6": "piper",
   "lwehtutik8": "piper",
@@ -7779,6 +9107,10 @@
   "m1bwzicw98": "piper",
   "m1d0zd9r2f": "piper",
   "m2wsa3chzd": "piper",
+  "m3iaqpn1o9": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "m4poyufulc": "piper",
   "m4v9dtxkzk": "piper",
   "m5438jdpzw": "piper",
@@ -7793,14 +9125,27 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
+  "m6l9me3j79": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "m7a2ifdf9o": "piper",
   "m7q8ur6myx": "piper",
   "m7wldlmmpb": "piper",
   "m85z54ge5u": "piper",
-  "m8jvbyh9xu": "piper",
+  "m8jvbyh9xu": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "m8tguigrsr": "piper",
-  "m8y82xufo2": "piper",
-  "m90r66vlza": "piper",
+  "m8y82xufo2": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "m90r66vlza": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "m9844z9c9b": "piper",
   "m9argx857e": "piper",
   "m9hdmb9q04": "piper",
@@ -7816,7 +9161,10 @@
   "mczkao15yo": "piper",
   "mdmluuwhg2": "piper",
   "me4764q6ne": "piper",
-  "me6ppo55qi": "piper",
+  "me6ppo55qi": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "mebnm8we0x": "piper",
   "mee2e3v86b": "piper",
   "memdt6i9p0": "piper",
@@ -7824,7 +9172,10 @@
   "mevizn0j4t": "piper",
   "mexawpcbk8": "piper",
   "mfrvhg18g2": "piper",
-  "mfuld9u3bs": "piper",
+  "mfuld9u3bs": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "mg2ppiahbu": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -7881,7 +9232,10 @@
   },
   "mwqoyrfrch": "piper",
   "mwur6rualu": "piper",
-  "mxlxvr3r8m": "piper",
+  "mxlxvr3r8m": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "mxms357b46": "piper",
   "my27t4ztgf": {
     "engine": "gemini",
@@ -7897,7 +9251,10 @@
   "mzrlcmmia4": "piper",
   "mzw2zi3mnd": "piper",
   "n0ft483tsp": "piper",
-  "n0k72aod0e": "piper",
+  "n0k72aod0e": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "n10209aqzm": "piper",
   "n1564bom5b": "piper",
   "n2yhg8p5qi": "piper",
@@ -7940,6 +9297,10 @@
   "nkv94jmrde": "piper",
   "nl88ha6lqo": "piper",
   "nl8d0p4xek": "piper",
+  "nlx21nff99": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "nm52821gru": "piper",
   "nmc5xde8bg": "piper",
   "nmi8ftzug3": "piper",
@@ -7951,7 +9312,10 @@
   "nnsle7qtry": "piper",
   "no35n1b10n": "piper",
   "nocci07730": "piper",
-  "novuxqeqay": "piper",
+  "novuxqeqay": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "np26cwt86i": "piper",
   "np5bvy6iny": "piper",
   "npqzurm301": "piper",
@@ -7965,7 +9329,10 @@
   "nrfkxooczq": "piper",
   "nri8gjowzv": "piper",
   "nsordib9ax": "piper",
-  "nsvlic8buf": "piper",
+  "nsvlic8buf": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "nticd8txzn": "piper",
   "ntwy3xj8f3": "piper",
   "nujf8jjyw5": "piper",
@@ -7975,6 +9342,10 @@
   "nvkr6gwuf2": "piper",
   "nw7zipbzjf": "piper",
   "nwbhm1i0lk": "piper",
+  "nwpz63ggy3": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "nx35nfbr7y": "piper",
   "nx5j5x39o2": "piper",
   "nxa4186wll": "piper",
@@ -7986,7 +9357,10 @@
   "o13r3s81hh": "piper",
   "o1qhr8linq": "piper",
   "o1wz6o1cqb": "piper",
-  "o2dvzhedag": "piper",
+  "o2dvzhedag": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "o2ncoc02gg": "piper",
   "o2y3o21v0x": "piper",
   "o2z0c8cdnt": "piper",
@@ -8000,7 +9374,10 @@
   "o71f6j1jii": "piper",
   "o8tl2yb8og": "piper",
   "oa1qmbt8kq": "piper",
-  "oam20f4ebf": "piper",
+  "oam20f4ebf": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "ob55mtcpt7": "piper",
   "obcydlzyr": "piper",
   "octtqa86oe": "piper",
@@ -8032,15 +9409,27 @@
   "oj0jevh9xa": "piper",
   "oji3spea9t": "piper",
   "ojils09jn6": "piper",
+  "ojmlfzkzqh": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "ojpetxsafp": "piper",
   "ojw9vr2pyz": "piper",
   "ok5jedv89p": "piper",
   "ok5oi2kt5f": "piper",
   "ok7to2k2sg": "piper",
+  "okcxj09two": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "okn2iqf7f7": "piper",
   "oktq0tlqhu": "piper",
   "ol9l4r88gy": "piper",
   "olfh9c1g6d": "piper",
+  "olu6ri155w": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "om0s03t5hx": "piper",
   "om6hhyvh7d": "piper",
   "omdbe370le": "piper",
@@ -8066,17 +9455,31 @@
   "os1v5ooqpp": "piper",
   "osc6h1l7pr": "piper",
   "osd9zo4mii": "piper",
+  "osoxr5pab6": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "ot7pmghzl0": "piper",
-  "ounrizquah": "piper",
+  "ounrizquah": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "ovd0r5jf8y": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
   "ovmiahpixl": "piper",
   "ovtw6migjj": "piper",
+  "ow1czq7aek": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "ow28feyazd": "piper",
   "oway9eurwi": "piper",
-  "ox1fl6szss": "piper",
+  "ox1fl6szss": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "oxwdbwvtgp": "piper",
   "oy0fyrak7g": "piper",
   "oytmznuo00": "piper",
@@ -8093,9 +9496,15 @@
   "p39xlzpzqa": "piper",
   "p3i775djz0": "piper",
   "p3o37j9bps": "piper",
-  "p3r3gu7m4a": "piper",
+  "p3r3gu7m4a": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "p4aykpa58x": "piper",
-  "p4wnzf6psj": "piper",
+  "p4wnzf6psj": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "p57lbrbuvi": "piper",
   "p58x405tie": "piper",
   "p5kh5k7g4o": "piper",
@@ -8129,8 +9538,14 @@
   "pd9yjt6fbh": "piper",
   "pe354iyeea": "piper",
   "pelgefjmzg": "piper",
-  "peqolx6iru": "piper",
-  "pfsq7tx3ki": "piper",
+  "peqolx6iru": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "pfsq7tx3ki": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "pfvjedwsy2": "piper",
   "pg3t6twlyp": {
     "engine": "gemini",
@@ -8150,7 +9565,10 @@
   "pl8r73bhtx": "piper",
   "plgz8rnjax": "piper",
   "plskjpsr5v": "piper",
-  "pmcqog3ax9": "piper",
+  "pmcqog3ax9": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "po0vnt20m8": "piper",
   "po15s26h9n": "piper",
   "po1csz4yac": "piper",
@@ -8159,6 +9577,10 @@
   "ppreh40kp3": "piper",
   "pq4ai1278v": "piper",
   "pq4mbjfdgg": "piper",
+  "pq7wkzkmmh": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "pqce08jlk9": "piper",
   "pqj3sxaxik": "piper",
   "pqlukhc0a": "piper",
@@ -8190,7 +9612,10 @@
   "q2uhz5mg6r": "piper",
   "q3bmltawty": "piper",
   "q3ptogt0dt": "piper",
-  "q3wz0ra23h": "piper",
+  "q3wz0ra23h": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "q44vzcqoom": "piper",
   "q46x5y9oo3": "piper",
   "q4cqcr3uvd": "piper",
@@ -8245,6 +9670,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "qmn7gpce2i": "piper",
+  "qmz9usw39q": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "qn42lwmnvu": "piper",
   "qn520z27zg": "piper",
   "qnr7q1pvyt": "piper",
@@ -8253,14 +9682,20 @@
   "qp7kgbwn89": "piper",
   "qpzfmnh272": "piper",
   "qr3fuikevg": "piper",
-  "qr4zl45kxw": "piper",
+  "qr4zl45kxw": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "qrfck28fvc": "piper",
   "qsdr99m3oz": "piper",
   "qsoujdkxy8": "piper",
   "qsxbym8vu": "piper",
   "qt8b4d0198": "piper",
   "qtn8tks4lw": "piper",
-  "qusoohzi7f": "piper",
+  "qusoohzi7f": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "qv13hts5b3": "piper",
   "qvfdvcsuov": {
     "engine": "gemini",
@@ -8283,7 +9718,10 @@
   "qwlgj59bej": "piper",
   "qwqc01z9tb": "piper",
   "qx6gjoq1se": "piper",
-  "qxcwrsyv48": "piper",
+  "qxcwrsyv48": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "qxf1ktt7kj": "piper",
   "qxhdc1noh6": "piper",
   "qxiidwrkad": "piper",
@@ -8319,15 +9757,28 @@
   "r3yidg8df0": "piper",
   "r47qbmbekw": "piper",
   "r4b28r7jp3": "piper",
-  "r4otwezxea": "piper",
+  "r4otwezxea": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "r50cn66993": "piper",
   "r5c6094od4": "piper",
   "r5pefkifpt": "piper",
-  "r65n81sfpi": "piper",
+  "r65n81sfpi": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "r69im6l47p": "piper",
   "r6nb8wp6sg": "piper",
   "r6r1sh4lry": "piper",
-  "r74dqvly4a": "piper",
+  "r70kcect65": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "r74dqvly4a": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "r7imudgnez": "piper",
   "r7msdi0iod": "piper",
   "r8hjhtkmx": "piper",
@@ -8359,8 +9810,15 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "rl32qer0y0": "piper",
+  "rm8lavd94y": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "rmdyu1bsnr": "piper",
-  "rmopmha9k6": "piper",
+  "rmopmha9k6": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "rn53ukaney": "piper",
   "ro1esh26rt": "piper",
   "ro1jfssl4x": "piper",
@@ -8384,7 +9842,10 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "rrbyj8hnar": "piper",
-  "rrjoujojfu": "piper",
+  "rrjoujojfu": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "rrui4bsfg4": "piper",
   "rshnihoq05": "piper",
   "rthhhj97h3": "piper",
@@ -8430,7 +9891,10 @@
   "s7sospzodg": "piper",
   "s86jj61j42": "piper",
   "s87kywdkht": "piper",
-  "s9ltow0n5o": "piper",
+  "s9ltow0n5o": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "s9r2q087fi": "piper",
   "saqdqme4qu": "piper",
   "sb3nvd6moe": "piper",
@@ -8439,8 +9903,14 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "sbofx26w2": "piper",
-  "sbu6w06q9g": "piper",
-  "scb2ls90wq": "piper",
+  "sbu6w06q9g": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "scb2ls90wq": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "scbya6r5em": "piper",
   "sd2xde35j1": "piper",
   "sd4eyzx4v1": "piper",
@@ -8464,7 +9934,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "siwug4os9o": "piper",
+  "siwug4os9o": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "sj157gcvgx": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -8482,8 +9955,15 @@
   "smtxr26x13": "piper",
   "smxtlgl557": "piper",
   "snhkp4egn8": "piper",
+  "snlbl1bisd": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "snzyd8zwio": "piper",
-  "so38swaz59": "piper",
+  "so38swaz59": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "sog37sgfxf": "piper",
   "sojy61yj3": {
     "engine": "gemini",
@@ -8508,23 +9988,36 @@
   "sualm6vrr6": "piper",
   "sup8s58hw9": "piper",
   "supo64wweh": "piper",
-  "suw6ctz38f": "piper",
+  "suw6ctz38f": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "svb3rg568j": "piper",
   "svmd3yge4l": "piper",
   "svnp4o0xfu": "piper",
   "swhd399s26": "piper",
   "sy2jmj66p2": "piper",
   "sya2n82v48": "piper",
-  "syisltsdrs": "piper",
+  "syisltsdrs": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "t14h2w9s8e": "piper",
   "t17u1tz29h": "piper",
   "t19jbxmov7": "piper",
   "t2c3bnhzsu": "piper",
   "t2s5l67ic2": "piper",
+  "t2x8rjyyj3": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "t32fevj0cq": "piper",
   "t3couyepqz": "piper",
   "t4iw6fmz22": "piper",
-  "t4x83vrauy": "piper",
+  "t4x83vrauy": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "t5qc4johz2": "piper",
   "t6fozhbl88": "piper",
   "t71s5pd4rl": "piper",
@@ -8536,11 +10029,17 @@
   },
   "t7waxp57nn": "piper",
   "t8m1le2rve": "piper",
-  "t8qr3ws3gx": "piper",
+  "t8qr3ws3gx": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "t90ljx1yl9": "piper",
   "t9h69vkd6": "piper",
   "t9pq7w7q52": "piper",
-  "ta4v0wqlpx": "piper",
+  "ta4v0wqlpx": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "ta7kr8ugf6": "piper",
   "tae9mbg37s": "piper",
   "tajfz2w5ae": {
@@ -8554,10 +10053,21 @@
   "tchdz2m65f": "piper",
   "tcj5p7hmw0": "piper",
   "tcu9ja2bqv": "piper",
-  "tcyimwi1rv": "piper",
+  "tcw81rybet": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "tcyimwi1rv": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "tde7n2q0x2": "piper",
   "te3dbmxw2q": "piper",
   "tfakrafwp8": "piper",
+  "tfp25pmcxx": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "tfqasdp93u": "piper",
   "tg97ktmt1u": "piper",
   "tggts583c4": "piper",
@@ -8573,7 +10083,10 @@
   "thcdvnq4id": "piper",
   "thk036fk9c": "piper",
   "ti3j4irdp5": "piper",
-  "ti60tae7k8": "piper",
+  "ti60tae7k8": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "tibr1bd5ul": "piper",
   "tii46rmry5": "piper",
   "tikzbio11t": "piper",
@@ -8611,7 +10124,10 @@
   "tudbfjpv9": "piper",
   "tuqwqu9q65": "piper",
   "tv1xupf0t1": "piper",
-  "tvim50rwlr": "piper",
+  "tvim50rwlr": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "tw48xixe5z": "piper",
   "twsad754sq": "piper",
   "txe90b44hu": "piper",
@@ -8620,7 +10136,10 @@
   "ty2v86fuxy": "piper",
   "ty8mji6pa4": "piper",
   "tyasd8popm": "piper",
-  "tyic3bsflf": "piper",
+  "tyic3bsflf": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "tyu5qa5umj": "piper",
   "tyxi5wplej": "piper",
   "tz345xpeev": "piper",
@@ -8686,6 +10205,10 @@
   "ujlgf46dap": "piper",
   "ujnv2k35zm": "piper",
   "ujtj1tcpwg": "piper",
+  "um9b9wfci5": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "un47kta5kl": "piper",
   "unfaak61xx": "piper",
   "unvj9zf9p": {
@@ -8736,6 +10259,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
+  "v7e2sut6pb": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "v7f8lmwd9k": "piper",
   "v7n9fd5mjg": "piper",
   "v83zdybwwv": "piper",
@@ -8754,7 +10281,10 @@
   "vcyfzrnnev": "piper",
   "vd7cnqidhk": "piper",
   "vdomzjbyew": "piper",
-  "vdxw2jkdga": "piper",
+  "vdxw2jkdga": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "ve6ju7rzv9": "piper",
   "ve6z04w3pd": "piper",
   "ve7co06wtb": "piper",
@@ -8788,6 +10318,10 @@
   "vkl0swl7ax": "piper",
   "vlid9p8afy": "piper",
   "vlmc9dr0uh": "piper",
+  "vmn0v85xsq": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "vmzxp9sdpm": "piper",
   "vnughcu6ik": {
     "engine": "gemini",
@@ -8847,6 +10381,10 @@
   "w2npgyxxf": "piper",
   "w2q1z0i7gn": "piper",
   "w2rziluzwe": "piper",
+  "w3u1sshl29": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "w43gizvhl0": "piper",
   "w50lsyq8za": "piper",
   "w5ebwuszxk": "piper",
@@ -8861,7 +10399,14 @@
   "w8g8sk3bai": "piper",
   "w8vmt8vltg": "piper",
   "w93vl4mg4l": "piper",
-  "w9d142c50i": "piper",
+  "w9d142c50i": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "w9oduixlqe": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "w9sadsyhwu": "piper",
   "wa98moo06v": "piper",
   "waaymk5rz6": "piper",
@@ -8926,13 +10471,19 @@
   "wspvuww3mo": "piper",
   "wt6ka7fjt7": "piper",
   "wtc2pn2d3a": "piper",
-  "wtjd7s7emp": "piper",
+  "wtjd7s7emp": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "wu1yz48ik0": "piper",
   "wu4q5dzbzb": "piper",
   "wu69vl2kpn": "piper",
   "wu6xnhu5js": "piper",
   "wuaqjbcq2e": "piper",
-  "wuaypl9sem": "piper",
+  "wuaypl9sem": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "wuexkm89x": "piper",
   "wug9h8cem": "piper",
   "wuk57v77fc": "piper",
@@ -9006,7 +10557,10 @@
   "xotd2n80rf": "piper",
   "xpfdo28lzc": "piper",
   "xq9hlbhv2g": "piper",
-  "xqg2kznklr": "piper",
+  "xqg2kznklr": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "xqvals1uln": "piper",
   "xrg4e526at": "piper",
   "xs02qsx2u5": "piper",
@@ -9035,7 +10589,10 @@
   "xyd5qu7sfq": "piper",
   "xyo1w7v6p8": "piper",
   "xys1fepem2": "piper",
-  "xzyxugaet": "piper",
+  "xzyxugaet": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "y0jf4127yy": "piper",
   "y0yb6kfu8k": "piper",
   "y1zwmm6vfi": "piper",
@@ -9073,6 +10630,10 @@
   "yczxtwghmr": "piper",
   "ydmlzgbtjb": "piper",
   "ydqjeai3fy": "piper",
+  "yeho7nehei": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "yewto6zff8": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -9103,7 +10664,10 @@
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
-  "yojeoy6dei": "piper",
+  "yojeoy6dei": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "yon3eusl09": "piper",
   "ypc0q566lh": "piper",
   "yq733mi9cc": "piper",
@@ -9118,17 +10682,29 @@
   "yscl9hdty": "piper",
   "ysyypone4o": "piper",
   "yto4vzax4p": "piper",
-  "ytwp9l51x3": "piper",
+  "ytwp9l51x3": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "yv2jvirwob": "piper",
   "yv6rw3scgz": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
   },
   "yvg59gdiat": "piper",
-  "yvuqlaj2tr": "piper",
+  "yvuqlaj2tr": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "yvwnz1wrgp": "piper",
-  "yw5ufe750r": "piper",
-  "yw9rdo99me": "piper",
+  "yw5ufe750r": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
+  "yw9rdo99me": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "yx58shof52": "piper",
   "yx9n1bvept": "piper",
   "yy19cyq74j": "piper",
@@ -9151,9 +10727,16 @@
   "z3ee8c9iuf": "piper",
   "z40qu1b4vf": "piper",
   "z5cnd3cp65": "piper",
-  "z5ld2gfbpo": "piper",
+  "z5ld2gfbpo": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "z6gv06qwh8": "piper",
   "z6lus1ti1o": "piper",
+  "z6n4wp5txw": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "z7bxy7k07g": {
     "engine": "gemini",
     "model": "gemini-3.1-flash-tts-preview"
@@ -9190,9 +10773,16 @@
     "model": "gemini-3.1-flash-tts-preview"
   },
   "zij0bu1t5n": "piper",
-  "zipx5e1stm": "piper",
+  "zipx5e1stm": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "zj4ipzcrix": "piper",
   "zjgy6xi9yw": "piper",
+  "zjlz0vigy1": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "zjua3ida3m": "piper",
   "zjzzroitde": "piper",
   "zk2wx45dkk": "piper",
@@ -9209,13 +10799,19 @@
   "zlr5x4i3ll": "piper",
   "zlsis4tq3l": "piper",
   "zlszgm17c0": "piper",
-  "zm217x99n5": "piper",
+  "zm217x99n5": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "zm2gn75a09": "piper",
   "zm2znb6rr": "piper",
   "zm60qzp77n": "piper",
   "zmie7f2f4m": "piper",
   "zn3difwzn6": "piper",
-  "zn5tmbsqan": "piper",
+  "zn5tmbsqan": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "znab7ymedq": "piper",
   "znldijv42n": "piper",
   "zok5kztcqe": "piper",
@@ -9224,6 +10820,10 @@
   "zppq1ujw8p": "piper",
   "zq8892uylr": "piper",
   "zqg8whrvw4": "piper",
+  "zqkkfedd2x": {
+    "engine": "gemini",
+    "model": "gemini-3.1-flash-tts-preview"
+  },
   "zqlk9feo57": "piper",
   "zril82ivmp": "piper",
   "zt7mywl27u": "piper",
@@ -9241,9 +10841,4 @@
   "zwucov8pyp": "piper",
   "zx0duevux9": "piper",
   "zx1va8kcsa": "piper",
-  "zx3xn1u23j": "piper",
-  "zy8hak39e0": "piper",
-  "zyc9egt5lw": "piper",
-  "zyfloo73tx": "piper",
-  "zzzwjlh8l4": "piper"
-}
+  "zx3xn1

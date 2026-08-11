@@ -27,8 +27,9 @@
 
 import dialogosJson from "./metodo/dialogos.json";
 import blocosJson from "./metodo/blocos.json";
-import { scriptOf, type Fala } from "./compose-lesson";
-import { CIRCUITS } from "./curriculum";
+import { composeLesson, type Fala } from "./compose-lesson";
+import { buildLessonPlan, CIRCUITS, livePromptFor } from "./curriculum";
+import { materialDoCircuito } from "./material";
 
 import { audioId } from "@/lib/audio-id";
 
@@ -455,63 +456,98 @@ type BlocosDoCircuito = {
   blocos: { en: string; formas: { en: string }[]; recombinacoes: { en: string }[] }[];
 };
 
+/**
+ * Tudo que o curso precisa ter em áudio — derivado do que as TELAS pedem.
+ *
+ * ===========================================================================
+ * POR QUE ELE DEIXOU DE LER O ACERVO
+ * ===========================================================================
+ * Esta função percorria `blocos.json` e gerava um áudio por bloco e por forma.
+ * Parecia a fonte certa e era a fonte errada, porque o acervo não é o que o
+ * aluno encontra: o compositor mostra uma SELEÇÃO dele a cada dia.
+ *
+ * Medido, o desencontro era grande e nos dois sentidos:
+ *
+ *   5.429 arquivos gerados que nenhuma tela pedia — formas que o compositor
+ *         nunca renderiza, gravadas, enviadas ao bucket e nunca tocadas.
+ *     472 arquivos que a tela pedia e ninguém gerava — as recombinações do dia
+ *         10, excluídas do acervo de áudio por uma decisão antiga, que voltaram
+ *         a ser pedidas quando os blocos de exemplo ganharam botão de ouvir.
+ *
+ * Duas listas que precisam concordar e são mantidas à mão sempre divergem; é a
+ * quarta vez que esse padrão aparece neste projeto. Então a lista some: o
+ * manifesto COMPÕE as 728 lições e recolhe cada texto que vai ter um player em
+ * cima. O que a tela pede existe, e o que existe a tela pede, por construção.
+ *
+ * O custo é compor 728 lições para montar o manifesto — 54ms. O benefício é
+ * que ninguém mais paga por áudio que não toca.
+ */
 export function audioJobs(): AudioJob[] {
   const jobs: AudioJob[] = [];
   const seen = new Set<string>();
 
   const push = (job: AudioJob) => {
-    // Blocos repetidos entre circuitos ("See you later!") viram um arquivo só.
+    // Texto repetido entre circuitos ("See you later!") vira um arquivo só: o
+    // nome sai do hash do texto, então a deduplicação é automática.
     if (!job.id || seen.has(job.id)) return;
     seen.add(job.id);
     jobs.push(job);
   };
 
-  for (const d of dialogosJson as unknown as DialogosDoCircuito[]) {
-    for (const [rotulo, falas] of [
-      ["imersão", d.imersao],
-      ["escuta", d.escuta],
+  for (const spec of buildLessonPlan()) {
+    const material = materialDoCircuito(spec.circuitNumber);
+    if (!material) continue;
+
+    const circuito = CIRCUITS.find((c) => c.number === spec.circuitNumber);
+    if (!circuito) continue;
+
+    const licao = composeLesson({
+      circuito: spec.circuitNumber,
+      dia: spec.circuitDay,
+      material,
+      livePrompt: livePromptFor(circuito),
+    });
+
+    // Os dois diálogos, que saem numa chamada só com dois locutores.
+    for (const [rotulo, script, falas] of [
+      ["imersão", licao.immersionScript, material.imersao],
+      ["escuta", licao.listeningScript, material.escuta],
     ] as const) {
-      if (!falas?.length) continue;
-      const text = scriptOf(falas);
-      const speakers = [...new Set(falas.map(([quem]) => quem))];
+      if (!script || !falas.length) continue;
       push({
-        id: audioId(text),
+        id: audioId(script),
         kind: "dialogue",
-        text,
-        speakers,
-        circuit: d.n,
-        label: `c${d.n} ${rotulo}: ${speakers.join(" / ")}`,
+        text: script,
+        speakers: [...new Set(falas.map(([quem]) => quem))],
+        circuit: spec.circuitNumber,
+        label: `c${spec.circuitNumber} ${rotulo}: ${[...new Set(falas.map(([q]) => q))].join(" / ")}`,
       });
     }
-  }
 
-  /**
-   * Blocos base e as FORMAS deles.
-   *
-   * As recombinações ficam de fora, e é decisão de desenho: elas são frase
-   * longa para ler e falar, não para imitar, e gravá-las somaria oito mil
-   * arquivos ao acervo sem mudar o que o ouvido do aluno recebe. O bloco e
-   * suas caras, sim — é neles que a boca treina.
-   */
-  for (const c of blocosJson as BlocosDoCircuito[]) {
-    for (const b of c.blocos) {
+    // Os blocos da lição, que têm um player cada.
+    for (const ch of licao.chunks) {
       push({
-        id: audioId(b.en),
+        id: audioId(ch.en),
         kind: "chunk",
-        text: b.en,
+        text: ch.en,
         speakers: [],
-        circuit: c.n,
-        label: `c${c.n} bloco: ${b.en}`,
+        circuit: spec.circuitNumber,
+        label: `c${spec.circuitNumber} bloco: ${ch.en}`,
       });
+    }
 
-      for (const f of b.formas ?? []) {
+    // E cada item de exemplo — formas e recombinações — que também ganhou um.
+    for (const bloco of [...(licao.content.blocks ?? []), ...(licao.content.gated ?? [])]) {
+      if (bloco.type !== "examples") continue;
+      for (const item of bloco.items ?? []) {
+        if (!item.en?.trim()) continue;
         push({
-          id: audioId(f.en),
+          id: audioId(item.en),
           kind: "chunk",
-          text: f.en,
+          text: item.en,
           speakers: [],
-          circuit: c.n,
-          label: `c${c.n} forma: ${f.en}`,
+          circuit: spec.circuitNumber,
+          label: `c${spec.circuitNumber} exemplo: ${item.en}`,
         });
       }
     }
