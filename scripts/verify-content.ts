@@ -8,7 +8,14 @@
  * repetida, diálogo com barra (que quebraria o separador do roteiro).
  */
 
-import { audioJobs, isCast, spokenLines, voiceFor } from "@content/audio-manifest";
+import {
+  audioJobs,
+  chunkVoice,
+  isCast,
+  narratorVoice,
+  spokenLines,
+  voiceFor,
+} from "@content/audio-manifest";
 import { composeLesson } from "@content/compose-lesson";
 import { ancorasExigidas, ehConsolidacao, materialDoCircuito } from "@content/material";
 import {
@@ -125,6 +132,30 @@ function main() {
     // especificamente brasileiras do curso.
     if (!somDe(circuit.number)) warn(`${onde}: sem degrau de fonologia`);
     if (!cognatosDe(circuit.number).length) warn(`${onde}: sem falso cognato`);
+  }
+
+  // ------------------------------------------------ o bloco que se apresenta
+  //
+  // O bloco onde alguém diz o próprio nome tem que sair com a voz do gênero
+  // daquele nome. A narradora fixa dizia "Hi, I'm Alex." com voz de mulher —
+  // logo no primeiro bloco do curso, um homem se apresentando com voz feminina.
+  //
+  // Isto confere que todo nome que aparece num "I'm X" está na tabela de
+  // gênero: nome novo que entre num bloco e não esteja lá volta a cair na
+  // narradora em silêncio, que é como o defeito nasceu.
+  {
+    const seApresenta = /\b(?:I'm|I am|my name is|this is)\s+([A-Z][a-z]+)/;
+    for (const job of audioJobs()) {
+      if (job.kind !== "chunk") continue;
+      const nome = seApresenta.exec(job.text)?.[1];
+      if (!nome) continue;
+      if (chunkVoice(job.text, "gemini") === narratorVoice("gemini") && !isCast(nome)) {
+        warn(
+          `áudio "${job.text}": "${nome}" se apresenta e não tem gênero declarado — ` +
+            `sai na voz da narradora`,
+        );
+      }
+    }
   }
 
   // ------------------------------------------------ elenco de vozes
