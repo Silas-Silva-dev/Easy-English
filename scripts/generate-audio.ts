@@ -200,10 +200,12 @@ function writeLedger(ledger: Record<string, LedgerEntry>) {
 
   // Desistiu: o livro-razão perde ESTA anotação e o áudio continua gravado.
   //
-  // A ordem importa e ela estava errada: uma falha aqui derrubava o job
-  // inteiro, e o circuito 17 perdeu a imersão porque a CONTABILIDADE falhou.
+  // A ordem importa e ela estava errada. A exceção subia e marcava o job como
+  // FALHO — sete diálogos apareceram com ✗ no log — mesmo com o .mp3 já
+  // escrito em disco: a gravação tinha dado certo e o relatório dizia que não.
   // O .mp3 é o produto; saber qual motor o fez é conveniência para o
-  // `--upgrade`. Conveniência não cancela produto.
+  // `--upgrade`. Conveniência não cancela produto, e muito menos mente sobre
+  // ele.
   console.warn(
     `  \x1b[33m!\x1b[0m não consegui atualizar engines.json agora — o áudio está gravado`,
   );
