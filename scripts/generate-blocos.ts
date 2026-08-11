@@ -584,9 +584,28 @@ function load(): BlocosDoCircuito[] {
   }
 }
 
-function save(todos: BlocosDoCircuito[]) {
-  todos.sort((a, b) => a.n - b.n);
-  writeFileSync(JSON_PATH, JSON.stringify(todos, null, 2) + "\n", "utf8");
+/**
+ * Grava um circuito, relendo o arquivo antes de escrever.
+ *
+ * Reler parece supérfluo num script de um processo só, e não é. Duas execuções
+ * ao mesmo tempo — a segunda aberta por engano, ou uma anterior que não morreu
+ * quando devia — carregam cada uma a sua lista em memória e, ao salvar,
+ * apagam o que a outra escreveu. Aconteceu aqui: a contagem de circuitos
+ * prontos caiu de 36 para 32 enquanto duas rodadas disputavam o arquivo, e o
+ * trabalho perdido não deixou nenhum rastro além do número diminuindo.
+ *
+ * Relendo e mesclando, duas execuções concorrentes se ajudam em vez de se
+ * atropelarem: cada uma escreve o que fez e preserva o resto.
+ */
+function salvarCircuito(registro: BlocosDoCircuito): BlocosDoCircuito[] {
+  const noDisco = load();
+  const idx = noDisco.findIndex((c) => c.n === registro.n);
+  if (idx === -1) noDisco.push(registro);
+  else noDisco[idx] = registro;
+
+  noDisco.sort((a, b) => a.n - b.n);
+  writeFileSync(JSON_PATH, JSON.stringify(noDisco, null, 2) + String.fromCharCode(10), "utf8");
+  return noDisco;
 }
 
 // ----------------------------------------------------------------------=====
@@ -786,11 +805,9 @@ async function main() {
       continue;
     }
 
-    const idx = todos.findIndex((c) => c.n === n);
-    const registro = { n, blocos: comFamilia };
-    if (idx === -1) todos.push(registro);
-    else todos[idx] = registro;
-    save(todos);
+    const atual = salvarCircuito({ n, blocos: comFamilia });
+    todos.length = 0;
+    todos.push(...atual);
     escritos++;
 
     const frases = comFamilia.reduce(

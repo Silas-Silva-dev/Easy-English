@@ -28,9 +28,26 @@
     "titulo": "O 'do' que não significa nada, e sem o qual a frase não nega",
     "oQueDestrava": "\"Sorry, I don't understand.\" / \"What does that mean?\" — pedir socorro sem congelar e sem sorrir para uma frase que você não pegou.",
     "erroDoBrasileiro": "Sorry, I no understand.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você passou o circuito inteiro dizendo \"I don't understand\" e \"What does that mean?\". Dentro das duas mora a mesma peça: do. Ela não significa nada sozinha. Em português a negação é uma palavra só, colada no verbo: eu não entendo. Por isso sai \"I no understand\". Em inglês o não sozinho não nega verbo comum: quem nega é o don't, e quem pergunta é o do na frente do dono. Se o dono é ele, ela ou uma pessoa só, do vira does e o verbo devolve o s: \"What does that mean?\". O americano entende o erro, mas registra na hora.",
+    "exemplos": [
+      {
+        "en": "Sorry, I don't understand. Could you say that again?",
+        "pt": "Desculpa, não entendi. Pode repetir?"
+      },
+      {
+        "en": "Sorry, what does that mean?",
+        "pt": "Desculpa, o que isso significa?"
+      },
+      {
+        "en": "I don't speak much English yet.",
+        "pt": "Eu ainda não falo muito inglês."
+      },
+      {
+        "en": "Do you speak Portuguese, by any chance?",
+        "pt": "Você fala português, por acaso?"
+      }
+    ],
+    "evita": "Sorry, I no understand."
   },
   {
     "circuito": 3,
@@ -38,9 +55,26 @@
     "titulo": "Por que é 'an engineer' e não 'engineer'",
     "oQueDestrava": "\"I'm an engineer and I work at a hospital.\" — dizer origem e ocupação sem soar telegráfico.",
     "erroDoBrasileiro": "I'm engineer, and my wife is designer.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você já diz \"I'm Ana\" e \"I'm from Brazil\" sem tropeçar. Aí chega a profissão e sai \"I'm engineer\", porque em português a gente diz sou engenheiro, sem nada na frente. Em inglês o substantivo quase nunca anda pelado: profissão pede um artigo colado. É a antes de som de consoante, a designer, a nurse, e an antes de som de vogal, an engineer, an artist. O the é outro caso: ele aponta para aquele que vocês dois já sabem qual é. Para dizer de onde você é e o que você faz, o a e o an bastam.",
+    "exemplos": [
+      {
+        "en": "I'm an engineer, and my wife's a designer.",
+        "pt": "Eu sou engenheiro, e minha esposa é designer."
+      },
+      {
+        "en": "I work at a hospital downtown.",
+        "pt": "Eu trabalho num hospital no centro."
+      },
+      {
+        "en": "He's a teacher at a school near my place.",
+        "pt": "Ele é professor numa escola perto de casa."
+      },
+      {
+        "en": "I'm the new guy. It's my first day.",
+        "pt": "Eu sou o cara novo. É meu primeiro dia."
+      }
+    ],
+    "evita": "I'm engineer, and my wife is designer."
   },
   {
     "circuito": 4,
@@ -48,9 +82,26 @@
     "titulo": "Para perguntar, o am / is / are pula para a frente",
     "oQueDestrava": "\"Where are you from? Are you here for work?\" — devolver a pergunta em vez de encerrar a conversa respondendo bonito.",
     "erroDoBrasileiro": "Where you are from?",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você respondeu tudo direitinho e a conversa morreu, porque em inglês quem não devolve a pergunta encerra. Aí você tenta e sai \"Where you are from?\". Não é descuido: em português perguntar é só levantar a voz no fim. Você trabalha aqui vira você trabalha aqui? sem nada sair do lugar. Em inglês o am, is ou are pula para a frente do dono: \"You are here for work\" vira \"Are you here for work?\". Se a pergunta abre com where, how ou what, essas ficam na frente de tudo e a troca acontece logo atrás.",
+    "exemplos": [
+      {
+        "en": "Where are you from? Are you here for work?",
+        "pt": "De onde você é? Você está aqui a trabalho?"
+      },
+      {
+        "en": "Is this your first time here?",
+        "pt": "É sua primeira vez aqui?"
+      },
+      {
+        "en": "Are you new here too? I'm Ana, by the way.",
+        "pt": "Você também é novo aqui? Eu sou a Ana, aliás."
+      },
+      {
+        "en": "Are you here alone? No, I'm not. My wife's here too.",
+        "pt": "Você está aqui sozinho? Não. Minha esposa está aqui também."
+      }
+    ],
+    "evita": "Where you are from?"
   },
   {
     "circuito": 5,
@@ -58,9 +109,26 @@
     "titulo": "'Can I get' abre a porta que 'I want' fecha",
     "oQueDestrava": "\"Can I get a large coffee? Could I have it to go?\" — pedir como adulto, sem apontar e sem soar como ordem.",
     "erroDoBrasileiro": "I want a coffee, please.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "No balcão você sabe o que quer e traduz direto: eu quero um café, \"I want a coffee\". A frase está certa e mesmo assim soa mal, porque em inglês want é vontade crua, quase ordem, e nem o please conserta. Quem pede é o can: \"Can I get a large coffee?\". O could é o mesmo can um passo atrás, mais macio, para quando você está incomodando alguém: \"Could I have it to go?\". Depois dos dois o verbo entra pelado, sem to e sem s. Troque want por can e o atendente muda de cara.",
+    "exemplos": [
+      {
+        "en": "Can I get a large coffee, please?",
+        "pt": "Pode me ver um café grande, por favor?"
+      },
+      {
+        "en": "Could I have it to go?",
+        "pt": "Dá pra ser pra viagem?"
+      },
+      {
+        "en": "Can I get one of those too? That's all, thanks.",
+        "pt": "Pode me ver um daqueles também? É só isso, obrigado."
+      },
+      {
+        "en": "Could you make it without ice?",
+        "pt": "Dá pra fazer sem gelo?"
+      }
+    ],
+    "evita": "I want a coffee, please."
   },
   {
     "circuito": 6,
@@ -105,9 +173,26 @@
     "titulo": "O S da terceira pessoa, que o ouvido brasileiro não registra",
     "oQueDestrava": "\"I work from home and my wife works downtown.\" — contar a rotina inteira sem trocar de dono no meio.",
     "erroDoBrasileiro": "My wife work downtown.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você contou o seu dia inteiro sem errar: \"I work from home\", \"I wake up at seven\". Aí entra outra pessoa na história e sai \"my wife work downtown\". Não é distração. Em português o verbo muda para cada dono, eu trabalho, ela trabalha, e a marca é gorda, dá para ouvir de longe. Em inglês o verbo fica parado o tempo todo e muda uma vez só: com he, she e it ganha um s no fim, um chiado que o ouvido brasileiro nem registra. E quando o does aparece na frente, ele leva o s embora: \"What does she do?\".",
+    "exemplos": [
+      {
+        "en": "I work from home, but my wife works downtown.",
+        "pt": "Eu trabalho de casa, mas minha esposa trabalha no centro."
+      },
+      {
+        "en": "She gets home around six, so we don't eat before seven.",
+        "pt": "Ela chega em casa por volta das seis, então a gente não janta antes das sete."
+      },
+      {
+        "en": "What time does he start? He starts at eight.",
+        "pt": "Que horas ele começa? Ele começa às oito."
+      },
+      {
+        "en": "My son goes to school in the morning. He hates it.",
+        "pt": "Meu filho vai pra escola de manhã. Ele odeia."
+      }
+    ],
+    "evita": "My wife work downtown."
   },
   {
     "circuito": 9,
@@ -115,9 +200,26 @@
     "titulo": "Toda frase em inglês tem dono, e todo verbo tem alvo, nem que seja 'it'",
     "oQueDestrava": "\"It's my favorite. I love it. I can't stand them.\" — falar de gosto sem deixar buraco no começo nem no fim da frase.",
     "erroDoBrasileiro": "I like very much. Is really good.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Falando do que você gosta saiu \"I like very much\" e \"Is really good\". As duas têm o mesmo buraco, em pontas diferentes. Em português a coisa some das duas: gosto muito, é muito bom, e ninguém pergunta gosta do quê nem o que é bom. Em inglês frase sem dono não existe, e verbo como like sempre tem alvo. O tapa-buraco é it, para uma coisa, e them, para mais de uma. E o reforço vai para o fim: \"I like it a lot\". Antes de falar, pergunte quem e o quê. Se faltar, ponha it.",
+    "exemplos": [
+      {
+        "en": "It's my favorite show. I love it.",
+        "pt": "É minha série favorita. Eu amo."
+      },
+      {
+        "en": "I like it a lot, but I don't watch it every week.",
+        "pt": "Eu gosto muito, mas não assisto toda semana."
+      },
+      {
+        "en": "Horror movies? I can't stand them.",
+        "pt": "Filme de terror? Não suporto."
+      },
+      {
+        "en": "It's really good. You should try it.",
+        "pt": "É muito bom. Você devia experimentar."
+      }
+    ],
+    "evita": "I like very much. Is really good."
   },
   {
     "circuito": 10,
@@ -125,9 +227,26 @@
     "titulo": "O 's que troca 'o carro do meu irmão' por duas palavras",
     "oQueDestrava": "\"My sister's kids live with us, and a friend of mine works there too.\" — falar da sua gente sem montar a frase de trás para frente.",
     "erroDoBrasileiro": "The car of my brother is in the garage.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Para falar da sua gente você monta a frase de trás para frente: o carro do meu irmão vira \"the car of my brother\". Está certo no papel e ninguém fala assim. Em inglês o dono vem primeiro e ganha um s com apóstrofo: \"my brother's car\", \"my sister's kids\". Duas palavras, na ordem inversa do português. Esse mesmo s gruda em nome de gente o dia inteiro: \"Kate's husband\". E quando a coisa já foi dita, você não repete ela: \"That one's mine\", \"Is this yours?\". O of sobra para pouca coisa, como em \"a friend of mine\".",
+    "exemplos": [
+      {
+        "en": "My sister's kids live with us.",
+        "pt": "Os filhos da minha irmã moram com a gente."
+      },
+      {
+        "en": "That's my brother's car, not mine.",
+        "pt": "Aquele é o carro do meu irmão, não o meu."
+      },
+      {
+        "en": "A friend of mine works there too.",
+        "pt": "Um amigo meu trabalha lá também."
+      },
+      {
+        "en": "Is this yours? I think it's Kate's.",
+        "pt": "Isso é seu? Acho que é da Kate."
+      }
+    ],
+    "evita": "The car of my brother is in the garage."
   },
   {
     "circuito": 11,
@@ -135,9 +254,26 @@
     "titulo": "Quem escolhe entre 'is' e 'are' está depois do verbo",
     "oQueDestrava": "\"There's a park near my place and there are two coffee shops on my street.\" — dizer o que existe e o que não existe num lugar.",
     "erroDoBrasileiro": "There has a market near my house.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Descrevendo o seu bairro saiu \"there has a market\", porque o nosso tem não tem dono: tem um mercado perto de casa, e pronto. Em inglês existir se diz com there, que ocupa a cadeira do dono sem ser dono de nada. Quem manda no verbo vem depois dele: um mercado pede is, dois mercados pedem are. Conte primeiro, fale depois. E o plural pede o s também no que você contou, two coffee shops, nunca two coffee shop. Para dizer o que não existe, o mesmo molde: \"There isn't a pharmacy on my street\".",
+    "exemplos": [
+      {
+        "en": "There's a park near my place.",
+        "pt": "Tem um parque perto de casa."
+      },
+      {
+        "en": "There are two coffee shops on my street.",
+        "pt": "Tem duas cafeterias na minha rua."
+      },
+      {
+        "en": "Is there a gym around here? There isn't one on my block.",
+        "pt": "Tem academia por aqui? No meu quarteirão não tem."
+      },
+      {
+        "en": "There's a lot to do downtown, but there aren't many places near me.",
+        "pt": "Tem bastante coisa pra fazer no centro, mas perto de mim não tem muito lugar."
+      }
+    ],
+    "evita": "There has a market near my house."
   },
   {
     "circuito": 12,
@@ -145,9 +281,26 @@
     "titulo": "A instrução vem sem sujeito e vem rápido demais",
     "oQueDestrava": "\"Turn left, go two blocks and take the second right. Don't cross the avenue.\" — entender a resposta e repetir para confirmar.",
     "erroDoBrasileiro": "No cross here, is dangerous.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você perguntou o caminho e a resposta veio em cinco segundos: turn left, go two blocks, take the second right. Nenhuma delas tem dono na frente, e é isso que faz a instrução vir tão rápido: o inglês corta o you e começa direto pelo verbo, igual ao nosso vire, siga, pegue. Para proibir, entra don't na frente, nunca o no: \"Don't cross here\". O no sozinho não nega verbo, o mesmo motivo pelo qual não existe \"I no understand\". Repita de volta o que entendeu, com as palavras dele, e a confirmação sai em três segundos.",
+    "exemplos": [
+      {
+        "en": "Turn left and go two blocks.",
+        "pt": "Vire à esquerda e siga dois quarteirões."
+      },
+      {
+        "en": "Take the second right. It's right there on the corner.",
+        "pt": "Pegue a segunda à direita. Fica bem ali na esquina."
+      },
+      {
+        "en": "Don't cross the avenue. It's dangerous.",
+        "pt": "Não atravesse a avenida. É perigoso."
+      },
+      {
+        "en": "So I turn left and then it's two blocks? Got it, thanks.",
+        "pt": "Então eu viro à esquerda e aí são dois quarteirões? Entendi, obrigado."
+      }
+    ],
+    "evita": "No cross here, is dangerous."
   },
   {
     "circuito": 13,
@@ -155,9 +308,26 @@
     "titulo": "Nem toda peça cabe em todo molde",
     "oQueDestrava": "Um dia inteiro simulado: escolher entre 'I work', 'I'm working' e 'there is' sem parar para pensar.",
     "erroDoBrasileiro": "I usually working downtown.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "No dia inteiro em inglês as peças começaram a se misturar e saiu \"I usually working downtown\". Duas peças certas no molde errado. Em português você troca a forma do verbo sem pensar: normalmente trabalho no centro, mas hoje estou trabalhando de casa. Em inglês cada molde exige um formato. Usually pede o verbo pelado, I work. Right now pede o am, is ou are mais o -ing, I'm working. Existir pede there is ou there are. O molde vem antes da peça: decida primeiro se você fala do sempre ou do agora, e a forma se resolve sozinha.",
+    "exemplos": [
+      {
+        "en": "I usually work downtown, but I'm working from home this week.",
+        "pt": "Eu normalmente trabalho no centro, mas essa semana estou trabalhando de casa."
+      },
+      {
+        "en": "There's a coffee shop right there. They're open until ten.",
+        "pt": "Tem uma cafeteria bem ali. Eles ficam abertos até as dez."
+      },
+      {
+        "en": "What do you do? I'm a designer, and right now I'm looking for a new job.",
+        "pt": "O que você faz? Sou designer, e agora estou procurando um emprego novo."
+      },
+      {
+        "en": "My wife works downtown, so she's not home yet.",
+        "pt": "Minha esposa trabalha no centro, então ela ainda não chegou."
+      }
+    ],
+    "evita": "I usually working downtown."
   },
   {
     "circuito": 14,
@@ -165,9 +335,26 @@
     "titulo": "O passado que você mais vai usar cabe em duas palavras",
     "oQueDestrava": "\"How was your weekend?\" — \"It was pretty quiet. I was at my mom's and the traffic was terrible.\"",
     "erroDoBrasileiro": "How it was your weekend?",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você já dizia It was great meeting you desde o Primeiro Canto, sem saber que aquilo era passado. Era: was é o passado de am e is, were é o passado de are, e acabou. Nosso era, estava, foram, estávamos, tudo cabe nessas duas. O que trava na segunda de manhã não é isso, é a pergunta: em português a gente pergunta pela entonação e nada sai do lugar, e daí sai How it was your weekend? Em inglês o was pula na frente do dono, do mesmo jeito que o is já pulava no Primeiro Canto: How was your weekend? How were the kids?",
+    "exemplos": [
+      {
+        "en": "How was your weekend? It was pretty quiet.",
+        "pt": "Como foi seu fim de semana? Foi bem tranquilo."
+      },
+      {
+        "en": "I was at my mom's, and the traffic was terrible.",
+        "pt": "Eu estava na casa da minha mãe, e o trânsito estava horrível."
+      },
+      {
+        "en": "How were the kids? They were fine.",
+        "pt": "Como estavam as crianças? Estavam bem."
+      },
+      {
+        "en": "It wasn't bad. We were home by nine.",
+        "pt": "Não foi ruim. A gente estava em casa às nove."
+      }
+    ],
+    "evita": "How it was your weekend?"
   },
   {
     "circuito": 15,
@@ -175,9 +362,26 @@
     "titulo": "Worked, stayed, went, said, got: o verbo muda uma vez e a história inteira fica no passado",
     "oQueDestrava": "\"So I got there, the guy said the place was closed, and I waited forty minutes for nothing.\" — sustentar uma história sem escorregar para o presente.",
     "erroDoBrasileiro": "So I arrive there and he tell me everything.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Contando o perrengue você marcou o tempo uma vez, no yesterday, e deixou o verbo parado: So I arrive there and he tell me everything. Em português funciona, porque cheguei já é passado dentro do próprio verbo. Em inglês quem carrega o tempo é o verbo, sempre, mesmo com a data na frase. A maioria só ganha -ed: worked, stayed, waited. Os do dia a dia trocam de corpo e são justamente os que você mais usa: go vira went, say vira said, get vira got, have vira had. Você muda o verbo no começo e a história inteira já fica lá atrás.",
+    "exemplos": [
+      {
+        "en": "So I got there, and the guy said the place was closed.",
+        "pt": "Aí eu cheguei lá, e o cara disse que o lugar estava fechado."
+      },
+      {
+        "en": "I waited forty minutes and nobody showed up.",
+        "pt": "Esperei quarenta minutos e não apareceu ninguém."
+      },
+      {
+        "en": "I called her twice, but she didn't pick up.",
+        "pt": "Liguei pra ela duas vezes, mas ela não atendeu."
+      },
+      {
+        "en": "We missed the flight. It wasn't even our fault.",
+        "pt": "A gente perdeu o voo. Nem foi culpa nossa."
+      }
+    ],
+    "evita": "So I arrive there and he tell me everything."
   },
   {
     "circuito": 16,
@@ -212,9 +416,26 @@
     "titulo": "Reagir em inglês é devolver o auxiliar: 'Did you?', 'Was it?'",
     "oQueDestrava": "\"— And then I missed the flight. — You did? Oh no. Did you get another one?\" — mostrar que você está ali sem tomar o turno do outro.",
     "erroDoBrasileiro": "Did you went alone?",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "O outro contou dois minutos de história e você não emitiu som nenhum. Em português você diria sério, jura, nossa. Em inglês a reação é devolver o auxiliar da frase dele: ele diz I missed the flight e você devolve You did? Ele diz It was awful e você devolve Was it? Custa meio segundo, não rouba o turno dele e muda o que ele acha de você. E quando o did aparece, ele já carrega o passado sozinho, então o verbo volta ao corpo original: Did you go alone?, nunca Did you went. Mesma coisa na negativa: I didn't sleep, não I didn't slept.",
+    "exemplos": [
+      {
+        "en": "And then I missed the flight. You did? Oh no.",
+        "pt": "E aí eu perdi o voo. Sério? Que droga."
+      },
+      {
+        "en": "Did you go alone, or was somebody with you?",
+        "pt": "Você foi sozinho, ou tinha alguém com você?"
+      },
+      {
+        "en": "It was a nightmare. Was it? I'm sorry to hear that.",
+        "pt": "Foi um pesadelo. Foi mesmo? Que pena."
+      },
+      {
+        "en": "I didn't sleep at all that night.",
+        "pt": "Não dormi nada naquela noite."
+      }
+    ],
+    "evita": "Did you went alone?"
   },
   {
     "circuito": 18,
@@ -222,9 +443,26 @@
     "titulo": "Uma frase dentro da outra: 'the thing that you use to...'",
     "oQueDestrava": "\"It's the thing that you use to open bottles.\" / \"It's like a guy who fixes cars.\" — dar a volta na palavra que faltou em três segundos.",
     "erroDoBrasileiro": "It's a machine who makes coffee.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Faltou a palavra, você parou a frase e foi procurar no celular. Nativo também esquece palavra, ele só não para: ele encaixa uma frase dentro da outra. It's the thing that you use to open bottles. It's like a guy who fixes cars. A peça é o nosso que, e é por aí que o português derruba você, porque o nosso que serve para gente, coisa, máquina e bicho. Em inglês who é só para gente. Todo o resto pede that. Which faz o mesmo serviço num registro mais formal, e falando ninguém sente falta dele. Guarde as duas aberturas prontas e você não trava mais.",
+    "exemplos": [
+      {
+        "en": "It's the thing that you use to open bottles.",
+        "pt": "É aquela coisa que você usa pra abrir garrafa."
+      },
+      {
+        "en": "It's like a guy who fixes cars, but for bikes.",
+        "pt": "É tipo um cara que conserta carro, mas de bicicleta."
+      },
+      {
+        "en": "I can't remember the word. It's the machine that makes coffee.",
+        "pt": "Não lembro a palavra. É a máquina que faz café."
+      },
+      {
+        "en": "You know the app that everybody uses for rides?",
+        "pt": "Sabe aquele aplicativo que todo mundo usa pra corrida?"
+      }
+    ],
+    "evita": "It's a machine who makes coffee."
   },
   {
     "circuito": 19,
@@ -232,9 +470,26 @@
     "titulo": "Dois futuros: o que já estava combinado e o que você decidiu agora",
     "oQueDestrava": "\"I'm going to visit my sister on Saturday.\" — \"Sounds good, I'll drive you.\"",
     "erroDoBrasileiro": "Tomorrow I go to the beach.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Sexta às quatro, veio o any plans this weekend? e saiu Tomorrow I go to the beach. Em português o amanhã já resolve e o verbo fica parado no presente. Em inglês o verbo tem que se mexer, e existem dois futuros com serviços diferentes. O que já estava de pé antes da conversa é going to, que falando vira gonna: I'm going to visit my sister on Saturday. O que você decide na hora, no meio da frase, é I'll: o outro conta um problema e sai I'll drive you. Usar I'll para plano velho soa como se você tivesse acabado de inventar.",
+    "exemplos": [
+      {
+        "en": "Any plans this weekend? I'm going to visit my sister.",
+        "pt": "Algum plano pro fim de semana? Vou visitar minha irmã."
+      },
+      {
+        "en": "We're gonna leave around six on Saturday.",
+        "pt": "A gente vai sair umas seis no sábado."
+      },
+      {
+        "en": "Sounds good. I'll drive you, it's on my way.",
+        "pt": "Boa. Eu te levo, é no meu caminho."
+      },
+      {
+        "en": "I'm not doing anything Sunday. I'll probably just stay home.",
+        "pt": "Não vou fazer nada domingo. Devo só ficar em casa."
+      }
+    ],
+    "evita": "Tomorrow I go to the beach."
   },
   {
     "circuito": 20,
@@ -279,9 +534,26 @@
     "titulo": "Em inglês, 'não pedi nada disso' precisa de uma palavra a mais",
     "oQueDestrava": "\"Can I get some water? Do you have any specials tonight?\" — pedir, comentar o que chegou e contestar a conta sem dupla negação.",
     "erroDoBrasileiro": "I didn't order nothing like this.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Na mesa você já pede Can I get some water? sem pensar. Some é a quantidade que ninguém conta e ninguém precisa dizer. Na pergunta e na negativa ele troca por any: Do you have any specials tonight? Aí chega o prato errado, o português monta a frase com duas negações, não pedi nada disso, e sai I didn't order nothing. Em inglês a negação acontece uma vez só, e ela já aconteceu no didn't. Depois dela vem anything. Duas negações não reforçam nada: elas se cancelam, e o garçom ouve o contrário do que você quis dizer.",
+    "exemplos": [
+      {
+        "en": "Can I get some water and some bread, please?",
+        "pt": "Pode trazer água e pão, por favor?"
+      },
+      {
+        "en": "Do you have any specials tonight?",
+        "pt": "Vocês têm algum prato do dia hoje?"
+      },
+      {
+        "en": "Sorry, I didn't order anything like this.",
+        "pt": "Desculpa, eu não pedi nada disso."
+      },
+      {
+        "en": "We don't have any cash. Can we split the check?",
+        "pt": "A gente não tem dinheiro. Dá pra dividir a conta?"
+      }
+    ],
+    "evita": "I didn't order nothing like this."
   },
   {
     "circuito": 23,
@@ -289,9 +561,26 @@
     "titulo": "'Já fui' não é 'I already went'",
     "oQueDestrava": "\"Have you ever been to New York?\" — \"I've never been, but I'd love to.\" — falar de experiência sem dar data.",
     "erroDoBrasileiro": "You already went to New York?",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Em português o já resolve tudo: você já foi a Nova York? O verbo nem se mexe. Em inglês esse já de experiência, o que aconteceu em algum momento da sua vida e não interessa quando, tem forma própria: have mais o particípio, com ever dentro da pergunta. Have you ever been to New York? A resposta é I've been ou I've never been, e a data fica de fora de propósito, porque ninguém perguntou quando. No segundo em que a data entra, o verbo volta para o passado simples: I went there in 2019. A divisão é essa, e é só essa.",
+    "exemplos": [
+      {
+        "en": "Have you ever been to New York? I've never been, but I'd love to.",
+        "pt": "Você já foi a Nova York? Nunca fui, mas adoraria."
+      },
+      {
+        "en": "I've tried sushi once, and I didn't love it.",
+        "pt": "Eu já provei sushi uma vez, e não gostei muito."
+      },
+      {
+        "en": "Have you ever worked with them? Yeah, I have.",
+        "pt": "Você já trabalhou com eles? Já, sim."
+      },
+      {
+        "en": "I've been there twice. I went last summer.",
+        "pt": "Já fui lá duas vezes. Fui no verão passado."
+      }
+    ],
+    "evita": "You already went to New York?"
   },
   {
     "circuito": 24,
@@ -299,9 +588,26 @@
     "titulo": "Em inglês, 'melhor' e 'o melhor' são palavras diferentes",
     "oQueDestrava": "\"The second one is cheaper, but the first is the most convenient.\" — escolher e sustentar a escolha.",
     "erroDoBrasileiro": "It was the better option of the two.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você já compara sem pensar: cheaper, better, more comfortable. Escolher é o degrau seguinte. Em português melhor e o melhor são a mesma palavra, e quem avisa a diferença é só o artigo. Em inglês são duas palavras: better compara duas coisas, best põe uma acima de todas. Por isso It was the better option of all sai torto. Comparado com o resto todo, é the best. O corte é o mesmo do circuito 20, o tamanho da palavra: curta ganha -est, cheap vira the cheapest; longa ganha the most, the most convenient. E o the do superlativo nunca cai.",
+    "exemplos": [
+      {
+        "en": "The second one is cheaper, but the first is the most convenient.",
+        "pt": "O segundo é mais barato, mas o primeiro é o mais prático."
+      },
+      {
+        "en": "It's the best option we've got, honestly.",
+        "pt": "É a melhor opção que a gente tem, sinceramente."
+      },
+      {
+        "en": "This place is the cheapest, but it's also the farthest.",
+        "pt": "Esse lugar é o mais barato, mas também é o mais longe."
+      },
+      {
+        "en": "Between those two, Friday's better for me.",
+        "pt": "Entre esses dois, sexta é melhor pra mim."
+      }
+    ],
+    "evita": "It was the better option of the two."
   },
   {
     "circuito": 25,
@@ -346,9 +652,26 @@
     "titulo": "Depois de 'for', 'of' e 'before', o verbo ganha -ing",
     "oQueDestrava": "\"I'm responsible for making sure the data is right, and my job is mostly about talking to hospitals.\" — explicar o trabalho sem depender do nome do cargo.",
     "erroDoBrasileiro": "I'm responsible for make the reports.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você passou a semana dizendo I'm responsible for making sure the data is right, e my job is mostly about talking to hospitals. Repare no que vem depois de for e de about: verbo com -ing. Em português a gente diz responsável por fazer, sobre falar, antes de sair, sempre no infinitivo. Você traduz e sai for make. Em inglês, o que vem depois de preposição é tratado como coisa, e a forma de coisa do verbo é o -ing. Vale para of, about, before, after, without, instead of. A armadilha é o to, que às vezes também é preposição: I'm used to working here.",
+    "exemplos": [
+      {
+        "en": "I'm responsible for making sure the numbers are right.",
+        "pt": "Eu sou responsável por garantir que os números estão certos."
+      },
+      {
+        "en": "My job's mostly about talking to hospitals and fixing what breaks.",
+        "pt": "Meu trabalho é basicamente falar com hospitais e resolver o que quebra."
+      },
+      {
+        "en": "Before signing anything, we check it with the client.",
+        "pt": "Antes de assinar qualquer coisa, a gente confere com o cliente."
+      },
+      {
+        "en": "I'm good at explaining it without using jargon.",
+        "pt": "Eu sou bom em explicar isso sem usar jargão."
+      }
+    ],
+    "evita": "I'm responsible for make the reports."
   },
   {
     "circuito": 28,
@@ -356,9 +679,26 @@
     "titulo": "'Agree' já é o verbo: não precisa de 'am'",
     "oQueDestrava": "\"I agree with you on that, but I don't think it's the best option.\" — discordar sem virar briga.",
     "erroDoBrasileiro": "I'm agree with you.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você vinha dizendo I agree with you on that, but I don't think it's the best option. Duas peças ali, e as duas quebram quando você traduz. Agree não é adjetivo, é verbo: já significa concordar sozinho, e não precisa de am, is nem are na frente. Estou de acordo em português tem verbo de estado, em inglês não tem. A segunda é acho que não: o inglês nega o primeiro verbo, não o segundo. Sai I don't think so, I don't think that's right. Discordar assim soa mais macio, porque a negação fica na sua cabeça, não na frase do outro.",
+    "exemplos": [
+      {
+        "en": "I agree with you on that, but I don't think it's the best option.",
+        "pt": "Eu concordo com você nisso, mas acho que não é a melhor opção."
+      },
+      {
+        "en": "I don't think so. Can we look at the numbers again?",
+        "pt": "Acho que não. Dá para a gente olhar os números de novo?"
+      },
+      {
+        "en": "I see what you mean, but I'd go the other way on this one.",
+        "pt": "Entendo o que você quer dizer, mas eu iria pelo outro caminho nesse aqui."
+      },
+      {
+        "en": "I totally agree it's urgent. I just don't agree on the deadline.",
+        "pt": "Concordo totalmente que é urgente. Só não concordo com o prazo."
+      }
+    ],
+    "evita": "I'm agree with you."
   },
   {
     "circuito": 29,
@@ -376,9 +716,26 @@
     "titulo": "Depois de 'Could you tell me', a pergunta vira afirmação",
     "oQueDestrava": "\"Could you tell me when he's back?\" / \"Do you know if the order shipped?\" — sustentar uma ligação sem rosto e sem contexto visual.",
     "erroDoBrasileiro": "Could you tell me what time is the meeting?",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "No telefone você vinha usando Could you tell me when he's back? e Do you know if the order shipped? Repare no miolo: when he's back, não when is he back. A pergunta de verdade é só a primeira parte. O que vem depois volta para a ordem da afirmação, dono na frente do verbo. O brasileiro erra aqui justamente por ter aprendido a inversão: ele inverte duas vezes e sai what time is the meeting. E quando a pergunta é de sim ou não, entra um if no meio, que o português resolve com se: Do you know if it shipped?",
+    "exemplos": [
+      {
+        "en": "Could you tell me when he's back? I'll call again.",
+        "pt": "Você pode me dizer quando ele volta? Eu ligo de novo."
+      },
+      {
+        "en": "Do you know if the order shipped yet?",
+        "pt": "Você sabe se o pedido já foi enviado?"
+      },
+      {
+        "en": "I was wondering if you could send me the tracking number.",
+        "pt": "Eu queria saber se você pode me mandar o código de rastreio."
+      },
+      {
+        "en": "Do you know if there's anyone else I could talk to?",
+        "pt": "Você sabe se tem mais alguém com quem eu possa falar?"
+      }
+    ],
+    "evita": "Could you tell me what time is the meeting?"
   },
   {
     "circuito": 31,
@@ -386,9 +743,26 @@
     "titulo": "O defeito tem histórico: 'for two weeks', 'since Monday'",
     "oQueDestrava": "\"It's been doing this since Monday, and the internet has been down for about two weeks.\" — dar o histórico antes que te ofereçam a solução que você já tentou.",
     "erroDoBrasileiro": "The internet is bad since Monday.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você vinha dizendo it's been doing this since Monday e the internet has been down for about two weeks. São duas palavras para a mesma ideia: since marca onde começou, Monday, yesterday, March; for marca o tamanho, two weeks, an hour. Em português a gente diz desde segunda e faz duas semanas, mas na hora só um since vem à cabeça, e sai since two weeks. Repare também no verbo: como começou antes e continua agora, o inglês pede has been, não is. The internet is bad since Monday faz o atendente ouvir só o agora e repetir o que você já tentou.",
+    "exemplos": [
+      {
+        "en": "It's been doing this since Monday, and it's getting worse.",
+        "pt": "Está fazendo isso desde segunda, e está piorando."
+      },
+      {
+        "en": "The internet's been down for about two weeks now.",
+        "pt": "A internet está fora do ar faz umas duas semanas."
+      },
+      {
+        "en": "I've called twice since Friday and nobody's called me back.",
+        "pt": "Eu liguei duas vezes desde sexta e ninguém me retornou."
+      },
+      {
+        "en": "We've had the same problem for three months, so I've tried that already.",
+        "pt": "A gente tem o mesmo problema faz três meses, então eu já tentei isso."
+      }
+    ],
+    "evita": "The internet is bad since Monday."
   },
   {
     "circuito": 32,
@@ -396,9 +770,26 @@
     "titulo": "Quando não interessa quem fez: 'I was charged twice'",
     "oQueDestrava": "\"I was charged twice and the deposit was never refunded.\" — contestar item por item com fato, sem acusar ninguém.",
     "erroDoBrasileiro": "My package didn't deliver yet.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você vinha contestando com I was charged twice e the deposit was never refunded. Nenhuma das duas diz quem fez, e é isso que faz a frase soar firme sem acusar ninguém. Em português a gente resolve com se ou com eles: cobraram duas vezes, o pacote não entregou. O inglês não deixa: se a coisa que sofreu a ação está na frente, o verbo precisa virar was ou were mais particípio. My package didn't deliver diz que o pacote não entregou alguma coisa, e o atendente entende outra história. O certo é my package hasn't been delivered.",
+    "exemplos": [
+      {
+        "en": "I was charged twice for the same night.",
+        "pt": "Me cobraram duas vezes pela mesma diária."
+      },
+      {
+        "en": "The deposit was never refunded, and that was back in March.",
+        "pt": "O depósito nunca foi devolvido, e isso foi lá em março."
+      },
+      {
+        "en": "It hasn't been delivered yet, so I'd like the charge reversed.",
+        "pt": "Ainda não foi entregue, então eu queria o estorno da cobrança."
+      },
+      {
+        "en": "My card was charged before the room was even confirmed.",
+        "pt": "Meu cartão foi cobrado antes de o quarto ser confirmado."
+      }
+    ],
+    "evita": "My package didn't deliver yet."
   },
   {
     "circuito": 33,
@@ -406,9 +797,26 @@
     "titulo": "As palavras de quantidade decidem o tamanho do que você está pedindo",
     "oQueDestrava": "\"Any chance I could get a few more days? I just need a couple of hours, there isn't enough time to redo it.\" — pedir a exceção no tamanho que faz a pessoa dizer sim.",
     "erroDoBrasileiro": "Can I have more informations about the policy?",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você vinha pedindo assim: any chance I could get a few more days? I just need a couple of hours. Repare no tamanho do pedido. As palavras de quantidade fazem esse trabalho, e elas dependem do que vem depois. Coisa que se conta pede many, a few, a couple of. Coisa que não se conta, como time, money e information, pede much e enough, e não vai para o plural: informations não existe, é some information. O brasileiro pluraliza tudo porque o português pluraliza tudo. E pedir pouco é o que faz a pessoa dizer sim: a few more days abre a porta que more days fecha.",
+    "exemplos": [
+      {
+        "en": "Any chance I could get a few more days on this?",
+        "pt": "Tem como me dar mais uns dias nisso?"
+      },
+      {
+        "en": "I just need a couple of hours, not a whole week.",
+        "pt": "Eu só preciso de umas duas horas, não de uma semana inteira."
+      },
+      {
+        "en": "There isn't enough time to redo it properly before Friday.",
+        "pt": "Não dá tempo de refazer direito antes de sexta."
+      },
+      {
+        "en": "Could you send me a little more information about the policy?",
+        "pt": "Você pode me mandar um pouco mais de informação sobre a política?"
+      }
+    ],
+    "evita": "Can I have more informations about the policy?"
   },
   {
     "circuito": 34,
@@ -423,12 +831,29 @@
   {
     "circuito": 35,
     "peca": "have to / don't have to / can't",
-    "titulo": "'Não precisa' e 'não pode' são coisas diferentes em inglês",
+    "titulo": "\"Não precisa\" e \"não pode\" são coisas diferentes em inglês",
     "oQueDestrava": "\"You have to take it every eight hours, you don't have to take it with food, and you can't drink with this.\" — repetir a orientação até ter certeza de que entendeu.",
     "erroDoBrasileiro": "You don't have to drink alcohol with this.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você repetiu a orientação do farmacêutico e ele fez cara de dúvida. O problema é que em português a gente resolve obrigação e proibição com o mesmo verbo: tenho que tomar, tenho que não beber. Em inglês são duas peças diferentes e trocar uma pela outra muda o remédio. Have to é obrigação: você precisa. Don't have to é o contrário do have to, e significa que é opcional, ninguém está te obrigando. Proibição é can't, e só ela: \"You can't drink with this\". Dizer don't have to quando você quis dizer não pode libera exatamente o que o médico proibiu.",
+    "exemplos": [
+      {
+        "en": "You have to take it every eight hours.",
+        "pt": "Você tem que tomar de oito em oito horas."
+      },
+      {
+        "en": "You don't have to take it with food, but you can if you want.",
+        "pt": "Não precisa tomar com comida, mas pode se quiser."
+      },
+      {
+        "en": "You can't drink with this. Not even a beer.",
+        "pt": "Você não pode beber com isso. Nem uma cerveja."
+      },
+      {
+        "en": "Do I have to come back tomorrow?",
+        "pt": "Eu preciso voltar amanhã?"
+      }
+    ],
+    "evita": "I have to not drink with this."
   },
   {
     "circuito": 36,
@@ -436,9 +861,26 @@
     "titulo": "O acordo condicional: depois do 'if' nunca entra 'will'",
     "oQueDestrava": "\"If you move the deadline to Friday, I can absorb the extra scope.\" — contrapropor e condicionar sem dizer não.",
     "erroDoBrasileiro": "If you will send it today, I can start Monday.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você fechou a contraproposta com if you move the deadline to Friday, I can absorb the extra scope. Repare que a primeira metade está no presente, move, mesmo falando de uma coisa que ainda não aconteceu. O futuro fica todo na segunda metade: I can, I'll, we'll. Em português existe uma forma só para isso, se você mover, se você mandar, e como o inglês não tem essa forma, o brasileiro tenta marcar o futuro com will e sai if you will send it. Depois do if nunca entra will. E é essa frase que segura a negociação: em vez de dizer não, você condiciona.",
+    "exemplos": [
+      {
+        "en": "If you move the deadline to Friday, I can absorb the extra scope.",
+        "pt": "Se você passar o prazo para sexta, eu consigo absorver o escopo extra."
+      },
+      {
+        "en": "If you send it today, I'll have it back to you Monday.",
+        "pt": "Se você mandar hoje, eu te devolvo na segunda."
+      },
+      {
+        "en": "We can do that price if the order goes up to fifty units.",
+        "pt": "A gente faz esse preço se o pedido subir para cinquenta unidades."
+      },
+      {
+        "en": "If that doesn't work for you, let me get back to you tomorrow.",
+        "pt": "Se isso não servir para você, deixa eu te retornar amanhã."
+      }
+    ],
+    "evita": "If you will send it today, I can start Monday."
   },
   {
     "circuito": 37,
@@ -446,9 +888,26 @@
     "titulo": "O conselho que não manda ninguém fazer nada",
     "oQueDestrava": "\"If I were you, I'd talk to her before Friday.\" — opinar sobre a vida do outro sem soar arrogante e sem virar ordem.",
     "erroDoBrasileiro": "If I was you, I go talk with her.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você vinha aconselhando assim: if I were you, I'd talk to her before Friday. Duas coisas seguram essa frase. A primeira é o were com I, que parece errado e é o certo: é o único resto de subjuntivo que sobrou no inglês falado, e ele mora justamente na frase mais usada para dar conselho. A segunda é o I'd, que não pode cair. Em português a gente diz eu falava com ela, com o verbo simples, e o brasileiro traduz e sai I go talk. Sem o would, deixa de ser hipótese e vira ordem, que é exatamente o que você não quer ali.",
+    "exemplos": [
+      {
+        "en": "If I were you, I'd talk to her before Friday.",
+        "pt": "Se eu fosse você, eu falaria com ela antes de sexta."
+      },
+      {
+        "en": "I'd probably wait a couple of days, honestly.",
+        "pt": "Eu provavelmente esperaria uns dois dias, sinceramente."
+      },
+      {
+        "en": "If it were me, I wouldn't say anything yet.",
+        "pt": "Se fosse comigo, eu não diria nada ainda."
+      },
+      {
+        "en": "Honestly, I'd just ask him. What's the worst that can happen?",
+        "pt": "Sinceramente, eu perguntaria para ele. Qual é a pior coisa que pode acontecer?"
+      }
+    ],
+    "evita": "If I was you, I go talk with her."
   },
   {
     "circuito": 38,
@@ -456,19 +915,53 @@
     "titulo": "O que você faria diferente tem tempo verbal próprio",
     "oQueDestrava": "\"Looking back, I should have flagged it earlier, and that's what I took from it.\" — responder a pergunta do erro sem parecer que não aprendeu nada.",
     "erroDoBrasileiro": "I should tell him before, but I didn't.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Na resposta sobre o erro você disse: looking back, I should have flagged it earlier. Sem o have, a frase muda de tempo: I should tell him é conselho para agora, não confissão sobre ontem. O passado do arrependimento fica no have mais particípio, e é isso que faltava. Você já faz isso em português, eu deveria ter avisado, com o ter no meio; na hora de falar, o brasileiro marca o passado só no before e deixa o verbo parado. Na fala nativa esse pedaço encolhe até virar shoulda, coulda, e o que você não ouve você não fala.",
+    "exemplos": [
+      {
+        "en": "Looking back, I should've flagged it earlier.",
+        "pt": "Olhando para trás, eu deveria ter avisado antes."
+      },
+      {
+        "en": "I could've asked for help, and I didn't. That one's on me.",
+        "pt": "Eu podia ter pedido ajuda, e não pedi. Essa foi minha."
+      },
+      {
+        "en": "We should've caught it in testing, so we changed the process.",
+        "pt": "A gente deveria ter pegado isso nos testes, então mudamos o processo."
+      },
+      {
+        "en": "I shouldn't have promised the date before checking with the team.",
+        "pt": "Eu não deveria ter prometido a data antes de falar com o time."
+      }
+    ],
+    "evita": "I should tell him before, but I didn't."
   },
   {
     "circuito": 39,
     "peca": "escolher a peça sob pressão",
-    "titulo": "Fechando o Terceiro Canto: a peça certa na hora certa",
+    "titulo": "A peça certa sem parar para escolher",
     "oQueDestrava": "Um dia inteiro de atrito: perfect, passado, passiva e condicional escolhidos em tempo real, sem consultar nada.",
     "erroDoBrasileiro": "If I would have more time, I call you back.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Hoje nada é novo. O que muda é que ninguém te avisa qual peça usar. No hotel você vai precisar contar o que já aconteceu, na ligação vai precisar dizer o que aconteceu ontem, e na negociação vai precisar falar do que aconteceria se. São peças que você já tem, uma de cada vez, há treze circuitos. A diferença é o relógio: no dia real elas chegam misturadas e sem etiqueta, e parar para lembrar qual é qual custa a conversa. Erre e siga. Escolher rápido e errado rende mais que escolher devagar e certo.",
+    "exemplos": [
+      {
+        "en": "I've already talked to someone about this yesterday.",
+        "pt": "Eu já falei com alguém sobre isso ontem."
+      },
+      {
+        "en": "If I had more time, I'd call you back.",
+        "pt": "Se eu tivesse mais tempo, eu te ligaria de volta."
+      },
+      {
+        "en": "The room was never cleaned, and nobody told me.",
+        "pt": "O quarto nunca foi limpo, e ninguém me avisou."
+      },
+      {
+        "en": "I get it, but that's not what I was told.",
+        "pt": "Eu entendo, mas não foi isso que me disseram."
+      }
+    ],
+    "evita": "If I would have more time, I call you back."
   },
   {
     "circuito": 40,
@@ -496,9 +989,26 @@
     "titulo": "A preposição não é escolha: ela vem colada no verbo",
     "oQueDestrava": "\"It depends on the client.\" / \"She's married to a doctor.\" / \"I'm not very good at it.\" — parar de traduzir a preposição do português.",
     "erroDoBrasileiro": "It depends of the client.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você já vinha dizendo It depends on the client sem pensar. Aí aparece um verbo novo e o português entra sozinho: depende de vira depends of, casado com vira married with, bom em vira good in. Nenhuma dessas é erro de gramática, e é isso que engana: a frase fica inteira e ainda assim marca estrangeiro na hora. A preposição em inglês não é escolha nem tradução. Ela vem colada, faz parte da palavra e muda com ela sem lógica nenhuma: listen to, wait for, married to, good at, depend on. Não traduza preposição. Guarde o verbo já com ela dentro, do jeito que você ouviu.",
+    "exemplos": [
+      {
+        "en": "It depends on the client, but usually it's two weeks.",
+        "pt": "Depende do cliente, mas normalmente são duas semanas."
+      },
+      {
+        "en": "My sister's married to a guy from Chicago.",
+        "pt": "Minha irmã é casada com um cara de Chicago."
+      },
+      {
+        "en": "I'm not very good at small talk, honestly.",
+        "pt": "Eu não sou muito bom de conversa fiada, sinceramente."
+      },
+      {
+        "en": "Just listen to him for a minute. He's got a point.",
+        "pt": "Escuta ele um minuto. Ele tem razão."
+      }
+    ],
+    "evita": "It depends of the client."
   },
   {
     "circuito": 43,
@@ -506,9 +1016,26 @@
     "titulo": "As palavras que tiram a aresta e mudam o registro da mesma frase",
     "oQueDestrava": "\"I'd say it's a bit tight, but it could work.\" — dizer a mesma coisa para o diretor e para o amigo, em dois volumes.",
     "erroDoBrasileiro": "You're wrong. This is bad.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você escreveu a frase certa e ela chegou como tapa: This is bad. Em português quem amacia é o tom de voz, o diminutivo, o né no fim. Em inglês o tom não faz esse trabalho: quem faz são palavras soltas dentro da frase. I'd say, kind of, a bit, maybe, might. A informação não muda, o volume muda. E não é frescura nem insegurança: o americano lê o excesso de certeza como falta de educação e para de ouvir o resto. Com o amigo você tira essas palavras. Com o diretor, põe duas. Mesma frase, dois registros.",
+    "exemplos": [
+      {
+        "en": "I'd say it's a bit tight, but it could work.",
+        "pt": "Eu diria que está meio apertado, mas dá pra funcionar."
+      },
+      {
+        "en": "I'm not sure that's the best call, honestly.",
+        "pt": "Não sei se essa é a melhor escolha, sinceramente."
+      },
+      {
+        "en": "It's kind of expensive for what it is.",
+        "pt": "É meio caro pro que é."
+      },
+      {
+        "en": "That might be a problem on Friday.",
+        "pt": "Isso pode ser um problema na sexta."
+      }
+    ],
+    "evita": "You're wrong. This is bad."
   },
   {
     "circuito": 44,
@@ -516,9 +1043,26 @@
     "titulo": "O 'né' do inglês muda de forma toda vez, e é veículo de ironia",
     "oQueDestrava": "\"That went well, didn't it?\" — perceber quando o outro disse o contrário do que disse, e devolver na mesma moeda.",
     "erroDoBrasileiro": "It's really cold today, no?",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Em português o né é uma peça só e serve para tudo. Em inglês ele se remonta a cada frase: pega o auxiliar da própria frase e inverte o sinal. It's cold, isn't it? You liked it, didn't you? Sem auxiliar na frase, volta o do. Isso custa meio segundo que você não tem, e por isso existe o atalho: right?, que cabe em qualquer lugar. Mas guarde a forma completa por outro motivo. A tag dita com a voz caindo, logo depois de algo que deu errado, é ironia pura: That went well, didn't it? diz exatamente o contrário.",
+    "exemplos": [
+      {
+        "en": "That went well, didn't it?",
+        "pt": "Correu tudo bem, né?"
+      },
+      {
+        "en": "It's freezing today, isn't it?",
+        "pt": "Está um gelo hoje, né?"
+      },
+      {
+        "en": "You're not coming, are you?",
+        "pt": "Você não vem, né?"
+      },
+      {
+        "en": "We said Friday, right?",
+        "pt": "A gente falou sexta, né?"
+      }
+    ],
+    "evita": "It's really cold today, no?"
   },
   {
     "circuito": 45,
@@ -536,9 +1080,26 @@
     "titulo": "Os começos de frase que sustentam cinco minutos de fala",
     "oQueDestrava": "\"The thing is, the numbers moved in March.\" / \"Moving on to the second point.\" / \"To sum up...\" — estruturar em voz alta e retomar depois de uma pergunta.",
     "erroDoBrasileiro": "How I can say... como é que fala?",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "No meio da apresentação a palavra sumiu e saiu How I can say, com a pergunta em português atrás. Não faltou vocabulário: faltou o começo de frase. Quem sustenta cinco minutos em inglês não improvisa a emenda, usa uma dúzia de aberturas prontas. The thing is anuncia o motivo. What I mean is conserta o que você acabou de dizer sem confessar que errou. Moving on to muda de seção. To sum up fecha. São blocos fixos, sem conjugação e sem gramática, e o trabalho deles não é ser bonito: é comprar o segundo em que você monta o resto da frase.",
+    "exemplos": [
+      {
+        "en": "The thing is, the numbers moved in March.",
+        "pt": "O negócio é que os números mudaram em março."
+      },
+      {
+        "en": "What I mean is, we can't promise that yet.",
+        "pt": "O que eu quero dizer é que a gente ainda não pode prometer isso."
+      },
+      {
+        "en": "Moving on to the second point.",
+        "pt": "Passando para o segundo ponto."
+      },
+      {
+        "en": "To sum up, we're about two weeks behind.",
+        "pt": "Resumindo, a gente está umas duas semanas atrasado."
+      }
+    ],
+    "evita": "How I can say this?"
   },
   {
     "circuito": 47,
@@ -546,9 +1107,26 @@
     "titulo": "Onde o 'it' entra: 'tone it down', nunca 'tone down it'",
     "oQueDestrava": "\"I'd tone it down a little and take this part out.\" — propor a correção com os verbos que o nativo usa para corrigir.",
     "erroDoBrasileiro": "Can you tone down it?",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Você diz write it down desde o Primeiro Canto, e a lei é a mesma aqui. Verbo com pedacinho colado, tone down, take out, cut back, abre no meio quando o alvo é it ou them: tone it down, take it out. Nunca no fim. Com um nome inteiro as duas posições valem: tone the intro down ou tone down the intro, tanto faz. Com it e them só existe uma, e o ouvido nativo trava na hora. Repare que são justamente esses verbos que o americano usa para dizer que algo não ficou bom sem destruir a pessoa.",
+    "exemplos": [
+      {
+        "en": "I'd tone it down a little, honestly.",
+        "pt": "Eu suavizaria um pouco, sinceramente."
+      },
+      {
+        "en": "This part isn't working. Let's take it out.",
+        "pt": "Essa parte não está funcionando. Vamos tirar."
+      },
+      {
+        "en": "Can you check it out before Friday?",
+        "pt": "Você consegue dar uma olhada antes de sexta?"
+      },
+      {
+        "en": "Tone the intro down and we're good.",
+        "pt": "Suaviza a introdução e está ótimo."
+      }
+    ],
+    "evita": "Can you tone down it?"
   },
   {
     "circuito": 48,
@@ -556,9 +1134,26 @@
     "titulo": "Quando você repete o que o outro disse, tudo anda um passo para trás",
     "oQueDestrava": "\"He told me he was tired and that he'd send it on Monday.\" — passar recado sem transformar a opinião dele na sua.",
     "erroDoBrasileiro": "He said me he is tired.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Duas coisas desabam de uma vez quando você repassa o que ouviu. A primeira: tell já carrega a pessoa, he told me, e say não carrega, he said that. Sai he said me, e é a frase que mais denuncia brasileiro em reunião. A segunda: o verbo lá dentro anda um passo para trás. I'm tired vira he was tired. I'll send it vira he'd send it. Em português a gente repete no presente e ninguém estranha. Em inglês, deixar no presente faz a opinião dele parecer sua, e quem responde por ela depois é você.",
+    "exemplos": [
+      {
+        "en": "He told me he was tired and that he'd send it on Monday.",
+        "pt": "Ele me disse que estava cansado e que mandaria na segunda."
+      },
+      {
+        "en": "She said the client wasn't happy with the deadline.",
+        "pt": "Ela disse que o cliente não gostou do prazo."
+      },
+      {
+        "en": "They told us they were still looking into it.",
+        "pt": "Eles disseram que ainda estavam analisando."
+      },
+      {
+        "en": "He said he'd get back to me, but he didn't.",
+        "pt": "Ele disse que me daria um retorno, mas não deu."
+      }
+    ],
+    "evita": "He said me he is tired."
   },
   {
     "circuito": 49,
@@ -566,9 +1161,26 @@
     "titulo": "'I still think', 'I do agree': a posição muda o peso do argumento",
     "oQueDestrava": "\"I still think the cost is the problem, and I do agree with you on the timeline.\" — conceder um ponto sem perder a linha.",
     "erroDoBrasileiro": "I think always that the cost is the problem.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Em português o advérbio flutua: eu sempre achei, eu achei sempre, tanto faz. Em inglês ele tem cadeira marcada, antes do verbo principal e depois de am, is ou are: I still think, I've always said, it's always been like that. Fora dessa cadeira a frase deixa de soar inglês, mesmo sem erro nenhum. E tem uma peça que só serve para discussão: o do dentro da afirmativa. I do agree with you diz eu concordo sim, com peso, e é assim que você entrega um ponto ao outro sem largar a sua linha.",
+    "exemplos": [
+      {
+        "en": "I still think the cost is the problem.",
+        "pt": "Eu continuo achando que o custo é o problema."
+      },
+      {
+        "en": "I do agree with you on the timeline.",
+        "pt": "Eu concordo com você sim quanto ao prazo."
+      },
+      {
+        "en": "I've always said the same thing about this.",
+        "pt": "Eu sempre disse a mesma coisa sobre isso."
+      },
+      {
+        "en": "That's usually true, but it isn't here.",
+        "pt": "Isso normalmente é verdade, mas aqui não é."
+      }
+    ],
+    "evita": "I think always that the cost is the problem."
   },
   {
     "circuito": 50,
@@ -576,9 +1188,26 @@
     "titulo": "'Enjoy' pede -ing, 'want' pede 'to': é convívio, não é regra",
     "oQueDestrava": "\"I'd love to hear about it.\" / \"We ended up staying until midnight.\" / \"I keep meaning to ask you something.\" — atravessar duas horas de jantar sem travar na emenda dos verbos.",
     "erroDoBrasileiro": "I enjoy to talk about this.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Em português um verbo puxa o outro sempre no infinitivo: adoro falar, quero falar, acabei de falar. Em inglês cada verbo escolheu um lado e não existe regra para deduzir. Want, need, decide e hope vêm com to. Enjoy, keep, finish, end up e mind vêm com -ing. Love e like aceitam os dois. É por isso que I enjoy to talk sai tão natural e é tão impossível: a lógica ali é a do português. Não decore lista. Guarde o verbo com a emenda já dentro, do mesmo jeito que você guardou I love cooking no circuito 7.",
+    "exemplos": [
+      {
+        "en": "I'd love to hear about it.",
+        "pt": "Eu ia adorar ouvir sobre isso."
+      },
+      {
+        "en": "We ended up staying until midnight.",
+        "pt": "A gente acabou ficando até meia-noite."
+      },
+      {
+        "en": "I keep meaning to ask you something.",
+        "pt": "Eu fico querendo te perguntar uma coisa."
+      },
+      {
+        "en": "Do you mind waiting a couple of minutes?",
+        "pt": "Você se importa de esperar uns dois minutos?"
+      }
+    ],
+    "evita": "I enjoy to talk about this."
   },
   {
     "circuito": 51,
@@ -596,8 +1225,25 @@
     "titulo": "Você fala inglês: a gramática saiu do caminho",
     "oQueDestrava": "Vinte minutos de conversa livre em que nenhuma peça é escolhida conscientemente.",
     "erroDoBrasileiro": "I need study more before I can speak.",
-    "corpo": null,
-    "exemplos": null,
-    "evita": null
+    "corpo": "Tem uma frase que você dizia no circuito 1 e talvez ainda diga: I need study more before I can speak. Repare que até nela falta o to, que é a peça do circuito passado. Mas o erro grave não é esse. É o before. Nunca existiu o momento em que a gramática acaba e a fala começa. Você falou desde o primeiro dia, e cada peça entrou depois, para explicar o que você já estava fazendo. São cinquenta e duas, e nenhuma delas você escolhe mais na hora de abrir a boca. É isso que é falar uma língua.",
+    "exemplos": [
+      {
+        "en": "I don't need to study more. I need to use it more.",
+        "pt": "Eu não preciso estudar mais. Preciso usar mais."
+      },
+      {
+        "en": "I've been speaking English since day one, honestly.",
+        "pt": "Eu falo inglês desde o primeiro dia, sinceramente."
+      },
+      {
+        "en": "I still make mistakes, but I don't stop anymore.",
+        "pt": "Eu ainda erro, mas não paro mais."
+      },
+      {
+        "en": "Sorry, what was that? I didn't catch the last part.",
+        "pt": "Desculpa, como? Não peguei a última parte."
+      }
+    ],
+    "evita": "I need study more before I can speak."
   }
 ]
