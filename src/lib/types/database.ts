@@ -75,6 +75,18 @@ export interface ChunkMasteryRow {
   last_grade: number | null;
   last_reviewed_at: string | null;
   spoken_count: number;
+  /** Bloco do NÚCLEO: o baralho reduzido que a trilha Essencial estuda. */
+  is_core: boolean;
+  /** Acertos seguidos desde o último lapso. Aos 3, um lapso é perdoado. */
+  correct_streak: number;
+  /**
+   * Sanguessuga: 8 lapsos tiraram o bloco da agenda.
+   *
+   * Ele continua sendo ensinado pela lição — sai da fila, não do curso. Um
+   * bloco que falhou oito vezes consome revisão que os outros 1.192 precisam,
+   * e mais uma passada dele não resolve.
+   */
+  suspended_at: string | null;
   created_at: string;
   updated_at: string;
 }
@@ -86,6 +98,78 @@ export interface ChunkReviewQueue {
   total_chunks: number;
   mastered: number;
   struggling: number;
+  suspended: number;
+}
+
+/**
+ * Uma peça de material novo e o estado dela para um aluno.
+ *
+ * O portão de escuta vivia em `useState(0)`: um F5 zerava o contador e o botão
+ * "Mostrar o texto agora" abria tudo em um clique. Agora é linha de banco, e
+ * as escutas só entram por `count_listen` — o cliente não escreve `plays`.
+ */
+export interface ListeningExposure {
+  user_id: string;
+  /** `c14d4:escuta` para peças, o próprio `chunk_key` para blocos. */
+  exposure_key: string;
+  required_plays: number;
+  plays: number;
+  first_played_at: string | null;
+  last_played_at: string | null;
+  /** Destrava uma vez, para sempre. Nunca volta a trancar. */
+  unlocked_at: string | null;
+  /** Aberta pela dispensa de áudio, não por escuta. */
+  forced: boolean;
+  created_at: string;
+}
+
+/** Um componente do portão, do jeito que `content/metodo/portoes.ts` extrai. */
+export interface GateComponentSpec {
+  tipo: "input" | "licao" | "fila" | "novos" | "acumulado" | "defasado" | "nota";
+  exigido?: number;
+  de?: number;
+  repeticoes?: number;
+  faladas?: number;
+  escopo?: "todos" | "nucleo";
+  circuito?: number;
+  minimo?: number;
+}
+
+/** O critério de um circuito, semeado a partir da prosa de `rampa.json`. */
+export interface CircuitGate {
+  track: StudyTrack;
+  circuit_number: number;
+  is_closing: boolean;
+  components: GateComponentSpec[];
+  /** A prosa original: é o que o aluno lê. */
+  prose: string;
+  updated_at: string;
+}
+
+/** Um componente já avaliado: o medido ao lado do exigido. */
+export interface GateComponentResult {
+  tipo: GateComponentSpec["tipo"];
+  exigido: number;
+  medido: number;
+  de: number | null;
+  passou: boolean;
+}
+
+/**
+ * A avaliação do portão de um circuito para um aluno.
+ *
+ * Diagnóstico, não fechadura: nada aqui nega acesso a conteúdo. Existe para o
+ * aluno ver POR QUE passou ou não, e para a quinzena seguinte saber o que
+ * repetir dentro do material novo.
+ */
+export interface CircuitGateStatus {
+  user_id: string;
+  course_id: string;
+  circuit_number: number;
+  track: StudyTrack;
+  evaluated_at: string;
+  passed: boolean;
+  components: GateComponentResult[];
 }
 
 export interface LiveSession {
@@ -296,6 +380,14 @@ export interface Profile {
   onboarded_at: string | null;
   last_seen_at: string | null;
   suspended_reason: string | null;
+  /**
+   * Dispensa de áudio: aluno surdo ou com deficiência auditiva.
+   *
+   * É o único caminho que existe para abrir uma peça sem ouvir. Vira marca de
+   * perfil, aplicada uma vez, em vez do antigo link "Mostrar o texto agora"
+   * que aparecia em toda tela e que qualquer aluno clicava.
+   */
+  audio_exempt: boolean;
   created_at: string;
   updated_at: string;
 }
@@ -438,6 +530,10 @@ export interface StudyDay {
   enrollment_id: string;
   study_date: string;
   minutes: number;
+  /** Minutos de escuta medidos pelo player. Nunca autodeclarados. */
+  input_minutes: number;
+  /** O dia terminou com a fila zerada — inclusive quando não havia fila. */
+  queue_cleared: boolean;
   lessons_done: number;
   goal_met: boolean;
   created_at: string;
@@ -667,6 +763,9 @@ export interface Database {
       audit_log: Table<AuditLogEntry>;
       track_targets: Table<TrackTarget>;
       chunk_mastery: Table<ChunkMasteryRow>;
+      listening_exposures: Table<ListeningExposure>;
+      circuit_gates: Table<CircuitGate>;
+      circuit_gate_status: Table<CircuitGateStatus>;
       live_sessions: Table<LiveSession>;
       orders: Table<Order>;
       access_grants: Table<AccessGrant>;
@@ -679,9 +778,16 @@ export interface Database {
     };
     Functions: {
       register_study_activity: {
-        Args: { p_enrollment_id: string; p_minutes?: number; p_lessons_done?: number };
+        Args: {
+          p_enrollment_id: string;
+          p_minutes?: number;
+          p_lessons_done?: number;
+          /** Escuta MEDIDA pelo player. É o que os 48 portões do Completo leem. */
+          p_input_minutes?: number;
+        };
         Returns: Enrollment;
       };
+      mark_queue_cleared: { Args: Record<string, never>; Returns: boolean };
       match_knowledge: {
         Args: {
           query_embedding: number[];
@@ -698,8 +804,36 @@ export interface Database {
         }[];
       };
       enroll_circuit_chunks: {
-        Args: { p_course_id: string; p_circuit_number: number };
+        Args: {
+          p_course_id: string;
+          p_circuit_number: number;
+          /** A Essencial matricula só o núcleo. Omitir vale por 'complete'. */
+          p_track?: StudyTrack;
+        };
         Returns: number;
+      };
+      is_mastered: {
+        Args: {
+          p_repetitions: number;
+          p_ease: number;
+          p_spoken: number;
+          p_track?: StudyTrack;
+        };
+        Returns: boolean;
+      };
+      required_plays: { Args: { p_circuit: number }; Returns: number };
+      count_listen: {
+        Args: {
+          p_exposure_key: string;
+          /** Duração do áudio: vira a janela que impede contar duas vezes. */
+          p_min_seconds?: number;
+        };
+        Returns: ListeningExposure;
+      };
+      unlock_exposure: { Args: { p_exposure_key: string }; Returns: ListeningExposure };
+      evaluate_circuit_gate: {
+        Args: { p_course_id: string; p_circuit_number: number };
+        Returns: CircuitGateStatus;
       };
       review_chunk: {
         Args: { p_chunk_key: string; p_grade: number };

@@ -6,14 +6,50 @@ import { z } from "zod";
 import { getSessionContext } from "@/lib/auth/guards";
 import { syncEnrollmentStudyStats } from "@/lib/learning";
 import { createServerSupabase } from "@/lib/supabase/server";
+import { dayToCircuit } from "@/lib/utils";
+import { TOTAL_CIRCUITS } from "@content/curriculum";
 import { TIMEZONE_VALUES } from "@/lib/timezones";
 
 const completeSchema = z.object({
   lessonId: z.string().uuid(),
   minutes: z.number().int().min(0).max(240),
+  /**
+   * Segundos de áudio que o player realmente tocou nesta lição.
+   *
+   * Vem separado de `minutes` porque os dois medem coisas diferentes:
+   * `minutes` é o relógio de parede da sessão — o aluno pode ter ficado 40
+   * minutos com a aba aberta e o fone na mesa — e `study_days.input_minutes` é
+   * escuta. É `input_minutes` que os 52 portões do Completo leem em "11 dos 14
+   * dias com o input da sessão registrado" (os 52, e não 48: o componente de
+   * input aparece nos quatro fechamentos também); gravar relógio de parede ali
+   * faria todo portão de input passar sem ninguém ter ouvido nada.
+   *
+   * Opcional porque hoje nenhum player reporta: ver `minutosDeEscuta`.
+   */
+  inputSeconds: z.number().finite().min(0).max(14400).optional(),
   score: z.number().min(0).max(100).nullable(),
   quizAnswers: z.array(z.number().int()).max(50),
 });
+
+/**
+ * Os segundos medidos pelo player viram os minutos de input do dia.
+ *
+ * Qualquer escuta acima de zero vale um minuto. Truncar para baixo gravaria 0
+ * num diálogo de 40 segundos, e o dia entraria no portão como dia SEM input:
+ * `evaluate_circuit_gate` conta dias com `input_minutes > 0`, não a soma dos
+ * minutos.
+ *
+ * Sem player reportando isto devolve 0, e é para devolver 0. Não existe hoje
+ * nenhuma outra fonte MEDIDA de escuta no código: `listening_exposures` conta
+ * escutas completas mas não guarda duração, e nem o manifesto de áudio nem o
+ * banco sabem quantos segundos tem cada mp3. Estimar por contagem de
+ * caracteres do roteiro faria o portão de input passar para quem nunca apertou
+ * o play, que é o que a coluna existe para impedir.
+ */
+function minutosDeEscuta(segundos: number | undefined): number {
+  if (!segundos || segundos <= 0) return 0;
+  return Math.max(1, Math.round(segundos / 60));
+}
 
 export interface CompleteLessonResult {
   ok: boolean;
@@ -30,6 +66,8 @@ export interface CompleteLessonResult {
 export async function completeLessonAction(input: {
   lessonId: string;
   minutes: number;
+  /** Escuta medida pelo player, em segundos. Ausente vale por zero. */
+  inputSeconds?: number;
   score: number | null;
   quizAnswers: number[];
 }): Promise<CompleteLessonResult> {
@@ -40,7 +78,7 @@ export async function completeLessonAction(input: {
   if (!session) return { ok: false, error: "Não autenticado" };
   if (session.profile.status !== "active") return { ok: false, error: "Conta não verificada" };
 
-  const { lessonId, minutes, score, quizAnswers } = parsed.data;
+  const { lessonId, minutes, inputSeconds, score, quizAnswers } = parsed.data;
   const supabase = await createServerSupabase();
 
   const { data: lesson } = await supabase
@@ -109,6 +147,7 @@ export async function completeLessonAction(input: {
     p_enrollment_id: enrollment.id,
     p_minutes: minutes,
     p_lessons_done: alreadyCompleted ? 0 : 1,
+    p_input_minutes: minutosDeEscuta(inputSeconds),
   });
 
   /**
@@ -138,10 +177,16 @@ export async function completeLessonAction(input: {
    * chamar a cada lição concluída é barato e não zera o progresso de quem
    * já revisou aquele bloco. Usa o cliente do usuário porque a função depende
    * de `auth.uid()` para saber de quem é a agenda.
+   *
+   * `p_track` vai junto porque a RPC assume 'complete' quando ele falta: sem
+   * ele o aluno da Essencial recebe os 1.193 blocos do curso inteiro em vez
+   * dos 359 do núcleo, e a agenda dele nasce com uma fila que a trilha não
+   * vende e que ele não tem os 20 minutos do dia para zerar.
    */
   const { error: enrollChunksError } = await supabase.rpc("enroll_circuit_chunks", {
     p_course_id: lesson.course_id,
     p_circuit_number: lesson.week_number,
+    p_track: enrollment.track,
   });
 
   if (enrollChunksError) {
@@ -230,12 +275,51 @@ export async function updateProfileAction(
 
   // A trilha vive em dois lugares: a preferência no perfil e a trilha efetiva
   // da matrícula, que é quem define os blocos do dia e a meta prometida.
-  const { error: trackError } = await supabase
+  const trilhaAnterior = session.profile.preferred_track;
+  const { data: matriculas, error: trackError } = await supabase
     .from("enrollments")
     .update({ track: parsed.data.track })
-    .eq("user_id", session.userId);
+    .eq("user_id", session.userId)
+    .select("id, course_id, current_day");
 
   if (trackError) console.error("[perfil] falha ao mudar a trilha:", trackError.message);
+
+  /**
+   * Subir de trilha precisa MATRICULAR o que a trilha antiga não matriculava.
+   *
+   * `enroll_circuit_chunks` recorta o baralho por trilha e grava com
+   * `on conflict do nothing`, então a existência de cada bloco na agenda é
+   * decidida uma vez, no dia em que o circuito foi concluído. Quem fez treze
+   * circuitos na Essencial tem os 58 blocos do núcleo e mais nada; ao migrar
+   * para o Completo, o portão do C13 passa a cobrar 130 dos 162 blocos
+   * acumulados — e os outros 104 não existiriam na agenda dele por caminho
+   * nenhum, porque a matrícula só roda no circuito recém-concluído. O portão
+   * ficaria impossível por aritmética, não por desempenho.
+   *
+   * Então a mudança de trilha rematricula tudo o que já foi percorrido. É
+   * idempotente e barato — 52 chamadas no pior caso, e nada acontece nos
+   * circuitos cujo recorte não mudou. Descer de trilha não tira nada de
+   * ninguém: bloco já aprendido continua na agenda.
+   */
+  if (parsed.data.track !== trilhaAnterior) {
+    for (const matricula of matriculas ?? []) {
+      const ate = Math.min(
+        TOTAL_CIRCUITS,
+        Math.max(1, dayToCircuit(matricula.current_day).circuit),
+      );
+      for (let n = 1; n <= ate; n++) {
+        const { error: enrollError } = await supabase.rpc("enroll_circuit_chunks", {
+          p_course_id: matricula.course_id,
+          p_circuit_number: n,
+          p_track: parsed.data.track,
+        });
+        if (enrollError) {
+          console.error(`[perfil] rematrícula do circuito ${n}:`, enrollError.message);
+          break;
+        }
+      }
+    }
+  }
 
   revalidatePath("/app", "layout");
   revalidatePath("/app/revisao");
