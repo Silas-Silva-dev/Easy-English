@@ -122,3 +122,6 @@ gen-lang-client-*.json
 # `engines.json` continua versionado de propósito: é o livro-razão de qual motor
 # gerou cada faixa, e é o que permite subir de voz local para voz neural depois.
 public/audio/*.mp3
+
+# Sondas descartáveis: scripts de investigação de um dia só.
+scripts/_*.ts
