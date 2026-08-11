@@ -1,0 +1,522 @@
+[
+  {
+    "n": 1,
+    "canto": 1,
+    "nivel": "A1.1",
+    "blocosNovos": 8,
+    "minutosInputDentro": 14,
+    "minutosInputFora": 0,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 5 dos 8 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). Sem nota de fala: ninguém é avaliado na primeira semana. O app roda o alinhamento e responde 'apareceu uma vogal depois do T' ou 'não apareceu' — binário, sem número e sem histórico.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada (dia sem fila vencida conta como zerado). 2 dos 3 blocos do núcleo deste circuito com repetitions >= 2. Sem defasado: não há circuito anterior. Nada aqui mede escuta nem gravação — o Completo cobra a consoante final seca de 'work' e 'student' numa gravação alinhada, e esta trilha não grava. Você está no caminho mais curto por escolha: ele entrega A2, e começa hoje sem cobrar nada de fala."
+  },
+  {
+    "n": 2,
+    "canto": 1,
+    "nivel": "A1.1",
+    "blocosNovos": 9,
+    "minutosInputDentro": 15,
+    "minutosInputFora": 0,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 6 dos 9 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). Usou uma frase de socorro numa conversa de 90 segundos com a Emma e a conversa continuou depois dela.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 2 dos 3 blocos do núcleo deste circuito com repetitions >= 2. Sem defasado: o circuito 1 ainda não tem 28 dias de folga. O Completo cobra uma frase de socorro usada ao vivo com a Emma; aqui a frase é treinada, não medida, porque esta trilha não tem conversa ao vivo. Caminho mais curto por escolha: 20 minutos por dia levam a A2, e a A2 basta para se virar sozinho."
+  },
+  {
+    "n": 3,
+    "canto": 1,
+    "nivel": "A1.1",
+    "blocosNovos": 10,
+    "minutosInputDentro": 16,
+    "minutosInputFora": 2,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 7 dos 10 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 4 dos 8 blocos do circuito 1 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Diz origem, ocupação e situação atual em sequência, sem vogal fantasma audível no fim de 'work', 'live' e 'student'.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 3 dos 4 blocos do núcleo deste circuito com repetitions >= 2. 2 dos 3 blocos do núcleo do circuito 1 com repetitions >= 4 (28 dias de folga, acima dos 23 que o motor exige). O Completo cobra origem, ocupação e situação ditas em sequência sem vogal fantasma; aqui se cobra que os blocos voltaram, não que a boca acertou. Este é o caminho mais curto, e você o escolheu."
+  },
+  {
+    "n": 4,
+    "canto": 1,
+    "nivel": "A1.1",
+    "blocosNovos": 11,
+    "minutosInputDentro": 17,
+    "minutosInputFora": 4,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 7 dos 11 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 4 dos 9 blocos do circuito 2 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Devolve a pergunta em 8 de 10 turnos da Emma, em vez de encerrar com a resposta.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 3 dos 4 blocos do núcleo deste circuito com repetitions >= 2. 2 dos 3 blocos do núcleo do circuito 2 com repetitions >= 4 (28 dias de folga). O Completo conta 8 de 10 turnos devolvidos numa conversa com a Emma; aqui ninguém conta turno, porque não há turno para contar. Trilha curta por escolha: ela mede o que tem — presença, revisão feita e repetição."
+  },
+  {
+    "n": 5,
+    "canto": 1,
+    "nivel": "A1.1",
+    "blocosNovos": 12,
+    "minutosInputDentro": 18,
+    "minutosInputFora": 6,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 8 dos 12 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 5 dos 10 blocos do circuito 3 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Faz o pedido inteiro no balcão sem vogal epentética audível em 'black', 'milk' e 'want' — a armadilha declarada deste circuito. O par thirteen/thirty NÃO é cobrado aqui: é o circuito 6 que ensina.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 3 dos 4 blocos do núcleo deste circuito com repetitions >= 2. 2 dos 4 blocos do núcleo do circuito 3 com repetitions >= 4 (28 dias de folga). O Completo cobra o pedido inteiro no balcão sem vogal epentética em 'black', 'milk' e 'want'; sem gravação não há como verificar isso, então não se cobra. O caminho mais curto é uma escolha sua, e ele para em A2."
+  },
+  {
+    "n": 6,
+    "canto": 1,
+    "nivel": "A1.1",
+    "blocosNovos": 13,
+    "minutosInputDentro": 19,
+    "minutosInputFora": 8,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 9 dos 13 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 6 dos 11 blocos do circuito 4 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. 8 de 10 acertos distinguindo thirteen/thirty e fourteen/forty só de ouvido, sem ver escrito — que é a armadilha deste circuito, e não do 5.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 4 dos 5 blocos do núcleo deste circuito com repetitions >= 2. 2 dos 4 blocos do núcleo do circuito 4 com repetitions >= 4 (28 dias de folga). O Completo cobra 8 de 10 acertos separando thirteen de thirty só de ouvido; a Essencial ouve o par, mas não é testada nele. Você escolheu o caminho mais curto: 20 minutos por dia, A2 no fim."
+  },
+  {
+    "n": 7,
+    "canto": 1,
+    "nivel": "A1.1",
+    "blocosNovos": 14,
+    "minutosInputDentro": 20,
+    "minutosInputFora": 10,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 9 dos 14 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 6 dos 12 blocos do circuito 5 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Responde com short answer ('Yes, I do', 'No, I'm not') sem repetir a frase inteira, em 8 de 10 perguntas.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 4 dos 5 blocos do núcleo deste circuito com repetitions >= 2. 2 dos 4 blocos do núcleo do circuito 5 com repetitions >= 4 (28 dias de folga). O Completo cobra short answer em 8 de 10 perguntas ao vivo; aqui a short answer é um bloco na fila como qualquer outro. Este é o caminho mais curto por escolha, não por falta de capacidade sua."
+  },
+  {
+    "n": 8,
+    "canto": 1,
+    "nivel": "A1.2",
+    "blocosNovos": 15,
+    "minutosInputDentro": 21,
+    "minutosInputFora": 12,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 10 dos 15 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 7 dos 13 blocos do circuito 6 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Encadeia a rotina por mais de dez segundos sem parar, e o /ʌ/ de 'but', 'up' e 'come' não sai como /a/. O TH sonoro de brother/this/that NÃO é cobrado aqui: é degrau 13.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 4 dos 5 blocos do núcleo deste circuito com repetitions >= 2. 3 dos 5 blocos do núcleo do circuito 6 com repetitions >= 4 (28 dias de folga). O Completo cobra dez segundos de rotina encadeada com o /ʌ/ de 'but' e 'come' limpo; encadeamento só se mede gravando, e esta trilha não grava. Caminho curto por escolha: menos minutos, meta menor, promessa honesta."
+  },
+  {
+    "n": 9,
+    "canto": 1,
+    "nivel": "A1.2",
+    "blocosNovos": 16,
+    "minutosInputDentro": 22,
+    "minutosInputFora": 14,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 11 dos 16 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 7 dos 14 blocos do circuito 7 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Diz o que gosta e emenda o motivo no mesmo turno, sem esperar a próxima pergunta.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 4 dos 6 blocos do núcleo deste circuito com repetitions >= 2. 3 dos 5 blocos do núcleo do circuito 7 com repetitions >= 4 (28 dias de folga). O Completo cobra dizer o gosto e emendar o motivo no mesmo turno; aqui o motivo está nos blocos, e o que se mede é se eles voltaram. Você está no caminho mais curto, e ele foi escolhido, não imposto."
+  },
+  {
+    "n": 10,
+    "canto": 1,
+    "nivel": "A1.2",
+    "blocosNovos": 17,
+    "minutosInputDentro": 23,
+    "minutosInputFora": 16,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 11 dos 17 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 8 dos 15 blocos do circuito 8 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Apresenta três pessoas da própria vida dizendo a relação, com o S inicial de 'sister', 'student' e 'school' sem 'i' na frente.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 4 dos 6 blocos do núcleo deste circuito com repetitions >= 2. 3 dos 5 blocos do núcleo do circuito 8 com repetitions >= 4 (28 dias de folga). O Completo cobra o S inicial de 'sister' e 'school' sem 'i' na frente, numa gravação; sem gravação, não se cobra. Trilha mais curta por escolha: ela entrega A2 e diz isso desde o primeiro dia."
+  },
+  {
+    "n": 11,
+    "canto": 1,
+    "nivel": "A1.2",
+    "blocosNovos": 18,
+    "minutosInputDentro": 24,
+    "minutosInputFora": 18,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 12 dos 18 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 8 dos 16 blocos do circuito 9 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Descreve o próprio lugar dizendo o que existe e o que não existe, com o -s do plural audível em 8 de 10 ocorrências — degrau 11, que é o deste circuito.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 4 dos 6 blocos do núcleo deste circuito com repetitions >= 2. 3 dos 6 blocos do núcleo do circuito 9 com repetitions >= 4 (28 dias de folga). O Completo cobra o -s do plural audível em 8 de 10 ocorrências; audível para quem? para o alinhador, que só existe onde há gravação. Caminho mais curto por escolha, com a meta ajustada a ele."
+  },
+  {
+    "n": 12,
+    "canto": 1,
+    "nivel": "A1.2",
+    "blocosNovos": 19,
+    "minutosInputDentro": 25,
+    "minutosInputFora": 20,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 13 dos 19 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 9 dos 17 blocos do circuito 10 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Ouve uma instrução de caminho dita em velocidade normal, executa no mapa e confirma o que entendeu.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 5 dos 7 blocos do núcleo deste circuito com repetitions >= 2. 3 dos 6 blocos do núcleo do circuito 10 com repetitions >= 4 (28 dias de folga). O Completo cobra ouvir uma instrução de caminho em velocidade normal e executá-la; escuta medida não entra em portão desta trilha. Você escolheu o caminho mais curto, e ele fecha o Primeiro Canto na semana que vem."
+  },
+  {
+    "n": 13,
+    "canto": 1,
+    "nivel": "A1.2",
+    "blocosNovos": 0,
+    "minutosInputDentro": 20,
+    "minutosInputFora": 12,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 130 dos 162 blocos acumulados até aqui com repetitions >= 4 e spoken_count >= 2 (80%). Atravessa um dia inteiro em inglês numa conversa de 10 minutos com a Emma, encadeando as funções do Primeiro Canto sem roteiro e sem trocar para o português. Zero bloco novo e input em queda nas duas dimensões: fechamento consolida.",
+    "portaoEssencial": "FECHAMENTO. 11 dos 14 dias com a lição concluída. 12 dos 14 dias com a fila zerada — o circuito não traz bloco novo, então a fila é o trabalho. 46 dos 58 blocos do núcleo acumulado até aqui com repetitions >= 4 (80%). Zero bloco novo. O Completo cobra 10 minutos ao vivo com a Emma atravessando um dia inteiro em inglês; aqui o fechamento é a fila em dia e o acervo consolidado. Você está no caminho mais curto por escolha: 58 blocos dominados de verdade valem mais que 162 pela metade."
+  },
+  {
+    "n": 14,
+    "canto": 2,
+    "nivel": "A2.1",
+    "blocosNovos": 19,
+    "minutosInputDentro": 22,
+    "minutosInputFora": 14,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 13 dos 19 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 10 dos 19 blocos do circuito 12 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Conta o fim de semana com as três terminações de -ed no som certo em 7 de 10 verbos.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 5 dos 7 blocos do núcleo deste circuito com repetitions >= 2. 4 dos 7 blocos do núcleo do circuito 12 com repetitions >= 4 (28 dias de folga). O Completo cobra as três terminações de -ed no som certo em 7 de 10 verbos; som certo se verifica gravando. Segundo Canto pelo caminho mais curto, por escolha sua: A2 continua sendo a meta."
+  },
+  {
+    "n": 15,
+    "canto": 2,
+    "nivel": "A2.1",
+    "blocosNovos": 21,
+    "minutosInputDentro": 23,
+    "minutosInputFora": 17,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 14 dos 21 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 10 dos 19 blocos do circuito 12 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 42 dias de folga (o circuito 13 não traz bloco, então a defasagem cai no 12). Conta uma história de 90 segundos com cenário, virada e desfecho, sem perder o fio do passado.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 5 dos 7 blocos do núcleo deste circuito com repetitions >= 2. 4 dos 7 blocos do núcleo do circuito 12 com repetitions >= 4 — 42 dias de folga, porque o circuito 13 é fechamento e não traz bloco. O Completo cobra 90 segundos de história sem perder o fio do passado; narrativa longa não se mede sem gravação. Caminho curto por escolha, com folga maior de propósito."
+  },
+  {
+    "n": 16,
+    "canto": 2,
+    "nivel": "A2.1",
+    "blocosNovos": 23,
+    "minutosInputDentro": 24,
+    "minutosInputFora": 20,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 16 dos 23 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 10 dos 19 blocos do circuito 14 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Contrasta como era antes e como é hoje no mesmo turno, sem trocar de tempo no meio da frase.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 6 dos 8 blocos do núcleo deste circuito com repetitions >= 2. 4 dos 7 blocos do núcleo do circuito 14 com repetitions >= 4 (28 dias de folga). O Completo cobra contrastar antes e hoje sem trocar de tempo no meio da frase; aqui os dois tempos moram em blocos separados e são medidos separados. Este é o caminho mais curto, escolhido por você."
+  },
+  {
+    "n": 17,
+    "canto": 2,
+    "nivel": "A2.1",
+    "blocosNovos": 25,
+    "minutosInputDentro": 25,
+    "minutosInputFora": 23,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 17 dos 25 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 11 dos 21 blocos do circuito 15 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Reage 5 vezes em 3 minutos enquanto o outro conta — pergunta-eco ou resposta curta — sem tomar o turno.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 6 dos 8 blocos do núcleo deste circuito com repetitions >= 2. 4 dos 7 blocos do núcleo do circuito 15 com repetitions >= 4 (28 dias de folga). O Completo conta 5 reações em 3 minutos sem tomar o turno; reagir na hora exige interlocutor, e esta trilha não tem. Caminho mais curto por escolha: menos superfície, mesma exigência de constância."
+  },
+  {
+    "n": 18,
+    "canto": 2,
+    "nivel": "A2.1",
+    "blocosNovos": 26,
+    "minutosInputDentro": 26,
+    "minutosInputFora": 26,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 18 dos 26 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 12 dos 23 blocos do circuito 16 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Contorna 3 palavras que não sabe, definindo ou comparando, sem recorrer ao português nem parar a conversa.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 6 dos 9 blocos do núcleo deste circuito com repetitions >= 2. 4 dos 8 blocos do núcleo do circuito 16 com repetitions >= 4 (28 dias de folga). O Completo cobra contornar 3 palavras desconhecidas sem recorrer ao português; contornar só aparece em conversa. Você escolheu o caminho mais curto, e ele não finge medir o que não acontece aqui."
+  },
+  {
+    "n": 19,
+    "canto": 2,
+    "nivel": "A2.1",
+    "blocosNovos": 28,
+    "minutosInputDentro": 26,
+    "minutosInputFora": 29,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 19 dos 28 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 13 dos 25 blocos do circuito 17 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Fala de três planos do fim de semana e reconhece 'gonna' e 'wanna' no áudio em 8 de 10 ocorrências.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 6 dos 9 blocos do núcleo deste circuito com repetitions >= 2. 4 dos 8 blocos do núcleo do circuito 17 com repetitions >= 4 (28 dias de folga). O Completo cobra reconhecer 'gonna' e 'wanna' em 8 de 10 ocorrências de áudio; escuta medida não entra em portão desta trilha. Caminho mais curto por escolha: 20 minutos por dia, todo dia, valem mais que 60 às vezes."
+  },
+  {
+    "n": 20,
+    "canto": 2,
+    "nivel": "A2.1",
+    "blocosNovos": 29,
+    "minutosInputDentro": 27,
+    "minutosInputFora": 32,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 20 dos 29 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 14 dos 26 blocos do circuito 18 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Marca, remarca e confirma um horário numa conversa de 3 minutos, repetindo o horário de volta para conferir.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 5 dos 9 blocos do núcleo do circuito 18 com repetitions >= 4 (28 dias de folga). O Completo cobra marcar, remarcar e confirmar um horário repetindo-o de volta; confirmar de volta é turno de conversa. Este é o caminho mais curto por escolha, e daqui em diante o núcleo estabiliza em 10 blocos."
+  },
+  {
+    "n": 21,
+    "canto": 2,
+    "nivel": "A2.2",
+    "blocosNovos": 30,
+    "minutosInputDentro": 27,
+    "minutosInputFora": 34,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 21 dos 30 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 15 dos 28 blocos do circuito 19 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Recusa um convite em três tempos — amortece, nega, deixa a porta aberta — sem sumir e sem dizer só 'no'.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 5 dos 9 blocos do núcleo do circuito 19 com repetitions >= 4 (28 dias de folga). O Completo cobra a recusa em três tempos — amortece, nega, deixa a porta aberta — dita ao vivo. Você está no caminho mais curto por escolha: os três tempos estão nos blocos, só não são encenados."
+  },
+  {
+    "n": 22,
+    "canto": 2,
+    "nivel": "A2.2",
+    "blocosNovos": 31,
+    "minutosInputDentro": 28,
+    "minutosInputFora": 37,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 21 dos 31 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 15 dos 29 blocos do circuito 20 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Pede a comida, comenta o que chegou e resolve a conta numa cena de 4 minutos, com o flap T de 'water' e 'better' saindo como toque.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 20 com repetitions >= 4 (28 dias de folga). O Completo cobra o flap T de 'water' e 'better' saindo como toque numa cena de 4 minutos; flap só se ouve gravando. Caminho mais curto por escolha, com a promessa encolhida junto para não mentir."
+  },
+  {
+    "n": 23,
+    "canto": 2,
+    "nivel": "A2.2",
+    "blocosNovos": 32,
+    "minutosInputDentro": 28,
+    "minutosInputFora": 40,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 22 dos 32 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 16 dos 30 blocos do circuito 21 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Fala de três experiências de vida sem data e sem escorregar para o passado simples quando a data não importa.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 21 com repetitions >= 4 (28 dias de folga). O Completo cobra três experiências de vida sem escorregar para o passado simples; escorregão só aparece falando solto. Este é o caminho mais curto, e você o escolheu sabendo onde ele para."
+  },
+  {
+    "n": 24,
+    "canto": 2,
+    "nivel": "A2.2",
+    "blocosNovos": 33,
+    "minutosInputDentro": 28,
+    "minutosInputFora": 42,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 23 dos 33 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 17 dos 31 blocos do circuito 22 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Compara duas opções e justifica a escolha, sustentando a comparação por 60 segundos.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 22 com repetitions >= 4 (28 dias de folga). O Completo cobra sustentar uma comparação por 60 segundos; segundo de fala não existe nesta trilha. Caminho mais curto por escolha: o que se mede aqui é disciplina e memória, e as duas você tem."
+  },
+  {
+    "n": 25,
+    "canto": 2,
+    "nivel": "A2.2",
+    "blocosNovos": 34,
+    "minutosInputDentro": 28,
+    "minutosInputFora": 44,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 23 dos 34 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 17 dos 32 blocos do circuito 23 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Abre, sustenta e encerra 30 segundos de conversa fiada sem silêncio maior que 3 segundos.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 23 com repetitions >= 4 (28 dias de folga). O Completo cobra 30 segundos de conversa fiada sem silêncio maior que 3 segundos; silêncio só se cronometra ao vivo. Você escolheu o caminho mais curto, e ele chega ao fechamento do Segundo Canto inteiro."
+  },
+  {
+    "n": 26,
+    "canto": 2,
+    "nivel": "A2.2",
+    "blocosNovos": 0,
+    "minutosInputDentro": 22,
+    "minutosInputFora": 26,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 419 dos 493 blocos acumulados até aqui com repetitions >= 4 e spoken_count >= 2 (85%). Sustenta 3 minutos ao vivo sem roteiro: narra, reage e devolve a pergunta. Zero bloco novo, input dentro de 28 para 22 e fora de 44 para 26: é o único respiro do canto.",
+    "portaoEssencial": "FECHAMENTO. 11 dos 14 dias com a lição concluída. 12 dos 14 dias com a fila zerada — sem bloco novo, a fila é o trabalho. 141 dos 166 blocos do núcleo acumulado até aqui com repetitions >= 4 (85%, acima dos 80% do C13). O Completo cobra 3 minutos ao vivo narrando, reagindo e devolvendo a pergunta; aqui o fechamento é o acervo em ordem. Caminho mais curto por escolha: metade do curso feita, e a A2 prometida já está em pé."
+  },
+  {
+    "n": 27,
+    "canto": 3,
+    "nivel": "B1.1",
+    "blocosNovos": 34,
+    "minutosInputDentro": 28,
+    "minutosInputFora": 30,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 23 dos 34 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 18 dos 34 blocos do circuito 25 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Explica a própria função para um leigo em 2 minutos, nota de fala >= 6,0 — o primeiro número de fala do curso, e ele é exatamente o piso em que gradeFromScore para de registrar lapso.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 25 com repetitions >= 4 (28 dias de folga). Aqui o Completo estreia a nota de fala, >= 6,0; esta trilha não tem nota de fala em circuito nenhum, porque não tem gravação para gerar nota. Terceiro Canto pelo caminho mais curto, por escolha: o material continua, a medição de fala não."
+  },
+  {
+    "n": 28,
+    "canto": 3,
+    "nivel": "B1.1",
+    "blocosNovos": 36,
+    "minutosInputDentro": 28,
+    "minutosInputFora": 34,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 25 dos 36 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 18 dos 34 blocos do circuito 25 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 42 dias de folga (o circuito 26 não traz bloco). Discorda, ressalva e propõe outra coisa sem usar 'no' seco, nota de fala >= 6,0.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 25 com repetitions >= 4 — 42 dias de folga, porque o circuito 26 é fechamento. O Completo cobra discordar sem 'no' seco com nota de fala >= 6,0. Este é o caminho mais curto por escolha, e a folga maior é presente dele, não descuido."
+  },
+  {
+    "n": 29,
+    "canto": 3,
+    "nivel": "B1.1",
+    "blocosNovos": 38,
+    "minutosInputDentro": 28,
+    "minutosInputFora": 37,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 26 dos 38 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 18 dos 34 blocos do circuito 27 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Entra na conversa 3 vezes em 5 minutos sem atropelar e devolve a palavra, nota de fala >= 6,0.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 27 com repetitions >= 4 (28 dias de folga). O Completo cobra entrar na conversa 3 vezes em 5 minutos e devolver a palavra; entrar em conversa exige conversa. Caminho mais curto por escolha, e ele nunca finge que você está numa roda."
+  },
+  {
+    "n": 30,
+    "canto": 3,
+    "nivel": "B1.1",
+    "blocosNovos": 40,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 40,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 28 dos 40 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 19 dos 36 blocos do circuito 28 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Sustenta uma ligação de 4 minutos sem rosto, anota um número e um nome e confirma os dois soletrando.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 28 com repetitions >= 4 (28 dias de folga). O Completo cobra 4 minutos de ligação sem rosto, anotando e soletrando de volta; ligação não existe nesta trilha. Você está no caminho mais curto por escolha, e os blocos da ligação você leva do mesmo jeito."
+  },
+  {
+    "n": 31,
+    "canto": 3,
+    "nivel": "B1.1",
+    "blocosNovos": 41,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 43,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 28 dos 41 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 20 dos 38 blocos do circuito 29 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Descreve um defeito com histórico e pede providência, nota de fala >= 6,0.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 29 com repetitions >= 4 (28 dias de folga). O Completo cobra descrever um defeito com histórico e pedir providência, nota de fala >= 6,0. Caminho mais curto por escolha: aqui se mede se o vocabulário do problema ficou, não como ele sai."
+  },
+  {
+    "n": 32,
+    "canto": 3,
+    "nivel": "B1.1",
+    "blocosNovos": 42,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 45,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 29 dos 42 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 22 dos 40 blocos do circuito 30 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Contesta uma cobrança e escalona uma vez sem perder o registro, nota de fala >= 6,0.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 30 com repetitions >= 4 (28 dias de folga). O Completo cobra contestar uma cobrança e escalonar uma vez sem perder o registro, nota >= 6,0. Este é o caminho mais curto, escolhido por você, e ele não te reprova por uma nota que não existe."
+  },
+  {
+    "n": 33,
+    "canto": 3,
+    "nivel": "B1.1",
+    "blocosNovos": 43,
+    "minutosInputDentro": 28,
+    "minutosInputFora": 47,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 30 dos 43 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 22 dos 41 blocos do circuito 31 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Pede uma exceção, justifica e agradece na medida, sem soar exigente nem pedinte.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 31 com repetitions >= 4 (28 dias de folga). O Completo cobra pedir uma exceção sem soar exigente nem pedinte, o que só se julga ouvindo. Caminho mais curto por escolha: 20 minutos por dia, e nenhum critério que o app não consiga verificar."
+  },
+  {
+    "n": 34,
+    "canto": 3,
+    "nivel": "B1.2",
+    "blocosNovos": 44,
+    "minutosInputDentro": 28,
+    "minutosInputFora": 49,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 30 dos 44 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 23 dos 42 blocos do circuito 32 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Resolve uma conexão perdida em 3 minutos sob pressão de tempo, pedindo alternativa e confirmando detalhe. Pico de material novo do curso: 44 blocos, 3,14 por dia.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 32 com repetitions >= 4 (28 dias de folga). Este é o pico de material novo do curso — 44 blocos no Completo, 10 no seu núcleo. O Completo cobra 3 minutos sob pressão de tempo. Você escolheu o caminho mais curto, e é exatamente aqui que essa escolha te protege."
+  },
+  {
+    "n": 35,
+    "canto": 3,
+    "nivel": "B1.2",
+    "blocosNovos": 44,
+    "minutosInputDentro": 27,
+    "minutosInputFora": 51,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 30 dos 44 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 23 dos 43 blocos do circuito 33 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Descreve três sintomas, entende a orientação e confirma a dose repetindo de volta, nota de fala >= 6,0.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 33 com repetitions >= 4 (28 dias de folga). O Completo cobra descrever sintomas e confirmar a dose repetindo de volta, nota >= 6,0. Caminho mais curto por escolha: os blocos de saúde entram inteiros, a encenação clínica não."
+  },
+  {
+    "n": 36,
+    "canto": 3,
+    "nivel": "B1.2",
+    "blocosNovos": 43,
+    "minutosInputDentro": 27,
+    "minutosInputFora": 53,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 30 dos 43 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 24 dos 44 blocos do circuito 34 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Propõe, contrapropõe e fecha um acordo condicionado em 5 minutos, sem ceder tudo no primeiro pedido.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 34 com repetitions >= 4 (28 dias de folga). O Completo cobra propor, contrapropor e fechar acordo em 5 minutos; negociação é turno a turno, e turno não há. Este é o caminho mais curto e ele foi escolhido: o limite é de desenho, não seu."
+  },
+  {
+    "n": 37,
+    "canto": 3,
+    "nivel": "B1.2",
+    "blocosNovos": 42,
+    "minutosInputDentro": 27,
+    "minutosInputFora": 55,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 29 dos 42 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 24 dos 44 blocos do circuito 35 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Dá conselho sobre uma situação hipotética e comenta um arrependimento, nota de fala >= 6,0.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 35 com repetitions >= 4 (28 dias de folga). O Completo cobra conselho sobre hipótese e arrependimento, nota >= 6,0. Caminho mais curto por escolha: as estruturas de hipótese ficam na sua fila do mesmo jeito, só não viram nota."
+  },
+  {
+    "n": 38,
+    "canto": 3,
+    "nivel": "B1.2",
+    "blocosNovos": 40,
+    "minutosInputDentro": 27,
+    "minutosInputFora": 56,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 28 dos 40 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 23 dos 43 blocos do circuito 36 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Sustenta 10 minutos de entrevista: se apresenta, narra um caso e negocia expectativa. Responde em menos de 2 segundos na maioria dos turnos.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 7 dos 10 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 36 com repetitions >= 4 (28 dias de folga). O Completo cobra 10 minutos de entrevista com resposta em menos de 2 segundos; latência só se mede ao vivo. Você está no caminho mais curto por escolha, e ele nunca prometeu te levar a uma entrevista em inglês."
+  },
+  {
+    "n": 39,
+    "canto": 3,
+    "nivel": "B1.2",
+    "blocosNovos": 0,
+    "minutosInputDentro": 22,
+    "minutosInputFora": 34,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 853 dos 980 blocos acumulados até aqui com repetitions >= 4 e spoken_count >= 2 (87%). Resolve conflito e problema sem roteiro numa cena de 15 minutos que dá errado de propósito. Zero bloco novo, input total do dia de 83 para 56 minutos: é o respiro que precede a parede dos phrasal verbs.",
+    "portaoEssencial": "FECHAMENTO. 11 dos 14 dias com a lição concluída. 12 dos 14 dias com a fila zerada — sem bloco novo, a fila é o trabalho. 249 dos 286 blocos do núcleo acumulado até aqui com repetitions >= 4 (87%). O Completo cobra 15 minutos de cena que dá errado de propósito. Caminho mais curto por escolha: três quartos do curso, 286 blocos carregados de verdade, e nenhuma promessa de B1 que esta trilha nunca fez."
+  },
+  {
+    "n": 40,
+    "canto": 4,
+    "nivel": "B2.1",
+    "blocosNovos": 24,
+    "minutosInputDentro": 28,
+    "minutosInputFora": 38,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 16 dos 24 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 22 dos 40 blocos do circuito 38 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Usa 12 dos phrasal verbs do circuito em conversa, com a força na partícula e não no verbo, nota de fala >= 6,5. Entrada de canto mais leve do curso: 24 blocos, só os inseparáveis e intransitivos de alta frequência.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 6 dos 8 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 38 com repetitions >= 4 (28 dias de folga). O Completo cobra 12 phrasal verbs em conversa com a força na partícula, nota >= 6,5. Quarto Canto pelo caminho mais curto, por escolha: aqui o núcleo desce junto com a rampa, e isso é de propósito."
+  },
+  {
+    "n": 41,
+    "canto": 4,
+    "nivel": "B2.1",
+    "blocosNovos": 21,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 42,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 14 dos 21 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 22 dos 40 blocos do circuito 38 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 42 dias de folga (o circuito 39 não traz bloco). Transcreve 20 trechos de fala comprimida ouvidos uma única vez, com 80% de acerto. Circuito de ouvido: a produção não é medida aqui.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 5 dos 7 blocos do núcleo deste circuito com repetitions >= 2. 6 dos 10 blocos do núcleo do circuito 38 com repetitions >= 4 — 42 dias de folga, porque o circuito 39 é fechamento. O Completo cobra transcrever 20 trechos de fala comprimida ouvidos uma única vez. Este é o caminho mais curto por escolha, e ele não cobra transcrição porque não mede escuta."
+  },
+  {
+    "n": 42,
+    "canto": 4,
+    "nivel": "B2.1",
+    "blocosNovos": 25,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 45,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 17 dos 25 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 13 dos 24 blocos do circuito 40 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Usa 15 combinações fixas sem traduzir do português, nota de fala >= 6,5.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 6 dos 8 blocos do núcleo deste circuito com repetitions >= 2. 4 dos 8 blocos do núcleo do circuito 40 com repetitions >= 4 (28 dias de folga). O Completo cobra 15 combinações fixas usadas sem traduzir do português, nota >= 6,5. Caminho mais curto por escolha: colocação é material de memória, e memória é justamente o que esta trilha mede."
+  },
+  {
+    "n": 43,
+    "canto": 4,
+    "nivel": "B2.1",
+    "blocosNovos": 22,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 47,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 15 dos 22 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 11 dos 21 blocos do circuito 41 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Diz a mesma mensagem em três registros — chefe, colega, amigo — e a diferença aparece na escolha e na melodia, não só no vocabulário.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 6 dos 8 blocos do núcleo deste circuito com repetitions >= 2. 4 dos 7 blocos do núcleo do circuito 41 com repetitions >= 4 (28 dias de folga). O Completo cobra a mesma mensagem em três registros, com a diferença aparecendo na melodia. Melodia não se mede sem gravação; você está no caminho mais curto por escolha, e ele leva os três registros escritos."
+  },
+  {
+    "n": 44,
+    "canto": 4,
+    "nivel": "B2.1",
+    "blocosNovos": 20,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 49,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 14 dos 20 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 13 dos 25 blocos do circuito 42 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Identifica ironia por entonação em 8 de 10 trechos e devolve o humor uma vez, nota de fala >= 6,5.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 5 dos 7 blocos do núcleo deste circuito com repetitions >= 2. 4 dos 8 blocos do núcleo do circuito 42 com repetitions >= 4 (28 dias de folga). O Completo cobra identificar ironia por entonação em 8 de 10 trechos, nota >= 6,5. Este é o caminho mais curto e ele foi escolhido: entonação é escuta medida, e escuta medida não entra aqui."
+  },
+  {
+    "n": 45,
+    "canto": 4,
+    "nivel": "B2.1",
+    "blocosNovos": 15,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 51,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 10 dos 15 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 12 dos 22 blocos do circuito 43 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Entende 4 sotaques numa call de 10 minutos com 80% de compreensão e pede esclarecimento sem constranger ninguém.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 4 dos 5 blocos do núcleo deste circuito com repetitions >= 2. 4 dos 8 blocos do núcleo do circuito 43 com repetitions >= 4 (28 dias de folga). O Completo cobra 4 sotaques numa call de 10 minutos com 80% de compreensão. Caminho mais curto por escolha: sotaque é um problema de ouvido, e ouvido é a coisa que 20 minutos por dia não compram."
+  },
+  {
+    "n": 46,
+    "canto": 4,
+    "nivel": "B2.1",
+    "blocosNovos": 18,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 53,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 12 dos 18 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 11 dos 20 blocos do circuito 44 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Conduz 5 minutos de fala estruturada com abertura, corpo e fechamento, e responde 3 perguntas, nota de fala >= 6,5.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 4 dos 6 blocos do núcleo deste circuito com repetitions >= 2. 4 dos 7 blocos do núcleo do circuito 44 com repetitions >= 4 (28 dias de folga). O Completo cobra 5 minutos de fala estruturada mais 3 perguntas, nota >= 6,5. Você escolheu o caminho mais curto: ele te dá as peças da fala longa e não te cobra a fala longa."
+  },
+  {
+    "n": 47,
+    "canto": 4,
+    "nivel": "B2.2",
+    "blocosNovos": 18,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 55,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 12 dos 18 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 8 dos 15 blocos do circuito 45 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Dá feedback negativo, propõe correção e combina o próximo passo, nota de fala >= 7,0.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 4 dos 6 blocos do núcleo deste circuito com repetitions >= 2. 3 dos 5 blocos do núcleo do circuito 45 com repetitions >= 4 (28 dias de folga). Aqui o Completo sobe a nota de fala para 7,0; esta trilha continua sem nota nenhuma, do circuito 1 ao 52. Caminho mais curto por escolha: uma régua só, aplicada igual do começo ao fim."
+  },
+  {
+    "n": 48,
+    "canto": 4,
+    "nivel": "B2.2",
+    "blocosNovos": 16,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 56,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 11 dos 16 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 9 dos 18 blocos do circuito 46 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Relata fala de terceiros e marca o que é incerto, sem citar tudo no discurso direto, nota de fala >= 7,0.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 4 dos 6 blocos do núcleo deste circuito com repetitions >= 2. 3 dos 6 blocos do núcleo do circuito 46 com repetitions >= 4 (28 dias de folga). O Completo cobra relatar fala de terceiros marcando o que é incerto, nota >= 7,0. Este é o caminho mais curto por escolha, e ele mede exatamente três coisas: presença, fila zerada e repetição."
+  },
+  {
+    "n": 49,
+    "canto": 4,
+    "nivel": "B2.2",
+    "blocosNovos": 14,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 57,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 9 dos 14 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 9 dos 18 blocos do circuito 47 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Sustenta uma posição por 10 minutos com evidência, concede o ponto do outro e retoma a linha, nota de fala >= 7,0.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 4 dos 5 blocos do núcleo deste circuito com repetitions >= 2. 3 dos 6 blocos do núcleo do circuito 47 com repetitions >= 4 (28 dias de folga). O Completo cobra sustentar uma posição por 10 minutos com evidência, nota >= 7,0. Caminho mais curto por escolha: argumentar dez minutos é B2, e B2 nunca foi o que esta trilha vendeu."
+  },
+  {
+    "n": 50,
+    "canto": 4,
+    "nivel": "B2.2",
+    "blocosNovos": 12,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 58,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 8 dos 12 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 8 dos 16 blocos do circuito 48 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Gerencia 20 minutos de conversa longa: troca de assunto, cede, retoma e encerra, nota de fala >= 7,0.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 3 dos 4 blocos do núcleo deste circuito com repetitions >= 2. 3 dos 6 blocos do núcleo do circuito 48 com repetitions >= 4 (28 dias de folga). O Completo cobra gerenciar 20 minutos de conversa longa, nota >= 7,0. Você está no caminho mais curto por escolha, e faltam duas quinzenas para o único portão que só fecha."
+  },
+  {
+    "n": 51,
+    "canto": 4,
+    "nivel": "B2.2",
+    "blocosNovos": 8,
+    "minutosInputDentro": 29,
+    "minutosInputFora": 60,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 5 dos 8 blocos novos com repetitions >= 2 e spoken_count >= 2 (o que o motor entrega em 14 dias). 7 dos 14 blocos do circuito 49 com repetitions >= 4 e spoken_count >= 2 — domínio só é cobrado com 28 dias de folga. Latência média abaixo de 1,5 segundo em 20 turnos imprevisíveis: parou de traduzir. Nota de fala >= 7,0.",
+    "portaoEssencial": "11 dos 14 dias com a lição concluída. 10 dos 14 dias com a fila zerada. 2 dos 3 blocos do núcleo deste circuito com repetitions >= 2. 3 dos 5 blocos do núcleo do circuito 49 com repetitions >= 4 (28 dias de folga). O Completo cobra latência média abaixo de 1,5 segundo em 20 turnos imprevisíveis. Este é o caminho mais curto por escolha: parar de traduzir é um efeito de volume, e volume é o que você trocou por tempo."
+  },
+  {
+    "n": 52,
+    "canto": 4,
+    "nivel": "B2.2",
+    "blocosNovos": 0,
+    "minutosInputDentro": 24,
+    "minutosInputFora": 36,
+    "portao": "11 dos 14 dias com o input da sessão registrado (80%: um dia perdido não reprova). 1074 dos 1193 blocos acumulados até aqui com repetitions >= 4 e spoken_count >= 2 (90%). Conversa 30 minutos sobre assunto imprevisível sem trocar para o português e se recupera sozinho de três quebras provocadas. Nota de fala >= 7,0. Zero bloco novo — fechamento consolida. É o único portão do curso que não abre nada: é o que fecha.",
+    "portaoEssencial": "FECHAMENTO DO CURSO. 11 dos 14 dias com a lição concluída. 12 dos 14 dias com a fila zerada. 323 dos 359 blocos do núcleo acumulado com repetitions >= 4 (90%, o corte mais alto do curso). Zero bloco novo. O Completo cobra 30 minutos sobre assunto imprevisível com nota >= 7,0; aqui o que se certifica é o acervo. Você fez o caminho mais curto por escolha e chegou onde ele prometia: A2 — você se vira sozinho, e sabia disso desde o dia 1."
+  }
+]

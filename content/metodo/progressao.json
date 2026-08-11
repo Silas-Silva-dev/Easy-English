@@ -1,0 +1,470 @@
+[
+  {
+    "n": 1,
+    "titulo": "O primeiro oi",
+    "situacao": "Você chega num lugar onde não conhece ninguém: um evento, o primeiro dia de trabalho, o café da manhã do hostel. Alguém vira para você e diz \"Hi!\". Os vinte segundos seguintes decidem se você vira uma pessoa na conversa ou o brasileiro calado do canto.",
+    "funcao": "Cumprimentar, dizer o nome, responder ao cumprimento e se despedir.",
+    "porqueAqui": "É a única função que não depende de nenhuma outra: tudo aqui é resposta, nada é criação. Por isso é o degrau mais baixo da rampa — pouquíssimos blocos novos, todos curtos, com muita repetição por trás. O aluno do dia 1 não monta frase, só devolve.",
+    "missao": "Grave um áudio de 15 segundos no WhatsApp para alguém de confiança, se apresentando em inglês. Peça uma coisa só de volta: se a pessoa entendeu seu nome.",
+    "armadilha": "Tratar \"How are you?\" como pergunta de verdade e começar a contar o dia. Em inglês falado isso ainda é cumprimento: resposta curta e devolve a bola. E \"I am Ana\" no lugar de \"I'm Ana\" marca estrangeiro já na primeira frase."
+  },
+  {
+    "n": 2,
+    "titulo": "Não entendi, e daí?",
+    "situacao": "A pessoa respondeu e você não pegou nada, nem o começo. É o segundo exato em que a maioria sorri, diz \"yes\" e vê a conversa morrer. Cinco frases compram tempo e mantêm o outro falando.",
+    "funcao": "Pedir repetição, pedir para desacelerar, confirmar o que entendeu e admitir que não entendeu.",
+    "porqueAqui": "Vem no circuito 2, antes de qualquer conteúdo, porque é a única função cuja ausência faz o aluno abandonar. Sem ela, todo circuito seguinte vira um fracasso silencioso; com ela, dá para jogar o aluno em conversa real já na segunda quinzena sem que isso vire trauma. Custa quatro blocos e devolve o curso inteiro.",
+    "missao": "Entre numa chamada de voz de cinco minutos num app de intercâmbio ou servidor de Discord e use, obrigatoriamente, três das frases de socorro. Anote quantas vezes usou cada uma.",
+    "armadilha": "\"Repeat, please\", que soa como professor mandando, e o \"yes\" automático de quem não entendeu, que faz o outro acelerar ainda mais. O TH de \"that\" em \"I didn't catch that\" vira \"dét\" e cria ruído justo na frase que existe para desfazer ruído."
+  },
+  {
+    "n": 3,
+    "titulo": "Quem é você em três frases",
+    "situacao": "A pessoa gostou de você e quer saber mais: de onde você é, o que faz, há quanto tempo está ali. É a conversa que se repete em todo primeiro encontro, do balcão do aeroporto à primeira reunião.",
+    "funcao": "Dizer origem, ocupação e situação atual.",
+    "porqueAqui": "Só entra depois que cumprimentar e pedir socorro já estão instalados, porque aqui o aluno produz frase própria pela primeira vez. A carga sobe um degrau: os blocos ganham uma peça trocável (o país, a profissão, o tempo) e é a primeira vez que ele escolhe a peça.",
+    "missao": "Grave 40 segundos se apresentando e mande para duas pessoas diferentes. Peça a uma delas que responda com uma pergunta em inglês, e responda essa pergunta em áudio.",
+    "armadilha": "\"I have 30 years\", tradução direta de \"tenho 30 anos\": em inglês idade é ser, não ter. E \"I'm engineer\" sem o \"an\", um artigo que o português não usa aí e o inglês exige."
+  },
+  {
+    "n": 4,
+    "titulo": "A conversa morreu e a culpa é sua",
+    "situacao": "Você respondeu tudo certinho, o outro esperou, e veio o silêncio. Ninguém falou errado: você só não devolveu a pergunta. Em inglês, quem não pergunta encerra.",
+    "funcao": "Devolver a pergunta, fazer perguntas simples e manter a conversa aberta.",
+    "porqueAqui": "Vem logo depois de saber responder, porque a resposta sozinha mata a conversa. É também o primeiro contato com a inversão da pergunta, que o português não tem, e por isso precisa aparecer cedo e voltar em todos os circuitos seguintes.",
+    "missao": "Numa conversa de texto ou áudio com um estrangeiro, devolva a pergunta cinco vezes seguidas sem repetir a mesma fórmula. Guarde o print e conte.",
+    "armadilha": "\"Where you work?\" e \"What you do?\": em português a pergunta é entonação, em inglês a ordem muda. E viver só de \"And you?\", que depois da terceira vez soa preguiçoso."
+  },
+  {
+    "n": 5,
+    "titulo": "O pedido no balcão",
+    "situacao": "Café, padaria, farmácia, sorveteria. Você aponta e resmunga, ou pede como gente adulta. A diferença são cinco blocos e o lugar certo do \"please\".",
+    "funcao": "Pedir, especificar, agradecer e responder ao \"anything else?\".",
+    "porqueAqui": "É a primeira função transacional e entra depois da social porque exige entender a resposta do outro com fila atrás de você. A carga continua baixa de propósito: o roteiro é fixo, previsível e se repete dezenas de vezes no mundo real, o que faz o bloco grudar sem esforço.",
+    "missao": "Faça um pedido inteiro em inglês, de verdade: chat em inglês de um app internacional, atendente de hotel ou rede de café que atenda turista. Guarde o áudio ou o print.",
+    "armadilha": "\"I want a coffee\", tradução de \"eu quero\", que em inglês soa como ordem. E a vogal fantasma no fim das palavras: \"black\" vira \"blequi\", \"milk\" vira \"milki\", e o atendente pede para repetir."
+  },
+  {
+    "n": 6,
+    "titulo": "Números ditos rápido",
+    "situacao": "O caixa fala \"that'll be twelve fifty\" e você entrega a nota maior que tem, por vergonha de perguntar. Preço, hora, quantidade e telefone são onde o iniciante trava mesmo sabendo o resto.",
+    "funcao": "Dizer e, principalmente, entender números em velocidade real.",
+    "porqueAqui": "Entra logo depois do balcão porque é lá que o número aparece pela primeira vez sem aviso. É também o primeiro circuito majoritariamente de escuta: o aluno já sabe pedir, agora precisa entender a resposta. Pouco bloco novo, muito tempo de ouvido.",
+    "missao": "Grave você dizendo cinco números da sua vida (telefone, preço do almoço, hora que acorda). Depois ouça uma cena de compra em inglês e anote todos os números que conseguiu pegar.",
+    "armadilha": "Thirteen e thirty. A diferença não está no som, está na sílaba forte: o inglês é acentual e o brasileiro dá peso igual às duas sílabas, então fala e ouve as duas palavras iguais. É onde somem catorze dólares por engano."
+  },
+  {
+    "n": 7,
+    "titulo": "Sim, não e mais ou menos",
+    "situacao": "Recepção de hotel, guichê de imigração, cadastro numa academia. Vêm cinco perguntas fechadas seguidas e você precisa responder rápido, sem ficar mudo e sem soar seco.",
+    "funcao": "Responder com short answers, concordar, negar e dar o meio-termo.",
+    "porqueAqui": "É a função que sustenta todas as outras: o aluno responde perguntas desde o circuito 1, mas responde traduzindo. Aqui a resposta curta vira automática e libera atenção para o resto. Poucos blocos, frequência altíssima.",
+    "missao": "Peça a alguém que te faça dez perguntas de sim ou não em inglês, seguidas, sem pausa, e grave. O critério é o tempo: nenhuma resposta pode levar mais de dois segundos.",
+    "armadilha": "Responder com o verbo, como em português: \"Do you have a reservation?\" e sai \"Have\". Em inglês é \"Yes, I do\". E \"more or less\", tradução literal de mais ou menos, que ninguém usa assim: é \"kind of\"."
+  },
+  {
+    "n": 8,
+    "titulo": "Seu dia, do despertador até a cama",
+    "situacao": "\"So, what do you do every day?\" abre metade das conversas e trava metade dos brasileiros. Contar a rotina é o primeiro texto longo que você produz sozinho, e ele se repete a vida inteira.",
+    "funcao": "Descrever rotina, frequência e horários.",
+    "porqueAqui": "Primeiro circuito em que o aluno fala mais de dez segundos seguidos, e só é possível agora porque números e respostas curtas já saem sem pensar. É aqui que a carga dá o primeiro salto real: mais blocos, e blocos que precisam se emendar uns nos outros.",
+    "missao": "Grave 60 segundos contando seu dia inteiro, sem parar e sem ler. Ouça e conte quantas vezes o -s da terceira pessoa sumiu. Regrave uma vez.",
+    "armadilha": "O -s da terceira pessoa some (\"my wife work\"), porque em português a marca já está no verbo e o ouvido brasileiro nem registra o S final. E \"I go to the work\", com um artigo que o inglês não usa."
+  },
+  {
+    "n": 9,
+    "titulo": "Do que você gosta, e do que não gosta",
+    "situacao": "A conversa esquentou e virou gosto: série, comida, time, música. É onde ela deixa de ser protocolo e fica pessoal, ou onde ela morre num \"I like everything\".",
+    "funcao": "Expressar gosto, preferência e recusa educada.",
+    "porqueAqui": "Vem depois da rotina porque usa a mesma estrutura de presente com um verbo a mais na frente: carga nova baixa, rendimento alto. É o primeiro circuito em que o aluno tem opinião, e opinião é o que faz a conversa durar.",
+    "missao": "Escolha um vídeo em inglês sobre algo de que você gosta de verdade e publique um comentário real, em inglês, dizendo o que gostou e por quê.",
+    "armadilha": "\"I like very much\", na ordem do português: em inglês o reforço vai para o fim, \"I like it a lot\". E \"I don't like of\", com a preposição que o português exige e o inglês não tem."
+  },
+  {
+    "n": 10,
+    "titulo": "Quem é quem na sua vida",
+    "situacao": "Alguém pergunta com quem você mora, ou você abre uma foto no celular. Falar da sua gente é o que cria vínculo em qualquer cultura, e é a conversa que mais aproxima estrangeiro de brasileiro.",
+    "funcao": "Apresentar pessoas, descrever relação e descrever gente.",
+    "porqueAqui": "Precisa vir depois de gostos porque descrever pessoa exige adjetivo, e adjetivo só gruda quando já existe alguém para descrever. Também instala os possessivos, que entram em quase toda frase daqui para frente.",
+    "missao": "Pegue uma foto da sua família e grave 90 segundos descrevendo cada pessoa: quem é, o que faz, como é. Mande para alguém que não conhece sua família e peça que essa pessoa conte de volta o que entendeu.",
+    "armadilha": "\"My parents\" não é \"meus parentes\", é \"meus pais\": falso cognato que muda a frase inteira. E \"married with\", tradução de casado com, quando em inglês é \"married to\"."
+  },
+  {
+    "n": 11,
+    "titulo": "Onde você mora",
+    "situacao": "Você descreve sua casa, seu bairro, sua cidade: para um colega estrangeiro, num anúncio de aluguel, ou explicando o lugar para um hóspede. É conversa social e é logística ao mesmo tempo.",
+    "funcao": "Descrever lugares e dizer o que existe e o que não existe num lugar.",
+    "porqueAqui": "Fecha o bloco descritivo do Primeiro Canto e prepara o circuito seguinte: você só pergunta o caminho depois de saber nomear o que existe na rua. É também a primeira estrutura sem equivalente direto em português.",
+    "missao": "Grave um tour de 90 segundos pela sua casa, andando pelos cômodos, sem roteiro escrito. Depois refaça o tour do seu quarteirão, na rua.",
+    "armadilha": "\"There has a market near my house\", tradução literal do nosso \"tem\": em inglês é \"there's\". E o L escuro de \"well\" e \"hotel\" virando U (\"hoteu\"), que quebra a palavra para quem ouve."
+  },
+  {
+    "n": 12,
+    "titulo": "Onde fica, e a resposta que vem rápido demais",
+    "situacao": "Você está perdido, o celular sem sinal, e para alguém na rua. Perguntar é a parte fácil. A resposta vem em cinco segundos, cheia de \"take a left, two blocks down\", e é aí que o problema começa.",
+    "funcao": "Perguntar direção, entender instrução e confirmar o que entendeu.",
+    "porqueAqui": "Primeiro circuito em que entender vale mais do que falar, e só funciona agora porque o kit de socorro do circuito 2 já é automático. Fecha o Primeiro Canto com a competência que o aluno mais usa viajando.",
+    "missao": "Abra o mapa de uma cidade estrangeira, escolha dois pontos e grave você explicando o caminho em inglês. Depois peça a um falante de inglês que te explique um caminho e repita de volta para confirmar.",
+    "armadilha": "Fazer a pergunta bonita e travar na resposta, sem pedir para repetir devagar. E \"Is far?\" sem sujeito: o português dispensa o sujeito, o inglês não, é \"Is it far?\"."
+  },
+  {
+    "n": 13,
+    "titulo": "Um dia inteiro em inglês",
+    "situacao": "Do bom dia ao boa noite, um dia simulado por completo: cumprimentar, se apresentar, pedir, entender o preço, contar a rotina, falar da família, achar o caminho. Nada de material novo: é a prova de que os doze circuitos anteriores viraram uma pessoa.",
+    "funcao": "Consolidação: encadear as funções do Primeiro Canto sem roteiro.",
+    "porqueAqui": "Fechamento de canto: zero blocos novos, carga toda em recombinação, na fila de revisão vencida e em input. É onde o aluno descobre que sabe mais do que acha, e onde o método mede o que ficou de verdade.",
+    "missao": "Passe duas horas de um dia real com tudo em inglês: pensamento em voz alta, lista de compras, áudio para amigo, celular no idioma. Anote as três vezes em que travou e qual bloco faltou.",
+    "armadilha": "Voltar a traduzir do português quando as funções se misturam, porque cada uma foi treinada separada. E entrar em pânico no primeiro bloco que não vem, quando a saída já foi ensinada no circuito 2."
+  },
+  {
+    "n": 14,
+    "titulo": "How was your weekend?",
+    "situacao": "Segunda de manhã, cozinha do escritório ou grupo de mensagem. A pergunta é automática e a resposta \"good\" encerra tudo. Trinta segundos de passado sustentam a conversa e abrem a semana inteira.",
+    "funcao": "Contar o que aconteceu: passado e sequência de fatos.",
+    "porqueAqui": "Abre o Segundo Canto porque narrar é o que separa quem responde de quem conversa. Só entra agora porque exige a rotina e os verbos do dia a dia já instalados no Primeiro Canto: o passado aqui é uma forma nova de blocos que o aluno já tem.",
+    "missao": "Em toda segunda-feira desta quinzena, grave 60 segundos contando o fim de semana de verdade, sem escrever antes. No fim, ouça as quatro gravações em sequência.",
+    "armadilha": "O -ed ganha vogal e vira sílaba: \"worked\" sai \"workedi\". São três sons diferentes e o brasileiro faz um só, com vogal no fim. E \"I go to the beach yesterday\", porque em português o advérbio já marcou o tempo e o verbo não precisou mudar."
+  },
+  {
+    "n": 15,
+    "titulo": "A história do perrengue",
+    "situacao": "Aconteceu algo absurdo com você: perdeu o voo, entrou no carro errado, levou bronca de estranho. A mesa quer ouvir. Contar isso tem estrutura: o cenário, o que estava rolando, o que cortou de repente e o fecho.",
+    "funcao": "Contar uma história com cenário, virada e desfecho.",
+    "porqueAqui": "Vem colado no passado simples porque precisa das duas camadas ao mesmo tempo: o que estava acontecendo e o que aconteceu. É o primeiro circuito com mais de um minuto de fala contínua e é o pico de carga do começo do Segundo Canto.",
+    "missao": "Conte sua história numa chamada de voz com um estrangeiro, sem ler nada, e observe se a pessoa reagiu no ponto certo. Se não reagiu, sua virada não ficou clara: refaça.",
+    "armadilha": "Contar tudo no passado simples, sem a camada de fundo, e a história perde a virada. E emendar tudo com \"then, then, then\", tradução do nosso \"aí\", quando o inglês falado distribui \"so\", \"and then\" e \"all of a sudden\" em posições diferentes."
+  },
+  {
+    "n": 16,
+    "titulo": "Como era antes",
+    "situacao": "Conversa sobre infância, escola, a cidade onde você cresceu e o que mudou desde então. É o assunto que aproxima em qualquer cultura e o único que faz alguém que te conheceu ontem sentir que te conhece.",
+    "funcao": "Falar de hábito passado e do que mudou até hoje.",
+    "porqueAqui": "Precisa do passado (14) e da narrativa (15) prontos para ter o que contrastar. É o primeiro circuito em que duas épocas convivem na mesma conversa, que é exatamente o que o A2 exige na prática.",
+    "missao": "Pergunte a um falante de inglês como era a cidade dele quando criança e conte a sua em seguida. Fale por pelo menos dois minutos e grave, se o app permitir.",
+    "armadilha": "\"Used to\" pronunciado \"iúzed tchu\", com sílaba extra: na fala é \"iústu\", com S surdo e sem vogal fantasma. E \"when I was child\", sem o artigo que o inglês exige."
+  },
+  {
+    "n": 17,
+    "titulo": "Você ficou mudo enquanto ele contava",
+    "situacao": "O outro conta uma história de dois minutos e você não emite som nenhum. Em português você diria \"sério?\", \"nossa\", \"jura\". Em inglês, o silêncio é lido como tédio ou como incompreensão, e a pessoa encurta a história e vai embora.",
+    "funcao": "Reagir, demonstrar interesse e sustentar o turno do outro.",
+    "porqueAqui": "Entra imediatamente depois dos circuitos de narrativa porque agora o aluno sabe contar e precisa do outro lado do mesmo movimento. É barato em blocos e altíssimo em efeito: muda a percepção que o nativo tem de você em uma única conversa.",
+    "missao": "Numa conversa real de dez minutos, reaja pelo menos oito vezes sem contar história própria. Anote as reações que usou e as que faltaram.",
+    "armadilha": "Achar que reagir é opcional e ouvir sério, de cara fechada. E o /h/ que some: \"That's hilarious\" vira \"ilarious\", porque em português o H não soa, e a reação mais entusiasmada do inglês some junto com ele."
+  },
+  {
+    "n": 18,
+    "titulo": "Faltou a palavra",
+    "situacao": "No meio da frase falta uma palavra, você para, procura no celular e o assunto morre. Nativo também esquece palavra: ele só não para. Dá a volta em três segundos e segue.",
+    "funcao": "Contornar a palavra que falta: definir, comparar e aproximar.",
+    "porqueAqui": "Só é possível quando já existe vocabulário básico com que dar a volta, e é o que impede o aluno de travar nos circuitos pesados do Segundo e do Terceiro Canto. Colocado no meio do Canto 2, passa a render em tudo que vem depois.",
+    "missao": "Escolha dez objetos da sua casa e grave você explicando cada um em inglês sem dizer o nome dele. Mande três dessas gravações para alguém e veja se a pessoa adivinha.",
+    "armadilha": "Correr atrás da palavra latina difícil, que o brasileiro entende de graça mas o americano quase não usa falando, quando a saída natural é curta: \"the thing you use to...\", \"it's like a...\". E parar a frase para traduzir em vez de contornar."
+  },
+  {
+    "n": 19,
+    "titulo": "O que você vai fazer no fim de semana",
+    "situacao": "Sexta-feira, quatro da tarde: \"any plans this weekend?\". Contar plano, combinar e escapar acontecem todos nesses trinta segundos, e é a conversa mais repetida do mundo corporativo.",
+    "funcao": "Falar de planos, intenções e possibilidades.",
+    "porqueAqui": "Fecha o eixo temporal do Segundo Canto: passado nos circuitos 14 a 16, presente no Primeiro Canto, futuro aqui. A partir deste ponto o aluno move a conversa em qualquer direção do tempo, que é a definição prática de A2.",
+    "missao": "Grave seus planos reais dos próximos sete dias em inglês. No domingo seguinte, grave de novo dizendo o que aconteceu de verdade e o que mudou.",
+    "armadilha": "\"I pretend to travel\": \"pretend\" é fingir, não pretender, e o falso cognato inverte a frase. E usar \"will\" para plano já combinado, quando o inglês falado usa \"I'm going to\" ou \"I'm ...ing\" para o que já está de pé."
+  },
+  {
+    "n": 20,
+    "titulo": "Marcar, remarcar e confirmar",
+    "situacao": "Você precisa fechar dia, hora e lugar com alguém: médico, cliente, amigo. Depois surge um imprevisto e você precisa remarcar sem parecer que sumiu.",
+    "funcao": "Propor, ajustar, confirmar e desmarcar horários.",
+    "porqueAqui": "Depende dos números (6) e dos planos (19) e é onde o aluno coordena algo real com outra pessoa em inglês pela primeira vez. Daqui em diante as missões passam a exigir que ele marque as próprias conversas.",
+    "missao": "Marque uma conversa de verdade com um falante de inglês para daqui a alguns dias, negociando o horário todo em inglês. Depois remarque uma vez, de propósito, e observe a resposta.",
+    "armadilha": "\"Can you Tuesday?\" e \"I can't in Tuesday\": a preposição de dia é \"on\", e a pergunta natural é \"Does Tuesday work for you?\". E \"next Friday\", que confunde até nativo: dizer a data resolve."
+  },
+  {
+    "n": 21,
+    "titulo": "Dizer não sem sumir",
+    "situacao": "Te chamam para algo que você não quer ou não pode. O brasileiro aceita e não vai, ou some do chat. As duas saídas custam caro na relação, e existe uma terceira.",
+    "funcao": "Recusar, dar motivo e deixar a porta aberta.",
+    "porqueAqui": "Vem colado no circuito de marcar encontro porque é o mesmo diálogo, do lado difícil. É também o primeiro contato com o amaciamento que o Terceiro Canto inteiro vai usar em conflito, reclamação e negociação.",
+    "missao": "Recuse por escrito, em inglês, um convite ou uma proposta real desta semana, com motivo e alternativa. Salve o texto.",
+    "armadilha": "\"No, I don't want\", tradução exata do português, que em inglês soa agressivo. E o \"maybe\" de fuga, que o americano lê como não mal disfarçado e que estraga a relação em vez de preservá-la."
+  },
+  {
+    "n": 22,
+    "titulo": "Jantar em grupo",
+    "situacao": "Mesa com seis pessoas, cardápio em inglês, garçom com pressa e a conta dividida no fim. É pedido, conversa e cálculo ao mesmo tempo, e cada parte pega o aluno num ponto diferente.",
+    "funcao": "Pedir comida, comentar o que chegou e resolver a conta.",
+    "porqueAqui": "Exige o balcão (5), os números (6) e as reações (17) rodando juntos, e é o primeiro circuito em que três funções antigas operam ao mesmo tempo sob pressão social. É teste de carga, não matéria nova: por isso vem depois de tudo isso estar pronto.",
+    "missao": "Monte um pedido a partir do cardápio em inglês de um restaurante real (procure um de Nova York ou Londres) e grave o pedido inteiro, incluindo uma alteração e a divisão da conta.",
+    "armadilha": "\"The account, please\": \"account\" é conta bancária, a do restaurante é \"the check\". E pedir a \"entrée\" achando que é entrada, quando nos Estados Unidos é o prato principal."
+  },
+  {
+    "n": 23,
+    "titulo": "Have you ever...?",
+    "situacao": "Alguém pergunta se você já foi, já fez, já provou. É a pergunta que abre jantar, entrevista e conversa de bar, e a boa resposta não é uma data: é uma experiência, com gancho para a próxima pergunta.",
+    "funcao": "Falar de experiência de vida, sem data.",
+    "porqueAqui": "Só faz sentido com o passado com data (14) já firme, porque a diferença entre as duas formas é exatamente a presença da data. É o primeiro traço claramente A2 alto do curso e vira a pergunta padrão das conversas do Terceiro Canto.",
+    "missao": "Faça cinco perguntas \"Have you ever...\" a um falante de inglês numa conversa real e responda às cinco que ele devolver. Nenhuma resposta pode ter uma palavra só.",
+    "armadilha": "\"I know London\" para dizer que já foi a Londres: em inglês é \"I've been to London\". E responder com a data quando ninguém perguntou quando, o que soa como preenchimento de formulário."
+  },
+  {
+    "n": 24,
+    "titulo": "Duas opções e a escolha",
+    "situacao": "Dois restaurantes, duas propostas de trabalho, dois apartamentos. Alguém pergunta qual você prefere e por quê, e a resposta exige comparar e sustentar, não apontar.",
+    "funcao": "Comparar, escolher e justificar.",
+    "porqueAqui": "Precisa de adjetivo (10 e 11) e de opinião (9) instalados. É o circuito que transforma opinião em argumento e é o degrau imediatamente anterior à discordância do Terceiro Canto.",
+    "missao": "Escolha uma decisão real que você precisa tomar este mês e grave dois minutos em inglês comparando as opções e fechando a escolha. Mande para alguém e peça a opinião, em inglês.",
+    "armadilha": "\"More better\" e \"more cheap\": o inglês tem duas máquinas de comparar e quem escolhe é o tamanho da palavra. E \"it depends of\", do nosso depende de, quando em inglês é \"depends on\"."
+  },
+  {
+    "n": 25,
+    "titulo": "Trinta segundos no elevador",
+    "situacao": "O vizinho estrangeiro entra no elevador, ou o colega senta ao seu lado na fila do café. São trinta segundos: ou vira conversa, ou vira aquele silêncio em que os dois olham para o celular.",
+    "funcao": "Abrir, sustentar e encerrar conversa fiada.",
+    "porqueAqui": "Vem no fim do Segundo Canto porque exige tempo verbal, reação e pergunta devolvida rodando sem esforço. Pouco conteúdo novo e muita recombinação: a rampa faz uma pausa deliberada antes do salto do Terceiro Canto.",
+    "missao": "Puxe conversa fiada com um estrangeiro em situação real (aeroporto, hotel, evento, sala de voz) e sustente por três minutos cronometrados. Anote como você encerrou.",
+    "armadilha": "Puxar assunto pessoal demais (salário, idade, religião, estado civil), que aqui é normal e em inglês fecha a porta. E \"Is raining\", sem sujeito: o inglês obriga o \"it\" mesmo quando não há dono nenhum para a frase."
+  },
+  {
+    "n": 26,
+    "titulo": "Fechamento do Segundo Canto: três minutos de vida",
+    "situacao": "Uma conversa longa e sem roteiro, com passado, presente, futuro, opinião e reação misturados, como na vida. Nenhum bloco novo: só a prova de que você já consegue contar, e não apenas responder.",
+    "funcao": "Consolidação: narrar, reagir e sustentar sem apoio.",
+    "porqueAqui": "Fechamento de canto: toda a carga vai para recombinação, revisão vencida e input real. É o ponto em que o aluno deixa de ser alguém que responde perguntas e vira alguém com quem se conversa.",
+    "missao": "Marque uma conversa de vinte minutos em inglês com alguém que você não conhece e conte três histórias suas. Grave, ouça inteiro e cronometre quanto tempo você falou.",
+    "armadilha": "Montar a história em português e traduzir enquanto fala, o que dobra o tempo e derruba o ritmo. E abandonar as reações quando o assunto fica difícil, justo quando elas mais compram tempo."
+  },
+  {
+    "n": 27,
+    "titulo": "O que você faz da vida, para quem não é da área",
+    "situacao": "Jantar de trabalho, evento, conversa com o pai de um amigo. Você tem noventa segundos para explicar seu trabalho a quem não conhece nada da sua área, sem jargão nenhum.",
+    "funcao": "Explicar função, responsabilidade e processo.",
+    "porqueAqui": "Abre o Terceiro Canto porque é a ponte entre o social e o profissional: usa a apresentação do circuito 3, mas exige explicação estruturada. É o primeiro circuito em que a frase longa é obrigatória e não apenas possível.",
+    "missao": "Grave sua explicação de noventa segundos e teste com alguém que não é da sua área. Se a pessoa não conseguir repetir o que você faz, refaça.",
+    "armadilha": "\"I attend clients\": \"attend\" é comparecer, atender cliente é \"help\" ou \"deal with\". E \"I have a graduation in engineering\", quando graduação é \"degree\" e \"graduation\" é a festa de formatura."
+  },
+  {
+    "n": 28,
+    "titulo": "Discordar sem virar briga",
+    "situacao": "Alguém acabou de propor algo que você acha errado e todos olham para você. Concordar por educação sai caro, e discordar do jeito errado sai mais caro ainda.",
+    "funcao": "Discordar, ressalvar e propor outra coisa.",
+    "porqueAqui": "Primeiro circuito com atrito de verdade, e só entra depois de comparar e justificar (24), porque discordar bem é comparar com almofada. Tudo que vem depois — reclamação, negociação, feedback — usa este molde.",
+    "missao": "Entre num fórum ou grupo em inglês e discorde de alguém por escrito, com ressalva e argumento, sem hostilidade. Publique e guarde o link.",
+    "armadilha": "\"I'm agree\", tradução de estou de acordo, quando \"agree\" já é o verbo: é \"I agree\". E \"I think that no\", do acho que não, quando o inglês joga a negação para o primeiro verbo: \"I don't think so\"."
+  },
+  {
+    "n": 29,
+    "titulo": "Entrar na conversa quando ninguém abre espaço",
+    "situacao": "Reunião com seis pessoas falando por cima uma da outra em inglês. Você tem o que dizer e o espaço nunca aparece. Esperar educadamente é garantia de sair da reunião sem ter falado nada.",
+    "funcao": "Interromper, tomar o turno e devolver a palavra.",
+    "porqueAqui": "Precisa de discordância (28) para ter o que dizer e de reação (17) para saber a hora. É o circuito que resolve a queixa número um de quem trabalha em inglês: entender tudo e não conseguir falar nada.",
+    "missao": "Numa reunião ou chamada em grupo em inglês, entre na conversa três vezes usando frase de entrada. Sem reunião, use uma sala de conversa em grupo de app de intercâmbio.",
+    "armadilha": "Esperar a pausa que não vem, porque em português o turno se negocia por entonação e em inglês por frase de entrada. E emendar \"sorry, sorry, sorry\", que enfraquece tudo o que vier depois."
+  },
+  {
+    "n": 30,
+    "titulo": "A ligação sem rosto",
+    "situacao": "O telefone toca e não há cara para ler, gesto para acompanhar nem contexto visual. A pessoa do outro lado fala rápido, num sotaque que você nunca ouviu, e repete uma vez só. É o teste mais duro do inglês falado.",
+    "funcao": "Abrir, sustentar e encerrar uma ligação; anotar e confirmar informação.",
+    "porqueAqui": "Fica no meio do Terceiro Canto porque exige socorro (2), números (6) e confirmação (12) todos automáticos, e porque só faz sentido quando a compreensão já não depende de leitura labial. É o pico de dificuldade de escuta do curso até aqui.",
+    "missao": "Faça uma ligação real em inglês: hotel no exterior, companhia aérea, suporte internacional. Resolva algo pequeno e anote a informação recebida.",
+    "armadilha": "\"She can't attend the phone\": atender uma ligação é \"take the call\". E soletrar com o alfabeto do português, quando em inglês nome e e-mail se soletram sempre e as letras E, I, A e G são as que mais geram erro."
+  },
+  {
+    "n": 31,
+    "titulo": "Não está funcionando",
+    "situacao": "A internet caiu, o ar-condicionado não gela, o carro alugado apita sem parar. Você precisa dizer o que acontece, desde quando e o que já tentou, antes que alguém ofereça a solução que você já testou duas vezes.",
+    "funcao": "Descrever um defeito, dar histórico e pedir providência.",
+    "porqueAqui": "Primeiro circuito de problema técnico, logo depois do telefone porque quase sempre acontece por telefone ou chat. Aqui a narrativa do Segundo Canto vira ferramenta: contar bem o problema é metade da solução.",
+    "missao": "Abra um atendimento em inglês, por chat, com o suporte de algum serviço internacional que você usa, e descreva um problema real. Guarde a conversa inteira.",
+    "armadilha": "\"I'm needing\", que não existe na fala. E \"actually\", que não é atualmente e sim na verdade: \"actually the internet doesn't work\" diz outra coisa do que você quis dizer, e o atendente age pela frase, não pela intenção."
+  },
+  {
+    "n": 32,
+    "titulo": "A cobrança que veio errada",
+    "situacao": "Apareceu um valor a mais na fatura, na diária do hotel ou na conta do restaurante. Você precisa contestar item por item, com firmeza, sem acusar ninguém e sem ceder por vergonha.",
+    "funcao": "Contestar, pedir explicação e exigir correção.",
+    "porqueAqui": "Depende de números (6), de descrever problema (31) e de discordar (28), e é onde o aluno descobre que educação e firmeza convivem em inglês. É o ponto em que o curso deixa de ser sobre sobreviver e passa a ser sobre defender o próprio interesse.",
+    "missao": "Peça, em inglês, a revisão de uma cobrança real ou a segunda via de um recibo, por e-mail ou chat, com valor e data exatos. Guarde a resposta.",
+    "armadilha": "\"I want to claim\": reclamar é \"complain\", \"claim\" é reivindicar direito ou acionar seguro. E subir o tom em vez de subir a precisão: em inglês, quem resolve cobrança é o dado, não o volume da voz."
+  },
+  {
+    "n": 33,
+    "titulo": "Pedir o que normalmente não se dá",
+    "situacao": "Você quer um check-out mais tarde, uma troca fora do prazo, um desconto, uma exceção na regra. A pessoa do outro lado pode dizer sim, mas só se a pergunta abrir essa porta.",
+    "funcao": "Pedir uma exceção, justificar e agradecer na medida.",
+    "porqueAqui": "É a face positiva do atrito e completa o par com reclamação e contestação: vem depois delas porque usa os mesmos amaciadores na direção contrária. Prepara diretamente a negociação do circuito 36.",
+    "missao": "Peça uma exceção real nesta quinzena, em inglês: upgrade, prazo maior, isenção de taxa. Faça o pedido mesmo achando que vai ouvir não, e registre a resposta.",
+    "armadilha": "Pedir com \"Can you...\", que soa como cobrança, quando o inglês tem chave-mestra: \"Would it be possible to...\". E usar \"compromise\" achando que é compromisso de agenda, quando é acordo com concessão dos dois lados."
+  },
+  {
+    "n": 34,
+    "titulo": "Conexão perdida",
+    "situacao": "O voo atrasou, a conexão fechou e há quarenta pessoas irritadas na fila do balcão. Você tem noventa segundos com o atendente, sob pressão, e o que sair da sua boca decide onde você vai dormir.",
+    "funcao": "Explicar a situação, pedir alternativa e confirmar detalhes sob pressão.",
+    "porqueAqui": "É o exame prático da metade do Terceiro Canto: junta problema (31), exceção (33), números (6) e socorro (2) em dois minutos de estresse real. Não traz molde novo; o que muda é a velocidade e a pressão.",
+    "missao": "Simule com alguém, ao vivo, um balcão de reacomodação de voo, com a outra pessoa fazendo pressão de tempo. Se viajar nesta quinzena, faça o check-in inteiro em inglês.",
+    "armadilha": "Pedir desculpa e contar a história antes de dizer o que precisa: em balcão de companhia aérea o pedido vem primeiro e a explicação depois. E o L escuro em \"terminal\" e \"hall\", que faz o atendente ouvir outra palavra e mandar você para o lugar errado."
+  },
+  {
+    "n": 35,
+    "titulo": "Passar mal fora do Brasil",
+    "situacao": "Dor forte de madrugada num país onde você não conhece ninguém. Você precisa descrever o sintoma para o farmacêutico ou para a triagem, entender a orientação e não sair com o remédio errado.",
+    "funcao": "Descrever sintoma, entender orientação e confirmar dose.",
+    "porqueAqui": "Vem depois do aeroporto porque é o mesmo tipo de urgência com risco maior e vocabulário mais específico. É o circuito em que a precisão importa mais do que a fluência, e onde o aluno aprende a confirmar em vez de supor.",
+    "missao": "Escreva e grave, em inglês, o seu quadro real de saúde: alergias, remédios em uso, condições. Salve no celular e mande para quem viaja com você.",
+    "armadilha": "\"I'm constipated\" não é estar constipado, é prisão de ventre, e a farmácia entrega exatamente o remédio errado. E \"I'm feeling bad\" para dor física, que em inglês puxa mais para culpa ou mal-estar emocional."
+  },
+  {
+    "n": 36,
+    "titulo": "Negociar sem ceder tudo",
+    "situacao": "Prazo impossível, preço fora da conta, escopo crescendo a cada e-mail. A conversa é em inglês, o outro é mais fluente que você, e ceder por cansaço linguístico custa dinheiro de verdade.",
+    "funcao": "Propor, contrapropor, condicionar e fechar.",
+    "porqueAqui": "É o teto do Terceiro Canto: exige discordância (28), exceção (33), comparação (24) e turno (29) funcionando juntos. É a única função do curso em que perder o argumento tem preço mensurável, e por isso fica perto do fim do canto.",
+    "missao": "Negocie algo real em inglês nesta quinzena: prazo com fornecedor, preço num marketplace internacional, escopo com um cliente. Registre a proposta inicial e o resultado.",
+    "armadilha": "Fechar a porta com um \"no\" seco, quando a negociação em inglês trabalha por condição: se isso, então aquilo. E aceitar por não ter a frase para ganhar tempo, quando \"let me get back to you on that\" resolve e quase ninguém ensina."
+  },
+  {
+    "n": 37,
+    "titulo": "O amigo desabafa",
+    "situacao": "Alguém te conta um problema pessoal e espera a sua opinião. Aconselhar sem soar arrogante tem molde próprio, e falar do que você mesmo faria diferente na sua vida é o que transforma a conversa em confiança.",
+    "funcao": "Dar conselho e falar de hipótese e arrependimento.",
+    "porqueAqui": "Vem depois do atrito porque exige o oposto dele: baixar a guarda. É o único lugar do curso em que a estrutura hipotética entra por necessidade emocional e não por gramática, que é justamente a maneira de ela grudar.",
+    "missao": "Peça a um falante de inglês que te conte um problema real e dê três conselhos diferentes, em inglês, sem usar imperativo. Depois conte um arrependimento seu.",
+    "armadilha": "\"If I was you\" no lugar de \"If I were you\": é a única sobrevivência do subjuntivo no inglês falado e aparece exatamente na frase mais usada para aconselhar. E aconselhar no imperativo, que em português soa como carinho e em inglês soa como ordem."
+  },
+  {
+    "n": 38,
+    "titulo": "A entrevista em inglês",
+    "situacao": "Quarenta e cinco minutos de câmera ligada, um recrutador que fala rápido e as mesmas cinco perguntas de sempre: fale de você, seu maior desafio, seu ponto fraco, por que aqui, quanto você quer ganhar.",
+    "funcao": "Se apresentar profissionalmente, narrar um caso e negociar expectativa.",
+    "porqueAqui": "Soma tudo do Terceiro Canto: explicar o trabalho (27), narrar (15), sustentar posição (28) e negociar (36). Vem antes do fechamento do canto porque é a prova de que o inglês do aluno já é utilizável em situação de alto risco.",
+    "missao": "Faça uma entrevista simulada de trinta minutos, em inglês, com alguém que não seja seu amigo próximo. Grave e ouça de novo as respostas às três perguntas em que mais gaguejou.",
+    "armadilha": "\"My pretension is...\": pretensão salarial é \"salary expectations\" e \"pretension\" é presunção. E responder \"tell me about yourself\" com a biografia inteira, quando a pergunta é profissional e a resposta tem noventa segundos."
+  },
+  {
+    "n": 39,
+    "titulo": "Fechamento do Terceiro Canto: o dia em que tudo dá errado",
+    "situacao": "Um dia inteiro de atrito simulado: quarto errado no hotel, cobrança indevida, ligação difícil, reunião tensa e uma negociação no fim da tarde. Nenhum bloco novo, tudo junto e sem aviso.",
+    "funcao": "Consolidação: resolver conflito e problema sem roteiro.",
+    "porqueAqui": "Fechamento de canto: zero material novo, carga toda em recombinação, revisão vencida e input autêntico. Fecha o ciclo em que o inglês deixou de ser sobrevivência e virou instrumento para resolver as coisas.",
+    "missao": "Resolva em inglês três pendências reais que você vem adiando: um suporte, uma cobrança, uma solicitação. Uma delas por voz, obrigatoriamente.",
+    "armadilha": "Amaciar tanto sob pressão que a mensagem some, e ninguém entende que aquilo era uma reclamação. E abandonar o amaciamento quando a irritação sobe, que é o mesmo erro pelo outro extremo."
+  },
+  {
+    "n": 40,
+    "titulo": "O muro dos phrasal verbs",
+    "situacao": "Você lê o e-mail dele e entende tudo. A mesma pessoa falando, você perde metade. Ela não trocou de idioma: trocou \"investigate\" por \"look into\", \"encounter\" por \"run into\", \"postpone\" por \"put off\".",
+    "funcao": "Entender e usar os verbos compostos de alta frequência.",
+    "porqueAqui": "Abre o Quarto Canto porque é o buraco específico do brasileiro: ganhamos de graça o vocabulário latino e ficamos sem o núcleo germânico, que é onde a conversa mora. Só vem agora porque phrasal verb é bloco, e bloco precisa de contexto pronto para grudar; antes disso vira lista decorada e esquecida.",
+    "missao": "Pegue um episódio de série e anote todos os phrasal verbs de dez minutos de fala. Use cinco deles em conversa real na mesma semana.",
+    "armadilha": "Escolher a palavra latina difícil porque ela parece com o português, e soar como quem lê relatório: \"I'll verify\" onde o nativo diz \"I'll check\", \"comprehend\" onde ele diz \"get it\"."
+  },
+  {
+    "n": 41,
+    "titulo": "Ele não fala rápido, ele comprime",
+    "situacao": "Dois nativos conversando entre si na sua frente. Com você, cada um deles é compreensível. Entre eles, você perde setenta por cento. Não é velocidade: é compressão.",
+    "funcao": "Ouvir fala conectada: redução, ligação entre palavras e sílaba comida.",
+    "porqueAqui": "Vem logo depois do léxico oral porque não adianta conhecer o bloco se o ouvido não o encontra dentro da fala. É a virada de escuta do curso e só funciona com reservatório grande o bastante para o cérebro reconhecer o que foi comprimido.",
+    "missao": "Transcreva à mão trinta segundos de conversa nativa real, palavra por palavra, e depois confira com a legenda. Repita quatro vezes na quinzena, com trechos diferentes.",
+    "armadilha": "Esperar espaço entre as palavras. A sílaba do português é regular, a do inglês não: as fracas somem e as fortes marcam o compasso. Quem procura palavras separadas não acha nenhuma e conclui que o problema é a velocidade do outro."
+  },
+  {
+    "n": 42,
+    "titulo": "Palavras que andam juntas",
+    "situacao": "Sua frase está gramaticalmente perfeita e ainda assim soa estrangeira. Você disse \"do a mistake\" e \"take a decision\": traduções exatas do português com o verbo errado.",
+    "funcao": "Usar as combinações fixas do inglês falado.",
+    "porqueAqui": "Depois de phrasal verbs e de redução, é o último ajuste de léxico: não é o que você diz, é com o que a palavra anda. Fica aqui porque exige vocabulário já grande para haver o que combinar.",
+    "missao": "Colete vinte combinações reais do material autêntico da quinzena, sempre em contexto, e use dez delas em conversa. Anote quais o outro não estranhou.",
+    "armadilha": "\"Take a decision\", calque de tomar uma decisão, quando em inglês é \"make\". E \"do a mistake\" no lugar de \"make a mistake\". Nenhum dos dois é erro de gramática e os dois marcam estrangeiro na hora."
+  },
+  {
+    "n": 43,
+    "titulo": "A mesma mensagem para o chefe e para o amigo",
+    "situacao": "Você precisa dizer a mesma coisa duas vezes: num e-mail para o diretor e num áudio para o colega com quem toma cerveja. Errar o volume dessa frase custa mais caro do que errar a gramática dela.",
+    "funcao": "Ajustar registro entre formal, neutro e informal.",
+    "porqueAqui": "Só pode vir depois que existem várias formas de dizer a mesma coisa, que é exatamente o efeito dos três circuitos anteriores. É onde o aluno passa a escolher, e escolher é o que caracteriza B2.",
+    "missao": "Pegue uma mensagem real sua desta semana e escreva as três versões em inglês: para o chefe, para o colega e para o amigo. Mande a informal para alguém e veja se soou natural.",
+    "armadilha": "Usar o registro do livro didático em conversa de bar, soando como manual, ou gíria de série com cliente. E abrir mensagem instantânea com \"Dear\", que em inglês soa como carta de advogado."
+  },
+  {
+    "n": 44,
+    "titulo": "A piada passou e você não riu",
+    "situacao": "Todo mundo riu e você não. Não faltou vocabulário: a frase era simples. Faltou perceber que ele disse o contrário do que queria dizer, e que a informação inteira estava no tom.",
+    "funcao": "Perceber e usar ironia, sarcasmo e humor de baixa intensidade.",
+    "porqueAqui": "É o último território da fluência e só entra depois que a compressão da fala já não atrapalha: a ironia inglesa mora na entonação, e a entonação some quando o ouvido ainda está lutando com as palavras.",
+    "missao": "Assista quinze minutos de stand-up em inglês e marque três momentos em que o riso veio do tom, não da palavra. Depois use uma resposta irônica curta numa conversa real.",
+    "armadilha": "Levar \"that's just great\" ao pé da letra e responder ao contrário do esperado. E tentar traduzir piada brasileira, que depende de referência cultural e morre no caminho: o caminho é reagir bem ao humor do outro antes de tentar o próprio."
+  },
+  {
+    "n": 45,
+    "titulo": "A call com quatro sotaques",
+    "situacao": "Reunião com um indiano, um escocês, um australiano e um americano. O inglês do mundo real é multissotaque, e a maior parte das pessoas com quem você vai falar inglês não é nativa.",
+    "funcao": "Entender variação de sotaque e pedir esclarecimento sem constranger ninguém.",
+    "porqueAqui": "Vem depois da fala conectada porque exige um ouvido que já não depende de um único modelo sonoro. É o circuito que desmonta a ideia de que existe um inglês certo e prepara o uso profissional real.",
+    "missao": "Ouça três falantes não nativos de países diferentes, dez minutos cada, e anote o que muda em cada um. Depois converse ao vivo com pelo menos um falante não nativo.",
+    "armadilha": "Achar que o problema é o sotaque do outro e desistir de entender, quando o kit de socorro resolve, agora numa versão adulta que não expõe ninguém. E supor que o seu sotaque brasileiro precisa sumir: ele precisa ser inteligível, não neutro."
+  },
+  {
+    "n": 46,
+    "titulo": "Cinco minutos e uma tela",
+    "situacao": "Você apresenta para dez pessoas em inglês, com slide atrás e perguntas no fim. Ler o slide em voz alta é o que quase todo mundo faz, e é exatamente o que faz a plateia parar de ouvir.",
+    "funcao": "Estruturar, conduzir e sustentar uma fala longa; responder perguntas.",
+    "porqueAqui": "Primeiro monólogo planejado do curso, e só entra agora porque exige registro (43) e recursos de conexão da fala já automáticos. É também onde o aluno descobre que fala melhor sozinho do que em conversa, e por quê.",
+    "missao": "Grave uma apresentação de cinco minutos em inglês sobre algo do seu trabalho, sem ler, e mostre para uma pessoa de verdade. Responda a três perguntas dela ao vivo.",
+    "armadilha": "\"Let me explain you\", quando em inglês é \"explain to you\". E encher a apresentação de palavra latina difícil porque parece mais séria, quando a apresentação boa em inglês usa palavra curta e frase curta."
+  },
+  {
+    "n": 47,
+    "titulo": "Dizer que não ficou bom",
+    "situacao": "Você precisa dizer a alguém, em inglês, que o trabalho não está no nível: sem destruir a pessoa e sem amaciar tanto que ela saia achando que foi elogio. É a conversa que mais dá errado por excesso de educação.",
+    "funcao": "Dar feedback negativo, propor correção e combinar o próximo passo.",
+    "porqueAqui": "Exige registro (43), amaciamento (28) e clareza (27) ao mesmo tempo, e por isso é uma das últimas coisas do curso. É também onde a polidez que o aluno treinou o curso inteiro precisa ser calibrada para baixo.",
+    "missao": "Dê um feedback real, em inglês, a alguém do seu trabalho ou a um parceiro de estudo, com um ponto concreto e uma sugestão. Peça à pessoa que repita o que entendeu.",
+    "armadilha": "\"I have a critic\": crítica é \"criticism\" ou \"feedback\", \"critic\" é a pessoa que critica. E o sanduíche mal feito, em que os dois elogios abafam a mensagem e o outro sai sem saber que precisa mudar."
+  },
+  {
+    "n": 48,
+    "titulo": "Repassar o que foi dito",
+    "situacao": "Você saiu de uma reunião em inglês e precisa contar a um colega o que o cliente disse, o que ficou decidido e o que ainda está em aberto. O que você repassa errado vira problema de outra pessoa.",
+    "funcao": "Relatar fala de terceiros, resumir e marcar o que é incerto.",
+    "porqueAqui": "Depende de escuta em velocidade real (41) e de variação de sotaque (45), porque só se repassa o que se entendeu. É onde o aluno vira ponte entre pessoas, que é o uso profissional mais valioso da língua.",
+    "missao": "Assista a uma reunião, entrevista ou podcast em inglês de vinte minutos e grave um resumo de dois minutos, em inglês, separando o que foi afirmado do que foi apenas sugerido.",
+    "armadilha": "Repetir a fala do outro palavra por palavra em vez de relatar, o que deixa o verbo no tempo errado e faz a opinião dele parecer sua. E apresentar como certo o que foi dito com dúvida, por falta da frase que marca incerteza."
+  },
+  {
+    "n": 49,
+    "titulo": "Sustentar uma posição por dez minutos",
+    "situacao": "A conversa virou discussão de verdade: alguém discorda de você com argumento, dado e insistência. Ceder é fácil e levantar a voz é fácil; sustentar a posição por dez minutos em inglês é outra coisa.",
+    "funcao": "Argumentar com evidência, conceder o ponto do outro e retomar a linha.",
+    "porqueAqui": "É a versão longa do circuito 28: lá era uma frase de discordância, aqui é um argumento inteiro sob pressão. Só cabe no fim porque exige turno, ressalva, relato e vocabulário abstrato ao mesmo tempo.",
+    "missao": "Escolha um tema que você domina e defenda sua posição por dez minutos, em inglês, com alguém que discorde de verdade. Grave e conte quantas vezes você recuou.",
+    "armadilha": "\"Discussion\" em inglês é conversa sobre um assunto, não briga, e \"argument\" é justamente a briga, não o argumento: trocar os dois faz você anunciar a coisa errada no meio da conversa. E abandonar a posição por cansaço linguístico, não por convencimento."
+  },
+  {
+    "n": 50,
+    "titulo": "Duas horas de jantar",
+    "situacao": "Jantar longo em inglês, sem tópico definido, sem preparo e sem escapatória. O assunto acaba três vezes, alguém muda de tema, dois falam ao mesmo tempo, e você precisa entrar, sair e voltar.",
+    "funcao": "Gerenciar conversa longa: trocar de assunto, ceder, retomar e encerrar.",
+    "porqueAqui": "É a integração final: perguntas, histórias, reações, humor, registro, argumentação e socorro num único evento contínuo. Só faz sentido no penúltimo par de circuitos, quando cada peça já roda sozinha e o custo é resistência, não conteúdo.",
+    "missao": "Participe de um evento social real em inglês de pelo menos duas horas: meetup, jantar, sala de voz, grupo de intercâmbio. Anote os três momentos em que quase desistiu de falar.",
+    "armadilha": "Preparar assuntos em casa e ficar refém do roteiro, travando na primeira virada de tema. E sumir por vinte minutos quando o assunto foge do seu vocabulário, em vez de usar a volta por cima do circuito 18."
+  },
+  {
+    "n": 51,
+    "titulo": "O dia em que a frase sai antes do português",
+    "situacao": "Você percebe que montou a frase inteira em português, traduziu, e quando ficou pronta o turno já tinha passado. Em algum momento isso para de acontecer, e não é por acaso: é treino específico.",
+    "funcao": "Produzir sem tradução: narração interna e resposta imediata.",
+    "porqueAqui": "É o penúltimo circuito porque só se pode parar de traduzir quando o reservatório é grande o bastante para o bloco vir pronto. Aqui não há função comunicativa nova: há a remoção do atraso que ainda separa o aluno do falante.",
+    "missao": "Durante toda a quinzena, passe uma hora por dia narrando em inglês, em voz baixa, o que você está fazendo, sem consultar nada. Anote todo dia quantas vezes precisou recorrer ao português.",
+    "armadilha": "Confundir pensar em inglês com traduzir mais rápido, e seguir montando a frase palavra por palavra. E medir o próprio inglês pela perfeição, quando o único indicador que importa aqui é o tempo entre a intenção e o som."
+  },
+  {
+    "n": 52,
+    "titulo": "Fechamento do curso: você fala inglês",
+    "situacao": "Vinte minutos de conversa livre com um estranho, sem tópico, sem preparo, sem rede. Os 51 circuitos anteriores aparecem misturados e sem aviso, e nenhum deles é matéria nova.",
+    "funcao": "Consolidação final: conversar sobre qualquer coisa e se recuperar sozinho.",
+    "porqueAqui": "Fechamento do curso: nenhum bloco novo, carga toda em recombinação e input real, e a fila de revisão inteira em jogo. É a medida honesta do que virou automático e a definição do que continua depois que o curso acaba.",
+    "missao": "Marque uma conversa de vinte minutos com um desconhecido que fale inglês e não conte que está estudando. Depois escreva, em português, o que você conseguiu fazer ali que não conseguia no circuito 1.",
+    "armadilha": "Achar que terminar o curso é terminar o inglês, e cortar o input no dia 728. E cobrar de si a fluência de nativo, quando o alvo sempre foi outro: conversar sobre qualquer assunto sem que o outro precise desacelerar."
+  }
+]

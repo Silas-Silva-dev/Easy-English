@@ -1,0 +1,1478 @@
+[
+  {
+    "circuito": 1,
+    "traco": "Epêntese vocálica: consoante final seca (/t/, /d/, /k/, /s/) sem vogal depois",
+    "interferencia": "A sílaba do português quase sempre termina em vogal, então a boca não sabe parar numa consoante e cola um 'i' fantasma no fim. O mecanismo é epêntese: 'good night' sai 'gúdi náitchi', 'nice to meet you' sai 'náiss tu mítchi iu', 'thanks' sai 'tênquis'. A palavra ganha uma sílaba que não existe e o americano ouve duas batidas onde deveria ter uma, então ele pede para repetir logo na primeira frase que você diz na vida.",
+    "comoTreinar": "Diga 'good' e trave a língua no D, sem soltar ar nem voz depois: a palavra acaba com a boca ainda fechada. Grave 'Good night' e conte as batidas com a mão — se deu quatro, o i fantasma entrou.",
+    "paresMinimos": [
+      [
+        "good",
+        "gúdi"
+      ],
+      [
+        "meet",
+        "mítchi"
+      ],
+      [
+        "night",
+        "náitchi"
+      ],
+      [
+        "thanks",
+        "tênquis"
+      ],
+      [
+        "great",
+        "grêitchi"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "No alinhamento de 'Nice to meet you' e 'Good night', o app conta os núcleos vocálicos de 'meet' e de 'good': passa só se deu um em cada; dois em qualquer uma das duas reprova."
+  },
+  {
+    "circuito": 2,
+    "traco": "Ritmo acentual: a frase tem batidas fortes e vales fracos, contra o ritmo silábico do português",
+    "interferencia": "O português é silábico: toda sílaba pesa quase o mesmo. Então 'Sorry, I don't understand' sai com sete pesos iguais, 'SÓ-RI-AI-DÔNT-ÂN-DER-STÉND', e leva o dobro do tempo. O americano bate só em SOR e em STAND e esmaga o resto num murmúrio — ele não fala mais rápido, ele encurta os vales. Quem espera peso igual em tudo perde justamente as duas palavras que carregavam o sentido e conclui que 'o gringo fala rápido demais'.",
+    "comoTreinar": "Bata a mão na mesa nas palavras fortes e deixe o resto caber entre as batidas, sem bater. Ouça 'Sorry' e 'I'm sorry' no relógio: as duas têm que durar o mesmo tempo.",
+    "paresMinimos": [
+      [
+        "Sorry.",
+        "I'm sorry."
+      ],
+      [
+        "Say that again.",
+        "Can you say that again?"
+      ],
+      [
+        "I don't understand.",
+        "Sorry, I don't understand."
+      ],
+      [
+        "Slow down.",
+        "Can you slow down a little?"
+      ],
+      [
+        "What does that mean?",
+        "And what does that mean?"
+      ]
+    ],
+    "modo": "perceber",
+    "checagem": "O aluno toca a tela em cada batida enquanto ouve 10 frases de socorro: em 8 das 10 o número de toques bateu com o número de sílabas fortes do gabarito? sim ou não."
+  },
+  {
+    "circuito": 3,
+    "traco": "/ɪ/ x /iː/ (his x he's, it x eat, live x leave)",
+    "interferencia": "O português tem um /i/ só, sempre esticado, então as duas vogais do inglês caem na mesma gaveta: 'I live here' sai 'I leave here', e 'his job' sai idêntico a 'he's job'. O mecanismo é falta de contraste no sistema — o /ɪ/ não é um i mais curto, é mais frouxo e mais baixo, quase um 'ê' preguiçoso. E ele mora exatamente nas palavras que aparecem em toda frase: it, is, in, this, his, live.",
+    "comoTreinar": "Solte a mandíbula, desfaça o sorriso e diga um 'ê' curto e frouxo em 'it', 'is' e 'live': se o canto da boca esticou, você fez o /iː/ e trocou de palavra. Grave 'his' e 'he's' seguidos, no mesmo take, antes de tentar a frase inteira.",
+    "paresMinimos": [
+      [
+        "his",
+        "he's"
+      ],
+      [
+        "it",
+        "eat"
+      ],
+      [
+        "live",
+        "leave"
+      ],
+      [
+        "this",
+        "these"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "No take em que o aluno diz 'his' e logo depois 'he's', a vogal da primeira palavra durou menos que a da segunda? sim ou não — igual ou mais longa significa a mesma vogal nas duas."
+  },
+  {
+    "circuito": 4,
+    "traco": "Entonação de pergunta: sim/não sobe, WH desce",
+    "interferencia": "Em português a pergunta se faz só pela curva: 'Você é do Brasil?' sobe no fim e acabou. O aluno leva essa curva única para o inglês e erra dos dois lados. Manda a WH subir — 'Where are you FROM↗?' — que em inglês é a curva de quem não acreditou e está pedindo para repetir, e soa como estranhamento. E manda a de sim/não descer — 'Are you here for work↘' — que chega como constatação, então o outro só concorda com a cabeça e o silêncio volta, que é exatamente o que este circuito veio consertar.",
+    "comoTreinar": "Termine toda pergunta de sim/não jogando a voz para cima na última palavra forte, como quem levanta o queixo. Na pergunta com WH faça o contrário: desça a voz e feche a frase, como se estivesse afirmando.",
+    "paresMinimos": [
+      [
+        "You're from Brazil.",
+        "You're from Brazil?"
+      ],
+      [
+        "He's here for work.",
+        "He's here for work?"
+      ],
+      [
+        "Are you here for work? (sobe)",
+        "Where are you from? (desce)"
+      ],
+      [
+        "Where are you from? (desce: quero saber)",
+        "Where are you from? (sobe: não peguei, repete)"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "O app mede a curva nos últimos 300 ms de duas gravações: subiu em 'Are you here for work?' e desceu em 'Where are you from?'? passa só se as duas responderem sim."
+  },
+  {
+    "circuito": 5,
+    "traco": "Epêntese no encontro consonantal final (black, milk, want)",
+    "interferencia": "É a epêntese do degrau 1 numa condição pior: o português não fecha sílaba com duas consoantes, então o encontro final é desmontado com uma vogal. 'black' sai 'bléqui', 'milk' sai 'mílki', 'want' sai 'uóntchi', 'large' sai 'lárdji'. No balcão isso custa dinheiro e tempo: a palavra vira duas sílabas, o atendente ouve 'bléqui', pergunta de novo com a fila atrás de você, e o pedido inteiro trava numa palavra de uma sílaba.",
+    "comoTreinar": "Diga 'milk' com o L preso atrás dos dentes de cima e feche no K sem soltar nada depois: a palavra acaba com a boca parada. Faça o pedido inteiro em voz alta, 'Can I get a large black coffee, no milk?', cortando cada palavra na consoante.",
+    "paresMinimos": [
+      [
+        "black",
+        "bléqui"
+      ],
+      [
+        "milk",
+        "mílki"
+      ],
+      [
+        "want",
+        "uóntchi"
+      ],
+      [
+        "large",
+        "lárdji"
+      ],
+      [
+        "thanks",
+        "tênquis"
+      ]
+    ],
+    "modo": "produzir",
+    "checagem": "No alinhamento de 'a large black coffee, no milk', o app conta os núcleos vocálicos de 'black' e de 'milk': passa só se deu um em cada."
+  },
+  {
+    "circuito": 6,
+    "traco": "Acento de palavra: -TEEN forte x -ty fraco (thirteen/thirty, fourteen/forty)",
+    "interferencia": "O par não se separa pelo som, se separa pela batida — e é aí que o português atrapalha, porque ele dá peso parecido às duas sílabas. O aluno fala 'TÊR-TIN' e 'TÊR-TI' com a mesma força e, como fala igual, ouve igual. Em inglês 'thirTEEN' tem a pancada no fim e vogal longa; 'THIRty' tem a pancada na frente e o fim desaba num murmúrio, com T de toque, quase o R de 'cara': 'THÊR-di'. É onde somem catorze dólares no caixa.",
+    "comoTreinar": "Ouça só o fim da palavra: sílaba final longa e forte é -TEEN; sílaba final que desabou num murmúrio é -ty. Marque qual das duas sílabas levou a pancada antes de escrever o número.",
+    "paresMinimos": [
+      [
+        "thirteen",
+        "thirty"
+      ],
+      [
+        "fourteen",
+        "forty"
+      ],
+      [
+        "fifteen",
+        "fifty"
+      ],
+      [
+        "sixteen",
+        "sixty"
+      ],
+      [
+        "nineteen",
+        "ninety"
+      ]
+    ],
+    "modo": "perceber",
+    "checagem": "O app toca 10 números sem mostrar nada escrito e o aluno digita o que ouviu: em 8 dos 10 o número digitado é igual ao do gabarito? sim ou não."
+  },
+  {
+    "circuito": 7,
+    "traco": "TH surdo /θ/ (think, thanks, three, Thursday)",
+    "interferencia": "O português não tem nenhuma consoante com a língua fora dos dentes, então o cérebro troca pelo vizinho mais próximo: T, que tem o mesmo ponto, ou S, que tem o mesmo modo. 'I think so' sai 'I tink so' ou 'I sink so', 'three' sai 'tree', 'thanks' sai 'tenks', 'Thursday' vira 'Tursday'. A conta chega em 'I don't think so': a resposta de meio-termo é a que mais precisa sair inteira, senão vira recusa seca no meio do guichê.",
+    "comoTreinar": "Ponha a ponta da língua entre os dentes, sopre meio segundo e só então complete a palavra: 'th—ink', 'th—ree'. Se seus dentes não encostaram na língua, saiu errado, não importa o que você achou que ouviu.",
+    "paresMinimos": [
+      [
+        "think",
+        "sink"
+      ],
+      [
+        "thanks",
+        "tanks"
+      ],
+      [
+        "three",
+        "tree"
+      ],
+      [
+        "I think so.",
+        "I sink so."
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "O app olha os primeiros 60 ms de 'think' e de 'three': achou silêncio de oclusão seguido de explosão (saiu T) ou chiado agudo forte (saiu S)? passa só se não achou nenhum dos dois em nenhuma das duas palavras."
+  },
+  {
+    "circuito": 8,
+    "traco": "/ʌ/ tônico e schwa /ə/ átono: a mesma vogal central, com e sem batida",
+    "interferencia": "São dois defeitos na mesma vogal. Com batida, o /ʌ/ vira 'a' ou obedece à letra escrita: 'come back' sai 'côme béqui', 'up' sai 'âp', 'but' sai 'bâti', 'lunch' sai 'lântchi'. Sem batida, o português não reduz nada — ele mantém a cor de toda vogal átona — então 'I get up at seven' sai com seis pesos iguais, 'ÉTI SÉ-VEN', em vez de 'ət-SEV-n'. O resultado é a rotina saindo como lista de itens, e não como frase que se emenda.",
+    "comoTreinar": "Relaxe a língua parada no meio da boca e dê um resmungo curto em 'up', 'come' e 'but': nada de 'ô' e nada de esticar. Depois diga 'I get up at seven' engolindo o 'at' até ele virar quase nada, com toda a força em UP e SEV.",
+    "paresMinimos": [
+      [
+        "bus",
+        "boss"
+      ],
+      [
+        "some",
+        "same"
+      ],
+      [
+        "at",
+        "eight"
+      ],
+      [
+        "to",
+        "two"
+      ],
+      [
+        "for",
+        "four"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "No alinhamento de 'I get up at seven', a vogal de 'at' durou menos da metade da vogal de 'up'? sim ou não."
+  },
+  {
+    "circuito": 9,
+    "traco": "/æ/ x /ɛ/ (bad x bed, sad x said, man x men)",
+    "interferencia": "O português tem um 'é' e o inglês tem dois sons ali: o /ɛ/ de 'bed', que é o nosso 'é', e o /æ/ de 'bad', que pede a boca mais aberta do que qualquer vogal nossa e dura mais tempo. Como o aluno usa o mesmo 'é' nos dois, 'that's bad' e 'that's bed' saem iguais e 'I can't stand it' vira 'I can't stend it'. E antes de a boca errar, o ouvido já errou: vogal que não existe no sistema dele é jogada na gaveta da vogal parecida, então ele nem escuta a diferença quando o outro fala.",
+    "comoTreinar": "Ouça vinte pares sem ver o texto e marque só qual dos dois foi dito; não tente falar ainda. A pista é a abertura: no /æ/ o queixo desce um dedo a mais e a vogal se arrasta mais tempo.",
+    "paresMinimos": [
+      [
+        "bad",
+        "bed"
+      ],
+      [
+        "and",
+        "end"
+      ],
+      [
+        "man",
+        "men"
+      ],
+      [
+        "bag",
+        "beg"
+      ]
+    ],
+    "modo": "perceber",
+    "checagem": "O app toca 10 palavras tiradas desses pares, sem texto na tela, e o aluno marca qual ouviu: acertou 8 das 10? sim ou não."
+  },
+  {
+    "circuito": 10,
+    "traco": "Encontro consonantal inicial: s+consoante sem vogal de apoio (school, student, sister)",
+    "interferencia": "Nenhuma palavra do português começa com S seguido de consoante: todas ganharam um 'e' na frente há séculos (escola, estudante, esporte). O reflexo continua vivo e entra um 'i' antes do S: 'school' sai 'iscúu', 'student' sai 'istúdent', 'small' sai 'ismól'. A palavra ganha uma sílaba e a fronteira muda de lugar — quem ouve 'iscúu' entende 'is cool', e a frase sobre a sua irmã que estuda vira uma frase sobre algo ser legal. 'sister' entra como controle: ali o S já vem seguido de vogal e o português não pede apoio nenhum, então se um 'i' aparecer na frente é hábito puro, e é isso que o portão mede.",
+    "comoTreinar": "Comece a palavra pelo chiado e segure meio segundo antes de soltar o resto: 'ssss-tudent', 'ssss-chool'. Encurte o chiado aos poucos até o tamanho normal, sem nunca deixar o 'i' voltar na frente.",
+    "paresMinimos": [
+      [
+        "school",
+        "is cool"
+      ],
+      [
+        "student",
+        "istudent"
+      ],
+      [
+        "small",
+        "ismall"
+      ],
+      [
+        "sister",
+        "isister"
+      ]
+    ],
+    "modo": "produzir",
+    "checagem": "No alinhamento de 'My sister is a student at that school', o app procura núcleo vocálico ANTES do S de 'student' e do S de 'school': passa só se não achou em nenhum dos dois."
+  },
+  {
+    "circuito": 11,
+    "traco": "Terminação -s: /s/, /z/ e /ɪz/",
+    "interferencia": "Duas coisas ao mesmo tempo. Primeira: no português falado o plural mora no artigo e o S do substantivo cai ('os menino'), então sai 'there are two coffee shop' e 'my parent live in Recife' sem que o aluno sinta falta de nada. Segunda: quando o S sobrevive, ele sai sempre surdo e ainda arrasta a vogal fantasma do degrau 1 — 'kids' vira 'kídis', 'shops' vira 'shópis'. O inglês decide sozinho e não pergunta: som surdo antes pede /s/, som sonoro ou vogal antes pede /z/, e sibilante antes pede uma sílaba inteira, /ɪz/.",
+    "comoTreinar": "Ponha a mão na garganta e diga 'parks' e depois 'kids': em 'kids' a garganta vibra até o fim, em 'parks' não. Repita 'there are two coffee shops and three parks' terminando cada palavra no chiado, sem nenhuma vogal depois.",
+    "paresMinimos": [
+      [
+        "ice",
+        "eyes"
+      ],
+      [
+        "place",
+        "plays"
+      ],
+      [
+        "house",
+        "houses"
+      ],
+      [
+        "park",
+        "parks"
+      ],
+      [
+        "kid",
+        "kids"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "Na gravação de 'There are two coffee shops and three parks near my place', o app procura o segmento fricativo final em 'shops' e em 'parks': achou nos dois? sim ou não."
+  },
+  {
+    "circuito": 12,
+    "traco": "Linking consoante para vogal: a fronteira de palavra que some (take a left, turn around)",
+    "interferencia": "Na fala a fronteira da palavra escrita não existe: a consoante final vira o começo da palavra seguinte. 'Take a left' chega como 'tei-ka-left', 'turn around' como 'tur-na-round', 'get off at' como 'ge-tó-fat'. O português faz exatamente o mesmo ('um amigo' sai 'u-ma-mi-go'), então o problema não é a boca, é o ouvido: ele procura no vocabulário a palavra 'taka', não acha, trava — e o aluno conclui que o americano fala rápido demais, quando ele só mudou a fronteira de lugar.",
+    "comoTreinar": "Ouça a instrução e conte quantas palavras tinha, sem tentar entender o sentido. Depois ouça de novo lendo o texto, com o dedo mostrando onde a consoante pulou para dentro da palavra seguinte.",
+    "paresMinimos": [
+      [
+        "take a left",
+        "tei-ka-left"
+      ],
+      [
+        "turn around",
+        "tur-na-round"
+      ],
+      [
+        "walk up the street",
+        "uó-káp-the-street"
+      ],
+      [
+        "Is it far?",
+        "í-zit-far?"
+      ],
+      [
+        "get off at the corner",
+        "gue-tó-fat-the-corner"
+      ]
+    ],
+    "modo": "perceber",
+    "checagem": "O app toca 10 instruções de caminho em velocidade normal e o aluno digita as palavras que ouviu: em 8 delas a contagem de palavras é igual à do gabarito? sim ou não."
+  },
+  {
+    "circuito": 13,
+    "traco": "TH sonoro /ð/ (the, this, that, they, there)",
+    "interferencia": "Mesmo problema do degrau 7 — língua fora dos dentes, coisa que o português não faz — e a troca aqui é o D, o vizinho mais próximo que já vem com voz: 'this' sai 'dis', 'they' sai 'dei', 'the' sai 'de', 'brother' sai 'bróder', 'there's' sai 'dérs'. Não impede o entendimento e é por isso que ninguém corrige, mas marca cada frase: 'the', 'this', 'that', 'they' e 'there' estão nas doze funções que o aluno acabou de reunir, e não existe um minuto de conversa sem esse som.",
+    "comoTreinar": "Mesma língua entre os dentes do degrau 7, agora com a voz ligada: ponha a mão na garganta e sinta em 'this' a vibração que não existe em 'think'. Passe um minuto por dia dizendo 'the, this, that, they, there, brother' com a ponta da língua aparecendo.",
+    "paresMinimos": [
+      [
+        "they",
+        "day"
+      ],
+      [
+        "this",
+        "dis"
+      ],
+      [
+        "that",
+        "dat"
+      ],
+      [
+        "brother",
+        "bróder"
+      ],
+      [
+        "there's",
+        "dérs"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "O app olha os primeiros 60 ms de 'this', 'that' e 'they': achou silêncio de oclusão seguido de explosão (saiu D)? passa só se não achou em nenhuma das três."
+  },
+  {
+    "circuito": 14,
+    "traco": "Terminação -ed: /t/, /d/ e /ɪd/, e quando ela não é sílaba",
+    "interferencia": "O -ed é lido letra a letra, e a sílaba do português não termina em consoante: entra uma vogal e nasce uma sílaba que ninguém falou. \"Worked\" sai \"uórk-édi\", \"liked\" sai \"láik-édi\", \"stayed\" sai \"stêi-êdi\". O prejuízo é duplo: a palavra ganha uma batida que não existe, e o passado deixa de se distinguir do presente, porque \"I worked\" com vogal no fim vira \"I work it\". O inglês só deixa o -ed virar sílaba depois de T ou D — wanted, waited, needed — e em todo o resto ele é um /t/ ou um /d/ colado na palavra, escolhido pela consoante anterior: surda pede /t/, sonora pede /d/.",
+    "comoTreinar": "Diga \"worked\" terminando seco no /t/ e \"stayed\" terminando em /d/ com a garganta vibrando, cada uma em uma sílaba só. Deixe o -ed virar sílaba apenas quando a palavra já terminava em T ou D: \"wanted\", \"waited\".",
+    "paresMinimos": [
+      [
+        "worked",
+        "work"
+      ],
+      [
+        "liked",
+        "like"
+      ],
+      [
+        "stayed",
+        "stay"
+      ],
+      [
+        "watched",
+        "watch"
+      ],
+      [
+        "wanted",
+        "want it"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "O alinhamento conta as sílabas da gravação: worked, liked e stayed com uma, wanted com duas. Alguma das quatro saiu com sílaba a mais? sim ou não."
+  },
+  {
+    "circuito": 15,
+    "traco": "Acento de frase: a palavra que carrega a informação nova",
+    "interferencia": "O português é de ritmo silábico e distribui o peso por igual, então a história sai plana: \"so-the-pla-ce-was-clo-sed\", sete batidas do mesmo tamanho, e a virada não aparece em lugar nenhum. Quando o aluno sente que ficou sem graça, ele levanta o volume da frase inteira, e o inglês faz o contrário: apaga tudo e deixa uma sílaba mais alta e mais longa, e é essa sílaba que aponta a novidade. Sem ela, \"I waited FORTY minutes\" e \"I waited forty MINUTES\" saem idênticas, e quem ouve não sabe se o absurdo foi o tempo ou o fato de ter esperado.",
+    "comoTreinar": "Diga a mesma frase três vezes mudando a palavra forte e diga em voz alta, em português, o que mudou de sentido a cada vez. Ao contar a história, alongue a palavra nova ao dobro do resto e deixe todo o resto cair.",
+    "paresMinimos": [
+      [
+        "I WORK downtown",
+        "I work DOWNTOWN"
+      ],
+      [
+        "It was MY brother",
+        "It was my BROTHER"
+      ],
+      [
+        "I waited FORTY minutes",
+        "I waited forty MINUTES"
+      ],
+      [
+        "The COFFEE was terrible",
+        "The coffee was TERRIBLE"
+      ],
+      [
+        "I said HE was there",
+        "I said he WAS there"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "O alinhamento mede duração e altura de cada sílaba da frase: a sílaba mais longa e mais alta da gravação caiu na palavra que o roteiro marcou como nova? sim ou não."
+  },
+  {
+    "circuito": 16,
+    "traco": "Assimilação de duas palavras numa só: 'used to' = /jústə/, S surdo e sem vogal extra",
+    "interferencia": "Dois mecanismos do português se somam na mesma expressão. O S entre vogais é sonoro em português (\"casa\", \"coisa\"), então \"used\" vira \"iúzed\"; e o -ed é lido como sílaba, então entra um \"e\" que ninguém falou. Sai \"iú-zé-di tchu\": quatro sílabas, com o \"to\" ainda por extenso. O nativo diz duas, /JÚS-tə/, com S de \"sopa\", sem nenhuma vogal entre o S e o T e com a última sílaba quase muda. Enquanto durar as quatro sílabas, \"I used to play soccer\" não cabe no ritmo da frase e o ouvinte fica procurando um verbo que não existe.",
+    "comoTreinar": "Trate \"used to\" como uma palavra só, de duas sílabas, com o S de \"sopa\" e o fim quase mudo: JÚS-tə. Diga \"I usta play soccer every Sunday\" dez vezes antes de olhar para a escrita.",
+    "paresMinimos": [
+      [
+        "used to",
+        "used it"
+      ],
+      [
+        "used to",
+        "use it"
+      ],
+      [
+        "I used to",
+        "I use two"
+      ],
+      [
+        "place",
+        "plays"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "No alinhamento de \"used to\": apareceu segmento vocálico entre o S e o T, ou o S saiu vozeado? sim ou não."
+  },
+  {
+    "circuito": 17,
+    "traco": "/h/ x /r/ inicial: o H que some e o R que vira H",
+    "interferencia": "São dois mecanismos opostos que se cruzam. O H escrito não soa em português (\"hora\", \"hoje\"), então ele desaparece no inglês: \"That's hilarious\" sai \"dats ilárious\" e \"How awful\" sai \"áu óful\" — as duas reações mais fortes do circuito chegam sem começo. E o R inicial do português já é o som de H (\"rato\" é \"hato\"), então ele aparece onde não devia: \"Really?\" sai \"Heally?\". O aluno some com um som e põe esse mesmo som no lugar errado, e as três reações que ele mais vai usar são exatamente as três afetadas.",
+    "comoTreinar": "Para o H, sopre ar quente antes da vogal, como quem embaça um vidro; para o R, arredonde os lábios como se fosse dizer \"u\" e não encoste a língua em lugar nenhum. Diga \"How awful — Really? — That's hilarious\" em sequência, conferindo o sopro nos dois H e a ausência de sopro no R.",
+    "paresMinimos": [
+      [
+        "hi",
+        "I"
+      ],
+      [
+        "his",
+        "is"
+      ],
+      [
+        "how",
+        "hour"
+      ],
+      [
+        "have",
+        "of"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "A transcrição das três reações devolveu hilarious, how e really com o começo inteiro, e não ilarious, ow e heally? sim ou não."
+  },
+  {
+    "circuito": 18,
+    "traco": "Formas fracas das palavras funcionais (to, of, for, a, that, you)",
+    "interferencia": "O português quase não reduz vogal átona, então cada palavrinha sai por extenso e com peso próprio: \"tchu\", \"óv\", \"fór\", \"êi\", \"dét\", \"iú\". \"The thing that you use to\" vira seis batidas iguais e leva o dobro do tempo; quando o molde termina, o outro já preencheu o silêncio ou trocou de assunto — e a saída que existe para não travar é justamente o que trava. O nativo entrega \"the-thing-thət-yə-use-tə\" em um segundo, com força só em thing e use. E o prejuízo se repete no ouvido: como ele nunca produziu \"tə\" e \"yə\", ele jura que faltou palavra no áudio.",
+    "comoTreinar": "Bata a mão na mesa só em \"thing\" e \"use\" e diga o resto com a boca quase parada, sem nenhuma vogal cheia. Cronometre o molde inteiro: se passou de dois segundos, algum vale ainda está forte.",
+    "paresMinimos": [
+      [
+        "to",
+        "two"
+      ],
+      [
+        "for",
+        "four"
+      ],
+      [
+        "at",
+        "eight"
+      ],
+      [
+        "he was there",
+        "he wasn't there"
+      ],
+      [
+        "I can go",
+        "I can't go"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "No alinhamento de \"the thing that you use to\", alguma das palavras funcionais (that, you, to) durou mais que a palavra de conteúdo \"thing\"? sim ou não."
+  },
+  {
+    "circuito": 19,
+    "traco": "Reduções de duas palavras: gonna, wanna, gotta",
+    "interferencia": "Ele aprendeu \"going to\" com três sílabas e é isso que procura no áudio. O nativo entrega duas, \"gánə\", e o português não tem regra que apague sílaba nesse ponto: não existe onde encaixar o que chegou, o trecho vira borrão e a conclusão é sempre a mesma, \"o americano fala rápido demais\". Na prática, \"What are you gonna do this weekend?\" — a pergunta mais repetida de sexta-feira à tarde — entra inteira no ouvido e sai sem sentido, e ele responde \"Sorry?\" a uma frase que responderia de olhos fechados se estivesse escrita. Quando tenta produzir antes da hora sai o pior dos dois mundos: \"góna tchu\", com o \"to\" de volta, que nativo nenhum diz.",
+    "comoTreinar": "Ouça o trecho três vezes e escreva por extenso a forma que foi comprimida, depois confira contra o texto. Não tente falar \"gonna\" ainda: este degrau é de ouvido.",
+    "paresMinimos": [
+      [
+        "going to",
+        "gonna"
+      ],
+      [
+        "want to",
+        "wanna"
+      ],
+      [
+        "got to",
+        "gotta"
+      ],
+      [
+        "gonna",
+        "gotta"
+      ],
+      [
+        "wanna go",
+        "want a coffee"
+      ]
+    ],
+    "modo": "perceber",
+    "checagem": "No ditado de dez trechos, item a item: o aluno escreveu a forma que estava no áudio (gonna, wanna, gotta) ou escreveu outra? Cada item passa ou não passa."
+  },
+  {
+    "circuito": 20,
+    "traco": "/eɪ/ x /ɛ/ (eight x get, late x let, wait x wet)",
+    "interferencia": "O \"ê\" do português é vogal única e não desliza, então o ditongo /eɪ/ achata e encosta no /ɛ/: \"eight\" sai \"ét\", \"late\" sai \"lét\", \"wait\" sai \"uét\". No circuito do horário isso não é sotaque, é hora errada: \"Can we make it at eight?\" sai \"at et\", o outro entende outra coisa, e a confirmação de volta — que é exatamente o que este circuito treina — confirma o erro em vez de pegá-lo. O mesmo achatamento junta \"say\" e \"said\", o par que decide se você está propondo agora ou relatando o que já foi combinado.",
+    "comoTreinar": "Faça o som deslizar de \"ê\" para \"i\" dentro da mesma sílaba, exagerando o deslize até parecer demais: \"êi-t\", \"uêi-t\". Diga \"eight\" e \"get\" colados dez vezes seguidas sem deixar os dois se aproximarem.",
+    "paresMinimos": [
+      [
+        "eight",
+        "get"
+      ],
+      [
+        "say",
+        "said"
+      ],
+      [
+        "they",
+        "then"
+      ],
+      [
+        "wait",
+        "went"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "O app manda repetir o horário de volta: a transcrição trouxe \"eight\" e não \"at\", \"et\" ou \"get\"? sim ou não."
+  },
+  {
+    "circuito": 21,
+    "traco": "L escuro no fim da sílaba (I'll, well, still, else)",
+    "interferencia": "Em português o L no fim da sílaba já virou U (\"Brasil\" é \"Brasiu\", \"mal\" é \"mau\") e a língua nem chega a encostar. Então \"I'll\" sai \"ai-u\" e o transcritor devolve \"I\"; \"well\" sai \"uéu\"; \"still\" sai \"stiu\"; \"else\" sai \"éus\". A conta é alta justo aqui porque a recusa em três tempos mora inteira nessas palavras: o \"Well...\" que amortece e o \"I'll let you know\" que deixa a porta aberta. Sem o L, sobra \"I let you know\", que é outra coisa, e a única frase que preserva a relação vira ruído.",
+    "comoTreinar": "Encoste a ponta da língua atrás dos dentes de cima e segure lá até o som acabar: o L do inglês termina com a língua colada, o do português termina com ela solta. Diga \"Well... I'll let you know\" com a língua presa nos dois L e só solte depois do silêncio.",
+    "paresMinimos": [
+      [
+        "I'll",
+        "I"
+      ],
+      [
+        "we'll",
+        "we"
+      ],
+      [
+        "she'll",
+        "she"
+      ],
+      [
+        "they'll",
+        "they"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "Na gravação de \"I'll let you know\", a transcrição devolveu \"I'll\"? sim ou não — \"I\" reprova."
+  },
+  {
+    "circuito": 22,
+    "traco": "Flap T: o T entre vogais vira um toque (water, better, get it, a little bit)",
+    "interferencia": "O brasileiro pronuncia o T inteiro (\"uá-TER\") ou palataliza antes de vogal alta, como faz em \"tia\": \"a little bitchi\", \"guétchi it\". O americano troca o T entre vogais pelo toque de língua do R de \"cara\": water soa \"uárer\", better soa \"bérer\", \"get it\" soa \"guérit\", \"a little bit\" soa \"a lírou bit\". O prejuízo maior é de ouvido: numa mesa em que water e waiter voltam a cada dois turnos, ele não reconhece nenhuma das duas no áudio, porque com o toque as duas passaram a diferir só pela vogal — que é exatamente o degrau instalado no circuito 20.",
+    "comoTreinar": "Use o R de \"careta\" no lugar do T e diga \"uárer\", \"bérer\", \"a lírou bit\" até soar natural. Depois leve o mesmo toque para a fronteira entre palavras: \"get it\", \"a lot of it\", \"not at all\".",
+    "paresMinimos": [
+      [
+        "water",
+        "waiter"
+      ],
+      [
+        "waiter",
+        "later"
+      ],
+      [
+        "got a",
+        "gotta"
+      ],
+      [
+        "get it",
+        "get this"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "No alinhamento de \"Can I get a little bit of water?\", algum T entre vogais saiu com fechamento acima de 40 ms ou com o \"tch\" do português? sim ou não."
+  },
+  {
+    "circuito": 23,
+    "traco": "Perguntas esmagadas: 'have you ever', didja, whaddaya, whatcha",
+    "interferencia": "Ele decodifica palavra por palavra, porque foi assim que leu, e procura no áudio o espaço entre elas. O espaço não existe: \"Did you\" vira \"didja\", \"What do you\" vira \"uarraia\", \"What are you\" vira \"uátcha\" e \"Have you ever\" vira um bloco só de três batidas com a força em \"ever\". Como toda pergunta deste circuito começa assim, ele perde justamente o começo, que é onde mora o tempo verbal: \"What do you do?\" e \"What did you do?\" chegam iguais, e ele responde a pergunta errada com a gramática certa.",
+    "comoTreinar": "Ouça o trecho uma vez só e escreva a pergunta por extenso, sem repetir em voz alta; só depois confira. Faça vinte perguntas esmagadas por dia, sempre com uma escuta por trecho.",
+    "paresMinimos": [
+      [
+        "Did you",
+        "didja"
+      ],
+      [
+        "What do you",
+        "whaddaya"
+      ],
+      [
+        "What are you",
+        "whatcha"
+      ],
+      [
+        "Did you",
+        "Do you"
+      ],
+      [
+        "What did you do",
+        "What do you do"
+      ]
+    ],
+    "modo": "perceber",
+    "checagem": "No ditado, item a item: o aluno escreveu a pergunta por extenso com o auxiliar que estava no áudio (did ou do)? Cada item passa ou não passa."
+  },
+  {
+    "circuito": 24,
+    "traco": "Sílaba -er átona /ɚ/ (bigger, cheaper, better, the other one)",
+    "interferencia": "Em português, palavra terminada em R é oxítona — \"comer\", \"mulher\", \"melhor\" — então o aluno joga a força exatamente onde o inglês a tira: \"bi-GUÉR\", \"chi-PÉR\", \"be-TÉR\". E como o ritmo é silábico, essa segunda sílaba ainda sai com vogal cheia e do mesmo tamanho da primeira. O inglês faz o oposto: toda a energia em BIG e o -er vira uma vogal-R curta e sem cor, quase um resmungo. Numa comparação de sessenta segundos o -er volta dez vezes; com a força na sílaba errada cada palavra vira duas batidas fortes, e o ouvinte perde qual das duas opções você está defendendo.",
+    "comoTreinar": "Ponha toda a força na primeira sílaba e deixe o -er virar um resmungo com a língua puxada para trás, sem vogal clara: BIG-ɚ, CHEAP-ɚ, BET-ɚ. Diga \"the other one is bigger and cheaper\" com três batidas fortes e nenhuma no fim das palavras.",
+    "paresMinimos": [
+      [
+        "bigger",
+        "big"
+      ],
+      [
+        "cheaper",
+        "cheap"
+      ],
+      [
+        "longer",
+        "long"
+      ],
+      [
+        "waiter",
+        "wait"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "No alinhamento de bigger, cheaper e \"the other one\", a segunda sílaba saiu mais longa ou mais alta que a primeira em alguma delas? sim ou não."
+  },
+  {
+    "circuito": 25,
+    "traco": "Entonação de continuidade x de encerramento: a melodia que segura o turno aberto",
+    "interferencia": "Em português a conversa se sustenta com palavra — \"né?\", \"aí\", \"sabe?\" — e não com melodia; a declarativa desce e pronto. Transportado para o inglês, isso faz o aluno fechar o tom no fim de cada frase: \"It's a nice day.\" descendo, \"Yeah.\" descendo, \"I work downtown.\" descendo. Para o ouvido americano cada descida dessas é ponto final com aviso de saída, e em oito segundos os dois estão olhando para o celular sem que ninguém tenha falado errado. O oposto custa igual: quem sobe em tudo soa inseguro, como se pedisse permissão a cada frase.",
+    "comoTreinar": "Termine a frase com o tom parado no meio da sua faixa, sem deixar cair até o fundo, e emende a seguinte sem respirar fundo. Desça até o fundo uma vez só, na frase em que você realmente quer encerrar.",
+    "paresMinimos": [
+      [
+        "Yeah.",
+        "Yeah..."
+      ],
+      [
+        "It was good.",
+        "It was good..."
+      ],
+      [
+        "Not much.",
+        "Not much..."
+      ],
+      [
+        "Good talking to you.",
+        "Good talking to you..."
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "O app mede o tom da última sílaba de cada frase nos 30 segundos: alguma frase que não era a última desceu até o fundo da faixa do aluno? sim ou não."
+  },
+  {
+    "circuito": 26,
+    "traco": "-ed e -s sob carga de conteúdo: os finais que somem quando a atenção vai para a história",
+    "interferencia": "Aqui o final não some por ignorância, some por carga. Em português a informação de tempo e de número já está em outro lugar da frase — no advérbio, no artigo, na terminação sonora do verbo — então o cérebro trata a consoante final como dispensável e a descarta assim que a atenção migra para o que contar. O resultado é o aluno que acerta \"worked\" e \"friends\" isolados há doze circuitos e, em três minutos sem roteiro, produz \"yesterday I work late\", \"my friend say\", \"two coffee\" e \"she live downtown\". É o único ponto do canto em que dá para medir isso: em exercício com roteiro sempre sobra atenção.",
+    "comoTreinar": "Fale três minutos sem roteiro e não conserte nada durante a fala; depois ouça a gravação uma vez só, marcando cada final que sumiu. Refaça só os trechos marcados devagar, com todos os finais, e repita na velocidade normal.",
+    "paresMinimos": [
+      [
+        "I work downtown",
+        "I worked downtown"
+      ],
+      [
+        "he wants it",
+        "he wanted it"
+      ],
+      [
+        "I like it",
+        "I liked it"
+      ],
+      [
+        "my friend",
+        "my friends"
+      ],
+      [
+        "she plays",
+        "she played"
+      ]
+    ],
+    "modo": "produzir",
+    "checagem": "Na transcrição dos três minutos, o app confronta cada verbo de passado e cada plural exigidos pela história com o que foi transcrito: algum voltou sem o -ed ou sem o -s? sim ou não."
+  },
+  {
+    "circuito": 27,
+    "traco": "Schwa que apaga sílaba inteira e acento em palavra longa (comfortable, business, management)",
+    "interferencia": "O português pronuncia toda vogal escrita e põe a força onde o cognato manda, então a palavra ganha sílabas que o inglês já apagou e perde a batida forte. \"Comfortable\" sai \"com-for-tá-bou\", quatro sílabas com a força na terceira, quando o nativo diz \"CÔMF-ter-bl\", três sílabas com a força na primeira. \"Business\" vira \"bi-zi-nés\" em vez de \"BIZ-nis\", \"management\" vira \"me-ne-GE-ment\" em vez de \"MÉ-nij-ment\", \"different\" vira \"di-fe-RENT\" em vez de \"DÍF-rent\". São dois mecanismos empilhados: silabação plena, em que nenhuma vogal é engolida, e acento importado do português. Numa explicação de 90 segundos sobre o próprio trabalho essas palavras voltam a cada dez segundos, e cada uma sai com uma sílaba a mais.",
+    "comoTreinar": "Bata o dedo uma vez por sílaba: se \"comfortable\" deu quatro batidas, apague a vogal depois do F e refaça com três. Ponha toda a força na primeira sílaba e deixe as outras caírem para um \"â\" curto e sem cor.",
+    "paresMinimos": [
+      [
+        "different",
+        "difficult"
+      ],
+      [
+        "business",
+        "busy"
+      ],
+      [
+        "every",
+        "very"
+      ],
+      [
+        "a PREsent",
+        "to preSENT"
+      ],
+      [
+        "a REcord",
+        "to reCORD"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "no alinhamento, \"comfortable\" saiu com três sílabas e \"business\" com duas? sim ou não"
+  },
+  {
+    "circuito": 28,
+    "traco": "Grupo consonantal final e a simplificação que o nativo faz (facts, costs, risks, asked, points)",
+    "interferencia": "A sílaba do português não aceita duas ou três consoantes no fim, então o brasileiro faz duas coisas erradas ao mesmo tempo: enfia vogal dentro do grupo e, quando não consegue, apaga justamente o -s. \"Facts\" sai \"fé-qui-tis\" com três sílabas, \"costs\" sai \"cós-tis\", \"asked\" sai \"és-que-di\" e \"risks\" sai \"hís-quis\". O nativo também simplifica, mas ao contrário: ele apaga a consoante do MEIO e segura o -s do fim — \"facts\" vira \"faks\", \"asked\" vira \"ast\", \"costs\" vira \"coss\". Quem apaga o -s some com o plural e diz \"the cost\" no meio de uma discordância que só faz sentido no plural.",
+    "comoTreinar": "Apague o T do meio e nunca o S do fim: diga \"facts\" como \"faks\" e \"asked\" como \"ast\", numa sílaba só. Grave \"the costs and the risks\" e conte as batidas — cinco palavras, cinco batidas, nenhuma a mais.",
+    "paresMinimos": [
+      [
+        "fact",
+        "facts"
+      ],
+      [
+        "cost",
+        "costs"
+      ],
+      [
+        "risk",
+        "risks"
+      ],
+      [
+        "point",
+        "points"
+      ],
+      [
+        "ask",
+        "asked"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "\"facts\" e \"costs\" saíram com uma sílaba cada e com o S final presente no alinhamento? sim ou não"
+  },
+  {
+    "circuito": 29,
+    "traco": "Contração obrigatória em velocidade: I'd, that's, there's, we've numa sílaba só",
+    "interferencia": "O português não tem contração obrigatória de sujeito com auxiliar, e a escola vendeu a forma cheia como a forma \"certa\": o brasileiro entra na reunião com \"I would like to add something\", sete batidas, e a fresta fecha na terceira. Quando ele tenta contrair, desfaz a contração em duas sílabas — \"I'd\" sai \"ái-dâ\", \"we've\" sai \"uí-ivi\", \"there's\" sai \"dér-is\" — ou engole o d e o v inteiros e diz \"I like to add\", que é outra frase e chega como opinião solta. O mecanismo é o mesmo da vogal fantasma: consoante final sem vogal é sílaba impossível em português, então ou entra vogal, ou a consoante cai.",
+    "comoTreinar": "Cole o d, o z e o v na vogal e diga \"I'd\", \"that's\", \"there's\" e \"we've\" numa batida só, sem soltar vogal depois. Treine a entrada pronta: \"That's a good point\" tem que sair antes de você montar o resto da frase.",
+    "paresMinimos": [
+      [
+        "I'd like",
+        "I like"
+      ],
+      [
+        "we've got",
+        "we got"
+      ],
+      [
+        "there's more",
+        "there was more"
+      ],
+      [
+        "that's right",
+        "that was right"
+      ],
+      [
+        "I'd say",
+        "I say"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "a transcrição devolveu \"I'd like\" — e não \"I like\" nem \"I would like\"? sim ou não"
+  },
+  {
+    "circuito": 30,
+    "traco": "Letras e números em áudio ruim: E/I/A/G e -teen x -ty ao telefone",
+    "interferencia": "O nome das letras em inglês não é o do português, e as quatro que mais aparecem em nome e e-mail são exatamente as que colidem: E é \"ii\", I é \"ai\", A é \"ei\" e G é \"dji\". O brasileiro solta o nome português: diz \"i\" querendo I e o outro escreve E, diz \"é\" querendo E e o outro não escreve nada, diz \"ji\" querendo G e o outro escreve J. Nos números, o telefone corta o fim da palavra e derruba o /n/ de -teen, então só sobra a batida: \"fifTEEN\" tem a força na segunda sílaba, \"FIFty\" na primeira e com T de toque. Sem rosto, sem contexto e com áudio comprimido, é a batida ou nada — e o endereço anotado vai para o número errado.",
+    "comoTreinar": "Soletre sempre com palavra de apoio, \"E as in echo, I as in India\", e nunca solte a letra sozinha. No número, ouça só onde cai a batida e repita o número de volta antes de anotar.",
+    "paresMinimos": [
+      [
+        "A",
+        "E"
+      ],
+      [
+        "E",
+        "I"
+      ],
+      [
+        "G",
+        "J"
+      ],
+      [
+        "fifteen",
+        "fifty"
+      ],
+      [
+        "nineteen",
+        "ninety"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "a transcrição da soletração bate letra por letra com o nome ditado, e o número bate dígito por dígito? sim ou não"
+  },
+  {
+    "circuito": 31,
+    "traco": "Nasal final e -ING na fala real: vogal oral, consoante nasal inteira, sem G e sem vogal depois",
+    "interferencia": "Em português a nasal do fim não é consoante, é um traço da vogal: \"sim\" é \"sĩ\", sem nenhum contato de língua. O brasileiro leva isso para o inglês e some com a consoante — \"phone\" vira \"fôu\", \"in\" vira \"ĩ\" — ou faz o oposto no -ING, onde a leitura à portuguesa manda estourar um G e ainda pôr vogal depois: \"it's not working\" sai \"its nót uór-quin-gui\", com uma sílaba a mais, e \"it keeps freezing\" sai \"fri-zin-gui\". Os dois erros são o mesmo mecanismo pelo avesso. A nasal final do inglês é uma consoante inteira, com a língua encostada, e a vogal antes dela continua oral — e num circuito que vive de \"it's not working\" e \"nothing happens\", ela está em toda frase que você vai dizer ao suporte.",
+    "comoTreinar": "Segure o fundo da língua colado no céu da boca no fim de \"working\" e deixe o ar sair pelo nariz, sem estourar G nenhum e sem vogal depois. Grave \"it keeps freezing\" e conte as sílabas: quatro, nunca cinco.",
+    "paresMinimos": [
+      [
+        "thin",
+        "thing"
+      ],
+      [
+        "ran",
+        "rang"
+      ],
+      [
+        "some",
+        "sun"
+      ],
+      [
+        "working",
+        "work"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "apareceu vogal ou estouro de G depois do -ING de \"working\"? sim ou não"
+  },
+  {
+    "circuito": 32,
+    "traco": "Ênfase contrastiva: acento e alongamento na palavra que corrige",
+    "interferencia": "Em português a correção é feita com palavra e com ordem — \"eu pedi foi o pequeno\", \"não é quinze, é cinquenta\" — e a melodia pode ficar plana que ninguém estranha. Transportado direto, sai \"I ordered the small one\" com as cinco palavras pesando igual, e o atendente ouve repetição do pedido, não correção: ele confirma o item errado e a cobrança continua. O outro extremo é subir o volume da frase inteira, que em inglês lê como irritação e não como dado, e faz o atendente fechar. O inglês corrige com uma palavra só: ela fica mais longa, mais alta e mais forte, e todas as vizinhas afundam.",
+    "comoTreinar": "Alongue a palavra que corrige até quase o dobro das vizinhas e derrube o resto da frase para um murmúrio. Grave \"I ordered the SMALL one\" e \"I said FIFTY\": se todas as palavras duraram o mesmo, não houve correção nenhuma.",
+    "paresMinimos": [
+      [
+        "I ordered the SMALL one",
+        "I ORDERED the small one"
+      ],
+      [
+        "I said FIFTY",
+        "I SAID fifty"
+      ],
+      [
+        "It's not MY card",
+        "It's not my CARD"
+      ],
+      [
+        "I paid on FRIDAY",
+        "I PAID on Friday"
+      ],
+      [
+        "I asked for TWO",
+        "I ASKED for two"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "no alinhamento, a palavra marcada foi a mais longa da frase? sim ou não"
+  },
+  {
+    "circuito": 33,
+    "traco": "/ʊ/ x /uː/ (could x cooed, full x fool, would x wooed)",
+    "interferencia": "O português tem um /u/ só, e ele é tenso, longo e com bico nos lábios. Então \"could\" sai \"kuud\" e \"would\" sai \"uuud\", com a mesma vogal de \"you\" e de \"food\", e o pedido educado — que mora inteiro nesses dois verbos — chega esticado e estranho: \"Uuuld it be possible\". No mesmo movimento \"full\" e \"fool\" viram a mesma palavra, e \"I'm full\" na mesa deixa de ser \"estou satisfeito\" e vira outra coisa. O /ʊ/ não é um /u/ curto: é frouxo, os lábios quase não se juntam e a língua fica mais para o meio da boca, e é justamente essa vogal que abre a porta que você veio pedir.",
+    "comoTreinar": "Relaxe os lábios, tire o bico e diga \"could\" e \"would\" bem curtos, como um \"ô\" engolido. Grave \"Could you\": se a vogal de \"could\" durou o mesmo que a de \"you\", ela ainda está tensa.",
+    "paresMinimos": [
+      [
+        "full",
+        "fool"
+      ],
+      [
+        "pull",
+        "pool"
+      ],
+      [
+        "could",
+        "cool"
+      ],
+      [
+        "would",
+        "food"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "no alinhamento de \"Could you\", a vogal de \"could\" durou menos que a de \"you\"? sim ou não"
+  },
+  {
+    "circuito": 34,
+    "traco": "L escuro preso entre consoantes (world, terminal, help, twelfth)",
+    "interferencia": "O L de fim de sílaba já virou U no português brasileiro — \"hotel\" é \"hoteu\", \"mal\" é \"mau\" — e o brasileiro exporta isso inteiro: \"terminal\" sai \"termináu\", \"hall\" sai \"hôu\", \"world\" sai \"uôrd\". Preso entre consoantes o problema dobra, porque \"lp\", \"lv\" e \"lfth\" são grupos impossíveis em português e entra vogal para salvar a sílaba: \"help\" vira \"hél-pi\" e \"twelfth\" vira \"tuél-fi-fi\". No balcão de reacomodação isso não é sotaque: \"terminal\" virando \"termináu\" e \"hall\" virando \"hôu\" mandam você para o lugar errado com o relógio correndo, e \"world\" sem o L é simplesmente \"word\".",
+    "comoTreinar": "Encoste a ponta da língua atrás dos dentes de cima e SEGURE ali, com o fundo da língua puxado para trás, antes de soltar o D de \"world\" e o P de \"help\". Se saiu U no lugar do L, refaça sem tirar a ponta da língua do lugar.",
+    "paresMinimos": [
+      [
+        "world",
+        "word"
+      ],
+      [
+        "twelve",
+        "twelfth"
+      ],
+      [
+        "walk",
+        "wall"
+      ],
+      [
+        "hall",
+        "all"
+      ]
+    ],
+    "modo": "produzir",
+    "checagem": "o alinhamento achou contato de L entre a vogal e a consoante seguinte em \"world\" e \"help\"? sim ou não"
+  },
+  {
+    "circuito": 35,
+    "traco": "R americano rótico dentro e no fim da sílaba (hurt, worse, nurse, sore, doctor)",
+    "interferencia": "O R de fim de sílaba é fraco ou não existe em português: \"doutor\" é \"doutô\", \"perto\" é \"pêhto\". O brasileiro leva as duas saídas para o inglês e nenhuma serve: ou apaga o R, e \"doctor\" vira \"dóctô\", \"hurt\" vira \"hât\", \"worse\" vira \"uôs\"; ou troca por um sopro de garganta, o mesmo [h] do \"carro\", e \"my ear hurts\" sai \"mai ir hâts\". O R americano não é sopro nem batida: é uma vogal com a língua puxada para trás e para cima, que dura o mesmo tempo da vogal ao lado. Sem ele \"sore\" é \"saw\" e \"hard\" é \"had\" — e na farmácia, de madrugada, quem apaga o R muda o remédio que sai do balcão.",
+    "comoTreinar": "Puxe o corpo da língua para trás e para cima sem encostar em lugar nenhum, e segure esse R pelo mesmo tempo que durou a vogal. Grave \"it hurts\" e \"it's worse\": se der para tirar o R e a palavra continuar a mesma, você não fez o R.",
+    "paresMinimos": [
+      [
+        "hard",
+        "had"
+      ],
+      [
+        "short",
+        "shot"
+      ],
+      [
+        "sore",
+        "saw"
+      ],
+      [
+        "heart",
+        "hat"
+      ],
+      [
+        "work",
+        "walk"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "a transcrição devolveu \"hurts\", \"worse\" e \"sore\" — e não \"hats\", \"was\" e \"saw\"? sim ou não"
+  },
+  {
+    "circuito": 36,
+    "traco": "Melodia da condição: a primeira metade sobe e segura, a segunda desce e fecha",
+    "interferencia": "Em português quem marca a condição é o \"se\" mais o subjuntivo, e a melodia não trabalha: \"se você puder mudar o prazo\" pode ser dito plano que ninguém estranha. Em inglês, plano é frase acabada. O brasileiro diz \"If you can move the deadline\" descendo a voz na última palavra e pondo ponto final ali, e o outro lado ouve uma exigência fechada — responde \"no\" antes da segunda metade chegar. Fica pior quando ele para para montar a segunda metade: o silêncio confirma que a frase terminou, e a proposta condicionada, que é a ferramenta central da negociação, chega como ultimato.",
+    "comoTreinar": "Suba a voz na última palavra da metade do \"if\" e segure ela lá em cima, sem pausa, emendando direto a segunda metade, que desce até o fundo. Grave \"If you can move the deadline, we can start on Monday\": se as duas metades terminaram na mesma altura, você fez duas exigências.",
+    "paresMinimos": [
+      [
+        "If you can move the deadline...",
+        "You can move the deadline."
+      ],
+      [
+        "If that works for you...",
+        "That works for you."
+      ],
+      [
+        "If we pay today...",
+        "We pay today."
+      ],
+      [
+        "If I can get a discount...",
+        "I can get a discount."
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "na gravação, a última sílaba antes da vírgula terminou mais alta que a última sílaba da frase? sim ou não"
+  },
+  {
+    "circuito": 37,
+    "traco": "Modais perfeitos reduzidos: would've, should've, could've numa sílaba",
+    "interferencia": "Em português o \"teria feito\" carrega o auxiliar dentro do próprio verbo, então o /əv/ do inglês não tem onde se apoiar e simplesmente cai: \"You should have called them\" sai \"iú chud cól dem\", e o conselho perde o passado — vira ordem para ligar agora. Quando o brasileiro tenta pôr o \"have\", ele põe a palavra inteira e acentuada, \"ai uód RÉV góne\", que ninguém fala assim e que trava a frase no meio. Do lado do ouvido é pior: na fala real \"should've\" soa \"shúduh\" e \"could've\" soa \"kúduh\", então o aluno ouve só \"should\" e \"could\" soltos e entende que o outro está falando do futuro, quando ele está falando de arrependimento.",
+    "comoTreinar": "Diga \"uúduh\", \"shúduh\" e \"kúduh\", com a segunda parte fraca, curta e sem força nenhuma, e nunca solte a palavra \"have\". Ouça dez frases e marque só se veio o /əv/ depois do modal: é ele que joga tudo para o passado.",
+    "paresMinimos": [
+      [
+        "I would go",
+        "I would've gone"
+      ],
+      [
+        "You should call",
+        "You should've called"
+      ],
+      [
+        "We could stay",
+        "We could've stayed"
+      ],
+      [
+        "He should be there",
+        "He should've been there"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "a transcrição devolveu \"should've called\" (ou \"should have called\") e não \"should call\"? sim ou não"
+  },
+  {
+    "circuito": 38,
+    "traco": "Grupos de sentido: onde o nativo pausa e respira",
+    "interferencia": "O português deixa respirar em qualquer lugar, porque o ritmo silábico segura a linha sozinho. Em inglês a fala vem em blocos de três a sete palavras, cada bloco com uma batida forte e uma descidinha no fim, e é essa descidinha que avisa \"a ideia acabou, pode entrar\". O brasileiro erra pelos dois lados: ou emenda tudo sem respirar até acabar o ar, e o recrutador não acha onde entrar; ou pausa onde a tradução travou — \"I worked for a company that... does... uhm\" — cortando o bloco no meio e sinalizando que se perdeu. E preenche a pausa com o \"éééh\" do português, que em inglês soa como quem não sabe a resposta, justo na pergunta em que ele sabe.",
+    "comoTreinar": "Marque uma barra a cada três a sete palavras, sempre no fim de um bloco de sentido, e respire só nas barras. Grave 90 segundos e ouça de novo: toda pausa que caiu dentro de um bloco é trava, refaça aquela resposta inteira.",
+    "paresMinimos": [
+      [
+        "I work with data / for a bank downtown",
+        "I work with / data for a bank / downtown"
+      ],
+      [
+        "My biggest challenge / was the deadline",
+        "My biggest / challenge was / the deadline"
+      ],
+      [
+        "I've been doing this / for six years",
+        "I've been / doing this for / six years"
+      ],
+      [
+        "What I like about it / is the people",
+        "What I like / about it is / the people"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "todas as pausas acima de 0,3 segundo caíram no fim de um grupo de sentido, e nenhuma dentro de um? sim ou não"
+  },
+  {
+    "circuito": 39,
+    "traco": "TH em fala conectada: /θ/ e /ð/ grudados na palavra vizinha (with them, in the, the third time)",
+    "interferencia": "Sozinhos, \"think\" e \"the\" já saem. Colados na palavra vizinha não sobra tempo de pôr a língua entre os dentes, e o português entrega o som mais próximo que tem: \"with them\" vira \"uidem\", \"in the\" vira \"in dâ\", \"the third time\" vira \"de terd taim\", \"all of them\" vira \"ól ov dem\". A outra saída é separar as palavras com uma vogal — \"uif-i dem\" — o que quebra a emenda e denuncia o estrangeiro na sequência mais comum do idioma. E é traço de cansaço: no fim de um dia inteiro de atrito, com a atenção toda no conteúdo e a irritação subindo, o TH é a primeira coisa a cair.",
+    "comoTreinar": "Deixe a língua entre os dentes e emende direto na palavra seguinte, sem soltar vogal nenhuma: \"with them\" é um sopro só. Grave \"the third time\" depois de dez minutos de conversa, nunca antes — é no cansaço que o TH vira D.",
+    "paresMinimos": [
+      [
+        "with them",
+        "with him"
+      ],
+      [
+        "in the car",
+        "in a car"
+      ],
+      [
+        "thirty",
+        "dirty"
+      ],
+      [
+        "three",
+        "tree"
+      ],
+      [
+        "they",
+        "day"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "no alinhamento de \"with them\", apareceu fricativa entre as duas palavras e nenhuma vogal separando-as? sim ou não"
+  },
+  {
+    "circuito": 40,
+    "traco": "Acento do phrasal verb: a força vai na partícula (pick UP, look INTO, put OFF)",
+    "interferencia": "Em português a preposição é átona e cola no verbo sem peso nenhum ('olhar PARA', 'ligar PARA'), e o brasileiro transporta esse padrão inteiro: diz 'LOOK into it', 'PICK him up', com a partícula murcha ou engolida — 'pi-kim-ap'. Como o sentido do phrasal verb mora justamente na partícula, o ouvinte perde a metade que importa, e o aluno, sentindo que não foi entendido, foge para a palavra latina: fala 'I'll investigate' onde o outro diz 'I'll look INTO it', e 'postpone' onde o outro diz 'put it OFF'.",
+    "comoTreinar": "Bata a mesa na partícula e alongue ela, sempre com o pronome no meio: 'pick him UP', 'put it OFF', 'take it BACK'. Grave e ouça só o fim da frase: se a partícula sair mais curta que o verbo, refaça.",
+    "paresMinimos": [
+      [
+        "take OFF",
+        "TAKEoff"
+      ],
+      [
+        "check IN",
+        "CHECKin"
+      ],
+      [
+        "work OUT",
+        "WORKout"
+      ],
+      [
+        "set UP",
+        "SETup"
+      ],
+      [
+        "run INTO him",
+        "RUN into him"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "Na gravação de 'Can you pick him up?', o alinhador compara a duração de 'up' com a de 'pick': 'up' saiu igual ou mais longa? sim ou não."
+  },
+  {
+    "circuito": 41,
+    "traco": "Fala conectada inteira: linking, flap, redução e schwa acontecendo ao mesmo tempo",
+    "interferencia": "A sílaba do português é regular e a fronteira de palavra é audível, então o brasileiro escuta procurando espaço entre as palavras — e não acha nenhum. 'I've got a lot of it' chega como 'aiv-gara-lora-vit' e ele transcreve 'I got a love it'; 'What are you going to do about it?' chega como 'wara-ya-gona-dwabaurit' e ele não escreve nada. O mecanismo é segmentar por sílaba quando o inglês só marca a batida forte e esmaga o resto: daí nasce a conclusão errada de que o outro fala rápido, quando o outro comprime.",
+    "comoTreinar": "Ouça o trecho uma vez, escreva primeiro só as palavras fortes que você pegou e depois preencha os vales de ouvido, sem rodar o áudio de novo. Só confira com a legenda quando o papel já estiver cheio.",
+    "paresMinimos": [
+      [
+        "I need it",
+        "I needed"
+      ],
+      [
+        "What do you do?",
+        "What did you do?"
+      ],
+      [
+        "What's he doing?",
+        "What's she doing?"
+      ],
+      [
+        "give it to her",
+        "give it to him"
+      ],
+      [
+        "I can help",
+        "I can't help"
+      ]
+    ],
+    "modo": "perceber",
+    "checagem": "No ditado do trecho ouvido uma única vez, o app compara token a token com o gabarito e olha só as palavras átonas ('to', 'of', 'a', 'was', 'him'): elas aparecem escritas na transcrição do aluno? bateu ou não bateu, trecho a trecho, sem porcentagem no cartão."
+  },
+  {
+    "circuito": 42,
+    "traco": "Linking vogal para vogal: o /w/ e o /j/ invisíveis (go ahead, do it, pay attention)",
+    "interferencia": "Encontro de vogais em português se resolve por elisão ou por um golpe de glote que corta as duas palavras, e é isso que sai: 'go ahead' vira 'gou. ahedi', 'do it' vira 'du. itchi', 'pay attention' vira 'pei. atenchon', três blocos separados com um corte no meio. O inglês faz o contrário: cola as duas com uma consoante que ninguém escreve — /w/ depois de o e u, /j/ depois de i e e — e enquanto o corte estiver lá a combinação fixa não soa fixa, soa como duas palavras que se encontraram por acaso.",
+    "comoTreinar": "Emende as duas vogais com a boca ainda na forma da primeira: 'go(w)ahead', 'do(w)it', 'the(y)end'. Diga a combinação inteira num fôlego só; se der para bater palma no meio, o corte ainda está lá.",
+    "paresMinimos": [
+      [
+        "go in",
+        "going"
+      ],
+      [
+        "my ear",
+        "my year"
+      ],
+      [
+        "the end",
+        "they end"
+      ],
+      [
+        "see it",
+        "seat"
+      ],
+      [
+        "too old",
+        "told"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "Na gravação de 'go ahead' e 'do it', o alinhador mede o intervalo entre a vogal final e a vogal inicial: houve pausa ou corte de glote acima de 50 ms? sim ou não."
+  },
+  {
+    "circuito": 43,
+    "traco": "Melodia e atitude: a mesma frase formal, neutra ou seca",
+    "interferencia": "Em português o registro é escolha de palavra: troca 'você' por 'o senhor', põe diminutivo, põe 'seria possível'. Em inglês metade do registro é melodia, e o brasileiro diz as três versões na mesma linha reta: 'That's fine' dito plano vira 'tanto faz' com o amigo e vira desaforo com o chefe, e ele não faz ideia do porquê a conversa esfriou. O mecanismo é a faixa de altura, que no português é estreita: o inglês marca simpatia com um arco largo em cima da palavra forte, e sem arco a frase educada chega seca.",
+    "comoTreinar": "Diga a mesma frase três vezes — chefe, colega, amigo — mudando só a altura em que você começa e o tamanho da subida, sem trocar uma palavra. Ouça de olhos fechados e veja se dá para dizer para quem era cada uma.",
+    "paresMinimos": [
+      [
+        "That's fine. (seco)",
+        "That's fine! (caloroso)"
+      ],
+      [
+        "Sure. (seco)",
+        "Sure! (caloroso)"
+      ],
+      [
+        "Thanks. (seco)",
+        "Thanks! (caloroso)"
+      ],
+      [
+        "No problem. (seco)",
+        "No problem! (caloroso)"
+      ],
+      [
+        "Got it. (seco)",
+        "Got it! (caloroso)"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "Nas três gravações da mesma frase, o app mede o intervalo entre a nota mais alta e a mais baixa de cada uma: os três arcos saíram diferentes entre si? sim ou não."
+  },
+  {
+    "circuito": 44,
+    "traco": "Entonação da ironia: a curva que diz o contrário da letra",
+    "interferencia": "Em português a ironia vem marcada na palavra: 'ah, tá', 'imagina', 'sei...'. Em inglês a letra é elogio e a informação inteira está na curva — 'That's just great' começado alto e caindo devagar, com o 'great' arrastado, é reclamação pura. O brasileiro decodifica pelo léxico, espera uma palavra que avise, não acha nenhuma, ouve só o 'great' e responde 'Nice!': ele não perdeu a piada por vocabulário, perdeu porque respondeu ao texto enquanto a mesa inteira respondia ao tom.",
+    "comoTreinar": "Ouça o trecho de olhos fechados e decida só pelo tom: sério ou ironia. Depois leia a legenda e repita em voz alta marcando onde a voz caiu e onde ela se arrastou.",
+    "paresMinimos": [
+      [
+        "That's just great. (ironia)",
+        "That's just great! (elogio)"
+      ],
+      [
+        "Nice one. (ironia)",
+        "Nice one! (elogio)"
+      ],
+      [
+        "That went well, didn't it? (ironia)",
+        "That went well! (elogio)"
+      ],
+      [
+        "Thanks a lot. (ironia)",
+        "Thanks a lot! (elogio)"
+      ],
+      [
+        "Good for you. (ironia)",
+        "Good for you! (elogio)"
+      ]
+    ],
+    "modo": "perceber",
+    "checagem": "Depois de cada trecho o app pede uma marcação de duas opções, sério ou ironia, e compara com o gabarito: bateu ou não bateu, trecho a trecho, sem nota e sem histórico."
+  },
+  {
+    "circuito": 45,
+    "traco": "Variação de sotaque: R final, flap e /æ/ x /ɑː/ nos quatro sotaques da call",
+    "interferencia": "O brasileiro guarda uma forma sonora única por palavra, quase sempre a do americano de série, e não tolera variante: quando o escocês ou o australiano não pronuncia o R final, 'work' chega como 'uok' e ele fica esperando um R que não vem; quando o mesmo falante abre o A, 'last' e 'can't' chegam como 'lahst' e 'cahnt' e ele arquiva como palavra desconhecida; quando o indiano não faz flap, 'water' chega com T inteiro, 'uoter', e ele não reconhece a palavra que usa todo dia. O mecanismo é esse: uma forma por palavra, então qualquer desvio vira vocabulário que ele acha que não tem, e ele cala a boca em vez de pedir para repetir.",
+    "comoTreinar": "Ouça a mesma palavra nas quatro vozes e diga em voz alta qual pista mudou: sumiu o R, o T virou toque, o A abriu. Nomeie a pista e siga o assunto — nesta quinzena você não imita ninguém.",
+    "paresMinimos": [
+      [
+        "last (a aberto de cat)",
+        "last (a fundo de father)"
+      ],
+      [
+        "can't (a aberto de cat)",
+        "can't (a fundo de father)"
+      ],
+      [
+        "water (T de toque)",
+        "water (T inteiro)"
+      ],
+      [
+        "work (com R final)",
+        "work (sem R final)"
+      ]
+    ],
+    "modo": "perceber",
+    "checagem": "No exercício das quatro vozes, o aluno clica na mesma palavra escrita para as quatro pronúncias do mesmo item ('last', 'water', 'work'): acertou as quatro? sim ou não."
+  },
+  {
+    "circuito": 46,
+    "traco": "Acento que anda dentro da família da palavra (ECOnomy x ecoNOMic, PHOtograph x phoTOGraphy)",
+    "interferencia": "O vocabulário latino chega de graça e o acento do português chega junto: 'economia' entrega 'econoMY' no lugar de ECOnomy, 'política' entrega 'poLItics' no lugar de POlitics, 'fotografia' entrega 'photograFY' no lugar de phoTOGraphy. O mecanismo tem duas partes: ele transplanta a sílaba forte do cognato e, pior, mantém essa sílaba fixa na família inteira, porque em português a família parece estável. E como ele não murcha a sílaba que perdeu a força — ela tinha que virar schwa —, o pico não aparece, e cinco minutos de fala estruturada saem com o acento errado nas mesmas seis palavras o tempo todo.",
+    "comoTreinar": "Diga a família em sequência batendo a mesa só na sílaba forte e deixando as outras murchas: ECOnomy, ecoNOMic; PHOtograph, phoTOGraphy. Nunca aprenda a derivada pelos olhos: se você leu antes de ouvir, o acento veio do português.",
+    "paresMinimos": [
+      [
+        "ECOnomy",
+        "ecoNOMic"
+      ],
+      [
+        "PHOtograph",
+        "phoTOGraphy"
+      ],
+      [
+        "POlitics",
+        "poLItical"
+      ],
+      [
+        "preFER",
+        "PREference"
+      ],
+      [
+        "PREsent",
+        "presenTAtion"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "Na gravação do par 'ECOnomy / ecoNOMic', o alinhador aponta a sílaba mais longa de cada palavra: caiu em sílabas diferentes nas duas? sim ou não."
+  },
+  {
+    "circuito": 47,
+    "traco": "T glotal e queda de T/D nas negativas (didn't, doesn't, wouldn't, important)",
+    "interferencia": "O português não fecha sílaba em /-znt/ nem em /-dnt/, então o brasileiro resolve de um dos dois jeitos e os dois estragam a conversa: ou enfia vogal e solta o T — 'doesn't' vira 'dazentchi', 'didn't' vira 'didentchi', 'important' vira 'importantchi' — ou economiza e come a negativa inteira, e sai 'it does work for me' quando ele quis dizer exatamente o contrário. Num feedback negativo isso é caro: a pessoa ouve o elogio, não ouve o 'doesn't', concorda com tudo e sai da sala achando que passou.",
+    "comoTreinar": "Feche a garganta no lugar do T e solte o N pelo nariz: 'didn', 'doesn', 'impor'nt', sem nenhum sopro depois. Grave 'It doesn't work for me' e veja se a transcrição devolve 'doesn't' ou devolve 'does'.",
+    "paresMinimos": [
+      [
+        "it does",
+        "it doesn't"
+      ],
+      [
+        "I did",
+        "I didn't"
+      ],
+      [
+        "he would",
+        "he wouldn't"
+      ],
+      [
+        "she was",
+        "she wasn't"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "Na transcrição automática de 'It doesn't work for me', a palavra 'doesn't' voltou inteira? se voltou 'does', ou voltou 'does not' com vogal entre o N e o T, não passou."
+  },
+  {
+    "circuito": 48,
+    "traco": "Formas fracas dentro do discurso relatado (he said he'd, she was gonna, they were supposed to)",
+    "interferencia": "Português não tem forma fraca: 'ele disse que mandaria' pesa igual do começo ao fim. Relatando, o brasileiro faz uma de duas coisas, e as duas quebram o recado: ou pesa tudo — 'he SAID he WOULD SEND it' —, e o recado vira lista sem dono nem hierarquia, ou economiza e come o auxiliar — 'he said he send it Monday' —, e o colega não sabe mais se aquilo foi promessa, plano ou fato consumado. É a mesma forma fraca de sempre, agora com três átonos grudados um no outro: 'he said he'd' sai 'hi-sedid', 'she was gonna' sai 'chiwuz-gona', 'they were supposed to' sai 'theywer-spostu'.",
+    "comoTreinar": "Diga o recado num fôlego só, forte apenas em quem falou e no que foi feito: 'he SAID he'd SEND it'. Se der para ouvir o 'would' inteiro e separado, refaça até ele sair grudado e curto.",
+    "paresMinimos": [
+      [
+        "he said he'd send it",
+        "he said he sent it"
+      ],
+      [
+        "he'd like it",
+        "he liked it"
+      ],
+      [
+        "they were supposed to",
+        "they're supposed to"
+      ],
+      [
+        "she was gonna call",
+        "she's gonna call"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "Na gravação de 'He said he'd send it on Monday', a transcrição automática traz o auxiliar ('he'd' ou 'he would') e o alinhador mede esse trecho mais curto que 'send'? passa só com as duas coisas verdadeiras."
+  },
+  {
+    "circuito": 49,
+    "traco": "Ritmo acentual em fala longa: manter picos e vales por dez minutos",
+    "interferencia": "Sob discordância a atenção vai toda para o argumento e o ritmo silábico do português volta inteiro: por volta do oitavo minuto ele começa a dar o mesmo tamanho a cada sílaba — 'I-still-think-the-price-is-the-pro-blem' — e o outro deixa de saber qual palavra é o ponto, porque nenhuma está apontando para nada. Como o pico sumiu, ele compensa do jeito do português, levantando o volume da frase inteira: em inglês isso não aponta informação nenhuma e ainda soa como quem está se exaltando, e a posição cai por som, não por argumento.",
+    "comoTreinar": "Fale dez minutos batendo o pé só nas palavras fortes, três ou quatro por respiração, e force o resto a caber entre as batidas. Quando o pé começar a bater em toda sílaba, pare a frase e recomece do pico.",
+    "paresMinimos": [
+      [
+        "an ENGLISH teacher",
+        "an English TEACHER"
+      ],
+      [
+        "a HOT dog",
+        "a hot DOG"
+      ],
+      [
+        "I said HE did it",
+        "I said he DID it"
+      ],
+      [
+        "the PRICE is the problem",
+        "the price is the PROBLEM"
+      ],
+      [
+        "I THINK it's fine",
+        "I think it's FINE"
+      ]
+    ],
+    "modo": "produzir",
+    "checagem": "O app mede 30 segundos do primeiro minuto e 30 segundos do oitavo: a razão entre a duração da sílaba forte e a da sílaba fraca continua igual ou maior no oitavo? sim ou não."
+  },
+  {
+    "circuito": 50,
+    "traco": "Tag questions e respostas curtas: a melodia que pergunta contra a que confirma",
+    "interferencia": "O 'né?' do português é uma coisa só: invariável, no fim de tudo e sempre subindo. O brasileiro cola essa mesma subida em 'right?', 'isn't it?' e 'you know?', e com isso pergunta de verdade quando só queria concordância — a mesa para o jantar e responde uma pergunta que ele não fez. Em inglês a mesma tag muda de função pela curva: subindo, ela entrega o turno e pede resposta; descendo, ela confirma e devolve a palavra para você mesmo continuar. Duas horas de jantar se gerenciam com essa diferença, e quem só sobe nunca retoma o turno.",
+    "comoTreinar": "Termine a tag subindo quando você quer que o outro fale, e descendo quando você só quer que ele concorde e você continua. Grave o mesmo 'isn't it?' das duas maneiras e só siga quando ouvir a diferença sem olhar a legenda.",
+    "paresMinimos": [
+      [
+        "isn't it? (subindo)",
+        "isn't it. (descendo)"
+      ],
+      [
+        "right? (subindo)",
+        "right. (descendo)"
+      ],
+      [
+        "you know? (subindo)",
+        "you know. (descendo)"
+      ],
+      [
+        "didn't you? (subindo)",
+        "didn't you. (descendo)"
+      ],
+      [
+        "wasn't it? (subindo)",
+        "wasn't it. (descendo)"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "Nas duas gravações do mesmo 'isn't it?', o app mede a altura dos últimos 200 ms: subiu numa e desceu na outra? sim ou não."
+  },
+  {
+    "circuito": 51,
+    "traco": "Ouvido interno: escutar o próprio sotaque enquanto ele acontece",
+    "interferencia": "O monitoramento do brasileiro roda por regra e em português — 'será que era o -s?', 'era 'in' ou 'on'?' — e uma consulta dessas custa o turno inteiro. Ele só escuta o próprio sotaque depois, na gravação, e ali identifica na hora que disse 'free' no lugar de 'three' e 'uoki' no lugar de 'work': o ouvido está bom, o monitor é que estava desligado enquanto a boca falava. O mecanismo é atenção — a alça que deveria ouvir a própria boca está ocupada traduzindo —, e por isso ele repete a mesma troca por anos sem nunca perceber no instante.",
+    "comoTreinar": "Narre em voz baixa o que você está fazendo e toque a tela no instante em que ouvir um som seu escorregar, sem parar a frase e sem corrigir. Corrigir é depois; perceber é agora.",
+    "paresMinimos": [
+      [
+        "think",
+        "sink"
+      ],
+      [
+        "three",
+        "free"
+      ],
+      [
+        "work",
+        "walk"
+      ],
+      [
+        "it",
+        "eat"
+      ],
+      [
+        "want",
+        "wanted"
+      ]
+    ],
+    "modo": "perceber",
+    "checagem": "O app alinha a gravação, marca onde o som escorregou e compara com os toques do aluno: o toque caiu dentro de um segundo da ocorrência? sim ou não, ocorrência a ocorrência."
+  },
+  {
+    "circuito": 52,
+    "traco": "Automatismo sob pressão: os 51 degraus sobrevivendo com a atenção no conteúdo",
+    "interferencia": "Com trinta minutos de assunto imprevisível a atenção vai toda para o conteúdo e a boca volta ao padrão antigo, sempre na mesma ordem: primeiro reaparece a vogal fantasma ('I wanti', 'and' virando 'endi'), depois o flap volta a ser T inteiro ('water' com T de português), e por último o ritmo achata e toda sílaba fica do mesmo tamanho. Não é regressão, é falta de automatismo: o traço que ainda pede atenção perde a disputa exatamente no minuto em que o assunto fica bom e você tem algo para dizer.",
+    "comoTreinar": "Converse trinta minutos sobre assunto que você não preparou e não pense em som nenhum durante a conversa. Depois ouça a gravação uma vez só e anote qual degrau caiu primeiro: volte nele e em mais nenhum.",
+    "paresMinimos": [
+      [
+        "I can",
+        "I can't"
+      ],
+      [
+        "he works",
+        "he worked"
+      ],
+      [
+        "want",
+        "wanted"
+      ],
+      [
+        "live",
+        "leave"
+      ],
+      [
+        "bad",
+        "bed"
+      ]
+    ],
+    "modo": "ambos",
+    "checagem": "Nos últimos cinco minutos da conversa de trinta, o alinhador procura vogal depois da consoante final em 'want', 'work' e 'and': apareceu? sim ou não — o começo da conversa não conta."
+  }
+]

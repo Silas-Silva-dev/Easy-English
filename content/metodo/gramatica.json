@@ -1,0 +1,603 @@
+[
+  {
+    "circuito": 1,
+    "peca": "am / is / are",
+    "titulo": "O verbo escondido dentro de 'I'm'",
+    "oQueDestrava": "\"I'm Ana. Nice to meet you.\" — dizer quem você é sem derrubar o verbo, e ouvir que o nativo nunca separa I de am.",
+    "erroDoBrasileiro": "Am Ana, from Brazil.",
+    "corpo": "Você passou a semana dizendo \"I'm Ana\", \"I'm good\", \"I'm from Brazil\". Sempre \"I'm\". Aí chega a hora de falar de outra pessoa e sai \"I is Ana\", porque ninguém te avisou que dentro daquele \"I'm\" mora um verbo: am. É ele que troca quando o dono da frase troca. \"I\" pede am. \"You\" pede are, e você já diz isso desde o primeiro dia, em \"How are you?\". Qualquer outra pessoa sozinha pede is: \"Sarah is here\". Só isso por enquanto. E não separe: \"I am\" existe, mas em conversa normal ninguém fala assim.",
+    "exemplos": [
+      {
+        "en": "I'm Ana. Nice to meet you.",
+        "pt": "Eu sou a Ana. Prazer."
+      },
+      {
+        "en": "How are you? I'm good, thanks.",
+        "pt": "Tudo bem? Tudo bem, obrigada."
+      },
+      {
+        "en": "Sarah's here, and Mike's here too.",
+        "pt": "A Sarah está aqui, e o Mike também."
+      }
+    ],
+    "evita": "I is Ana."
+  },
+  {
+    "circuito": 2,
+    "peca": "do / does / don't",
+    "titulo": "O 'do' que não significa nada, e sem o qual a frase não nega",
+    "oQueDestrava": "\"Sorry, I don't understand.\" / \"What does that mean?\" — pedir socorro sem congelar e sem sorrir para uma frase que você não pegou.",
+    "erroDoBrasileiro": "Sorry, I no understand.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 3,
+    "peca": "a / an / the",
+    "titulo": "Por que é 'an engineer' e não 'engineer'",
+    "oQueDestrava": "\"I'm an engineer and I work at a hospital.\" — dizer origem e ocupação sem soar telegráfico.",
+    "erroDoBrasileiro": "I'm engineer, and my wife is designer.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 4,
+    "peca": "pergunta com am / is / are",
+    "titulo": "Para perguntar, o am / is / are pula para a frente",
+    "oQueDestrava": "\"Where are you from? Are you here for work?\" — devolver a pergunta em vez de encerrar a conversa respondendo bonito.",
+    "erroDoBrasileiro": "Where you are from?",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 5,
+    "peca": "can / could",
+    "titulo": "'Can I get' abre a porta que 'I want' fecha",
+    "oQueDestrava": "\"Can I get a large coffee? Could I have it to go?\" — pedir como adulto, sem apontar e sem soar como ordem.",
+    "erroDoBrasileiro": "I want a coffee, please.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 6,
+    "peca": "(respiro)",
+    "titulo": "Respiro: número é ouvido, não é regra",
+    "oQueDestrava": "Duas semanas inteiras para o ouvido separar thirteen de thirty, sem nenhuma peça nova disputando atenção com a sílaba forte.",
+    "erroDoBrasileiro": "Thirteen? Thirty? For me is the same.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 7,
+    "peca": "am / is / are + -ing",
+    "titulo": "O -ing do agora nunca anda sozinho, e é ele que volta na resposta curta",
+    "oQueDestrava": "\"Are you staying long?\" — \"Yes, I am. I'm staying two weeks.\" — responder rápido sem repetir a pergunta inteira e sem ficar mudo.",
+    "erroDoBrasileiro": "Yes, I staying two weeks.",
+    "corpo": "Você diz \"I'm working now\" sem pensar. Aí muda o dono e sai \"Kate watching movies now\". Não é falta de português: você diz \"a Kate está assistindo\" sem falhar nunca. O que acontece é que no áudio o americano encolhe esse pedaço até quase sumir: \"Kate's watching\", \"they're listening\". E o que você não ouve, você não fala. O -ing sozinho não é frase. Ele precisa do am, is ou are do dono na frente. O mesmo -ing depois de love é outra coisa, é a atividade, e aí não leva verbo nenhum antes: \"I love cooking\".",
+    "exemplos": [
+      {
+        "en": "I'm working right now, but I'm listening.",
+        "pt": "Estou trabalhando agora, mas estou ouvindo."
+      },
+      {
+        "en": "Kate's watching a movie with the kids.",
+        "pt": "A Kate está assistindo um filme com as crianças."
+      },
+      {
+        "en": "What are you doing? I'm not doing anything.",
+        "pt": "O que você está fazendo? Não estou fazendo nada."
+      },
+      {
+        "en": "I love cooking, but I'm not cooking today.",
+        "pt": "Eu adoro cozinhar, mas hoje não estou cozinhando."
+      }
+    ],
+    "evita": "Kate watching movies now."
+  },
+  {
+    "circuito": 8,
+    "peca": "I work / he works",
+    "titulo": "O S da terceira pessoa, que o ouvido brasileiro não registra",
+    "oQueDestrava": "\"I work from home and my wife works downtown.\" — contar a rotina inteira sem trocar de dono no meio.",
+    "erroDoBrasileiro": "My wife work downtown.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 9,
+    "peca": "o it que o português engole (dono e objeto)",
+    "titulo": "Toda frase em inglês tem dono, e todo verbo tem alvo, nem que seja 'it'",
+    "oQueDestrava": "\"It's my favorite. I love it. I can't stand them.\" — falar de gosto sem deixar buraco no começo nem no fim da frase.",
+    "erroDoBrasileiro": "I like very much. Is really good.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 10,
+    "peca": "possessivos ('s, mine, yours)",
+    "titulo": "O 's que troca 'o carro do meu irmão' por duas palavras",
+    "oQueDestrava": "\"My sister's kids live with us, and a friend of mine works there too.\" — falar da sua gente sem montar a frase de trás para frente.",
+    "erroDoBrasileiro": "The car of my brother is in the garage.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 11,
+    "peca": "there is / there are",
+    "titulo": "Quem escolhe entre 'is' e 'are' está depois do verbo",
+    "oQueDestrava": "\"There's a park near my place and there are two coffee shops on my street.\" — dizer o que existe e o que não existe num lugar.",
+    "erroDoBrasileiro": "There has a market near my house.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 12,
+    "peca": "o imperativo (turn, go, take, don't cross)",
+    "titulo": "A instrução vem sem sujeito e vem rápido demais",
+    "oQueDestrava": "\"Turn left, go two blocks and take the second right. Don't cross the avenue.\" — entender a resposta e repetir para confirmar.",
+    "erroDoBrasileiro": "No cross here, is dangerous.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 13,
+    "peca": "o encaixe da peça",
+    "titulo": "Nem toda peça cabe em todo molde",
+    "oQueDestrava": "Um dia inteiro simulado: escolher entre 'I work', 'I'm working' e 'there is' sem parar para pensar.",
+    "erroDoBrasileiro": "I usually working downtown.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 14,
+    "peca": "was / were",
+    "titulo": "O passado que você mais vai usar cabe em duas palavras",
+    "oQueDestrava": "\"How was your weekend?\" — \"It was pretty quiet. I was at my mom's and the traffic was terrible.\"",
+    "erroDoBrasileiro": "How it was your weekend?",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 15,
+    "peca": "o passado dos verbos: -ed e os que trocam de corpo",
+    "titulo": "Worked, stayed, went, said, got: o verbo muda uma vez e a história inteira fica no passado",
+    "oQueDestrava": "\"So I got there, the guy said the place was closed, and I waited forty minutes for nothing.\" — sustentar uma história sem escorregar para o presente.",
+    "erroDoBrasileiro": "So I arrive there and he tell me everything.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 16,
+    "peca": "used to",
+    "titulo": "O nosso imperfeito não vira 'was -ing'",
+    "oQueDestrava": "\"I used to play soccer every Sunday when I was a kid.\" — falar de como as coisas eram e do que mudou.",
+    "erroDoBrasileiro": "When I was a kid, I was playing soccer every Sunday.",
+    "corpo": "Você disse \"I used to play soccer every Sunday\" e o português traduziu sozinho: eu jogava. Esse tempo, o nosso imperfeito, não existe em inglês. O que existe é used to, um bloco pronto para o que era costume e não é mais. A armadilha é traduzir jogava por was playing: isso é o que estava acontecendo naquele momento exato, não o hábito de anos. E tem o parecido que engana: I'm used to it é estou acostumado, outro bloco, outro sentido. Se ainda acontece hoje, nada de used to. É I still play.",
+    "exemplos": [
+      {
+        "en": "I used to play soccer every Sunday when I was a kid.",
+        "pt": "Eu jogava futebol todo domingo quando era criança."
+      },
+      {
+        "en": "There used to be a movie theater right there. It's a bank now.",
+        "pt": "Tinha um cinema bem ali. Agora é um banco."
+      },
+      {
+        "en": "My town used to be tiny. Everybody knew everybody.",
+        "pt": "Minha cidade era pequenininha. Todo mundo conhecia todo mundo."
+      },
+      {
+        "en": "I used to hate coffee, believe it or not.",
+        "pt": "Eu odiava café, acredite se quiser."
+      }
+    ],
+    "evita": "When I was a kid, I was playing soccer every Sunday."
+  },
+  {
+    "circuito": 17,
+    "peca": "didn't / did you (a pergunta-eco)",
+    "titulo": "Reagir em inglês é devolver o auxiliar: 'Did you?', 'Was it?'",
+    "oQueDestrava": "\"— And then I missed the flight. — You did? Oh no. Did you get another one?\" — mostrar que você está ali sem tomar o turno do outro.",
+    "erroDoBrasileiro": "Did you went alone?",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 18,
+    "peca": "who / that / which",
+    "titulo": "Uma frase dentro da outra: 'the thing that you use to...'",
+    "oQueDestrava": "\"It's the thing that you use to open bottles.\" / \"It's like a guy who fixes cars.\" — dar a volta na palavra que faltou em três segundos.",
+    "erroDoBrasileiro": "It's a machine who makes coffee.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 19,
+    "peca": "going to e I'll",
+    "titulo": "Dois futuros: o que já estava combinado e o que você decidiu agora",
+    "oQueDestrava": "\"I'm going to visit my sister on Saturday.\" — \"Sounds good, I'll drive you.\"",
+    "erroDoBrasileiro": "Tomorrow I go to the beach.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 20,
+    "peca": "comparativos (-er e more)",
+    "titulo": "Nem tudo leva 'more': as palavras curtas engordam no fim",
+    "oQueDestrava": "\"Could we do it earlier? Thursday is better for me, and later in the day is easier.\" — remarcar sem sumir.",
+    "erroDoBrasileiro": "Can we do it more late?",
+    "corpo": "Para remarcar você já disse \"Friday's better\" e \"Could we do it earlier?\". Ali estão dois comparativos, e nenhum deles levou more. Palavra curta engorda no fim: cheap vira cheaper, late vira later, early vira earlier, e good vira better, que você usa desde o Primeiro Canto. Palavra longa fica quieta e ganha more na frente: more expensive, more comfortable. Como em português tudo leva mais, o brasileiro produz more cheap. O corte é pelo tamanho da palavra, e o ouvido pega isso antes da regra: repita cheaper até more cheap soar torto.",
+    "exemplos": [
+      {
+        "en": "This one is cheaper, but the other place is more comfortable.",
+        "pt": "Esse é mais barato, mas o outro lugar é mais confortável."
+      },
+      {
+        "en": "Could we do it earlier? Mornings are easier for me.",
+        "pt": "Dá pra fazer mais cedo? De manhã é mais fácil pra mim."
+      },
+      {
+        "en": "Friday's better than Thursday, if that works for you.",
+        "pt": "Sexta é melhor que quinta, se der pra você."
+      },
+      {
+        "en": "Let's push it to later in the week. Mondays are worse.",
+        "pt": "Vamos empurrar pro fim da semana. Segunda é pior."
+      }
+    ],
+    "evita": "This one is more cheap than that one."
+  },
+  {
+    "circuito": 21,
+    "peca": "(respiro)",
+    "titulo": "Respiro: recusar é fórmula, não é estrutura",
+    "oQueDestrava": "Um circuito inteiro para instalar as frases que dizem não sem fechar a porta, sem nenhuma peça nova competindo com a delicadeza da hora.",
+    "erroDoBrasileiro": "No, I don't want.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 22,
+    "peca": "some / any",
+    "titulo": "Em inglês, 'não pedi nada disso' precisa de uma palavra a mais",
+    "oQueDestrava": "\"Can I get some water? Do you have any specials tonight?\" — pedir, comentar o que chegou e contestar a conta sem dupla negação.",
+    "erroDoBrasileiro": "I didn't order nothing like this.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 23,
+    "peca": "have + particípio (ever / never)",
+    "titulo": "'Já fui' não é 'I already went'",
+    "oQueDestrava": "\"Have you ever been to New York?\" — \"I've never been, but I'd love to.\" — falar de experiência sem dar data.",
+    "erroDoBrasileiro": "You already went to New York?",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 24,
+    "peca": "superlativos (the -est / the most)",
+    "titulo": "Em inglês, 'melhor' e 'o melhor' são palavras diferentes",
+    "oQueDestrava": "\"The second one is cheaper, but the first is the most convenient.\" — escolher e sustentar a escolha.",
+    "erroDoBrasileiro": "It was the better option of the two.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 25,
+    "peca": "(respiro)",
+    "titulo": "Respiro: trinta segundos não comportam peça nova",
+    "oQueDestrava": "Conversa fiada é abertura, sustentação e saída: três fórmulas curtas treinadas até saírem sem pensar, com a gramática que você já tem.",
+    "erroDoBrasileiro": "Is raining a lot today.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 26,
+    "peca": "a troca de tempo dentro da mesma conversa",
+    "titulo": "Fechando o Segundo Canto: pular de ontem para amanhã sem travar",
+    "oQueDestrava": "\"I went there last week, I usually go on Fridays, and I'm going again tomorrow.\" — três tempos em vinte segundos.",
+    "erroDoBrasileiro": "I go there yesterday and tomorrow I go again.",
+    "corpo": "Em vinte segundos você disse: I went there last week, I usually go on Fridays, and I'm going again tomorrow. Três tempos, um assunto, nenhum aviso entre eles. É o Segundo Canto inteiro trabalhando junto. O que trava o brasileiro não é a peça isolada, é a troca: a gente escolhe um tempo, entra nele e fica ali o resto da conversa, ou então marca o tempo só na data e deixa o verbo parado, I go there yesterday. Em inglês o verbo muda sempre, mesmo com yesterday na frase. A data confirma; quem informa é o verbo.",
+    "exemplos": [
+      {
+        "en": "I went there last week, I usually go on Fridays, and I'm going again tomorrow.",
+        "pt": "Eu fui lá semana passada, eu costumo ir nas sextas, e vou de novo amanhã."
+      },
+      {
+        "en": "I worked from home yesterday, but I'm in the office today.",
+        "pt": "Ontem eu trabalhei de casa, mas hoje estou no escritório."
+      },
+      {
+        "en": "We used to live downtown, now we're way out, and we're gonna move again next year.",
+        "pt": "A gente morava no centro, agora mora bem longe, e vamos mudar de novo ano que vem."
+      },
+      {
+        "en": "I didn't like it at first. Now I love it, and I'll probably stay.",
+        "pt": "Eu não gostei no começo. Agora eu amo, e provavelmente vou ficar."
+      }
+    ],
+    "evita": "I go there yesterday and tomorrow I go again."
+  },
+  {
+    "circuito": 27,
+    "peca": "-ing depois de preposição",
+    "titulo": "Depois de 'for', 'of' e 'before', o verbo ganha -ing",
+    "oQueDestrava": "\"I'm responsible for making sure the data is right, and my job is mostly about talking to hospitals.\" — explicar o trabalho sem depender do nome do cargo.",
+    "erroDoBrasileiro": "I'm responsible for make the reports.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 28,
+    "peca": "I agree / I don't think so",
+    "titulo": "'Agree' já é o verbo: não precisa de 'am'",
+    "oQueDestrava": "\"I agree with you on that, but I don't think it's the best option.\" — discordar sem virar briga.",
+    "erroDoBrasileiro": "I'm agree with you.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 29,
+    "peca": "(respiro)",
+    "titulo": "Respiro: entrar na conversa é frase de entrada, não é gramática",
+    "oQueDestrava": "\"Sorry, can I jump in?\", \"Just to add to that\", \"Go ahead\" — as frases que compram o turno, treinadas até saírem no meio do barulho.",
+    "erroDoBrasileiro": "Sorry, sorry, sorry, can I speak?",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 30,
+    "peca": "perguntas indiretas",
+    "titulo": "Depois de 'Could you tell me', a pergunta vira afirmação",
+    "oQueDestrava": "\"Could you tell me when he's back?\" / \"Do you know if the order shipped?\" — sustentar uma ligação sem rosto e sem contexto visual.",
+    "erroDoBrasileiro": "Could you tell me what time is the meeting?",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 31,
+    "peca": "for e since",
+    "titulo": "O defeito tem histórico: 'for two weeks', 'since Monday'",
+    "oQueDestrava": "\"It's been doing this since Monday, and the internet has been down for about two weeks.\" — dar o histórico antes que te ofereçam a solução que você já tentou.",
+    "erroDoBrasileiro": "The internet is bad since Monday.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 32,
+    "peca": "was + particípio (a passiva)",
+    "titulo": "Quando não interessa quem fez: 'I was charged twice'",
+    "oQueDestrava": "\"I was charged twice and the deposit was never refunded.\" — contestar item por item com fato, sem acusar ninguém.",
+    "erroDoBrasileiro": "My package didn't deliver yet.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 33,
+    "peca": "much, many, a few, enough, too",
+    "titulo": "As palavras de quantidade decidem o tamanho do que você está pedindo",
+    "oQueDestrava": "\"Any chance I could get a few more days? I just need a couple of hours, there isn't enough time to redo it.\" — pedir a exceção no tamanho que faz a pessoa dizer sim.",
+    "erroDoBrasileiro": "Can I have more informations about the policy?",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 34,
+    "peca": "(respiro)",
+    "titulo": "Respiro: noventa segundos no balcão não são hora de peça nova",
+    "oQueDestrava": "O pedido primeiro, a explicação depois e a confirmação do detalhe, tudo com as peças dos circuitos 27 a 33 e sob pressão real de fila.",
+    "erroDoBrasileiro": "I lost my flight.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 35,
+    "peca": "have to / don't have to / can't",
+    "titulo": "'Não precisa' e 'não pode' são coisas diferentes em inglês",
+    "oQueDestrava": "\"You have to take it every eight hours, you don't have to take it with food, and you can't drink with this.\" — repetir a orientação até ter certeza de que entendeu.",
+    "erroDoBrasileiro": "You don't have to drink alcohol with this.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 36,
+    "peca": "if + presente, will / can",
+    "titulo": "O acordo condicional: depois do 'if' nunca entra 'will'",
+    "oQueDestrava": "\"If you move the deadline to Friday, I can absorb the extra scope.\" — contrapropor e condicionar sem dizer não.",
+    "erroDoBrasileiro": "If you will send it today, I can start Monday.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 37,
+    "peca": "If I were you, I'd...",
+    "titulo": "O conselho que não manda ninguém fazer nada",
+    "oQueDestrava": "\"If I were you, I'd talk to her before Friday.\" — opinar sobre a vida do outro sem soar arrogante e sem virar ordem.",
+    "erroDoBrasileiro": "If I was you, I go talk with her.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 38,
+    "peca": "should have / could have",
+    "titulo": "O que você faria diferente tem tempo verbal próprio",
+    "oQueDestrava": "\"Looking back, I should have flagged it earlier, and that's what I took from it.\" — responder a pergunta do erro sem parecer que não aprendeu nada.",
+    "erroDoBrasileiro": "I should tell him before, but I didn't.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 39,
+    "peca": "escolher a peça sob pressão",
+    "titulo": "Fechando o Terceiro Canto: a peça certa na hora certa",
+    "oQueDestrava": "Um dia inteiro de atrito: perfect, passado, passiva e condicional escolhidos em tempo real, sem consultar nada.",
+    "erroDoBrasileiro": "If I would have more time, I call you back.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 40,
+    "peca": "(respiro)",
+    "titulo": "Respiro: o muro dos phrasal verbs já é a carga da quinzena",
+    "oQueDestrava": "Vinte e poucos verbos compostos de altíssima frequência, inteiros e sem regra: 'look into', 'run into', 'put off', 'get it'. Nenhuma peça nova ao lado.",
+    "erroDoBrasileiro": "I'll verify and I'll revert to you.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 41,
+    "peca": "(respiro)",
+    "titulo": "Respiro: a quinzena em que o ouvido trabalha sozinho",
+    "oQueDestrava": "Fala grudada em velocidade real, com ligação, redução e sílaba comida acontecendo ao mesmo tempo, e nenhuma peça disputando a atenção.",
+    "erroDoBrasileiro": "He speak too much fast for me.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 42,
+    "peca": "a preposição que gruda no verbo (depend on, listen to, married to)",
+    "titulo": "A preposição não é escolha: ela vem colada no verbo",
+    "oQueDestrava": "\"It depends on the client.\" / \"She's married to a doctor.\" / \"I'm not very good at it.\" — parar de traduzir a preposição do português.",
+    "erroDoBrasileiro": "It depends of the client.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 43,
+    "peca": "hedging (kind of, a bit, I'd say, sort of)",
+    "titulo": "As palavras que tiram a aresta e mudam o registro da mesma frase",
+    "oQueDestrava": "\"I'd say it's a bit tight, but it could work.\" — dizer a mesma coisa para o diretor e para o amigo, em dois volumes.",
+    "erroDoBrasileiro": "You're wrong. This is bad.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 44,
+    "peca": "tag questions (isn't it, right?)",
+    "titulo": "O 'né' do inglês muda de forma toda vez, e é veículo de ironia",
+    "oQueDestrava": "\"That went well, didn't it?\" — perceber quando o outro disse o contrário do que disse, e devolver na mesma moeda.",
+    "erroDoBrasileiro": "It's really cold today, no?",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 45,
+    "peca": "(respiro)",
+    "titulo": "Respiro: sotaque é percepção, não é estrutura",
+    "oQueDestrava": "Indiano, escocês, australiano e americano com exatamente a gramática que você já tem, e o kit de socorro em versão adulta.",
+    "erroDoBrasileiro": "I don't understand nothing when he speaks.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 46,
+    "peca": "What I mean is... / The thing is...",
+    "titulo": "Os começos de frase que sustentam cinco minutos de fala",
+    "oQueDestrava": "\"The thing is, the numbers moved in March.\" / \"Moving on to the second point.\" / \"To sum up...\" — estruturar em voz alta e retomar depois de uma pergunta.",
+    "erroDoBrasileiro": "How I can say... como é que fala?",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 47,
+    "peca": "separabilidade do phrasal verb",
+    "titulo": "Onde o 'it' entra: 'tone it down', nunca 'tone down it'",
+    "oQueDestrava": "\"I'd tone it down a little and take this part out.\" — propor a correção com os verbos que o nativo usa para corrigir.",
+    "erroDoBrasileiro": "Can you tone down it?",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 48,
+    "peca": "o recuo do discurso indireto",
+    "titulo": "Quando você repete o que o outro disse, tudo anda um passo para trás",
+    "oQueDestrava": "\"He told me he was tired and that he'd send it on Monday.\" — passar recado sem transformar a opinião dele na sua.",
+    "erroDoBrasileiro": "He said me he is tired.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 49,
+    "peca": "onde o advérbio senta",
+    "titulo": "'I still think', 'I do agree': a posição muda o peso do argumento",
+    "oQueDestrava": "\"I still think the cost is the problem, and I do agree with you on the timeline.\" — conceder um ponto sem perder a linha.",
+    "erroDoBrasileiro": "I think always that the cost is the problem.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 50,
+    "peca": "-ing ou 'to' depois do verbo",
+    "titulo": "'Enjoy' pede -ing, 'want' pede 'to': é convívio, não é regra",
+    "oQueDestrava": "\"I'd love to hear about it.\" / \"We ended up staying until midnight.\" / \"I keep meaning to ask you something.\" — atravessar duas horas de jantar sem travar na emenda dos verbos.",
+    "erroDoBrasileiro": "I enjoy to talk about this.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 51,
+    "peca": "(respiro)",
+    "titulo": "Respiro: automatismo não se ensina, se treina",
+    "oQueDestrava": "Cinquenta circuitos sorteados sem aviso e sem peça nova, medindo uma coisa só: o tempo entre a intenção e o som.",
+    "erroDoBrasileiro": "Explain me again, please.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  },
+  {
+    "circuito": 52,
+    "peca": "a peça que você não precisa mais nomear",
+    "titulo": "Você fala inglês: a gramática saiu do caminho",
+    "oQueDestrava": "Vinte minutos de conversa livre em que nenhuma peça é escolhida conscientemente.",
+    "erroDoBrasileiro": "I need study more before I can speak.",
+    "corpo": null,
+    "exemplos": null,
+    "evita": null
+  }
+]

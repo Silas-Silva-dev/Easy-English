@@ -1,0 +1,785 @@
+[
+  {
+    "en": "stranger",
+    "oQueOBrasileiroAcha": "Estrangeiro, de outro país.",
+    "oQueSignifica": "Desconhecido, pessoa que você não conhece. Nada a ver com nacionalidade.",
+    "comoDizerOQueQueria": "Estrangeiro = foreigner. Do exterior = from abroad.",
+    "exemploEn": "He's a complete stranger to me.",
+    "exemploPt": "Eu não conheço ele de lugar nenhum.",
+    "circuito": 1
+  },
+  {
+    "en": "terrific",
+    "oQueOBrasileiroAcha": "Terrível, péssimo.",
+    "oQueSignifica": "Ótimo, excelente. É elogio. Você recebe um elogio e faz cara de decepção.",
+    "comoDizerOQueQueria": "Terrível = terrible / awful.",
+    "exemploEn": "That's terrific news!",
+    "exemploPt": "Que notícia ótima!",
+    "circuito": 1
+  },
+  {
+    "en": "record",
+    "oQueOBrasileiroAcha": "Recordar, lembrar.",
+    "oQueSignifica": "Gravar (áudio, vídeo), registrar. Também registro e recorde.",
+    "comoDizerOQueQueria": "Recordar = remember / recall.",
+    "exemploEn": "Can I record this?",
+    "exemploPt": "Posso gravar isso?",
+    "circuito": 2
+  },
+  {
+    "en": "college",
+    "oQueOBrasileiroAcha": "Colégio, escola de ensino médio.",
+    "oQueSignifica": "Faculdade, ensino superior. Nos EUA é o que o brasileiro chama de faculdade.",
+    "comoDizerOQueQueria": "Colégio = school / high school.",
+    "exemploEn": "I'm in college.",
+    "exemploPt": "Tô na faculdade.",
+    "circuito": 3
+  },
+  {
+    "en": "legend",
+    "oQueOBrasileiroAcha": "Legenda de filme.",
+    "oQueSignifica": "Lenda: a história antiga ou a pessoa admirada.",
+    "comoDizerOQueQueria": "Legenda de filme = subtitles. Legenda de foto = caption.",
+    "exemploEn": "That guy's a legend.",
+    "exemploPt": "Aquele cara é uma lenda.",
+    "circuito": 4
+  },
+  {
+    "en": "office",
+    "oQueOBrasileiroAcha": "Oficina mecânica.",
+    "oQueSignifica": "Escritório.",
+    "comoDizerOQueQueria": "Oficina de carro = repair shop / garage / the shop. Oficina de trabalho em grupo = workshop.",
+    "exemploEn": "Are you at the office today?",
+    "exemploPt": "Você tá no escritório hoje?",
+    "circuito": 4
+  },
+  {
+    "en": "large",
+    "oQueOBrasileiroAcha": "Largo, de largura.",
+    "oQueSignifica": "Grande, de tamanho geral. É o L da etiqueta e o copo maior do balcão.",
+    "comoDizerOQueQueria": "Largo = wide / broad. Uma rua larga = a wide street.",
+    "exemploEn": "Can I get a large coffee?",
+    "exemploPt": "Pode ser um café grande?",
+    "circuito": 5
+  },
+  {
+    "en": "push",
+    "oQueOBrasileiroAcha": "Puxar. A palavra tem PUX dentro dela, e o corpo obedece a grafia antes da cabeça.",
+    "oQueSignifica": "Empurrar. É a placa na porta de todo café, loja e banheiro dos EUA.",
+    "comoDizerOQueQueria": "Puxar = pull. E a placa de puxar é justamente PULL, que parece o oposto.",
+    "exemploEn": "It's push, not pull.",
+    "exemploPt": "É empurrar, não puxar.",
+    "circuito": 5
+  },
+  {
+    "en": "data",
+    "oQueOBrasileiroAcha": "Data, o dia do mês.",
+    "oQueSignifica": "Dados, informação numérica.",
+    "comoDizerOQueQueria": "Data = date. \"What's today's date?\" E date também é encontro romântico, dependendo do contexto.",
+    "exemploEn": "We don't have the data yet.",
+    "exemploPt": "A gente não tem os dados ainda.",
+    "circuito": 6
+  },
+  {
+    "en": "actually",
+    "oQueOBrasileiroAcha": "Atualmente, hoje em dia.",
+    "oQueSignifica": "Na verdade. Serve para corrigir alguém com educação.",
+    "comoDizerOQueQueria": "Atualmente = currently / right now / these days.",
+    "exemploEn": "Actually, I work from home.",
+    "exemploPt": "Na verdade, eu trabalho de casa.",
+    "circuito": 7
+  },
+  {
+    "en": "cafeteria",
+    "oQueOBrasileiroAcha": "Cafeteria, lugar de tomar café.",
+    "oQueSignifica": "Refeitório self-service de empresa, escola ou hospital.",
+    "comoDizerOQueQueria": "Cafeteria = coffee shop / café.",
+    "exemploEn": "I eat at the cafeteria every day.",
+    "exemploPt": "Eu como no refeitório todo dia.",
+    "circuito": 8
+  },
+  {
+    "en": "lunch",
+    "oQueOBrasileiroAcha": "Lanche, comida rápida entre refeições.",
+    "oQueSignifica": "Almoço, a refeição do meio do dia.",
+    "comoDizerOQueQueria": "Lanche = snack. Sanduíche = sandwich.",
+    "exemploEn": "I have lunch at noon.",
+    "exemploPt": "Eu almoço meio-dia.",
+    "circuito": 8
+  },
+  {
+    "en": "novel",
+    "oQueOBrasileiroAcha": "Novela de televisão.",
+    "oQueSignifica": "Romance, livro de ficção. Como adjetivo, inédito.",
+    "comoDizerOQueQueria": "Novela = soap opera. Série = series / show.",
+    "exemploEn": "I'm reading a novel in English.",
+    "exemploPt": "Tô lendo um romance em inglês.",
+    "circuito": 9
+  },
+  {
+    "en": "preservative",
+    "oQueOBrasileiroAcha": "Preservativo, camisinha.",
+    "oQueSignifica": "Conservante, o que se põe na comida industrializada.",
+    "comoDizerOQueQueria": "Preservativo = condom.",
+    "exemploEn": "I don't like food with preservatives.",
+    "exemploPt": "Não gosto de comida com conservante.",
+    "circuito": 9
+  },
+  {
+    "en": "parents",
+    "oQueOBrasileiroAcha": "Parentes, a família toda.",
+    "oQueSignifica": "Os pais: mãe e pai. Duas pessoas, não vinte.",
+    "comoDizerOQueQueria": "Parentes = relatives. Família = family.",
+    "exemploEn": "My parents live in Recife.",
+    "exemploPt": "Meus pais moram no Recife.",
+    "circuito": 10
+  },
+  {
+    "en": "sensitive",
+    "oQueOBrasileiroAcha": "Sensato, ponderado. É o par invertido de sensible.",
+    "oQueSignifica": "Sensível: se magoa fácil, ou reage a algo (pele, assunto delicado).",
+    "comoDizerOQueQueria": "Sensato = sensible / reasonable.",
+    "exemploEn": "He's sensitive about his accent.",
+    "exemploPt": "Ele é sensível com o sotaque dele.",
+    "circuito": 10
+  },
+  {
+    "en": "balcony",
+    "oQueOBrasileiroAcha": "Balcão de loja, de bar, de recepção.",
+    "oQueSignifica": "Sacada, varanda.",
+    "comoDizerOQueQueria": "Balcão = counter. \"Pay at the counter.\"",
+    "exemploEn": "There's a small balcony.",
+    "exemploPt": "Tem uma sacada pequena.",
+    "circuito": 11
+  },
+  {
+    "en": "tenant",
+    "oQueOBrasileiroAcha": "Tenente.",
+    "oQueSignifica": "Inquilino, quem aluga o imóvel.",
+    "comoDizerOQueQueria": "Tenente = lieutenant. Proprietário/senhorio = landlord.",
+    "exemploEn": "The tenant upstairs is loud.",
+    "exemploPt": "O inquilino de cima faz barulho.",
+    "circuito": 11
+  },
+  {
+    "en": "exit",
+    "oQueOBrasileiroAcha": "Êxito, sucesso.",
+    "oQueSignifica": "Saída. É a placa verde do aeroporto e do prédio.",
+    "comoDizerOQueQueria": "Êxito = success. Ter êxito em algo = succeed at something.",
+    "exemploEn": "The exit's on your left.",
+    "exemploPt": "A saída é à sua esquerda.",
+    "circuito": 12
+  },
+  {
+    "en": "pull",
+    "oQueOBrasileiroAcha": "Empurrar. Não porque pull pareça empurrar, mas porque ele já leu push como puxar e inverteu o par inteiro.",
+    "oQueSignifica": "Puxar.",
+    "comoDizerOQueQueria": "Empurrar = push. Decore o par junto, nunca separado: push empurra, pull puxa.",
+    "exemploEn": "Pull. Don't push.",
+    "exemploPt": "Puxa. Não empurra.",
+    "circuito": 12
+  },
+  {
+    "en": "library",
+    "oQueOBrasileiroAcha": "Livraria, loja de livros.",
+    "oQueSignifica": "Biblioteca. Você não compra nada lá.",
+    "comoDizerOQueQueria": "Livraria = bookstore (EUA) / bookshop (Reino Unido).",
+    "exemploEn": "The library closes at six.",
+    "exemploPt": "A biblioteca fecha às seis.",
+    "circuito": 13
+  },
+  {
+    "en": "mayor",
+    "oQueOBrasileiroAcha": "Maior, de tamanho.",
+    "oQueSignifica": "Prefeito da cidade. Soa igual a \"major\", que é outra coisa ainda.",
+    "comoDizerOQueQueria": "Maior = bigger / biggest / larger.",
+    "exemploEn": "The mayor lives around here.",
+    "exemploPt": "O prefeito mora aqui por perto.",
+    "circuito": 13
+  },
+  {
+    "en": "costume",
+    "oQueOBrasileiroAcha": "Costume, hábito.",
+    "oQueSignifica": "Fantasia, traje de personagem.",
+    "comoDizerOQueQueria": "Costume/hábito = habit. É costume aqui = it's a custom here. E cuidado com o primo: customs = alfândega.",
+    "exemploEn": "It was a costume party.",
+    "exemploPt": "Era uma festa a fantasia.",
+    "circuito": 14
+  },
+  {
+    "en": "eventually",
+    "oQueOBrasileiroAcha": "Eventualmente, de vez em quando.",
+    "oQueSignifica": "No fim das contas, mais cedo ou mais tarde. É certeza, não é acaso.",
+    "comoDizerOQueQueria": "Eventualmente = occasionally / once in a while / sometimes.",
+    "exemploEn": "She eventually said yes.",
+    "exemploPt": "No fim, ela disse sim.",
+    "circuito": 15
+  },
+  {
+    "en": "injury",
+    "oQueOBrasileiroAcha": "Injúria, ofensa verbal.",
+    "oQueSignifica": "Lesão, machucado físico.",
+    "comoDizerOQueQueria": "Injúria/ofensa = insult. Ele me ofendeu = he insulted me.",
+    "exemploEn": "It was an old knee injury.",
+    "exemploPt": "Era uma lesão antiga no joelho.",
+    "circuito": 15
+  },
+  {
+    "en": "pension",
+    "oQueOBrasileiroAcha": "Pensão: a casa de hóspedes barata, ou a pensão alimentícia.",
+    "oQueSignifica": "Aposentadoria, o dinheiro que se recebe depois de parar de trabalhar.",
+    "comoDizerOQueQueria": "Pensão (hospedagem) = guesthouse / B&B. Pensão alimentícia = child support / alimony.",
+    "exemploEn": "He lives on a small pension.",
+    "exemploPt": "Ele vive de uma aposentadoria pequena.",
+    "circuito": 16
+  },
+  {
+    "en": "retired",
+    "oQueOBrasileiroAcha": "Retirado, tirado de algum lugar.",
+    "oQueSignifica": "Aposentado.",
+    "comoDizerOQueQueria": "Retirado/removido = removed / taken out. Me retirei da sala = I left the room.",
+    "exemploEn": "My dad used to work nights. He's retired now.",
+    "exemploPt": "Meu pai trabalhava à noite. Agora é aposentado.",
+    "circuito": 16
+  },
+  {
+    "en": "pretend",
+    "oQueOBrasileiroAcha": "Pretender, ter a intenção de fazer algo.",
+    "oQueSignifica": "Fingir. Numa reunião, \"I pretend to finish this week\" diz que você vai fingir que terminou.",
+    "comoDizerOQueQueria": "Pretendo = I'm planning to / I intend to / I'm going to.",
+    "exemploEn": "He's pretending he didn't hear me.",
+    "exemploPt": "Ele tá fingindo que não me ouviu.",
+    "circuito": 17
+  },
+  {
+    "en": "realize",
+    "oQueOBrasileiroAcha": "Realizar, executar, fazer acontecer.",
+    "oQueSignifica": "Perceber, se dar conta.",
+    "comoDizerOQueQueria": "Realizar (fazer) = do / carry out. Realizar um sonho = make a dream come true.",
+    "exemploEn": "I didn't realize you were waiting.",
+    "exemploPt": "Não percebi que você tava esperando.",
+    "circuito": 17
+  },
+  {
+    "en": "fabric",
+    "oQueOBrasileiroAcha": "Fábrica.",
+    "oQueSignifica": "Tecido, o material da roupa.",
+    "comoDizerOQueQueria": "Fábrica = factory / plant.",
+    "exemploEn": "I like the fabric, but not the color.",
+    "exemploPt": "Gostei do tecido, mas não da cor.",
+    "circuito": 18
+  },
+  {
+    "en": "excited",
+    "oQueOBrasileiroAcha": "Excitado, com a carga sexual que a palavra tem em português. Então ele evita usar e soa frio.",
+    "oQueSignifica": "Animado, empolgado. É neutro e todo mundo usa o dia inteiro.",
+    "comoDizerOQueQueria": "Excitado no sentido sexual = turned on / aroused. Não é o que excited quer dizer sozinho.",
+    "exemploEn": "I'm so excited about this trip.",
+    "exemploPt": "Tô super animado com essa viagem.",
+    "circuito": 19
+  },
+  {
+    "en": "intend",
+    "oQueOBrasileiroAcha": "Entender. O som e a grafia puxam para o lado errado.",
+    "oQueSignifica": "Pretender, ter a intenção de.",
+    "comoDizerOQueQueria": "Entender = understand / get. \"I get it.\"",
+    "exemploEn": "I didn't intend to be rude.",
+    "exemploPt": "Não foi minha intenção ser grosso.",
+    "circuito": 19
+  },
+  {
+    "en": "agenda",
+    "oQueOBrasileiroAcha": "Agenda: o caderninho ou o calendário de compromissos.",
+    "oQueSignifica": "Pauta da reunião, a lista de assuntos.",
+    "comoDizerOQueQueria": "Agenda (caderno/app) = planner / calendar. Minha agenda tá cheia = my schedule's packed.",
+    "exemploEn": "What's on the agenda?",
+    "exemploPt": "Qual é a pauta?",
+    "circuito": 20
+  },
+  {
+    "en": "anticipate",
+    "oQueOBrasileiroAcha": "Antecipar no sentido de adiantar: puxar a reunião para mais cedo.",
+    "oQueSignifica": "Prever, esperar que algo aconteça.",
+    "comoDizerOQueQueria": "Antecipar/adiantar um compromisso = move it up / bring it forward. \"Can we move it up to Monday?\"",
+    "exemploEn": "We didn't anticipate this.",
+    "exemploPt": "A gente não previu isso.",
+    "circuito": 20
+  },
+  {
+    "en": "compromise",
+    "oQueOBrasileiroAcha": "Compromisso, hora marcada.",
+    "oQueSignifica": "Acordo em que os dois lados cedem. Como verbo, também é comprometer no mau sentido.",
+    "comoDizerOQueQueria": "Compromisso na agenda = appointment / plans. \"I have plans tonight.\" Compromisso assumido = commitment.",
+    "exemploEn": "Let's find a compromise. I'm free Thursday.",
+    "exemploPt": "Vamos achar um meio-termo: quinta eu posso.",
+    "circuito": 21
+  },
+  {
+    "en": "exquisite",
+    "oQueOBrasileiroAcha": "Esquisito, estranho.",
+    "oQueSignifica": "Requintado, primoroso. É o elogio mais alto que existe para comida e roupa.",
+    "comoDizerOQueQueria": "Esquisito = weird / strange / odd.",
+    "exemploEn": "The dessert was exquisite.",
+    "exemploPt": "A sobremesa era primorosa.",
+    "circuito": 22
+  },
+  {
+    "en": "pasta",
+    "oQueOBrasileiroAcha": "Pasta de arquivo, ou pasta de dente.",
+    "oQueSignifica": "Massa: macarrão, talharim, nhoque.",
+    "comoDizerOQueQueria": "Pasta de arquivo = folder. Pasta de dente = toothpaste. Pasta de trabalho (a maleta) = briefcase.",
+    "exemploEn": "I'll have the pasta.",
+    "exemploPt": "Eu vou querer a massa.",
+    "circuito": 22
+  },
+  {
+    "en": "enroll",
+    "oQueOBrasileiroAcha": "Enrolar: empurrar com a barriga, ou enganar alguém.",
+    "oQueSignifica": "Matricular, se inscrever num curso.",
+    "comoDizerOQueQueria": "Enrolar (adiar) = stall / drag your feet. Enrolar alguém = give someone the runaround.",
+    "exemploEn": "Have you ever enrolled in an online course?",
+    "exemploPt": "Você já se matriculou em curso online?",
+    "circuito": 23
+  },
+  {
+    "en": "local",
+    "oQueOBrasileiroAcha": "Local no sentido de lugar: \"um local bonito\".",
+    "oQueSignifica": "Da região, daqui. É adjetivo, não é o lugar em si.",
+    "comoDizerOQueQueria": "Local (lugar) = place / spot. Local do evento = venue.",
+    "exemploEn": "It's a local spot. Tourists don't go there.",
+    "exemploPt": "É um lugar da região. Turista não vai lá.",
+    "circuito": 23
+  },
+  {
+    "en": "particular",
+    "oQueOBrasileiroAcha": "Particular no sentido de privado, pessoal.",
+    "oQueSignifica": "Específico, em especial. Falando de pessoa, exigente e cheio de manias.",
+    "comoDizerOQueQueria": "Particular (privado) = private. Aula particular = private lesson. Assunto particular = personal matter.",
+    "exemploEn": "He's really particular about coffee.",
+    "exemploPt": "Ele é muito exigente com café.",
+    "circuito": 24
+  },
+  {
+    "en": "sensible",
+    "oQueOBrasileiroAcha": "Sensível, emotivo.",
+    "oQueSignifica": "Sensato, com juízo, com os pés no chão.",
+    "comoDizerOQueQueria": "Sensível = sensitive.",
+    "exemploEn": "That's the sensible thing to do.",
+    "exemploPt": "Isso é o mais sensato a fazer.",
+    "circuito": 24
+  },
+  {
+    "en": "notice",
+    "oQueOBrasileiroAcha": "Notícia.",
+    "oQueSignifica": "Reparar, perceber (verbo). Como substantivo, aviso.",
+    "comoDizerOQueQueria": "Notícia = news. Uma notícia = some news / a piece of news. News é sempre singular: \"the news is good\".",
+    "exemploEn": "Did you notice the new place downstairs?",
+    "exemploPt": "Você reparou no lugar novo aqui embaixo?",
+    "circuito": 25
+  },
+  {
+    "en": "parcel",
+    "oQueOBrasileiroAcha": "Parcela do pagamento.",
+    "oQueSignifica": "Encomenda, pacote enviado pelo correio.",
+    "comoDizerOQueQueria": "Parcela = installment. Parcelar = pay in installments. Em 3x = in three installments.",
+    "exemploEn": "The parcel never arrived.",
+    "exemploPt": "A encomenda nunca chegou.",
+    "circuito": 25
+  },
+  {
+    "en": "sympathetic",
+    "oQueOBrasileiroAcha": "Simpático, agradável.",
+    "oQueSignifica": "Solidário, compreensivo com quem está passando por algo ruim.",
+    "comoDizerOQueQueria": "Simpático = nice / friendly / warm. \"She's really nice.\"",
+    "exemploEn": "She was really sympathetic.",
+    "exemploPt": "Ela foi muito solidária.",
+    "circuito": 26
+  },
+  {
+    "en": "chef",
+    "oQueOBrasileiroAcha": "Chefe, o patrão do trabalho.",
+    "oQueSignifica": "Cozinheiro-chefe, quem comanda a cozinha.",
+    "comoDizerOQueQueria": "Chefe = boss / manager. Meu chefe = my boss.",
+    "exemploEn": "He's the chef, not my boss.",
+    "exemploPt": "Ele é o cozinheiro-chefe, não meu chefe.",
+    "circuito": 27
+  },
+  {
+    "en": "patron",
+    "oQueOBrasileiroAcha": "Patrão.",
+    "oQueSignifica": "Cliente habitual de um lugar. Também mecenas, quem financia arte.",
+    "comoDizerOQueQueria": "Patrão = boss / employer.",
+    "exemploEn": "They treat their patrons well.",
+    "exemploPt": "Eles tratam bem os clientes.",
+    "circuito": 27
+  },
+  {
+    "en": "argument",
+    "oQueOBrasileiroAcha": "Argumento, o ponto que você defende.",
+    "oQueSignifica": "Briga, bate-boca. Dizer \"we had an argument\" é contar que vocês se estranharam.",
+    "comoDizerOQueQueria": "Argumento = point / reason / case. \"That's a good point.\"",
+    "exemploEn": "We had an argument about money.",
+    "exemploPt": "A gente brigou por causa de dinheiro.",
+    "circuito": 28
+  },
+  {
+    "en": "expert",
+    "oQueOBrasileiroAcha": "Esperto, malandro.",
+    "oQueSignifica": "Especialista, quem domina o assunto.",
+    "comoDizerOQueQueria": "Esperto = smart / sharp. Esperto no mau sentido = sly.",
+    "exemploEn": "I'm no expert, but I don't think so.",
+    "exemploPt": "Não sou especialista, mas acho que não.",
+    "circuito": 28
+  },
+  {
+    "en": "discussion",
+    "oQueOBrasileiroAcha": "Discussão no sentido de briga.",
+    "oQueSignifica": "Conversa, debate tranquilo. É o oposto de argument.",
+    "comoDizerOQueQueria": "Briga = an argument / a fight. Discutir com alguém = argue with someone.",
+    "exemploEn": "It was a good discussion, not an argument.",
+    "exemploPt": "Foi uma boa conversa, não uma briga.",
+    "circuito": 29
+  },
+  {
+    "en": "assist",
+    "oQueOBrasileiroAcha": "Assistir a um filme, a um jogo.",
+    "oQueSignifica": "Ajudar, auxiliar. É a palavra formal de quem atende você.",
+    "comoDizerOQueQueria": "Assistir = watch. \"I watched the game.\"",
+    "exemploEn": "Can someone assist me here?",
+    "exemploPt": "Alguém pode me ajudar aqui?",
+    "circuito": 30
+  },
+  {
+    "en": "attend",
+    "oQueOBrasileiroAcha": "Atender: o telefone, o cliente, o pedido.",
+    "oQueSignifica": "Comparecer, ir a algo (reunião, aula, evento).",
+    "comoDizerOQueQueria": "Atender o telefone = answer the phone. Atender um cliente = help / serve a customer.",
+    "exemploEn": "I can't attend the meeting today.",
+    "exemploPt": "Não consigo ir na reunião hoje.",
+    "circuito": 30
+  },
+  {
+    "en": "refrigerant",
+    "oQueOBrasileiroAcha": "Refrigerante, a bebida.",
+    "oQueSignifica": "Fluido refrigerante, o gás do ar-condicionado e da geladeira.",
+    "comoDizerOQueQueria": "Refrigerante = soda (EUA) / soft drink. Coca = a Coke.",
+    "exemploEn": "The AC's low on refrigerant.",
+    "exemploPt": "O ar-condicionado tá com pouco gás.",
+    "circuito": 31
+  },
+  {
+    "en": "actual",
+    "oQueOBrasileiroAcha": "Atual, de agora.",
+    "oQueSignifica": "Real, verdadeiro, o próprio. Opõe-se ao que se supunha.",
+    "comoDizerOQueQueria": "Atual = current / present. O atual chefe = the current boss.",
+    "exemploEn": "What's the actual price?",
+    "exemploPt": "Qual é o preço real?",
+    "circuito": 32
+  },
+  {
+    "en": "tax",
+    "oQueOBrasileiroAcha": "Taxa: de juros, de câmbio, de entrega.",
+    "oQueSignifica": "Imposto.",
+    "comoDizerOQueQueria": "Taxa de juros = interest rate. Taxa de câmbio = exchange rate. Taxa de serviço = service charge / fee.",
+    "exemploEn": "Does that include tax?",
+    "exemploPt": "Isso inclui imposto?",
+    "circuito": 32
+  },
+  {
+    "en": "physician",
+    "oQueOBrasileiroAcha": "Físico, o cientista.",
+    "oQueSignifica": "Médico. É a palavra formal, a que está nos formulários.",
+    "comoDizerOQueQueria": "Físico (cientista) = physicist. Físico (corpo) = physique / build.",
+    "exemploEn": "My physician is in Brazil.",
+    "exemploPt": "Meu médico é no Brasil.",
+    "circuito": 33
+  },
+  {
+    "en": "policy",
+    "oQueOBrasileiroAcha": "Polícia.",
+    "oQueSignifica": "Norma, política interna de uma empresa. Também apólice de seguro.",
+    "comoDizerOQueQueria": "Polícia = the police. Política de governo = politics (a atividade) ou policy (a diretriz).",
+    "exemploEn": "Sorry, that's our policy.",
+    "exemploPt": "Desculpa, é a nossa norma.",
+    "circuito": 33
+  },
+  {
+    "en": "apology",
+    "oQueOBrasileiroAcha": "Apologia, defesa pública de algo.",
+    "oQueSignifica": "Pedido de desculpas.",
+    "comoDizerOQueQueria": "Apologia (a algo condenável) = glorifying / defense of. Apologia ao crime = glorifying crime.",
+    "exemploEn": "They didn't even offer an apology.",
+    "exemploPt": "Nem pediram desculpa.",
+    "circuito": 34
+  },
+  {
+    "en": "reclaim",
+    "oQueOBrasileiroAcha": "Reclamar, fazer queixa.",
+    "oQueSignifica": "Reaver, retirar de volta o que é seu. Baggage reclaim é a esteira de bagagem.",
+    "comoDizerOQueQueria": "Reclamar = complain. Fazer uma reclamação = file a complaint. Nos EUA a placa costuma ser baggage claim.",
+    "exemploEn": "Baggage reclaim is downstairs.",
+    "exemploPt": "A retirada de bagagem é lá embaixo.",
+    "circuito": 34
+  },
+  {
+    "en": "constipated",
+    "oQueOBrasileiroAcha": "Constipado, resfriado, gripado.",
+    "oQueSignifica": "Com prisão de ventre. Você diz isso na farmácia achando que está falando do nariz.",
+    "comoDizerOQueQueria": "Resfriado = I have a cold / I'm stuffed up (nariz entupido).",
+    "exemploEn": "I've been constipated for two days.",
+    "exemploPt": "Faz dois dias que tô com prisão de ventre.",
+    "circuito": 35
+  },
+  {
+    "en": "medicine",
+    "oQueOBrasileiroAcha": "Só medicina, o curso. E procura \"remedy\" quando quer falar do comprimido.",
+    "oQueSignifica": "Remédio, o que você toma. Também a medicina como campo.",
+    "comoDizerOQueQueria": "Remédio = medicine / medication. Remedy quase nunca é remédio: é solução para um problema.",
+    "exemploEn": "Take this medicine twice a day.",
+    "exemploPt": "Toma esse remédio duas vezes por dia.",
+    "circuito": 35
+  },
+  {
+    "en": "requirement",
+    "oQueOBrasileiroAcha": "Requerimento, o formulário que você preenche e protocola.",
+    "oQueSignifica": "Exigência, requisito.",
+    "comoDizerOQueQueria": "Requerimento = application / request form. Fazer um requerimento = file a request.",
+    "exemploEn": "That's a requirement, not a request.",
+    "exemploPt": "Isso é uma exigência, não um pedido.",
+    "circuito": 36
+  },
+  {
+    "en": "resort",
+    "oQueOBrasileiroAcha": "Resort, hotel grande de férias. E aí ele para de escutar quando a palavra aparece fora do turismo.",
+    "oQueSignifica": "Recorrer a algo. \"As a last resort\" = como último recurso. O hotel também é resort, mas é o uso menos frequente numa negociação.",
+    "comoDizerOQueQueria": "Último recurso = last resort. Recorrer a = resort to. O hotel continua sendo resort.",
+    "exemploEn": "Only as a last resort.",
+    "exemploPt": "Só em último caso.",
+    "circuito": 36
+  },
+  {
+    "en": "advise",
+    "oQueOBrasileiroAcha": "Avisar, dar um aviso.",
+    "oQueSignifica": "Aconselhar. O substantivo é advice, sem s no fim do som e sem plural.",
+    "comoDizerOQueQueria": "Avisar = let someone know / tell / warn. Me avisa = let me know.",
+    "exemploEn": "I'd advise you to wait.",
+    "exemploPt": "Eu aconselharia você a esperar.",
+    "circuito": 37
+  },
+  {
+    "en": "deceive",
+    "oQueOBrasileiroAcha": "Decepcionar.",
+    "oQueSignifica": "Enganar, ludibriar. Você acusa de fraude quem só te deixou na mão.",
+    "comoDizerOQueQueria": "Decepcionar = disappoint / let someone down.",
+    "exemploEn": "He deceived a lot of people.",
+    "exemploPt": "Ele enganou muita gente.",
+    "circuito": 37
+  },
+  {
+    "en": "application",
+    "oQueOBrasileiroAcha": "Aplicação: o aplicativo do celular, ou dinheiro investido.",
+    "oQueSignifica": "Candidatura, inscrição. Também o formulário dela.",
+    "comoDizerOQueQueria": "Aplicativo = app. Aplicação financeira = investment. Aplicar dinheiro = invest.",
+    "exemploEn": "I sent my application yesterday.",
+    "exemploPt": "Mandei minha inscrição ontem.",
+    "circuito": 38
+  },
+  {
+    "en": "resume",
+    "oQueOBrasileiroAcha": "Resumo de um texto ou de uma reunião.",
+    "oQueSignifica": "Currículo (o papel que você manda para a vaga). Como verbo, retomar.",
+    "comoDizerOQueQueria": "Resumo = summary. Fazer um resumo = sum it up / give a quick summary.",
+    "exemploEn": "Send me your resume.",
+    "exemploPt": "Me manda seu currículo.",
+    "circuito": 38
+  },
+  {
+    "en": "casualty",
+    "oQueOBrasileiroAcha": "Casualidade, coincidência.",
+    "oQueSignifica": "Vítima de acidente ou conflito: morto ou ferido.",
+    "comoDizerOQueQueria": "Casualidade/coincidência = coincidence. Por acaso = by chance.",
+    "exemploEn": "There were no casualties.",
+    "exemploPt": "Não houve vítimas.",
+    "circuito": 39
+  },
+  {
+    "en": "procure",
+    "oQueOBrasileiroAcha": "Procurar.",
+    "oQueSignifica": "Obter, adquirir. Palavra de empresa, de compras corporativas.",
+    "comoDizerOQueQueria": "Procurar = look for. Procurar alguém (falar com) = get in touch with. Aqui vale a regra: a palavra latina existe, mas o nativo usa a curta.",
+    "exemploEn": "They procure everything locally.",
+    "exemploPt": "Eles compram tudo de fornecedor da região.",
+    "circuito": 40
+  },
+  {
+    "en": "support",
+    "oQueOBrasileiroAcha": "Suportar no sentido de aguentar, tolerar.",
+    "oQueSignifica": "Apoiar, dar suporte. É positivo.",
+    "comoDizerOQueQueria": "Suportar/aguentar = put up with / stand / take. \"I can't stand this noise.\" Aqui a palavra latina não serve: o nativo usa o phrasal verb.",
+    "exemploEn": "They've supported me from day one.",
+    "exemploPt": "Eles me apoiaram desde o primeiro dia.",
+    "circuito": 40
+  },
+  {
+    "en": "vegetables",
+    "oQueOBrasileiroAcha": "Que legumes se diz \"legumes\". E pronuncia a palavra com quatro ou cinco sílabas.",
+    "oQueSignifica": "Legumes e verduras em geral. Legumes em inglês é outra coisa: leguminosas, feijão e lentilha.",
+    "comoDizerOQueQueria": "Legumes/verduras = vegetables, ou veggies na fala solta. E o nativo comprime: VEJ-tuh-buls, três sílabas, não ve-ge-tá-bols.",
+    "exemploEn": "Eat your vegetables.",
+    "exemploPt": "Come os legumes.",
+    "circuito": 41
+  },
+  {
+    "en": "estate",
+    "oQueOBrasileiroAcha": "Estado: o país, ou a condição de algo.",
+    "oQueSignifica": "Propriedade, patrimônio. Real estate = mercado imobiliário.",
+    "comoDizerOQueQueria": "Estado (região ou condição) = state. O estado de São Paulo = the state of São Paulo.",
+    "exemploEn": "She works in real estate.",
+    "exemploPt": "Ela trabalha com imóveis.",
+    "circuito": 42
+  },
+  {
+    "en": "idiom",
+    "oQueOBrasileiroAcha": "Idioma, língua.",
+    "oQueSignifica": "Expressão idiomática, aquela que não se traduz palavra por palavra.",
+    "comoDizerOQueQueria": "Idioma = language. Falo dois idiomas = I speak two languages.",
+    "exemploEn": "That's an idiom. Don't translate it.",
+    "exemploPt": "Isso é uma expressão. Não traduz.",
+    "circuito": 42
+  },
+  {
+    "en": "comprehensive",
+    "oQueOBrasileiroAcha": "Compreensivo, que entende os outros.",
+    "oQueSignifica": "Abrangente, completo, que cobre tudo.",
+    "comoDizerOQueQueria": "Compreensivo (pessoa) = understanding / supportive.",
+    "exemploEn": "It's a comprehensive review.",
+    "exemploPt": "É uma revisão completa.",
+    "circuito": 43
+  },
+  {
+    "en": "gratuity",
+    "oQueOBrasileiroAcha": "Gratuidade, algo de graça.",
+    "oQueSignifica": "Gorjeta. É a palavra formal que aparece impressa na conta.",
+    "comoDizerOQueQueria": "Grátis = free / free of charge. Gorjeta na fala do dia a dia = tip.",
+    "exemploEn": "The gratuity's already included.",
+    "exemploPt": "A gorjeta já tá inclusa.",
+    "circuito": 43
+  },
+  {
+    "en": "propaganda",
+    "oQueOBrasileiroAcha": "Propaganda, anúncio, comercial de TV.",
+    "oQueSignifica": "Propaganda política, manipulação em massa. É palavra pesada e negativa.",
+    "comoDizerOQueQueria": "Propaganda comercial = ad / advert. Na TV = a commercial. Publicidade = advertising.",
+    "exemploEn": "That's just propaganda.",
+    "exemploPt": "Isso é pura manipulação.",
+    "circuito": 44
+  },
+  {
+    "en": "assume",
+    "oQueOBrasileiroAcha": "Assumir: uma responsabilidade, um cargo, um erro.",
+    "oQueSignifica": "Supor, presumir sem confirmar.",
+    "comoDizerOQueQueria": "Assumir responsabilidade = take responsibility. Assumir um erro = own up to it / admit it. Assumir um cargo = take over.",
+    "exemploEn": "I just assumed you knew.",
+    "exemploPt": "Eu só supus que você sabia.",
+    "circuito": 45
+  },
+  {
+    "en": "expose",
+    "oQueOBrasileiroAcha": "Expor no sentido de apresentar um trabalho.",
+    "oQueSignifica": "Revelar o que estava escondido, desmascarar. Dizer \"I'll expose my project\" soa a denúncia.",
+    "comoDizerOQueQueria": "Apresentar = present / give a presentation / walk you through it.",
+    "exemploEn": "The report exposed the whole thing.",
+    "exemploPt": "O relatório revelou tudo.",
+    "circuito": 46
+  },
+  {
+    "en": "lecture",
+    "oQueOBrasileiroAcha": "Leitura.",
+    "oQueSignifica": "Palestra, aula expositiva. Também sermão, no sentido de bronca.",
+    "comoDizerOQueQueria": "Leitura = reading. \"Reading in English is easier than listening.\"",
+    "exemploEn": "I went to a lecture yesterday.",
+    "exemploPt": "Fui numa palestra ontem.",
+    "circuito": 46
+  },
+  {
+    "en": "editor",
+    "oQueOBrasileiroAcha": "Editor no sentido de dono da editora, quem publica.",
+    "oQueSignifica": "Quem revisa, corta e melhora o texto dos outros.",
+    "comoDizerOQueQueria": "Editora (a empresa) = publisher / publishing house. Quem publica = the publisher.",
+    "exemploEn": "My editor cut half of it.",
+    "exemploPt": "Meu editor cortou metade.",
+    "circuito": 47
+  },
+  {
+    "en": "convict",
+    "oQueOBrasileiroAcha": "Convicto, convencido de algo.",
+    "oQueSignifica": "Condenar na justiça (verbo). Como substantivo, presidiário.",
+    "comoDizerOQueQueria": "Convicto = convinced / sure. \"I'm sure about it.\"",
+    "exemploEn": "They said he was convicted last year.",
+    "exemploPt": "Disseram que ele foi condenado ano passado.",
+    "circuito": 48
+  },
+  {
+    "en": "recipient",
+    "oQueOBrasileiroAcha": "Recipiente, o pote onde se guarda algo.",
+    "oQueSignifica": "Destinatário, quem recebe.",
+    "comoDizerOQueQueria": "Recipiente = container. Pote = jar / tub.",
+    "exemploEn": "Check the recipient before you hit send.",
+    "exemploPt": "Confere o destinatário antes de mandar.",
+    "circuito": 48
+  },
+  {
+    "en": "prejudice",
+    "oQueOBrasileiroAcha": "Prejuízo, perda de dinheiro.",
+    "oQueSignifica": "Preconceito.",
+    "comoDizerOQueQueria": "Prejuízo (dinheiro) = loss. Prejuízo (dano) = damage. Me prejudicou = it hurt me / it set me back.",
+    "exemploEn": "There's still a lot of prejudice out there.",
+    "exemploPt": "Ainda tem muito preconceito por aí.",
+    "circuito": 49
+  },
+  {
+    "en": "scholar",
+    "oQueOBrasileiroAcha": "Escolar, coisa de colégio.",
+    "oQueSignifica": "Estudioso, pesquisador, acadêmico. É elogio pesado.",
+    "comoDizerOQueQueria": "Material escolar = school supplies. Ano escolar = school year. E scholarship é bolsa de estudos, não escolaridade.",
+    "exemploEn": "She's a serious scholar.",
+    "exemploPt": "Ela é uma pesquisadora séria.",
+    "circuito": 49
+  },
+  {
+    "en": "cigar",
+    "oQueOBrasileiroAcha": "Cigarro.",
+    "oQueSignifica": "Charuto.",
+    "comoDizerOQueQueria": "Cigarro = cigarette. No dia a dia, a smoke.",
+    "exemploEn": "He only smokes cigars.",
+    "exemploPt": "Ele só fuma charuto.",
+    "circuito": 50
+  },
+  {
+    "en": "intoxicated",
+    "oQueOBrasileiroAcha": "Intoxicado, que comeu algo estragado.",
+    "oQueSignifica": "Embriagado, bêbado. No hospital ou no aeroporto isso muda tudo.",
+    "comoDizerOQueQueria": "Intoxicação alimentar = food poisoning. \"I think I got food poisoning.\"",
+    "exemploEn": "He was clearly intoxicated.",
+    "exemploPt": "Ele tava visivelmente bêbado.",
+    "circuito": 50
+  },
+  {
+    "en": "journal",
+    "oQueOBrasileiroAcha": "Jornal.",
+    "oQueSignifica": "Diário pessoal, ou revista científica.",
+    "comoDizerOQueQueria": "Jornal = newspaper. No jornal da TV = on the news.",
+    "exemploEn": "I keep a journal in English.",
+    "exemploPt": "Eu escrevo um diário em inglês.",
+    "circuito": 51
+  },
+  {
+    "en": "ultimately",
+    "oQueOBrasileiroAcha": "Ultimamente, nos últimos tempos.",
+    "oQueSignifica": "No fim das contas, em última análise.",
+    "comoDizerOQueQueria": "Ultimamente = lately / recently. E último = last, não ultimate: ultimate é o definitivo, o máximo.",
+    "exemploEn": "Ultimately, it's your call.",
+    "exemploPt": "No fim das contas, a decisão é sua.",
+    "circuito": 52
+  }
+]
