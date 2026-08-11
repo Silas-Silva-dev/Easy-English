@@ -47,7 +47,7 @@
  *   npm run gen:blocos -- --dry             mostra a encomenda sem chamar a API
  */
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { calibragemDe } from "@content/calibragem";
@@ -63,7 +63,7 @@ import {
 } from "@content/metodo";
 import { chunkKey, chunksSpokenIn } from "@/lib/srs";
 
-import { env, genaiBatch, sleep } from "./_shared";
+import { env, genaiBatch, isRede, sleep } from "./_shared";
 
 /** Quantos blocos por chamada na fase 2. Acima disso a resposta corta no meio. */
 const LOTE_FAMILIA = 6;
@@ -129,6 +129,21 @@ function validarBase(
     exigir(!cheia, `"${b.en}" usa "${cheia}" - o curso exige contracao na fala`);
 
     exigir(!b.en.includes("/"), `"${b.en}" tem barra, que é o separador de roteiro do player`);
+
+    // O bloco base tem que caber DENTRO de uma recombinacao, e a recombinacao
+    // tem teto de palavras. O circuito 4 nasceu com blocos de 14 palavras
+    // ("What do you do for a living, and how long have you been doing it?")
+    // num nivel onde a recombinacao permite 12 — a fase 2 tentou nove vezes e
+    // nao havia como acertar: a exigencia era impossivel por construcao.
+    //
+    // Quatro palavras de folga e o minimo para a recombinacao ser uma frase
+    // maior de verdade, e nao o bloco com um "well" na frente.
+    const tetoBase = calibragemDe(n).maxPalavras - 4;
+    exigir(
+      palavras(b.en) <= tetoBase,
+      `"${b.en}" tem ${palavras(b.en)} palavras e o bloco base do nivel cabe em ${tetoBase} — ` +
+        `a recombinacao precisa conter o bloco inteiro e ainda sobrar frase`,
+    );
 
     const chave = chunkKey(b.en);
     exigir(!vistos.has(chave), `"${b.en}" aparece duas vezes no mesmo circuito`);
@@ -287,6 +302,14 @@ Escreva os BLOCOS do circuito ${n}.
 
 Bloco é uma frase pronta que o aluno põe na boca inteira, sem montar palavra por
 palavra. É a unidade do curso.
+
+TETO DE ${calibragemDe(n).maxPalavras - 4} PALAVRAS por bloco, e não é sugestão. Duas razões:
+o aluno tem que conseguir dizer o bloco de uma vez só, sem parar no meio; e mais
+adiante cada bloco entra INTEIRO dentro de uma frase maior de ${calibragemDe(n).maxPalavras} palavras,
+o que fica impossível se o bloco já ocupa quase tudo.
+
+Pergunta dupla é o erro típico aqui: "What do you do for a living, and how long
+have you been doing it?" são dois blocos, não um. Separe.
 
 O CIRCUITO ${n} — "${prog.titulo}"  (Canto ${cantoDe(n)}, nível ${carga.nivel})
 
@@ -516,6 +539,23 @@ function load(): BlocosDoCircuito[] {
 }
 
 /**
+ * Escreve o arquivo inteiro de uma vez.
+ *
+ * `writeFileSync` direto no destino deixa uma janela em que o arquivo existe
+ * pela metade. Enquanto so um processo mexia nele isso nao aparecia; agora o
+ * gerador de dialogos LE blocos.json enquanto o de formas o reescreve, e uma
+ * leitura nessa janela devolve JSON cortado e derruba a rodada inteira.
+ *
+ * Escrever ao lado e renomear fecha a janela: no mesmo volume, o rename e
+ * atomico, e quem le sempre ve a versao antiga ou a nova, nunca a metade.
+ */
+function escreverAtomico(caminho: string, conteudo: string) {
+  const temp = `${caminho}.${process.pid}.tmp`;
+  writeFileSync(temp, conteudo, "utf8");
+  renameSync(temp, caminho);
+}
+
+/**
  * Grava um circuito, relendo o arquivo antes de escrever.
  *
  * Reler parece supérfluo num script de um processo só, e não é. Duas execuções
@@ -535,7 +575,7 @@ function salvarCircuito(registro: BlocosDoCircuito): BlocosDoCircuito[] {
   else noDisco[idx] = registro;
 
   noDisco.sort((a, b) => a.n - b.n);
-  writeFileSync(JSON_PATH, JSON.stringify(noDisco, null, 2) + String.fromCharCode(10), "utf8");
+  escreverAtomico(JSON_PATH, JSON.stringify(noDisco, null, 2) + String.fromCharCode(10));
   return noDisco;
 }
 
@@ -636,6 +676,12 @@ async function main() {
         base = candidatos;
       } catch (error) {
         if (isSpendCap(error)) abortarPorTeto();
+        if (isRede(error)) {
+          console.log(`  [33m·[0m rede instavel: repetindo em 10s`);
+          await sleep(10_000);
+          t--;
+          continue;
+        }
         if (isQuotaError(error)) {
           if (!op.watch) {
             console.log(`\n  \x1b[33m▲ Cota bloqueada.\x1b[0m ${escritos} circuitos nesta rodada.`);
@@ -710,6 +756,12 @@ async function main() {
           return montados;
         } catch (error) {
           if (isSpendCap(error)) abortarPorTeto();
+          if (isRede(error)) {
+            console.log(`  [33m·[0m rede instavel: repetindo em 10s`);
+            await sleep(10_000);
+            t--;
+            continue;
+          }
           if (isQuotaError(error)) {
             if (!op.watch) {
               console.log(`\n  \x1b[33m▲ Cota bloqueada no meio do c${n}.\x1b[0m`);

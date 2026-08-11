@@ -213,3 +213,23 @@ export async function mapLimit<T, R>(
   await Promise.all(workers);
   return results;
 }
+
+/**
+ * Falha de rede, que não é falha de conteúdo.
+ *
+ * Os geradores tratam qualquer erro como "o modelo errou": registram o motivo,
+ * realimentam esse motivo no prompt e tentam de novo. Para um DNS que não
+ * resolveu, isso é duplamente errado — manda o modelo "corrigir" um
+ * `getaddrinfo ENOTFOUND` que ele não causou, e ainda gasta uma das três
+ * tentativas do lote. Foi assim que o circuito 4 perdeu duas famílias inteiras
+ * numa oscilação de conexão de poucos segundos.
+ *
+ * Reconhecendo a rede, o gerador espera e repete a MESMA encomenda, sem gastar
+ * tentativa e sem sujar o prompt.
+ */
+export function isRede(error: unknown): boolean {
+  const m = error instanceof Error ? error.message : String(error);
+  return /ENOTFOUND|ETIMEDOUT|ECONNRESET|ECONNREFUSED|EAI_AGAIN|EPIPE|socket hang up|network|fetch failed|request to .* failed/i.test(
+    m,
+  );
+}

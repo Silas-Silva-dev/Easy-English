@@ -36,7 +36,7 @@
  *   npm run gen:formas -- --dry           mostra o déficit sem chamar a API
  */
 
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { calibragemDe } from "@content/calibragem";
@@ -45,7 +45,7 @@ import { cargaDe, progressaoDe } from "@content/metodo";
 import type { Bloco, Forma } from "@content/movimentos";
 import { chunkKey } from "@/lib/srs";
 
-import { env, genaiBatch, sleep } from "./_shared";
+import { env, genaiBatch, isRede, sleep } from "./_shared";
 
 interface BlocosDoCircuito {
   n: number;
@@ -250,6 +250,23 @@ function load(): BlocosDoCircuito[] {
 }
 
 /**
+ * Escreve o arquivo inteiro de uma vez.
+ *
+ * `writeFileSync` direto no destino deixa uma janela em que o arquivo existe
+ * pela metade. Enquanto so um processo mexia nele isso nao aparecia; agora o
+ * gerador de dialogos LE blocos.json enquanto o de formas o reescreve, e uma
+ * leitura nessa janela devolve JSON cortado e derruba a rodada inteira.
+ *
+ * Escrever ao lado e renomear fecha a janela: no mesmo volume, o rename e
+ * atomico, e quem le sempre ve a versao antiga ou a nova, nunca a metade.
+ */
+function escreverAtomico(caminho: string, conteudo: string) {
+  const temp = `${caminho}.${process.pid}.tmp`;
+  writeFileSync(temp, conteudo, "utf8");
+  renameSync(temp, caminho);
+}
+
+/**
  * Grava as formas novas de um circuito, relendo o arquivo antes de escrever.
  *
  * O mesmo cuidado do gerador de blocos, pelo mesmo motivo: duas execuções ao
@@ -263,7 +280,7 @@ function salvar(n: number, blocos: Bloco[]) {
   if (idx === -1) noDisco.push({ n, blocos });
   else noDisco[idx] = { n, blocos };
   noDisco.sort((a, b) => a.n - b.n);
-  writeFileSync(JSON_PATH, JSON.stringify(noDisco, null, 2) + String.fromCharCode(10), "utf8");
+  escreverAtomico(JSON_PATH, JSON.stringify(noDisco, null, 2) + String.fromCharCode(10));
 }
 
 function isSpendCap(error: unknown): boolean {
@@ -392,6 +409,12 @@ async function main() {
             console.log(`  Use o Vertex (VERTEX_CREDENTIALS) ou levante o teto em ai.studio/spend\n`);
             salvar(circuito.n, blocos);
             process.exit(1);
+          }
+          if (isRede(error)) {
+            console.log(`  [33m·[0m rede instavel: repetindo em 10s`);
+            await sleep(10_000);
+            t--;
+            continue;
           }
           if (isQuota(error)) {
             if (!watch) {

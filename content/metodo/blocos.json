@@ -187,6 +187,11 @@
             "tipo": "pergunta",
             "en": "Is that good to hear?",
             "pt": "Isso é uma boa notícia?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it is.",
+            "pt": "Sim, é verdade."
           }
         ],
         "recombinacoes": [
@@ -218,6 +223,11 @@
             "tipo": "pergunta",
             "en": "Is it time to go?",
             "pt": "Está na hora de ir?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it is.",
+            "pt": "Sim, tá na hora."
           }
         ],
         "recombinacoes": [
@@ -259,6 +269,11 @@
             "tipo": "resposta-curta",
             "en": "Yes, I understand.",
             "pt": "Sim, eu entendi."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I don't understand you.",
+            "pt": "Eu não te entendo."
           }
         ],
         "recombinacoes": [
@@ -290,6 +305,11 @@
             "tipo": "pergunta",
             "en": "Did you catch that?",
             "pt": "Você pegou essa parte?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I caught that.",
+            "pt": "Sim, eu entendi."
           }
         ],
         "recombinacoes": [
@@ -321,6 +341,11 @@
             "tipo": "negativa",
             "en": "I can't say that again.",
             "pt": "Eu não consigo repetir isso."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I can.",
+            "pt": "Sim, posso."
           }
         ],
         "recombinacoes": [
@@ -352,6 +377,11 @@
             "tipo": "negativa",
             "en": "I can't speak any slower.",
             "pt": "Eu não consigo falar mais devagar."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Sure, I can speak slower.",
+            "pt": "Claro, posso falar mais devagar."
           }
         ],
         "recombinacoes": [
@@ -383,6 +413,11 @@
             "tipo": "resposta-curta",
             "en": "It doesn't mean anything.",
             "pt": "Isso não significa nada."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I don't know what it means.",
+            "pt": "Eu não sei o que isso significa."
           }
         ],
         "recombinacoes": [
@@ -445,6 +480,11 @@
             "tipo": "pergunta",
             "en": "Wait, can you say that again?",
             "pt": "Espera, você pode falar isso de novo?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I said that.",
+            "pt": "Sim, eu disse isso."
           }
         ],
         "recombinacoes": [
@@ -476,6 +516,11 @@
             "tipo": "resposta-curta",
             "en": "Yes, I can record that for you.",
             "pt": "Sim, eu posso gravar isso para você."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Could you record that for me?",
+            "pt": "Você poderia gravar isso para mim?"
           }
         ],
         "recombinacoes": [
@@ -507,6 +552,11 @@
             "tipo": "negativa",
             "en": "I'm sorry, that wasn't clear.",
             "pt": "Desculpa, isso não ficou claro."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "I'm sorry, it wasn't anything.",
+            "pt": "Desculpa, não foi nada."
           }
         ],
         "recombinacoes": [
@@ -543,6 +593,11 @@
             "tipo": "pergunta",
             "en": "Are you an engineer living in New York?",
             "pt": "Você é engenheiro morando em Nova York?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I am.",
+            "pt": "Sim, eu sou."
           }
         ],
         "recombinacoes": [
@@ -574,6 +629,11 @@
             "tipo": "pergunta",
             "en": "Have you been here for six months?",
             "pt": "Você está aqui faz seis meses?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I haven't.",
+            "pt": "Não, não estou."
           }
         ],
         "recombinacoes": [
@@ -605,6 +665,11 @@
             "tipo": "pergunta",
             "en": "Is he a teacher at a local college?",
             "pt": "Ele é professor em uma faculdade local?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, he is.",
+            "pt": "Sim, ele é."
           }
         ],
         "recombinacoes": [
@@ -636,6 +701,11 @@
             "tipo": "pergunta",
             "en": "Do you live in a big house with my family?",
             "pt": "Você mora em uma casa grande com minha família?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I don't.",
+            "pt": "Não, não moro."
           }
         ],
         "recombinacoes": [
@@ -667,6 +737,11 @@
             "tipo": "pergunta",
             "en": "Is it your first time in this city?",
             "pt": "É sua primeira vez nesta cidade?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it is.",
+            "pt": "Sim, é."
           }
         ],
         "recombinacoes": [
@@ -698,6 +773,11 @@
             "tipo": "pergunta",
             "en": "Are you a designer who works at an agency?",
             "pt": "Você é designer e trabalha em uma agência?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I'm not.",
+            "pt": "Não, não sou."
           }
         ],
         "recombinacoes": [
@@ -729,6 +809,11 @@
             "tipo": "pergunta",
             "en": "Is his job in a different state?",
             "pt": "O trabalho dele é em outro estado?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it is.",
+            "pt": "Sim, é."
           }
         ],
         "recombinacoes": [
@@ -760,6 +845,11 @@
             "tipo": "pergunta",
             "en": "Is it a small team, but it's great?",
             "pt": "É uma equipe pequena, mas é ótima?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it is.",
+            "pt": "Sim, é."
           }
         ],
         "recombinacoes": [
@@ -791,6 +881,11 @@
             "tipo": "pergunta",
             "en": "Are you from Brazil, but you live in London now?",
             "pt": "Você é do Brasil, mas mora em Londres agora?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I am.",
+            "pt": "Sim, sou."
           }
         ],
         "recombinacoes": [
@@ -822,6 +917,11 @@
             "tipo": "pergunta",
             "en": "Is she an architect, has she been here for a year?",
             "pt": "Ela é arquiteta, ela está aqui há um ano?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, she is.",
+            "pt": "Sim, é."
           }
         ],
         "recombinacoes": [
@@ -836,6 +936,402 @@
           {
             "en": "Look, she's an architect, she's been here for a year.",
             "pt": "Olha, ela é arquiteta, ela está aqui há um ano."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "n": 4,
+    "blocos": [
+      {
+        "en": "Where are you from?",
+        "pt": "De onde você é?",
+        "quando": "Ao conhecer alguém pela primeira vez.",
+        "formas": [
+          {
+            "tipo": "resposta-curta",
+            "en": "I'm from Brazil.",
+            "pt": "Eu sou do Brasil."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I'm not from around here.",
+            "pt": "Eu não sou daqui."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Where are you from again?",
+            "pt": "De onde você é mesmo?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Tell me, where are you from?",
+            "pt": "Me conta, de onde você é?"
+          },
+          {
+            "en": "I forgot, where are you from?",
+            "pt": "Eu esqueci, de onde você é?"
+          },
+          {
+            "en": "By the way, where are you from?",
+            "pt": "Aliás, de onde você é?"
+          }
+        ]
+      },
+      {
+        "en": "Are you here for work?",
+        "pt": "Você está aqui a trabalho?",
+        "quando": "Quando alguém menciona que está viajando ou em um lugar novo.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I'm not here for work.",
+            "pt": "Eu não estou aqui a trabalho."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I am.",
+            "pt": "Sim, estou."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is he here for work?",
+            "pt": "Ele está aqui a trabalho?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm just curious, are you here for work?",
+            "pt": "Só por curiosidade, você está aqui a trabalho?"
+          },
+          {
+            "en": "Tell me, are you here for work or vacation?",
+            "pt": "Me diga, você está aqui a trabalho ou de férias?"
+          },
+          {
+            "en": "So, are you here for work today?",
+            "pt": "Então, você está aqui a trabalho hoje?"
+          }
+        ]
+      },
+      {
+        "en": "Is this your first time here?",
+        "pt": "É a sua primeira vez aqui?",
+        "quando": "Para manter a conversa em um ambiente desconhecido.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "This isn't my first time here.",
+            "pt": "Essa não é a minha primeira vez aqui."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it is.",
+            "pt": "Sim, é."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Is this your first time here? I've never seen you before.",
+            "pt": "É a sua primeira vez aqui? Nunca te vi antes."
+          },
+          {
+            "en": "Tell me, is this your first time here at the office?",
+            "pt": "Me conta, é a sua primeira vez aqui no escritório?"
+          },
+          {
+            "en": "I'm curious, is this your first time here in the city?",
+            "pt": "Estou curioso, é a sua primeira vez aqui na cidade?"
+          }
+        ]
+      },
+      {
+        "en": "What do you do?",
+        "pt": "O que você faz da vida?",
+        "quando": "Ao perguntar a profissão de alguém de forma casual.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I don't know what you do.",
+            "pt": "Eu não sei o que você faz da vida."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "What do you do for a living?",
+            "pt": "O que você faz para ganhar a vida?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "That's what I do.",
+            "pt": "É isso que eu faço."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "So, what do you do when you aren't working?",
+            "pt": "Então, o que você faz da vida quando não está trabalhando?"
+          },
+          {
+            "en": "I'm curious, what do you do for fun around here?",
+            "pt": "Estou curioso, o que você faz da vida para se divertir por aqui?"
+          },
+          {
+            "en": "Tell me, what do you do before you start your shift?",
+            "pt": "Me conta, o que você faz da vida antes de começar seu turno?"
+          }
+        ]
+      },
+      {
+        "en": "Are you busy right now?",
+        "pt": "Você está ocupado agora?",
+        "quando": "Antes de começar a puxar assunto com alguém.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I'm not busy right now.",
+            "pt": "Eu não estou ocupado agora."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I am.",
+            "pt": "Sim, estou."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I'm not.",
+            "pt": "Não, não estou."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Are you busy right now, or can we talk?",
+            "pt": "Você está ocupado agora, ou podemos conversar?"
+          },
+          {
+            "en": "I'm sorry, are you busy right now?",
+            "pt": "Desculpe, você está ocupado agora?"
+          },
+          {
+            "en": "Tell me, are you busy right now?",
+            "pt": "Me diga, você está ocupado agora?"
+          }
+        ]
+      },
+      {
+        "en": "Is it far from here?",
+        "pt": "É longe daqui?",
+        "quando": "Quando alguém menciona o local onde mora ou trabalha.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "It's not far from here.",
+            "pt": "Não é longe daqui."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it is.",
+            "pt": "Sim, é."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, it's not.",
+            "pt": "Não, não é."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Excuse me, is it far from here?",
+            "pt": "Com licença, é longe daqui?"
+          },
+          {
+            "en": "I need to walk, is it far from here?",
+            "pt": "Preciso caminhar, é longe daqui?"
+          },
+          {
+            "en": "Tell me, is it far from here?",
+            "pt": "Me diz, é longe daqui?"
+          }
+        ]
+      },
+      {
+        "en": "Are you ready to go?",
+        "pt": "Você está pronto para ir?",
+        "quando": "Para finalizar uma interação ou preparar a saída.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I'm not ready to go.",
+            "pt": "Eu não estou pronto para ir."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I'm ready.",
+            "pt": "Sim, estou pronto."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I'm not.",
+            "pt": "Não, não estou."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Are you ready to go yet?",
+            "pt": "Você já está pronto para ir?"
+          },
+          {
+            "en": "Tell me, are you ready to go now?",
+            "pt": "Me diz, você está pronto para ir agora?"
+          },
+          {
+            "en": "I'm wondering, are you ready to go?",
+            "pt": "Estou querendo saber, você está pronto para ir?"
+          }
+        ]
+      },
+      {
+        "en": "What is in this caption?",
+        "pt": "O que tem nesta legenda?",
+        "quando": "Ao perguntar o significado de um texto em uma foto.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "What isn't in this caption?",
+            "pt": "O que não tem nesta legenda?"
+          },
+          {
+            "tipo": "pergunta",
+            "en": "What's in this caption?",
+            "pt": "O que tem nessa legenda?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Nothing is in this caption.",
+            "pt": "Não tem nada nesta legenda."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Tell me, what is in this caption?",
+            "pt": "Me conta, o que tem nesta legenda?"
+          },
+          {
+            "en": "I don't know what is in this caption.",
+            "pt": "Eu não sei o que tem nesta legenda."
+          },
+          {
+            "en": "Look, what is in this caption is really funny.",
+            "pt": "Olha, o que tem nesta legenda é muito engraçado."
+          }
+        ]
+      },
+      {
+        "en": "Are you in the office?",
+        "pt": "Você está no escritório?",
+        "quando": "Ao confirmar a localização de trabalho de alguém.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "You aren't in the office.",
+            "pt": "Você não está no escritório."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I am.",
+            "pt": "Sim, estou."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I'm not.",
+            "pt": "Não, não estou."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Tell me, are you in the office right now?",
+            "pt": "Me conta, você está no escritório agora?"
+          },
+          {
+            "en": "I need to know, are you in the office today?",
+            "pt": "Preciso saber, você está no escritório hoje?"
+          },
+          {
+            "en": "Wait, are you in the office or at home?",
+            "pt": "Espera, você está no escritório ou em casa?"
+          }
+        ]
+      },
+      {
+        "en": "Is it a good movie?",
+        "pt": "É um filme bom?",
+        "quando": "Ao perguntar a opinião sobre algo que a pessoa assistiu.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "It isn't a good movie.",
+            "pt": "Não é um filme bom."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it is.",
+            "pt": "Sim, é."
+          },
+          {
+            "tipo": "negativa",
+            "en": "It's not a good movie.",
+            "pt": "Não é um filme legal."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Tell me, is it a good movie or should we skip it?",
+            "pt": "Me diz, é um filme bom ou a gente pula?"
+          },
+          {
+            "en": "I'm curious, is it a good movie to watch with kids?",
+            "pt": "Estou curioso, é um filme bom pra ver com crianças?"
+          },
+          {
+            "en": "Honestly, is it a good movie for a first date?",
+            "pt": "Sinceramente, é um filme bom pra um primeiro encontro?"
+          }
+        ]
+      },
+      {
+        "en": "What is the name of this?",
+        "pt": "Qual é o nome disso?",
+        "quando": "Ao perguntar o nome de um objeto ou conceito desconhecido.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I don't know the name of this.",
+            "pt": "Eu não sei o nome disso."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "What's the name of this song?",
+            "pt": "Qual é o nome dessa música?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "I don't know what the name of this is.",
+            "pt": "Eu não sei qual é o nome disso."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Could you tell me what is the name of this?",
+            "pt": "Você poderia me dizer qual é o nome disso?"
+          },
+          {
+            "en": "I forgot what is the name of this restaurant.",
+            "pt": "Eu esqueci qual é o nome desse restaurante."
+          },
+          {
+            "en": "Nobody knows what is the name of this thing.",
+            "pt": "Ninguém sabe qual é o nome dessa coisa."
           }
         ]
       }
@@ -2555,6 +3051,512 @@
           {
             "en": "Everything happens so fast in the morning at my house.",
             "pt": "Tudo acontece tão rápido de manhã na minha casa."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "n": 9,
+    "blocos": [
+      {
+        "en": "I love that new series, it's so good.",
+        "pt": "Eu amo aquela série nova, é muito boa.",
+        "quando": "Ao mencionar uma série de TV que você gosta muito.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I don't love that new series, it's not good.",
+            "pt": "Eu não amo aquela série nova, ela não é boa."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Do you love that new series? It's so good.",
+            "pt": "Você ama aquela série nova? Ela é muito boa."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I love that new series, it's so good, let's watch it.",
+            "pt": "Eu amo aquela série nova, é muito boa, vamos assistir."
+          },
+          {
+            "en": "Tell me, do I love that new series, it's so good?",
+            "pt": "Me diga, eu amo aquela série nova, é muito boa?"
+          },
+          {
+            "en": "If I love that new series, it's so good for me.",
+            "pt": "Se eu amo aquela série nova, é muito bom para mim."
+          }
+        ]
+      },
+      {
+        "en": "I can't stand that man, he's so bad.",
+        "pt": "Eu não suporto aquele cara, ele é tão ruim.",
+        "quando": "Ao expressar forte antipatia por alguém.",
+        "formas": [
+          {
+            "tipo": "pergunta",
+            "en": "Can you stand that man? He's so bad.",
+            "pt": "Você aguenta aquele cara? Ele é tão ruim."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I can't stand him.",
+            "pt": "Não, eu não suporto ele."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I can't stand that man, he's so bad, just leave.",
+            "pt": "Eu não suporto aquele cara, ele é tão ruim, apenas vá embora."
+          },
+          {
+            "en": "I know I can't stand that man, he's so bad.",
+            "pt": "Eu sei que eu não suporto aquele cara, ele é tão ruim."
+          },
+          {
+            "en": "Why I can't stand that man, he's so bad, right?",
+            "pt": "Por que eu não suporto aquele cara, ele é tão ruim, né?"
+          }
+        ]
+      },
+      {
+        "en": "I like this food a lot, it's delicious.",
+        "pt": "Eu gosto muito desta comida, é deliciosa.",
+        "quando": "Ao elogiar uma refeição que está comendo.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I don't like this food a lot, it's not delicious.",
+            "pt": "Eu não gosto muito desta comida, ela não é deliciosa."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Do you like this food a lot? It's delicious.",
+            "pt": "Você gosta muito desta comida? É deliciosa."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I like it a lot.",
+            "pt": "Sim, eu gosto muito dela."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I like this food a lot, it's delicious, try it.",
+            "pt": "Eu gosto muito desta comida, ela é deliciosa, experimenta."
+          },
+          {
+            "en": "I know I like this food a lot, it's delicious.",
+            "pt": "Eu sei que gosto muito desta comida, é deliciosa."
+          },
+          {
+            "en": "Really, I like this food a lot, it's delicious.",
+            "pt": "Sério, eu gosto muito desta comida, ela é deliciosa."
+          }
+        ]
+      },
+      {
+        "en": "I don't like that show, I think it's sad.",
+        "pt": "Eu não gosto daquele programa, acho ele triste.",
+        "quando": "Ao explicar por que você não gosta de um programa de TV.",
+        "formas": [
+          {
+            "tipo": "pergunta",
+            "en": "Do you like that show? I think it's sad.",
+            "pt": "Você gosta daquele programa? Eu acho ele triste."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I don't like it.",
+            "pt": "Não, eu não gosto dele."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I don't like that show, I think it's sad, sorry.",
+            "pt": "Eu não gosto daquele programa, acho ele triste, desculpa."
+          },
+          {
+            "en": "I don't like that show, I think it's sad, turn it off.",
+            "pt": "Eu não gosto daquele programa, acho ele triste, desliga."
+          },
+          {
+            "en": "Honestly, I don't like that show, I think it's sad.",
+            "pt": "Honestamente, eu não gosto daquele programa, acho ele triste."
+          }
+        ]
+      },
+      {
+        "en": "It's my favorite band, I listen to them every day.",
+        "pt": "É minha banda favorita, eu escuto eles todo dia.",
+        "quando": "Ao falar sobre sua banda preferida.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "It's not my favorite band, I don't listen to them every day.",
+            "pt": "Não é minha banda favorita, eu não escuto eles todo dia."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is it your favorite band? Do you listen to them every day?",
+            "pt": "É sua banda favorita? Você escuta eles todo dia?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "It's my favorite band, I listen to them every day, cool.",
+            "pt": "É minha banda favorita, eu escuto eles todo dia, legal."
+          },
+          {
+            "en": "I guess it's my favorite band, I listen to them every day.",
+            "pt": "Eu acho que é minha banda favorita, eu escuto eles todo dia."
+          },
+          {
+            "en": "It's my favorite band, I listen to them every day, honestly.",
+            "pt": "É minha banda favorita, eu escuto eles todo dia, honestamente."
+          }
+        ]
+      },
+      {
+        "en": "I really like this soup, but it has a weird preservative.",
+        "pt": "Eu gosto muito desta sopa, mas ela tem um conservante estranho.",
+        "quando": "Ao comentar sobre o gosto de uma comida industrializada.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I don't really like this soup, it doesn't have a weird preservative.",
+            "pt": "Eu não gosto muito desta sopa, ela não tem um conservante estranho."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Do you really like this soup? Does it have a weird preservative?",
+            "pt": "Você gosta mesmo desta sopa? Ela tem um conservante estranho?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I really like this soup, but it has a weird preservative.",
+            "pt": "Eu gosto muito desta sopa, mas ela tem um conservante estranho."
+          },
+          {
+            "en": "I really like this soup, but it has a weird preservative, yeah.",
+            "pt": "Eu gosto muito desta sopa, mas ela tem um conservante estranho, é."
+          },
+          {
+            "en": "I really like this soup, but it has a weird preservative, sadly.",
+            "pt": "Eu gosto muito desta sopa, mas ela tem um conservante estranho, infelizmente."
+          }
+        ]
+      },
+      {
+        "en": "That's a great book, I'm reading a novel right now.",
+        "pt": "Esse é um ótimo livro, estou lendo um romance agora.",
+        "quando": "Ao falar sobre o livro que você está lendo.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "That's not a great book, I'm not reading a novel right now.",
+            "pt": "Esse não é um ótimo livro, não estou lendo um romance agora."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is that a great book you're reading right now?",
+            "pt": "Esse é um ótimo livro que você está lendo agora?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I know That's a great book, I'm reading a novel right now.",
+            "pt": "Eu sei que esse é um ótimo livro, estou lendo um romance agora."
+          },
+          {
+            "en": "Honestly, That's a great book, I'm reading a novel right now.",
+            "pt": "Sinceramente, esse é um ótimo livro, estou lendo um romance agora."
+          },
+          {
+            "en": "Believe me, That's a great book, I'm reading a novel right now.",
+            "pt": "Acredite em mim, esse é um ótimo livro, estou lendo um romance agora."
+          }
+        ]
+      },
+      {
+        "en": "I don't like the ending, it's really bad.",
+        "pt": "Eu não gosto do final, é muito ruim.",
+        "quando": "Ao criticar o desfecho de algo que você assistiu.",
+        "formas": [
+          {
+            "tipo": "pergunta",
+            "en": "Do you like the ending, or is it really bad?",
+            "pt": "Você gosta do final ou é muito ruim?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I don't.",
+            "pt": "Não, eu não gosto."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Actually, I don't like the ending, it's really bad.",
+            "pt": "Na verdade, eu não gosto do final, é muito ruim."
+          },
+          {
+            "en": "I'm sorry, but I don't like the ending, it's really bad.",
+            "pt": "Sinto muito, mas eu não gosto do final, é muito ruim."
+          },
+          {
+            "en": "To be honest, I don't like the ending, it's really bad.",
+            "pt": "Para ser sincero, eu não gosto do final, é muito ruim."
+          }
+        ]
+      },
+      {
+        "en": "I can't stand them, they're so loud.",
+        "pt": "Eu não suporto eles, são muito barulhentos.",
+        "quando": "Ao reclamar de pessoas que fazem muito barulho.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I can stand them, they're not so loud.",
+            "pt": "Eu suporto eles, eles não são tão barulhentos."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Can you stand them, or are they too loud?",
+            "pt": "Você suporta eles ou eles são barulhentos demais?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I can't stand them, they're so loud, let's leave.",
+            "pt": "Eu não suporto eles, são muito barulhentos, vamos embora."
+          },
+          {
+            "en": "I tell you, I can't stand them, they're so loud.",
+            "pt": "Te digo, eu não suporto eles, são muito barulhentos."
+          },
+          {
+            "en": "Look, I can't stand them, they're so loud.",
+            "pt": "Olha, eu não suporto eles, são muito barulhentos."
+          }
+        ]
+      },
+      {
+        "en": "It's not my favorite, but it's okay.",
+        "pt": "Não é meu favorito, mas é aceitável.",
+        "quando": "Ao dar uma opinião moderada sobre algo.",
+        "formas": [
+          {
+            "tipo": "pergunta",
+            "en": "Is it your favorite, or is it just okay?",
+            "pt": "É o seu favorito ou é só aceitável?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it is.",
+            "pt": "Sim, é o meu favorito."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Well, It's not my favorite, but it's okay.",
+            "pt": "Bem, não é meu favorito, mas é aceitável."
+          },
+          {
+            "en": "Maybe It's not my favorite, but it's okay.",
+            "pt": "Talvez não seja meu favorito, mas é aceitável."
+          },
+          {
+            "en": "I think It's not my favorite, but it's okay.",
+            "pt": "Eu acho que não é meu favorito, mas é aceitável."
+          }
+        ]
+      },
+      {
+        "en": "I love this song, it's stuck in my head.",
+        "pt": "Eu amo essa música, ela não sai da minha cabeça.",
+        "quando": "Ao ouvir uma música que você gosta muito.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I don't love this song, it's not stuck in my head.",
+            "pt": "Eu não amo essa música, ela não está na minha cabeça."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Do you love this song? Is it stuck in your head?",
+            "pt": "Você ama essa música? Ela está na sua cabeça?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Yes, I love this song, it's stuck in my head.",
+            "pt": "Sim, eu amo essa música, ela não sai da minha cabeça."
+          },
+          {
+            "en": "Man, I love this song, it's stuck in my head.",
+            "pt": "Cara, eu amo essa música, ela não sai da minha cabeça."
+          },
+          {
+            "en": "Seriously, I love this song, it's stuck in my head.",
+            "pt": "Sério, eu amo essa música, ela não sai da minha cabeça."
+          }
+        ]
+      },
+      {
+        "en": "I don't like that color, it's too sad.",
+        "pt": "Eu não gosto daquela cor, é triste demais.",
+        "quando": "Ao expressar desagrado por uma cor.",
+        "formas": [
+          {
+            "tipo": "pergunta",
+            "en": "Do you like that color, or is it too sad?",
+            "pt": "Você gosta daquela cor ou ela é triste demais?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I don't.",
+            "pt": "Não, eu não gosto."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Honestly, I don't like that color, it's too sad.",
+            "pt": "Sinceramente, eu não gosto daquela cor, é triste demais."
+          },
+          {
+            "en": "I'm sorry, I don't like that color, it's too sad.",
+            "pt": "Sinto muito, eu não gosto daquela cor, é triste demais."
+          },
+          {
+            "en": "Actually, I don't like that color, it's too sad.",
+            "pt": "Na verdade, eu não gosto daquela cor, é triste demais."
+          }
+        ]
+      },
+      {
+        "en": "It's a very long series, but I like it a lot.",
+        "pt": "É uma série bem longa, mas eu gosto muito dela.",
+        "quando": "Ao descrever uma série que você acompanha.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "It's not a very long series, but I like it a lot.",
+            "pt": "Não é uma série muito longa, mas eu gosto bastante dela."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is it a very long series, or do you like it a lot?",
+            "pt": "É uma série muito longa, ou você gosta bastante dela?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "It's a very long series, but I like it a lot, honestly.",
+            "pt": "É uma série bem longa, mas eu gosto bastante dela, honestamente."
+          },
+          {
+            "en": "Although It's a very long series, but I like it a lot.",
+            "pt": "Embora seja uma série bem longa, eu gosto bastante dela."
+          },
+          {
+            "en": "Maybe It's a very long series, but I like it a lot.",
+            "pt": "Talvez seja uma série bem longa, mas eu gosto bastante dela."
+          }
+        ]
+      },
+      {
+        "en": "I can't stand the smell, it's so bad.",
+        "pt": "Eu não suporto o cheiro, é muito ruim.",
+        "quando": "Ao sentir um cheiro desagradável.",
+        "formas": [
+          {
+            "tipo": "pergunta",
+            "en": "Can you stand the smell, or is it so bad?",
+            "pt": "Você aguenta o cheiro, ou é muito ruim?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I can't stand the smell, it's so bad.",
+            "pt": "Não, eu não suporto o cheiro, é muito ruim."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I can't stand the smell, it's so bad, let's leave.",
+            "pt": "Eu não suporto o cheiro, é muito ruim, vamos embora."
+          },
+          {
+            "en": "Please, I can't stand the smell, it's so bad.",
+            "pt": "Por favor, eu não suporto o cheiro, é muito ruim."
+          },
+          {
+            "en": "Honestly, I can't stand the smell, it's so bad.",
+            "pt": "Honestamente, eu não suporto o cheiro, é muito ruim."
+          }
+        ]
+      },
+      {
+        "en": "I like this bed, it's very comfortable.",
+        "pt": "Eu gosto desta cama, é muito confortável.",
+        "quando": "Ao elogiar o conforto de uma cama.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I don't like this bed, it's not very comfortable.",
+            "pt": "Eu não gosto desta cama, ela não é muito confortável."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Do you like this bed, is it very comfortable?",
+            "pt": "Você gosta desta cama, ela é bem confortável?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Actually, I like this bed, it's very comfortable.",
+            "pt": "Na verdade, eu gosto desta cama, ela é bem confortável."
+          },
+          {
+            "en": "I like this bed, it's very comfortable, let's stay.",
+            "pt": "Eu gosto desta cama, ela é bem confortável, vamos ficar."
+          },
+          {
+            "en": "Yes, I like this bed, it's very comfortable.",
+            "pt": "Sim, eu gosto desta cama, ela é bem confortável."
+          }
+        ]
+      },
+      {
+        "en": "It's my favorite time of the day, I love it.",
+        "pt": "É minha hora favorita do dia, eu adoro.",
+        "quando": "Ao falar sobre um momento do dia que você aprecia.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "It's not my favorite time of the day, I don't love it.",
+            "pt": "Não é minha hora favorita do dia, eu não adoro."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is it your favorite time of the day, do you love it?",
+            "pt": "É sua hora favorita do dia, você adora?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "It's my favorite time of the day, I love it, truly.",
+            "pt": "É minha hora favorita do dia, eu adoro, de verdade."
+          },
+          {
+            "en": "For me, It's my favorite time of the day, I love it.",
+            "pt": "Para mim, é minha hora favorita do dia, eu adoro."
+          },
+          {
+            "en": "Honestly, It's my favorite time of the day, I love it.",
+            "pt": "Honestamente, é minha hora favorita do dia, eu adoro."
           }
         ]
       }
@@ -5828,6 +6830,836 @@
           {
             "en": "I'll never forget that day, it was truly special.",
             "pt": "Eu nunca vou esquecer aquele dia, foi realmente especial."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "n": 16,
+    "blocos": [
+      {
+        "en": "I used to play in the streets when I was a kid.",
+        "pt": "Eu costumava brincar na rua quando era criança.",
+        "quando": "Ao descrever atividades comuns da sua infância.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I didn't use to play in the streets when I was a kid.",
+            "pt": "Eu não costumava brincar na rua quando era criança."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did you use to play in the streets when you were a kid?",
+            "pt": "Você costumava brincar na rua quando era criança?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I used to play in the streets when I was a kid, those were good times.",
+            "pt": "Eu costumava brincar na rua quando era criança, esses tempos eram bons."
+          },
+          {
+            "en": "Honestly, I used to play in the streets when I was a kid every day.",
+            "pt": "Sinceramente, eu costumava brincar na rua quando era criança todo dia."
+          },
+          {
+            "en": "Before moving here, I used to play in the streets when I was a kid.",
+            "pt": "Antes de me mudar para cá, eu costumava brincar na rua quando era criança."
+          },
+          {
+            "en": "I used to play in the streets when I was a kid, unlike kids nowadays.",
+            "pt": "Eu costumava brincar na rua quando era criança, ao contrário das crianças de hoje."
+          }
+        ]
+      },
+      {
+        "en": "Things used to be much quieter in my hometown.",
+        "pt": "As coisas costumavam ser muito mais calmas na minha cidade natal.",
+        "quando": "Ao comparar o ritmo da sua cidade de antigamente com hoje.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Things didn't use to be much quieter in my hometown.",
+            "pt": "As coisas não costumavam ser muito mais calmas na minha cidade natal."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did things use to be much quieter in your hometown?",
+            "pt": "As coisas costumavam ser muito mais calmas na sua cidade natal?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Everyone says things used to be much quieter in my hometown back then.",
+            "pt": "Todo mundo diz que as coisas costumavam ser muito mais calmas na minha cidade natal."
+          },
+          {
+            "en": "You know, things used to be much quieter in my hometown before the mall.",
+            "pt": "Sabe, as coisas costumavam ser muito mais calmas na minha cidade natal antes do shopping."
+          },
+          {
+            "en": "I miss how things used to be much quieter in my hometown every summer.",
+            "pt": "Sinto falta de como as coisas costumavam ser muito mais calmas na minha cidade natal todo verão."
+          },
+          {
+            "en": "Clearly, things used to be much quieter in my hometown for all of us.",
+            "pt": "Claramente, as coisas costumavam ser muito mais calmas na minha cidade natal para todos nós."
+          }
+        ]
+      },
+      {
+        "en": "We used to walk to school every single day.",
+        "pt": "A gente ia a pé para a escola todo santo dia.",
+        "quando": "Ao falar sobre como você ia para a escola no passado.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "We didn't use to walk to school every single day.",
+            "pt": "A gente não costumava ir a pé para a escola todo santo dia."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did you use to walk to school every single day?",
+            "pt": "Vocês costumavam ir a pé para a escola todo santo dia?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Back then, we used to walk to school every single day without fail.",
+            "pt": "Naquela época, a gente ia a pé para a escola todo santo dia sem falta."
+          },
+          {
+            "en": "My brother and I, we used to walk to school every single day together.",
+            "pt": "Meu irmão e eu, a gente ia a pé para a escola todo santo dia juntos."
+          },
+          {
+            "en": "Believe it or not, we used to walk to school every single day regardless.",
+            "pt": "Acredite ou não, a gente ia a pé para a escola todo santo dia de qualquer jeito."
+          },
+          {
+            "en": "Since we lived nearby, we used to walk to school every single day easily.",
+            "pt": "Como morávamos perto, a gente ia a pé para a escola todo santo dia facilmente."
+          }
+        ]
+      },
+      {
+        "en": "My grandfather used to be a teacher in that old building.",
+        "pt": "Meu avô costumava ser professor naquele prédio antigo.",
+        "quando": "Ao contar uma curiosidade sobre um familiar e um lugar.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "My grandfather didn't use to be a teacher in that old building.",
+            "pt": "Meu avô não costumava ser professor naquele prédio antigo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did your grandfather use to be a teacher in that old building?",
+            "pt": "Seu avô costumava ser professor naquele prédio antigo?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "It's true, my grandfather used to be a teacher in that old building.",
+            "pt": "É verdade, meu avô costumava ser professor naquele prédio antigo."
+          },
+          {
+            "en": "I remember my grandfather used to be a teacher in that old building clearly.",
+            "pt": "Eu lembro que meu avô costumava ser professor naquele prédio antigo claramente."
+          },
+          {
+            "en": "Many people know my grandfather used to be a teacher in that old building.",
+            "pt": "Muita gente sabe que meu avô costumava ser professor naquele prédio antigo."
+          },
+          {
+            "en": "Long ago, my grandfather used to be a teacher in that old building downtown.",
+            "pt": "Há muito tempo, meu avô costumava ser professor naquele prédio antigo no centro."
+          }
+        ]
+      },
+      {
+        "en": "Life used to feel so much simpler back then.",
+        "pt": "A vida parecia muito mais simples naquela época.",
+        "quando": "Ao expressar nostalgia sobre o passado.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Life didn't use to feel so much simpler back then.",
+            "pt": "A vida não costumava parecer tão mais simples naquela época."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did life use to feel so much simpler back then?",
+            "pt": "A vida costumava parecer tão mais simples naquela época?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I swear life used to feel so much simpler back then for everyone.",
+            "pt": "Eu juro que a vida costumava parecer tão mais simples naquela época para todos."
+          },
+          {
+            "en": "Looking at old photos, life used to feel so much simpler back then, really.",
+            "pt": "Olhando fotos antigas, a vida costumava parecer tão mais simples naquela época, de verdade."
+          },
+          {
+            "en": "It seems life used to feel so much simpler back then in our hometown.",
+            "pt": "Parece que a vida costumava parecer tão mais simples naquela época na nossa cidade."
+          },
+          {
+            "en": "Honestly, life used to feel so much simpler back then than it does today.",
+            "pt": "Sinceramente, a vida costumava parecer tão mais simples naquela época do que hoje em dia."
+          }
+        ]
+      },
+      {
+        "en": "I didn't use to like vegetables when I was younger.",
+        "pt": "Eu não costumava gostar de legumes quando era mais novo.",
+        "quando": "Ao falar de uma preferência alimentar que mudou.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I used to like vegetables when I was younger.",
+            "pt": "Eu costumava gostar de legumes quando era mais novo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did you use to like vegetables when you were younger?",
+            "pt": "Você costumava gostar de legumes quando era mais novo?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "My mom knows I didn't use to like vegetables when I was younger.",
+            "pt": "Minha mãe sabe que eu não costumava gostar de legumes quando era mais novo."
+          },
+          {
+            "en": "Surprisingly, I didn't use to like vegetables when I was younger at all.",
+            "pt": "Surpreendentemente, eu não costumava gostar de legumes quando era mais novo mesmo."
+          },
+          {
+            "en": "Back then, I didn't use to like vegetables when I was younger, just meat.",
+            "pt": "Naquela época, eu não costumava gostar de legumes quando era mais novo, só carne."
+          },
+          {
+            "en": "It's funny I didn't use to like vegetables when I was younger now.",
+            "pt": "É engraçado que eu não costumava gostar de legumes quando era mais novo agora."
+          }
+        ]
+      },
+      {
+        "en": "Did you use to spend your summer vacations at the beach?",
+        "pt": "Você costumava passar as férias de verão na praia?",
+        "quando": "Ao perguntar sobre os hábitos de infância da outra pessoa.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "You didn't use to spend your summer vacations at the beach.",
+            "pt": "Você não costumava passar as férias de verão na praia."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I did.",
+            "pt": "Sim, eu costumava."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Tell me, did you use to spend your summer vacations at the beach?",
+            "pt": "Me conta, você costumava passar as férias de verão na praia?"
+          },
+          {
+            "en": "I wonder, did you use to spend your summer vacations at the beach?",
+            "pt": "Eu queria saber, você costumava passar as férias de verão na praia?"
+          },
+          {
+            "en": "Honestly, did you use to spend your summer vacations at the beach?",
+            "pt": "Sinceramente, você costumava passar as férias de verão na praia?"
+          },
+          {
+            "en": "Hey, did you use to spend your summer vacations at the beach?",
+            "pt": "Ei, você costumava passar as férias de verão na praia?"
+          }
+        ]
+      },
+      {
+        "en": "The city used to have a huge park right there.",
+        "pt": "A cidade costumava ter um parque enorme bem ali.",
+        "quando": "Ao apontar uma mudança na paisagem urbana.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "The city didn't use to have a huge park right there.",
+            "pt": "A cidade não costumava ter um parque enorme bem ali."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did the city use to have a huge park right there?",
+            "pt": "A cidade costumava ter um parque enorme bem ali?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "You know, the city used to have a huge park right there.",
+            "pt": "Sabe, a cidade costumava ter um parque enorme bem ali."
+          },
+          {
+            "en": "I remember the city used to have a huge park right there.",
+            "pt": "Eu lembro que a cidade costumava ter um parque enorme bem ali."
+          },
+          {
+            "en": "Surprisingly, the city used to have a huge park right there.",
+            "pt": "Surpreendentemente, a cidade costumava ter um parque enorme bem ali."
+          },
+          {
+            "en": "It's sad that the city used to have a huge park right there.",
+            "pt": "É triste que a cidade costumava ter um parque enorme bem ali."
+          }
+        ]
+      },
+      {
+        "en": "People used to know all their neighbors by name.",
+        "pt": "As pessoas costumavam conhecer todos os vizinhos pelo nome.",
+        "quando": "Ao falar sobre como era a convivência no bairro antigamente.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "People didn't use to know all their neighbors by name.",
+            "pt": "As pessoas não costumavam conhecer todos os vizinhos pelo nome."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did people use to know all their neighbors by name?",
+            "pt": "As pessoas costumavam conhecer todos os vizinhos pelo nome?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Back then, people used to know all their neighbors by name.",
+            "pt": "Antigamente, as pessoas costumavam conhecer todos os vizinhos pelo nome."
+          },
+          {
+            "en": "I think people used to know all their neighbors by name.",
+            "pt": "Eu acho que as pessoas costumavam conhecer todos os vizinhos pelo nome."
+          },
+          {
+            "en": "Believe it, people used to know all their neighbors by name.",
+            "pt": "Acredite, as pessoas costumavam conhecer todos os vizinhos pelo nome."
+          },
+          {
+            "en": "In my town, people used to know all their neighbors by name.",
+            "pt": "Na minha cidade, as pessoas costumavam conhecer todos os vizinhos pelo nome."
+          }
+        ]
+      },
+      {
+        "en": "I didn't use to live in such a big city.",
+        "pt": "Eu não costumava morar numa cidade tão grande.",
+        "quando": "Ao explicar que você veio de um lugar menor.",
+        "formas": [
+          {
+            "tipo": "pergunta",
+            "en": "Did you use to live in such a big city?",
+            "pt": "Você costumava morar numa cidade tão grande?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She didn't use to live in such a big city.",
+            "pt": "Ela não costumava morar numa cidade tão grande."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Honestly, I didn't use to live in such a big city.",
+            "pt": "Sinceramente, eu não costumava morar numa cidade tão grande."
+          },
+          {
+            "en": "Actually, I didn't use to live in such a big city.",
+            "pt": "Na verdade, eu não costumava morar numa cidade tão grande."
+          },
+          {
+            "en": "Trust me, I didn't use to live in such a big city.",
+            "pt": "Acredite, eu não costumava morar numa cidade tão grande."
+          },
+          {
+            "en": "Believe me, I didn't use to live in such a big city.",
+            "pt": "Pode crer, eu não costumava morar numa cidade tão grande."
+          }
+        ]
+      },
+      {
+        "en": "Where did you use to hang out with your friends?",
+        "pt": "Onde você costumava encontrar seus amigos?",
+        "quando": "Ao perguntar sobre o local de lazer preferido do outro.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "You didn't use to hang out with your friends.",
+            "pt": "Você não costumava sair com seus amigos."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "Where did she use to hang out with her friends?",
+            "pt": "Onde ela costumava sair com as amigas dela?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Tell me, where did you use to hang out with your friends?",
+            "pt": "Me conta, onde você costumava sair com seus amigos?"
+          },
+          {
+            "en": "I'm curious, where did you use to hang out with your friends?",
+            "pt": "Estou curioso, onde você costumava sair com seus amigos?"
+          },
+          {
+            "en": "By the way, where did you use to hang out with your friends?",
+            "pt": "A propósito, onde você costumava sair com seus amigos?"
+          },
+          {
+            "en": "Please say, where did you use to hang out with your friends?",
+            "pt": "Por favor diga, onde você costumava sair com seus amigos?"
+          }
+        ]
+      },
+      {
+        "en": "My dad used to work at that factory before he retired.",
+        "pt": "Meu pai costumava trabalhar naquela fábrica antes de se aposentar.",
+        "quando": "Ao mencionar a carreira de alguém da família (evitando erro com retired).",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "My dad didn't use to work at that factory before he retired.",
+            "pt": "Meu pai não costumava trabalhar naquela fábrica antes de se aposentar."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did your dad use to work at that factory before he retired?",
+            "pt": "Seu pai costumava trabalhar naquela fábrica antes de se aposentar?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Actually, my dad used to work at that factory before he retired.",
+            "pt": "Na verdade, meu pai costumava trabalhar naquela fábrica antes de se aposentar."
+          },
+          {
+            "en": "I recall my dad used to work at that factory before he retired.",
+            "pt": "Eu lembro que meu pai costumava trabalhar naquela fábrica antes de se aposentar."
+          },
+          {
+            "en": "It's true, my dad used to work at that factory before he retired.",
+            "pt": "É verdade, meu pai costumava trabalhar naquela fábrica antes de se aposentar."
+          },
+          {
+            "en": "Surprisingly, my dad used to work at that factory before he retired.",
+            "pt": "Surpreendentemente, meu pai costumava trabalhar naquela fábrica antes de se aposentar."
+          }
+        ]
+      },
+      {
+        "en": "There used to be a small guesthouse on the corner.",
+        "pt": "Costumava ter uma pensão pequena na esquina.",
+        "quando": "Ao descrever um estabelecimento antigo (evitando erro com pension).",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "There didn't use to be a guesthouse on the corner.",
+            "pt": "Não costumava ter uma pensão na esquina."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did there use to be a guesthouse on the corner?",
+            "pt": "Costumava ter uma pensão na esquina?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I heard there used to be a small guesthouse on the corner.",
+            "pt": "Ouvi dizer que costumava ter uma pensão pequena na esquina."
+          },
+          {
+            "en": "Believe it or not, there used to be a small guesthouse on the corner.",
+            "pt": "Acredite ou não, costumava ter uma pensão pequena na esquina."
+          },
+          {
+            "en": "They said there used to be a small guesthouse on the corner long ago.",
+            "pt": "Disseram que costumava ter uma pensão pequena na esquina há muito tempo."
+          },
+          {
+            "en": "Actually, there used to be a small guesthouse on the corner before the fire.",
+            "pt": "Na verdade, costumava ter uma pensão pequena na esquina antes do incêndio."
+          }
+        ]
+      },
+      {
+        "en": "We didn't use to have internet at home back then.",
+        "pt": "A gente não costumava ter internet em casa naquela época.",
+        "quando": "Ao pontuar a diferença tecnológica de gerações.",
+        "formas": [
+          {
+            "tipo": "afirmativa",
+            "en": "We used to have internet at home back then.",
+            "pt": "A gente costumava ter internet em casa naquela época."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did you use to have internet at home back then?",
+            "pt": "Você costumava ter internet em casa naquela época?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Honestly, we didn't use to have internet at home back then.",
+            "pt": "Sinceramente, a gente não costumava ter internet em casa naquela época."
+          },
+          {
+            "en": "I remember we didn't use to have internet at home back then.",
+            "pt": "Eu lembro que a gente não costumava ter internet em casa naquela época."
+          },
+          {
+            "en": "It's funny that we didn't use to have internet at home back then.",
+            "pt": "É engraçado que a gente não costumava ter internet em casa naquela época."
+          },
+          {
+            "en": "Trust me, we didn't use to have internet at home back then.",
+            "pt": "Acredite em mim, a gente não costumava ter internet em casa naquela época."
+          }
+        ]
+      },
+      {
+        "en": "Did you use to play any sports at school?",
+        "pt": "Você costumava praticar algum esporte na escola?",
+        "quando": "Ao puxar assunto sobre atividades escolares.",
+        "formas": [
+          {
+            "tipo": "afirmativa",
+            "en": "I used to play sports at school.",
+            "pt": "Eu costumava praticar esportes na escola."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I didn't use to play sports at school.",
+            "pt": "Eu não costumava praticar esportes na escola."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Tell me, did you use to play any sports at school?",
+            "pt": "Me conta, você costumava praticar algum esporte na escola?"
+          },
+          {
+            "en": "I'm curious, did you use to play any sports at school?",
+            "pt": "Estou curioso, você costumava praticar algum esporte na escola?"
+          },
+          {
+            "en": "So, did you use to play any sports at school when younger?",
+            "pt": "Então, você costumava praticar algum esporte na escola quando era mais novo?"
+          },
+          {
+            "en": "Just wondering, did you use to play any sports at school?",
+            "pt": "Só por curiosidade, você costumava praticar algum esporte na escola?"
+          }
+        ]
+      },
+      {
+        "en": "My mom used to cook the best meals on Sundays.",
+        "pt": "Minha mãe costumava fazer as melhores refeições aos domingos.",
+        "quando": "Ao descrever uma tradição familiar que era recorrente.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "My mom didn't use to cook meals on Sundays.",
+            "pt": "Minha mãe não costumava fazer refeições aos domingos."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did your mom use to cook meals on Sundays?",
+            "pt": "Sua mãe costumava fazer refeições aos domingos?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I miss when my mom used to cook the best meals on Sundays.",
+            "pt": "Sinto falta de quando minha mãe costumava fazer as melhores refeições aos domingos."
+          },
+          {
+            "en": "Back home, my mom used to cook the best meals on Sundays.",
+            "pt": "Na minha terra, minha mãe costumava fazer as melhores refeições aos domingos."
+          },
+          {
+            "en": "Seriously, my mom used to cook the best meals on Sundays.",
+            "pt": "Sério, minha mãe costumava fazer as melhores refeições aos domingos."
+          },
+          {
+            "en": "Everyone knows my mom used to cook the best meals on Sundays.",
+            "pt": "Todo mundo sabe que minha mãe costumava fazer as melhores refeições aos domingos."
+          }
+        ]
+      },
+      {
+        "en": "I used to ride my bike everywhere after school.",
+        "pt": "Eu costumava andar de bicicleta para todo lado depois da escola.",
+        "quando": "Ao descrever sua rotina de independência na infância.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I didn't use to ride my bike after school.",
+            "pt": "Eu não costumava andar de bicicleta depois da escola."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did you use to ride your bike after school?",
+            "pt": "Você costumava andar de bicicleta depois da escola?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "When I was a kid, I used to ride my bike everywhere after school.",
+            "pt": "Quando eu era criança, eu costumava andar de bicicleta para todo lado depois da escola."
+          },
+          {
+            "en": "Believe it or not, I used to ride my bike everywhere after school.",
+            "pt": "Acredite ou não, eu costumava andar de bicicleta para todo lado depois da escola."
+          },
+          {
+            "en": "I remember I used to ride my bike everywhere after school.",
+            "pt": "Eu lembro que eu costumava andar de bicicleta para todo lado depois da escola."
+          },
+          {
+            "en": "In my hometown, I used to ride my bike everywhere after school.",
+            "pt": "Na minha cidade natal, eu costumava andar de bicicleta para todo lado depois da escola."
+          }
+        ]
+      },
+      {
+        "en": "The downtown area didn't use to be this crowded.",
+        "pt": "O centro da cidade não costumava ser tão lotado assim.",
+        "quando": "Ao reclamar do crescimento desordenado da cidade.",
+        "formas": [
+          {
+            "tipo": "afirmativa",
+            "en": "The downtown area used to be crowded.",
+            "pt": "O centro da cidade costumava ser lotado."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did the downtown area use to be crowded?",
+            "pt": "O centro da cidade costumava ser lotado?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I think the downtown area didn't use to be this crowded.",
+            "pt": "Eu acho que o centro da cidade não costumava ser tão lotado assim."
+          },
+          {
+            "en": "Clearly, the downtown area didn't use to be this crowded.",
+            "pt": "Claramente, o centro da cidade não costumava ser tão lotado assim."
+          },
+          {
+            "en": "Surprisingly, the downtown area didn't use to be this crowded.",
+            "pt": "Surpreendentemente, o centro da cidade não costumava ser tão lotado assim."
+          },
+          {
+            "en": "It's weird that the downtown area didn't use to be this crowded.",
+            "pt": "É estranho que o centro da cidade não costumava ser tão lotado assim."
+          }
+        ]
+      },
+      {
+        "en": "Everything used to be different before the new mall was built.",
+        "pt": "Tudo costumava ser diferente antes do shopping novo ser construído.",
+        "quando": "Ao usar um marco de mudança na cidade.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Everything didn't use to be different before the new mall was built.",
+            "pt": "Nem tudo costumava ser diferente antes do shopping novo ser construído."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did everything use to be different before the new mall was built?",
+            "pt": "Tudo costumava ser diferente antes do shopping novo ser construído?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I know everything used to be different before the new mall was built, but times change.",
+            "pt": "Eu sei que tudo costumava ser diferente antes do shopping novo ser construído, mas os tempos mudam."
+          },
+          {
+            "en": "Honestly, everything used to be different before the new mall was built in our neighborhood.",
+            "pt": "Honestamente, tudo costumava ser diferente antes do shopping novo ser construído no nosso bairro."
+          },
+          {
+            "en": "It feels like everything used to be different before the new mall was built, doesn't it?",
+            "pt": "Parece que tudo costumava ser diferente antes do shopping novo ser construído, não parece?"
+          },
+          {
+            "en": "Can you believe everything used to be different before the new mall was built?",
+            "pt": "Você consegue acreditar que tudo costumava ser diferente antes do shopping novo ser construído?"
+          }
+        ]
+      },
+      {
+        "en": "Did your town use to be safer than it's now?",
+        "pt": "Sua cidade costumava ser mais segura do que é agora?",
+        "quando": "Ao comparar a segurança pública do passado com o presente.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Your town didn't use to be safer than it's now.",
+            "pt": "Sua cidade não costumava ser mais segura do que é agora."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "Did his town use to be safer than it's now?",
+            "pt": "A cidade dele costumava ser mais segura do que é agora?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it used to be.",
+            "pt": "Sim, costumava ser."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Tell me, did your town use to be safer than it's now?",
+            "pt": "Me conta, sua cidade costumava ser mais segura do que é agora?"
+          },
+          {
+            "en": "I was wondering, did your town use to be safer than it's now?",
+            "pt": "Eu estava pensando, sua cidade costumava ser mais segura do que é agora?"
+          },
+          {
+            "en": "Back home, did your town use to be safer than it's now?",
+            "pt": "Lá na sua terra, sua cidade costumava ser mais segura do que é agora?"
+          },
+          {
+            "en": "Considering the recent crime, did your town use to be safer than it's now?",
+            "pt": "Considerando o crime recente, sua cidade costumava ser mais segura do que é agora?"
+          }
+        ]
+      },
+      {
+        "en": "I didn't use to worry about bills when I was a kid.",
+        "pt": "Eu não costumava me preocupar com contas quando era criança.",
+        "quando": "Ao comentar sobre a falta de responsabilidades na infância.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "I used to worry about bills when I was a kid.",
+            "pt": "Eu costumava me preocupar com contas quando era criança."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did you use to worry about bills when you were a kid?",
+            "pt": "Você costumava se preocupar com contas quando era criança?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I didn't.",
+            "pt": "Não, eu não costumava."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I didn't use to worry about bills when I was a kid, but adulthood is hard.",
+            "pt": "Eu não costumava me preocupar com contas quando era criança, mas a vida adulta é difícil."
+          },
+          {
+            "en": "To be fair, I didn't use to worry about bills when I was a kid.",
+            "pt": "Para ser sincero, eu não costumava me preocupar com contas quando era criança."
+          },
+          {
+            "en": "I remember I didn't use to worry about bills when I was a kid.",
+            "pt": "Eu lembro que eu não costumava me preocupar com contas quando era criança."
+          },
+          {
+            "en": "Life was easy; I didn't use to worry about bills when I was a kid.",
+            "pt": "A vida era fácil; eu não costumava me preocupar com contas quando era criança."
+          }
+        ]
+      },
+      {
+        "en": "We used to go camping every summer with our cousins.",
+        "pt": "A gente costumava acampar todo verão com nossos primos.",
+        "quando": "Ao compartilhar uma memória de férias em família.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "We didn't use to go camping every summer with our cousins.",
+            "pt": "A gente não costumava acampar todo verão com nossos primos."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did you use to go camping every summer with your cousins?",
+            "pt": "Vocês costumavam acampar todo verão com os primos de vocês?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "They used to go camping every summer with their cousins.",
+            "pt": "Eles costumavam acampar todo verão com os primos deles."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "We used to go camping every summer with our cousins before they moved away.",
+            "pt": "A gente costumava acampar todo verão com nossos primos antes de eles se mudarem."
+          },
+          {
+            "en": "I miss when we used to go camping every summer with our cousins.",
+            "pt": "Eu sinto falta de quando a gente costumava acampar todo verão com nossos primos."
+          },
+          {
+            "en": "As kids, we used to go camping every summer with our cousins.",
+            "pt": "Quando crianças, a gente costumava acampar todo verão com nossos primos."
+          },
+          {
+            "en": "Surprisingly, we used to go camping every summer with our cousins.",
+            "pt": "Surpreendentemente, a gente costumava acampar todo verão com nossos primos."
+          }
+        ]
+      },
+      {
+        "en": "It didn't use to rain this much during the winter.",
+        "pt": "Não costumava chover tanto assim durante o inverno.",
+        "quando": "Ao comentar sobre mudanças climáticas locais.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "It used to rain this much during the winter.",
+            "pt": "Costumava chover tanto assim durante o inverno."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did it use to rain this much during the winter?",
+            "pt": "Costumava chover tanto assim durante o inverno?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, it didn't.",
+            "pt": "Não, não costumava."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "The weather is crazy, it didn't use to rain this much during the winter.",
+            "pt": "O tempo está maluco, não costumava chover tanto assim durante o inverno."
+          },
+          {
+            "en": "I think it didn't use to rain this much during the winter years ago.",
+            "pt": "Eu acho que não costumava chover tanto assim durante o inverno anos atrás."
+          },
+          {
+            "en": "Honestly, it didn't use to rain this much during the winter in this city.",
+            "pt": "Honestamente, não costumava chover tanto assim durante o inverno nesta cidade."
+          },
+          {
+            "en": "Global warming is real; it didn't use to rain this much during the winter.",
+            "pt": "O aquecimento global é real; não costumava chover tanto assim durante o inverno."
           }
         ]
       }
@@ -26656,6 +28488,1908 @@
           {
             "en": "I'm sure I was told this was a complimentary drink earlier.",
             "pt": "Tenho certeza de que me disseram que esta era uma bebida de cortesia mais cedo."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "n": 33,
+    "blocos": [
+      {
+        "en": "Would it be possible to check out a bit later?",
+        "pt": "Seria possível fazer o check-out um pouco mais tarde?",
+        "quando": "Ao pedir uma exceção no horário de saída do hotel.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be possible to check out a bit later?",
+            "pt": "Não seria possível fazer o check-out um pouco mais tarde?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Would it have been possible to check out a bit later?",
+            "pt": "Teria sido possível fazer o check-out um pouco mais tarde?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I was wondering if it would be possible to check out a bit later.",
+            "pt": "Eu queria saber se seria possível fazer o check-out um pouco mais tarde."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I have a flight tonight, so would it be possible to check out a bit later?",
+            "pt": "Tenho um voo hoje à noite, então seria possível fazer o check-out um pouco mais tarde?"
+          },
+          {
+            "en": "Since my meeting got moved, would it be possible to check out a bit later?",
+            "pt": "Como minha reunião foi adiada, seria possível fazer o check-out um pouco mais tarde?"
+          },
+          {
+            "en": "I'm still packing, so would it be possible to check out a bit later?",
+            "pt": "Ainda estou arrumando as malas, então seria possível fazer o check-out um pouco mais tarde?"
+          },
+          {
+            "en": "If it's not a problem, would it be possible to check out a bit later?",
+            "pt": "Se não for problema, seria possível fazer o check-out um pouco mais tarde?"
+          },
+          {
+            "en": "My toddler is napping, so would it be possible to check out a bit later?",
+            "pt": "Meu filho está tirando um cochilo, então seria possível fazer o check-out um pouco mais tarde?"
+          }
+        ]
+      },
+      {
+        "en": "Is there any chance I could get a few more days?",
+        "pt": "Teria alguma chance de eu conseguir mais alguns dias?",
+        "quando": "Ao solicitar uma extensão de prazo para uma entrega.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "Was there any chance I could have gotten a few more days?",
+            "pt": "Teria tido alguma chance de eu conseguir mais alguns dias?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Isn't there any chance I could get a few more days?",
+            "pt": "Não tem nenhuma chance de eu conseguir mais alguns dias?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I was hoping, is there any chance I could get a few more days?",
+            "pt": "Eu estava esperando, tem alguma chance de eu conseguir mais alguns dias?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I really love this place, is there any chance I could get a few more days?",
+            "pt": "Eu realmente adorei este lugar, tem alguma chance de eu conseguir mais alguns dias?"
+          },
+          {
+            "en": "My travel plans changed, is there any chance I could get a few more days?",
+            "pt": "Meus planos de viagem mudaram, tem alguma chance de eu conseguir mais alguns dias?"
+          },
+          {
+            "en": "I'm not ready to go home, is there any chance I could get a few more days?",
+            "pt": "Não estou pronto para ir para casa, tem alguma chance de eu conseguir mais alguns dias?"
+          },
+          {
+            "en": "If it's available, is there any chance I could get a few more days?",
+            "pt": "Se estiver disponível, tem alguma chance de eu conseguir mais alguns dias?"
+          },
+          {
+            "en": "I'm having such a great time, is there any chance I could get a few more days?",
+            "pt": "Estou me divertindo tanto, tem alguma chance de eu conseguir mais alguns dias?"
+          }
+        ]
+      },
+      {
+        "en": "I know it's not the usual policy, but could you help me out?",
+        "pt": "Eu sei que não é a norma, mas você poderia me dar uma força?",
+        "quando": "Ao introduzir um pedido que foge das regras da empresa.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "I knew it wasn't the usual policy, but could you have helped me out?",
+            "pt": "Eu sabia que não era a norma, mas você poderia ter me ajudado?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "I know it's not the usual policy, but couldn't you help me out?",
+            "pt": "Eu sei que não é a norma, mas você não poderia me dar uma força?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She knows it's not the usual policy, but could you help her out?",
+            "pt": "Ela sabe que não é a norma, mas você poderia dar uma força para ela?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm in a tough spot, I know it's not the usual policy, but could you help me out?",
+            "pt": "Estou numa situação difícil, sei que não é a norma, mas você poderia me dar uma força?"
+          },
+          {
+            "en": "Look, I know it's not the usual policy, but could you help me out just this once?",
+            "pt": "Olha, eu sei que não é a norma, mas você poderia me dar uma força só desta vez?"
+          },
+          {
+            "en": "I really need this, I know it's not the usual policy, but could you help me out?",
+            "pt": "Eu preciso muito disso, sei que não é a norma, mas você poderia me dar uma força?"
+          },
+          {
+            "en": "I made a mistake, I know it's not the usual policy, but could you help me out?",
+            "pt": "Cometi um erro, sei que não é a norma, mas você poderia me dar uma força?"
+          },
+          {
+            "en": "I'm a regular guest, I know it's not the usual policy, but could you help me out?",
+            "pt": "Sou cliente frequente, sei que não é a norma, mas você poderia me dar uma força?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be too much to ask for a small discount?",
+        "pt": "Seria pedir demais um pequeno desconto?",
+        "quando": "Ao negociar um valor fora da tabela.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be too much to ask for a small discount?",
+            "pt": "Não seria pedir demais um pequeno desconto?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Would it have been too much to ask for a small discount?",
+            "pt": "Teria sido pedir demais um pequeno desconto?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I was wondering, would it be too much to ask for a small discount?",
+            "pt": "Eu queria saber, seria pedir demais um pequeno desconto?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm buying in bulk, so would it be too much to ask for a small discount?",
+            "pt": "Estou comprando em grande quantidade, então seria pedir demais um pequeno desconto?"
+          },
+          {
+            "en": "Since I'm a loyal customer, would it be too much to ask for a small discount?",
+            "pt": "Já que sou um cliente fiel, seria pedir demais um pequeno desconto?"
+          },
+          {
+            "en": "It has a tiny scratch, would it be too much to ask for a small discount?",
+            "pt": "Tem um arranhãozinho, seria pedir demais um pequeno desconto?"
+          },
+          {
+            "en": "I'm on a tight budget, would it be too much to ask for a small discount?",
+            "pt": "Estou com o orçamento apertado, seria pedir demais um pequeno desconto?"
+          },
+          {
+            "en": "I really want this item, would it be too much to ask for a small discount?",
+            "pt": "Eu quero muito este item, seria pedir demais um pequeno desconto?"
+          }
+        ]
+      },
+      {
+        "en": "I'm just a few dollars short, is there any way around this?",
+        "pt": "Estou faltando apenas alguns dólares, tem como dar um jeito nisso?",
+        "quando": "Ao tentar contornar um problema de pagamento pequeno.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "I was just a few dollars short, was there any way around this?",
+            "pt": "Eu estava faltando apenas alguns dólares, tinha algum jeito de dar uma volta nisso?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "I'm just a few dollars short, isn't there any way around this?",
+            "pt": "Estou faltando apenas alguns dólares, não tem nenhum jeito de contornar isso?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "If I'm a few dollars short, is there any way around this? Yes, there is.",
+            "pt": "Se me faltarem alguns dólares, tem como dar um jeito? Sim, tem."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I forgot my wallet, I'm just a few dollars short, is there any way around this?",
+            "pt": "Esqueci minha carteira, estou faltando uns trocados, tem como dar um jeito nisso?"
+          },
+          {
+            "en": "I'm really embarrassed, I'm just a few dollars short, is there any way around this?",
+            "pt": "Estou muito sem graça, estou faltando apenas alguns dólares, tem como dar um jeito nisso?"
+          },
+          {
+            "en": "My card was declined, I'm just a few dollars short, is there any way around this?",
+            "pt": "Meu cartão foi recusado, estou faltando alguns dólares, tem como dar um jeito nisso?"
+          },
+          {
+            "en": "I only have cash, I'm just a few dollars short, is there any way around this?",
+            "pt": "Só tenho dinheiro vivo, estou faltando alguns dólares, tem como dar um jeito nisso?"
+          },
+          {
+            "en": "Please help, I'm just a few dollars short, is there any way around this?",
+            "pt": "Por favor, me ajude, estou faltando alguns dólares, tem como dar um jeito nisso?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to exchange this even though it's late?",
+        "pt": "Seria possível trocar isso mesmo estando fora do prazo?",
+        "quando": "Ao pedir uma troca de produto após a data limite.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be possible to exchange this even though it's late?",
+            "pt": "Não seria possível trocar isso mesmo estando fora do prazo?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Would it have been possible to exchange this even though it was late?",
+            "pt": "Teria sido possível trocar isso mesmo estando fora do prazo?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "Would it be possible for him to exchange this even though it's late?",
+            "pt": "Seria possível para ele trocar isso mesmo estando fora do prazo?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I just opened the box, would it be possible to exchange this even though it's late?",
+            "pt": "Acabei de abrir a caixa, seria possível trocar isso mesmo estando fora do prazo?"
+          },
+          {
+            "en": "It doesn't fit me, would it be possible to exchange this even though it's late?",
+            "pt": "Não serviu em mim, seria possível trocar isso mesmo estando fora do prazo?"
+          },
+          {
+            "en": "I was away on vacation, would it be possible to exchange this even though it's late?",
+            "pt": "Eu estava viajando, seria possível trocar isso mesmo estando fora do prazo?"
+          },
+          {
+            "en": "This is a gift, would it be possible to exchange this even though it's late?",
+            "pt": "Isso é um presente, seria possível trocar isso mesmo estando fora do prazo?"
+          },
+          {
+            "en": "I really need a different size, would it be possible to exchange this even though it's late?",
+            "pt": "Eu preciso muito de um tamanho diferente, seria possível trocar isso mesmo estando fora do prazo?"
+          }
+        ]
+      },
+      {
+        "en": "I've been a loyal customer, would you consider an exception?",
+        "pt": "Sou um cliente fiel, você consideraria abrir uma exceção?",
+        "quando": "Ao apelar para o relacionamento para conseguir um benefício.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I haven't been a loyal customer, so I don't expect an exception.",
+            "pt": "Não tenho sido um cliente fiel, então não espero uma exceção."
+          },
+          {
+            "tipo": "passado",
+            "en": "I was a loyal customer, did you consider an exception?",
+            "pt": "Eu fui um cliente fiel, você considerou abrir uma exceção?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He's been a loyal customer, would you consider an exception for him?",
+            "pt": "Ele tem sido um cliente fiel, você consideraria abrir uma exceção para ele?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I've been a loyal customer, would you consider an exception? I really need this.",
+            "pt": "Sou um cliente fiel, você consideraria abrir uma exceção? Eu realmente preciso disso."
+          },
+          {
+            "en": "Since I've been a loyal customer, would you consider an exception for my account?",
+            "pt": "Como sou um cliente fiel, você consideraria abrir uma exceção na minha conta?"
+          },
+          {
+            "en": "Look, I've been a loyal customer, would you consider an exception this one time?",
+            "pt": "Olha, sou um cliente fiel, você consideraria abrir uma exceção só desta vez?"
+          },
+          {
+            "en": "I've been a loyal customer, would you consider an exception if I pay now?",
+            "pt": "Sou um cliente fiel, você consideraria abrir uma exceção se eu pagar agora?"
+          },
+          {
+            "en": "I know it's hard, but I've been a loyal customer, would you consider an exception?",
+            "pt": "Eu sei que é difícil, mas sou um cliente fiel, você consideraria abrir uma exceção?"
+          }
+        ]
+      },
+      {
+        "en": "There isn't enough time to finish it, could I have an extension?",
+        "pt": "Não há tempo suficiente para terminar, eu poderia ter um prazo maior?",
+        "quando": "Ao justificar a falta de tempo para concluir uma tarefa.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "There isn't enough time, couldn't I have an extension?",
+            "pt": "Não há tempo suficiente, eu não poderia ter um prazo maior?"
+          },
+          {
+            "tipo": "passado",
+            "en": "There wasn't enough time to finish it, could I have had an extension?",
+            "pt": "Não havia tempo suficiente para terminar, eu poderia ter tido um prazo maior?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "There isn't enough time, so could I have an extension? Yes, you can.",
+            "pt": "Não há tempo suficiente, então eu poderia ter um prazo maior? Sim, você pode."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "There isn't enough time to finish it, could I have an extension until Friday?",
+            "pt": "Não há tempo suficiente para terminar, eu poderia ter um prazo maior até sexta?"
+          },
+          {
+            "en": "Honestly, there isn't enough time to finish it, could I have an extension?",
+            "pt": "Sinceramente, não há tempo suficiente para terminar, eu poderia ter um prazo maior?"
+          },
+          {
+            "en": "I'm worried there isn't enough time to finish it, could I have an extension?",
+            "pt": "Estou preocupado que não haja tempo suficiente para terminar, eu poderia ter um prazo maior?"
+          },
+          {
+            "en": "Since there isn't enough time to finish it, could I have an extension on the project?",
+            "pt": "Já que não há tempo suficiente para terminar, eu poderia ter um prazo maior no projeto?"
+          },
+          {
+            "en": "If there isn't enough time to finish it, could I have an extension for the deadline?",
+            "pt": "Se não há tempo suficiente para terminar, eu poderia ter um prazo maior para a data de entrega?"
+          }
+        ]
+      },
+      {
+        "en": "I'm sorry to be a bother, but could you look into this for me?",
+        "pt": "Desculpe incomodar, mas você poderia verificar isso para mim?",
+        "quando": "Ao solicitar uma checagem especial que exige esforço extra.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "I was sorry to be a bother, but could you look into that for me?",
+            "pt": "Senti muito incomodar, mas você poderia verificar aquilo para mim?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "I'm not trying to be a bother, but could you look into this for me?",
+            "pt": "Não estou tentando incomodar, mas você poderia verificar isso para mim?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I'm sorry to be a bother, would you mind looking into this for me?",
+            "pt": "Desculpe incomodar, você se importaria de verificar isso para mim?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm sorry to be a bother, but could you look into this for me when you have a moment?",
+            "pt": "Desculpe incomodar, mas você poderia verificar isso para mim quando tiver um momento?"
+          },
+          {
+            "en": "I know you're busy, I'm sorry to be a bother, but could you look into this for me?",
+            "pt": "Sei que você está ocupado, desculpe incomodar, mas você poderia verificar isso para mim?"
+          },
+          {
+            "en": "I'm sorry to be a bother, but could you look into this for me before the meeting?",
+            "pt": "Desculpe incomodar, mas você poderia verificar isso para mim antes da reunião?"
+          },
+          {
+            "en": "Excuse me, I'm sorry to be a bother, but could you look into this for me?",
+            "pt": "Com licença, desculpe incomodar, mas você poderia verificar isso para mim?"
+          },
+          {
+            "en": "I'm sorry to be a bother, but could you look into this for me as soon as possible?",
+            "pt": "Desculpe incomodar, mas você poderia verificar isso para mim assim que possível?"
+          }
+        ]
+      },
+      {
+        "en": "Is there any chance you could waive the fee just this once?",
+        "pt": "Teria alguma chance de você isentar a taxa só desta vez?",
+        "quando": "Ao tentar se livrar de uma cobrança extra inesperada.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Isn't there any chance you could waive the fee just this once?",
+            "pt": "Não tem nenhuma chance de você isentar a taxa só desta vez?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Was there any chance you could have waived the fee just that once?",
+            "pt": "Havia alguma chance de você ter isentado a taxa só naquela vez?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "Is there any chance he could waive the fee just this once?",
+            "pt": "Existe alguma chance de ele isentar a taxa só desta vez?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I know it's a rule, but is there any chance you could waive the fee just this once?",
+            "pt": "Eu sei que é regra, mas tem alguma chance de você isentar a taxa só desta vez?"
+          },
+          {
+            "en": "Is there any chance you could waive the fee just this once? I'd really appreciate it.",
+            "pt": "Tem alguma chance de você isentar a taxa só desta vez? Eu agradeceria muito."
+          },
+          {
+            "en": "Given the situation, is there any chance you could waive the fee just this once?",
+            "pt": "Dada a situação, tem alguma chance de você isentar a taxa só desta vez?"
+          },
+          {
+            "en": "Regarding the bill, is there any chance you could waive the fee just this once?",
+            "pt": "Sobre a conta, tem alguma chance de você isentar a taxa só desta vez?"
+          },
+          {
+            "en": "I'm asking, is there any chance you could waive the fee just this once for me?",
+            "pt": "Estou perguntando, tem alguma chance de você isentar a taxa só desta vez para mim?"
+          }
+        ]
+      },
+      {
+        "en": "I know the policy is strict, but is there any room for negotiation?",
+        "pt": "Sei que a norma é rígida, mas há margem para negociação?",
+        "quando": "Ao questionar uma regra da empresa sem ser agressivo.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "I knew the policy was strict, but was there any room for negotiation?",
+            "pt": "Eu sabia que a norma era rígida, mas havia alguma margem para negociação?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "I know the policy isn't flexible, but is there no room for negotiation?",
+            "pt": "Eu sei que a norma não é flexível, mas não há nenhuma margem para negociação?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "I know the policy is strict, but will there be any room for negotiation later?",
+            "pt": "Eu sei que a norma é rígida, mas haverá alguma margem para negociação depois?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I know the policy is strict, but is there any room for negotiation on the price?",
+            "pt": "Eu sei que a norma é rígida, mas há margem para negociação no preço?"
+          },
+          {
+            "en": "I know the policy is strict, but is there any room for negotiation regarding the terms?",
+            "pt": "Eu sei que a norma é rígida, mas há margem para negociação sobre os termos?"
+          },
+          {
+            "en": "Look, I know the policy is strict, but is there any room for negotiation?",
+            "pt": "Olha, eu sei que a norma é rígida, mas há margem para negociação?"
+          },
+          {
+            "en": "I know the policy is strict, but is there any room for negotiation for long-term clients?",
+            "pt": "Eu sei que a norma é rígida, mas há margem para negociação para clientes de longa data?"
+          },
+          {
+            "en": "I know the policy is strict, but is there any room for negotiation if I sign today?",
+            "pt": "Eu sei que a norma é rígida, mas há margem para negociação se eu assinar hoje?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to book a full hour for our meeting?",
+        "pt": "Seria possível reservar uma hora inteira para nossa reunião?",
+        "quando": "Ao pedir mais tempo na agenda de alguém ocupado.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be possible to book a full hour for our meeting?",
+            "pt": "Não seria possível reservar uma hora inteira para nossa reunião?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Would it have been possible to book a full hour for our meeting?",
+            "pt": "Teria sido possível reservar uma hora inteira para nossa reunião?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Would it be possible to book a full hour? Yes, it would.",
+            "pt": "Seria possível reservar uma hora inteira? Sim, seria."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "If you don't mind, would it be possible to book a full hour for our meeting?",
+            "pt": "Se você não se importar, seria possível reservar uma hora inteira para nossa reunião?"
+          },
+          {
+            "en": "Regarding our schedule, would it be possible to book a full hour for our meeting?",
+            "pt": "Sobre nossa agenda, seria possível reservar uma hora inteira para nossa reunião?"
+          },
+          {
+            "en": "To cover everything, would it be possible to book a full hour for our meeting?",
+            "pt": "Para cobrir tudo, seria possível reservar uma hora inteira para nossa reunião?"
+          },
+          {
+            "en": "I have many topics, would it be possible to book a full hour for our meeting?",
+            "pt": "Tenho muitos assuntos, seria possível reservar uma hora inteira para nossa reunião?"
+          },
+          {
+            "en": "Would it be possible to book a full hour for our meeting instead of thirty minutes?",
+            "pt": "Seria possível reservar uma hora inteira para nossa reunião em vez de trinta minutos?"
+          }
+        ]
+      },
+      {
+        "en": "It's just a couple of small changes, could you fit me in?",
+        "pt": "São só algumas pequenas mudanças, você poderia me encaixar?",
+        "quando": "Ao pedir um favor rápido que depende da boa vontade alheia.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "It's not just a couple of small changes, you can't fit me in.",
+            "pt": "Não são só algumas pequenas mudanças, você não consegue me encaixar."
+          },
+          {
+            "tipo": "passado",
+            "en": "It was just a couple of small changes, did you fit me in?",
+            "pt": "Eram só algumas pequenas mudanças, você me encaixou?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I'm sorry, it's just a couple of small changes, would you mind fitting me in?",
+            "pt": "Desculpe, são só algumas pequenas mudanças, você se importaria de me encaixar?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "It's just a couple of small changes, could you fit me in? I'm in a rush.",
+            "pt": "São só algumas pequenas mudanças, você poderia me encaixar? Estou com pressa."
+          },
+          {
+            "en": "If it's just a couple of small changes, could you fit me in? That would be great.",
+            "pt": "Se são só algumas pequenas mudanças, você poderia me encaixar? Seria ótimo."
+          },
+          {
+            "en": "Since it's just a couple of small changes, could you fit me in? Thanks for the help.",
+            "pt": "Já que são só algumas pequenas mudanças, você poderia me encaixar? Valeu pela ajuda."
+          },
+          {
+            "en": "I know it's just a couple of small changes, could you fit me in? I'd appreciate it.",
+            "pt": "Eu sei que são só algumas pequenas mudanças, você poderia me encaixar? Eu agradeceria."
+          },
+          {
+            "en": "Honestly, it's just a couple of small changes, could you fit me in? I really need this.",
+            "pt": "Honestamente, são só algumas pequenas mudanças, você poderia me encaixar? Eu preciso muito disso."
+          }
+        ]
+      },
+      {
+        "en": "I'm not sure if you have enough space, but could I store this here?",
+        "pt": "Não sei se você tem espaço suficiente, mas eu poderia guardar isto aqui?",
+        "quando": "Ao pedir uma exceção de espaço físico ou armazenamento.",
+        "formas": [
+          {
+            "tipo": "pergunta",
+            "en": "Are you sure you have enough space for me to store this here?",
+            "pt": "Você tem certeza que tem espaço suficiente para eu guardar isso aqui?"
+          },
+          {
+            "tipo": "passado",
+            "en": "I wasn't sure if you had enough space, but could I store this here?",
+            "pt": "Eu não tinha certeza se você tinha espaço, mas eu poderia guardar isso aqui?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I'm not sure if you have enough space, would it be okay if I stored this here?",
+            "pt": "Não tenho certeza se você tem espaço, tudo bem se eu guardar isso aqui?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm not sure if you have enough space, but could I store this here? Just for an hour.",
+            "pt": "Não sei se você tem espaço, mas eu poderia guardar isso aqui? Só por uma hora."
+          },
+          {
+            "en": "I'm not sure if you have enough space, but could I store this here? My bag is heavy.",
+            "pt": "Não sei se você tem espaço, mas eu poderia guardar isso aqui? Minha mala está pesada."
+          },
+          {
+            "en": "I'm not sure if you have enough space, but could I store this here? I'll be back soon.",
+            "pt": "Não sei se você tem espaço, mas eu poderia guardar isso aqui? Já volto."
+          },
+          {
+            "en": "Look, I'm not sure if you have enough space, but could I store this here? It's really urgent.",
+            "pt": "Olha, não sei se você tem espaço, mas eu poderia guardar isso aqui? É bem urgente."
+          },
+          {
+            "en": "I'm not sure if you have enough space, but could I store this here? Please let me know.",
+            "pt": "Não sei se você tem espaço, mas eu poderia guardar isso aqui? Por favor me avise."
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to get a written confirmation for this?",
+        "pt": "Seria possível conseguir uma confirmação por escrito disso?",
+        "quando": "Ao pedir uma garantia formal para um acordo verbal.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be possible to get a written confirmation for this?",
+            "pt": "Não seria possível conseguir uma confirmação por escrito disso?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Was it possible to get a written confirmation for this?",
+            "pt": "Foi possível conseguir uma confirmação por escrito disso?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "Will it be possible to get a written confirmation for this later?",
+            "pt": "Será possível conseguir uma confirmação por escrito disso depois?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Would it be possible to get a written confirmation for this? I need it for work.",
+            "pt": "Seria possível conseguir uma confirmação por escrito disso? Preciso para o trabalho."
+          },
+          {
+            "en": "If you don't mind, would it be possible to get a written confirmation for this?",
+            "pt": "Se você não se importar, seria possível conseguir uma confirmação por escrito disso?"
+          },
+          {
+            "en": "Before I leave, would it be possible to get a written confirmation for this?",
+            "pt": "Antes de eu ir, seria possível conseguir uma confirmação por escrito disso?"
+          },
+          {
+            "en": "Is it okay, would it be possible to get a written confirmation for this?",
+            "pt": "Tudo bem, seria possível conseguir uma confirmação por escrito disso?"
+          },
+          {
+            "en": "Sorry to ask, but would it be possible to get a written confirmation for this?",
+            "pt": "Desculpe pedir, mas seria possível conseguir uma confirmação por escrito disso?"
+          }
+        ]
+      },
+      {
+        "en": "I've tried everything, is there any other way to fix this?",
+        "pt": "Tentei de tudo, existe algum outro jeito de resolver isso?",
+        "quando": "Ao buscar uma alternativa após esgotar as vias normais.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "I tried everything, was there any other way to fix this?",
+            "pt": "Tentei de tudo, existia algum outro jeito de consertar isso?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "I've tried everything, isn't there any other way to fix this?",
+            "pt": "Tentei de tudo, não existe nenhum outro jeito de consertar isso?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I've tried everything, could you tell me if there's any other way to fix this?",
+            "pt": "Tentei de tudo, você poderia me dizer se existe outro jeito de consertar isso?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I've tried everything, is there any other way to fix this? I'm desperate.",
+            "pt": "Tentei de tudo, existe algum outro jeito de resolver isso? Estou desesperado."
+          },
+          {
+            "en": "Listen, I've tried everything, is there any other way to fix this? Please.",
+            "pt": "Escuta, tentei de tudo, existe algum outro jeito de resolver isso? Por favor."
+          },
+          {
+            "en": "I've tried everything, is there any other way to fix this? I really need it working.",
+            "pt": "Tentei de tudo, existe algum outro jeito de resolver isso? Preciso muito que funcione."
+          },
+          {
+            "en": "Look, I've tried everything, is there any other way to fix this? It's not working.",
+            "pt": "Olha, tentei de tudo, existe algum outro jeito de resolver isso? Não está funcionando."
+          },
+          {
+            "en": "Honestly, I've tried everything, is there any other way to fix this? Any ideas?",
+            "pt": "Honestamente, tentei de tudo, existe algum outro jeito de resolver isso? Alguma ideia?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be too much trouble to ask for a different room?",
+        "pt": "Seria muito incômodo pedir um quarto diferente?",
+        "quando": "Ao solicitar uma mudança de acomodação após o check-in.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "Was it too much trouble to ask for a different room?",
+            "pt": "Foi muito incômodo pedir um quarto diferente?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be too much trouble to ask for a different room?",
+            "pt": "Não seria muito incômodo pedir um quarto diferente?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, it wouldn't be too much trouble to ask for a different room.",
+            "pt": "Não, não seria muito incômodo pedir um quarto diferente."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm sorry, would it be too much trouble to ask for a different room?",
+            "pt": "Desculpe, seria muito incômodo pedir um quarto diferente?"
+          },
+          {
+            "en": "If it's okay, would it be too much trouble to ask for a different room?",
+            "pt": "Se estiver tudo bem, seria muito incômodo pedir um quarto diferente?"
+          },
+          {
+            "en": "Excuse me, would it be too much trouble to ask for a different room? This one is noisy.",
+            "pt": "Com licença, seria muito incômodo pedir um quarto diferente? Este aqui está barulhento."
+          },
+          {
+            "en": "I don't like it, would it be too much trouble to ask for a different room?",
+            "pt": "Não gostei, seria muito incômodo pedir um quarto diferente?"
+          },
+          {
+            "en": "Please, would it be too much trouble to ask for a different room? Thanks.",
+            "pt": "Por favor, seria muito incômodo pedir um quarto diferente? Obrigado."
+          }
+        ]
+      },
+      {
+        "en": "I'm really struggling, could you give me a few extra minutes?",
+        "pt": "Estou com muita dificuldade, você poderia me dar alguns minutos a mais?",
+        "quando": "Ao pedir uma tolerância de tempo durante uma tarefa.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "I was really struggling, could you give me a few extra minutes?",
+            "pt": "Eu estava com muita dificuldade, você poderia me dar alguns minutos a mais?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "I'm really struggling, couldn't you give me a few extra minutes?",
+            "pt": "Estou com muita dificuldade, você não poderia me dar alguns minutos a mais?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He's really struggling, could you give him a few extra minutes?",
+            "pt": "Ele está com muita dificuldade, você poderia dar a ele alguns minutos a mais?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm really struggling, could you give me a few extra minutes? I'm almost done.",
+            "pt": "Estou com muita dificuldade, você poderia me dar alguns minutos a mais? Já estou terminando."
+          },
+          {
+            "en": "I'm sorry, I'm really struggling, could you give me a few extra minutes?",
+            "pt": "Desculpe, estou com muita dificuldade, você poderia me dar alguns minutos a mais?"
+          },
+          {
+            "en": "Look, I'm really struggling, could you give me a few extra minutes? It's quite complex.",
+            "pt": "Olha, estou com muita dificuldade, você poderia me dar alguns minutos a mais? É bem complexo."
+          },
+          {
+            "en": "I'm really struggling, could you give me a few extra minutes? I need to focus.",
+            "pt": "Estou com muita dificuldade, você poderia me dar alguns minutos a mais? Preciso me concentrar."
+          },
+          {
+            "en": "Honestly, I'm really struggling, could you give me a few extra minutes? Thanks.",
+            "pt": "Honestamente, estou com muita dificuldade, você poderia me dar alguns minutos a mais? Obrigado."
+          }
+        ]
+      },
+      {
+        "en": "Is there any chance I could speak with the physician in charge?",
+        "pt": "Teria alguma chance de eu falar com o médico responsável?",
+        "quando": "Ao tentar contornar a recepção para falar com um profissional.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Isn't there any chance I could speak with the physician in charge?",
+            "pt": "Não tem nenhuma chance de eu falar com o médico responsável?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Was there any chance I could have spoken with the physician in charge?",
+            "pt": "Houve alguma chance de eu ter falado com o médico responsável?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, there's a chance you could speak with the physician in charge.",
+            "pt": "Sim, tem uma chance de você falar com o médico responsável."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm in a hurry, so is there any chance I could speak with the physician in charge?",
+            "pt": "Estou com pressa, então tem alguma chance de eu falar com o médico responsável?"
+          },
+          {
+            "en": "If it's urgent, is there any chance I could speak with the physician in charge?",
+            "pt": "Se for urgente, tem alguma chance de eu falar com o médico responsável?"
+          },
+          {
+            "en": "Since I'm worried, is there any chance I could speak with the physician in charge?",
+            "pt": "Já que estou preocupado, tem alguma chance de eu falar com o médico responsável?"
+          },
+          {
+            "en": "Please, is there any chance I could speak with the physician in charge before leaving?",
+            "pt": "Por favor, tem alguma chance de eu falar com o médico responsável antes de sair?"
+          },
+          {
+            "en": "Before I go, is there any chance I could speak with the physician in charge?",
+            "pt": "Antes de eu ir, tem alguma chance de eu falar com o médico responsável?"
+          }
+        ]
+      },
+      {
+        "en": "I'm full, but would it be possible to take the rest home?",
+        "pt": "Estou satisfeito, mas seria possível levar o restante para casa?",
+        "quando": "Ao pedir algo que normalmente não é permitido em um restaurante.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I'm not full, but would it be possible to take the rest home?",
+            "pt": "Não estou satisfeito, mas seria possível levar o restante para casa?"
+          },
+          {
+            "tipo": "passado",
+            "en": "I was full, but would it have been possible to take the rest home?",
+            "pt": "Eu estava satisfeito, mas teria sido possível levar o restante para casa?"
+          },
+          {
+            "tipo": "educada",
+            "en": "It's so delicious, would it be possible to take the rest home?",
+            "pt": "Está tão gostoso, seria possível levar o restante para casa?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "The portion is huge, I'm full, but would it be possible to take the rest home?",
+            "pt": "A porção é enorme, estou satisfeito, mas seria possível levar o restante para casa?"
+          },
+          {
+            "en": "I'm full, but would it be possible to take the rest home for my dog?",
+            "pt": "Estou satisfeito, mas seria possível levar o restante para casa para o meu cachorro?"
+          },
+          {
+            "en": "Everything's great, I'm full, but would it be possible to take the rest home?",
+            "pt": "Está tudo ótimo, estou satisfeito, mas seria possível levar o restante para casa?"
+          },
+          {
+            "en": "I'm full, but would it be possible to take the rest home tonight?",
+            "pt": "Estou satisfeito, mas seria possível levar o restante para casa hoje à noite?"
+          },
+          {
+            "en": "Sorry, I'm full, but would it be possible to take the rest home?",
+            "pt": "Desculpe, estou satisfeito, mas seria possível levar o restante para casa?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to have a copy of the report sent today?",
+        "pt": "Seria possível ter uma cópia do relatório enviada hoje?",
+        "quando": "Ao tentar acelerar um processo que costuma ser lento.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be possible to have a copy of the report sent today?",
+            "pt": "Não seria possível ter uma cópia do relatório enviada hoje?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "Will it be possible to have a copy of the report sent today?",
+            "pt": "Será possível ter uma cópia do relatório enviada hoje?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Was it possible to have a copy of the report sent today?",
+            "pt": "Foi possível ter uma cópia do relatório enviada hoje?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "If you don't mind, would it be possible to have a copy of the report sent today?",
+            "pt": "Se não se importar, seria possível ter uma cópia do relatório enviada hoje?"
+          },
+          {
+            "en": "I'm in a rush, so would it be possible to have a copy of the report sent today?",
+            "pt": "Estou com pressa, então seria possível ter uma cópia do relatório enviada hoje?"
+          },
+          {
+            "en": "Regarding the meeting, would it be possible to have a copy of the report sent today?",
+            "pt": "Sobre a reunião, seria possível ter uma cópia do relatório enviada hoje?"
+          },
+          {
+            "en": "Would it be possible to have a copy of the report sent today, please?",
+            "pt": "Seria possível ter uma cópia do relatório enviada hoje, por favor?"
+          },
+          {
+            "en": "Before the deadline, would it be possible to have a copy of the report sent today?",
+            "pt": "Antes do prazo, seria possível ter uma cópia do relatório enviada hoje?"
+          }
+        ]
+      },
+      {
+        "en": "I know it's a busy day, but could you squeeze me in?",
+        "pt": "Eu sei que o dia está cheio, mas você poderia me encaixar?",
+        "quando": "Ao insistir em uma vaga na agenda lotada de alguém.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "I knew it was a busy day, but could you have squeezed me in?",
+            "pt": "Eu sabia que era um dia cheio, mas você poderia ter me encaixado?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "I know it's not a busy day, so could you squeeze me in?",
+            "pt": "Eu sei que não é um dia cheio, então você poderia me encaixar?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He knows it's a busy day, but could you squeeze him in?",
+            "pt": "Ele sabe que é um dia cheio, mas você poderia encaixá-lo?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm so sorry, I know it's a busy day, but could you squeeze me in?",
+            "pt": "Sinto muito, eu sei que o dia está cheio, mas você poderia me encaixar?"
+          },
+          {
+            "en": "I know it's a busy day, but could you squeeze me in for just ten minutes?",
+            "pt": "Eu sei que o dia está cheio, mas você poderia me encaixar por apenas dez minutos?"
+          },
+          {
+            "en": "It's an emergency, I know it's a busy day, but could you squeeze me in?",
+            "pt": "É uma emergência, eu sei que o dia está cheio, mas você poderia me encaixar?"
+          },
+          {
+            "en": "I know it's a busy day, but could you squeeze me in later this afternoon?",
+            "pt": "Eu sei que o dia está cheio, mas você poderia me encaixar mais tarde hoje à tarde?"
+          },
+          {
+            "en": "Hey, I know it's a busy day, but could you squeeze me in?",
+            "pt": "Ei, eu sei que o dia está cheio, mas você poderia me encaixar?"
+          }
+        ]
+      },
+      {
+        "en": "Is there any way to change the date without losing the deposit?",
+        "pt": "Tem algum jeito de mudar a data sem perder o depósito?",
+        "quando": "Ao pedir uma exceção em uma cláusula financeira.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Isn't there any way to change the date without losing the deposit?",
+            "pt": "Não tem nenhum jeito de mudar a data sem perder o depósito?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Was there any way to change the date without losing the deposit?",
+            "pt": "Tinha algum jeito de mudar a data sem perder o depósito?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, there's a way to change the date without losing the deposit.",
+            "pt": "Sim, tem um jeito de mudar a data sem perder o depósito."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Something came up, is there any way to change the date without losing the deposit?",
+            "pt": "Algo aconteceu, tem algum jeito de mudar a data sem perder o depósito?"
+          },
+          {
+            "en": "I have a problem, is there any way to change the date without losing the deposit?",
+            "pt": "Estou com um problema, tem algum jeito de mudar a data sem perder o depósito?"
+          },
+          {
+            "en": "Look, is there any way to change the date without losing the deposit?",
+            "pt": "Veja, tem algum jeito de mudar a data sem perder o depósito?"
+          },
+          {
+            "en": "Regarding my booking, is there any way to change the date without losing the deposit?",
+            "pt": "Sobre minha reserva, tem algum jeito de mudar a data sem perder o depósito?"
+          },
+          {
+            "en": "I'm sick, is there any way to change the date without losing the deposit?",
+            "pt": "Estou doente, tem algum jeito de mudar a data sem perder o depósito?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to get an update by the end of the day?",
+        "pt": "Seria possível ter uma atualização até o fim do dia?",
+        "quando": "Ao cobrar uma resposta prometida sem soar rude.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be possible to get an update by the end of the day?",
+            "pt": "Não seria possível ter uma atualização até o fim do dia?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Was it possible to get an update by the end of the day?",
+            "pt": "Foi possível ter uma atualização até o fim do dia?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "Will it be possible to get an update by the end of the day?",
+            "pt": "Será possível ter uma atualização até o fim do dia?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm waiting, would it be possible to get an update by the end of the day?",
+            "pt": "Estou esperando, seria possível ter uma atualização até o fim do dia?"
+          },
+          {
+            "en": "I'm eager, would it be possible to get an update by the end of the day?",
+            "pt": "Estou ansioso, seria possível ter uma atualização até o fim do dia?"
+          },
+          {
+            "en": "If you don't mind, would it be possible to get an update by the end of the day?",
+            "pt": "Se não se importar, seria possível ter uma atualização até o fim do dia?"
+          },
+          {
+            "en": "Would it be possible to get an update by the end of the day, please?",
+            "pt": "Seria possível ter uma atualização até o fim do dia, por favor?"
+          },
+          {
+            "en": "Since it's urgent, would it be possible to get an update by the end of the day?",
+            "pt": "Já que é urgente, seria possível ter uma atualização até o fim do dia?"
+          }
+        ]
+      },
+      {
+        "en": "I don't have enough cash, could I pay the rest later?",
+        "pt": "Não tenho dinheiro vivo suficiente, poderia pagar o restante depois?",
+        "quando": "Ao pedir um parcelamento ou adiamento de pagamento.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I don't have enough time to finish this, can we talk later?",
+            "pt": "Não tenho tempo suficiente para terminar isso, podemos conversar depois?"
+          },
+          {
+            "tipo": "passado",
+            "en": "I didn't have enough cash, so I paid the rest later.",
+            "pt": "Eu não tinha dinheiro vivo suficiente, então paguei o resto depois."
+          },
+          {
+            "tipo": "educada",
+            "en": "I'm sorry, I don't have enough cash, would it be okay to pay later?",
+            "pt": "Desculpe, não tenho dinheiro vivo suficiente, tudo bem pagar depois?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Look, I don't have enough cash, could I pay the rest later? I forgot my wallet.",
+            "pt": "Olha, não tenho dinheiro vivo suficiente, poderia pagar o restante depois? Esqueci minha carteira."
+          },
+          {
+            "en": "I'm short on funds and I don't have enough cash, could I pay the rest later?",
+            "pt": "Estou sem fundos e não tenho dinheiro vivo suficiente, poderia pagar o restante depois?"
+          },
+          {
+            "en": "If I don't have enough cash, could I pay the rest later? Is that an option?",
+            "pt": "Se eu não tiver dinheiro suficiente, poderia pagar o restante depois? É uma opção?"
+          },
+          {
+            "en": "Since I don't have enough cash, could I pay the rest later or use my card?",
+            "pt": "Já que não tenho dinheiro vivo suficiente, poderia pagar o restante depois ou usar meu cartão?"
+          },
+          {
+            "en": "I realized I don't have enough cash, could I pay the rest later today?",
+            "pt": "Percebi que não tenho dinheiro vivo suficiente, poderia pagar o restante hoje mais tarde?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to skip this step and move ahead?",
+        "pt": "Seria possível pular esta etapa e seguir em frente?",
+        "quando": "Ao tentar acelerar um processo burocrático.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be possible to skip this step and move ahead?",
+            "pt": "Não seria possível pular esta etapa e seguir em frente?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Was it possible to skip that step and move ahead?",
+            "pt": "Foi possível pular aquela etapa e seguir em frente?"
+          },
+          {
+            "tipo": "educada",
+            "en": "If you don't mind, would it be possible to skip this step and move ahead?",
+            "pt": "Se você não se importar, seria possível pular esta etapa e seguir em frente?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "We're in a hurry, so would it be possible to skip this step and move ahead?",
+            "pt": "Estamos com pressa, então seria possível pular esta etapa e seguir em frente?"
+          },
+          {
+            "en": "I've done this before, would it be possible to skip this step and move ahead?",
+            "pt": "Já fiz isso antes, seria possível pular esta etapa e seguir em frente?"
+          },
+          {
+            "en": "Given the deadline, would it be possible to skip this step and move ahead today?",
+            "pt": "Dado o prazo, seria possível pular esta etapa e seguir em frente hoje?"
+          },
+          {
+            "en": "I know the basics, so would it be possible to skip this step and move ahead?",
+            "pt": "Conheço o básico, então seria possível pular esta etapa e seguir em frente?"
+          },
+          {
+            "en": "Is the process flexible? Would it be possible to skip this step and move ahead?",
+            "pt": "O processo é flexível? Seria possível pular esta etapa e seguir em frente?"
+          }
+        ]
+      },
+      {
+        "en": "I'm asking for a small favor, would you be open to it?",
+        "pt": "Estou pedindo um pequeno favor, você estaria disposto a ele?",
+        "quando": "Ao sondar se a pessoa está aberta a uma exceção.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "I was asking for a small favor, were you open to it?",
+            "pt": "Eu estava pedindo um pequeno favor, você estava disposto a ele?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I'm really asking for a small favor, would you be open to it?",
+            "pt": "Estou realmente pedindo um pequeno favor, você estaria disposto a ele?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I'm asking for a small favor, would you be open to it?",
+            "pt": "Sim, estou pedindo um pequeno favor, você estaria disposto a ele?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Listen, I'm asking for a small favor, would you be open to it?",
+            "pt": "Escuta, estou pedindo um pequeno favor, você estaria disposto a ele?"
+          },
+          {
+            "en": "I know it's late, but I'm asking for a small favor, would you be open to it?",
+            "pt": "Sei que é tarde, mas estou pedindo um pequeno favor, você estaria disposto a ele?"
+          },
+          {
+            "en": "Since we're friends, I'm asking for a small favor, would you be open to it?",
+            "pt": "Já que somos amigos, estou pedindo um pequeno favor, você estaria disposto a ele?"
+          },
+          {
+            "en": "I'm asking for a small favor, would you be open to it, or is it too much?",
+            "pt": "Estou pedindo um pequeno favor, você estaria disposto a ele, ou é pedir demais?"
+          },
+          {
+            "en": "Before I go, I'm asking for a small favor, would you be open to it?",
+            "pt": "Antes de eu ir, estou pedindo um pequeno favor, você estaria disposto a ele?"
+          }
+        ]
+      },
+      {
+        "en": "Is there any chance we could start just a few minutes early?",
+        "pt": "Teria alguma chance de começarmos só alguns minutos mais cedo?",
+        "quando": "Ao sugerir uma mudança de horário por conveniência própria.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "Was there any chance we could start just a few minutes early?",
+            "pt": "Houve alguma chance de começarmos só alguns minutos mais cedo?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Is there any chance we couldn't start just a few minutes early?",
+            "pt": "Existe alguma chance de não podermos começar só alguns minutos mais cedo?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I'm in a rush, is there any chance we could start just a few minutes early?",
+            "pt": "Estou com pressa, existe alguma chance de começarmos só alguns minutos mais cedo?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "If you're available, is there any chance we could start just a few minutes early?",
+            "pt": "Se você estiver disponível, existe alguma chance de começarmos só alguns minutos mais cedo?"
+          },
+          {
+            "en": "I have another meeting, is there any chance we could start just a few minutes early?",
+            "pt": "Tenho outra reunião, existe alguma chance de começarmos só alguns minutos mais cedo?"
+          },
+          {
+            "en": "Regarding our call, is there any chance we could start just a few minutes early?",
+            "pt": "Sobre nossa chamada, existe alguma chance de começarmos só alguns minutos mais cedo?"
+          },
+          {
+            "en": "To save time, is there any chance we could start just a few minutes early?",
+            "pt": "Para economizar tempo, existe alguma chance de começarmos só alguns minutos mais cedo?"
+          },
+          {
+            "en": "Hey, is there any chance we could start just a few minutes early today?",
+            "pt": "Ei, existe alguma chance de começarmos só alguns minutos mais cedo hoje?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to review the policy together?",
+        "pt": "Seria possível revisarmos a norma juntos?",
+        "quando": "Ao pedir uma explicação sobre uma regra que não faz sentido.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "Was it possible to review the policy together?",
+            "pt": "Foi possível revisarmos a norma juntos?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be possible to review the policy together?",
+            "pt": "Não seria possível revisarmos a norma juntos?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "Would it be possible for him to review the policy together with us?",
+            "pt": "Seria possível para ele revisar a norma junto com a gente?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Before we sign, would it be possible to review the policy together?",
+            "pt": "Antes de assinarmos, seria possível revisarmos a norma juntos?"
+          },
+          {
+            "en": "Since I'm new, would it be possible to review the policy together?",
+            "pt": "Já que sou novo aqui, seria possível revisarmos a norma juntos?"
+          },
+          {
+            "en": "I'm confused, would it be possible to review the policy together right now?",
+            "pt": "Estou confuso, seria possível revisarmos a norma juntos agora mesmo?"
+          },
+          {
+            "en": "If it's not too much, would it be possible to review the policy together?",
+            "pt": "Se não for pedir muito, seria possível revisarmos a norma juntos?"
+          },
+          {
+            "en": "To be safe, would it be possible to review the policy together?",
+            "pt": "Para garantir, seria possível revisarmos a norma juntos?"
+          }
+        ]
+      },
+      {
+        "en": "I've waited long enough, could you prioritize this today?",
+        "pt": "Já esperei tempo suficiente, você poderia priorizar isso hoje?",
+        "quando": "Ao pedir uma exceção na fila de atendimento.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "I waited long enough, could you have prioritized this?",
+            "pt": "Eu esperei tempo suficiente, você poderia ter priorizado isso?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "I'll have waited long enough, could you prioritize this tomorrow?",
+            "pt": "Terei esperado tempo suficiente, você poderia priorizar isso amanhã?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "I've waited long enough, couldn't you prioritize this today?",
+            "pt": "Já esperei tempo suficiente, você não poderia priorizar isso hoje?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "This is urgent, I've waited long enough, could you prioritize this today?",
+            "pt": "Isso é urgente, já esperei tempo suficiente, você poderia priorizar isso hoje?"
+          },
+          {
+            "en": "I've waited long enough, could you prioritize this today, please?",
+            "pt": "Já esperei tempo suficiente, você poderia priorizar isso hoje, por favor?"
+          },
+          {
+            "en": "Look, I've waited long enough, could you prioritize this today instead?",
+            "pt": "Olha, já esperei tempo suficiente, você poderia priorizar isso hoje em vez disso?"
+          },
+          {
+            "en": "I need an answer, I've waited long enough, could you prioritize this today?",
+            "pt": "Preciso de uma resposta, já esperei tempo suficiente, você poderia priorizar isso hoje?"
+          },
+          {
+            "en": "I've waited long enough, could you prioritize this today for me?",
+            "pt": "Já esperei tempo suficiente, você poderia priorizar isso hoje para mim?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to get a refund despite the date?",
+        "pt": "Seria possível conseguir um reembolso apesar da data?",
+        "quando": "Ao pedir o dinheiro de volta após o prazo de garantia.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Would it not be possible to get a refund despite the date?",
+            "pt": "Não seria possível conseguir um reembolso apesar da data?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Would it have been possible to get a refund despite the date?",
+            "pt": "Teria sido possível conseguir um reembolso apesar da data?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it would be possible.",
+            "pt": "Sim, seria possível."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I know the policy is strict, but would it be possible to get a refund despite the date?",
+            "pt": "Eu sei que a política é rígida, mas seria possível conseguir um reembolso apesar da data?"
+          },
+          {
+            "en": "Check with the manager: would it be possible to get a refund despite the date?",
+            "pt": "Verifique com o gerente: seria possível conseguir um reembolso apesar da data?"
+          },
+          {
+            "en": "Given the circumstances, would it be possible to get a refund despite the date?",
+            "pt": "Dadas as circunstâncias, seria possível conseguir um reembolso apesar da data?"
+          },
+          {
+            "en": "If I talk to them, would it be possible to get a refund despite the date?",
+            "pt": "Se eu falar com eles, seria possível conseguir um reembolso apesar da data?"
+          },
+          {
+            "en": "I'm calling to ask if would it be possible to get a refund despite the date?",
+            "pt": "Estou ligando para perguntar se seria possível conseguir um reembolso apesar da data?"
+          }
+        ]
+      },
+      {
+        "en": "Is there any way to keep the current rate for next month?",
+        "pt": "Tem algum jeito de manter a tarifa atual para o mês que vem?",
+        "quando": "Ao tentar garantir um preço antigo em uma nova compra.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "Was there any way to keep the current rate for next month?",
+            "pt": "Houve algum jeito de manter a tarifa atual para o mês que vem?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Is there no way to keep the current rate for next month?",
+            "pt": "Não tem nenhum jeito de manter a tarifa atual para o mês que vem?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, there's a way.",
+            "pt": "Sim, tem um jeito."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "We're on a tight budget, so is there any way to keep the current rate for next month?",
+            "pt": "Estamos com o orçamento apertado, então tem algum jeito de manter a tarifa atual para o mês que vem?"
+          },
+          {
+            "en": "Before I sign the contract, is there any way to keep the current rate for next month?",
+            "pt": "Antes de eu assinar o contrato, tem algum jeito de manter a tarifa atual para o mês que vem?"
+          },
+          {
+            "en": "If we extend the deal, is there any way to keep the current rate for next month?",
+            "pt": "Se estendermos o acordo, tem algum jeito de manter a tarifa atual para o mês que vem?"
+          },
+          {
+            "en": "I really like this plan, is there any way to keep the current rate for next month?",
+            "pt": "Eu gosto muito desse plano, tem algum jeito de manter a tarifa atual para o mês que vem?"
+          },
+          {
+            "en": "Just checking, is there any way to keep the current rate for next month?",
+            "pt": "Só conferindo, tem algum jeito de manter a tarifa atual para o mês que vem?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to add one more person to the list?",
+        "pt": "Seria possível adicionar mais uma pessoa à lista?",
+        "quando": "Ao pedir uma vaga extra em um evento lotado.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "Would it have been possible to add one more person to the list?",
+            "pt": "Teria sido possível adicionar mais uma pessoa à lista?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Would it not be possible to add one more person to the list?",
+            "pt": "Não seria possível adicionar mais uma pessoa à lista?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "I'm afraid it wouldn't be possible.",
+            "pt": "Receio que não seria possível."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "We have an extra guest, would it be possible to add one more person to the list?",
+            "pt": "Temos um convidado extra, seria possível adicionar mais uma pessoa à lista?"
+          },
+          {
+            "en": "Could you let me know if would it be possible to add one more person to the list?",
+            "pt": "Você poderia me avisar se seria possível adicionar mais uma pessoa à lista?"
+          },
+          {
+            "en": "Sorry to bother you, but would it be possible to add one more person to the list?",
+            "pt": "Desculpe incomodar, mas seria possível adicionar mais uma pessoa à lista?"
+          },
+          {
+            "en": "My friend just arrived, would it be possible to add one more person to the list?",
+            "pt": "Meu amigo acabou de chegar, seria possível adicionar mais uma pessoa à lista?"
+          },
+          {
+            "en": "I know it's late, but would it be possible to add one more person to the list?",
+            "pt": "Eu sei que está tarde, mas seria possível adicionar mais uma pessoa à lista?"
+          }
+        ]
+      },
+      {
+        "en": "I'm not sure if it's allowed, but could you make an exception?",
+        "pt": "Não tenho certeza se é permitido, mas você poderia abrir uma exceção?",
+        "quando": "Ao pedir diretamente que a pessoa quebre a regra.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "I wasn't sure if it was allowed, but could you have made an exception?",
+            "pt": "Eu não tinha certeza se era permitido, mas você poderia ter aberto uma exceção?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He's not sure if it's allowed, but could you make an exception?",
+            "pt": "Ele não tem certeza se é permitido, mas você poderia abrir uma exceção?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I can make one.",
+            "pt": "Sim, eu posso abrir uma."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm not sure if it's allowed, but could you make an exception for this one time?",
+            "pt": "Não tenho certeza se é permitido, mas você poderia abrir uma exceção desta vez?"
+          },
+          {
+            "en": "I'm not sure if it's allowed, but could you make an exception regarding the late fee?",
+            "pt": "Não tenho certeza se é permitido, mas você poderia abrir uma exceção quanto à multa por atraso?"
+          },
+          {
+            "en": "It's a special situation, I'm not sure if it's allowed, but could you make an exception?",
+            "pt": "É uma situação especial, não tenho certeza se é permitido, mas você poderia abrir uma exceção?"
+          },
+          {
+            "en": "I'm not sure if it's allowed, but could you make an exception and help me out?",
+            "pt": "Não tenho certeza se é permitido, mas você poderia abrir uma exceção e me ajudar?"
+          },
+          {
+            "en": "Please, I'm not sure if it's allowed, but could you make an exception?",
+            "pt": "Por favor, não tenho certeza se é permitido, mas você poderia abrir uma exceção?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to send the files to another email?",
+        "pt": "Seria possível enviar os arquivos para outro e-mail?",
+        "quando": "Ao pedir uma mudança de destino de documentos sensíveis.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "Would it have been possible to send the files to another email?",
+            "pt": "Teria sido possível enviar os arquivos para outro e-mail?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Would it not be possible to send the files to another email?",
+            "pt": "Não seria possível enviar os arquivos para outro e-mail?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it's possible.",
+            "pt": "Sim, é possível."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm having trouble with my account, would it be possible to send the files to another email?",
+            "pt": "Estou com problemas na minha conta, seria possível enviar os arquivos para outro e-mail?"
+          },
+          {
+            "en": "Since I'm traveling, would it be possible to send the files to another email?",
+            "pt": "Como estou viajando, seria possível enviar os arquivos para outro e-mail?"
+          },
+          {
+            "en": "Would it be possible to send the files to another email like my personal one?",
+            "pt": "Seria possível enviar os arquivos para outro e-mail como o meu pessoal?"
+          },
+          {
+            "en": "I don't have access to that inbox, would it be possible to send the files to another email?",
+            "pt": "Eu não tenho acesso àquela caixa de entrada, seria possível enviar os arquivos para outro e-mail?"
+          },
+          {
+            "en": "If you don't mind, would it be possible to send the files to another email?",
+            "pt": "Se não se importar, seria possível enviar os arquivos para outro e-mail?"
+          }
+        ]
+      },
+      {
+        "en": "Is there any chance to get a seat closer to the front?",
+        "pt": "Teria alguma chance de conseguir um assento mais perto da frente?",
+        "quando": "Ao pedir uma troca de lugar após o embarque ou reserva.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "Was there any chance to get a seat closer to the front?",
+            "pt": "Teve alguma chance de conseguir um assento mais perto da frente?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Is there no chance to get a seat closer to the front?",
+            "pt": "Não tem nenhuma chance de conseguir um assento mais perto da frente?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "I'm afraid there isn't.",
+            "pt": "Receio que não."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm hard of hearing, is there any chance to get a seat closer to the front?",
+            "pt": "Eu tenho dificuldade auditiva, tem alguma chance de conseguir um assento mais perto da frente?"
+          },
+          {
+            "en": "The screen is too far, is there any chance to get a seat closer to the front?",
+            "pt": "A tela está muito longe, tem alguma chance de conseguir um assento mais perto da frente?"
+          },
+          {
+            "en": "If someone cancels, is there any chance to get a seat closer to the front?",
+            "pt": "Se alguém cancelar, tem alguma chance de conseguir um assento mais perto da frente?"
+          },
+          {
+            "en": "I prefer to be near the stage, is there any chance to get a seat closer to the front?",
+            "pt": "Eu prefiro ficar perto do palco, tem alguma chance de conseguir um assento mais perto da frente?"
+          },
+          {
+            "en": "Excuse me, is there any chance to get a seat closer to the front?",
+            "pt": "Com licença, tem alguma chance de conseguir um assento mais perto da frente?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to wait a few seconds while I check?",
+        "pt": "Seria possível esperar alguns segundos enquanto eu verifico?",
+        "quando": "Ao pedir paciência em um momento de busca de informação.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be possible to wait a few seconds while I check?",
+            "pt": "Não seria possível esperar alguns segundos enquanto eu verifico?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Would it have been possible to wait a few seconds while I checked?",
+            "pt": "Teria sido possível esperar alguns segundos enquanto eu verificava?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I'd appreciate it if it were possible to wait a few seconds while I check.",
+            "pt": "Eu agradeceria se fosse possível esperar alguns segundos enquanto eu verifico."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Would it be possible to wait a few seconds while I check? I need to be sure.",
+            "pt": "Seria possível esperar alguns segundos enquanto eu verifico? Preciso ter certeza."
+          },
+          {
+            "en": "Tell me, would it be possible to wait a few seconds while I check? It's important.",
+            "pt": "Me diga, seria possível esperar alguns segundos enquanto eu verifico? É importante."
+          },
+          {
+            "en": "If you don't mind, would it be possible to wait a few seconds while I check?",
+            "pt": "Se você não se importar, seria possível esperar alguns segundos enquanto eu verifico?"
+          },
+          {
+            "en": "I'm sorry, would it be possible to wait a few seconds while I check for the file?",
+            "pt": "Desculpe, seria possível esperar alguns segundos enquanto eu verifico o arquivo?"
+          },
+          {
+            "en": "Hey, would it be possible to wait a few seconds while I check my notes?",
+            "pt": "Ei, seria possível esperar alguns segundos enquanto eu verifico minhas anotações?"
+          }
+        ]
+      },
+      {
+        "en": "I'm quite busy, would it be possible to keep this short?",
+        "pt": "Estou bem ocupado, seria possível sermos breves?",
+        "quando": "Ao solicitar que uma reunião não se estenda desnecessariamente.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "I'm not busy, but would it be possible to keep this short anyway?",
+            "pt": "Não estou ocupado, mas seria possível sermos breves de qualquer jeito?"
+          },
+          {
+            "tipo": "passado",
+            "en": "I was quite busy, would it have been possible to keep that short?",
+            "pt": "Eu estava bem ocupado, teria sido possível termos sido breves?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "I'm quite busy, would it be possible to keep this short? Yes, it would.",
+            "pt": "Estou bem ocupado, seria possível sermos breves? Sim, seria."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm quite busy, would it be possible to keep this short? I have a meeting.",
+            "pt": "Estou bem ocupado, seria possível sermos breves? Tenho uma reunião."
+          },
+          {
+            "en": "Since I'm quite busy, would it be possible to keep this short for now?",
+            "pt": "Já que estou bem ocupado, seria possível sermos breves por enquanto?"
+          },
+          {
+            "en": "Listen, I'm quite busy, would it be possible to keep this short and direct?",
+            "pt": "Escute, estou bem ocupado, seria possível sermos breves e diretos?"
+          },
+          {
+            "en": "I'm quite busy, would it be possible to keep this short? I'm running late.",
+            "pt": "Estou bem ocupado, seria possível sermos breves? Estou atrasado."
+          },
+          {
+            "en": "Look, I'm quite busy, would it be possible to keep this short? Thanks.",
+            "pt": "Olha, estou bem ocupado, seria possível sermos breves? Obrigado."
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to have someone else handle this part?",
+        "pt": "Seria possível outra pessoa cuidar desta parte?",
+        "quando": "Ao pedir uma troca de responsável por uma tarefa.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be possible to have someone else handle this part?",
+            "pt": "Não seria possível outra pessoa cuidar desta parte?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Would it have been possible to have someone else handle that part?",
+            "pt": "Teria sido possível outra pessoa ter cuidado daquela parte?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I'd really prefer if it were possible to have someone else handle this part.",
+            "pt": "Eu preferiria muito se fosse possível outra pessoa cuidar desta parte."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "To be honest, would it be possible to have someone else handle this part?",
+            "pt": "Para ser sincero, seria possível outra pessoa cuidar desta parte?"
+          },
+          {
+            "en": "I'm not comfortable, so would it be possible to have someone else handle this part?",
+            "pt": "Não estou confortável, então seria possível outra pessoa cuidar desta parte?"
+          },
+          {
+            "en": "If you have time, would it be possible to have someone else handle this part?",
+            "pt": "Se você tiver tempo, seria possível outra pessoa cuidar desta parte?"
+          },
+          {
+            "en": "Regarding the contract, would it be possible to have someone else handle this part?",
+            "pt": "Sobre o contrato, seria possível outra pessoa cuidar desta parte?"
+          },
+          {
+            "en": "Would it be possible to have someone else handle this part? I'm overwhelmed.",
+            "pt": "Seria possível outra pessoa cuidar desta parte? Estou sobrecarregado."
+          }
+        ]
+      },
+      {
+        "en": "Is there any chance to see the draft before it's final?",
+        "pt": "Teria alguma chance de ver o rascunho antes de ser final?",
+        "quando": "Ao pedir acesso antecipado a um trabalho em andamento.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "Was there any chance to see the draft before it was final?",
+            "pt": "Houve alguma chance de ver o rascunho antes de ser final?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Is there no chance to see the draft before it's final?",
+            "pt": "Não há chance nenhuma de ver o rascunho antes de ser final?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "Will there be any chance to see the draft before it's final?",
+            "pt": "Vai haver alguma chance de ver o rascunho antes de ser final?"
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Is there any chance to see the draft before it's final? I want to check it.",
+            "pt": "Tem alguma chance de ver o rascunho antes de ser final? Quero conferir."
+          },
+          {
+            "en": "Just wondering, is there any chance to see the draft before it's final?",
+            "pt": "Só queria saber, tem alguma chance de ver o rascunho antes de ser final?"
+          },
+          {
+            "en": "Is there any chance to see the draft before it's final? We have a deadline.",
+            "pt": "Tem alguma chance de ver o rascunho antes de ser final? Temos um prazo."
+          },
+          {
+            "en": "For quality control, is there any chance to see the draft before it's final?",
+            "pt": "Para controle de qualidade, tem alguma chance de ver o rascunho antes de ser final?"
+          },
+          {
+            "en": "Is there any chance to see the draft before it's final? That would help.",
+            "pt": "Tem alguma chance de ver o rascunho antes de ser final? Isso ajudaria."
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to pause the project for a few days?",
+        "pt": "Seria possível pausar o projeto por alguns dias?",
+        "quando": "Ao pedir uma interrupção temporária em um cronograma.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be possible to pause the project for a few days?",
+            "pt": "Não seria possível pausar o projeto por alguns dias?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Would it have been possible to pause the project for a few days?",
+            "pt": "Teria sido possível pausar o projeto por alguns dias?"
+          },
+          {
+            "tipo": "educada",
+            "en": "I was wondering if it might be possible to pause the project for a few days.",
+            "pt": "Eu estava pensando se seria possível pausar o projeto por alguns dias."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Given the situation, would it be possible to pause the project for a few days?",
+            "pt": "Dada a situação, seria possível pausar o projeto por alguns dias?"
+          },
+          {
+            "en": "Would it be possible to pause the project for a few days? We need a break.",
+            "pt": "Seria possível pausar o projeto por alguns dias? Precisamos de uma pausa."
+          },
+          {
+            "en": "If things get difficult, would it be possible to pause the project for a few days?",
+            "pt": "Se as coisas ficarem difíceis, seria possível pausar o projeto por alguns dias?"
+          },
+          {
+            "en": "Regarding the timeline, would it be possible to pause the project for a few days?",
+            "pt": "Sobre o cronograma, seria possível pausar o projeto por alguns dias?"
+          },
+          {
+            "en": "Would it be possible to pause the project for a few days? Just until Monday.",
+            "pt": "Seria possível pausar o projeto por alguns dias? Só até segunda-feira."
+          }
+        ]
+      },
+      {
+        "en": "I'm in a hurry, would it be possible to speed this up?",
+        "pt": "Estou com pressa, seria possível acelerar isso?",
+        "quando": "Ao pedir urgência em um procedimento padrão.",
+        "formas": [
+          {
+            "tipo": "passado",
+            "en": "I was in a hurry, would it have been possible to speed that up?",
+            "pt": "Eu estava com pressa, teria sido possível acelerar aquilo?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "I'm not in a hurry, but would it be possible to speed this up?",
+            "pt": "Não estou com pressa, mas seria possível acelerar isso?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "I'm in a hurry, would it be possible to speed this up? I hope so.",
+            "pt": "Estou com pressa, seria possível acelerar isso? Espero que sim."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "I'm in a hurry, would it be possible to speed this up? I have a flight.",
+            "pt": "Estou com pressa, seria possível acelerar isso? Tenho um voo."
+          },
+          {
+            "en": "I'm in a hurry, would it be possible to speed this up? I'm already late.",
+            "pt": "Estou com pressa, seria possível acelerar isso? Já estou atrasado."
+          },
+          {
+            "en": "Sorry, I'm in a hurry, would it be possible to speed this up?",
+            "pt": "Desculpe, estou com pressa, seria possível acelerar isso?"
+          },
+          {
+            "en": "I'm in a hurry, would it be possible to speed this up? Let's go.",
+            "pt": "Estou com pressa, seria possível acelerar isso? Vamos lá."
+          },
+          {
+            "en": "Since I'm in a hurry, would it be possible to speed this up for me?",
+            "pt": "Já que estou com pressa, seria possível acelerar isso para mim?"
+          }
+        ]
+      },
+      {
+        "en": "Would it be possible to meet somewhere more quiet?",
+        "pt": "Seria possível nos encontrarmos em um lugar mais silencioso?",
+        "quando": "Ao pedir uma mudança de local para uma reunião.",
+        "formas": [
+          {
+            "tipo": "negativa",
+            "en": "Wouldn't it be possible to meet somewhere more quiet?",
+            "pt": "Não seria possível nos encontrarmos em um lugar mais silencioso?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Was it possible to meet somewhere more quiet?",
+            "pt": "Foi possível nos encontrarmos em um lugar mais silencioso?"
+          },
+          {
+            "tipo": "educada",
+            "en": "It would be possible to meet somewhere more quiet.",
+            "pt": "Seria possível nos encontrarmos em um lugar mais silencioso."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it would be possible.",
+            "pt": "Sim, seria possível."
+          }
+        ],
+        "recombinacoes": [
+          {
+            "en": "Would it be possible to meet somewhere more quiet? I really can't concentrate here.",
+            "pt": "Seria possível nos encontrarmos em um lugar mais silencioso? Eu realmente não consigo me concentrar aqui."
+          },
+          {
+            "en": "If you don't mind, would it be possible to meet somewhere more quiet?",
+            "pt": "Se você não se importar, seria possível nos encontrarmos em um lugar mais silencioso?"
+          },
+          {
+            "en": "We have a lot to discuss, so would it be possible to meet somewhere more quiet?",
+            "pt": "Temos muito o que discutir, então seria possível nos encontrarmos em um lugar mais silencioso?"
+          },
+          {
+            "en": "I'm sorry, but would it be possible to meet somewhere more quiet?",
+            "pt": "Desculpe, mas seria possível nos encontrarmos em um lugar mais silencioso?"
+          },
+          {
+            "en": "For our next session, would it be possible to meet somewhere more quiet?",
+            "pt": "Para nossa próxima sessão, seria possível nos encontrarmos em um lugar mais silencioso?"
           }
         ]
       }

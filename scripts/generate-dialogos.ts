@@ -45,7 +45,7 @@ import type { Bloco } from "@content/movimentos";
 import { cantoDe, cargaDe, progressaoDe, RAMPA, somDe } from "@content/metodo";
 import { chunkKey } from "@/lib/srs";
 
-import { env, genaiBatch, sleep } from "./_shared";
+import { env, genaiBatch, isRede, sleep } from "./_shared";
 
 /** [quem fala, o que diz em inglês, tradução] */
 export type Fala = [string, string, string];
@@ -414,6 +414,12 @@ async function main() {
           console.log(`\n  \x1b[31m▲ Teto de gasto mensal do projeto.\x1b[0m Esperar não resolve.`);
           console.log(`  Use o Vertex (VERTEX_CREDENTIALS) ou levante o teto em ai.studio/spend\n`);
           process.exit(1);
+        }
+        if (isRede(error)) {
+          console.log(`  [33m·[0m rede instavel: repetindo em 10s`);
+          await sleep(10_000);
+          t--;
+          continue;
         }
         if (isQuota(error)) {
           if (!watch) {
