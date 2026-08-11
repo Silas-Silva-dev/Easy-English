@@ -163,9 +163,32 @@ function pick<T>(items: T[], seed: number, count: number): T[] {
 /**
  * Aplica a peça ao molde. Os circuitos de fechamento de canto (13, 26, 39, 51)
  * não têm lacuna no molde: lá as "peças" já são frases inteiras.
+ *
+ * Duas correções que o aluno via na tela desde o dia 3 do circuito 1:
+ *
+ * `String.replace` com agulha de texto troca só a PRIMEIRA ocorrência, então
+ * moldes de duas lacunas — «I'm from ___ . I work as ___ .» — mostravam a
+ * segunda lacuna crua. Agora cada lacuna recebe a sua parte, separadas por "|"
+ * na peça; faltando parte, a lacuna continua visível, que é honesto (vira
+ * exercício de completar) e melhor do que repetir a mesma palavra nos dois
+ * buracos e produzir bobagem.
+ *
+ * E o molde traz espaço antes do ponto para a lacuna respirar no fonte. Sem
+ * `tidy`, a emenda aparecia: «I'm Ana . Nice to meet you.» em 224 frases.
  */
 function applySwap(pattern: string, piece: string): string {
-  return pattern.includes("___") ? pattern.replace("___", piece) : piece;
+  if (!pattern.includes("___")) return tidy(piece);
+  const partes = piece.split("|").map((p) => p.trim());
+  let i = 0;
+  return tidy(pattern.replace(/___/g, () => partes[i++] ?? "___"));
+}
+
+/** Fecha a emenda da costura: «I'm Ana . Nice» vira «I'm Ana. Nice». */
+function tidy(text: string): string {
+  return text
+    .replace(/\s+([.,?!;:])/g, "$1")
+    .replace(/\s{2,}/g, " ")
+    .trim();
 }
 
 /**

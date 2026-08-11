@@ -37,7 +37,17 @@ export const CANTO_2: CircuitContent[] = [
       body:
         "Passado em inglês tem duas famílias: os regulares (**+ed**: *worked*, *watched*, *stayed*) e os irregulares, que mudam de forma (*go → went*, *have → had*, *make → made*).\n\nNão decore lista de irregulares. Os vinte mais frequentes cobrem quase toda conversa, e você vai instalá-los como bloco: *I went*, *I had*, *I made*, *I saw*, *I did*.\n\nErrar o passado quase nunca gera mal-entendido: o contexto salva. Silêncio, sim, gera.",
     },
-    swaps: ["went to the beach", "stayed home", "met up with friends", "worked all weekend", "visited my parents", "watched three movies", "did absolutely nothing", "went out on Saturday"],
+    // Molde de duas lacunas: lugar | o que fez lá.
+    swaps: [
+      "the beach | swam all afternoon",
+      "my parents' place | ate way too much",
+      "a friend's party | got home really late",
+      "the gym | regretted it the next day",
+      "the mall | didn't buy anything",
+      "a barbecue | met a bunch of people",
+      "the movies | fell asleep halfway through",
+      "downtown | just walked around",
+    ],
     expansion: [
       ["It was great, thanks! I went to the beach and met up with some friends.", "Foi ótimo, obrigada! Eu fui para a praia e encontrei uns amigos."],
       ["I stayed home and watched a movie, so nothing special, really.", "Fiquei em casa e assisti um filme, então nada de especial."],
@@ -92,7 +102,17 @@ export const CANTO_2: CircuitContent[] = [
       body:
         "Toda história tem um **pano de fundo** e um **acontecimento**.\n\n*I **was walking** home*: o fundo, o que estava rolando.\n*when I **saw** my old boss*: o acontecimento que corta o fundo.\n\nÉ por isso que *So, I was ___ when suddenly ___* é o molde de história mais útil do inglês: ele já traz as duas camadas montadas. Você só troca as peças.",
     },
-    swaps: ["walking home", "waiting for the bus", "having lunch", "working late", "getting ready to leave", "talking to a client", "cooking dinner", "trying to sleep"],
+    // Molde de duas lacunas: o que eu estava fazendo | o que aconteceu de repente.
+    swaps: [
+      "walking home | it started pouring",
+      "waiting for the bus | my phone died",
+      "having lunch | my boss called",
+      "working late | the power went out",
+      "getting ready to leave | someone knocked",
+      "talking to a client | the call dropped",
+      "cooking dinner | the smoke alarm went off",
+      "trying to sleep | the neighbors started a party",
+    ],
     expansion: [
       ["So, I was walking home when all of a sudden I saw my old boss.", "Então, eu estava indo para casa quando de repente vi meu antigo chefe."],
       ["And then it got worse, because he called me by the wrong name.", "E aí piorou, porque ele me chamou pelo nome errado."],
@@ -357,7 +377,17 @@ export const CANTO_2: CircuitContent[] = [
       body:
         "Palavra curta ganha **-er**: *cheaper*, *faster*, *bigger*.\nPalavra longa ganha **more**: *more expensive*, *more comfortable*.\n\nA fronteira é o ouvido, não a contagem de sílabas: e há irregulares que você já conhece como bloco: *good → better*, *bad → worse*.\n\nSe errar (*more cheap*), ninguém deixa de entender. Instale *better*, *worse*, *cheaper* e *faster* como blocos e o resto vem por imitação.",
     },
-    swaps: ["cheaper", "faster", "more comfortable", "better for me", "easier", "a lot more expensive", "less stressful", "worth the extra money"],
+    // Molde de TRÊS lacunas: isto | aquilo | o motivo.
+    swaps: [
+      "The train | the bus | it's way faster",
+      "This one | that one | it's a lot cheaper",
+      "Working from home | the office | I sleep an hour more",
+      "Cooking | ordering in | it costs half as much",
+      "A morning flight | a night flight | you don't lose the whole day",
+      "Walking | driving | parking downtown is impossible",
+      "This place | the one downtown | it's way less crowded",
+      "Learning by talking | learning by reading | you actually remember it",
+    ],
     expansion: [
       ["This one is better than that one because it's cheaper and faster.", "Esse é melhor que aquele porque é mais barato e mais rápido."],
       ["It's cheaper, but not as good. On the other hand, I don't need the best.", "É mais barato, mas não tão bom. Por outro lado, eu não preciso do melhor."],

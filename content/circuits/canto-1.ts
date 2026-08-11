@@ -119,7 +119,17 @@ export const CANTO_1: CircuitContent[] = [
       ],
       avoids: "Where you are from?",
     },
-    swaps: ["Brazil", "São Paulo", "the south of Brazil", "a small town near Rio", "Portugal originally", "here, actually", "Recife", "a city you've never heard of"],
+    // Molde de duas lacunas: cada peça traz as duas partes, separadas por "|".
+    swaps: [
+      "Brazil | a designer",
+      "São Paulo | a developer",
+      "the south of Brazil | a teacher",
+      "a small town near Rio | a nurse",
+      "Portugal originally | a driver",
+      "here, actually | a freelancer",
+      "Recife | an engineer",
+      "a city you've never heard of | a consultant",
+    ],
     expansion: [
       ["I'm from Brazil, but I live in Lisbon now, and I work as a designer.", "Eu sou do Brasil, mas moro em Lisboa agora, e trabalho como designer."],
       ["I'm 32 and I've been working as a designer for about six years.", "Eu tenho 32 e trabalho como designer há uns seis anos."],
