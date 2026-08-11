@@ -614,11 +614,6 @@
             "tipo": "resposta-curta",
             "en": "No, I haven't.",
             "pt": "Não, não estou."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I haven't been here for six months.",
-            "pt": "Não estou aqui faz seis meses."
           }
         ],
         "recombinacoes": [
@@ -1323,11 +1318,6 @@
             "tipo": "terceira-pessoa",
             "en": "Can she get a large black coffee?",
             "pt": "Ela pode pegar um café preto grande?"
-          },
-          {
-            "tipo": "resposta-curta",
-            "en": "Yes, you can get a large black coffee.",
-            "pt": "Sim, você pode pegar um café preto grande."
           }
         ],
         "recombinacoes": [
@@ -1354,16 +1344,6 @@
             "tipo": "terceira-pessoa",
             "en": "Could he have a cold milk, please?",
             "pt": "Ele poderia pegar um leite gelado, por favor?"
-          },
-          {
-            "tipo": "pergunta",
-            "en": "Could you have a glass of cold milk, too?",
-            "pt": "Você também poderia querer um copo de leite gelado?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "I couldn't have a glass of cold milk, I'm lactose intolerant.",
-            "pt": "Eu não poderia tomar um copo de leite gelado, sou intolerante à lactose."
           }
         ],
         "recombinacoes": []
@@ -1413,11 +1393,6 @@
             "tipo": "terceira-pessoa",
             "en": "Could she have a napkin, please?",
             "pt": "Ela poderia pegar um guardanapo, por favor?"
-          },
-          {
-            "tipo": "pergunta",
-            "en": "Could you have a napkin for me?",
-            "pt": "Você poderia pegar um guardanapo para mim?"
           }
         ],
         "recombinacoes": [
@@ -1796,16 +1771,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, I will.",
             "pt": "Sim, estarei."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I won't be there at fourteen.",
-            "pt": "Eu não chego lá às catorze."
-          },
-          {
-            "tipo": "pergunta",
-            "en": "Will you be there at fourteen?",
-            "pt": "Você chega lá às catorze?"
           }
         ],
         "recombinacoes": []
@@ -8507,11 +8472,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, it did.",
             "pt": "Sim, costumava."
-          },
-          {
-            "tipo": "negativa",
-            "en": "Everything didn't use to be different before the new mall was built.",
-            "pt": "Nem tudo costumava ser diferente antes do shopping novo ser construído."
           }
         ],
         "recombinacoes": [
@@ -8741,11 +8701,6 @@
             "tipo": "pergunta",
             "en": "Was that hilarious?",
             "pt": "Aquilo foi engraçado mesmo?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "That isn't hilarious.",
-            "pt": "Isso não tem graça nenhuma."
           }
         ],
         "recombinacoes": [
@@ -9025,11 +8980,6 @@
             "tipo": "futuro",
             "en": "Will you really?",
             "pt": "Você vai fazer isso mesmo?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "Didn't you really?",
-            "pt": "Você não fez isso mesmo?"
           }
         ],
         "recombinacoes": [
@@ -9070,11 +9020,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, I'm sorry.",
             "pt": "Sim, sinto muito."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I'm not sorry to hear that.",
-            "pt": "Não lamento ouvir isso."
           }
         ],
         "recombinacoes": [
@@ -9312,11 +9257,6 @@
             "tipo": "pergunta",
             "en": "How lucky am I?",
             "pt": "Que sorte a minha, hein?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "It's not lucky.",
-            "pt": "Isso não é sorte."
           }
         ],
         "recombinacoes": [
@@ -9365,8 +9305,8 @@
           },
           {
             "tipo": "futuro",
-            "en": "I won't realize that.",
-            "pt": "Eu não vou me dar conta disso."
+            "en": "I won't realize that until later.",
+            "pt": "Eu não vou me dar conta disso até mais tarde."
           }
         ],
         "recombinacoes": [
@@ -11847,11 +11787,6 @@
             "tipo": "resposta-curta",
             "en": "I'm gonna be home at eight.",
             "pt": "Eu vou estar em casa às oito."
-          },
-          {
-            "tipo": "negativa",
-            "en": "What time aren't you gonna be home?",
-            "pt": "Que horas você não vai estar em casa?"
           }
         ],
         "recombinacoes": [
@@ -12874,11 +12809,6 @@
             "tipo": "terceira-pessoa",
             "en": "Let's say it's around five.",
             "pt": "Vamos dizer que é por volta das cinco."
-          },
-          {
-            "tipo": "negativa",
-            "en": "Let's not say around five.",
-            "pt": "Vamos não dizer por volta das cinco."
           }
         ],
         "recombinacoes": [
@@ -13063,8 +12993,8 @@
           },
           {
             "tipo": "negativa",
-            "en": "That day isn't a bit tight.",
-            "pt": "Esse dia não está nada apertado."
+            "en": "That day isn't too tight.",
+            "pt": "Esse dia não está muito apertado."
           }
         ],
         "recombinacoes": [
@@ -13320,11 +13250,6 @@
             "tipo": "futuro",
             "en": "I will let you check my calendar.",
             "pt": "Eu vou deixar você ver minha agenda."
-          },
-          {
-            "tipo": "negativa",
-            "en": "Don't let me check my calendar.",
-            "pt": "Não me deixe checar minha agenda."
           }
         ],
         "recombinacoes": [
@@ -13370,16 +13295,6 @@
             "tipo": "resposta-curta",
             "en": "I'd prefer that, yes.",
             "pt": "Eu preferiria isso, sim."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I wouldn't prefer later if possible.",
-            "pt": "Eu não preferiria mais tarde, se possível."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll prefer later if possible.",
-            "pt": "Eu vou preferir mais tarde, se possível."
           }
         ],
         "recombinacoes": [
@@ -13410,21 +13325,6 @@
             "tipo": "terceira-pessoa",
             "en": "It sounds good, see you then.",
             "pt": "Parece bom, nos vemos lá."
-          },
-          {
-            "tipo": "negativa",
-            "en": "It doesn't sound good, see you then.",
-            "pt": "Não parece bom, nos vemos lá."
-          },
-          {
-            "tipo": "passado",
-            "en": "It sounded good, see you then.",
-            "pt": "Pareceu bom, nos vemos lá."
-          },
-          {
-            "tipo": "pergunta",
-            "en": "Does it sound good, see you then?",
-            "pt": "Parece bom, nos vemos lá?"
           }
         ],
         "recombinacoes": [
@@ -13518,7 +13418,7 @@
           },
           {
             "tipo": "negativa",
-            "en": "It isn't a bit too early.",
+            "en": "It's not a bit too early.",
             "pt": "Não está um pouco cedo demais."
           },
           {
@@ -13575,11 +13475,6 @@
             "tipo": "negativa",
             "en": "I'm not really sorry about this.",
             "pt": "Eu não sinto muito por isso, na verdade."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I will be really sorry about this.",
-            "pt": "Eu vou me arrepender muito disso."
           }
         ],
         "recombinacoes": [
@@ -13728,8 +13623,8 @@
           },
           {
             "tipo": "negativa",
-            "en": "Everything isn't set for Monday.",
-            "pt": "Não está tudo certo para segunda-feira."
+            "en": "Not everything is set for Monday.",
+            "pt": "Nem tudo está certo para segunda-feira."
           }
         ],
         "recombinacoes": [
@@ -13959,11 +13854,6 @@
             "tipo": "pergunta",
             "en": "Are you still swamped, or can we try today?",
             "pt": "Você ainda está atolado, ou podemos tentar hoje?"
-          },
-          {
-            "tipo": "passado",
-            "en": "I was swamped, could we try last week?",
-            "pt": "Eu estava atolado de coisas, podíamos ter tentado na semana passada?"
           }
         ],
         "recombinacoes": [
@@ -14014,11 +13904,6 @@
             "tipo": "resposta-curta",
             "en": "That sounds fun, but I've got plans.",
             "pt": "Parece divertido, mas eu tenho planos."
-          },
-          {
-            "tipo": "futuro",
-            "en": "That will sound fun, if I don't have other plans.",
-            "pt": "Isso vai parecer divertido, se eu não tiver outros planos."
           }
         ],
         "recombinacoes": [
@@ -14114,11 +13999,6 @@
             "tipo": "pergunta",
             "en": "Will you let me know as soon as you can?",
             "pt": "Você vai me avisar assim que puder?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "I won't let you know, unless I can.",
-            "pt": "Eu não vou te avisar, a menos que eu possa."
           }
         ],
         "recombinacoes": [
@@ -14739,16 +14619,6 @@
             "tipo": "resposta-curta",
             "en": "It's lovely, but I can't.",
             "pt": "É legal, mas eu não vou conseguir."
-          },
-          {
-            "tipo": "negativa",
-            "en": "That isn't lovely, and I can't make it happen.",
-            "pt": "Isso não é legal, e eu não vou conseguir fazer dar certo."
-          },
-          {
-            "tipo": "pergunta",
-            "en": "Is that lovely, or can't you make it happen?",
-            "pt": "Isso é legal, ou você não vai conseguir fazer dar certo?"
           }
         ],
         "recombinacoes": [
@@ -14789,11 +14659,6 @@
             "tipo": "resposta-curta",
             "en": "Sure, let's.",
             "pt": "Claro, vamos sim."
-          },
-          {
-            "tipo": "negativa",
-            "en": "Well, let's not keep in touch about it.",
-            "pt": "Bem, não vamos nos falar sobre isso."
           }
         ],
         "recombinacoes": [
@@ -14834,11 +14699,6 @@
             "tipo": "resposta-curta",
             "en": "I'm sorry, but I'm not.",
             "pt": "Sinto muito, mas não consigo."
-          },
-          {
-            "tipo": "pergunta",
-            "en": "Are you sorry, or are you just not able to right now?",
-            "pt": "Você está arrependido, ou só não está conseguindo agora?"
           }
         ],
         "recombinacoes": [
@@ -14939,11 +14799,6 @@
             "tipo": "resposta-curta",
             "en": "It sounds great, but I'm busy.",
             "pt": "Parece ótimo, mas estou ocupado."
-          },
-          {
-            "tipo": "futuro",
-            "en": "That will sound great, but I'll be busy.",
-            "pt": "Isso vai soar ótimo, mas eu estarei ocupado."
           }
         ],
         "recombinacoes": [
@@ -14989,11 +14844,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, maybe we can.",
             "pt": "Sim, talvez a gente possa."
-          },
-          {
-            "tipo": "negativa",
-            "en": "Maybe we can't catch up some other time?",
-            "pt": "Talvez a gente não consiga se ver em outra hora?"
           },
           {
             "tipo": "futuro",
@@ -15149,11 +14999,6 @@
             "tipo": "resposta-curta",
             "en": "Sure, I'll let you know.",
             "pt": "Claro, eu te aviso."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I won't let you know if nothing changes.",
-            "pt": "Eu não vou te avisar se nada mudar."
           }
         ],
         "recombinacoes": [
@@ -15199,11 +15044,6 @@
             "tipo": "pergunta",
             "en": "Do you have a prior commitment?",
             "pt": "Você já tem um compromisso?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'm sorry, I'll have a prior commitment then.",
-            "pt": "Sinto muito, mas vou ter um compromisso nessa hora."
           }
         ],
         "recombinacoes": [
@@ -15294,11 +15134,6 @@
             "tipo": "pergunta",
             "en": "Should we try for later?",
             "pt": "Devemos tentar para mais tarde?"
-          },
-          {
-            "tipo": "terceira-pessoa",
-            "en": "Well, let's have him try for later.",
-            "pt": "Bem, vamos pedir para ele tentar mais tarde."
           }
         ],
         "recombinacoes": [
@@ -15344,16 +15179,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, you can.",
             "pt": "Sim, pode."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I can't get any water for the table.",
-            "pt": "Eu não posso trazer água para a mesa."
-          },
-          {
-            "tipo": "futuro",
-            "en": "Will you get some water for the table?",
-            "pt": "Você pode trazer uma água para a mesa?"
           }
         ],
         "recombinacoes": [
@@ -15549,16 +15374,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, I can.",
             "pt": "Sim, eu posso."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I can't get a little bit of extra sauce.",
-            "pt": "Não posso trazer um pouco de molho extra."
-          },
-          {
-            "tipo": "futuro",
-            "en": "Will you get a little bit of extra sauce?",
-            "pt": "Você vai trazer um pouco de molho extra?"
           }
         ],
         "recombinacoes": [
@@ -15585,11 +15400,6 @@
         "pt": "Essa massa está deliciosa.",
         "quando": "Ao elogiar o prato para os amigos.",
         "formas": [
-          {
-            "tipo": "negativa",
-            "en": "This pasta isn't delicious.",
-            "pt": "Esta massa não está deliciosa."
-          },
           {
             "tipo": "pergunta",
             "en": "Is this pasta delicious?",
@@ -16287,14 +16097,9 @@
             "pt": "Sim, eu gostaria."
           },
           {
-            "tipo": "negativa",
-            "en": "I wouldn't like any help with the check.",
-            "pt": "Eu não queria ajuda com a conta."
-          },
-          {
             "tipo": "futuro",
-            "en": "I'll need some help with the check.",
-            "pt": "Vou precisar de uma ajuda com a conta."
+            "en": "Could I get some help with the check?",
+            "pt": "Poderia me ajudar com a conta?"
           }
         ],
         "recombinacoes": [
@@ -16335,11 +16140,6 @@
             "tipo": "resposta-curta",
             "en": "No, I didn't.",
             "pt": "Não, eu não vi."
-          },
-          {
-            "tipo": "futuro",
-            "en": "Will you see any mistake on the bill?",
-            "pt": "Você vai ver algum erro na conta?"
           }
         ],
         "recombinacoes": [
@@ -16385,11 +16185,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, you can.",
             "pt": "Sim, pode."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I can't get any salt right now.",
-            "pt": "Não consigo pegar sal agora."
           }
         ],
         "recombinacoes": [
@@ -16475,11 +16270,6 @@
             "tipo": "pergunta",
             "en": "Was this meal better than you expected?",
             "pt": "Essa refeição foi melhor do que você esperava?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "This meal wasn't better than I expected.",
-            "pt": "Essa refeição não foi melhor do que eu esperava."
           },
           {
             "tipo": "terceira-pessoa",
@@ -16570,28 +16360,7 @@
         "en": "I'll get it, let's split it.",
         "pt": "Eu pago essa, vamos dividir.",
         "quando": "Ao propor como pagar a conta.",
-        "formas": [
-          {
-            "tipo": "negativa",
-            "en": "I won't get it, let's split it.",
-            "pt": "Eu não pago essa, vamos dividir."
-          },
-          {
-            "tipo": "pergunta",
-            "en": "Will you get it, or should we split it?",
-            "pt": "Você vai pagar ou vamos dividir?"
-          },
-          {
-            "tipo": "terceira-pessoa",
-            "en": "He'll get it, let's split it.",
-            "pt": "Ele paga essa, vamos dividir."
-          },
-          {
-            "tipo": "passado",
-            "en": "I got it, let's split it.",
-            "pt": "Eu paguei essa, vamos dividir."
-          }
-        ],
+        "formas": [],
         "recombinacoes": []
       },
       {
@@ -16673,11 +16442,6 @@
             "tipo": "resposta-curta",
             "en": "No, you can't.",
             "pt": "Não, não pode."
-          },
-          {
-            "tipo": "passado",
-            "en": "Couldn't I get it to go?",
-            "pt": "Eu não poderia embrulhar para viagem?"
           }
         ],
         "recombinacoes": [
@@ -16708,11 +16472,6 @@
             "tipo": "passado",
             "en": "Was that all for you?",
             "pt": "Foi só isso para você?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "Isn't that all for you?",
-            "pt": "Não é só isso para você?"
           },
           {
             "tipo": "resposta-curta",
@@ -17309,11 +17068,6 @@
             "tipo": "resposta-curta",
             "en": "No, I haven't. I've never lost them.",
             "pt": "Não, nunca. Nunca as perdi."
-          },
-          {
-            "tipo": "futuro",
-            "en": "Will you lose your keys?",
-            "pt": "Você vai perder suas chaves?"
           }
         ],
         "recombinacoes": [
@@ -17409,11 +17163,6 @@
             "tipo": "resposta-curta",
             "en": "No, I haven't. I've never seen one.",
             "pt": "Não, nunca. Nunca vi um."
-          },
-          {
-            "tipo": "futuro",
-            "en": "Will you ever see a bear?",
-            "pt": "Você algum dia vai ver um urso?"
           }
         ],
         "recombinacoes": [
@@ -18323,11 +18072,6 @@
             "tipo": "pergunta",
             "en": "Are you torn, or do you know which one is better?",
             "pt": "Você está em dúvida ou sabe qual é a melhor?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I will be torn, but I think the first one will be better.",
-            "pt": "Eu vou ficar em dúvida, mas acho que a primeira será melhor."
           }
         ],
         "recombinacoes": [
@@ -18858,11 +18602,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, I am. I'm very particular about it.",
             "pt": "Sim, sou. Sou muito exigente com isso."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll be very particular about the schedule, so I'll prefer the first one.",
-            "pt": "Eu serei bem exigente com o horário, então vou preferir a primeira."
           }
         ],
         "recombinacoes": [
@@ -19745,11 +19484,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, I am.",
             "pt": "Sim, eu sou."
-          },
-          {
-            "tipo": "pergunta",
-            "en": "Am I quite particular, so I need the best quality?",
-            "pt": "Eu sou bem exigente, então preciso da melhor qualidade?"
           }
         ],
         "recombinacoes": [
@@ -21273,11 +21007,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, it is.",
             "pt": "Sim, está."
-          },
-          {
-            "tipo": "futuro",
-            "en": "Will it be supposed to rain later?",
-            "pt": "Vai ser previsto chover mais tarde?"
           }
         ],
         "recombinacoes": [
@@ -21326,8 +21055,8 @@
           },
           {
             "tipo": "negativa",
-            "en": "I'm not sure, and I don't hope so.",
-            "pt": "Não tenho certeza, e não espero que sim."
+            "en": "I'm not sure, and I hope not.",
+            "pt": "Não tenho certeza, e espero que não."
           }
         ],
         "recombinacoes": [
@@ -21363,16 +21092,6 @@
             "tipo": "negativa",
             "en": "That's not a good point, I suppose.",
             "pt": "Esse não é um bom ponto, suponho."
-          },
-          {
-            "tipo": "terceira-pessoa",
-            "en": "That's a good point, she supposes.",
-            "pt": "Esse é um bom ponto, ela supõe."
-          },
-          {
-            "tipo": "passado",
-            "en": "That was a good point, I supposed.",
-            "pt": "Aquele foi um bom ponto, eu supus."
           }
         ],
         "recombinacoes": [
@@ -21423,11 +21142,6 @@
             "tipo": "resposta-curta",
             "en": "Were you glad? - Yes, I was.",
             "pt": "Você ficou feliz? - Sim, fiquei."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I'm not glad we could chat for a bit.",
-            "pt": "Não estou feliz por termos conseguido conversar um pouco."
           }
         ],
         "recombinacoes": [
@@ -23630,11 +23344,6 @@
             "tipo": "negativa",
             "en": "I don't agree with you, and I don't think that's the best approach.",
             "pt": "Eu não concordo com você e não acho que essa seja a melhor abordagem."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll agree with you if I think that's the best approach.",
-            "pt": "Eu concordarei com você se eu achar que essa é a melhor abordagem."
           }
         ],
         "recombinacoes": [
@@ -23694,11 +23403,6 @@
             "tipo": "resposta-curta",
             "en": "Is that a fair point? Yes, it is.",
             "pt": "Esse é um ponto justo? Sim, é."
-          },
-          {
-            "tipo": "futuro",
-            "en": "That will be a fair point, but I'll see some risks there.",
-            "pt": "Esse será um ponto justo, mas eu verei alguns riscos lá."
           }
         ],
         "recombinacoes": [
@@ -23746,11 +23450,6 @@
             "tipo": "resposta-curta",
             "en": "Should we consider all the facts? Yes, we should.",
             "pt": "Deveríamos considerar todos os fatos? Sim, deveríamos."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll agree, however, we will have to consider all the facts first.",
-            "pt": "Eu vou concordar, no entanto, nós teremos que considerar todos os fatos primeiro."
           }
         ],
         "recombinacoes": [
@@ -23801,16 +23500,6 @@
             "tipo": "negativa",
             "en": "I don't think so, because the costs aren't acceptable.",
             "pt": "Eu não acho, porque os custos não são aceitáveis."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I won't think so if the costs are going to be too high.",
-            "pt": "Eu não vou achar, se os custos forem ficar altos demais."
-          },
-          {
-            "tipo": "pergunta",
-            "en": "Do you think so, or are the costs too high?",
-            "pt": "Você acha, ou os custos estão altos demais?"
           }
         ],
         "recombinacoes": [
@@ -23866,11 +23555,6 @@
             "tipo": "educada",
             "en": "I see your point, could I suggest an alternative instead?",
             "pt": "Entendo seu ponto, poderia eu sugerir uma alternativa no lugar?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll see your point, but I'll want to suggest an alternative later.",
-            "pt": "Eu vou entender seu ponto, mas vou querer sugerir uma alternativa depois."
           }
         ],
         "recombinacoes": [
@@ -23917,11 +23601,6 @@
             "tipo": "pergunta",
             "en": "Are you sure you agree, or should you ask for their opinion?",
             "pt": "Você tem certeza que concorda ou deveria pedir a opinião deles?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I won't be sure I agree until you ask for their opinion.",
-            "pt": "Eu não vou ter certeza se concordo até você pedir a opinião deles."
           },
           {
             "tipo": "negativa",
@@ -23979,11 +23658,6 @@
             "pt": "Eu entendo que essa é uma maneira de ver, mas há outros fatores."
           },
           {
-            "tipo": "futuro",
-            "en": "That will be one way to look at it, but there will be other factors.",
-            "pt": "Essa será uma maneira de ver, mas haverá outros fatores."
-          },
-          {
             "tipo": "negativa",
             "en": "That isn't the only way to look at it, there are other factors.",
             "pt": "Essa não é a única maneira de ver, há outros fatores."
@@ -24020,11 +23694,6 @@
             "tipo": "pergunta",
             "en": "Do you think that's the case, or should we look at the facts again?",
             "pt": "Você acha que esse é o caso, ou deveríamos olhar os fatos de novo?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I won't think that's the case once we look at the facts again.",
-            "pt": "Eu não vou achar que esse é o caso depois que olharmos os fatos de novo."
           }
         ],
         "recombinacoes": [
@@ -24148,11 +23817,6 @@
             "tipo": "resposta-curta",
             "en": "Do you think so? No, I don't.",
             "pt": "Você acha? Não, não acho."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I won't think so if we don't check the risks involved.",
-            "pt": "Eu não vou achar que sim se não checarmos os riscos envolvidos."
           }
         ],
         "recombinacoes": []
@@ -24191,11 +23855,6 @@
             "tipo": "resposta-curta",
             "en": "Does that solve all the costs? No, it doesn't.",
             "pt": "Isso resolve todos os custos? Não, não resolve."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll agree, but that won't solve all the costs we will have.",
-            "pt": "Eu vou concordar, mas isso não vai resolver todos os custos que teremos."
           }
         ],
         "recombinacoes": []
@@ -24231,19 +23890,9 @@
             "pt": "Não tenho certeza sobre isso, não acho que temos opções melhores."
           },
           {
-            "tipo": "futuro",
-            "en": "I won't be sure about that, I think we will have better options.",
-            "pt": "Eu não terei certeza sobre isso, acho que teremos opções melhores."
-          },
-          {
             "tipo": "resposta-curta",
             "en": "Are you sure about that? No, I'm not.",
             "pt": "Você tem certeza sobre isso? Não, não tenho."
-          },
-          {
-            "tipo": "pergunta",
-            "en": "Will you be sure about that, or do you think we have better options?",
-            "pt": "Você terá certeza sobre isso, ou você acha que temos opções melhores?"
           }
         ],
         "recombinacoes": []
@@ -24282,11 +23931,6 @@
             "tipo": "pergunta",
             "en": "Is that a good point, or haven't you considered the risks?",
             "pt": "Esse é um bom ponto, ou você não considerou os riscos?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "That will be a good point, but will you consider the risks?",
-            "pt": "Esse vai ser um bom ponto, mas você vai considerar os riscos?"
           }
         ],
         "recombinacoes": [
@@ -24343,11 +23987,6 @@
             "pt": "Você concorda comigo? Sim, concordo."
           },
           {
-            "tipo": "futuro",
-            "en": "I will agree with you if I think it's realistic.",
-            "pt": "Eu vou concordar com você se eu achar que é realista."
-          },
-          {
             "tipo": "negativa",
             "en": "I don't agree with you, and I don't think it's realistic.",
             "pt": "Eu não concordo com você e não acho que seja realista."
@@ -24396,11 +24035,6 @@
             "tipo": "educada",
             "en": "I'm not so sure, the facts might tell a different story.",
             "pt": "Não tenho tanta certeza, os fatos talvez contem uma história diferente."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I won't think so if the facts tell a different story.",
-            "pt": "Eu não vou achar isso se os fatos contarem uma história diferente."
           },
           {
             "tipo": "pergunta",
@@ -24460,11 +24094,6 @@
             "tipo": "educada",
             "en": "I hear what you're saying, but I'd rather take a different approach.",
             "pt": "Ouço o que você está dizendo, mas prefiro adotar uma abordagem diferente."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I will see what you mean, but I'll prefer a different approach.",
-            "pt": "Vou entender o que você quer dizer, mas vou preferir uma abordagem diferente."
           }
         ],
         "recombinacoes": [
@@ -24525,11 +24154,6 @@
             "tipo": "educada",
             "en": "I understand your position, but I'm concerned we've asked for too much.",
             "pt": "Entendo sua posição, mas estou preocupado que tenhamos pedido demais."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll agree, but we'll have already asked for too much.",
-            "pt": "Eu vou concordar, mas nós já teremos pedido demais."
           }
         ],
         "recombinacoes": [
@@ -24589,11 +24213,6 @@
             "tipo": "resposta-curta",
             "en": "Do we need to consider the costs? Yes, we do.",
             "pt": "Precisamos considerar os custos? Sim, precisamos."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I won't think that's right, we'll need to consider the costs.",
-            "pt": "Eu não vou achar que isso está certo, vamos precisar considerar os custos."
           }
         ],
         "recombinacoes": [
@@ -24653,16 +24272,6 @@
             "tipo": "resposta-curta",
             "en": "I agree with the goal, but not with the way you've planned it.",
             "pt": "Concordo com o objetivo, mas não com o jeito que você planejou."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I will agree with the goal, if you change the way you've planned it.",
-            "pt": "Eu vou concordar com o objetivo, se você mudar o jeito que planejou."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll agree with the goal, but not the way you'll plan it.",
-            "pt": "Eu concordo com o objetivo, mas não com o jeito que você vai planejar."
           }
         ],
         "recombinacoes": [
@@ -24709,11 +24318,6 @@
             "tipo": "educada",
             "en": "I wouldn't think so, those aren't the facts I have.",
             "pt": "Eu não diria isso, esses não são os fatos que eu tenho."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I won't think so, if those aren't the facts I get later.",
-            "pt": "Eu não vou achar, se esses não forem os fatos que eu receber depois."
           }
         ],
         "recombinacoes": [
@@ -24765,19 +24369,9 @@
             "pt": "Você entende meu ponto, ou não é a maneira mais eficiente?"
           },
           {
-            "tipo": "futuro",
-            "en": "I will see your point, but it won't be the most efficient way.",
-            "pt": "Eu vou entender seu ponto, mas não será a maneira mais eficiente."
-          },
-          {
             "tipo": "resposta-curta",
-            "en": "I see your point, isn't it the most efficient way?",
-            "pt": "Entendo seu ponto, não é a maneira mais eficiente?"
-          },
-          {
-            "tipo": "educada",
-            "en": "I'd see your point, but it's not the most efficient way.",
-            "pt": "Eu até entendo seu ponto, mas não é a maneira mais eficiente."
+            "en": "I see your point, but isn't there a more efficient way?",
+            "pt": "Entendo seu ponto, mas não existe uma maneira mais eficiente?"
           }
         ],
         "recombinacoes": [
@@ -24896,11 +24490,6 @@
             "tipo": "educada",
             "en": "I wouldn't be so sure, that sounds like a lot of costs.",
             "pt": "Eu não teria tanta certeza, isso soa como muitos custos."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I won't be so sure, that will sound like a lot of costs.",
-            "pt": "Eu não vou ter tanta certeza, isso vai soar como muitos custos."
           }
         ],
         "recombinacoes": [
@@ -24960,11 +24549,6 @@
             "tipo": "terceira-pessoa",
             "en": "She doesn't think so, let's look at the facts and decide.",
             "pt": "Ela não acha, vamos olhar os fatos e decidir."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I won't think so, we will look at the facts and decide later.",
-            "pt": "Eu não vou achar, nós vamos olhar os fatos e decidir depois."
           }
         ],
         "recombinacoes": [
@@ -25075,11 +24659,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, it's a valid point, but I still have doubts.",
             "pt": "Sim, é um ponto válido, mas ainda tenho dúvidas."
-          },
-          {
-            "tipo": "futuro",
-            "en": "That will be a valid point, but I will still have some doubts.",
-            "pt": "Isso vai ser um ponto válido, mas eu ainda vou ter algumas dúvidas."
           }
         ],
         "recombinacoes": [
@@ -25131,11 +24710,6 @@
             "tipo": "negativa",
             "en": "I don't think so, maybe we shouldn't ask an expert.",
             "pt": "Eu não acho, talvez não devêssemos perguntar a um especialista."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I won't think so, maybe we'll need to ask an expert.",
-            "pt": "Eu não vou achar isso, talvez a gente precise perguntar a um especialista."
           }
         ],
         "recombinacoes": [
@@ -25243,11 +24817,6 @@
             "tipo": "terceira-pessoa",
             "en": "He doesn't think that's the best path, let's explore other points.",
             "pt": "Ele não acha que esse seja o melhor caminho, vamos explorar outros pontos."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I won't think that's the best approach, we'll explore other options later.",
-            "pt": "Não acho que essa será a melhor abordagem, vamos explorar outras opções depois."
           }
         ],
         "recombinacoes": []
@@ -25291,11 +24860,6 @@
             "tipo": "pergunta",
             "en": "Do you see my point, or have you asked around yet?",
             "pt": "Você entende o meu ponto, ou você já perguntou por aí?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll see your point, but I'll ask around to see if it's ideal.",
-            "pt": "Vou entender seu ponto, mas vou perguntar por aí para ver se é o ideal."
           }
         ],
         "recombinacoes": [
@@ -25479,11 +25043,6 @@
             "tipo": "educada",
             "en": "I tend to agree with the logic, though the facts don't support it.",
             "pt": "Eu tendo a concordar com a lógica, embora os fatos não a sustentem."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll agree with the logic, as long as the facts will support it.",
-            "pt": "Concordo com a lógica, contanto que os fatos a sustentem."
           }
         ],
         "recombinacoes": [
@@ -25740,11 +25299,6 @@
             "tipo": "futuro",
             "en": "I'll jump in here for a second if you don't mind.",
             "pt": "Vou me meter aqui por um segundo se você não se importar."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I don't want to jump in here for a second.",
-            "pt": "Eu não quero me meter aqui por um segundo."
           }
         ],
         "recombinacoes": [
@@ -25807,8 +25361,8 @@
           },
           {
             "tipo": "futuro",
-            "en": "That will be a fair point, so I'll add something then.",
-            "pt": "Isso vai ser um ponto justo, então eu acrescento algo depois."
+            "en": "That's a fair point, so I'll add something.",
+            "pt": "Esse é um ponto justo, então vou acrescentar algo."
           }
         ],
         "recombinacoes": [
@@ -25863,11 +25417,6 @@
             "tipo": "pergunta",
             "en": "Can I interrupt for a quick point?",
             "pt": "Posso interromper para um ponto rápido?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'm sorry to interrupt, but I'll have a quick point to make.",
-            "pt": "Desculpa interromper, mas vou ter um ponto rápido para fazer."
           }
         ],
         "recombinacoes": []
@@ -25901,11 +25450,6 @@
             "tipo": "resposta-curta",
             "en": "I agree with that.",
             "pt": "Concordo com isso."
-          },
-          {
-            "tipo": "negativa",
-            "en": "There isn't one thing I think we should consider.",
-            "pt": "Não tem uma coisa que eu acho que a gente deveria considerar."
           },
           {
             "tipo": "pergunta",
@@ -26011,11 +25555,6 @@
             "pt": "Claro, pode ir."
           },
           {
-            "tipo": "negativa",
-            "en": "Don't hold on, I don't need to address that right now.",
-            "pt": "Não precisa esperar, não preciso abordar isso agora."
-          },
-          {
             "tipo": "pergunta",
             "en": "Can you hold on? I'd like to address that.",
             "pt": "Você pode esperar? Eu gostaria de abordar isso."
@@ -26078,16 +25617,6 @@
             "tipo": "pergunta",
             "en": "Have you been talking for a while? Can I add my two cents?",
             "pt": "Vocês estão falando há um tempo? Posso dar minha opinião?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "We haven't been talking for a while, I don't have my two cents to add.",
-            "pt": "A gente não está falando há tanto tempo, não tenho uma opinião para dar."
-          },
-          {
-            "tipo": "futuro",
-            "en": "We'll have been talking for a while, can I add my two cents then?",
-            "pt": "A gente já vai estar falando há um tempo, posso dar minha opinião depois?"
           }
         ],
         "recombinacoes": [
@@ -26134,11 +25663,6 @@
             "tipo": "negativa",
             "en": "Sorry, don't let me interrupt, just finish this one point.",
             "pt": "Desculpa, não deixa eu te interromper, termina esse ponto aí."
-          },
-          {
-            "tipo": "passado",
-            "en": "Sorry, I let you just finish that one point.",
-            "pt": "Desculpa, eu deixei você terminar aquele ponto."
           }
         ],
         "recombinacoes": [
@@ -26185,19 +25709,14 @@
             "pt": "Claro, pode voltar."
           },
           {
-            "tipo": "negativa",
-            "en": "I wouldn't like to get back to what you said earlier.",
-            "pt": "Eu não queria voltar ao que você disse antes."
-          },
-          {
             "tipo": "passado",
             "en": "I really wanted to get back to what you said earlier.",
             "pt": "Eu queria muito ter voltado ao que você disse antes."
           },
           {
             "tipo": "futuro",
-            "en": "I'll really like to get back to what you said earlier when we have time.",
-            "pt": "Eu vou querer muito voltar ao que você disse antes quando tivermos tempo."
+            "en": "I'd really like to get back to what you said earlier when we have time.",
+            "pt": "Eu gostaria muito de voltar ao que você disse antes quando tivermos tempo."
           }
         ],
         "recombinacoes": [
@@ -26313,11 +25832,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, I'm following you.",
             "pt": "Sim, estou te acompanhando."
-          },
-          {
-            "tipo": "negativa",
-            "en": "Wait, I wouldn't like to continue if I'm not following you.",
-            "pt": "Espera, eu não gostaria de continuar se não estiver te acompanhando."
           }
         ],
         "recombinacoes": [
@@ -26378,11 +25892,6 @@
             "tipo": "negativa",
             "en": "I haven't got a suggestion if you guys aren't open to it.",
             "pt": "Não tenho nenhuma sugestão se vocês não estiverem abertos a isso."
-          },
-          {
-            "tipo": "pergunta",
-            "en": "Do you have a suggestion if I'm open to it?",
-            "pt": "Você tem alguma sugestão se eu estiver aberto a isso?"
           }
         ],
         "recombinacoes": [
@@ -26554,14 +26063,9 @@
             "pt": "Sim, eu gostaria."
           },
           {
-            "tipo": "negativa",
-            "en": "I wouldn't appreciate anyone weighing in here.",
-            "pt": "Eu não gostaria que ninguém desse palpite aqui."
-          },
-          {
             "tipo": "futuro",
-            "en": "I'll appreciate a chance to weigh in there.",
-            "pt": "Eu vou gostar de ter a chance de opinar lá."
+            "en": "I'd appreciate a chance to weigh in there.",
+            "pt": "Eu gostaria de ter a chance de opinar lá."
           }
         ],
         "recombinacoes": [
@@ -26685,11 +26189,6 @@
             "tipo": "pergunta",
             "en": "Is that how you see it?",
             "pt": "É assim que você vê?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "That won't be exactly how I see it.",
-            "pt": "Não vai ser exatamente assim que eu vou ver isso."
           },
           {
             "tipo": "educada",
@@ -27481,11 +26980,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, you are.",
             "pt": "Sim, vai."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I'm not going to jump in here for a moment.",
-            "pt": "Eu não vou me meter aqui por um momento."
           }
         ],
         "recombinacoes": [
@@ -27734,11 +27228,6 @@
             "tipo": "educada",
             "en": "Could I just highlight one more thing?",
             "pt": "Eu poderia destacar só mais uma coisa?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "I wouldn't like to highlight one more thing.",
-            "pt": "Eu não gostaria de destacar mais uma coisa."
           }
         ],
         "recombinacoes": [
@@ -27931,11 +27420,6 @@
             "tipo": "futuro",
             "en": "Hello, could you tell me who will be calling?",
             "pt": "Alô, poderia me dizer quem ligará?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "Hello, couldn't you tell me who's calling?",
-            "pt": "Alô, você não poderia me dizer quem está ligando?"
           }
         ],
         "recombinacoes": [
@@ -27972,13 +27456,8 @@
           },
           {
             "tipo": "futuro",
-            "en": "I'm sorry, will you speak a bit slower?",
-            "pt": "Desculpe, você vai falar um pouco mais devagar?"
-          },
-          {
-            "tipo": "passado",
-            "en": "I'm sorry, did you speak a bit slower?",
-            "pt": "Desculpe, você falou um pouco mais devagar?"
+            "en": "Could you speak a bit slower?",
+            "pt": "Você poderia falar um pouco mais devagar?"
           }
         ],
         "recombinacoes": [
@@ -28029,16 +27508,6 @@
             "tipo": "pergunta",
             "en": "Can you spell your last name for me?",
             "pt": "Você pode soletrar seu sobrenome para mim?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "Will you spell your last name for me?",
-            "pt": "Você vai soletrar seu sobrenome para mim?"
-          },
-          {
-            "tipo": "passado",
-            "en": "Did you spell your last name for me?",
-            "pt": "Você soletrou seu sobrenome para mim?"
           }
         ],
         "recombinacoes": [
@@ -28098,11 +27567,6 @@
             "tipo": "pergunta",
             "en": "Are you sure it's with an E or an I?",
             "pt": "Você tem certeza que é com E ou com I?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "Will that be with an E or an I?",
-            "pt": "Isso vai ser com E ou com I?"
           }
         ],
         "recombinacoes": [
@@ -28162,11 +27626,6 @@
             "tipo": "educada",
             "en": "Would you mind confirming if that's spelled with a G?",
             "pt": "Você se importaria de confirmar se isso se escreve com G?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "Just to confirm, will that be spelled with a G?",
-            "pt": "Só para confirmar, isso vai ser escrito com G?"
           }
         ],
         "recombinacoes": [
@@ -28226,11 +27685,6 @@
             "tipo": "negativa",
             "en": "Don't you know if he's back at his desk?",
             "pt": "Você não sabe se ele já voltou para a mesa dele?"
-          },
-          {
-            "tipo": "passado",
-            "en": "Did you know if he was back at his desk?",
-            "pt": "Você sabia se ele tinha voltado para a mesa dele?"
           },
           {
             "tipo": "resposta-curta",
@@ -28300,11 +27754,6 @@
             "tipo": "futuro",
             "en": "Could you tell me what time he'll be available?",
             "pt": "Poderia me dizer que horas ele estará disponível?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "I can't tell you what time he's not available.",
-            "pt": "Não sei te dizer que horas ele não está disponível."
           }
         ],
         "recombinacoes": [
@@ -28436,7 +27885,7 @@
           },
           {
             "tipo": "negativa",
-            "en": "Could you let me know if the order didn't ship yet?",
+            "en": "Could you let me know if the order hasn't shipped yet?",
             "pt": "Poderia me avisar se o pedido ainda não foi enviado?"
           }
         ],
@@ -28487,11 +27936,6 @@
             "tipo": "educada",
             "en": "Would you mind repeating that last part?",
             "pt": "Você se importaria de repetir essa última parte?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'm sorry, I won't catch that last part if you speak too fast.",
-            "pt": "Desculpe, eu não vou conseguir entender essa última parte se você falar muito rápido."
           }
         ],
         "recombinacoes": [
@@ -28546,11 +27990,6 @@
             "tipo": "futuro",
             "en": "Could you repeat the phone number later, please?",
             "pt": "Você poderia repetir o número de telefone mais tarde, por favor?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "Couldn't you repeat the phone number, please?",
-            "pt": "Você não poderia repetir o número de telefone, por favor?"
           }
         ],
         "recombinacoes": [
@@ -29025,11 +28464,6 @@
             "pt": "Você se importaria de me dizer se é G de gato ou J de janela?"
           },
           {
-            "tipo": "negativa",
-            "en": "It isn't G as in golf or J as in juliet.",
-            "pt": "Não é G de gato nem J de janela."
-          },
-          {
             "tipo": "passado",
             "en": "Was that G as in golf or J as in juliet?",
             "pt": "Era G de gato ou J de janela?"
@@ -29413,11 +28847,6 @@
             "tipo": "educada",
             "en": "Would you happen to know if he's still in the office?",
             "pt": "Por acaso você saberia me dizer se ele ainda está no escritório?"
-          },
-          {
-            "tipo": "pergunta",
-            "en": "Did you know if he's still in the office?",
-            "pt": "Você sabia se ele ainda está no escritório?"
           }
         ],
         "recombinacoes": [
@@ -29467,11 +28896,6 @@
             "tipo": "resposta-curta",
             "en": "I can't repeat that number right now.",
             "pt": "Eu não posso repetir esse número agora."
-          },
-          {
-            "tipo": "passado",
-            "en": "Could you have repeated that number, please?",
-            "pt": "Você poderia ter repetido aquele número, por favor?"
           },
           {
             "tipo": "futuro",
@@ -29726,11 +29150,6 @@
             "pt": "Eu não saberia te dizer como se soletra isso."
           },
           {
-            "tipo": "passado",
-            "en": "Could you tell me how you spelled that?",
-            "pt": "Poderia me dizer como você soletrou aquilo?"
-          },
-          {
             "tipo": "pergunta",
             "en": "Do you know how to spell that?",
             "pt": "Você sabe como se soletra isso?"
@@ -29783,16 +29202,6 @@
             "tipo": "pergunta",
             "en": "Do you know if the store is going to be open today?",
             "pt": "Você sabe se a loja vai estar aberta hoje?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "Do you know if the store isn't open today?",
-            "pt": "Você sabe se a loja não está aberta hoje?"
-          },
-          {
-            "tipo": "passado",
-            "en": "Did you know if the store was open today?",
-            "pt": "Você sabia se a loja estava aberta hoje?"
           }
         ],
         "recombinacoes": [
@@ -29843,16 +29252,6 @@
             "tipo": "pergunta",
             "en": "Can you hold while I check that?",
             "pt": "Você pode segurar enquanto eu verifico isso?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "Could you not hold while I check that?",
-            "pt": "Você poderia não segurar enquanto eu verifico isso?"
-          },
-          {
-            "tipo": "passado",
-            "en": "Could you hold while I checked that?",
-            "pt": "Poderia segurar enquanto eu verificava isso?"
           }
         ],
         "recombinacoes": [
@@ -29917,11 +29316,6 @@
             "tipo": "resposta-curta",
             "en": "No, I'm not.",
             "pt": "Não, eu não estou."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll be calling to see if the flight is on time.",
-            "pt": "Estarei ligando para ver se o voo está no horário."
           }
         ],
         "recombinacoes": [
@@ -29981,11 +29375,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, I could.",
             "pt": "Sim, eu poderia."
-          },
-          {
-            "tipo": "negativa",
-            "en": "Could you tell me who the manager isn't?",
-            "pt": "Poderia me dizer quem não é o gerente?"
           }
         ],
         "recombinacoes": [
@@ -30037,16 +29426,6 @@
             "pt": "Sim, você pode."
           },
           {
-            "tipo": "negativa",
-            "en": "Do you know if I can't attend the session online?",
-            "pt": "Você sabe se eu não posso comparecer à sessão online?"
-          },
-          {
-            "tipo": "passado",
-            "en": "Did you know if I could attend the session online?",
-            "pt": "Você sabia se eu podia comparecer à sessão online?"
-          },
-          {
             "tipo": "pergunta",
             "en": "Can I attend the session online?",
             "pt": "Eu posso comparecer à sessão online?"
@@ -30094,16 +29473,6 @@
             "tipo": "resposta-curta",
             "en": "Yes, I am.",
             "pt": "Sim, eu estou."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I'm sorry, I won't have to call you back later.",
-            "pt": "Desculpe, eu não vou ter que te ligar de volta mais tarde."
-          },
-          {
-            "tipo": "passado",
-            "en": "I was sorry, I had to call you back later.",
-            "pt": "Eu lamento, tive que te ligar de volta mais tarde."
           },
           {
             "tipo": "pergunta",
@@ -30168,11 +29537,6 @@
             "tipo": "terceira-pessoa",
             "en": "Could he spell the street name again for me?",
             "pt": "Ele poderia soletrar o nome da rua de novo para mim?"
-          },
-          {
-            "tipo": "negativa",
-            "en": "Couldn't you spell the street name again?",
-            "pt": "Você não poderia soletrar o nome da rua de novo?"
           }
         ],
         "recombinacoes": [
@@ -30288,11 +29652,6 @@
             "pt": "Você pode me dizer se tem meu número?"
           },
           {
-            "tipo": "negativa",
-            "en": "Could you tell me if you don't have my number?",
-            "pt": "Você poderia me dizer se você não tem meu número?"
-          },
-          {
             "tipo": "futuro",
             "en": "Could you tell me if you'll have my number later?",
             "pt": "Você poderia me dizer se você vai ter meu número mais tarde?"
@@ -30360,11 +29719,6 @@
             "tipo": "terceira-pessoa",
             "en": "He's happy to help you with that.",
             "pt": "Ele está feliz em te ajudar com isso."
-          },
-          {
-            "tipo": "negativa",
-            "en": "I'm not happy to help you with that.",
-            "pt": "Não estou feliz em te ajudar com isso."
           }
         ],
         "recombinacoes": [
@@ -31723,7 +31077,7 @@
           },
           {
             "tipo": "futuro",
-            "en": "I'll be having trouble with this if I don't fix it.",
+            "en": "I'll have trouble with this if I don't fix it.",
             "pt": "Vou ter problemas com isso se eu não consertar."
           }
         ],
@@ -31783,13 +31137,8 @@
           },
           {
             "tipo": "futuro",
-            "en": "It will be running for hours without stopping.",
-            "pt": "Ele vai ficar rodando por horas sem parar."
-          },
-          {
-            "tipo": "negativa",
-            "en": "It won't be running for hours without stopping.",
-            "pt": "Ele não vai ficar rodando por horas sem parar."
+            "en": "It will run for hours without stopping.",
+            "pt": "Ele vai rodar por horas sem parar."
           }
         ],
         "recombinacoes": [
@@ -32666,11 +32015,6 @@
             "tipo": "educada",
             "en": "Could you tell me why I've been on hold for fifteen minutes?",
             "pt": "Poderia me dizer por que estou na espera há quinze minutos?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll have been on hold for fifteen minutes by the time you answer.",
-            "pt": "Eu estarei na espera há quinze minutos quando você atender."
           }
         ],
         "recombinacoes": [
@@ -33538,11 +32882,6 @@
             "tipo": "passado",
             "en": "I was promised a discount when I stayed five nights last year.",
             "pt": "Me prometeram um desconto quando fiquei cinco noites no ano passado."
-          },
-          {
-            "tipo": "futuro",
-            "en": "I will be promised a discount if I stay five nights.",
-            "pt": "Vão me prometer um desconto se eu ficar cinco noites."
           }
         ],
         "recombinacoes": [
@@ -33789,11 +33128,6 @@
             "tipo": "pergunta",
             "en": "Do you think this bill was prepared with the wrong dates?",
             "pt": "Você acha que esta conta foi preparada com as datas erradas?"
-          },
-          {
-            "tipo": "resposta-curta",
-            "en": "No, it wasn't prepared with the wrong dates.",
-            "pt": "Não, ela não foi preparada com as datas erradas."
           }
         ],
         "recombinacoes": [
@@ -36449,11 +35783,6 @@
             "tipo": "negativa",
             "en": "I'm not really struggling, but could you give me a few extra minutes anyway?",
             "pt": "Não estou com tanta dificuldade, mas você poderia me dar alguns minutos a mais mesmo assim?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll be struggling, will you be able to give me a few extra minutes then?",
-            "pt": "Eu vou estar com dificuldade, você vai poder me dar uns minutinhos a mais então?"
           }
         ],
         "recombinacoes": [
@@ -36567,11 +35896,6 @@
             "tipo": "passado",
             "en": "I was full, but was it possible to take the rest home?",
             "pt": "Eu estava satisfeito, mas foi possível levar o restante para casa?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll be full later, will it be possible to take the rest home?",
-            "pt": "Vou estar satisfeito depois, vai ser possível levar o restante para casa?"
           }
         ],
         "recombinacoes": [
@@ -37003,16 +36327,6 @@
             "tipo": "negativa",
             "en": "I'm not asking for a big favor, would you be open to it?",
             "pt": "Não estou pedindo um grande favor, você estaria disposto a ele?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll be asking for a small favor, will you be open to it?",
-            "pt": "Vou pedir um pequeno favor, você estará disposto a ele?"
-          },
-          {
-            "tipo": "passado",
-            "en": "I was asking for a small favor, were you open to it?",
-            "pt": "Eu estava pedindo um pequeno favor, você estava disposto a ele?"
           }
         ],
         "recombinacoes": [
@@ -37067,11 +36381,6 @@
             "tipo": "negativa",
             "en": "Isn't there any chance we could start just a few minutes early?",
             "pt": "Não tem nenhuma chance de começarmos só alguns minutos mais cedo?"
-          },
-          {
-            "tipo": "passado",
-            "en": "Was there any chance we could have started just a few minutes early?",
-            "pt": "Houve alguma chance de termos começado só alguns minutos mais cedo?"
           }
         ],
         "recombinacoes": [
@@ -37190,16 +36499,6 @@
             "tipo": "educada",
             "en": "I'm sorry, I've waited long enough, could you prioritize this today?",
             "pt": "Desculpe, já esperei tempo suficiente, você poderia priorizar isso hoje?"
-          },
-          {
-            "tipo": "futuro",
-            "en": "I'll have waited long enough, will you prioritize this tomorrow?",
-            "pt": "Já terei esperado tempo suficiente, você vai priorizar isso amanhã?"
-          },
-          {
-            "tipo": "passado",
-            "en": "I waited long enough, could you have prioritized this earlier?",
-            "pt": "Eu esperei tempo suficiente, você poderia ter priorizado isso antes?"
           },
           {
             "tipo": "pergunta",
@@ -40226,6 +39525,11 @@
             "tipo": "educada",
             "en": "This terminal is huge, would you be able to help me?",
             "pt": "Este terminal é enorme, você seria capaz de me ajudar?"
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is this terminal huge? Can you help me?",
+            "pt": "Este terminal é enorme? Você pode me ajudar?"
           }
         ],
         "recombinacoes": [
@@ -40457,6 +39761,11 @@
             "tipo": "resposta-curta",
             "en": "Yes, it is.",
             "pt": "Sim, está."
+          },
+          {
+            "tipo": "futuro",
+            "en": "It's going to get worse and I won't know what to do.",
+            "pt": "Vai piorar e eu não vou saber o que fazer."
           }
         ],
         "recombinacoes": [
@@ -40566,6 +39875,11 @@
             "tipo": "educada",
             "en": "Actually, I have a cold and my throat is very sore.",
             "pt": "Na verdade, estou resfriado e minha garganta está muito dolorida."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I do.",
+            "pt": "Sim, estou."
           }
         ],
         "recombinacoes": [
@@ -40630,6 +39944,11 @@
             "tipo": "negativa",
             "en": "No, you don't have to take this medicine every eight hours.",
             "pt": "Não, você não precisa tomar esse remédio a cada oito horas."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I do.",
+            "pt": "Sim, eu tenho."
           }
         ],
         "recombinacoes": [
@@ -40685,6 +40004,16 @@
             "tipo": "educada",
             "en": "Excuse me, do I have to take it with food?",
             "pt": "Com licença, eu preciso tomar ele com comida?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "You don't have to take it with food.",
+            "pt": "Você não precisa tomar com comida."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "Does she have to take it with food?",
+            "pt": "Ela precisa tomar com comida?"
           }
         ],
         "recombinacoes": [
@@ -40734,6 +40063,16 @@
             "tipo": "futuro",
             "en": "You won't have to take it with food, but you'll need to drink plenty of water.",
             "pt": "Você não vai precisar tomar com comida, mas vai precisar beber bastante água."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I don't have to take it with food.",
+            "pt": "Não, eu não preciso tomar com comida."
+          },
+          {
+            "tipo": "educada",
+            "en": "Could you tell me if I have to take it with food?",
+            "pt": "Você poderia me dizer se preciso tomar com comida?"
           }
         ],
         "recombinacoes": [
@@ -40779,6 +40118,16 @@
             "tipo": "terceira-pessoa",
             "en": "Can he drive after taking this medication?",
             "pt": "Ele pode dirigir depois de tomar este remédio?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "Will I be able to drive after taking this medication?",
+            "pt": "Eu vou conseguir dirigir depois de tomar este remédio?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, you can.",
+            "pt": "Sim, você pode."
           }
         ],
         "recombinacoes": [
@@ -40828,6 +40177,16 @@
             "tipo": "futuro",
             "en": "You won't be able to drive because this medicine will make you drowsy.",
             "pt": "Você não vai conseguir dirigir porque este remédio vai te dar sono."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Why can't I drive after taking this medicine?",
+            "pt": "Por que eu não posso dirigir depois de tomar este remédio?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I can't drive.",
+            "pt": "Não, eu não posso dirigir."
           }
         ],
         "recombinacoes": [
@@ -40877,6 +40236,11 @@
             "tipo": "resposta-curta",
             "en": "No, I'm not constipated, I have a stomach bug.",
             "pt": "Não, eu não estou com prisão de ventre, eu estou com uma virose estomacal."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He isn't constipated, he has a stomach bug.",
+            "pt": "Ele não está com prisão de ventre, ele está com uma virose."
           }
         ],
         "recombinacoes": [
@@ -40914,6 +40278,21 @@
             "tipo": "terceira-pessoa",
             "en": "His nose is stuffed up and he has a headache.",
             "pt": "O nariz dele está entupido e ele está com dor de cabeça."
+          },
+          {
+            "tipo": "futuro",
+            "en": "My nose will be stuffed up and I'll have a headache if I don't take something.",
+            "pt": "Meu nariz vai ficar entupido e eu vou ter dor de cabeça se eu não tomar nada."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it's stuffed up.",
+            "pt": "Sim, está entupido."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, I don't have a headache.",
+            "pt": "Não, eu não estou com dor de cabeça."
           }
         ],
         "recombinacoes": [
@@ -40963,6 +40342,26 @@
             "tipo": "futuro",
             "en": "Will the doctor have to see me for this?",
             "pt": "O médico vai precisar me ver por causa disso?"
+          },
+          {
+            "tipo": "educada",
+            "en": "Do you think the doctor has to see me for this?",
+            "pt": "Você acha que o médico precisa me ver por causa disso?"
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, he does.",
+            "pt": "Sim, ele precisa."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, he doesn't.",
+            "pt": "Não, ele não precisa."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "Does the doctor have to see him for this?",
+            "pt": "O médico precisa ver ele por causa disso?"
           }
         ],
         "recombinacoes": [
@@ -41022,6 +40421,11 @@
             "tipo": "negativa",
             "en": "You don't really have to see a doctor if it's just a mild fever.",
             "pt": "Você não precisa mesmo ver um médico se for só uma febre leve."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "No, you don't.",
+            "pt": "Não, você não precisa."
           }
         ],
         "recombinacoes": [
@@ -41072,6 +40476,11 @@
             "tipo": "educada",
             "en": "I might have allergies to some types of antibiotics.",
             "pt": "Eu posso ter alergia a alguns tipos de antibióticos."
+          },
+          {
+            "tipo": "passado",
+            "en": "I had allergies to some types of antibiotics when I was younger.",
+            "pt": "Eu tinha alergia a alguns tipos de antibióticos quando era mais novo."
           }
         ],
         "recombinacoes": [
@@ -41191,6 +40600,11 @@
             "tipo": "educada",
             "en": "I think I'm currently taking blood pressure pills.",
             "pt": "Acho que estou tomando remédios para pressão arterial atualmente."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I'm not taking any blood pressure pills right now.",
+            "pt": "Não estou tomando nenhum remédio para pressão agora."
           }
         ],
         "recombinacoes": [
@@ -41255,6 +40669,11 @@
             "tipo": "negativa",
             "en": "Don't mix this with alcohol at all.",
             "pt": "Não misture isso com álcool de jeito nenhum."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Can I mix this with alcohol?",
+            "pt": "Eu posso misturar isso com álcool?"
           }
         ],
         "recombinacoes": [
@@ -41310,6 +40729,11 @@
             "tipo": "educada",
             "en": "I seem to have a sore throat and it's hurting when I swallow.",
             "pt": "Parece que estou com a garganta inflamada e doendo para engolir."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, it does.",
+            "pt": "Sim, dói."
           }
         ],
         "recombinacoes": [
@@ -41546,6 +40970,11 @@
             "tipo": "pergunta",
             "en": "Is there a nurse I could talk to?",
             "pt": "Tem algum enfermeiro com quem eu pudesse falar?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "There isn't any nurse I can talk to here.",
+            "pt": "Não tem nenhum enfermeiro com quem eu possa falar aqui."
           }
         ],
         "recombinacoes": []
@@ -41658,6 +41087,11 @@
             "tipo": "futuro",
             "en": "I won't be able to take more than two pills a day, will I?",
             "pt": "Eu não vou poder tomar mais do que dois comprimidos por dia, vou?"
+          },
+          {
+            "tipo": "educada",
+            "en": "Could you tell me if I can take more than two pills a day?",
+            "pt": "Você poderia me dizer se eu posso tomar mais do que dois comprimidos por dia?"
           }
         ],
         "recombinacoes": [
@@ -42438,6 +41872,11 @@
             "tipo": "resposta-curta",
             "en": "Yes, you have to use it with water, it's a powder.",
             "pt": "Sim, você tem que usar com água, é um pó."
+          },
+          {
+            "tipo": "educada",
+            "en": "I'm afraid you have to use it with water, it's a powder.",
+            "pt": "Receio que você precise usar isso com água, é um pó."
           }
         ],
         "recombinacoes": [
@@ -42548,6 +41987,11 @@
             "tipo": "terceira-pessoa",
             "en": "She can't see properly with this blurriness.",
             "pt": "Ela não consegue enxergar direito com essa visão embaçada."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I don't see properly because my vision is blurry.",
+            "pt": "Eu não enxergo direito porque minha visão está embaçada."
           }
         ],
         "recombinacoes": [
@@ -42603,6 +42047,11 @@
             "tipo": "educada",
             "en": "Actually, you don't have to use drops every hour.",
             "pt": "Na verdade, você não precisa usar colírio a cada hora."
+          },
+          {
+            "tipo": "educada",
+            "en": "Please, you don't have to use drops every hour.",
+            "pt": "Por favor, você não precisa usar colírio a cada hora."
           }
         ],
         "recombinacoes": [
@@ -42976,6 +42425,11 @@
             "tipo": "educada",
             "en": "If we adjusted the scope, could you lower the price?",
             "pt": "Se ajustássemos o escopo, você conseguiria baixar o preço?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "If we don't adjust the scope, I won't be able to lower the price.",
+            "pt": "Se não ajustarmos o escopo, não vou conseguir baixar o preço."
           }
         ],
         "recombinacoes": [
@@ -43020,6 +42474,11 @@
             "tipo": "resposta-curta",
             "en": "Will you get back to me? Yes, I will.",
             "pt": "Você vai me dar um retorno? Sim, vou."
+          },
+          {
+            "tipo": "educada",
+            "en": "Could you let me get back to you on that?",
+            "pt": "Você poderia deixar eu te dar um retorno sobre isso depois?"
           }
         ],
         "recombinacoes": [
@@ -43148,6 +42607,11 @@
             "tipo": "educada",
             "en": "If that were the final requirement, would it be cheap?",
             "pt": "Se essa fosse a exigência final, sairia barato?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "If that isn't the final requirement, it might not be expensive.",
+            "pt": "Se essa não for a exigência final, talvez não saia caro."
           }
         ],
         "recombinacoes": [
@@ -43212,6 +42676,11 @@
             "tipo": "futuro",
             "en": "If you're going to need it by Friday, I'll need more resources.",
             "pt": "Se você vai precisar disso até sexta, vou precisar de mais recursos."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "If I need it by Friday, would you need more resources?",
+            "pt": "Se eu precisar disso até sexta, você precisaria de mais recursos?"
           }
         ],
         "recombinacoes": [
@@ -43640,6 +43109,11 @@
             "tipo": "resposta-curta",
             "en": "If you send me the details, I'll check right away.",
             "pt": "Se você me mandar os detalhes, eu verifico imediatamente."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "If you don't send me the details, will you still check your schedule?",
+            "pt": "Se você não me mandar os detalhes, você ainda vai verificar sua agenda?"
           }
         ],
         "recombinacoes": [
@@ -43936,6 +43410,11 @@
             "tipo": "negativa",
             "en": "If the price isn't too high, we won't need to change the scope.",
             "pt": "Se o preço não estiver muito alto, não vamos precisar mudar o escopo."
+          },
+          {
+            "tipo": "passado",
+            "en": "If the price was too high, we should have talked about the scope.",
+            "pt": "Se o preço estava muito alto, deveríamos ter falado sobre o escopo."
           }
         ],
         "recombinacoes": [
@@ -43995,6 +43474,11 @@
             "tipo": "futuro",
             "en": "If you're going to give me a better rate, I'll sign the deal.",
             "pt": "Se você vai me dar uma taxa melhor, eu fecho o contrato."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, if you give me a better rate, I will.",
+            "pt": "Sim, se você me der uma taxa melhor, eu fecho."
           }
         ],
         "recombinacoes": [
@@ -44163,6 +43647,11 @@
             "tipo": "futuro",
             "en": "If you're going to guarantee the delivery, I'll accept it.",
             "pt": "Se você vai garantir a entrega, eu aceito."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If he can guarantee the delivery, I'll accept it.",
+            "pt": "Se ele conseguir garantir a entrega, eu aceito."
           }
         ],
         "recombinacoes": [
@@ -44227,6 +43716,11 @@
             "tipo": "educada",
             "en": "If we were to work this weekend, I'd need double pay.",
             "pt": "Se trabalhássemos neste fim de semana, eu precisaria de pagamento dobrado."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would I need double pay if we work this weekend?",
+            "pt": "Eu precisaria de pagamento dobrado se trabalharmos neste fim de semana?"
           }
         ],
         "recombinacoes": [
@@ -44398,6 +43892,11 @@
             "tipo": "resposta-curta",
             "en": "No, even if it's urgent, I won't.",
             "pt": "Não, mesmo que seja urgente, eu não vou."
+          },
+          {
+            "tipo": "educada",
+            "en": "If it were too urgent, would I have to drop other tasks?",
+            "pt": "Se fosse urgente demais, eu teria que deixar outras tarefas de lado?"
           }
         ],
         "recombinacoes": []
@@ -44501,6 +44000,11 @@
             "tipo": "negativa",
             "en": "If we don't change the date, won't it still affect the price?",
             "pt": "Se não mudarmos a data, isso ainda não vai afetar o preço?"
+          },
+          {
+            "tipo": "pergunta",
+            "en": "If we change the date, does it affect the price?",
+            "pt": "Se mudarmos a data, isso afeta o preço?"
           }
         ],
         "recombinacoes": [
@@ -44605,6 +44109,11 @@
             "tipo": "passado",
             "en": "If we had needed more help, I would have let you know.",
             "pt": "Se tivéssemos precisado de mais ajuda, eu teria te avisado."
+          },
+          {
+            "tipo": "negativa",
+            "en": "If we don't need more help, I won't let you know.",
+            "pt": "Se não precisarmos de mais ajuda, não vou te avisar."
           }
         ],
         "recombinacoes": [
@@ -44723,6 +44232,11 @@
             "tipo": "resposta-curta",
             "en": "If that works for you, will you send it? Yes, I will.",
             "pt": "Se isso funciona para você, você vai enviar? Sim, vou."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "If that works for him, he'll send the contract.",
+            "pt": "Se isso funcionar para ele, ele manda o contrato."
           }
         ],
         "recombinacoes": [
@@ -44782,6 +44296,11 @@
             "tipo": "resposta-curta",
             "en": "If you're not happy, are you going to tell me? No, I'm not.",
             "pt": "Se você não está feliz, você vai me dizer? Não, não vou."
+          },
+          {
+            "tipo": "futuro",
+            "en": "If you're not happy with the offer, will you tell me why?",
+            "pt": "Se você não estiver feliz com a oferta, você vai me dizer por quê?"
           }
         ],
         "recombinacoes": [
@@ -44969,6 +44488,11 @@
             "tipo": "resposta-curta",
             "en": "If we add features, will the price go up? Yes, it will.",
             "pt": "Se adicionarmos funcionalidades, o preço vai subir? Sim, vai."
+          },
+          {
+            "tipo": "futuro",
+            "en": "If we add more features, will the price go up later?",
+            "pt": "Se adicionarmos mais funcionalidades, o preço vai subir depois?"
           }
         ],
         "recombinacoes": [
@@ -45028,6 +44552,11 @@
             "tipo": "resposta-curta",
             "en": "If you don't like the proposal, yes, we can adjust it.",
             "pt": "Se você não gostar da proposta, sim, nós podemos ajustar."
+          },
+          {
+            "tipo": "futuro",
+            "en": "If you don't like the proposal, we'll adjust it.",
+            "pt": "Se você não gostar da proposta, nós vamos ajustá-la."
           }
         ],
         "recombinacoes": [
@@ -45182,6 +44711,11 @@
             "tipo": "educada",
             "en": "If we could reach an agreement, I'd be very happy.",
             "pt": "Se pudéssemos chegar a um acordo, eu ficaria muito feliz."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "If we can reach an agreement, sure, I'll be happy.",
+            "pt": "Se conseguirmos chegar a um acordo, com certeza, ficarei feliz."
           }
         ],
         "recombinacoes": [
@@ -45232,6 +44766,11 @@
             "tipo": "futuro",
             "en": "If you have a better idea, I'll be listening.",
             "pt": "Se você tiver uma ideia melhor, estarei ouvindo."
+          },
+          {
+            "tipo": "negativa",
+            "en": "If you don't have a better idea, I'm not listening.",
+            "pt": "Se você não tem uma ideia melhor, eu não estou ouvindo."
           }
         ],
         "recombinacoes": [
@@ -45291,6 +44830,16 @@
             "tipo": "educada",
             "en": "If you'd be willing to wait, I could give you a better deal.",
             "pt": "Se você pudesse esperar, eu conseguiria te fazer um negócio melhor."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "If you're willing to wait, can I give you a better deal?",
+            "pt": "Se você estiver disposto a esperar, posso te fazer um negócio melhor?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "If you're willing to wait, I'll be able to give you a better deal.",
+            "pt": "Se você estiver disposto a esperar, eu vou conseguir te fazer um negócio melhor."
           }
         ],
         "recombinacoes": [
@@ -45350,6 +44899,11 @@
             "tipo": "futuro",
             "en": "If we don't agree now, we will be able to talk next week.",
             "pt": "Se não chegarmos a um acordo agora, conseguiremos conversar na semana que vem."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "If we don't agree now, can we? Yes, we can.",
+            "pt": "Se não chegarmos a um acordo agora, podemos? Sim, podemos."
           }
         ],
         "recombinacoes": [
@@ -45468,6 +45022,11 @@
             "tipo": "futuro",
             "en": "You'll have to tell me how you're feeling later.",
             "pt": "Você vai ter que me contar como está se sentindo mais tarde."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should you have told me how you were feeling earlier?",
+            "pt": "Você deveria ter me contado como estava se sentindo antes?"
           }
         ],
         "recombinacoes": [
@@ -45514,6 +45073,11 @@
             "tipo": "educada",
             "en": "You might want to let him know what happened.",
             "pt": "Talvez você devesse avisar ele o que aconteceu."
+          },
+          {
+            "tipo": "futuro",
+            "en": "If I were you, I'd let him know what happened.",
+            "pt": "Se eu fosse você, eu avisaria ele o que aconteceu."
           }
         ],
         "recombinacoes": [
@@ -45578,6 +45142,11 @@
             "tipo": "pergunta",
             "en": "Do you think I could've handled it better?",
             "pt": "Você acha que eu poderia ter lidado melhor com isso?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "I'll handle the situation better next time.",
+            "pt": "Eu vou lidar com a situação melhor da próxima vez."
           }
         ],
         "recombinacoes": [
@@ -45706,6 +45275,11 @@
             "tipo": "terceira-pessoa",
             "en": "She shouldn't have let them treat her like that.",
             "pt": "Ela não deveria ter deixado eles a tratarem assim."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Why should you have let them treat you like that?",
+            "pt": "Por que você deveria ter deixado eles te tratarem assim?"
           }
         ],
         "recombinacoes": [
@@ -45834,6 +45408,11 @@
             "tipo": "passado",
             "en": "I had to trust my gut instinct from the start.",
             "pt": "Eu tive que confiar na minha intuição desde o começo."
+          },
+          {
+            "tipo": "futuro",
+            "en": "Maybe next time I'll trust my gut instinct from the start.",
+            "pt": "Quem sabe da próxima vez eu confie na minha intuição desde o começo."
           }
         ],
         "recombinacoes": [
@@ -46136,6 +45715,11 @@
             "tipo": "resposta-curta",
             "en": "No, I wouldn't.",
             "pt": "Não, eu não seria."
+          },
+          {
+            "tipo": "passado",
+            "en": "If I had been you, I would've been honest about my mistakes.",
+            "pt": "Se eu tivesse sido você, teria sido honesto sobre meus erros."
           }
         ],
         "recombinacoes": [
@@ -46200,6 +45784,11 @@
             "tipo": "resposta-curta",
             "en": "No, I couldn't have.",
             "pt": "Não, eu não poderia."
+          },
+          {
+            "tipo": "futuro",
+            "en": "You'll be able to call me if you're feeling lonely again.",
+            "pt": "Você vai poder me ligar se estiver se sentindo solitário de novo."
           }
         ],
         "recombinacoes": [
@@ -46662,6 +46251,11 @@
             "tipo": "educada",
             "en": "It's best not to let him disappoint you like that.",
             "pt": "É melhor não deixar ele te decepcionar desse jeito."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should you have let him disappoint you like that?",
+            "pt": "Você deveria ter deixado ele te decepcionar desse jeito?"
           }
         ],
         "recombinacoes": [
@@ -46785,6 +46379,11 @@
             "tipo": "educada",
             "en": "It would've been wise to listen to my parents' advice back then.",
             "pt": "Teria sido sábio ouvir o conselho dos meus pais naquela época."
+          },
+          {
+            "tipo": "educada",
+            "en": "I wish I had listened to my parents' advice back then.",
+            "pt": "Eu queria ter ouvido o conselho dos meus pais naquela época."
           }
         ],
         "recombinacoes": [
@@ -46836,6 +46435,11 @@
             "tipo": "educada",
             "en": "If I were you, I would really appreciate it if you kept your plans to yourself.",
             "pt": "Se eu fosse você, eu realmente apreciaria se você guardasse seus planos para você."
+          },
+          {
+            "tipo": "futuro",
+            "en": "If I were in your position, I'd keep my plans to myself.",
+            "pt": "Se eu estivesse na sua posição, eu guardaria meus planos para mim."
           }
         ],
         "recombinacoes": [
@@ -47019,6 +46623,11 @@
             "tipo": "educada",
             "en": "It would be better if I had finished the project on time.",
             "pt": "Seria melhor se eu tivesse terminado o projeto no prazo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should you have finished that project before the deadline?",
+            "pt": "Você deveria ter terminado aquele projeto antes do prazo?"
           }
         ],
         "recombinacoes": [
@@ -47083,6 +46692,11 @@
             "tipo": "educada",
             "en": "It might be helpful if you stopped comparing yourself to others.",
             "pt": "Pode ser útil se você parar de se comparar com os outros."
+          },
+          {
+            "tipo": "futuro",
+            "en": "If I were in your shoes, I'd stop comparing myself to others.",
+            "pt": "Se eu estivesse no seu lugar, eu pararia de me comparar com os outros."
           }
         ],
         "recombinacoes": []
@@ -47167,6 +46781,11 @@
             "tipo": "resposta-curta",
             "en": "No, I wouldn't.",
             "pt": "Não, eu não seria."
+          },
+          {
+            "tipo": "educada",
+            "en": "Maybe, if I were you, I'd be a bit more careful with that decision.",
+            "pt": "Talvez, se eu fosse você, eu fosse um pouco mais cuidadoso com essa decisão."
           }
         ],
         "recombinacoes": [
@@ -47231,6 +46850,11 @@
             "tipo": "futuro",
             "en": "I'll be able to save some money if I'm not reckless next time.",
             "pt": "Eu vou conseguir economizar um pouco de dinheiro se eu não for imprudente da próxima vez."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She could've saved so much money if she hadn't been reckless.",
+            "pt": "Ela poderia ter economizado tanto dinheiro se ela não tivesse sido imprudente."
           }
         ],
         "recombinacoes": [
@@ -47277,6 +46901,11 @@
             "tipo": "resposta-curta",
             "en": "I think I will.",
             "pt": "Acho que vou."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you call him and clear the air if you were me?",
+            "pt": "Você ligaria para ele e resolveria o mal-entendido se você fosse eu?"
           }
         ],
         "recombinacoes": [
@@ -47326,6 +46955,11 @@
             "tipo": "resposta-curta",
             "en": "I know, I should have.",
             "pt": "Eu sei, eu deveria."
+          },
+          {
+            "tipo": "negativa",
+            "en": "You should've spoken up sooner instead of waiting.",
+            "pt": "Você deveria ter falado antes em vez de esperar."
           }
         ],
         "recombinacoes": [
@@ -47435,6 +47069,16 @@
             "tipo": "resposta-curta",
             "en": "No, I don't think you should have.",
             "pt": "Não, eu não acho que você deveria."
+          },
+          {
+            "tipo": "educada",
+            "en": "I honestly think I should've treated her with more respect that day.",
+            "pt": "Sinceramente, acho que eu deveria ter tratado ela com mais respeito naquele dia."
+          },
+          {
+            "tipo": "futuro",
+            "en": "I'll treat her with more respect next time.",
+            "pt": "Vou tratar ela com mais respeito na próxima vez."
           }
         ],
         "recombinacoes": [
@@ -47494,6 +47138,11 @@
             "tipo": "educada",
             "en": "I'd kindly suggest you reconsider your current approach.",
             "pt": "Eu gentilmente sugiro que você repense sua abordagem atual."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I wouldn't reconsider my approach if I were you, it's working fine.",
+            "pt": "Eu não repensaria minha abordagem se eu fosse você, está funcionando bem."
           }
         ],
         "recombinacoes": [
@@ -47553,6 +47202,11 @@
             "tipo": "educada",
             "en": "I wish you could've warned me about the weather forecast.",
             "pt": "Quem dera você tivesse me avisado sobre a previsão do tempo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Couldn't you have warned me about the weather forecast?",
+            "pt": "Você não poderia ter me avisado sobre a previsão do tempo?"
           }
         ],
         "recombinacoes": [
@@ -47603,6 +47257,11 @@
             "tipo": "educada",
             "en": "I think you should consider starting fresh and leaving the past behind.",
             "pt": "Eu acho que você deveria considerar recomeçar e deixar o passado para trás."
+          },
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't start fresh, I'd stay put.",
+            "pt": "Se eu fosse você, eu não recomeçaria, eu ficaria onde estou."
           }
         ],
         "recombinacoes": [
@@ -47662,6 +47321,11 @@
             "tipo": "educada",
             "en": "It would've been better if I had realized sooner that he was deceiving me.",
             "pt": "Teria sido melhor se eu tivesse percebido antes que ele estava me enganando."
+          },
+          {
+            "tipo": "passado",
+            "en": "I realized he was deceiving me, so I left.",
+            "pt": "Eu percebi que ele estava me enganando, então fui embora."
           }
         ],
         "recombinacoes": [
@@ -47716,6 +47380,11 @@
             "tipo": "educada",
             "en": "I'd advise you to trust your instincts on this one.",
             "pt": "Eu aconselharia você a confiar nos seus instintos nessa."
+          },
+          {
+            "tipo": "negativa",
+            "en": "If I were you, I wouldn't trust your instincts on this one.",
+            "pt": "Se eu fosse você, eu não confiaria nos seus instintos nessa."
           }
         ],
         "recombinacoes": [
@@ -47775,6 +47444,11 @@
             "tipo": "educada",
             "en": "I'm sorry, I could've said yes, but I wasn't feeling up to it.",
             "pt": "Desculpe, eu poderia ter dito sim, mas eu não estava com disposição."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Could you have said yes, if you had felt like it?",
+            "pt": "Você poderia ter dito sim, se estivesse a fim?"
           }
         ],
         "recombinacoes": [
@@ -47898,6 +47572,11 @@
             "tipo": "educada",
             "en": "I'd appreciate it if you could take a look at my resume.",
             "pt": "Eu agradeceria se você pudesse dar uma olhada no meu currículo."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I'm sorry, I can't take a look at your resume right now.",
+            "pt": "Sinto muito, não posso dar uma olhada no seu currículo agora."
           }
         ],
         "recombinacoes": [
@@ -47957,6 +47636,11 @@
             "tipo": "passado",
             "en": "I was more proactive with that client.",
             "pt": "Eu fui mais proativo com aquele cliente."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, you probably should have.",
+            "pt": "Sim, você provavelmente deveria."
           }
         ],
         "recombinacoes": [
@@ -48085,6 +47769,11 @@
             "tipo": "educada",
             "en": "I'd like to think my salary expectations are in line with the market.",
             "pt": "Gostaria de acreditar que minhas expectativas salariais estão alinhadas com o mercado."
+          },
+          {
+            "tipo": "negativa",
+            "en": "My salary expectations aren't really in line with the market.",
+            "pt": "Minhas expectativas salariais não estão exatamente alinhadas com o mercado."
           }
         ],
         "recombinacoes": [
@@ -48139,6 +47828,16 @@
             "tipo": "passado",
             "en": "I summed it up by saying I was a quick learner.",
             "pt": "Eu resumi dizendo que aprendia rápido."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you like to sum it up by saying you're a quick learner?",
+            "pt": "Você gostaria de resumir dizendo que aprende rápido?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "I wouldn't like to sum it up that way.",
+            "pt": "Eu não gostaria de resumir dessa forma."
           }
         ],
         "recombinacoes": [
@@ -48194,6 +47893,11 @@
             "tipo": "educada",
             "en": "I really should have communicated the risks earlier.",
             "pt": "Eu realmente deveria ter comunicado os riscos mais cedo."
+          },
+          {
+            "tipo": "passado",
+            "en": "I communicated the risks earlier than expected.",
+            "pt": "Eu comuniquei os riscos mais cedo do que o esperado."
           }
         ],
         "recombinacoes": [
@@ -48367,6 +48071,11 @@
             "tipo": "educada",
             "en": "What I've really learned is that I should have delegated more.",
             "pt": "O que eu realmente aprendi é que eu deveria ter delegado mais."
+          },
+          {
+            "tipo": "futuro",
+            "en": "What I've learned is that I should delegate more.",
+            "pt": "O que eu aprendi é que eu deveria delegar mais."
           }
         ],
         "recombinacoes": [
@@ -48431,6 +48140,11 @@
             "tipo": "educada",
             "en": "I wish I could have improved my technical skills sooner.",
             "pt": "Eu gostaria de ter melhorado minhas habilidades técnicas mais cedo."
+          },
+          {
+            "tipo": "educada",
+            "en": "I really feel I could have improved my technical skills sooner.",
+            "pt": "Eu realmente sinto que poderia ter melhorado minhas habilidades técnicas mais cedo."
           }
         ],
         "recombinacoes": [
@@ -48491,6 +48205,11 @@
             "tipo": "educada",
             "en": "I must say, I'm really excited about this application.",
             "pt": "Devo dizer que estou muito empolgado com esta candidatura."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Are you excited about the application process?",
+            "pt": "Você está empolgado com o processo de candidatura?"
           }
         ],
         "recombinacoes": [
@@ -48545,6 +48264,11 @@
             "tipo": "educada",
             "en": "Would you mind giving me a quick summary of your background?",
             "pt": "Você se importaria de me dar um resumo rápido da sua trajetória?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Don't give me a summary, I already read your resume.",
+            "pt": "Não precisa me dar um resumo, já li seu currículo."
           }
         ],
         "recombinacoes": [
@@ -48597,6 +48321,11 @@
             "tipo": "educada",
             "en": "Maybe I should have stayed focused on the main goal.",
             "pt": "Talvez eu devesse ter mantido o foco no objetivo principal."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I shouldn't have been distracted by other tasks.",
+            "pt": "Eu não deveria ter me distraído com outras tarefas."
           }
         ],
         "recombinacoes": [
@@ -48709,6 +48438,11 @@
             "tipo": "educada",
             "en": "I've been trying to manage all the deadlines so far.",
             "pt": "Tenho tentado dar conta de todos os prazos até agora."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I haven't missed any deadlines so far.",
+            "pt": "Eu não perdi nenhum prazo até agora."
           }
         ],
         "recombinacoes": [
@@ -48763,6 +48497,11 @@
             "tipo": "educada",
             "en": "I wish I could have asked for help earlier.",
             "pt": "Eu gostaria de ter pedido ajuda antes."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "What could I have done better in this situation?",
+            "pt": "O que eu poderia ter feito melhor nessa situação?"
           }
         ],
         "recombinacoes": [
@@ -48981,6 +48720,11 @@
             "tipo": "educada",
             "en": "I would like to update my resume to reflect my latest achievements.",
             "pt": "Eu gostaria de atualizar meu currículo para refletir minhas conquistas mais recentes."
+          },
+          {
+            "tipo": "futuro",
+            "en": "I'll have updated my resume to reflect my latest achievements by Monday.",
+            "pt": "Eu terei atualizado meu currículo para refletir minhas conquistas mais recentes até segunda-feira."
           }
         ],
         "recombinacoes": [
@@ -49100,6 +48844,11 @@
             "tipo": "negativa",
             "en": "I'm not sure if it's possible to negotiate the salary range.",
             "pt": "Não tenho certeza se é possível negociar a faixa salarial."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Has it been possible to negotiate the salary range?",
+            "pt": "Tem sido possível negociar a faixa salarial?"
           }
         ],
         "recombinacoes": [
@@ -49346,6 +49095,11 @@
             "tipo": "educada",
             "en": "I'd really like to find a role that challenges me.",
             "pt": "Eu realmente gostaria de encontrar uma função que me desafie."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Have you been looking for a role that challenges you?",
+            "pt": "Você tem procurado uma função que te desafie?"
           }
         ],
         "recombinacoes": [
@@ -49469,6 +49223,11 @@
             "tipo": "educada",
             "en": "I probably should have documented the process from the start.",
             "pt": "Provavelmente eu deveria ter documentado o processo desde o início."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Should I have documented the process from the start?",
+            "pt": "Eu deveria ter documentado o processo desde o início?"
           }
         ],
         "recombinacoes": [
@@ -49656,6 +49415,11 @@
             "tipo": "resposta-curta",
             "en": "No, that's not why.",
             "pt": "Não, não é por isso."
+          },
+          {
+            "tipo": "educada",
+            "en": "I'd really like to express my interest in this application.",
+            "pt": "Eu gostaria muito de expressar meu interesse nesta candidatura."
           }
         ],
         "recombinacoes": [
@@ -50087,6 +49851,11 @@
             "tipo": "educada",
             "en": "I've luckily managed to turn that failure into a win.",
             "pt": "Por sorte, consegui transformar aquele fracasso em uma vitória."
+          },
+          {
+            "tipo": "educada",
+            "en": "Honestly, I've managed to turn that failure into a win.",
+            "pt": "Honestamente, consegui transformar aquele fracasso em uma vitória."
           }
         ],
         "recombinacoes": [
@@ -50399,6 +50168,11 @@
             "tipo": "resposta curta",
             "en": "No, you didn't.",
             "pt": "Não, você não teve."
+          },
+          {
+            "tipo": "futuro",
+            "en": "I'm not going to bring it up.",
+            "pt": "Eu não vou tocar nesse assunto."
           }
         ],
         "recombinacoes": []
@@ -51330,6 +51104,11 @@
             "tipo": "passado",
             "en": "He let me down when I needed him most.",
             "pt": "Ele me decepcionou quando eu mais precisei dele."
+          },
+          {
+            "tipo": "futuro",
+            "en": "I won't let you down this time.",
+            "pt": "Eu não vou te decepcionar desta vez."
           }
         ],
         "recombinacoes": [
@@ -51552,6 +51331,11 @@
             "tipo": "futuro",
             "en": "How will it affect our plans?",
             "pt": "Como isso vai afetar nossos planos?"
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is it gonna affect our plans?",
+            "pt": "Isso vai afetar nossos planos?"
           }
         ],
         "recombinacoes": [
@@ -51763,6 +51547,11 @@
             "tipo": "informal",
             "en": "I'm not sure if I can make it.",
             "pt": "Não tenho certeza se consigo ir."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Are you sure you're able to go?",
+            "pt": "Você tem certeza de que consegue ir?"
           }
         ],
         "recombinacoes": [
@@ -51876,6 +51665,11 @@
             "tipo": "informal",
             "en": "I've got tons to do today.",
             "pt": "Tenho muita coisa para fazer hoje."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I haven't got much to do today.",
+            "pt": "Eu não tenho muita coisa para fazer hoje."
           }
         ],
         "recombinacoes": [
@@ -51994,6 +51788,11 @@
             "tipo": "informal",
             "en": "What are you after?",
             "pt": "O que você está procurando?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "Tell me what you'll be looking for later.",
+            "pt": "Me fala o que você vai estar procurando mais tarde."
           }
         ],
         "recombinacoes": [
@@ -52117,6 +51916,11 @@
             "tipo": "pergunta",
             "en": "Do we really need that much of it?",
             "pt": "A gente realmente precisa de tudo isso?"
+          },
+          {
+            "tipo": "informal",
+            "en": "How much of it do you guys actually need?",
+            "pt": "Quanto disso vocês realmente precisam?"
           }
         ],
         "recombinacoes": [
@@ -52158,6 +51962,11 @@
             "tipo": "informal",
             "en": "I've gotta finish this before I head out.",
             "pt": "Eu tenho que terminar isso antes de ir embora."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Do you have to finish this before you leave?",
+            "pt": "Você tem que terminar isso antes de sair?"
           }
         ],
         "recombinacoes": [
@@ -52212,6 +52021,11 @@
             "tipo": "futuro",
             "en": "Will you be there on time?",
             "pt": "Você vai estar lá na hora?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Isn't he gonna be there on time?",
+            "pt": "Ele não vai chegar lá na hora?"
           }
         ],
         "recombinacoes": [
@@ -52502,6 +52316,11 @@
             "tipo": "negativa",
             "en": "I've got no clue how to explain it.",
             "pt": "Eu não faço a menor ideia de como explicar isso."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I don't really know how to explain it.",
+            "pt": "Eu não sei bem como explicar isso."
           }
         ],
         "recombinacoes": [
@@ -52669,6 +52488,11 @@
             "tipo": "informal",
             "en": "We gotta make a decision by Friday.",
             "pt": "A gente tem que tomar uma decisão até sexta-feira."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "When do we need to make a decision by?",
+            "pt": "Para quando precisamos tomar uma decisão?"
           }
         ],
         "recombinacoes": [
@@ -52829,6 +52653,11 @@
             "tipo": "informal",
             "en": "I'm just not very good at idioms.",
             "pt": "Eu simplesmente não sou muito bom em expressões idiomáticas."
+          },
+          {
+            "tipo": "informal",
+            "en": "I'm honestly not very good at idioms.",
+            "pt": "Sinceramente, eu não sou muito bom com expressões idiomáticas."
           }
         ],
         "recombinacoes": [
@@ -53661,6 +53490,11 @@
             "tipo": "informal",
             "en": "You wanna make a suggestion?",
             "pt": "Você quer fazer uma sugestão?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Don't you want to make a suggestion?",
+            "pt": "Você não quer fazer uma sugestão?"
           }
         ],
         "recombinacoes": [
@@ -53829,6 +53663,11 @@
             "tipo": "informal",
             "en": "Make sure you check the date.",
             "pt": "Não esquece de conferir a data."
+          },
+          {
+            "tipo": "negativa",
+            "en": "Make sure you don't check the wrong date.",
+            "pt": "Certifique-se de não conferir a data errada."
           }
         ],
         "recombinacoes": [
@@ -54332,6 +54171,11 @@
             "tipo": "futuro",
             "en": "I'm sure we'll reach a solution that's fair for everyone.",
             "pt": "Tenho certeza de que chegaremos a uma solução justa para todos."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Are they sure they can reach a solution that's fair for everyone?",
+            "pt": "Eles têm certeza de que podem chegar a uma solução justa para todos?"
           }
         ],
         "recombinacoes": [
@@ -54386,6 +54230,11 @@
             "tipo": "futuro",
             "en": "I'm sure we'll have figured out something that works for us.",
             "pt": "Tenho certeza de que teremos dado um jeito que funcione para nós."
+          },
+          {
+            "tipo": "informal",
+            "en": "I'm sure we'll work something out.",
+            "pt": "Tenho certeza de que vamos dar um jeito."
           }
         ],
         "recombinacoes": [
@@ -54435,6 +54284,11 @@
             "tipo": "futuro",
             "en": "I'd say we'll be a bit behind, but we'll catch up.",
             "pt": "Eu diria que estaremos um pouco atrasados, mas vamos recuperar."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you say we're a bit behind, or are we on track?",
+            "pt": "Você diria que estamos um pouco atrasados ou estamos no caminho certo?"
           }
         ],
         "recombinacoes": [
@@ -54484,6 +54338,11 @@
             "tipo": "futuro",
             "en": "We'll be a bit behind, but we'll manage.",
             "pt": "Estaremos um pouco atrasados, mas a gente se vira."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Are we a bit behind, or will we manage?",
+            "pt": "Estamos um pouco atrasados ou vamos dar conta?"
           }
         ],
         "recombinacoes": [
@@ -54701,6 +54560,11 @@
             "tipo": "informal",
             "en": "The tip is in the bill, I guess.",
             "pt": "Acho que a gorjeta está na conta."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "The tip is already in his bill, I think.",
+            "pt": "A gorjeta já está na conta dele, eu acho."
           }
         ],
         "recombinacoes": [
@@ -54755,6 +54619,11 @@
             "tipo": "futuro",
             "en": "I'll be a bit concerned about the current timeline.",
             "pt": "Vou ficar um pouco preocupado com o cronograma atual."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Are you concerned about the current timeline?",
+            "pt": "Você está preocupado com o cronograma atual?"
           }
         ],
         "recombinacoes": [
@@ -54804,6 +54673,11 @@
             "tipo": "futuro",
             "en": "I'll be kind of worried about the deadline.",
             "pt": "Vou ficar meio preocupado com o prazo final."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I'm not really worried about the deadline.",
+            "pt": "Eu não estou realmente preocupado com o prazo."
           }
         ],
         "recombinacoes": [
@@ -54986,6 +54860,11 @@
             "tipo": "terceira-pessoa",
             "en": "She'd prefer to discuss this in our next meeting.",
             "pt": "Ela preferiria discutir isso na nossa próxima reunião."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I'd rather not discuss this in our next meeting.",
+            "pt": "Eu prefiro não discutir isso na nossa próxima reunião."
           }
         ],
         "recombinacoes": [
@@ -55030,6 +54909,11 @@
             "tipo": "futuro",
             "en": "We'll talk about this later.",
             "pt": "A gente fala sobre isso mais tarde."
+          },
+          {
+            "tipo": "negativa",
+            "en": "Let's not talk about this later.",
+            "pt": "Não vamos falar sobre isso mais tarde."
           }
         ],
         "recombinacoes": [
@@ -55143,6 +55027,16 @@
             "tipo": "informal",
             "en": "I'm just waiting for the news.",
             "pt": "Estou só esperando as novidades."
+          },
+          {
+            "tipo": "futuro",
+            "en": "I'll just wait for the update.",
+            "pt": "Eu vou só esperar a atualização."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He's just waiting for the update.",
+            "pt": "Ele está só esperando a atualização."
           }
         ],
         "recombinacoes": [
@@ -55379,6 +55273,11 @@
             "tipo": "pergunta",
             "en": "Did that go well?",
             "pt": "Isso deu certo?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "It went well, didn't it?",
+            "pt": "Isso correu bem, né?"
           }
         ],
         "recombinacoes": [
@@ -55556,6 +55455,11 @@
             "tipo": "terceira-pessoa",
             "en": "They're having so much fun, aren't they?",
             "pt": "Eles estão se divertindo tanto, né?"
+          },
+          {
+            "tipo": "resposta curta",
+            "en": "Yes, we are.",
+            "pt": "Sim, estamos."
           }
         ],
         "recombinacoes": [
@@ -55602,6 +55506,11 @@
             "tipo": "pergunta",
             "en": "Is that a brilliant plan?",
             "pt": "Esse é um plano brilhante?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "That's a brilliant plan for them, isn't it?",
+            "pt": "Esse é um plano brilhante para eles, né?"
           }
         ],
         "recombinacoes": [
@@ -56237,6 +56146,11 @@
             "tipo": "pergunta",
             "en": "Is it possible for you to clarify that last point for me?",
             "pt": "É possível você esclarecer esse último ponto para mim?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Couldn't you clarify that last point for me?",
+            "pt": "Você não poderia esclarecer esse último ponto para mim?"
           }
         ],
         "recombinacoes": [
@@ -56286,6 +56200,11 @@
             "tipo": "negativa",
             "en": "Sorry, I didn't catch that part about the water supply.",
             "pt": "Desculpa, não entendi aquela parte sobre o abastecimento de água."
+          },
+          {
+            "tipo": "futuro",
+            "en": "I probably won't catch that part about the water supply.",
+            "pt": "Eu provavelmente não vou entender essa parte sobre o abastecimento de água."
           }
         ],
         "recombinacoes": [
@@ -56438,6 +56357,11 @@
             "tipo": "terceira-pessoa",
             "en": "He'd like to assume she means the deadline is flexible.",
             "pt": "Ele gostaria de supor que ela quer dizer que o prazo é flexível."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I'd like to assume you don't mean the deadline is flexible.",
+            "pt": "Gostaria de supor que você não quer dizer que o prazo é flexível."
           }
         ],
         "recombinacoes": [
@@ -56502,6 +56426,11 @@
             "tipo": "terceira-pessoa",
             "en": "Just to be clear, is he talking about the same project?",
             "pt": "Só para ficar claro, ele está falando do mesmo projeto?"
+          },
+          {
+            "tipo": "passado",
+            "en": "Just to be clear, was I talking about the same project?",
+            "pt": "Só para ficar claro, eu estava falando do mesmo projeto?"
           }
         ],
         "recombinacoes": [
@@ -56541,6 +56470,11 @@
             "tipo": "terceira-pessoa",
             "en": "Could he slow down a little bit, please?",
             "pt": "Ele poderia falar um pouco mais devagar, por favor?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "Could you slow down a little bit for the next part?",
+            "pt": "Você poderia falar um pouco mais devagar na próxima parte?"
           }
         ],
         "recombinacoes": [
@@ -56585,6 +56519,11 @@
             "tipo": "informal",
             "en": "What'd you mean by that last comment?",
             "pt": "O que você quis dizer com aquele último comentário?"
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did you mean anything specific by that last comment?",
+            "pt": "Você quis dizer algo específico com aquele último comentário?"
           }
         ],
         "recombinacoes": [
@@ -56630,6 +56569,16 @@
             "tipo": "pergunta",
             "en": "Are you having a hard time with the connection?",
             "pt": "Você está com dificuldade com a conexão?"
+          },
+          {
+            "tipo": "passado",
+            "en": "I was having a hard time with the connection, could you repeat that?",
+            "pt": "Eu estava com dificuldade com a conexão, você poderia repetir isso?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "I'll have a hard time with the connection, could you repeat that later?",
+            "pt": "Vou ter dificuldade com a conexão, você poderia repetir isso depois?"
           }
         ],
         "recombinacoes": [
@@ -56674,6 +56623,21 @@
             "tipo": "pergunta",
             "en": "Do you think you missed the last part of what I said?",
             "pt": "Você acha que perdeu a última parte do que eu disse?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "I don't think I missed the last part of what you said.",
+            "pt": "Eu não acho que perdi a última parte do que você disse."
+          },
+          {
+            "tipo": "passado",
+            "en": "I thought I missed the last part of what you said.",
+            "pt": "Eu achei que tinha perdido a última parte do que você disse."
+          },
+          {
+            "tipo": "futuro",
+            "en": "I think I'm going to miss the last part of what you said.",
+            "pt": "Acho que vou perder a última parte do que você disse."
           }
         ],
         "recombinacoes": [
@@ -56767,6 +56731,11 @@
             "tipo": "pergunta",
             "en": "Are you following me, or should I put it another way?",
             "pt": "Você está me acompanhando ou devo explicar de outro jeito?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "She isn't following, could you put it another way?",
+            "pt": "Ela não está acompanhando, você poderia explicar de outro jeito?"
           }
         ],
         "recombinacoes": [
@@ -56826,6 +56795,16 @@
             "tipo": "pergunta",
             "en": "Are they suggesting that we should wait for more feedback?",
             "pt": "Eles estão sugerindo que a gente deveria esperar por mais feedback?"
+          },
+          {
+            "tipo": "negativa",
+            "en": "Aren't you suggesting that we wait for more feedback?",
+            "pt": "Você não está sugerindo que a gente espere por mais feedback?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "Will you be suggesting we wait for more feedback?",
+            "pt": "Você vai sugerir que a gente espere por mais feedback?"
           }
         ],
         "recombinacoes": [
@@ -56979,6 +56958,11 @@
             "tipo": "futuro",
             "en": "The thing is, I'll walk you through our current strategy.",
             "pt": "A questão é que eu vou te apresentar nossa estratégia atual."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you like me to walk you through our current strategy?",
+            "pt": "Você gostaria que eu te apresentasse nossa estratégia atual?"
           }
         ],
         "recombinacoes": [
@@ -57028,6 +57012,11 @@
             "tipo": "futuro",
             "en": "What I mean is, we'll need to focus on our long-term economy.",
             "pt": "O que eu quero dizer é que precisaremos focar na nossa economia de longo prazo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "What do you mean, we need to focus on our long-term economy?",
+            "pt": "Como assim, precisamos focar na nossa economia de longo prazo?"
           }
         ],
         "recombinacoes": [
@@ -57072,6 +57061,16 @@
             "tipo": "futuro",
             "en": "Moving on to the second point, we'll look at the production photos.",
             "pt": "Passando para o segundo ponto, nós vamos ver as fotos da produção."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "Moving on to the second point, she wants to look at the production photos.",
+            "pt": "Passando para o segundo ponto, ela quer ver as fotos da produção."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Moving on to the second point, can we look at the production photos?",
+            "pt": "Passando para o segundo ponto, podemos ver as fotos da produção?"
           }
         ],
         "recombinacoes": [
@@ -57185,6 +57184,11 @@
             "tipo": "negativa",
             "en": "The thing is, the politics of this deal won't be that complex.",
             "pt": "A questão é que a política desse negócio não vai ser tão complexa."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "The thing is, the politics of this deal isn't that simple.",
+            "pt": "A questão é que a política desse negócio não é tão simples."
           }
         ],
         "recombinacoes": [
@@ -57239,6 +57243,16 @@
             "tipo": "terceira-pessoa",
             "en": "What she means is, the photography style needs to be more professional.",
             "pt": "O que ela quer dizer é que o estilo da fotografia precisa ser mais profissional."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "What do you mean, the photography style needs to be more professional?",
+            "pt": "O que você quer dizer com o estilo da fotografia precisar ser mais profissional?"
+          },
+          {
+            "tipo": "passado",
+            "en": "What I meant was, the photography style didn't need to be so professional.",
+            "pt": "O que eu quis dizer é que o estilo da fotografia não precisava ser tão profissional."
           }
         ],
         "recombinacoes": [
@@ -57352,6 +57366,11 @@
             "tipo": "terceira-pessoa",
             "en": "To sum up, the scientific data supports his decision.",
             "pt": "Resumindo, os dados científicos apoiam a decisão dele."
+          },
+          {
+            "tipo": "informal",
+            "en": "To sum up, the scientific data backs up our decision.",
+            "pt": "Resumindo, os dados científicos confirmam nossa decisão."
           }
         ],
         "recombinacoes": [
@@ -57399,6 +57418,11 @@
             "tipo": "negativa",
             "en": "The thing is, we're not presenting the final numbers yet.",
             "pt": "A questão é que ainda não vamos apresentar os números finais."
+          },
+          {
+            "tipo": "resposta curta",
+            "en": "The thing is, are we ready? No, we're not.",
+            "pt": "A questão é, estamos prontos? Não, não estamos."
           }
         ],
         "recombinacoes": [
@@ -57449,6 +57473,11 @@
             "tipo": "futuro",
             "en": "What I mean is, this will be the final version.",
             "pt": "O que eu quero dizer é, essa será a versão final."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "What I mean is, is this just a draft or the final version?",
+            "pt": "O que eu quero dizer é, isso é só um rascunho ou a versão final?"
           }
         ],
         "recombinacoes": [
@@ -57604,6 +57633,11 @@
             "tipo": "futuro",
             "en": "The thing is, I'll have some trouble with the reading material if I don't start now.",
             "pt": "A questão é que terei problemas com o material de leitura se não começar logo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Has he had any trouble with the reading material?",
+            "pt": "Ele teve algum problema com o material de leitura?"
           }
         ],
         "recombinacoes": [
@@ -57658,6 +57692,11 @@
             "tipo": "terceira-pessoa",
             "en": "What he means is, the economic impact will be significant.",
             "pt": "O que ele quer dizer é que o impacto econômico será significativo."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Does he mean that the economic impact will be significant?",
+            "pt": "Ele quer dizer que o impacto econômico será significativo?"
           }
         ],
         "recombinacoes": [
@@ -57712,6 +57751,11 @@
             "tipo": "futuro",
             "en": "Moving on to the schedule, we'll likely face a delay if the shipment arrives late.",
             "pt": "Passando para o cronograma, provavelmente enfrentaremos um atraso se a remessa chegar tarde."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Are you expecting a delay with the schedule?",
+            "pt": "Vocês estão esperando um atraso no cronograma?"
           }
         ],
         "recombinacoes": [
@@ -57766,6 +57810,11 @@
             "tipo": "futuro",
             "en": "To sum up, these will be the key points for the next quarter.",
             "pt": "Resumindo, esses serão os pontos principais para o próximo trimestre."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Are these the key points for the next quarter?",
+            "pt": "Esses são os pontos principais para o próximo trimestre?"
           }
         ],
         "recombinacoes": [
@@ -57820,6 +57869,11 @@
             "tipo": "futuro",
             "en": "The thing is, the politics involved here will be beyond my control soon.",
             "pt": "A questão é que a política envolvida aqui estará fora do meu controle em breve."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Are the politics involved here beyond your control?",
+            "pt": "A política envolvida aqui foge ao seu controle?"
           }
         ],
         "recombinacoes": [
@@ -57874,6 +57928,11 @@
             "tipo": "futuro",
             "en": "What I mean is, I'll be happy to present this to you next week.",
             "pt": "O que quero dizer é que ficarei feliz em apresentar isso a vocês na semana que vem."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Are you happy to present this to us today?",
+            "pt": "Você está feliz em nos apresentar isso hoje?"
           }
         ],
         "recombinacoes": [
@@ -58105,6 +58164,11 @@
             "tipo": "informal",
             "en": "This doesn't feel like us, honestly.",
             "pt": "Isso não parece a nossa cara, para ser sincero."
+          },
+          {
+            "tipo": "negativa",
+            "en": "This doesn't seem like the right fit for the brand image.",
+            "pt": "Isso não parece ser a opção certa para a imagem da marca."
           }
         ],
         "recombinacoes": [
@@ -58164,6 +58228,11 @@
             "tipo": "informal",
             "en": "I wouldn't send it out looking like that.",
             "pt": "Eu não enviaria isso desse jeito."
+          },
+          {
+            "tipo": "negativa",
+            "en": "I wouldn't send this out if it's not ready.",
+            "pt": "Eu não enviaria isso se não estiver pronto."
           }
         ],
         "recombinacoes": [
@@ -58572,6 +58641,11 @@
             "tipo": "passado",
             "en": "It didn't look like they followed the instructions.",
             "pt": "Não pareceu que eles seguiram as instruções."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Did it seem like the editor followed the instructions?",
+            "pt": "Pareceu que o editor seguiu as instruções?"
           }
         ],
         "recombinacoes": [
@@ -58690,6 +58764,11 @@
             "tipo": "terceira-pessoa",
             "en": "That doesn't fit the style he's going for.",
             "pt": "Isso não combina com o estilo que ele quer."
+          },
+          {
+            "tipo": "negativa",
+            "en": "That didn't really fit the style we were going for.",
+            "pt": "Isso não combinou muito com o estilo que a gente estava procurando."
           }
         ],
         "recombinacoes": [
@@ -59035,6 +59114,11 @@
             "tipo": "resposta curta",
             "en": "No, she didn't.",
             "pt": "Não, ela não disse."
+          },
+          {
+            "tipo": "futuro",
+            "en": "She says she's gonna look into the budget issue.",
+            "pt": "Ela diz que vai dar uma olhada na questão do orçamento."
           }
         ],
         "recombinacoes": [
@@ -59310,6 +59394,11 @@
             "tipo": "informal",
             "en": "They were meant to give us more info later today.",
             "pt": "Eles tinham que passar mais informações pra gente hoje mais tarde."
+          },
+          {
+            "tipo": "futuro",
+            "en": "They're supposed to provide us with more details tomorrow.",
+            "pt": "Eles devem nos dar mais detalhes amanhã."
           }
         ],
         "recombinacoes": [
@@ -59364,6 +59453,11 @@
             "tipo": "informal",
             "en": "She mentioned she's gonna chat with the team about the new policy.",
             "pt": "Ela mencionou que vai conversar com a equipe sobre a nova política."
+          },
+          {
+            "tipo": "futuro",
+            "en": "She said she'll talk to the team about the new policy later.",
+            "pt": "Ela disse que vai falar com a equipe sobre a nova política mais tarde."
           }
         ],
         "recombinacoes": [
@@ -59423,6 +59517,11 @@
             "tipo": "futuro",
             "en": "He said he'll be interested if the price is lower.",
             "pt": "Ele disse que vai se interessar se o preço for mais baixo."
+          },
+          {
+            "tipo": "resposta curta",
+            "en": "He said he'd be, if the price was lower.",
+            "pt": "Ele disse que estaria, se o preço fosse mais baixo."
           }
         ],
         "recombinacoes": [
@@ -59482,6 +59581,11 @@
             "tipo": "futuro",
             "en": "She told me she's gonna contact the recipient soon.",
             "pt": "Ela me disse que vai entrar em contato com o destinatário logo."
+          },
+          {
+            "tipo": "resposta curta",
+            "en": "She told me she had.",
+            "pt": "Ela me disse que sim (já tinha)."
           }
         ],
         "recombinacoes": [
@@ -59821,6 +59925,11 @@
             "tipo": "negativa",
             "en": "She said she wouldn't be able to call us back until she had more info.",
             "pt": "Ela disse que não conseguiria ligar de volta até ter mais informações."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would she call us back once she had more information?",
+            "pt": "Ela ligaria de volta assim que tivesse mais informações?"
           }
         ],
         "recombinacoes": [
@@ -59925,6 +60034,11 @@
             "tipo": "informal",
             "en": "He's a genius, so I'm sure his data's solid.",
             "pt": "Ele é um gênio, então tenho certeza de que os dados dele estão firmes."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is he a brilliant scholar, and are you certain his data is solid?",
+            "pt": "Ele é um acadêmico brilhante, e você tem certeza de que os dados dele são sólidos?"
           }
         ],
         "recombinacoes": [
@@ -60146,6 +60260,16 @@
             "tipo": "informal",
             "en": "I'm super worried about the damage this could do to our reputation.",
             "pt": "Estou muito preocupado com o dano que isso pode causar à nossa reputação."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I'm definitely concerned about it.",
+            "pt": "Sim, eu estou definitivamente preocupado com isso."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Were you definitely concerned about the potential damage to our brand reputation?",
+            "pt": "Você estava definitivamente preocupado com o possível dano à reputação da nossa marca?"
           }
         ],
         "recombinacoes": [
@@ -60426,6 +60550,11 @@
             "tipo": "terceira-pessoa",
             "en": "That's an interesting perspective, but he still has to disagree with the overall conclusion.",
             "pt": "Essa é uma perspectiva interessante, mas ele ainda tem que discordar da conclusão geral."
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "That's an interesting perspective, but she'd still have to disagree with the overall conclusion.",
+            "pt": "Essa é uma perspectiva interessante, mas ela ainda teria que discordar da conclusão geral."
           }
         ],
         "recombinacoes": [
@@ -60624,6 +60753,11 @@
             "tipo": "passado",
             "en": "I'd have loved to hear more about that, wouldn't I?",
             "pt": "Eu teria adorado ouvir mais sobre isso, né?"
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Would you love to hear more about that?",
+            "pt": "Você gostaria de ouvir mais sobre isso?"
           }
         ],
         "recombinacoes": [
@@ -60674,6 +60808,11 @@
             "tipo": "pergunta",
             "en": "Did you end up staying until midnight?",
             "pt": "Vocês acabaram ficando até meia-noite?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He ends up staying until midnight, doesn't he?",
+            "pt": "Ele acaba ficando até meia-noite, né?"
           }
         ],
         "recombinacoes": [
@@ -60810,6 +60949,16 @@
             "tipo": "negativa",
             "en": "We aren't expecting to finish this later, are we?",
             "pt": "A gente não está esperando terminar isso mais tarde, né?"
+          },
+          {
+            "tipo": "informal",
+            "en": "You're expecting to finish this later, aren't you?",
+            "pt": "Você está esperando terminar isso mais tarde, né?"
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Was he expecting to finish this later?",
+            "pt": "Ele estava esperando terminar isso mais tarde?"
           }
         ],
         "recombinacoes": []
@@ -60833,6 +60982,16 @@
             "tipo": "pergunta",
             "en": "Do you think you got food poisoning from the salad?",
             "pt": "Você acha que teve uma intoxicação alimentar por causa da salada?"
+          },
+          {
+            "tipo": "passado",
+            "en": "I thought I got food poisoning from the salad, didn't I?",
+            "pt": "Eu achei que tinha tido intoxicação alimentar por causa da salada, né?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "I'm going to get food poisoning from this salad, aren't I?",
+            "pt": "Eu vou acabar pegando uma intoxicação alimentar dessa salada, né?"
           }
         ],
         "recombinacoes": []
@@ -60861,6 +61020,11 @@
             "tipo": "futuro",
             "en": "He's just going to go outside to have a smoke, isn't he?",
             "pt": "Ele só vai lá fora fumar um cigarro, né?"
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is he just going outside to have a smoke?",
+            "pt": "Ele só vai lá fora fumar um cigarro?"
           }
         ],
         "recombinacoes": [
@@ -60951,6 +61115,11 @@
             "tipo": "futuro",
             "en": "We'll keep talking for a while, won't we?",
             "pt": "A gente vai continuar conversando por um tempo, né?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "We'll be talking for a while, won't we?",
+            "pt": "A gente vai ficar conversando por um tempo, né?"
           }
         ],
         "recombinacoes": [
@@ -61007,6 +61176,11 @@
             "tipo": "informal",
             "en": "I should probably wrap this up, shouldn't I?",
             "pt": "Eu provavelmente deveria encerrar isso, né?"
+          },
+          {
+            "tipo": "terceira-pessoa",
+            "en": "He'd better start wrapping this up, hadn't he?",
+            "pt": "É melhor ele começar a encerrar isso, né?"
           }
         ],
         "recombinacoes": [
@@ -61117,6 +61291,16 @@
             "tipo": "informal",
             "en": "I heard about the accident on the news this morning, such a tragedy.",
             "pt": "Fiquei sabendo do acidente no jornal hoje de manhã, que tragédia."
+          },
+          {
+            "tipo": "futuro",
+            "en": "I'll hear about the accident on the news, it'll be really tragic.",
+            "pt": "Eu vou ouvir sobre o acidente no jornal, vai ser realmente trágico."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I did, and it really is.",
+            "pt": "Sim, eu ouvi, e realmente é."
           }
         ],
         "recombinacoes": [
@@ -61171,6 +61355,16 @@
             "tipo": "informal",
             "en": "I'm trying to get through these three tough files before the day ends.",
             "pt": "Estou tentando vencer esses três arquivos difíceis antes que o dia acabe."
+          },
+          {
+            "tipo": "futuro",
+            "en": "I'll be trying to work through these three difficult files before the day ends.",
+            "pt": "Eu estarei tentando resolver esses três arquivos difíceis antes que o dia acabe."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I am.",
+            "pt": "Sim, estou."
           }
         ],
         "recombinacoes": [
@@ -61215,6 +61409,16 @@
             "tipo": "informal",
             "en": "It's weird, but I've been reading this science magazine for three hours straight.",
             "pt": "É esquisito, mas estou lendo essa revista de ciências faz três horas seguidas."
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Is it strange that you've been reading this scientific journal for three hours straight?",
+            "pt": "É estranho que você esteja lendo essa revista científica há três horas seguidas?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "It'll be strange if I've been reading this scientific journal for three hours straight.",
+            "pt": "Vai ser estranho se eu estiver lendo essa revista científica há três horas seguidas."
           }
         ],
         "recombinacoes": [
@@ -61259,6 +61463,11 @@
             "tipo": "informal",
             "en": "I'm not sure if I'm saying this word right, can you check it?",
             "pt": "Não tenho certeza se estou dizendo essa palavra certo, você pode checar?"
+          },
+          {
+            "tipo": "pergunta",
+            "en": "Are you sure you're pronouncing this word correctly? Should I check it?",
+            "pt": "Você tem certeza que está pronunciando essa palavra corretamente? Devo verificar?"
           }
         ],
         "recombinacoes": [
@@ -61308,6 +61517,11 @@
             "tipo": "informal",
             "en": "I should probably look for the paper since I need to find that article.",
             "pt": "Eu provavelmente deveria procurar o jornal já que preciso achar aquele artigo."
+          },
+          {
+            "tipo": "resposta-curta",
+            "en": "Yes, I'd better.",
+            "pt": "Sim, é melhor mesmo."
           }
         ],
         "recombinacoes": [
@@ -61367,6 +61581,11 @@
             "tipo": "pergunta",
             "en": "Was she working on her pronunciation because she wanted to sound more like a local?",
             "pt": "Ela estava trabalhando na pronúncia dela porque queria soar mais como um nativo?"
+          },
+          {
+            "tipo": "futuro",
+            "en": "I'm going to work on my pronunciation because I want to sound more like a local.",
+            "pt": "Eu vou trabalhar na minha pronúncia porque quero soar mais como um nativo."
           }
         ],
         "recombinacoes": [

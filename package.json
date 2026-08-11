@@ -31,6 +31,7 @@
     "verify:content": "tsx scripts/verify-content.ts",
     "cleanup:audio": "tsx scripts/cleanup-audio.ts",
     "seed:curriculum": "tsx scripts/seed-curriculum.ts",
+    "backup:curso": "tsx scripts/backup-curso.ts",
     "index:knowledge": "tsx scripts/index-knowledge.ts",
     "bootstrap:admin": "tsx scripts/bootstrap-admin.ts",
     "gen:pronuncia": "tsx scripts/generate-pronunciation.ts",

@@ -40,6 +40,7 @@ import {
   escutasExigidas,
   gramaticaDe,
   progressaoDe,
+  TOTAL_CIRCUITOS,
 } from "./metodo";
 import {
   DIAS_DE_PRODUCAO,
@@ -212,7 +213,10 @@ const FECHAMENTOS: Record<number, string> = {
   11: "Conversa ao vivo cobra em tempo real, sem pausa para montar a frase. O que travou hoje é a lista do que treinar.",
   12: "Ouvir acima do confortável reajusta o que o seu ouvido chama de rápido. Na próxima vez, a velocidade normal soa devagar.",
   13: "A revisão embaralhada mistura circuitos de propósito: reconhecer fora de ordem é o que prova que você tem o bloco, e não a sequência.",
-  14: "Circuito fechado. Amanhã começa outro, e o que você treinou aqui volta espaçado, sem você precisar lembrar de revisar.",
+  // O dia 14 é o único que ganha prefixo ("Circuito N fechado: …"), então esta
+  // frase não repete o fecho — juntas elas saíam "Circuito 52 fechado: … .
+  // Circuito fechado."
+  14: "Amanhã começa outro, e o que você treinou aqui volta espaçado, sem você precisar lembrar de revisar.",
 };
 
 function montarBriefing(n: number, dia: number, blocos: Bloco[]): LessonBriefing {
@@ -389,7 +393,15 @@ export function composeLesson(ctx: ComposeContext): ComposedLesson {
       gated: ouvido.travados.length ? ouvido.travados : undefined,
       summary:
         dia === 14
-          ? `Circuito ${n} fechado: ${prog.titulo}. ${FECHAMENTOS[14]}`
+          ? n === TOTAL_CIRCUITOS
+            ? // O último dia do curso não tem "amanhã começa outro": não começa.
+              // Depois de 728 dias, o que resta a dizer é o que ele conquistou —
+              // e que a agenda de revisão continua, porque ela é o que segura o
+              // que foi aprendido depois que as lições acabam.
+              `Circuito ${n} fechado, e o curso também: ${prog.titulo}. ` +
+              `Você começou sem saber dizer o próprio nome em inglês e hoje sustenta uma conversa. ` +
+              `A agenda de revisão continua rodando: é ela que mantém o que você construiu.`
+            : `Circuito ${n} fechado: ${prog.titulo}. ${FECHAMENTOS[14]}`
           : FECHAMENTOS[dia],
       homework: dia === 7 ? prog.missao : undefined,
     },
