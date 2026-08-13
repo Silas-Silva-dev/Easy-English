@@ -67,19 +67,31 @@ export async function POST(request: NextRequest) {
   // Contexto pedagógico: o roteiro da lição, quando houver.
   let scenario = parsed.data.scenario?.trim() ?? "";
   let circuitNumber: number | null = null;
+  let dayNumber: number | null = null;
   let chunks: { en: string; pt: string }[] = [];
+  /**
+   * O nível da LIÇÃO, não a meta do perfil.
+   *
+   * `profiles.target_level` é onde o aluno quer chegar e vem com `B1` por
+   * padrão — usá-lo colocava um iniciante do circuito 1 recebendo aula em
+   * ritmo B1 no primeiro dia. `lessons.level` é onde ele está: A1.1 no começo,
+   * B2.2 no fim. O perfil só entra quando não há lição (conversa avulsa).
+   */
   let level = session.profile.target_level;
 
   if (parsed.data.lessonId) {
     const { data: lesson } = await supabase
       .from("lessons")
-      .select("id, level, situation, chunks, extensions, week_number, is_published")
+      .select(
+        "id, level, situation, chunks, extensions, week_number, circuit_day, day_number, is_published",
+      )
       .eq("id", parsed.data.lessonId)
       .maybeSingle();
 
     if (lesson?.is_published) {
       level = lesson.level;
       circuitNumber = lesson.week_number;
+      dayNumber = lesson.circuit_day;
       chunks = (lesson.chunks ?? []).slice(0, 8);
       const ext = lesson.extensions as { live_prompt?: string } | null;
       scenario = scenario || ext?.live_prompt || lesson.situation || "";
@@ -100,7 +112,10 @@ export async function POST(request: NextRequest) {
       ragContext = buildContextBlock(ragChunks);
     }
   } catch (e) {
-    console.warn("[live/token] Falha ao carregar RAG para conversa ao vivo:", e);
+    console.warn(
+      "[live/token] Falha ao carregar RAG para conversa ao vivo:",
+      e,
+    );
   }
 
   const systemInstruction = liveSystemPrompt({
@@ -111,6 +126,8 @@ export async function POST(request: NextRequest) {
     scenario,
     chunks,
     ragContext,
+    circuito: circuitNumber,
+    dia: dayNumber,
   });
 
   try {
@@ -159,7 +176,8 @@ export async function POST(request: NextRequest) {
       expiresAt: new Date(now + 30 * 60 * 1000).toISOString(),
     });
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Erro desconhecido";
+    const message =
+      error instanceof Error ? error.message : "Erro desconhecido";
     console.error("[live/token]", message);
 
     const quota = /quota|429|rate.?limit/i.test(message);
