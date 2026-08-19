@@ -43,6 +43,15 @@ export interface NavItem {
   icon: keyof typeof ICONS;
   exact?: boolean;
   badge?: string;
+  /**
+   * Item em destaque: fundo da paleta do sistema mesmo quando não está ativo.
+   *
+   * Existe para UM item — a conversa ao vivo. É a única tela do produto em que
+   * o aluno FALA com alguém, e a única que ele evita por vergonha; num menu de
+   * oito linhas iguais ela sumia entre "Tradutor" e "Meu progresso". O destaque
+   * é da paleta, não uma cor nova: o realce é de posição e peso, não de tinta.
+   */
+  highlight?: boolean;
 }
 
 /** Grupo colapsável de itens de navegação exibido na sidebar. */
@@ -83,7 +92,12 @@ const ICONS = {
  *
  * Não aparece no `lg`, onde a barra lateral já resolve isso melhor.
  */
-const ATALHOS: { href: string; label: string; icon: keyof typeof ICONS; exact?: boolean }[] = [
+const ATALHOS: {
+  href: string;
+  label: string;
+  icon: keyof typeof ICONS;
+  exact?: boolean;
+}[] = [
   { href: "/app", label: "Painel", icon: "dashboard", exact: true },
   { href: "/app/revisao", label: "Revisão", icon: "brain" },
   { href: "/app/conversacao", label: "Fala", icon: "mic" },
@@ -124,21 +138,23 @@ export function AppShell({
 }) {
   const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
-  const [navigatingHref, setNavigatingHref] = React.useState<string | null>(null);
+  const [navigatingHref, setNavigatingHref] = React.useState<string | null>(
+    null,
+  );
 
   // Cada grupo começa aberto se algum filho estiver ativo.
-  const [groupOpen, setGroupOpen] = React.useState<Record<number, boolean>>(() =>
-    Object.fromEntries(
-      navGroups.map((g, gi) => [
-        gi,
-        g.items.some(
-          (it) =>
+  const [groupOpen, setGroupOpen] = React.useState<Record<number, boolean>>(
+    () =>
+      Object.fromEntries(
+        navGroups.map((g, gi) => [
+          gi,
+          g.items.some((it) =>
             it.exact
               ? pathname === it.href
               : pathname === it.href || pathname.startsWith(`${it.href}/`),
-        ),
-      ]),
-    ),
+          ),
+        ]),
+      ),
   );
 
   React.useEffect(() => {
@@ -147,7 +163,9 @@ export function AppShell({
   }, [pathname]);
 
   const isActive = (item: NavItem) =>
-    item.exact ? pathname === item.href : pathname === item.href || pathname.startsWith(`${item.href}/`);
+    item.exact
+      ? pathname === item.href
+      : pathname === item.href || pathname.startsWith(`${item.href}/`);
 
   const handleNavClick = (href: string) => {
     if (href !== pathname) {
@@ -172,7 +190,13 @@ export function AppShell({
           indented && "pl-4",
           active
             ? "bg-primary/10 text-primary"
-            : "text-muted-foreground hover:bg-accent hover:text-foreground",
+            : item.highlight
+              ? // Destaque em repouso: fundo e borda da paleta, texto no tom
+                // do produto. Fica visivelmente acima dos outros itens sem
+                // gritar, e some para trás do estado ativo quando é a tela
+                // aberta — senão o aluno não saberia onde está.
+                "bg-primary/8 text-primary ring-1 ring-primary/20 hover:bg-primary/15"
+              : "text-muted-foreground hover:bg-accent hover:text-foreground",
         )}
       >
         {isNavigating ? (
@@ -189,7 +213,10 @@ export function AppShell({
           ) : null}
         </div>
         {isNavigating ? (
-          <Badge variant="neutral" className="text-primary animate-pulse text-[10px]">
+          <Badge
+            variant="neutral"
+            className="text-primary animate-pulse text-[10px]"
+          >
             Carregando…
           </Badge>
         ) : item.badge ? (
@@ -270,16 +297,27 @@ export function AppShell({
         className="hover:bg-accent flex items-center gap-3 rounded-lg p-2 transition-colors"
       >
         <Avatar className="size-9 shrink-0">
-          {profile.avatar_url ? <AvatarImage src={profile.avatar_url} alt="" /> : null}
-          <AvatarFallback>{initials(profile.full_name ?? profile.email)}</AvatarFallback>
+          {profile.avatar_url ? (
+            <AvatarImage src={profile.avatar_url} alt="" />
+          ) : null}
+          <AvatarFallback>
+            {initials(profile.full_name ?? profile.email)}
+          </AvatarFallback>
         </Avatar>
 
         <div className="min-w-0 flex-1">
-          <p className="truncate text-sm font-medium">{profile.full_name ?? "Aluno"}</p>
-          <p className="text-muted-foreground truncate text-xs">{profile.email}</p>
+          <p className="truncate text-sm font-medium">
+            {profile.full_name ?? "Aluno"}
+          </p>
+          <p className="text-muted-foreground truncate text-xs">
+            {profile.email}
+          </p>
         </div>
 
-        <Badge variant={ROLE_TONE[profile.role]} className="shrink-0 text-[10px]">
+        <Badge
+          variant={ROLE_TONE[profile.role]}
+          className="shrink-0 text-[10px]"
+        >
           {ROLE_LABEL[profile.role]}
         </Badge>
       </Link>
@@ -295,7 +333,10 @@ export function AppShell({
           coluna de conteúdo à mão. */}
       <aside className="bg-sidebar border-sidebar-border hidden border-r lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col">
         <div className="flex h-16 shrink-0 items-center px-5">
-          <Link href={brandHref} className="flex items-center gap-2.5 font-semibold">
+          <Link
+            href={brandHref}
+            className="flex items-center gap-2.5 font-semibold"
+          >
             <span className="bg-primary text-primary-foreground grid size-8 place-items-center rounded-lg">
               <Waves className="size-4" />
             </span>
@@ -304,14 +345,18 @@ export function AppShell({
         </div>
 
         {/* Só a lista rola, quando a navegação for maior que a tela. */}
-        <div className="min-h-0 flex-1 overflow-y-auto px-3 py-2">{navList}</div>
+        <div className="min-h-0 flex-1 overflow-y-auto px-3 py-2">
+          {navList}
+        </div>
 
         {typeof streak === "number" ? (
           <div className="shrink-0 px-3 pb-3">
             <div className="bg-streak/10 text-streak flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm">
               <span className="text-lg leading-none">🔥</span>
               <div className="min-w-0">
-                <p className="leading-tight font-semibold tabular-nums">{streak} dias</p>
+                <p className="leading-tight font-semibold tabular-nums">
+                  {streak} dias
+                </p>
                 <p className="text-[11px] opacity-80">de ofensiva</p>
               </div>
             </div>
@@ -334,7 +379,10 @@ export function AppShell({
             {/* Mesma reserva do cabecalho: a gaveta tambem vai de topo a base
                 da tela, entao a marca e o X caem sob o relogio sem isto. */}
             <div className="flex h-[calc(4rem+var(--safe-top))] shrink-0 items-center justify-between px-5 pt-[var(--safe-top)]">
-              <Link href={brandHref} className="flex min-w-0 items-center gap-2.5 font-semibold">
+              <Link
+                href={brandHref}
+                className="flex min-w-0 items-center gap-2.5 font-semibold"
+              >
                 <span className="bg-primary text-primary-foreground grid size-8 shrink-0 place-items-center rounded-lg">
                   <Waves className="size-4" />
                 </span>
@@ -350,7 +398,9 @@ export function AppShell({
               </Button>
             </div>
 
-            <div className="min-h-0 flex-1 overflow-y-auto px-3 py-2">{navList}</div>
+            <div className="min-h-0 flex-1 overflow-y-auto px-3 py-2">
+              {navList}
+            </div>
 
             <div className="shrink-0 pb-[var(--safe-bottom)]">{identity}</div>
           </div>
@@ -406,8 +456,12 @@ export function AppShell({
             <DropdownMenuTrigger asChild>
               <button className="hover:bg-accent flex max-sm:min-h-11 items-center gap-2 rounded-lg py-1 pr-2 pl-1 transition-colors">
                 <Avatar className="size-8">
-                  {profile.avatar_url ? <AvatarImage src={profile.avatar_url} alt="" /> : null}
-                  <AvatarFallback>{initials(profile.full_name ?? profile.email)}</AvatarFallback>
+                  {profile.avatar_url ? (
+                    <AvatarImage src={profile.avatar_url} alt="" />
+                  ) : null}
+                  <AvatarFallback>
+                    {initials(profile.full_name ?? profile.email)}
+                  </AvatarFallback>
                 </Avatar>
                 <ChevronDown className="text-muted-foreground size-3.5" />
               </button>
@@ -415,7 +469,9 @@ export function AppShell({
 
             <DropdownMenuContent align="end" className="w-60">
               <DropdownMenuLabel className="text-foreground">
-                <div className="truncate font-medium">{profile.full_name ?? "Aluno"}</div>
+                <div className="truncate font-medium">
+                  {profile.full_name ?? "Aluno"}
+                </div>
                 <div className="text-muted-foreground truncate text-xs font-normal">
                   {profile.email}
                 </div>

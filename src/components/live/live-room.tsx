@@ -1,12 +1,11 @@
 "use client";
 
 import type { LiveServerMessage, Session } from "@google/genai";
-import { AlertCircle, Loader2, Mic, MicOff, PhoneOff, Radio } from "lucide-react";
+import { AlertCircle, Loader2, Mic, MicOff, PhoneOff } from "lucide-react";
 import * as React from "react";
 import { toast } from "sonner";
 
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { EmmaAvatar } from "@/components/live/emma-avatar";
 import { cn } from "@/lib/utils";
 
 import { saveLiveSessionAction } from "@/app/app/ao-vivo/actions";
@@ -55,11 +54,19 @@ function falhaDefinitiva(motivo: string): string | null {
 
   // Ancorado no texto exato do servidor: "exceeded" sozinho também aparece em
   // "deadline exceeded", que é queda passageira e PRECISA reconectar.
-  if (/spend(ing)? cap|billing|quota|resource has been exhausted|rate.?limit|\b429\b/.test(t)) {
+  if (
+    /spend(ing)? cap|billing|quota|resource has been exhausted|rate.?limit|\b429\b/.test(
+      t,
+    )
+  ) {
     return "A sala de voz está indisponível: a conta do serviço atingiu o limite de uso contratado. Não é problema do seu computador nem da sua internet — avise o suporte.";
   }
 
-  if (/api key|api_key|unauthenticated|unauthorized|permission|forbidden|\b401\b|\b403\b/.test(t)) {
+  if (
+    /api key|api_key|unauthenticated|unauthorized|permission|forbidden|\b401\b|\b403\b/.test(
+      t,
+    )
+  ) {
     return "A sala de voz recusou a credencial de acesso. Não há nada para você ajustar aqui — avise o suporte.";
   }
 
@@ -214,7 +221,9 @@ export function LiveRoom({
   const reconectandoRef = React.useRef(false);
   const tentativasRef = React.useRef(0);
   /** Zera `tentativasRef` só depois que a conexão nova se sustenta de pé. */
-  const estabilidadeRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const estabilidadeRef = React.useRef<ReturnType<typeof setTimeout> | null>(
+    null,
+  );
   /** O aluno pediu para encerrar: uma queda aqui não deve reconectar. */
   const encerrandoRef = React.useRef(false);
   /**
@@ -225,8 +234,12 @@ export function LiveRoom({
    */
   const turnsRef = React.useRef<Turn[]>([]);
   /** Quebram o ciclo: `handleMessage` precisa reconectar, e reconectar usa `handleMessage`. */
-  const reconectarRef = React.useRef<((motivo: string) => Promise<void>) | null>(null);
-  const quedaRef = React.useRef<((motivo: string) => Promise<void>) | null>(null);
+  const reconectarRef = React.useRef<
+    ((motivo: string) => Promise<void>) | null
+  >(null);
+  const quedaRef = React.useRef<((motivo: string) => Promise<void>) | null>(
+    null,
+  );
   const stopRef = React.useRef<(() => Promise<void>) | null>(null);
 
   React.useEffect(() => {
@@ -370,10 +383,16 @@ export function LiveRoom({
         // O modo vai em toda abertura, inclusive nas reconexões: a instrução de
         // sistema é montada no servidor, e sem ele a troca de conexão dos 10
         // minutos devolveria a Emma ao padrão no meio da conversa.
-        body: JSON.stringify({ lessonId, scenario, resumeHandle: handle, mode: modoRef.current }),
+        body: JSON.stringify({
+          lessonId,
+          scenario,
+          resumeHandle: handle,
+          mode: modoRef.current,
+        }),
       });
       const tokenPayload = await tokenResponse.json();
-      if (!tokenResponse.ok) throw new Error(tokenPayload?.error ?? "Falha ao obter acesso");
+      if (!tokenResponse.ok)
+        throw new Error(tokenPayload?.error ?? "Falha ao obter acesso");
 
       /**
        * O SDK entra aqui, e nao no topo do arquivo.
@@ -396,7 +415,25 @@ export function LiveRoom({
 
       const id = ++idCounterRef.current;
 
-      return ai.live.connect({
+      /**
+       * QUEM ABRE A BOCA PRIMEIRO.
+       *
+       * Numa sessão de voz o modelo não fala sozinho: ele espera um turno. Sem
+       * isto, a sala abria em silêncio, o aluno dizia "hi" para preencher o
+       * vazio, e a Emma respondia àquele "hi" — conversando. A abertura de aula
+       * que o modo Professora define (dizer em português o que vão praticar,
+       * quais expressões, como funciona) nunca acontecia, porque ela nunca
+       * chegava a ter o primeiro turno.
+       *
+       * O empurrão vai como turno do aluno porque é o único canal que a sessão
+       * tem; o texto avisa que é o sistema falando, para a Emma não responder
+       * a ele como se fosse fala. E vai SÓ na primeira conexão: a reconexão dos
+       * dez minutos retoma a conversa pelo handle, e reabrir a aula ali faria a
+       * Emma se apresentar de novo no meio de um exercício.
+       */
+      const primeiraConexao = !handle;
+
+      const sessao = await ai.live.connect({
         model: tokenPayload.model,
         config: {
           responseModalities: [Modality.AUDIO],
@@ -424,10 +461,37 @@ export function LiveRoom({
           // transformava qualquer falha permanente em reconexão muda e eterna.
           onclose: (event: CloseEvent) => {
             if (id !== activeIdRef.current) return;
-            void quedaRef.current?.(event.reason || "conexão encerrada pelo servidor");
+            void quedaRef.current?.(
+              event.reason || "conexão encerrada pelo servidor",
+            );
           },
         },
       });
+
+      // Ver `primeiraConexao` acima: é este turno que faz a aula começar.
+      if (primeiraConexao) {
+        try {
+          sessao.sendClientContent({
+            turns: [
+              {
+                role: "user",
+                parts: [
+                  {
+                    text: "[sistema] O aluno acabou de entrar na sala e ainda não falou. Comece a aula agora, do seu jeito, seguindo a instrução de abertura.",
+                  },
+                ],
+              },
+            ],
+            turnComplete: true,
+          });
+        } catch (e) {
+          // Falhar aqui custa a abertura, não a conversa: o aluno fala e a
+          // sessão segue. Derrubar a sala por causa disso seria pior.
+          console.warn("[live] não consegui pedir a abertura da aula:", e);
+        }
+      }
+
+      return sessao;
     },
     [handleMessage, lessonId, scenario],
   );
@@ -598,7 +662,9 @@ export function LiveRoom({
       outCtxRef.current = outCtx;
       await outCtx.resume();
 
-      const blob = new Blob([CAPTURE_WORKLET], { type: "application/javascript" });
+      const blob = new Blob([CAPTURE_WORKLET], {
+        type: "application/javascript",
+      });
       const workletUrl = URL.createObjectURL(blob);
       workletUrlRef.current = workletUrl;
       await inCtx.audioWorklet.addModule(workletUrl);
@@ -611,7 +677,9 @@ export function LiveRoom({
       const source = inCtx.createMediaStreamSource(stream);
       const node = new AudioWorkletNode(inCtx, "capture-processor");
 
-      node.port.onmessage = (event: MessageEvent<{ pcm: ArrayBuffer; peak: number }>) => {
+      node.port.onmessage = (
+        event: MessageEvent<{ pcm: ArrayBuffer; peak: number }>,
+      ) => {
         setLevel(Math.min(1, event.data.peak * 2.2));
         if (mutedRef.current) return;
         try {
@@ -681,7 +749,8 @@ export function LiveRoom({
         transcript: finalTurns,
       });
 
-      if (result.ok) toast.success("Conversa salva. A tutora avaliou seu desempenho.");
+      if (result.ok)
+        toast.success("Conversa salva. A tutora avaliou seu desempenho.");
       else toast.error(result.error ?? "Não foi possível salvar a conversa");
     }
 
@@ -696,151 +765,174 @@ export function LiveRoom({
 
   const mmss = `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`;
 
+  const estadoDoAvatar =
+    phase === "connecting" || phase === "closing"
+      ? ("conectando" as const)
+      : phase === "live"
+        ? speaking
+          ? ("falando" as const)
+          : ("ouvindo" as const)
+        : ("parada" as const);
+
+  /**
+   * A tela é uma chamada, não um painel.
+   *
+   * Ela tinha um cartão com o cenário do circuito, um cartão de "como
+   * aproveitar" com quatro parágrafos, um rodapé sobre calibragem de nível e a
+   * lista das últimas cinco conversas — tudo acima e abaixo do botão que o
+   * aluno veio apertar. Quem chega para falar não vem ler.
+   *
+   * Sobrou o que uma chamada tem: quem é do outro lado, em que estado ela está,
+   * o modo, e um botão redondo. O histórico virou tela própria, a um toque no
+   * canto. Nenhum texto explicativo: o que a Emma faz, ela faz na primeira
+   * frase da conversa — e é em português, no modo Professora.
+   */
   return (
-    <div className="space-y-5">
+    <div className="mx-auto flex w-full max-w-md flex-col items-center">
       {error ? (
-        <p className="bg-destructive/10 text-destructive flex items-start gap-2 rounded-lg px-3 py-2.5 text-sm">
+        <p className="bg-destructive/10 text-destructive mb-6 flex w-full items-start gap-2 rounded-xl px-4 py-3 text-sm">
           <AlertCircle className="mt-0.5 size-4 shrink-0" />
           {error}
         </p>
       ) : null}
 
-      <div className="bg-card overflow-hidden rounded-xl border">
-        <div className="from-primary/10 bg-gradient-to-b to-transparent px-6 py-10 text-center">
-          <div
-            className={cn(
-              "mx-auto grid size-24 place-items-center rounded-full transition-all duration-200",
-              phase === "live"
-                ? speaking
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-primary/15 text-primary"
-                : "bg-muted text-muted-foreground",
-            )}
-            style={
-              phase === "live" && !speaking
-                ? { transform: `scale(${1 + level * 0.18})` }
-                : undefined
-            }
-          >
-            {phase === "connecting" ? (
-              <Loader2 className="size-9 animate-spin" />
-            ) : phase === "live" ? (
-              <Radio className="size-9" />
-            ) : (
-              <Mic className="size-9" />
-            )}
-          </div>
+      <EmmaAvatar
+        estado={estadoDoAvatar}
+        nivel={level}
+        className="size-36 sm:size-44"
+      />
 
-          <div className="mt-5">
-            {phase === "live" ? (
-              <>
-                <p className="text-2xl font-semibold tabular-nums">{mmss}</p>
-                {reconectando ? (
-                  // Discreto de propósito: a conversa não parou, só a conexão
-                  // está sendo trocada por baixo.
-                  <p className="text-muted-foreground mt-1 flex items-center justify-center gap-1.5 text-xs">
-                    <Loader2 className="size-3 animate-spin" />
-                    Reconectando… pode continuar falando
-                  </p>
-                ) : null}
-                <Badge variant={speaking ? "default" : "neutral"} className="mt-2">
-                  {speaking ? "Emma está falando" : "Sua vez: fale"}
-                </Badge>
-              </>
-            ) : phase === "connecting" ? (
-              <p className="text-sm font-medium">Abrindo a sala…</p>
-            ) : (
-              <>
-                <p className="font-medium">{title ?? "Conversa ao vivo"}</p>
-                <p className="text-muted-foreground mx-auto mt-1.5 max-w-sm text-xs leading-relaxed">
-                  Voz em tempo real, sem roteiro e sem pausa para pensar. É o treino que mais se
-                  parece com falar com um americano de verdade.
-                </p>
-              </>
-            )}
-          </div>
-        </div>
+      <h1 className="mt-6 text-2xl font-semibold tracking-tight">Emma</h1>
 
-        <div className="space-y-4 border-t p-4 sm:p-5">
-          {/* Fica visível durante a conversa, e não só antes dela: é no meio da
-              fala que o aluno descobre que quer desligar a correção. */}
-          <div className="flex flex-col items-center gap-2">
-            <div className="border-border flex overflow-hidden rounded-lg border text-xs font-medium">
-              {(["professora", "conversa"] as Modo[]).map((m) => (
-                <button
-                  key={m}
-                  type="button"
-                  onClick={() => trocarModo(m)}
-                  // Enquanto a sala abre, o token com o modo já foi pedido e a
-                  // sessão ainda não existe para receber o aviso: a troca cairia
-                  // no vazio até a próxima reconexão.
-                  disabled={phase === "connecting" || phase === "closing"}
-                  className={cn(
-                    "px-3.5 py-1.5 max-sm:min-h-11 max-sm:flex-1 transition-colors disabled:opacity-50",
-                    modo === m
-                      ? "bg-primary text-primary-foreground"
-                      : "text-muted-foreground hover:bg-muted",
-                  )}
-                  aria-pressed={modo === m}
-                >
-                  {m === "professora" ? "Professora" : "Só conversa"}
-                </button>
-              ))}
-            </div>
-            <p className="text-muted-foreground max-w-sm text-center text-xs leading-relaxed">
-              {modo === "professora"
-                ? "A Emma corrige o que você falar e explica em português. Diga “vamos só conversar” quando quiser que ela pare."
-                : "A Emma só conversa, sem corrigir. Diga “volta a corrigir” para ter as correções de volta."}
-            </p>
-          </div>
-
-          {/* Empilha no celular: os dois botões somam mais que 320px e o pai é
-              overflow-hidden: "Encerrar" saía decepado, sem rolagem que o
-              recuperasse. */}
-          <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
-            {phase === "idle" ? (
-              <Button size="lg" variant="gradient" onClick={start}>
-                <Mic className="size-4" /> Iniciar conversa
-              </Button>
-            ) : (
-              <>
-                <Button
-                  size="lg"
-                  variant={muted ? "destructive" : "outline"}
-                  onClick={() => setMuted((m) => !m)}
-                  disabled={phase !== "live"}
-                >
-                  {muted ? <MicOff className="size-4" /> : <Mic className="size-4" />}
-                  {muted ? "Microfone mudo" : "Mudo"}
-                </Button>
-                <Button size="lg" variant="destructive" onClick={stop} loading={phase === "closing"}>
-                  <PhoneOff className="size-4" /> Encerrar
-                </Button>
-              </>
-            )}
-          </div>
-        </div>
+      {/* Uma linha de estado, sempre no mesmo lugar: é o que o aluno olha para
+          saber de quem é a vez. Altura fixa para o botão não pular quando o
+          texto troca. */}
+      <div className="mt-1.5 flex h-6 items-center gap-2">
+        {phase === "live" ? (
+          <>
+            <span className="text-muted-foreground text-sm tabular-nums">
+              {mmss}
+            </span>
+            <span className="text-muted-foreground/40">·</span>
+            <span
+              className={cn(
+                "text-sm font-medium",
+                speaking ? "text-primary" : "text-foreground",
+              )}
+            >
+              {reconectando
+                ? "reconectando…"
+                : speaking
+                  ? "falando"
+                  : "sua vez"}
+            </span>
+          </>
+        ) : phase === "connecting" ? (
+          <span className="text-muted-foreground text-sm">chamando…</span>
+        ) : phase === "closing" ? (
+          <span className="text-muted-foreground text-sm">encerrando…</span>
+        ) : (
+          <span className="text-muted-foreground text-sm">
+            {title ?? "sua professora de inglês"}
+          </span>
+        )}
       </div>
 
+      {/* Os dois modos, sempre visíveis: é no meio da fala que o aluno descobre
+          que quer desligar a correção. */}
+      <div
+        role="group"
+        aria-label="Modo da Emma"
+        className="bg-muted mt-8 flex w-full max-w-xs rounded-full p-1"
+      >
+        {(["professora", "conversa"] as Modo[]).map((m) => (
+          <button
+            key={m}
+            type="button"
+            onClick={() => trocarModo(m)}
+            // Enquanto a sala abre, o token com o modo já foi pedido e a sessão
+            // ainda não existe para receber o aviso: a troca cairia no vazio.
+            disabled={phase === "connecting" || phase === "closing"}
+            aria-pressed={modo === m}
+            className={cn(
+              "min-h-11 flex-1 rounded-full px-4 text-sm font-medium transition-all disabled:opacity-50",
+              modo === m
+                ? "bg-background text-foreground shadow-sm"
+                : "text-muted-foreground hover:text-foreground",
+            )}
+          >
+            {m === "professora" ? "Professora" : "Conversa"}
+          </button>
+        ))}
+      </div>
+
+      {/* O botão. Redondo, grande, no centro — e é o único elemento da tela que
+          o aluno precisa acertar. */}
+      <div className="mt-10 flex items-center gap-5">
+        {phase === "idle" ? (
+          <button
+            type="button"
+            onClick={start}
+            aria-label="Iniciar conversa"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-ring grid size-20 place-items-center rounded-full shadow-lg transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none active:scale-95"
+          >
+            <Mic className="size-8" />
+          </button>
+        ) : (
+          <>
+            <button
+              type="button"
+              onClick={() => setMuted((m) => !m)}
+              disabled={phase !== "live"}
+              aria-label={muted ? "Reativar microfone" : "Silenciar microfone"}
+              aria-pressed={muted}
+              className={cn(
+                "focus-visible:ring-ring grid size-14 place-items-center rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:opacity-40",
+                muted
+                  ? "bg-foreground text-background"
+                  : "bg-muted text-foreground hover:bg-accent",
+              )}
+            >
+              {muted ? (
+                <MicOff className="size-5" />
+              ) : (
+                <Mic className="size-5" />
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={stop}
+              aria-label="Encerrar conversa"
+              className="bg-destructive text-primary-foreground focus-visible:ring-destructive grid size-20 place-items-center rounded-full shadow-lg transition-all hover:scale-105 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none active:scale-95 disabled:opacity-60"
+              disabled={phase === "closing"}
+            >
+              {phase === "closing" ? (
+                <Loader2 className="size-8 animate-spin" />
+              ) : (
+                <PhoneOff className="size-8" />
+              )}
+            </button>
+          </>
+        )}
+      </div>
+
+      {/* A transcrição não é texto de tela: é o que foi dito, e para quem está
+          aprendendo ver a própria frase escrita é metade da correção. Só
+          aparece quando existe conversa. */}
       {turns.length ? (
-        <div className="bg-card rounded-xl border p-5">
-          <p className="text-muted-foreground mb-3 text-xs font-medium tracking-wide uppercase">
-            Transcrição
-          </p>
-          <div className="max-h-80 space-y-2.5 overflow-y-auto">
+        <div className="mt-12 w-full">
+          <div className="max-h-72 space-y-2 overflow-y-auto pr-1">
             {turns.map((turn, i) => (
               <div
                 key={i}
                 className={cn(
-                  "rounded-lg px-4 py-2.5 text-sm",
+                  "w-fit max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed",
                   turn.role === "user"
-                    ? "bg-primary/8 border-primary/20 ml-8 border"
-                    : "bg-muted mr-8",
+                    ? "bg-primary text-primary-foreground ml-auto rounded-br-md"
+                    : "bg-muted text-foreground rounded-bl-md",
                 )}
               >
-                <span className="text-muted-foreground mb-0.5 block text-[10px] font-medium tracking-wide uppercase">
-                  {turn.role === "user" ? "Você" : "Emma"}
-                </span>
                 {turn.text}
               </div>
             ))}
