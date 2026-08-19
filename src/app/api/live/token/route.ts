@@ -1,4 +1,4 @@
-import { GoogleGenAI, Modality } from "@google/genai";
+import { EndSensitivity, GoogleGenAI, Modality, StartSensitivity } from "@google/genai";
 import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 
@@ -154,6 +154,43 @@ export async function POST(request: NextRequest) {
             outputAudioTranscription: {},
             speechConfig: {
               voiceConfig: { prebuiltVoiceConfig: { voiceName: "Aoede" } },
+            },
+            /**
+             * Afinação do VAD (Voice Activity Detection) do servidor.
+             *
+             * O padrão do Gemini Live é esperar ~1.5 s de silêncio antes de
+             * considerar que o aluno terminou a frase. Para uma conversa que
+             * precisa ser fluida como falar pessoalmente, isso é lento demais:
+             *
+             *   silenceDurationMs: 500
+             *     Meio segundo de silêncio é suficiente para saber que o turno
+             *     acabou — é a pausa natural entre frases numa conversa real.
+             *
+             *   endOfSpeechSensitivity: HIGH
+             *     Faz o VAD confiar no silêncio mais rápido, sem esperar
+             *     confirmação extra de que a fala realmente terminou.
+             *
+             *   startOfSpeechSensitivity: LOW
+             *     Exige fala de verdade para abrir um turno do aluno, em vez
+             *     de disparar no primeiro ruído.
+             *
+             *     Estava HIGH, para barge-in rápido. Mas esta sala é
+             *     half-duplex de propósito — o dono do produto pediu que o
+             *     aluno NÃO interrompa a Emma, e o cliente fecha o microfone
+             *     enquanto ela fala. Então barge-in não é objetivo, e o que
+             *     HIGH entregava na prática era o contrário: qualquer eco do
+             *     alto-falante que vazasse pelo microfone abria um turno,
+             *     o servidor mandava `interrupted`, e a frase dela morria no
+             *     meio. Sensibilidade alta para começar só serve quando se
+             *     quer ser interrompido.
+             */
+            realtimeInputConfig: {
+              automaticActivityDetection: {
+                endOfSpeechSensitivity: EndSensitivity.END_SENSITIVITY_HIGH,
+                startOfSpeechSensitivity:
+                  StartSensitivity.START_SENSITIVITY_LOW,
+                silenceDurationMs: 500,
+              },
             },
             // Habilita os handles de retomada. O servidor encerra a sessão por
             // volta dos 10 min (e antes disso se o áudio parar de fluir); sem

@@ -160,7 +160,7 @@ export const geminiModels = {
    */
   /** Conversa por voz em tempo real (bidiGenerateContent). */
   get live() {
-    return optional("GEMINI_MODEL_LIVE", "gemini-3.1-flash-live-preview");
+    return optional("GEMINI_MODEL_LIVE", "gemini-2.5-flash-native-audio-latest");
   },
 } as const;
 
