@@ -26,7 +26,14 @@
   --safe-top: env(safe-area-inset-top, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
 
-  --background: oklch(0.995 0.002 60);
+  /* O CHÃO E O PAPEL SÃO COISAS DIFERENTES.
+     Isto era `0.995` contra um card de `1.0`: meio milésimo de luminância
+     entre o fundo do app e as caixas em cima dele. Nenhuma sombra, nenhuma
+     borda e nenhum realce conseguem construir profundidade sobre uma
+     diferença que o olho não enxerga — o resultado era o que a tela mostrava:
+     botões flutuando num branco morto. O chão desceu para 0,975 e ganhou um
+     traço a mais de calor; o card continua branco e agora É o papel. */
+  --background: oklch(0.975 0.004 62);
   --foreground: oklch(0.19 0.008 45);
 
   --card: oklch(1 0 0);
@@ -70,6 +77,30 @@
   --chart-3: oklch(0.62 0.16 25);
   --chart-4: oklch(0.68 0.13 152);
   --chart-5: oklch(0.62 0.1 250);
+
+  /* -------------------------------------------------------------------------
+     O CHÃO DO APP
+
+     Três camadas, todas derivadas da paleta — nenhuma cor nova entra aqui:
+
+       lume     duas manchas radiais do laranja da marca, ancoradas em cantos
+                opostos. É o que tira o branco de "papel de impressora" e dá
+                direção à luz da tela.
+       ponto    uma matriz de pontos de 1px a cada 22px. Não é decoração: é o
+                que faz o fundo ter MATÉRIA, e é ela que sustenta a leitura de
+                que os cards estão por cima de alguma coisa.
+       sombra   a elevação dos cards, agora que existe um chão para elevar-se.
+
+     As opacidades são baixas de propósito. O fundo de um app de estudo é
+     ambiente, não conteúdo: quem abre esta tela vem falar inglês, e um fundo
+     que disputa atenção com o botão é um fundo que atrapalha.
+     ------------------------------------------------------------------------- */
+  --ground-lume-a: color-mix(in oklch, var(--primary) 9%, transparent);
+  --ground-lume-b: color-mix(in oklch, var(--primary) 5%, transparent);
+  --ground-ponto: color-mix(in oklch, var(--foreground) 6%, transparent);
+  --ground-sombra:
+    0 1px 2px -1px color-mix(in oklch, var(--foreground) 8%, transparent),
+    0 4px 16px -6px color-mix(in oklch, var(--foreground) 10%, transparent);
 }
 
 .dark {
@@ -119,6 +150,16 @@
   --chart-3: oklch(0.66 0.19 22);
   --chart-4: oklch(0.74 0.15 152);
   --chart-5: oklch(0.7 0.1 250);
+
+  /* No escuro o lume é mais forte e o ponto é CLARO em vez de escuro: um
+     ponto escuro sobre quase-preto não existe, e sem ele o fundo volta a ser
+     o vazio liso que o tema claro tinha. A sombra também inverte de função —
+     no escuro quem separa o card do chão é o próprio degrau de luminância,
+     então ela fica discreta e serve só para assentar a borda. */
+  --ground-lume-a: color-mix(in oklch, var(--primary) 14%, transparent);
+  --ground-lume-b: color-mix(in oklch, var(--primary) 7%, transparent);
+  --ground-ponto: color-mix(in oklch, oklch(1 0 0) 5%, transparent);
+  --ground-sombra: 0 2px 12px -6px oklch(0 0 0 / 0.7);
 }
 
 @theme inline {
@@ -157,7 +198,8 @@
   --color-chart-5: var(--chart-5);
 
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display:
+    var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, "SFMono-Regular", "Cascadia Code", monospace;
   --font-serif: var(--font-serif), ui-serif, Georgia, "Times New Roman", serif;
 
@@ -184,6 +226,28 @@
 
   body {
     background-color: var(--background);
+    /* As manchas primeiro, os pontos por cima: invertido, o ponto sumiria
+       dentro do lume justamente nos cantos onde ele é mais visível.
+       `fixed` prende o chão à janela — rolando, o conteúdo passa por cima de
+       um ambiente parado, que é o que faz a tela parecer profunda em vez de
+       um papel comprido sendo puxado. */
+    background-image:
+      radial-gradient(
+        58rem 42rem at 92% -12%,
+        var(--ground-lume-a),
+        transparent 62%
+      ),
+      radial-gradient(
+        46rem 38rem at -8% 108%,
+        var(--ground-lume-b),
+        transparent 60%
+      ),
+      radial-gradient(var(--ground-ponto) 1px, transparent 1px);
+    background-size:
+      auto,
+      auto,
+      22px 22px;
+    background-attachment: fixed;
     color: var(--foreground);
     font-family: var(--font-sans);
     font-feature-settings: "cv11", "ss01";
@@ -200,7 +264,10 @@
     padding-right: env(safe-area-inset-right, 0px);
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
     text-wrap: balance;
@@ -240,8 +307,76 @@
 
 @layer components {
   /* Painel de vidro usado em cabecalhos fixos e cards de destaque. */
+  /* A elevação de qualquer superfície que se apoie no chão do app.
+     Aplicada por CSS e não classe a classe porque são dezenas de superfícies —
+     card, popover, dropdown — e todas precisam da MESMA sombra: elevação
+     inconsistente é pior que elevação nenhuma, porque sugere hierarquia onde
+     não há. */
+  .bg-card,
+  .bg-popover {
+    box-shadow: var(--ground-sombra);
+  }
+
+  /* -------------------------------------------------------------------
+     ONDAS — o halo da sala de voz.
+
+     A tela da conversa é a mais vazia do produto por decisão: um avatar, dois
+     modos e um botão. Vazia demais, ela ficava sem centro de gravidade — o
+     olho não tinha para onde ir antes de encontrar o botão.
+
+     Os anéis resolvem isso com o próprio assunto da tela: som saindo de quem
+     fala. Não é ornamento genérico, é a metáfora do que está acontecendo ali,
+     e é por isso que eles PULSAM quando a Emma fala e ficam parados quando a
+     sala está fechada.
+
+     `repeating-radial-gradient` em vez de vários elementos: são anéis de 1px
+     a cada 28px, uma camada só, sem nó de DOM por anel e sem custo de layout.
+     A máscara apaga o miolo (onde o avatar fica) e a borda externa, senão o
+     padrão terminaria num corte reto no meio da tela.
+     ------------------------------------------------------------------------- */
+  .ondas {
+    background: repeating-radial-gradient(
+      circle at center,
+      color-mix(in oklch, var(--primary) 16%, transparent) 0 1px,
+      transparent 1px 28px
+    );
+    -webkit-mask-image: radial-gradient(
+      circle at center,
+      transparent 0 28%,
+      #000 42%,
+      transparent 78%
+    );
+    mask-image: radial-gradient(
+      circle at center,
+      transparent 0 28%,
+      #000 42%,
+      transparent 78%
+    );
+  }
+
+  .ondas[data-ativa="true"] {
+    animation: ondas-pulsa 3.2s ease-in-out infinite;
+  }
+
+  @keyframes ondas-pulsa {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.06);
+    }
+  }
+
+  /* Vidro fosco sobre o CHÃO, não uma faixa de card.
+     Misturado a partir de `--card` (branco puro), o cabeçalho virava uma barra
+     branca colada num fundo tingido: uma emenda dura atravessando a tela
+     inteira. Misturado a partir de `--background`, ele é o próprio chão
+     desfocado — que é o que "vidro" quer dizer. */
   .glass {
-    background: color-mix(in oklch, var(--card) 72%, transparent);
+    background: color-mix(in oklch, var(--background) 78%, transparent);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
   }
@@ -315,10 +450,22 @@
   /* Malha sutil de fundo para telas de marketing e autenticacao. */
   .bg-grid {
     background-image:
-      linear-gradient(to right, color-mix(in oklch, var(--border) 55%, transparent) 1px, transparent 1px),
-      linear-gradient(to bottom, color-mix(in oklch, var(--border) 55%, transparent) 1px, transparent 1px);
+      linear-gradient(
+        to right,
+        color-mix(in oklch, var(--border) 55%, transparent) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklch, var(--border) 55%, transparent) 1px,
+        transparent 1px
+      );
     background-size: 56px 56px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 55%, transparent 100%);
+    mask-image: radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      #000 55%,
+      transparent 100%
+    );
   }
 
   .text-gradient {
@@ -342,7 +489,8 @@
   .card-hover:hover {
     transform: translateY(-2px);
     border-color: color-mix(in oklch, var(--primary) 40%, var(--border));
-    box-shadow: 0 12px 32px -12px color-mix(in oklch, var(--primary) 35%, transparent);
+    box-shadow: 0 12px 32px -12px
+      color-mix(in oklch, var(--primary) 35%, transparent);
   }
 }
 
@@ -450,9 +598,15 @@
 }
 
 @keyframes progress-indeterminate {
-  0% { transform: translateX(-100%) scaleX(0.2); }
-  50% { transform: translateX(0%) scaleX(0.5); }
-  100% { transform: translateX(100%) scaleX(0.2); }
+  0% {
+    transform: translateX(-100%) scaleX(0.2);
+  }
+  50% {
+    transform: translateX(0%) scaleX(0.5);
+  }
+  100% {
+    transform: translateX(100%) scaleX(0.2);
+  }
 }
 
 @keyframes in-up {
@@ -467,22 +621,37 @@
 }
 
 @keyframes fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Só translate: o posicionamento 3D de cada placa mora no elemento PAI, e uma
    animação de transform sobrescreveria aquele valor inteiro se estivesse no
    mesmo nó. */
 @keyframes float-3d {
-  0%, 100% { transform: translate3d(0, 0, 0); }
-  50%      { transform: translate3d(0, -12px, 0); }
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
 }
 
 @keyframes pulse-ring {
-  0%   { box-shadow: 0 0 0 0 color-mix(in oklch, var(--destructive) 55%, transparent); }
-  70%  { box-shadow: 0 0 0 14px transparent; }
-  100% { box-shadow: 0 0 0 0 transparent; }
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--destructive) 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 14px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

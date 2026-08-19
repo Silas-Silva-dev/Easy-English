@@ -796,11 +796,21 @@ export function LiveRoom({
         </p>
       ) : null}
 
-      <EmmaAvatar
-        estado={estadoDoAvatar}
-        nivel={level}
-        className="size-36 sm:size-44"
-      />
+      {/* O halo fica atrás do avatar e não empurra nada: é ambiente. */}
+      <div className="relative grid place-items-center">
+        <div
+          aria-hidden
+          data-ativa={
+            estadoDoAvatar === "falando" || estadoDoAvatar === "ouvindo"
+          }
+          className="ondas pointer-events-none absolute size-[26rem] max-sm:size-[22rem]"
+        />
+        <EmmaAvatar
+          estado={estadoDoAvatar}
+          nivel={level}
+          className="relative size-36 sm:size-44"
+        />
+      </div>
 
       <h1 className="mt-6 text-2xl font-semibold tracking-tight">Emma</h1>
 

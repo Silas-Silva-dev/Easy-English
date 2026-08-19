@@ -89,16 +89,20 @@ export function EmmaAvatar({
 
           <rect width="128" height="128" fill="url(#emma-fundo)" />
 
-          {/* Silhueta: ombros, pescoço, cabeça e cabelo. Um retrato de contorno,
-              claro o bastante para ler sobre o gradiente em qualquer tema. */}
-          <g fill="var(--primary-foreground)" fillOpacity="0.92">
+          {/* Silhueta: ombros, pescoço, cabeça e cabelo.
+              Branco fixo, e NÃO `--primary-foreground`: aquele token é quase
+              preto no tema escuro, e a Emma virava um vulto escuro dentro do
+              laranja — parecia um buraco no avatar, não uma pessoa. O fundo
+              aqui é sempre o gradiente laranja, então o tom do retrato não tem
+              por que mudar com o tema. */}
+          <g fill="oklch(1 0 0)" fillOpacity="0.92">
             <path d="M64 74c-19.9 0-36 13.4-36 30v24h72v-24c0-16.6-16.1-30-36-30z" />
             <circle cx="64" cy="52" r="22" />
           </g>
           <path
             d="M64 24c-14.4 0-25 9.7-25 24 0 5.2 1.2 9.3 2.7 12.2.8-8.3 3.6-12.7 7.4-15 5.3-3.2 10.9-3.6 14.9-3.6 6.6 0 12.2 1.6 15.6 5.1 2.6 2.7 4 7 4.5 13.5C85.7 57.3 87 53.2 87 48c0-14.3-8.6-24-23-24z"
-            fill="var(--primary-foreground)"
-            fillOpacity="0.55"
+            fill="oklch(1 0 0)"
+            fillOpacity="0.5"
           />
         </svg>
       </div>
