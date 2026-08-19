@@ -508,16 +508,16 @@ export function CourseSidebar({
             aria-label="Fechar menu de conteúdo"
           />
 
-          <div className="relative w-full max-w-sm bg-card h-full flex flex-col border-l border-border shadow-2xl z-10 animate-in-up">
-            {/* Header da gaveta mobile */}
-            <div className="p-4 border-b border-border flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className="bg-primary/15 text-primary p-2 rounded-lg">
+          <div className="relative w-full max-w-sm bg-card h-full flex flex-col border-l border-border shadow-2xl z-10 animate-in-up pb-[var(--safe-bottom)]">
+            {/* Header da gaveta mobile com recuo seguro da barra de status / notch / bateria */}
+            <div className="px-4 pb-3 pt-[calc(1.25rem+var(--safe-top))] border-b border-border flex items-center justify-between shrink-0 bg-card">
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="bg-primary/15 text-primary p-2 rounded-lg shrink-0">
                   <Compass className="size-4" />
                 </div>
-                <div>
-                  <h2 className="text-sm font-bold text-foreground">Conteúdo do Curso</h2>
-                  <p className="text-[11px] text-muted-foreground">
+                <div className="min-w-0">
+                  <h2 className="text-sm font-bold text-foreground truncate">Conteúdo do Curso</h2>
+                  <p className="text-[11px] text-muted-foreground truncate">
                     4 Cantos · {totalCompleted} de {totalLessons} concluídas ({totalProgressPct}%)
                   </p>
                 </div>
@@ -526,7 +526,8 @@ export function CourseSidebar({
                 variant="ghost"
                 size="icon"
                 onClick={() => setMobileOpen(false)}
-                className="size-8"
+                className="size-9 rounded-full hover:bg-accent shrink-0"
+                aria-label="Fechar menu de conteúdo"
               >
                 <X className="size-4" />
               </Button>

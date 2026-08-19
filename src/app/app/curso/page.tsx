@@ -321,7 +321,7 @@ export default async function Curso4CantosPage({ searchParams }: PageProps) {
   return (
     <div className="flex w-full min-w-0 flex-1 items-start">
       {/* ---------------------------------------------------- CENTRO DA TELA */}
-      <div className="flex-1 min-w-0 px-4 py-6 sm:px-6 md:px-8 space-y-6 max-w-4xl mx-auto w-full pb-16 lg:pb-10">
+      <div className="flex-1 min-w-0 px-4 py-6 sm:px-6 md:px-8 space-y-6 max-w-4xl mx-auto w-full pb-36 lg:pb-12">
         {/* Breadcrumb e Navegação Rápida Superior */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-border/70 pb-4">
           {/* Breadcrumb Contextual */}
