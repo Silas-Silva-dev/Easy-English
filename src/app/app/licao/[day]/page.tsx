@@ -65,12 +65,12 @@ export default async function LessonPage({ params }: Params) {
 
   function getCantoInfo(weekNumber: number) {
     if (weekNumber <= 13)
-      return { href: "/app/canto/c1", label: "Voltar ao Canto 1: Destravar" };
+      return { href: `/app/curso?day=${day}`, label: "Voltar ao Curso (Canto 1: Destravar)" };
     if (weekNumber <= 26)
-      return { href: "/app/canto/c2", label: "Voltar ao Canto 2: Contar" };
+      return { href: `/app/curso?day=${day}`, label: "Voltar ao Curso (Canto 2: Contar)" };
     if (weekNumber <= 39)
-      return { href: "/app/canto/c3", label: "Voltar ao Canto 3: Resolver" };
-    return { href: "/app/canto/c4", label: "Voltar ao Canto 4: Soar natural" };
+      return { href: `/app/curso?day=${day}`, label: "Voltar ao Curso (Canto 3: Resolver)" };
+    return { href: `/app/curso?day=${day}`, label: "Voltar ao Curso (Canto 4: Soar natural)" };
   }
 
   const cantoInfo = getCantoInfo(lesson.week_number);

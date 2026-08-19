@@ -85,6 +85,12 @@ export default async function StudentLayout({
       highlight: true,
     },
     { href: "/app", label: "Meu Painel", icon: "dashboard", exact: true },
+    {
+      href: "/app/curso",
+      label: "Curso 4 Cantos",
+      sublabel: "Inglês focado na fala",
+      icon: "book",
+    },
     { href: "/app/revisao", label: "Revisão", icon: "brain" },
     { href: "/app/conversacao", label: "Praticar fala", icon: "mic" },
     { href: "/app/tradutor", label: "Tradutor", icon: "translate" },
@@ -93,49 +99,10 @@ export default async function StudentLayout({
     { href: "/app/perfil", label: "Perfil", icon: "settings" },
   ];
 
-  const cantoItems: NavItem[] = [
-    {
-      href: "/app/canto/c1",
-      label: "Canto 1: Destravar",
-      sublabel: `${cantoStats.C1?.pct ?? 0}% concluído`,
-      icon: "dashboard",
-    },
-    {
-      href: "/app/canto/c2",
-      label: "Canto 2: Contar",
-      sublabel: `${cantoStats.C2?.pct ?? 0}% concluído`,
-      icon: "dashboard",
-    },
-    {
-      href: "/app/canto/c3",
-      label: "Canto 3: Resolver",
-      sublabel: `${cantoStats.C3?.pct ?? 0}% concluído`,
-      icon: "dashboard",
-    },
-    {
-      href: "/app/canto/c4",
-      label: "Canto 4: Soar natural",
-      sublabel: `${cantoStats.C4?.pct ?? 0}% concluído`,
-      icon: "dashboard",
-    },
-  ];
-
-  const navGroups: NavGroup[] = [
-    {
-      label: "Curso 4 Cantos",
-      description: "Inglês focado na fala",
-      items: cantoItems,
-      // Logo após "Meu Painel", que passou a ser o índice 1: a conversa ao
-      // vivo assumiu o topo da lista.
-      insertAfter: 1,
-    },
-  ];
-
   return (
     <AppShell
       profile={profile}
       nav={nav}
-      navGroups={navGroups}
       brandHref="/app"
       brandLabel="Easy English"
       streak={enrollment?.streak_current ?? 0}

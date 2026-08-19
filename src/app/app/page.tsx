@@ -144,12 +144,12 @@ export default async function StudentDashboard() {
 
         <div className="flex items-center gap-3 pt-2 sm:pt-0">
           <Button asChild variant="outline" size="sm">
-            <Link href={`/app/canto/${currentCantoSpec.code.toLowerCase()}`}>
+            <Link href={`/app/curso?day=${enrollment.current_day}`}>
               <Layers className="size-4" /> Ver circuito atual
             </Link>
           </Button>
           <Button asChild variant="gradient" size="sm">
-            <Link href={lesson ? `/app/licao/${lesson.day_number}` : "/app/cronograma"}>
+            <Link href={`/app/curso?day=${lesson ? lesson.day_number : enrollment.current_day}`}>
               Continuar estudo <ArrowRight className="size-4" />
             </Link>
           </Button>
@@ -199,7 +199,7 @@ export default async function StudentDashboard() {
 
               <div className="flex flex-wrap items-center gap-3 pt-1">
                 <Button asChild size="lg" variant="gradient" className="shadow-md shadow-primary/20">
-                  <Link href={`/app/licao/${lesson.day_number}`}>
+                  <Link href={`/app/curso?day=${lesson.day_number}`}>
                     Iniciar lição do dia <ArrowRight className="size-4" />
                   </Link>
                 </Button>

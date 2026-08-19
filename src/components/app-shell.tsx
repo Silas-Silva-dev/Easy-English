@@ -2,9 +2,11 @@
 
 import {
   Award,
+  BookOpen,
   Brain,
   ChevronDown,
   Languages,
+  Layers,
   LayoutDashboard,
   Loader2,
   LogOut,
@@ -69,6 +71,8 @@ export interface NavGroup {
 
 const ICONS = {
   dashboard: LayoutDashboard,
+  book: BookOpen,
+  layers: Layers,
   mic: Mic,
   radio: Radio,
   brain: Brain,
@@ -99,8 +103,8 @@ const ATALHOS: {
   exact?: boolean;
 }[] = [
   { href: "/app", label: "Painel", icon: "dashboard", exact: true },
+  { href: "/app/curso", label: "Curso", icon: "book" },
   { href: "/app/revisao", label: "Revisão", icon: "brain" },
-  { href: "/app/conversacao", label: "Fala", icon: "mic" },
   { href: "/app/ao-vivo", label: "Ao vivo", icon: "radio" },
 ];
 
@@ -506,8 +510,16 @@ export function AppShell({
         </header>
 
         {/* O recuo de baixo soma o indicador de home: sem ele o ultimo card
-            fica atras da barrinha e o polegar nao alcanca. */}
-        <main className="min-w-0 flex-1 px-4 pt-8 pb-[calc(2rem+var(--safe-bottom))] max-lg:pb-[calc(5.75rem+var(--safe-bottom))] sm:px-6 lg:px-8">
+            fica atras da barrinha e o polegar nao alcanca. Na tela do curso
+            o layout é tela cheia sem margens para a sidebar encostar na borda. */}
+        <main
+          className={cn(
+            "min-w-0 flex-1 flex flex-col",
+            pathname.startsWith("/app/curso")
+              ? "p-0"
+              : "px-4 pt-8 pb-[calc(2rem+var(--safe-bottom))] max-lg:pb-[calc(5.75rem+var(--safe-bottom))] sm:px-6 lg:px-8",
+          )}
+        >
           {children}
         </main>
 

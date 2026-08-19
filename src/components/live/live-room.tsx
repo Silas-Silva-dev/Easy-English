@@ -808,6 +808,7 @@ export function LiveRoom({
         <EmmaAvatar
           estado={estadoDoAvatar}
           nivel={level}
+          modo={modo}
           className="relative size-36 sm:size-44"
         />
       </div>
@@ -853,7 +854,13 @@ export function LiveRoom({
       <div
         role="group"
         aria-label="Modo da Emma"
-        className="bg-muted mt-8 flex w-full max-w-xs rounded-full p-1"
+        // A borda laranja delimita o par no tema claro. Sem ela, o trilho
+        // `bg-muted` fica a um passo do chão do app — os dois botões não têm
+        // onde começar nem onde terminar, e o aluno não lê como um controle de
+        // duas posições. No escuro a borda sai: ali o degrau de luminância
+        // entre o trilho e o fundo já faz esse trabalho, e um anel laranja
+        // sobre o preto vira brilho, não contorno.
+        className="bg-muted border-primary/30 mt-8 flex w-full max-w-xs rounded-full border p-1 dark:border-transparent"
       >
         {(["professora", "conversa"] as Modo[]).map((m) => (
           <button
@@ -867,8 +874,11 @@ export function LiveRoom({
             className={cn(
               "min-h-11 flex-1 rounded-full px-4 text-sm font-medium transition-all disabled:opacity-50",
               modo === m
-                ? "bg-background text-foreground shadow-sm"
-                : "text-muted-foreground hover:text-foreground",
+                ? // O selecionado sobe: papel branco com a borda da marca, para
+                  // o par ler como interruptor de duas posições e não como duas
+                  // abas soltas.
+                  "bg-card text-foreground border-primary/45 shadow-sm dark:border-transparent border"
+                : "text-muted-foreground hover:text-foreground border border-transparent",
             )}
           >
             {m === "professora" ? "Professora" : "Conversa"}

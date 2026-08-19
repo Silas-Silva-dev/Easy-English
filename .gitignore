@@ -129,3 +129,5 @@ scripts/_*.ts
 
 # Dumps do banco antes de trocas destrutivas. Nunca versionado.
 .backup/
+_rostos/
+.claude/

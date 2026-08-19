@@ -16,10 +16,10 @@ type Theme = "light" | "dark" | "system";
 const STORAGE_KEY = "easyenglish-theme";
 
 /**
- * O tema claro e o padrao do sistema. Quem preferir o escuro escolhe no menu,
- * e a escolha fica salva; "Sistema" segue a preferencia do aparelho.
+ * O tema escuro é o padrão do sistema para todos os usuários e telas.
+ * Quem preferir o claro escolhe no menu, e a escolha fica salva.
  */
-const DEFAULT_THEME: Theme = "light";
+const DEFAULT_THEME: Theme = "dark";
 
 /** Cor da barra do navegador em cada tema: precisa acompanhar o tema real. */
 const THEME_COLOR = { light: "#ffffff", dark: "#101318" } as const;
@@ -34,7 +34,7 @@ export const themeInitScript = `
 (function () {
   try {
     var t = localStorage.getItem('${STORAGE_KEY}') || '${DEFAULT_THEME}';
-    var dark = t === 'dark' || (t === 'system' && matchMedia('(prefers-color-scheme: dark)').matches);
+    var dark = t === 'dark' || (t === 'system' && matchMedia('(prefers-color-scheme: dark)').matches) || (t !== 'light');
     document.documentElement.classList.toggle('dark', dark);
     document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
     var meta = document.querySelector('meta[name="theme-color"]');
