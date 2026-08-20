@@ -1,6 +1,7 @@
 "use client";
 
 import { Lock, ShieldCheck, Waves } from "lucide-react";
+import { Cormorant_Garamond } from "next/font/google";
 import * as React from "react";
 
 import { generateQRCodeSVG } from "@/lib/qr";
@@ -8,6 +9,29 @@ import type { Certificate } from "@/lib/types/database";
 
 import { CertificateSeal } from "./certificate-seal";
 import { CertificateSecurityPattern } from "./certificate-security-pattern";
+
+/**
+ * A serifada de contraste alto que dá ao certificado cara de diploma em vez de
+ * cara de tela de aplicativo.
+ *
+ * Declarada AQUI, e não no layout raiz, porque é aqui que ela é usada — e só
+ * aqui. No layout raiz ela descia para todas as páginas: dois arquivos de
+ * fonte, normal e itálico, 80 KiB, mais dois `preload` competindo por banda no
+ * instante da pintura. Metade de todo o peso de fonte da home, para um tipo que
+ * a home não desenha.
+ *
+ * O `variable` continua sendo `--font-serif`, que é o que a utilitária
+ * `font-serif` lê (ver o bloco `@theme` em `globals.css`): a variável passa a
+ * ser definida no quadro do certificado em vez de no `<body>`, e o nome não
+ * muda.
+ */
+const serif = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-serif",
+  display: "swap",
+});
 
 interface CertificateFrameProps {
   certificate: Certificate;
@@ -49,7 +73,7 @@ export function CertificateFrame({ certificate, verificationUrl }: CertificateFr
   return (
     // Abaixo da largura mínima da folha a prévia rola na horizontal, em vez de
     // encolher a ponto de o texto ficar ilegível.
-    <div className="cert-viewport">
+    <div className={`cert-viewport ${serif.variable}`}>
       <div
         id="certificate-print-target"
         className="certificate-sheet border border-amber-500/30 bg-card shadow-2xl"

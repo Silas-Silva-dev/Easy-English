@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { Toaster } from "sonner";
 
 import { ThemeProvider, themeInitScript } from "@/components/theme-provider";
@@ -19,15 +19,18 @@ const display = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-// Serifada de contraste alto, usada só no certificado: e o que da a ele cara de
-// diploma em vez de cara de tela de aplicativo.
-const serif = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  style: ["normal", "italic"],
-  variable: "--font-serif",
-  display: "swap",
-});
+/**
+ * A serifada do certificado NÃO mora aqui.
+ *
+ * Morava: `Cormorant_Garamond` estava neste layout, que é o layout raiz, então
+ * ela descia para todas as páginas do site. São dois arquivos de fonte — a
+ * normal e a itálica — somando 80 KiB, mais dois `<link rel="preload">`
+ * disputando banda com o resto no instante em que a página está pintando. Numa
+ * medição móvel isso é metade de todo o peso de fonte da home.
+ *
+ * E ela aparece em um único componente, o `CertificateFrame`. Agora é lá que
+ * ela é declarada, e só quem abre o certificado a baixa.
+ */
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
@@ -87,7 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body className={`${inter.variable} ${display.variable} ${serif.variable} antialiased`}>
+      <body className={`${inter.variable} ${display.variable} antialiased`}>
         <ThemeProvider>
           {children}
           {/* O toast nasce no topo, onde fica a barra de status do iOS no app

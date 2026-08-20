@@ -216,6 +216,10 @@
   }
 
   html {
+    /* A cor do chão sobe para o `html` porque o ambiente do `body` virou um
+       pseudo-elemento atrás do conteúdo (ver `body::before`): sem isto, a
+       primeira pintura mostraria branco antes de o pseudo-elemento entrar. */
+    background-color: var(--background);
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
     /* Trava o zoom por gesto. A meta viewport ja pede isso, mas o Safari a
@@ -225,12 +229,48 @@
   }
 
   body {
-    background-color: var(--background);
-    /* As manchas primeiro, os pontos por cima: invertido, o ponto sumiria
-       dentro do lume justamente nos cantos onde ele é mais visível.
-       `fixed` prende o chão à janela — rolando, o conteúdo passa por cima de
-       um ambiente parado, que é o que faz a tela parecer profunda em vez de
-       um papel comprido sendo puxado. */
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    font-variant-ligatures: contextual;
+    -webkit-font-smoothing: antialiased;
+    /* Havia `text-rendering: optimizeLegibility` aqui. Ele obriga o navegador
+       a aplicar kerning e ligaduras a TODO o texto da página antes de a
+       primeira linha aparecer — numa landing longa isso entra direto na conta
+       de cálculo de estilo, que era o maior custo da thread principal no
+       celular (997 ms). O `font-feature-settings` acima já entrega as
+       ligaduras que este desenho usa, sem cobrar a passada extra. */
+
+    /* Sem quique elastico no fim da rolagem e sem "puxar para atualizar" —
+       e o que separa a sensacao de pagina da sensacao de app. */
+    overscroll-behavior-y: none;
+    /* Recuo lateral do notch. Vale 0 no retrato, que e como o app abre
+       (o manifesto trava em `orientation: portrait`), e so entra em acao no
+       Safari em paisagem. */
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+  }
+
+  /**
+   * O chão do app: as duas manchas de luz e a trama de pontos.
+   *
+   * Vivia no `background` do `body` com `background-attachment: fixed`, que é
+   * o jeito curto de prender o ambiente à janela — e é também um dos gastos
+   * mais caros que existem no celular: com `fixed`, o navegador desiste do
+   * caminho rápido de rolagem e repinta o fundo a cada quadro.
+   *
+   * Um pseudo-elemento `position: fixed` dá exatamente o mesmo desenho parado
+   * atrás do conteúdo, mas em camada própria: rola-se por cima dele sem
+   * repintar nada. As manchas primeiro e os pontos por cima, na mesma ordem de
+   * antes — invertido, o ponto sumiria dentro do lume justo nos cantos onde
+   * ele mais aparece.
+   */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
     background-image:
       radial-gradient(
         58rem 42rem at 92% -12%,
@@ -247,21 +287,6 @@
       auto,
       auto,
       22px 22px;
-    background-attachment: fixed;
-    color: var(--foreground);
-    font-family: var(--font-sans);
-    font-feature-settings: "cv11", "ss01";
-    font-variant-ligatures: contextual;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
-    /* Sem quique elastico no fim da rolagem e sem "puxar para atualizar" —
-       e o que separa a sensacao de pagina da sensacao de app. */
-    overscroll-behavior-y: none;
-    /* Recuo lateral do notch. Vale 0 no retrato, que e como o app abre
-       (o manifesto trava em `orientation: portrait`), e so entra em acao no
-       Safari em paisagem. */
-    padding-left: env(safe-area-inset-left, 0px);
-    padding-right: env(safe-area-inset-right, 0px);
   }
 
   h1,
@@ -505,25 +530,52 @@
     animation: pulse-ring 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
-  /* Estado inicial de <Reveal>. O atributo `data-shown` é ligado pelo
-     IntersectionObserver quando o bloco entra na tela.
+  /* O bloco que aparece ao entrar na tela.
 
-     Transição em vez de animação de propósito: `animation` dispara na
-     montagem, e é justamente o que NÃO se quer aqui — o bloco precisa esperar
-     a rolagem chegar nele. O bloco `prefers-reduced-motion` lá embaixo zera a
-     duração, então quem pediu menos movimento vê o conteúdo aparecer na hora,
-     sem deslizar. */
+     O estado NORMAL é visível. Isto não é detalhe: a versão anterior nascia em
+     `opacity: 0` e só acendia quando o JavaScript hidratava — dezessete blocos
+     da landing ficavam invisíveis até lá. Agora, quem não tem animação de
+     rolagem (Safari, Firefox), quem pediu menos movimento, ou quem está com o
+     JavaScript pela metade simplesmente lê a página. */
   .reveal {
-    opacity: 0;
-    transform: translateY(16px);
-    transition:
-      opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
-      transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 1;
   }
 
-  .reveal[data-shown] {
-    opacity: 1;
-    transform: none;
+  /* A animação só existe onde o navegador sabe prendê-la à rolagem sozinho.
+     `view()` mede a posição do próprio elemento na janela, então quem já está
+     visível no carregamento nasce no fim da faixa — pronto, sem piscar. */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        animation-name: revelar;
+        /* `auto` é o que faz a animação durar a faixa inteira de rolagem. Com
+           uma duração em tempo (era `1ms`) o navegador tem dois relógios para
+           obedecer e o resultado, medido, foi 18 de 31 blocos travados em
+           `opacity: 0` depois de rolar. */
+        animation-duration: auto;
+        animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+        animation-fill-mode: both;
+        animation-timeline: view();
+        /* Faixa inteiramente dentro de `entry`: começa quando o bloco encosta
+           na borda de baixo e termina quando entrou 60%. Misturar `entry` com
+           `cover`, como estava, produz intervalo invertido em bloco alto — e
+           faixa invertida é animação que nunca chega ao fim.
+
+           O escalonamento da grade desloca o início: o cartão de baixo entra
+           um pouco depois do de cima. Em pontos percentuais, não em
+           milissegundos, porque aqui o eixo é rolagem e não tempo. */
+        animation-range: entry calc(1% * var(--reveal-passo, 0)) entry 60%;
+      }
+    }
+  }
+
+  @keyframes revelar {
+    to {
+      opacity: 1;
+      transform: none;
+    }
   }
 
   /* ------------------------------------------------------------------- 3D
