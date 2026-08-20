@@ -1,4 +1,4 @@
-import { EndSensitivity, GoogleGenAI, Modality, StartSensitivity } from "@google/genai";
+import { GoogleGenAI, Modality } from "@google/genai";
 import { NextResponse, type NextRequest } from "next/server";
 import { z } from "zod";
 
@@ -103,6 +103,16 @@ export async function POST(request: NextRequest) {
       "Free conversation. Start by asking the student how their day is going, then follow wherever the conversation leads.";
   }
 
+  /**
+   * O RAG chegou a sair daqui, e a justificativa não se sustentou.
+   *
+   * Foi removido junto com metade do prompt, na hipótese de que instrução de
+   * sistema grande era o que deixava a Emma lenta. A bancada desmentiu: uma
+   * instrução do mesmo tamanho, feita só de prosa que não pede nada, abre a
+   * boca em 4 s enquanto a de produção levava de 15 a 56 s. O custo era o
+   * modelo DELIBERAR, e quem resolveu isso foi o `thinkingBudget: 0` lá
+   * embaixo. Material de referência é barato — então ele volta.
+   */
   let ragContext = "";
   try {
     const { buildContextBlock } = await import("@/lib/gemini/rag");
@@ -112,10 +122,7 @@ export async function POST(request: NextRequest) {
       ragContext = buildContextBlock(ragChunks);
     }
   } catch (e) {
-    console.warn(
-      "[live/token] Falha ao carregar RAG para conversa ao vivo:",
-      e,
-    );
+    console.warn("[live/token] Falha ao carregar RAG para conversa ao vivo:", e);
   }
 
   const systemInstruction = liveSystemPrompt({
@@ -156,42 +163,63 @@ export async function POST(request: NextRequest) {
               voiceConfig: { prebuiltVoiceConfig: { voiceName: "Aoede" } },
             },
             /**
-             * Afinação do VAD (Voice Activity Detection) do servidor.
+             * ==================================================================
+             * A EMMA NÃO PENSA ANTES DE FALAR — e é isso que a fez funcionar
+             * ==================================================================
+             * O modelo delibera antes de cada turno, por padrão. Numa tarefa de
+             * texto isso é qualidade. Numa conversa por voz é o aluno olhando
+             * para a tela em silêncio sem saber se quebrou alguma coisa.
              *
-             * O padrão do Gemini Live é esperar ~1.5 s de silêncio antes de
-             * considerar que o aluno terminou a frase. Para uma conversa que
-             * precisa ser fluida como falar pessoalmente, isso é lento demais:
+             * E deliberar custa proporcional à complexidade do que se pede. Esta
+             * instrução de sistema pede uma AULA: abrir anunciando o objetivo,
+             * ensinar cada expressão numa ordem, escolher a correção certa entre
+             * quatro prioridades, respeitar o regime de língua do nível, limitar
+             * a uma correção por turno. Cada fala do aluno disparava tudo isso
+             * antes de sair som.
              *
-             *   silenceDurationMs: 500
-             *     Meio segundo de silêncio é suficiente para saber que o turno
-             *     acabou — é a pausa natural entre frases numa conversa real.
+             * Medido contra a API, mesma instrução, corridas intercaladas para
+             * pegarem o mesmo servidor:
              *
-             *   endOfSpeechSensitivity: HIGH
-             *     Faz o VAD confiar no silêncio mais rápido, sem esperar
-             *     confirmação extra de que a fala realmente terminou.
+             *                        abertura        resposta ao aluno   falhas
+             *   deliberando (antes)  34 s (até 70 s)  5 s ou nunca        4 de 5
+             *   thinkingBudget: 0     1,6 s            1,5 s              0 de 5
              *
-             *   startOfSpeechSensitivity: LOW
-             *     Exige fala de verdade para abrir um turno do aluno, em vez
-             *     de disparar no primeiro ruído.
+             * Vinte vezes mais rápido para abrir a boca, e o turno do aluno
+             * passou a fechar sempre. Era isto que o dono do produto descrevia
+             * como "não reconhece quando eu finalizei minha fala" e "a fala dela
+             * está extremamente lenta": ela não estava lenta, estava pensando.
              *
-             *     Estava HIGH, para barge-in rápido. Mas esta sala é
-             *     half-duplex de propósito — o dono do produto pediu que o
-             *     aluno NÃO interrompa a Emma, e o cliente fecha o microfone
-             *     enquanto ela fala. Então barge-in não é objetivo, e o que
-             *     HIGH entregava na prática era o contrário: qualquer eco do
-             *     alto-falante que vazasse pelo microfone abria um turno,
-             *     o servidor mandava `interrupted`, e a frase dela morria no
-             *     meio. Sensibilidade alta para começar só serve quando se
-             *     quer ser interrompido.
+             * Conversar não é tarefa de raciocínio. A pedagogia está na instrução
+             * acima, que ela lê inteira de qualquer forma — o que sai é o
+             * intervalo de deliberação, não o que ela sabe fazer.
              */
-            realtimeInputConfig: {
-              automaticActivityDetection: {
-                endOfSpeechSensitivity: EndSensitivity.END_SENSITIVITY_HIGH,
-                startOfSpeechSensitivity:
-                  StartSensitivity.START_SENSITIVITY_LOW,
-                silenceDurationMs: 500,
-              },
-            },
+            thinkingConfig: { thinkingBudget: 0 },
+            /**
+             * ===================================================================
+             * NÃO EXISTE `realtimeInputConfig` AQUI, E É DE PROPÓSITO
+             * ===================================================================
+             * Havia. Três parâmetros de VAD escolhidos no papel para deixar a
+             * conversa mais fluida: `silenceDurationMs: 500`,
+             * `endOfSpeechSensitivity: HIGH` e `startOfSpeechSensitivity`, que
+             * chegou a ser HIGH e depois LOW.
+             *
+             * Medido contra a API de verdade, com fala real e o mesmo aparato
+             * em todas as corridas (`scripts/_live-bancada.ts`), mexer nisso é
+             * o que quebrava a sala:
+             *
+             *   START_LOW    o servidor não ouvia o aluno. Nem o começo da
+             *                fala: seis corridas seguidas transcreveram NADA.
+             *   START_HIGH   instável — uma corrida entregou o áudio a 0,52x o
+             *                tempo real, com buraco de 1965 ms no meio de uma
+             *                frase, e outra levou 47 s para perceber que o
+             *                aluno tinha parado de falar.
+             *   sem nada     lacuna de 41 a 73 ms dentro da fala, fim de turno
+             *                em 2,5 a 2,8 s, e ouviu o aluno em todas.
+             *
+             * O padrão do servidor é afinado junto com o modelo. Estes três
+             * botões existem para casos que não são o nosso, e girá-los às
+             * cegas custou ao aluno uma sala que não funcionava.
+             */
             // Habilita os handles de retomada. O servidor encerra a sessão por
             // volta dos 10 min (e antes disso se o áudio parar de fluir); sem
             // isto, a reconexão do cliente começaria uma conversa em branco e a

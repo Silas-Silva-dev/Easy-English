@@ -110,6 +110,23 @@ export const checkoutEnv = {
 } as const;
 
 /**
+ * Ver o comentário de `geminiModels.live`.
+ *
+ * Preso numa versão, e não em `gemini-2.5-flash-native-audio-latest`, porque o
+ * apelido `-latest` gira sozinho: no meio da bancada ele passou a recusar a
+ * sessão com "The audio content type (CONTENT_TYPE_AUDIO) is not supported",
+ * quatro corridas de doze. Um apelido que muda de comportamento sem deploy é
+ * exatamente o que o DEPLOY.md manda evitar.
+ */
+const MODELO_LIVE_PADRAO = "gemini-2.5-flash-native-audio-preview-12-2025";
+
+/**
+ * Modelos que a bancada reprovou para a sala de voz. Não é preferência: é
+ * medição registrada em `scripts/_live-bancada.ts`.
+ */
+const MODELOS_LIVE_REPROVADOS = new Set(["gemini-3.1-flash-live-preview"]);
+
+/**
  * Modelos padrao. O catalogo do Google muda e modelos antigos deixam de ser
  * liberados para contas novas: rode `npm run models` para ver o que a sua
  * chave alcanca e `npm run check` para validar de ponta a ponta.
@@ -158,11 +175,52 @@ export const geminiModels = {
    * O Gemini fica só com o que exige inteligência: ouvir o aluno, conversar
    * ao vivo, responder dúvidas e indexar o material.
    */
-  /** Conversa por voz em tempo real (bidiGenerateContent). */
+  /**
+   * Conversa por voz em tempo real (bidiGenerateContent).
+   *
+   * ==========================================================================
+   * POR QUE ESTE MODELO, E POR QUE UM DELES É RECUSADO
+   * ==========================================================================
+   * `gemini-3.1-flash-live-preview` estava em produção e tornava a sala
+   * inutilizável. Medido contra a API, com o mesmo aparato em todas as
+   * corridas (`scripts/_live-bancada.ts`, 5 repetições):
+   *
+   *   ritmo de entrega do áudio    0,12x a 4,28x o tempo real
+   *   maior buraco DENTRO de uma
+   *     única frase dela           até 24.150 ms
+   *   tempo para perceber que o
+   *     aluno parou de falar       1,3 s a 65,9 s
+   *
+   * Vinte e quatro segundos de silêncio no meio de uma frase é o que o aluno
+   * ouve como "picotado", e sessenta e cinco segundos para responder é o que
+   * ele descreve como "não reconhece quando eu terminei de falar". Nada disso
+   * é rede: as medições saíram de um enlace com 2 ms de ping.
+   *
+   * O native-audio, na mesma bancada:
+   *
+   *   ritmo                        9,29x a 9,43x (nunca fica para trás)
+   *   maior buraco                 41 a 73 ms
+   *   fim de fala                  2,5 a 2,8 s, e consistente
+   *
+   * Por isso o valor recusado abaixo: a variável de ambiente existe para o
+   * catálogo do Google mudar sem precisar de deploy, mas uma configuração de
+   * produção antiga não pode reimpor um modelo que já se provou quebrado. Se
+   * `GEMINI_MODEL_LIVE` apontar para ele, avisamos e usamos o padrão.
+   */
   get live() {
-    return optional("GEMINI_MODEL_LIVE", "gemini-2.5-flash-native-audio-latest");
+    const escolhido = optional("GEMINI_MODEL_LIVE", MODELO_LIVE_PADRAO);
+    if (MODELOS_LIVE_REPROVADOS.has(escolhido)) {
+      console.warn(
+        `[env] GEMINI_MODEL_LIVE="${escolhido}" foi reprovado na bancada da sala de voz ` +
+          `(buracos de até 24 s no meio da fala e até 65 s para detectar o fim do turno). ` +
+          `Usando "${MODELO_LIVE_PADRAO}". Remova a variável do painel para parar de ver este aviso.`,
+      );
+      return MODELO_LIVE_PADRAO;
+    }
+    return escolhido;
   },
 } as const;
+
 
 /** Dimensao usada na coluna `knowledge_chunks.embedding vector(768)`. */
 export const EMBEDDING_DIMENSIONS = 768;

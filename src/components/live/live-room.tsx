@@ -75,11 +75,14 @@ function falhaDefinitiva(motivo: string): string | null {
 
 /**
  * Worklet de captura: converte Float32 do microfone em PCM 16-bit e envia
- * ao thread principal em blocos de ~16 ms (256 amostras a 16 kHz).
+ * ao thread principal em blocos de 64 ms (1024 amostras a 16 kHz).
  *
- * Blocos menores dão ao VAD do servidor matéria-prima mais frequente para
- * detectar silêncio — e é isso que encurta o tempo entre o aluno parar de
- * falar e a Emma começar a responder.
+ * Era 256 amostras, 16 ms, na ideia de que blocos menores dariam ao VAD do
+ * servidor matéria-prima mais frequente para perceber o silêncio. Não é assim
+ * que ele funciona: o VAD olha a linha do tempo do áudio, não a frequência dos
+ * pacotes. O que 16 ms entregava de fato eram 62 quadros de WebSocket por
+ * segundo, cada um com um JSON e um base64 em volta de meio kilobyte de som.
+ * A 64 ms são 15,6 — o mesmo áudio, um quarto do envelope.
  *
  * O AudioContext de entrada roda a 16 kHz (`sampleRate: INPUT_RATE`), então
  * o worklet recebe os dados já na taxa certa, sem reamostragem.
@@ -92,7 +95,7 @@ class CaptureProcessor extends AudioWorkletProcessor {
     super();
     this._buf = [];
     this._size = 0;
-    this._target = 256;
+    this._target = 1024;
   }
   process(inputs) {
     const input = inputs[0];
@@ -153,12 +156,21 @@ registerProcessor('capture-processor', CaptureProcessor);
  * silêncio.
  */
 
-/** Almofada inicial da fila, em segundos, antes de tocar o primeiro bloco. */
-const FOLGA_INICIAL = 0.18;
-/** Teto da almofada: acima disto a Emma demoraria demais a começar. */
-const FOLGA_MAXIMA = 0.9;
+/**
+ * Almofada da fila, em segundos, antes de tocar o primeiro bloco.
+ *
+ * Chegou a crescer até 0,9 s, na suposição de que a fila secava por falta de
+ * banda. Não secava: o modelo de então entregava o áudio a 0,12x o tempo real
+ * e abria buracos de 24 s no meio de uma frase — a almofada estava somando
+ * silêncio a um silêncio que já vinha do servidor, e o resultado era a fala
+ * dela ficar ainda mais arrastada. Com o modelo medido hoje o áudio chega a
+ * 6,4x a 11,7x o tempo real, com lacunas de 42 a 83 ms: cabem folgadas aqui.
+ */
+const FOLGA_INICIAL = 0.15;
+/** Teto da almofada: acima disto o remédio vira a doença. */
+const FOLGA_MAXIMA = 0.35;
 /** Quanto a almofada cresce a cada vez que a fila seca no meio da fala. */
-const FOLGA_PASSO = 0.18;
+const FOLGA_PASSO = 0.08;
 /**
  * Silêncio depois que a Emma termina de fato, antes de devolver a palavra.
  * Cobre o rabo de reverberação da sala e o tempo de o cancelador de eco do
